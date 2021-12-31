@@ -1,0 +1,485 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Contributing" href="../../../contributing.html" /><link rel="prev" title="Multiphysics Examples" href="../multiphysics.html" />
+
+    <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
+        <title>Warming Up a Viscous Fluid - Lethe documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">Lethe  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Lethe  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../incompressible-flow/incompressible-flow.html">Incompressible Flow Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/1-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">Example 1 : Lid-Driven Cavity Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Warming Up a Viscous Fluid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="warming-up-a-viscous-fluid">
+<h1>Warming Up a Viscous Fluid<a class="headerlink" href="#warming-up-a-viscous-fluid" title="Permalink to this headline">¶</a></h1>
+<p>A viscous fluid lays between two parallel plates: one fixed and insulated, and the other moving and heated. The velocity profile and the temperature evolution are simulated. The parameter file used is <code class="docutils literal notranslate"><span class="pre">warming_up_viscous_fluid.prm</span></code>.</p>
+<p>The following schematic describes the simulation.</p>
+<img alt="Simulation schematic" class="align-center" src="../../../_images/warming_scheme.png"/>
+<ul class="simple">
+<li><p>bc = 0 : no slip and thermal insulation boundary condition</p></li>
+<li><p>bc = 1 : flow in the y-direction (v=2) and heating at Tw</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The whole simulation is carried out in the frame of one-way coupling: the fluid velocity influences the heat generated - through viscous dissipation -, but the heat transfer does not influence the fluid velocity. Moreover, fluid state changes are not considered.</p>
+</div>
+<section id="parameter-file">
+<h2>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>Time integration is defined by a 2nd order backward differentiation (<code class="docutils literal notranslate"><span class="pre">bdf2</span></code>), for a 7.0 seconds simulation (<code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">end</span></code>) with a 0.05 second <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code>, as stated in the subsection <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# Simulation Control
+#---------------------------------------------------
+subsection simulation control
+  set method                  = bdf2
+  set time step               = 0.05
+  set time end                = 7.0
+  set output name             = warming-up
+  set output frequency        = 1
+end
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Heat transfer phenomenon occur at a much larger characteristic time than fluid transport phenomenon. To reach a stable state for the system, the end time much be quite big, but the time step can also be increased (in the limit of numerical convergence).</p>
+</div>
+<p>The order of resolution for the <code class="docutils literal notranslate"><span class="pre">velocity</span></code>, <code class="docutils literal notranslate"><span class="pre">pressure</span></code> and <code class="docutils literal notranslate"><span class="pre">temperature</span></code> are given in the subsection FEM:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# FEM
+#---------------------------------------------------
+subsection FEM
+  set velocity order        = 1
+  set pressure order        = 1
+  set temperature order     = 2
+end
+</pre></div>
+</div>
+<p>The fluid’s <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> are defined in the following subsection, according to the properties of oil.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# Physical Properties
+#---------------------------------------------------
+subsection physical properties
+  set density              = 0.9
+  set kinematic viscosity    = 0.5
+  set thermal conductivity = 0.12
+# water = 1 density, 0.01 viscosity, 0.59 conductivity
+# oil = 0.9 density, 0.5 viscosity, 0.12 conductivity
+end
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If no physical properties are defined, default values (of 1.0) are taken for the simulation.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">mesh</span></code> considered is a very basic rectangle, using the <code class="docutils literal notranslate"><span class="pre">dealii</span></code> grid type <code class="docutils literal notranslate"><span class="pre">hyper_rectangle</span></code>, represented the fluid volume considered between the two plates. Here, the width between the two plates is set to <code class="docutils literal notranslate"><span class="pre">0,5</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# Mesh
+#---------------------------------------------------
+subsection mesh
+  set type = dealii
+  set grid type = hyper_rectangle
+  set grid arguments = 0, 0 : 0.5, 1 : true
+  set initial refinement = 4
+end
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As the fluid velocity is not influences by heat transfer (one-way coupling), the fluid velocity will remain constant for the whole simulation across the domain, and as heat transfer occurs at a larger scale, the mesh can be coarse.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enable to turn on (<code class="docutils literal notranslate"><span class="pre">true</span></code>) and off (<code class="docutils literal notranslate"><span class="pre">false</span></code>) the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code> and <code class="docutils literal notranslate"><span class="pre">viscous</span> <span class="pre">dissipation</span></code> must be set (see Bonuses for results without viscous dissipation).</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# Multiphysics
+#---------------------------------------------------
+subsection multiphysics
+  set heat transfer = true
+  set viscous dissipation = true
+end
+</pre></div>
+</div>
+<p>The` analytical solution` is defined, according to the fluid and simulation properties:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[T(x) = T_\omega + \frac{\rho \nu v^2}{2K}\left ( 1 - \left ( \frac{x}{B} \right )^2 \right )\]</div></div>
+<p>with <span class="math notranslate nohighlight">\(x\)</span> the axis perpendicular to the plates, <span class="math notranslate nohighlight">\(\rho\)</span> the density, <span class="math notranslate nohighlight">\(\nu\)</span> the kinematic viscosity, <span class="math notranslate nohighlight">\(K\)</span> the thermal conductivity, <span class="math notranslate nohighlight">\(T_\omega\)</span> the heating temperature and <span class="math notranslate nohighlight">\(v\)</span> the velocity of the right plate (bc 1), and <span class="math notranslate nohighlight">\(B\)</span> is the width between the two plates.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
+# Analytical Solution
+#---------------------------------------------------
+subsection analytical solution
+  set enable                 = true
+  set verbosity = verbose
+    subsection uvwp
+            set Function expression =  0 ; 0 ; 0
+    end
+    subsection temperature
+      set Function constants = rho=0.9, nu=0.5, K=0.12, Tw=80, v=2, B=0.5
+          set Function expression = Tw+(((rho*nu)*v*v)/(2*K))*(1-(x/B)*(x/B))
+    end
+end
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> are set for:</p>
+<ul class="simple">
+<li><p>the fluid dynamic in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">boundary</span> <span class="pre">conditions</span></code>, with <code class="docutils literal notranslate"><span class="pre">noslip</span></code> at the left wall (<code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">0</span></code>) and a velocity of <code class="docutils literal notranslate"><span class="pre">2</span></code> in the y-direction at the right wall (<code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">1</span></code>),</p></li>
+<li><p>the heat transfer in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">boundary</span> <span class="pre">conditions</span> <span class="pre">heat</span> <span class="pre">transfer</span></code>, with a <code class="docutils literal notranslate"><span class="pre">convection</span></code> imposed at the left wall (<code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">0</span></code>) with a heat transfer coefficient <code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">0</span></code> to represent an insulation condition, and an imposed <code class="docutils literal notranslate"><span class="pre">temperature</span></code> of <code class="docutils literal notranslate"><span class="pre">80</span></code> at the right wall.</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
+# Boundary Conditions
+#---------------------------------------------------
+subsection boundary conditions
+  set number                  = 2
+    subsection bc 0
+    set id = 0
+        set type              = noslip
+    end
+    subsection bc 1
+    set id = 1
+        set type              = function
+        subsection u
+            set Function expression = 0
+        end
+        subsection v
+            set Function expression = 2
+        end
+    end
+end
+
+subsection boundary conditions heat transfer
+  set number                  = 2
+    subsection bc 0
+    set id = 0
+        set type          = convection
+    set h             = 0
+    set Tinf          = 0
+    end
+    subsection bc 1
+    set id = 1
+        set type              = temperature
+    set value             = 80
+    end
+end
+</pre></div>
+</div>
+<p>The simulation is launched in the same folder as the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file, using the gls_navier_stokes_2d solver. It takes only about 5 seconds with one cpu:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>../../exe/bin/gls_navier_stokes_2d warming_up_viscous_fluid.prm
+</pre></div>
+</div>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<section id="visualizations">
+<h3>Visualizations<a class="headerlink" href="#visualizations" title="Permalink to this headline">¶</a></h3>
+<p>Convergence with regards to the analytical solution on the temperature:</p>
+<img alt="Convergence with regards to the analytical solution on the temperature" class="align-center" src="../../../_images/error_analytical.png"/>
+<p>Domain with temperature:</p>
+<a class="reference internal image-reference" href="../../../_images/domain_t0.png"><img alt="Domain with temperature (t = 0)" src="../../../_images/domain_t0.png" style="width: 40%;"/></a>
+<a class="reference internal image-reference" href="../../../_images/domain_t1.png"><img alt="Domain with temperature (t = 1)" src="../../../_images/domain_t1.png" style="width: 40%;"/></a>
+<a class="reference internal image-reference" href="../../../_images/domain_t2.png"><img alt="Domain with temperature (t = 2)" src="../../../_images/domain_t2.png" style="width: 40%;"/></a>
+<a class="reference internal image-reference" href="../../../_images/domain_t7.png"><img alt="Domain with temperature (t = 3)" src="../../../_images/domain_t7.png" style="width: 40%;"/></a>
+<p>Temperature evolution over time:</p>
+<img alt="Temperature evolution over time" class="align-center" src="../../../_images/temperature_over_time.png"/>
+</section>
+<section id="physical-interpretation">
+<h3>Physical interpretation<a class="headerlink" href="#physical-interpretation" title="Permalink to this headline">¶</a></h3>
+<p>From <span class="math notranslate nohighlight">\(t=0s\)</span> to <span class="math notranslate nohighlight">\(t=2s\)</span>, the right plate (<span class="math notranslate nohighlight">\(T=80C\)</span>) heats up the fluid (initially at <span class="math notranslate nohighlight">\(T=0C\)</span>). At <span class="math notranslate nohighlight">\(t=2s\)</span>, the temperature is quasi-homogeneous in the fluid, with <span class="math notranslate nohighlight">\(T=80C\)</span>. As the fluid continues to be forced to flow at the right wall, viscous dissipation generates more heat, so that the wall with a fixed temperature of <span class="math notranslate nohighlight">\(T=80C\)</span> now cools down the fluid. A steady state between viscous dissipation heating and the fixed temperature cooling is reached at about <span class="math notranslate nohighlight">\(t=4.5s\)</span>.</p>
+</section>
+</section>
+<section id="bonuses">
+<h2>Bonuses<a class="headerlink" href="#bonuses" title="Permalink to this headline">¶</a></h2>
+<section id="results-for-water">
+<h3>Results for water<a class="headerlink" href="#results-for-water" title="Permalink to this headline">¶</a></h3>
+<p>For water, <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> are:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# Physical Properties
+#---------------------------------------------------
+subsection physical properties
+  set density              = 1
+  set kinematic viscosity    = 0.01
+  set thermal conductivity = 0.59
+# water = 1 density, 0.01 viscosity, 0.59 conductivity
+# oil = 0.9 density, 0.5 viscosity, 0.12 conductivity
+end
+</pre></div>
+</div>
+<p>As water has a higher thermal conductivity than oil, the temperature becomes quasi-homogeneous sooner (around <span class="math notranslate nohighlight">\(t=1s\)</span>). And as it is far less viscous, the heat generated by viscous dissipation is not visible on the temperature-over-time plot. However it still exists, as seen when the temperature scale is adapted.</p>
+<img alt="Temperature evolution over time" class="align-center" src="../../../_images/temperature_over_time_water.png"/>
+<a class="reference internal image-reference" href="../../../_images/domain_t05_water.png"><img alt="Domain with temperature (t = 0.5)" src="../../../_images/domain_t05_water.png" style="width: 30%;"/></a>
+<a class="reference internal image-reference" href="../../../_images/domain_t7_water.png"><img alt="Domain with temperature (t = 7)" src="../../../_images/domain_t7_water.png" style="width: 30%;"/></a>
+<a class="reference internal image-reference" href="../../../_images/domain_t7_water_rescale.png"><img alt="Rescaled domain with temperature (t = 7)" src="../../../_images/domain_t7_water_rescale.png" style="width: 30%;"/></a>
+</section>
+<section id="results-without-viscous-dissipation">
+<h3>Results without viscous dissipation<a class="headerlink" href="#results-without-viscous-dissipation" title="Permalink to this headline">¶</a></h3>
+<p>The viscous dissipation can be disabled physically, if the two plates remain fixed (<code class="docutils literal notranslate"><span class="pre">v=0</span></code> for <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">1</span></code>), or numerically with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">viscous</span> <span class="pre">dissipation</span> <span class="pre">=</span> <span class="pre">false</span></code>. Both cases give the same results shown below. The fluid considered is still water.</p>
+<p>After the fluid has been heated up by the right plate, the temperature is really homogeneous throughout the domain, and both minimum and maximum temperatures stay at <span class="math notranslate nohighlight">\(T_\omega=80C\)</span>. Adapting the temperature scale shows that there is no viscous dissipation at all.</p>
+<img alt="Temperature evolution over time" class="align-center" src="../../../_images/temperature_over_time_water_nodiss.png"/>
+<a class="reference internal image-reference" href="../../../_images/domain_t05_water_nodiss.png"><img alt="Domain with temperature (t = 0.5)" src="../../../_images/domain_t05_water_nodiss.png" style="width: 30%;"/></a>
+<a class="reference internal image-reference" href="../../../_images/domain_t7_water_nodiss.png"><img alt="Domain with temperature (t = 7)" src="../../../_images/domain_t7_water_nodiss.png" style="width: 30%;"/></a>
+<a class="reference internal image-reference" href="../../../_images/domain_t7_water_rescale_nodiss.png"><img alt="Rescaled domain with temperature (t = 7)" src="../../../_images/domain_t7_water_rescale_nodiss.png" style="width: 30%;"/></a>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../../contributing.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Contributing</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../multiphysics.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Multiphysics Examples</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, Lethe |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="../../../_sources/examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Warming Up a Viscous Fluid</a><ul>
+<li><a class="reference internal" href="#parameter-file">Parameter file</a></li>
+<li><a class="reference internal" href="#results">Results</a><ul>
+<li><a class="reference internal" href="#visualizations">Visualizations</a></li>
+<li><a class="reference internal" href="#physical-interpretation">Physical interpretation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bonuses">Bonuses</a><ul>
+<li><a class="reference internal" href="#results-for-water">Results for water</a></li>
+<li><a class="reference internal" href="#results-without-viscous-dissipation">Results without viscous dissipation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
