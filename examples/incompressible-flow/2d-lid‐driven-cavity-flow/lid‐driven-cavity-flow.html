@@ -1,0 +1,499 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Multiphysics Examples" href="../../multiphysics/multiphysics.html" /><link rel="prev" title="Incompressible Flow" href="../incompressible-flow.html" />
+
+    <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
+        <title>2D Lid-Driven Cavity Flow - Lethe documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">Lethe  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Lethe  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../incompressible-flow.html">Incompressible Flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">2D Lid-Driven Cavity Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming Up a Viscous Fluid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="d-lid-driven-cavity-flow">
+<h1>2D Lid-Driven Cavity Flow<a class="headerlink" href="#d-lid-driven-cavity-flow" title="Permalink to this headline">¶</a></h1>
+<p>This is the first Lethe example. It showcases a classical fluid mechanics problem, the lid-driven cavity. This example also introduces the concept of parameter files to parametrize Lethe simulations.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> (with Q1-Q1) or  <code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_2d</span></code> (with Q2-Q1)</p></li>
+<li><p>Steady-state problem</p></li>
+<li><p>Displays the use of adjoint time-stepping for steady-state problems</p></li>
+</ul>
+</section>
+<section id="location-of-the-examples">
+<h2>Location of the examples<a class="headerlink" href="#location-of-the-examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Base case (<span class="math notranslate nohighlight">\(Re=400\)</span>) : <code class="docutils literal notranslate"><span class="pre">/examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm</span></code></p></li>
+<li><p>Higher-Reynolds case (<span class="math notranslate nohighlight">\(Re=7500\)</span>) : <code class="docutils literal notranslate"><span class="pre">/examples/incompressible_flow/2d_lid_driven_cavity/Reynolds_7500/cavity.prm</span></code></p></li>
+</ul>
+</section>
+<section id="description-of-the-case">
+<h2>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<p>The lid-driven cavity is a classical fluid dynamics problem . It consists in the flow in an enclosed cavity, where one of the walls (in this example, the top wall) is put in motion at a constant tangential velocity. This case is often used to benchmark the capacity of CFD software because of the simplicity of its geometry and the availability of multiple reference results over a large range of Reynolds numbers. In this example, we investigate this problem in 2D, but simulating this case in 3D would require only a few changes. The geometry and boundary conditions are illustrated in the following figure:</p>
+<img alt="The geometry and boundary conditions" class="align-center" id="geometry" src="../../../_images/geo.png"/>
+<p>Only the upper wall boundary moves in the x direction with a constant velocity (<span class="math notranslate nohighlight">\(u = 1\)</span> m/s) while the other boundaries are static. We will discuss later in this example the meaning of the ID of the boundary conditions used in this figure.</p>
+<p>We first investigate this case at a Reynolds number of 400 for which a steady-state solution can be easily obtained. Later, we will increase this Reynolds number to 7500 and leverage some of the advanced functionalities of Lethe to reach a steady-state solution.</p>
+</section>
+<section id="parameter-file">
+<h2>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>Lethe simulations are controlled by <em>parameter files</em> which possess the extension <code class="docutils literal notranslate"><span class="pre">.prm</span></code>. This is the default text format of the ParameterHandler class of the deal.ii library from which Lethe derives. For more information on this class, we refer to the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classParameterHandler.html">deal.II documentation</a>.</p>
+<p>Parameter files are made of subsections which describe a portion of the simulation (e.g. mesh generation, physical properties, simulation control). In parameter files, lines starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> are comments. Parameters are set using the following syntax:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>set parameter name = value
+</pre></div>
+</div>
+<p>The syntax is flexible. Parameters do not need to be specified in a specific order, but only within the subsection in which they belong. For a full list of the parameters within Lethe, we refer to the parameter page.</p>
+<p>To set-up the lid-driven cavity case, we first need to establish the mesh used for the simulation.</p>
+<section id="mesh">
+<h3>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection specifies the computational grid:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
+    set type                 = dealii
+    set grid type            = hyper_cube
+    set grid arguments       = 0 : 1 : true
+    set initial refinement   = 6
+end
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> specifies the mesh format used. At the moment, Lethe supports two mesh formats: <code class="docutils literal notranslate"><span class="pre">dealii</span></code> and <code class="docutils literal notranslate"><span class="pre">gmsh</span></code>. <code class="docutils literal notranslate"><span class="pre">dealii</span></code> meshes are in-situ generated meshes for simple geometries. The type of grid generated is specified by the <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">type</span></code> parameters and this grid is parametrized by it’s <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">arguments</span></code>. We refer to the documentation of the deal.ii <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html">GridGenerator</a> for a detailed explanation of the available grids.</p>
+<p>Since the lid-driven cavity problem domain is a square, we use the <em>hyper_cube</em> <code class="docutils literal notranslate"><span class="pre">grid_type</span></code>. The arguments of this grid type are the position of the bottom left corner, the position of the top right corner and the option to colorize the boundaries in order to give each of them a unique ID. The IDs will be used to set the boundary conditions on specific parts of the boundary of the domain. The ID given to each face was given in the graphical description of the case. If <code class="docutils literal notranslate"><span class="pre">colorize</span></code> option were set to false, all boundaries would have been given the ID <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>It is a bit surprising that the position of the bottom left and the top right corner are specified by a single value. Since the geometry is a square, the position of the corner is specified using a single number, assuming that this identifies both the x and y value associated with that point. Other grid generators, such as the <code class="docutils literal notranslate"><span class="pre">hyper_rectangle</span></code>, allow for more flexibility.</p>
+<p>The last parameter specifies the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> of the grid. Most deal.ii grid generators contain a minimal number of cells. For example, the <em>hyper_cube</em> mesh is made of a single cell. Indicating an <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement=6</span></code> implies that the initial mesh is refined 6 times. In 2D, each cell is divided by 4 per refinement. Consequently, the final grid is made of <span class="math notranslate nohighlight">\(2^{(2\cdot6)}=4096\)</span> cells.</p>
+</section>
+<section id="boundary-conditions">
+<h3>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> subsection establishes the constraints on different parts of the domain:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
+set number                  = 4
+    subsection bc 0
+        set id                = 0
+        set type              = noslip
+    end
+    subsection bc 1
+        set id                = 1
+        set type              = noslip
+    end
+    subsection bc 2
+        set id                = 2
+        set type              = noslip
+    end
+    subsection bc 3
+        set id                = 3
+        set type              = function
+        subsection u
+            set Function expression = 1
+        end
+        subsection v
+            set Function expression = 0
+        end
+    end
+end
+</pre></div>
+</div>
+<p>First, the <code class="docutils literal notranslate"><span class="pre">number</span></code> of boundary conditions to be applied must be specified. For each boundary condition, the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the boundary as well as its <code class="docutils literal notranslate"><span class="pre">type</span></code> must be specified. The left (<code class="docutils literal notranslate"><span class="pre">0</span></code>), right (<code class="docutils literal notranslate"><span class="pre">1</span></code>) and bottom (<code class="docutils literal notranslate"><span class="pre">2</span></code>) walls are static and, consequently, a <code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary condition can be used. This boundary condition imposes <span class="math notranslate nohighlight">\(\mathbf{u} = [0,0]^T\)</span>. For the top wall, we use the <code class="docutils literal notranslate"><span class="pre">function</span></code> boundary type. This type of boundary condition allows us to define the value of the velocity components using <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code>. We set <span class="math notranslate nohighlight">\(u=1\)</span> and <span class="math notranslate nohighlight">\(v=0\)</span>. Note that the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> supports writing complex mathematical expressions which may depend on the spatial coordinates (<span class="math notranslate nohighlight">\(x,y,z\)</span>) and on time.</p>
+</section>
+<section id="physical-properties">
+<h3>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<p>For the base case, we wish to simulate the lid-driven cavity at a Reynolds number of 400. Since the characteristic dimension of the cavity is <span class="math notranslate nohighlight">\(L=1\)</span> and the velocity of the top boundary is <span class="math notranslate nohighlight">\(u=1\)</span>, the Reynolds number is <span class="math notranslate nohighlight">\(Re=\frac{1}{\nu}\)</span> where <span class="math notranslate nohighlight">\(\nu\)</span> is the kinematic viscosity. The kinematic viscosity is set by the <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+  subsection fluid 0
+    set kinematic viscosity            = 0.0025
+  end
+end
+</pre></div>
+</div>
+<p>By default, simulations only contain a single fluid which is labeled <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</section>
+<section id="fem-interpolation">
+<h3>FEM interpolation<a class="headerlink" href="#fem-interpolation" title="Permalink to this headline">¶</a></h3>
+<p>Lethe supports the use of arbitrary interpolation order. The default solver for this case is <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> which uses a stabilized method and supports equal order interpolation.</p>
+<p>We specify the interpolation order for both pressure and velocity using the <code class="docutils literal notranslate"><span class="pre">FEM</span></code> subsection:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
+    set velocity order            = 1
+    set pressure order            = 1
+end
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>An alternative would be to use the <code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_2d</span></code> solver; for <a class="reference external" href="https://en.wikipedia.org/wiki/Ladyzhenskaya%E2%80%93Babu%C5%A1ka%E2%80%93Brezzi_condition">LBB</a> stable elements must be used (e.g. Qn-Q(n-1)). Only the stabilized solver supports the use of equal order elements.</p>
+</div>
+</section>
+<section id="non-linear-solver-parameters">
+<h3>Non-linear solver parameters<a class="headerlink" href="#non-linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Lethe is an implicit CFD solver. Consequently, each time-step requires the solution of a non-linear system of equations. By default, Lethe uses a Newton solver for which a <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> must be specified:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
+  set tolerance               = 1e-8
+  set verbosity               = verbose
+end
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> option specifies if details about the non-linear solver steps (residual value and iteration number) will be printed out to the terminal. By setting it to <code class="docutils literal notranslate"><span class="pre">verbose</span></code>, this information is printed out, whereas <code class="docutils literal notranslate"><span class="pre">quiet</span></code> would mute all outputs of the non-linear solver. We recommend to always set <code class="docutils literal notranslate"><span class="pre">verbosity=verbose</span></code> in order to monitor possible non-convergence of the solver.</p>
+</section>
+<section id="linear-solver-parameters">
+<h3>Linear solver parameters<a class="headerlink" href="#linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Each non-linear solver step requires the solution of a linear system of equations. Lethe has multiple options to parametrize its linear solvers, but here, we only enable its verbosity to monitor the number of iteration per time step and use the default parameters for the rest.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A good thing to remember is that, generally, linear solver parameters control the robustness of the simulation.</p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
+  set method                                 = amg
+  set verbosity                              = verbose
+end
+</pre></div>
+</div>
+</section>
+<section id="simulation-control">
+<h3>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<p>The last subsection, which is generally the one we put at the top of the parameter files, is the <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> . In this example, it is only used to specify the name of the output files:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
+  set method      = steady
+  set output name = output_cavity
+end
+</pre></div>
+</div>
+</section>
+</section>
+<section id="running-the-simulation">
+<h2>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> executable is within your path, the simulation can be launched by typing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_navier_stokes_2d cavity.prm
+</pre></div>
+</div>
+<p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
+</section>
+<section id="base-case-results-re-400">
+<h2>Base case results (Re=400)<a class="headerlink" href="#base-case-results-re-400" title="Permalink to this headline">¶</a></h2>
+<p>Using Paraview, the steady-state velocity profile and the streamlines can be visualized:</p>
+<img alt="velocity distribution" class="align-center" src="../../../_images/result.png"/>
+<p>It is also very interesting to compare the results with those obtained in the literature. A python script provided in the example folder allows to compare the velocity profile along de y axis for <span class="math notranslate nohighlight">\(x=0.5\)</span> with results from the literature. Using this script, the following resuts are obtained for <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span> <span class="pre">=</span> <span class="pre">6</span></code></p>
+<img alt="re_400_comparison" class="align-center" src="../../../_images/lethe_ghia_re_400_comparison.png"/>
+<p>We note that the agreement is perfect. This is not surprising, especially considering that these results were obtained at a relatively low Reynolds number.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The vtu files generated by Lethe are compressed archives. Consequently, they cannot be postprocessed directly. Although they can be easily post-processed using Paraview, it is sometimes necessary to be able to work with the raw data. The python library <a class="reference external" href="https://www.pyvista.org/">PyVista</a>  allows us to do this.</p>
+</div>
+</section>
+<section id="higher-reynolds-case-results-re-7500">
+<h2>Higher-Reynolds case results (Re=7500)<a class="headerlink" href="#higher-reynolds-case-results-re-7500" title="Permalink to this headline">¶</a></h2>
+<p>We now consider the case at a Reynolds number of 7500. At this value of the Reynolds number, the <code class="docutils literal notranslate"><span class="pre">steady</span></code> solver will generally not converge as the problem is too non-linear (or too stiff). A workaround for this issue is to use an adjoint time-stepping strategy. This strategy consists in transforming the steady-state problem into a transient problem and to use an increasingly large time-step to reach a steady-state solution. This method is called <code class="docutils literal notranslate"><span class="pre">steady_bdf</span></code> in Lethe.</p>
+<p>It can be used by modifying the <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> subsection:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
+  set method                  = steady_bdf
+
+  set adapt = true
+  # Maximum CFL value
+  set max cfl                      = 1000
+  # Tolerance at which the simulation is stopped
+  set stop tolerance               = 1e-10
+
+  # Adaptative time step scaling
+  set adaptative time step scaling = 1.05
+
+  set time step = 0.001
+end
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">adapt</span></code> parameter allows dynamic time-step adaptation. This feature is also used in transient simulations to carry simulations at a constant CFL number. The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">cfl</span></code> controls the maximum value of the CFL reached during the simulation. Remember that Lethe is an implicit solver and, as such, can theoretically manage absurdly large values of the CFL. The <code class="docutils literal notranslate"><span class="pre">stop-tolerance</span></code> controls the initial tolerance of a time-step below which steady-state will be considered reached.  The <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> controls the initial value of the time step and, finally, the <code class="docutils literal notranslate"><span class="pre">adaptative</span> <span class="pre">time</span> <span class="pre">step</span> <span class="pre">scaling</span></code> controls the rate of increase of the time step. The increase of the time step follows:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\Delta t_{n+1} = \alpha \Delta t_{n}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is the <code class="docutils literal notranslate"><span class="pre">adaptative</span> <span class="pre">time</span> <span class="pre">step</span> <span class="pre">scaling</span></code> .</p>
+<section id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>We first carry out the simulations with an initial refinement 7. Using Paraview, the steady-state velocity profile and the streamlines can be visualized:</p>
+<img alt="velocity distribution" class="align-center" src="../../../_images/result_re_7500.png"/>
+<p>We see that new recirculation regions occur in the flow.</p>
+<p>Using a similar python script, we can compare the results obtained with those from the literature. We note that there is quite a good agreement with the results from the literature, even in the top region where the velocity field changes abruptly.</p>
+<img alt="re_7500_comparison_mesh_7" class="align-center" src="../../../_images/lethe_ghia_re_7500_comparison.png"/>
+<img alt="re_7500_comparison_mesh_7" class="align-center" src="../../../_images/lethe_ghia_re_7500_comparison_zoom.png"/>
+<p>Increasing the number of cells by a factor 4 (to ~65k) allows for an even slightly better agreement.</p>
+<img alt="re_7500_comparison_mesh_8" class="align-center" src="../../../_images/lethe_ghia_re_7500_comparison1.png"/>
+<img alt="re_7500_comparison_mesh_8" class="align-center" src="../../../_images/lethe_ghia_re_7500_comparison_zoom1.png"/>
+</section>
+</section>
+<section id="possibilities-for-extension">
+<h2>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Validate at even higher Reynolds numbers:</strong> The Erturk 2005 data within the example investigates this case up to a Reynolds number of 20000.  It is an interesting exercise to simulate these more complex cases using the adjoint time-stepping <code class="docutils literal notranslate"><span class="pre">steady_bdf</span></code> scheme.</p></li>
+<li><p><strong>High-order methods:</strong> Lethe supports higher order interpolation. This can yield much better results with an equal number of degrees of freedom than traditional second-order (Q1-Q1) methods, especially at higher Reynolds numbers.</p></li>
+<li><p><strong>Dynamic mesh adaptation:</strong> Lethe supports dynamic mesh adaptation. Running this case with dynamic mesh adaptation could potentially yield better results.</p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../multiphysics/multiphysics.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Multiphysics Examples</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../incompressible-flow.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Incompressible Flow</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, Lethe |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="../../../_sources/examples/incompressible-flow/2d-lid‐driven-cavity-flow/lid‐driven-cavity-flow.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">2D Lid-Driven Cavity Flow</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#location-of-the-examples">Location of the examples</a></li>
+<li><a class="reference internal" href="#description-of-the-case">Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">Parameter file</a><ul>
+<li><a class="reference internal" href="#mesh">Mesh</a></li>
+<li><a class="reference internal" href="#boundary-conditions">Boundary conditions</a></li>
+<li><a class="reference internal" href="#physical-properties">Physical properties</a></li>
+<li><a class="reference internal" href="#fem-interpolation">FEM interpolation</a></li>
+<li><a class="reference internal" href="#non-linear-solver-parameters">Non-linear solver parameters</a></li>
+<li><a class="reference internal" href="#linear-solver-parameters">Linear solver parameters</a></li>
+<li><a class="reference internal" href="#simulation-control">Simulation control</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-the-simulation">Running the simulation</a></li>
+<li><a class="reference internal" href="#base-case-results-re-400">Base case results (Re=400)</a></li>
+<li><a class="reference internal" href="#higher-reynolds-case-results-re-7500">Higher-Reynolds case results (Re=7500)</a><ul>
+<li><a class="reference internal" href="#results">Results</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#possibilities-for-extension">Possibilities for extension</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
