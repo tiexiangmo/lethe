@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="installation.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="installation/installation.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
         <title>Lethe documentation</title>
@@ -155,14 +155,18 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="installation/installation.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/docker.html">Using a deal.II  Docker container</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="structure.html">Folder structure of Lethe</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="examples/examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="examples/incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1"><a class="reference internal" href="first_simulation.html">Launching your first simulation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples/examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="examples/incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="examples/incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">2D Lid-Driven Cavity Flow</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="examples/multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="examples/multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming Up a Viscous Fluid</a></li>
 </ul>
 </li>
@@ -232,10 +236,20 @@ dedicated solvers like Lethe could not exist.</p>
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/docker.html">Using a deal.II  Docker container</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="structure.html">Folder structure of Lethe</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="structure.html#the-lethe-folder">The lethe folder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="structure.html#the-build-folder">The build folder</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="first_simulation.html">Launching your first simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="first_simulation.html#step-1-copying-an-example">Step 1: Copying an example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_simulation.html#step-2-launching-the-example">Step 2: Launching the example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_simulation.html#step-3-post-processing-the-results">Step 3: Post-processing the results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_simulation.html#understanding-the-examples">Understanding the examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="examples/examples.html">Examples</a><ul>
@@ -253,7 +267,7 @@ dedicated solvers like Lethe could not exist.</p>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Follow the instructions in the <a class="reference internal" href="installation.html"><span class="doc">Installation</span></a> section.</p>
+<p>Follow the instructions in the <a class="reference internal" href="installation/installation.html"><span class="doc">Installation</span></a> section.</p>
 </section>
 <section id="authors">
 <h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
@@ -288,7 +302,7 @@ dedicated solvers like Lethe could not exist.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="installation.html">
+          <a class="next-page" href="installation/installation.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>

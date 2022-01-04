@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Warming Up a Viscous Fluid" href="examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Examples" href="examples/examples.html" /><link rel="prev" title="Folder structure of Lethe" href="structure.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Contributing - Lethe documentation</title>
+        <title>Launching your first simulation - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -160,7 +160,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="structure.html">Folder structure of Lethe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="first_simulation.html">Launching your first simulation</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Launching your first simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="examples/examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="examples/incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="examples/incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">2D Lid-Driven Cavity Flow</a></li>
@@ -172,7 +172,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 
 </div>
@@ -199,177 +199,49 @@
           </label>
         </div>
         <article role="main">
-          <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Check the <a class="reference external" href="https://github.com/lethe-cfd/lethe-utils">utils</a> repository for additional cases, scripts, geo files and meshes.</p>
-</div>
-<section id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
-<section id="pull-requests">
-<h2>Pull requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
-<section id="title">
-<h3>Title<a class="headerlink" href="#title" title="Permalink to this headline">¶</a></h3>
-<p>Each pull request should only either fix an issue, add a single feature or restructure the code for one aspect, plus a test, if needed, to certify it. If there are many aspects to change, it is better to create multiples branches and create multiple pull requests. The title should start with an action verb and only contain one idea.</p>
-</section>
-<section id="review-process">
-<h3>Review process<a class="headerlink" href="#review-process" title="Permalink to this headline">¶</a></h3>
+          <section id="launching-your-first-simulation">
+<h1>Launching your first simulation<a class="headerlink" href="#launching-your-first-simulation" title="Permalink to this headline">¶</a></h1>
+<p>The objective of this section is to highlight the steps that are necessary to launch your first simulation after you have cloned and compiled Lethe.</p>
+<p>Launching an application requires an executable of the required solver, and a parameters file (with extension .prm). After building Lethe, the solver executable files can be found in : <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications</span></code> directory.</p>
+<p>For instance, <code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_2d</span></code> executable is located in the <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications/gd_navier_stokes_2d</span></code> directory.</p>
+<p>The executable for the solvers can be used directly from the folder it is compiled to. This can be achieved by:</p>
 <ul class="simple">
-<li><p>At least 2 reviewers for minor changes, like a bug fix or a small feature</p></li>
-<li><p>At least 3 reviewers for bigger changes like bigger features and architectural reconfiguration.</p></li>
-<li><p>The reviewer should be notified before opening the pull request. The reviewers should be selected from already existing contributor to the code. (See section: InsightsContributors).</p></li>
+<li><p>Writing the absolute path of the solver (e.g. <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications/gd_navier_stokes_2d/gd_navier_stokes_2d</span></code>);</p></li>
+<li><p>Adding the lethe folder paths to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable;</p></li>
+<li><p>Specifying an installation folder when you compile Lethe to ensure that all the applications are grouped within a single folder;</p></li>
+<li><p>Locally copying the executable to the folder you are running your simulation from.</p></li>
 </ul>
+<p>All these workflows can achieve the same result.</p>
+<p>To launch a simulation, you must specify the solver executable and the parameter file in the following format: <code class="docutils literal notranslate"><span class="pre">solver</span> <span class="pre">parameter_file</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span> <span class="pre">poiseuille2d.prm</span></code></p>
+<p>In what follows, we describe a simple procedure to launch your first simulation using Lethe.</p>
+<section id="step-1-copying-an-example">
+<h2>Step 1: Copying an example<a class="headerlink" href="#step-1-copying-an-example" title="Permalink to this headline">¶</a></h2>
+<p>The source folder of lethe contains an examples folder. This folder contains ready to run examples. Some examples use the mesh generation capacity of Lethe and only require a parameter file, whereas others contain an additional .msh file to describe the mesh. In the present case, we copy the lid driven cavity example to a new destination of your choice using the terminal:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cp -r $SOURCE_FOLDER/examples/incompressible_flow/2d_lid_driven_cavity destination/first_simulation
+</pre></div>
+</div>
 </section>
-<section id="review-responsibility">
-<h3>Review responsibility<a class="headerlink" href="#review-responsibility" title="Permalink to this headline">¶</a></h3>
+<section id="step-2-launching-the-example">
+<h2>Step 2: Launching the example<a class="headerlink" href="#step-2-launching-the-example" title="Permalink to this headline">¶</a></h2>
+<p>The cavity example we are launching uses the <em>gls_navier_stokes_2d</em> solver. All of the solvers of Lethe can be found in the build folder where you have compiled Lethe or within the installation folder. Inside of your build folder, six sub folders should be found:</p>
 <ul class="simple">
-<li><p>Give a review of the code implementation and general functionality of the code.</p></li>
-<li><p>Give a review on the code description and comments.</p></li>
-<li><p>Verify that the pull request meets the requirement described above regarding testing and the format of the pull request.</p></li>
-<li><p>Give the review in a timely manner.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/applications</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/applications_tests</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/CMakeFiles</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/prototypes</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/source</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/tests</span></code></p></li>
 </ul>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">/applications</span></code> folder, there is one folder for each solver of Lethe. In the <code class="docutils literal notranslate"><span class="pre">/gls_navier_stokes_2d</span></code> folder, we find the executable file with the same name as the folder: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code>. This solver solves the 2D incompressible Navier-Stokes equations using a Galerkin Least-Square formulation.</p>
+<p>From the <code class="docutils literal notranslate"><span class="pre">/first_simulation</span></code> folder we have created, we can launch the simulation directly. If you have decided to copy the executable to the <code class="docutils literal notranslate"><span class="pre">first_simulation</span></code> folder, you can launch using the following command: <code class="docutils literal notranslate"><span class="pre">./gls_navier_stokes_2d</span> <span class="pre">cavity.prm</span></code>. You can also launch the simulation using the absolute path of the executable: <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications/gls_navier_stokes_2d/gls_navier_stokes_2d</span> <span class="pre">cavity.prm</span></code>.</p>
 </section>
+<section id="step-3-post-processing-the-results">
+<h2>Step 3: Post-processing the results<a class="headerlink" href="#step-3-post-processing-the-results" title="Permalink to this headline">¶</a></h2>
+<p>Once the application has run, the simulation results can be looked at by opening the .pvd file using Paraview.</p>
 </section>
-<section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<section id="build">
-<h3>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h3>
-<section id="setup">
-<h4>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h4>
-<p>To build the doc on your personal machine, you’ll need the following requirements:</p>
-<ul class="simple">
-<li><p>Python v3.x</p></li>
-<li><p>make</p></li>
-<li><p>Sphinx v4.x</p></li>
-</ul>
-<p>To install required system packages:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python3 build-essential
-</pre></div>
-</div>
-<p>To install Sphinx globally:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">'sphinx==4.*'</span>
-</pre></div>
-</div>
-<p>Then, install the Sphinx requirements:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -r doc/requirements.txt
-</pre></div>
-</div>
-</section>
-<section id="build-html">
-<h4>Build HTML<a class="headerlink" href="#build-html" title="Permalink to this headline">¶</a></h4>
-<p>To build standalone HTML files like the CI would, enter the following commands:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> doc
-make html
-</pre></div>
-</div>
-<p>The generated files should be in the <code class="docutils literal notranslate"><span class="pre">build/html</span></code> directory. Open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in a browser to view the rendered documents.</p>
-</section>
-</section>
-<section id="equations">
-<h3>Equations<a class="headerlink" href="#equations" title="Permalink to this headline">¶</a></h3>
-<p>Sphinx can render equations using the MathJax backend.</p>
-<section id="examples">
-<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
-    i^2=-1
-</pre></div>
-</div>
-<p>gives:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[i^2=-1\]</div></div>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
-    df=\frac{\partial f}{\partial t}
-</pre></div>
-</div>
-<p>gives:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[df=\frac{\partial f}{\partial t}\]</div></div>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
-    \rho\left[\frac{\partial \bar{u}}{\partial t} + \bar{u}\cdot\bar{\nabla} \bar{u} \right] = - \bar{\nabla} \bar{p} + \mu \bar{\nabla}^2 \bar{u} + \rho \bar{g}
-</pre></div>
-</div>
-<p>gives:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\rho\left[\frac{\partial \bar{u}}{\partial t} + \bar{u}\cdot\bar{\nabla} \bar{u} \right] = - \bar{\nabla} \bar{p} + \mu \bar{\nabla}^2 \bar{u} + \rho \bar{g}\]</div></div>
-</section>
-</section>
-<section id="code">
-<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
-<p>Python syntax highlight:</p>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python
-    your code
-</pre></div>
-</div>
-<p>C++ syntax highlight:</p>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> cpp
-    your code
-</pre></div>
-</div>
-<section id="id1">
-<h4>Examples<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python
-    for i in range(5):
-    print(i)
-</pre></div>
-</div>
-<p>gives:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> cpp
-    for (int i = 0 ; i&lt;5 ; i++) {
-        std::cout &lt;&lt; i &lt;&lt; std::endl;
-    }
-</pre></div>
-</div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="tables">
-<h3>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
-    <span class="nc">:header-rows:</span> 1
-
-    <span class="m">*</span> - My
-        <span class="m">-</span> Beautiful
-        <span class="m">-</span> Table
-    <span class="m">*</span> - tables
-        <span class="m">-</span> are
-        <span class="m">-</span> rendered
-    <span class="m">*</span> - with
-        <span class="m">-</span> automatic
-        <span class="m">-</span> strip
-</pre></div>
-</div>
-<p>Gives:</p>
-<div class="table-wrapper"><table class="docutils align-center">
-<colgroup>
-<col style="width: 33%"/>
-<col style="width: 33%"/>
-<col style="width: 33%"/>
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>My</p></th>
-<th class="head"><p>Beautiful</p></th>
-<th class="head"><p>Table</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>tables</p></td>
-<td><p>are</p></td>
-<td><p>rendered</p></td>
-</tr>
-<tr class="row-odd"><td><p>with</p></td>
-<td><p>automatic</p></td>
-<td><p>strip</p></td>
-</tr>
-</tbody>
-</table></div>
-</section>
+<section id="understanding-the-examples">
+<h2>Understanding the examples<a class="headerlink" href="#understanding-the-examples" title="Permalink to this headline">¶</a></h2>
+<p>Lethe comes pre-packaged with some examples which are documented on the present documentation in the <a class="reference internal" href="examples/examples.html"><span class="doc">Examples</span></a> tab. We greatly encourage you to look at these examples to understand how Lethe can be used to solve different problems. For a more in-depth understanding of the parameter file, the reader can take a look at the parameter section for general and application specific parameters. Tutorial examples offer basic cases, focusing on a specific aspect, whereas Engineering Applications provide complex cases to showcase some of the features of Lethe.</p>
 </section>
 </section>
 
@@ -378,15 +250,23 @@ make html
       <footer>
         
         <div class="related-pages">
-          
-          <a class="prev-page" href="examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">
+          <a class="next-page" href="examples/examples.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Examples</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="structure.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Warming Up a Viscous Fluid</div>
+                <div class="title">Folder structure of Lethe</div>
                 
               </div>
             </a>
@@ -396,7 +276,7 @@ make html
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="_sources/contributing.rst.txt"
+            | <a class="muted-link" href="_sources/first_simulation.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -416,30 +296,11 @@ make html
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Contributing</a><ul>
-<li><a class="reference internal" href="#pull-requests">Pull requests</a><ul>
-<li><a class="reference internal" href="#title">Title</a></li>
-<li><a class="reference internal" href="#review-process">Review process</a></li>
-<li><a class="reference internal" href="#review-responsibility">Review responsibility</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#documentation">Documentation</a><ul>
-<li><a class="reference internal" href="#build">Build</a><ul>
-<li><a class="reference internal" href="#setup">Setup</a></li>
-<li><a class="reference internal" href="#build-html">Build HTML</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#equations">Equations</a><ul>
-<li><a class="reference internal" href="#examples">Examples</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#code">Code</a><ul>
-<li><a class="reference internal" href="#id1">Examples</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tables">Tables</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Launching your first simulation</a><ul>
+<li><a class="reference internal" href="#step-1-copying-an-example">Step 1: Copying an example</a></li>
+<li><a class="reference internal" href="#step-2-launching-the-example">Step 2: Launching the example</a></li>
+<li><a class="reference internal" href="#step-3-post-processing-the-results">Step 3: Post-processing the results</a></li>
+<li><a class="reference internal" href="#understanding-the-examples">Understanding the examples</a></li>
 </ul>
 </li>
 </ul>
@@ -456,6 +317,5 @@ make html
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
