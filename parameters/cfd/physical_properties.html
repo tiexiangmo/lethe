@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Simulation Control" href="simulation_control.html" /><link rel="prev" title="Parameters guide" href="../parameters.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Initial Conditions" href="initial_conditions.html" /><link rel="prev" title="Simulation Control" href="simulation_control.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Computational Fluid Dynamics and Multiphysics - Lethe documentation</title>
+        <title>Physical Properties - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -163,9 +163,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching your first simulation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Computational Fluid Dynamics and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="cfd.html">Computational Fluid Dynamics and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Physical Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
@@ -209,24 +209,146 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="computational-fluid-dynamics-and-multiphysics">
-<h1>Computational Fluid Dynamics and Multiphysics<a class="headerlink" href="#computational-fluid-dynamics-and-multiphysics" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mesh.html">Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
-</ul>
+          <section id="physical-properties">
+<h1>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lethe supports both single phase and two phase (through VOF) simulations. The same subsection is used to manage both types of simulation using the fluid subsections.</p>
 </div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+set number of fluids  = 1
+   subsection fluid 0
+     set density              = 1
+     set kinematic viscosity  = 1
+     set specific heat        = 1
+     set thermal conductivity = 1
+     set tracer diffusivity   = 0
+   end
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> parameter is the kinematic viscosity of the fluid in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span>. In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter is the density of the fluid in units of <span class="math notranslate nohighlight">\(\text{Mass} \cdot \text{Length}^{-3}\)</span></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span></code> parameter is the specific heat of the fluid in units of <span class="math notranslate nohighlight">\(\text{Energy} \cdot \text{Temperature}^{-1} \cdot \text{Mass}^{-1}\)</span> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span></code> parameter is the thermal expansion coefficient of the fluid with dimension of <span class="math notranslate nohighlight">\(\text{Temperature}^{-1}\)</span>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">diffusivity</span></code> parameter is the diffusivity coefficient of the tracer in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span> . In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span> .</p></li>
+</ul>
+<section id="two-phase-simulations">
+<h2>Two phase simulations<a class="headerlink" href="#two-phase-simulations" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Two phase simulations require that <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">VOF</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection. By convention, air is usually the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code> and the other fluid of interest is the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
+</div>
+<p>For two phases, the properties are defined for each fluid. Default values are:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+set number of fluids          = 2
+    subsection fluid 0
+       set density            = 1
+       set kinematic viscosity        = 1
+       set specific heat      = 1
+       set thermal conductivity = 1
+       set tracer diffusivity   = 0
+    end
+    subsection fluid 1
+       set density            = 1
+       set kinematic viscosity        = 1
+       set specific heat      = 1
+       set thermal conductivity = 1
+       set tracer diffusivity   = 0
+    end
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">fluids</span> <span class="pre">=</span> <span class="pre">2</span></code> is required for a free surface simulation, otherwise an error will be thrown in the terminal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code> indicates the properties of fluid where the phase indicator = 0 (Volume of Fluid method), as defined when initializing the free surface (see the <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a> subsection), and correspondingly <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> is located where the phase indicator = 1.</p></li>
+</ul>
+</section>
+<section id="rheological-models">
+<h2>Rheological models<a class="headerlink" href="#rheological-models" title="Permalink to this headline">¶</a></h2>
+<p>Generalized non Newtonian rheologies (for shear thinning and shear thickening flows) are supported in Lethe.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, non Newtonian flow simulations are only supported using one single fluid. A possibility for multiple Newtonian/non Newtonian fluids is upcoming!</p>
+</div>
+<p>Default values for a non Newtonian fluid are</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+set non newtonian flow      = false
+    subsection non newtonian
+    set model               = carreau
+    end
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">non</span> <span class="pre">newtonian</span> <span class="pre">flow</span></code> parameter has to be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to use a rheological model.</p></li>
+<li><dl class="simple">
+<dt>The <code class="docutils literal notranslate"><span class="pre">model</span></code> parameter sets which rheological model you are using. The available options are:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">carreau</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">power-law</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The Carreau model is in reality the five parameter Carreau model :</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\eta(\dot{\gamma}) =\eta_{\infty} + (\eta_0 - \eta_{\infty}) \left[ 1 + (\dot{\gamma}\lambda)^a\right]^{\frac{n-1}{a}}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the <strong>kinematic viscosity</strong> and <span class="math notranslate nohighlight">\(\dot{\gamma}\)</span> is the shear rate.</p>
+<p>The parameters for the Carreau model are defined by the <code class="docutils literal notranslate"><span class="pre">carreau</span></code> subsection. The default values are:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+  set non newtonian flow      = true
+    subsection non newtonian
+      set model               = carreau
+      subsection carreau
+        set viscosity_0       = 1.0
+        set viscosity_inf = 1.0
+        set a = 2.0
+        set lambda = 1.0
+        set n = 0.5
+      end
+  end
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">viscosity_0</span></code> parameter represents the viscosity when the shear rate on the fluid tends to 0.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">viscosity_inf</span></code> parameter represents the viscosity when the shear rate on the fluid becomes large.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">a</span></code> is the Carreau parameter, generally set to 2.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">lambda</span></code> is the relaxation time associated to the fluid.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> is a power parameter. It sets the slope in the log-log <span class="math notranslate nohighlight">\(\eta = f(\dot{\gamma})\)</span> graph.</p></li>
+</ul>
+<p>The power-law model is a simple rheological model:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\eta(\dot{\gamma}) = K \dot{\gamma}^n\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the <strong>kinematic viscosity</strong> and <span class="math notranslate nohighlight">\(\dot{\gamma}\)</span> is the shear rate.
+When using the Power-Law model, the default values are:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+set non newtonian flow      = true
+    subsection non newtonian
+    set model               = power-law
+        subsection power-law
+          set K = 1.0
+          set n = 0.5
+          set shear rate min = 1e-3
+        end
+    end
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">K</span></code> parameter is a fluid consistency index. It represents the fluid viscosity is it were Newtonian.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> parameter is the flow behavior index. low  It sets the slope in the log-log :<span class="math notranslate nohighlight">\(\eta = f(\dot{\gamma})\)</span> graph.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">shear</span> <span class="pre">rate</span> <span class="pre">min</span></code> parameter yields the magnitude of the shear rate tensor for which the viscosity is calculated. Since the model uses a power operation, a nul shear rate magnitude leads to an invalid viscosity. To ensure numerical stability, the shear rate cannot go below this threshold when the viscosity  calculated.</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -234,23 +356,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="simulation_control.html">
+          <a class="next-page" href="initial_conditions.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Simulation Control</div>
+                <div class="title">Initial Conditions</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../parameters.html">
+          <a class="prev-page" href="simulation_control.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Parameters guide</div>
+                <div class="title">Simulation Control</div>
                 
               </div>
             </a>
@@ -260,7 +382,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/cfd.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/physical_properties.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -268,8 +390,28 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Physical Properties</a><ul>
+<li><a class="reference internal" href="#two-phase-simulations">Two phase simulations</a></li>
+<li><a class="reference internal" href="#rheological-models">Rheological models</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -279,5 +421,6 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

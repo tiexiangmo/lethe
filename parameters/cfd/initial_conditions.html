@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Resolved CFD-DEM" href="../resolved_cfd-dem/resolved_cfd-dem.html" /><link rel="prev" title="Discrete Element Method (DEM)" href="../dem/dem.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Mesh" href="mesh.html" /><link rel="prev" title="Physical Properties" href="physical_properties.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Unresolved CFD-DEM - Lethe documentation</title>
+        <title>Initial Conditions - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -163,17 +163,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching your first simulation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../cfd/cfd.html">Computational Fluid Dynamics and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/nitsche.html">Nitsche</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="cfd.html">Computational Fluid Dynamics and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Unresolved CFD-DEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resolved_cfd-dem/resolved_cfd-dem.html">Resolved CFD-DEM</a></li>
 </ul>
 </li>
@@ -215,8 +215,35 @@
           </label>
         </div>
         <article role="main">
-          <section id="unresolved-cfd-dem">
-<h1>Unresolved CFD-DEM<a class="headerlink" href="#unresolved-cfd-dem" title="Permalink to this headline">¶</a></h1>
+          <section id="initial-conditions">
+<h1>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h1>
+<p>It is often necessary to set-up complex initial conditions when simulating transient problems. Furthermore, setting a coherent initial condition can greatly help the convergence of steady-state problems. Lethe offers three different strategies to set initial conditions : Nodal (through a function), L2 projection (through a function) and viscous. The viscous strategy solves the same CFD problem but with a user-defined viscosity. This can allow the user to initialize the velocity field with a Stokes-like flow for which convergence can be obtained more easily.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
+  # Type of initial conditions. Choices are L2projection, viscous or nodal
+  set type      = nodal
+
+  # viscosity for viscous initial conditions
+  set viscosity = 1
+
+  subsection uvwp
+    set Function expression = 0; 0; 0; 0
+  end
+
+  subsection VOF
+    set Function expression = if (x&lt;0.5 &amp; y&lt;1, 1, 0)
+  end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter indicates which strategy is used to impose the initial conditions. The choices are : <code class="docutils literal notranslate"><span class="pre">L2projection</span></code> , <code class="docutils literal notranslate"><span class="pre">viscous</span></code> or <code class="docutils literal notranslate"><span class="pre">nodal</span></code> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">viscosity</span></code> parameter controls the viscosity that is  used to solve the Navier-Stokes equations when the viscous initial condition is chosen.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">uvwp</span></code> allows the user to select a function (velocity-pressure) to set a nodal or L2 projection initial condition.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">VOF</span></code> defines the areas where both fluids lay at the initial state (see section <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>). In this example, the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> is used with a boolean condition to establish the region where the fluid indicator is 0 or 1: <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(condition,</span> <span class="pre">value</span> <span class="pre">if</span> <span class="pre">true,</span> <span class="pre">value</span> <span class="pre">if</span> <span class="pre">false)</span></code>. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(x&lt;0.5</span> <span class="pre">&amp;</span> <span class="pre">y&lt;1,</span> <span class="pre">1,</span> <span class="pre">0)</span></code> means that <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> initially fills the surface where <code class="docutils literal notranslate"><span class="pre">x&lt;0.5</span></code> and <code class="docutils literal notranslate"><span class="pre">y&lt;1</span></code>, the rest being filled with <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> can be used to establish an even more complex free surface initial geometry. For example, one can create a circle of fluid : <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(</span> <span class="pre">(x^2+y^2)&lt;=(r)^2</span> <span class="pre">,1,0)</span></code></p>
+</div>
 </section>
 
         </article>
@@ -224,23 +251,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../resolved_cfd-dem/resolved_cfd-dem.html">
+          <a class="next-page" href="mesh.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Resolved CFD-DEM</div>
+                <div class="title">Mesh</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../dem/dem.html">
+          <a class="prev-page" href="physical_properties.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Discrete Element Method (DEM)</div>
+                <div class="title">Physical Properties</div>
                 
               </div>
             </a>
@@ -250,7 +277,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/unresolved_cfd-dem/unresolved_cfd-dem.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/initial_conditions.rst.txt"
                rel="nofollow">
               Show Source
             </a>
