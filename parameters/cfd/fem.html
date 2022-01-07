@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Physical Properties" href="physical_properties.html" /><link rel="prev" title="General, CFD and Multiphysics" href="cfd.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Boundary conditions - CFD" href="boundary_conditions_cfd.html" /><link rel="prev" title="Mesh" href="mesh.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Simulation Control - Lethe documentation</title>
+        <title>Finite element interpolation (FEM) - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -165,11 +165,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../compute_canada.html">Running Lethe on Compute Canada clusters</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="cfd.html">General, CFD and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Finite element interpolation (FEM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
@@ -220,103 +220,37 @@
           </label>
         </div>
         <article role="main">
-          <section id="simulation-control">
-<h1>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h1>
-<p>This subsection contains the general information of the simulation, including the time integration method and the general output names. It is the most commonly modified section for a simulation. A standard convention in Lethe is to keep this section at the top of the parameter file, since it is generally the most accessed one.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  # Adaptative time-stepping &lt;true|false&gt;
-  set adapt                        = false
+          <section id="finite-element-interpolation-fem">
+<h1>Finite element interpolation (FEM)<a class="headerlink" href="#finite-element-interpolation-fem" title="Permalink to this headline">¶</a></h1>
+<p>This subsection specifies the characteristics of the finite element method used in the simulations. The interpolation orders of velocity, pressure and other physics are specified. An additional option is also present to enable the use of high-order mapping throughout the entire mesh. At the moment, all variables are interpolated using Lagrange elements. On quad/hex meshes, <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classFE__Q.html">FE_Q</a> elements are used whereas on simplex meshes (triangles, tetrahedron), <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classFE__SimplexP.html">FE_P</a> elements are used.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
+  # interpolation order pressure
+  set pressure order    = 1
 
-  # Adaptative time step scaling
-  set adaptative time step scaling = 1.1
+  # interpolation order velocity
+  set velocity order    = 1
 
-  # The kind of method used to startup high order bdf methods. Choices are
-  # &lt;multiple step bdf|sdirk step|initial solution&gt;.
-  set bdf startup method           = multiple step bdf
+  # interpolation order temperature
+  set temperature order    = 1
 
-  # Maximal number of vtu output files
-  set group files                  = 1
+  # interpolation order tracer
+  set tracer order    = 1
 
-  # Log frequency
-  set log frequency                = 1
+  # interpolation order vof
+  set VOF order  =1
 
-  # Display precision when writing to log
-  set log precision                = 6
-
-  # Maximum CFL value
-  set max cfl                      = 1
-
-  # The kind of solver for the linear system. Choices are
-  # &lt;steady|steady_bdf|bdf1|bdf2|bdf3|sdirk2|sdirk3&gt;.
-  set method                       = steady
-
-  # Number of mesh adaptation (for steady simulations)
-  set number mesh adapt            = 0
-
-  # Output the boundaries of the domain along with their ID
-  set output boundaries            = false
-
-  # The control for the output of the simulation results. Results can be either
-  # outputted at constant iteration frequency or at constant time
-  set output control               = iteration
-
-  # Output frequency
-  set output frequency             = 1
-
-  # File output prefix
-  set output name                  = out
-
-  # File output path
-  set output path                  = ./
-
-  # Output time
-  set output time                  = 1
-
-  # Scaling factor used in the iterations necessary to start-up the BDF
-  # schemes.
-  set startup time scaling         = 0.4
-
-  # Tolerance at which the simulation is stopped
-  set stop tolerance               = 1e-10
-
-  # Subdivision of mesh cell in postprocessing
-  set subdivision                  = 1
-
-  # End time value of the simulation
-  set time end                     = 1
-
-  # Time step value
-  set time step                    = 1.
+  # Apply high order mapping everywhere
+  set qmapping all      = false
 end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">group</span> <span class="pre">files</span></code> parameter controls the number of vtu files generated in a parallel simulation. This parameter allows to reduce the number of files generated when the simulation is run with a large number of processors. Setting group files to 1 ensures that there is a single vtu file generated. In this case, the file is written using MPI IO functionalities. The value for this parameter should always be a compromise between keeping a low number of files but preventing excessive MPI communications. We have found that the default value of 1 does not have a significant impact on performance on Compute Canada clusters.</p></li>
-<li><dl class="simple">
-<dt>The <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter controls the time-stepping method used. The available options are:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">steady</span></code> (steady-state simulation)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">steady-bdf</span></code> (steady-state simulation using adjoint time stepping with a bdf1 scheme)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bdf1</span></code> (1st order backward differentiation)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bdf2</span></code> (2nd order backward differentiation)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bdf3</span></code> (3rd order backward differentiation)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sdirk2</span></code> (2nd order singly diagonally implicit Runge Kutta)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sdirk3</span></code> (3rd order singly diagonally implicit Runge Kutta)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">bdf</span> <span class="pre">startup</span> <span class="pre">method</span></code> parameter controls the scheme used to start a high order bdf scheme.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span></code> controls after which number of iterations the <code class="docutils literal notranslate"><span class="pre">.pvd</span></code> / <code class="docutils literal notranslate"><span class="pre">.vtu</span></code> results are written. If <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">0</span></code>, no <code class="docutils literal notranslate"><span class="pre">.pvd</span></code> / <code class="docutils literal notranslate"><span class="pre">.vtu</span></code> file will be written.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">path</span></code> control the name of the output files and their directory.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">boundaries</span></code> controls if the boundaries of the domain are written to a file. This will write additional VTU files made of the contour of the domain. This is particularly useful for the visualisation of 3D flows with obstacles or objects.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">subdivision</span></code> parameter enables sub-division of the mesh cells to enable visualisation of high-order elements with Paraview. Generally, we advise to use a subdivision level of (n-1) for interpolation order of n. For example, a Q2-Q2 interpolation could be visualized with <code class="docutils literal notranslate"><span class="pre">subdivision=1</span></code>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">end</span></code> parameter indicates at which value of the time to end the simulations if they are transient.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> parameter controls the value of the time step.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">adapt</span></code> parameter controls if adaptive time-stepping is enabled. If adaptive time-stepping is enabled, the time-step will evolve to ensure that the ‘max cfl’ value is reached.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">cfl</span></code> parameter controls the maximal value of the CFL condition that can be reached during the simulation. This parameter is only used when <cite>adapt</cite> is set to true.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">adaptative</span> <span class="pre">time</span> <span class="pre">step</span> <span class="pre">scaling</span></code> parameter controls the rate of increase of the time step value. The new time step value is fixed by <code class="docutils literal notranslate"><span class="pre">adaptative</span> <span class="pre">time</span> <span class="pre">step</span> <span class="pre">scaling</span></code> * <code class="docutils literal notranslate"><span class="pre">previous</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">time</span> <span class="pre">step</span></code></p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">tolerance</span></code> parameter controls the tolerance at which the adjoint time stepping steady state simulations (steady_bdf) stops. The adjoint time stepping will stop when the L2 norm of the initial residual is lower than <code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">tolerance</span></code> at the start of a non-linear solution step.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">frequency</span></code> parameter controls the frequency at which information is written to the log (the terminal).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">precision</span></code> parameter controls the number of significant digits used when writing to the log (the terminal).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">order</span></code> specifies the interpolation order for velocity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">order</span></code> specifies the interpolation order for pressure. For the <strong>gls_navier_stokes</strong> family of solvers, the interpolation order for pressure can be equal or lower than that of velocity. For the <strong>gd_navier_stokes</strong> family of solvers, the interpolation order for pressure has to be one degree lower than that of velocity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">order</span></code> specifies the interpolation order for temperature for the heat transfer physics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">order</span></code> specifies the interpolation order for the tracer physics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VOF</span> <span class="pre">order</span></code> specifies the interpolation for the VOF phase indicator. It is not recommended to use higher order interpolation for the VOF method as this may conflict with the bounding and the sharpening mechanism used therein.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">qmapping</span> <span class="pre">all</span></code> option enables the use of isoparametric elements everywhere in the domain. When this option is set to false, higher-order mapping is only used on the cells which have a boundary face. If the mesh you are using supports high-order manifolds everywhere, it is highly suggested to put <code class="docutils literal notranslate"><span class="pre">qmapping</span> <span class="pre">all=true</span></code>.</p></li>
 </ul>
 </section>
 
@@ -325,23 +259,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="physical_properties.html">
+          <a class="next-page" href="boundary_conditions_cfd.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Physical Properties</div>
+                <div class="title">Boundary conditions - CFD</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="cfd.html">
+          <a class="prev-page" href="mesh.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">General, CFD and Multiphysics</div>
+                <div class="title">Mesh</div>
                 
               </div>
             </a>
@@ -351,7 +285,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/simulation_control.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/fem.rst.txt"
                rel="nofollow">
               Show Source
             </a>

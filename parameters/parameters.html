@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Computational Fluid Dynamics and Multiphysics" href="cfd/cfd.html" /><link rel="prev" title="Running Lethe on Compute Canada clusters" href="../compute_canada.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="General, CFD and Multiphysics" href="cfd/cfd.html" /><link rel="prev" title="Running Lethe on Compute Canada clusters" href="../compute_canada.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
         <title>Parameters guide - Lethe documentation</title>
@@ -164,11 +164,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../first_simulation.html">Launching your first simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compute_canada.html">Running Lethe on Compute Canada clusters</a></li>
 <li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="cfd/cfd.html">Computational Fluid Dynamics and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="cfd/simulation_control.html">Simulation Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cfd/physical_properties.html">Physical Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cfd/initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cfd/mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfd/fem.html">Finite element interpolation (FEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfd/boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfd/force_and_torque.html">Force and torque calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfd/timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cfd/multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cfd/nitsche.html">Nitsche</a></li>
 </ul>
@@ -226,7 +230,7 @@ Two parameter files are obtained for 2D and 3D respectively. These files contain
 <p>In the parameter file format, the parameters are established one by one using the following syntax: <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">parameter</span> <span class="pre">name</span> <span class="pre">=</span> <span class="pre">value</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">time</span> <span class="pre">end</span> <span class="pre">=</span> <span class="pre">10</span></code> would fix the end time to 10. The arguments can be either doubles, integers, strings, booleans or a choice between a predefined number of variables. In the parameter files, comments are preceded by the sharp symbol (e.g. ‘#comment’). The parameter file format has a sanity checking mechanism in place and will throw an error if an unknown parameter or an invalid value are entered.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="cfd/cfd.html">Computational Fluid Dynamics and Multiphysics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cfd/cfd.html">General, CFD and Multiphysics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dem/dem.html">Discrete Element Method (DEM)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resolved_cfd-dem/resolved_cfd-dem.html">Resolved CFD-DEM</a></li>
@@ -244,7 +248,7 @@ Two parameter files are obtained for 2D and 3D respectively. These files contain
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Computational Fluid Dynamics and Multiphysics</div>
+                <div class="title">General, CFD and Multiphysics</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
