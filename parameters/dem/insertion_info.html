@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Simulation Control" href="simulation_control.html" /><link rel="prev" title="Nitsche" href="../cfd/nitsche.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Floating Walls" href="floating_walls.html" /><link rel="prev" title="Lagrangian Physical Properties" href="lagrangian_physical_properties.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Discrete Element Method (DEM) - Lethe documentation</title>
+        <title>Insertion Info - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -177,13 +177,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../cfd/nitsche.html">Nitsche</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Discrete Element Method (DEM)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="dem.html">Discrete Element Method (DEM)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="test.html">Test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="model_parameters.html">Model Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="insertion_info.html">Insertion Info</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Insertion Info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="floating_walls.html">Floating Walls</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions.html">Boundary Conditions</a></li>
@@ -231,21 +231,84 @@
           </label>
         </div>
         <article role="main">
-          <section id="discrete-element-method-dem">
-<h1>Discrete Element Method (DEM)<a class="headerlink" href="#discrete-element-method-dem" title="Permalink to this headline">¶</a></h1>
-<p>There are two discrete element method (DEM) solvers in Lethe: <code class="docutils literal notranslate"><span class="pre">dem_2d</span></code> and <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code> for two-dimensional and three-dimensional simulations. In <code class="docutils literal notranslate"><span class="pre">simulation_control</span></code>, the general simulation parameters (for example, time-step, end time, etc.) are defined. <code class="docutils literal notranslate"><span class="pre">timer</span></code> and <code class="docutils literal notranslate"><span class="pre">test</span></code> sections are used for timing the classes and functions, and testing the reproducibility of the results. In <code class="docutils literal notranslate"><span class="pre">model_parameters</span></code>, we define the simulation models, including particle-particle and particle-wall contact models. <code class="docutils literal notranslate"><span class="pre">lagrangian_physical_properties</span></code> defines the physical properties of the particles and walls. Insertion information including the dimensions of the insertion box and insertion frequency is defined in the <code class="docutils literal notranslate"><span class="pre">insertion_info</span></code> section. In the <code class="docutils literal notranslate"><span class="pre">floating_walls</span></code> section, we can add flat walls to the simulation domain. <code class="docutils literal notranslate"><span class="pre">mesh</span></code> section defines the simulation triangulation and refinements. In the <code class="docutils literal notranslate"><span class="pre">boundary_conditions</span></code> section, we can define boundaries as outlets, or rotate or slide them.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test.html">Test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="model_parameters.html">Model Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="insertion_info.html">Insertion Info</a></li>
-<li class="toctree-l1"><a class="reference internal" href="floating_walls.html">Floating Walls</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mesh.html">Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boundary_conditions.html">Boundary Conditions</a></li>
+          <section id="insertion-info">
+<h1>Insertion Info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h1>
+<p>In Lethe, particles are inserted using the Insertion class. We need an insertion box (which is defined by its minimum and maximum values in <cite>x</cite>, <cite>y</cite>, and <cite>z</cite> directions), <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code>, the inserted number of particles at each insertion step, and other parameters to specify the relative positions of the particles during insertion.</p>
+<p>Particle insertion information is defined in this section. This information includes <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">inserted</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">insertion</span> <span class="pre">step</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code>, dimensions of the insertion box, approximate initial distance between particles at insertion steps, and information about the randomness of initial positions of particles. If the insertion method is <code class="docutils literal notranslate"><span class="pre">uniform</span></code>, the particles are uniformly (without randomness in initial location) inserted. On the other hand, in <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion, the initial locations of particles are chosen randomly. Using <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion, insertion <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code> are also required in the parameter handler file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Insertion in Lethe-DEM starts inserting particles from type 0 and proceeds to the next type when all the particles from the previous type are inserted.</p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
+ # Insertion method
+ # Choices are uniform|non_uniform
+ set insertion method                                  = non_uniform
+
+ # Number of inserted particles at each insertion step. This value may change automatically if the insertion box is not adequately large to handle all the inserted particles
+ set inserted number of particles at each time step    = 100
+
+ # Insertion frequency
+ set insertion frequency                       = 20000
+
+ # Insertion box dimensions (xmin, xmax, ymin, ymax, zmin, zmax)
+ set insertion box minimum x                   = -0.05
+ set insertion box minimum y                   = -0.05
+ set insertion box minimum z                   = -0.03
+ set insertion box maximum x                   = 0.05
+ set insertion box maximum y                   = 0.05
+ set insertion box maximum z                   = 0.07
+
+ # insertion distance threshold controls the distance between the center of inserted particles (the distance is: [distance threshold] * [diameter of particles]). The distance is modified by a random number if non_uniform insertion is chosen
+ set insertion distance threshold              = 2
+
+ # Random number range and seed for non_uniform insertion
+ set insertion random number range             = 0.75
+ set insertion random number seed              = 19
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">method</span></code> parameter chooses the type of insertion. Acceptable choices are <code class="docutils literal notranslate"><span class="pre">uniform</span></code> and <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code>.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">uniform</span></code> insertion, the insertion locations of the particles inside the insertion box are tidy. In <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion, however, the insertion locations of particles are randomly selected.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">inserted</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">time</span> <span class="pre">step</span></code> defines the desired number of particles to be inserted at each insertion step.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the insertion box is not adequately large to insert <code class="docutils literal notranslate"><span class="pre">inserted</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">time</span> <span class="pre">step</span></code> particles with the defined arrangement (initial distance between the inserted particles), Lethe prints a warning and inserts the maximum number of particles that fit inside the insertion box at each insertion step.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> parameter defines the frequency of insertion. For example, if the <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> is set equal to 10000, the iterations 0, 10000, 20000, … will be defined as insertion steps.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> should be selected adequately large, so that the inserted particles at the previous insertion step have enough time to leave the insertion box, and the insertion box becomes empty for the next insertion. If <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> does not meet this criterion, particles may have large overlaps during the insertion steps which leads to a large velocity of particles. Some particles may leave the simulation domain in this case.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">minimum</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">minimum</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">minimum</span> <span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">maximum</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">maximum</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">maximum</span> <span class="pre">z</span></code> parameters define the insertion box dimensions.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend that the defined insertion box have at least a distance of <span class="math notranslate nohighlight">\({d^{max}_p}\)</span> (maximum diameter of particles) from the triangulation boundaries. Otherwise, particles may have an overlap with the triangulation walls in the insertion.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code> parameter determines the initial distance between the particles in the insertion. As a result, it must be larger than 1 to avoid any initial collision between the inserted particles.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code> parameters determine the random added values to the positions of particles during a <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion. <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> defines the maximum value for the random displacement in the <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion locations. <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code> is the seed for the random number generator.</p></li>
+</ul>
+<p>The distance between the inserted particles is equal to:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[D_i=\epsilon * d^{max}_p\]</div></div>
+<p>in an <code class="docutils literal notranslate"><span class="pre">uniform</span></code> insertion, and</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[D_i=(\epsilon + \psi)  d^{max}_p\]</div></div>
+<p>in a <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion. <span class="math notranslate nohighlight">\({\epsilon}\)</span>, <span class="math notranslate nohighlight">\({\psi}\)</span>, and <span class="math notranslate nohighlight">\({d^{max}_p}\)</span> denote <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code>, a generated random number (in the range of 0-<code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code>, and from the seed of <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code>), and maximum particle diameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code> should also be compatible with the <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code>; especially if the <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> is large, a large value should be defined for <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code>. Generally, we recommend users to use a value in the range of 1.3-2 (depending on the value of <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code>) for the <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code>.</p>
 </div>
 </section>
 
@@ -254,23 +317,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="simulation_control.html">
+          <a class="next-page" href="floating_walls.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Simulation Control</div>
+                <div class="title">Floating Walls</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../cfd/nitsche.html">
+          <a class="prev-page" href="lagrangian_physical_properties.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Nitsche</div>
+                <div class="title">Lagrangian Physical Properties</div>
                 
               </div>
             </a>
@@ -280,7 +343,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/dem/dem.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/dem/insertion_info.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -299,5 +362,6 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
