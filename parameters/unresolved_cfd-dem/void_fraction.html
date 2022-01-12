@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Warming Up a Viscous Fluid" href="warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html" /><link rel="prev" title="2D Lid-Driven Cavity Flow" href="../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="CFD-DEM" href="cfd_dem.html" /><link rel="prev" title="Unresolved CFD-DEM" href="unresolved_cfd-dem.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Multiphysics Examples - Lethe documentation</title>
+        <title>Void Fraction - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -163,47 +163,47 @@
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching your first simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compute_canada.html">Running Lethe on Compute Canada clusters</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../parameters/parameters.html">Parameters guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/fem.html">Finite element interpolation (FEM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/force_and_torque.html">Force and torque calculation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/timer.html">Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/nitsche.html">Nitsche</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/physical_properties.html">Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/initial_conditions.html">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/fem.html">Finite element interpolation (FEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/force_and_torque.html">Force and torque calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/timer.html">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/multiphysics.html">Multiphysics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cfd/nitsche.html">Nitsche</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/timer.html">Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/test.html">Test</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/model_parameters.html">Model Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/insertion_info.html">Insertion Info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/floating_walls.html">Floating Walls</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/boundary_conditions.html">Boundary Conditions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dem/simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/timer.html">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/test.html">Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/model_parameters.html">Model Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/insertion_info.html">Insertion Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/floating_walls.html">Floating Walls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/boundary_conditions.html">Boundary Conditions</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/unresolved_cfd-dem/void_fraction.html">Void Fraction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../parameters/unresolved_cfd-dem/cfd_dem.html">CFD-DEM</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="unresolved_cfd-dem.html">Unresolved CFD-DEM</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Void Fraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfd_dem.html">CFD-DEM</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../parameters/resolved_cfd-dem/resolved_cfd-dem.html">Resolved CFD-DEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resolved_cfd-dem/resolved_cfd-dem.html">Resolved CFD-DEM</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">2D Lid-Driven Cavity Flow</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">2D Lid-Driven Cavity Flow</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming Up a Viscous Fluid</a></li>
 </ul>
 </li>
 </ul>
@@ -235,13 +235,37 @@
           </label>
         </div>
         <article role="main">
-          <section id="multiphysics-examples">
-<h1>Multiphysics Examples<a class="headerlink" href="#multiphysics-examples" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming Up a Viscous Fluid</a></li>
-</ul>
+          <section id="void-fraction">
+<h1>Void Fraction<a class="headerlink" href="#void-fraction" title="Permalink to this headline">¶</a></h1>
+<p>In this subsection, all parameters required for the calculation of the void fraction are introduced.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
+<dl class="simple">
+<dt>subsection void fraction</dt><dd><p>set mode = dem
+set read dem = true
+set dem file name = dem
+set l2 smoothing factor = 0
+set l2 lower bound = 0
+set l2 upper bound = 1
+set bound void fraction = false</p>
+</dd>
+</dl>
+<p>end</p>
+<ul class="simple">
+<li><p>The “mode” parameter allows the user to choose the method for void fraction calculation. Currently, there are two methods implemented. The first one is to calculate the void fraction from <cite>function</cite>. In this case, an additional subsection is required to insert the function such as:</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection function
+set Function expression = 0.5 + 0.25*sin(pi*x)*sin(pi*y)
+end
+</pre></div>
+</div>
+<p>If the <code class="docutils literal notranslate"><span class="pre">mode</span></code> chosen is <code class="docutils literal notranslate"><span class="pre">dem</span></code>, then the void fraction is calculated using the Particle Centered Method. In this method, the remaining parameters are required.
+* The <code class="docutils literal notranslate"><span class="pre">read</span> <span class="pre">dem</span></code> allows us to read an already existing dem simulation result which can be obtained from checkpointing the Lethe-DEM simulation. This is important as the gls_vans solver requires reading an initial dem triangulation and particle information to simulate flows in the presence of particles.
+* The <code class="docutils literal notranslate"><span class="pre">dem_file_name</span></code> parameter specifies the prefix of the dem files that must be read.
+* The <code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">smoothing</span> <span class="pre">factor</span></code> is a smoothing length used for smoothing the L2 projection of the void fraction to avoid sharp discontinuities which can lead to instabilities in the simulation.
+* The <code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">lower</span> <span class="pre">bound</span></code> and <cite>l2 upper bound</cite> are the minimum and maximum values around which the void fraction is bounded. This is important especially for upper bounds as the void fraction can sometimes slightly exceed a value of 1 when projected.
+* The <code class="docutils literal notranslate"><span class="pre">bound</span> <span class="pre">void</span> <span class="pre">fraction</span></code> parameters determines whether or not to bound the void fraction between the lower and upper bounds specified in the previous two parameters. As the void fraction is calculated and then projected using L2 projection, it can sometimes exceeds the maximum value of 1. In order to prevent this, we use an active set method to bound the void fraction.</p>
 </section>
 
         </article>
@@ -249,23 +273,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">
+          <a class="next-page" href="cfd_dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Warming Up a Viscous Fluid</div>
+                <div class="title">CFD-DEM</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">
+          <a class="prev-page" href="unresolved_cfd-dem.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">2D Lid-Driven Cavity Flow</div>
+                <div class="title">Unresolved CFD-DEM</div>
                 
               </div>
             </a>
@@ -275,7 +299,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/examples/multiphysics/multiphysics.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/unresolved_cfd-dem/void_fraction.rst.txt"
                rel="nofollow">
               Show Source
             </a>
