@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Finite element interpolation (FEM)" href="fem.html" /><link rel="prev" title="Initial Conditions" href="initial_conditions.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Analytical solution" href="analytical_solution.html" /><link rel="prev" title="Boundary conditions - CFD" href="boundary_conditions_cfd.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Mesh - Lethe documentation</title>
+        <title>Source term - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -168,10 +168,10 @@
 <li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source_term.html">Source term</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Source term</a></li>
 <li class="toctree-l3"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
@@ -238,37 +238,73 @@
           </label>
         </div>
         <article role="main">
-          <section id="mesh">
-<h1>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h1>
-<p>This subsection provides information of the simulation geometry and its mesh. The simulation geometry shape and size, number of refinements and other required information can be provided here. It should be mentioned that meshes from gmsh can also be defined in this section by setting <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">gmsh</span></code>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-  # GMSH file name
-  set file name          = none
-  set grid arguments     = -1 : 1 : false
-  set grid type          = hyper_cube
-
-  # Initial refinement of the mesh
-  set initial refinement = 0
-
-  # Type of mesh Choices are gmsh or dealii
-  set type               = dealii
-
-  # Indicates that the mesh is a simplex mesh
-  set simplex     = false
+          <section id="source-term">
+<h1>Source term<a class="headerlink" href="#source-term" title="Permalink to this headline">¶</a></h1>
+<p>If the problem being simulated has a source, it can be added in this section. The default parameters are:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection source term
+ set enable                = true
+ subsection xyz
+   set Function expression = 0; 0; 0
+     or
+   set Function expression = 0; 0; 0; 0
+ end
+ subsection heat transfer
+   set Function expression = 0
+ end
+ subsection tracer
+   set Function expression = 0
+ end
+end
 </pre></div>
 </div>
 <ul class="simple">
-<li><dl class="simple">
-<dt>The following choices for the mesh type are available:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">gmsh</span></code>: if this type is chosen, a <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file generated from GMSH can be used. In this case, the grid file name must be specified in the <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">name</span></code> variable.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dealii</span></code>: if this type is chosen, the deal.II grid generator class can be used. For additional documentation on these grids, you can consult the deal.II documentation for the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html">GridGenerator</a> . The type of grid is specified by the <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">type</span></code> parameter and the arguments used for grid generation by the <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">arguments</span></code> parameter.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span></code> parameter is set to true if the problem has a source term and enables it’s calculation.</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><p>The initial refinement number determines the number of refinements that the grid will undergo in the simulation before the simulation is run. This allows one to automatically refine a coarse grid. By default, most deal.II grids will be as coarse as possible and will then need to be refined. This is a desirable behavior for parallel simulations, since for quad/hex meshes, the coarsest level of the grid is shared amongst all cores. Consequently, using a coarse grid with too many cells will lead to a prohibitive memory consumption.</p></li>
-<li><p><cite>simplex</cite>. If simplex is set to true, it indicates that the mesh being read is made of only simplex elements. If the mesh is of <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">dealii</span></code> it will be converted from a quad/hex mesh to a simplex mesh. If the mesh is of <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">gsmh</span></code>, it will be read from a file as long as it is only made of simplices.</p></li>
+<p>If there is a Navier-Stokes source term, enter the <code class="docutils literal notranslate"><span class="pre">xyz</span></code> subsection.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameters sets the expression for the source term. In 2D, the first two terms are the source terms for  the <em>x</em>, <em>y</em> component of the momentum equation. The third term is the mass source term. In 3D, the first three terms are for the <em>x</em>, <em>y</em> and <em>z</em> component of the momentum equation and the fourth term is for the mass source term.</p></li>
 </ul>
+<p>If there is a heat source term, enter the <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code> subsection.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression for the heat transfer.</p></li>
+</ul>
+<p>If there is an source term for a tracer, enter the <code class="docutils literal notranslate"><span class="pre">tracer</span></code> subsection.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression for the tracer term.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The variables <em>x</em>, <em>y</em>, <em>z</em> (3D) and <em>t</em> (time-dependant) can be used in the function expressions.</p>
+</div>
+<p>You can add a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">constants</span></code> parameter that will act as a constant in the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code>.</p>
+<p>Ex.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection source term
+ set enable                = true
+ subsection xyz
+   set Function constants = A=2.0
+   set Function expression = A*y; -A*x; 0
+ end
+end
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A <span class="math notranslate nohighlight">\(\pi\)</span> variable is already defined as both <code class="docutils literal notranslate"><span class="pre">pi</span></code> and <code class="docutils literal notranslate"><span class="pre">Pi</span></code></p>
+</div>
+<p>Your function expression can also contain common functions such as <span class="math notranslate nohighlight">\(\sin\)</span>, <span class="math notranslate nohighlight">\(\cos\)</span> as well as <code class="docutils literal notranslate"><span class="pre">if</span></code> statements.</p>
+<p>Ex.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection source term
+ set enable                = true
+ subsection heat transfer
+   set Function expression = if(sin(x) &gt; pi, 1, 0)
+ end
+end
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first parameter in the <code class="docutils literal notranslate"><span class="pre">if()</span></code> function is the statement. If this statement is <em>true</em>, then the function expression takes the second parameter as value. If this statement is <em>false</em>, the function expression takes the third parameter as value. In this example, the heat source term will vary within the calculation domain.</p>
+</div>
 </section>
 
         </article>
@@ -276,23 +312,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="fem.html">
+          <a class="next-page" href="analytical_solution.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Finite element interpolation (FEM)</div>
+                <div class="title">Analytical solution</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="initial_conditions.html">
+          <a class="prev-page" href="boundary_conditions_cfd.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Initial Conditions</div>
+                <div class="title">Boundary conditions - CFD</div>
                 
               </div>
             </a>
@@ -302,7 +338,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/mesh.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/source_term.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -321,5 +357,6 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
