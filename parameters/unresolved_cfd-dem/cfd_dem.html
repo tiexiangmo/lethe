@@ -158,11 +158,11 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/installation.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/regular_installation.html">Regular installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/docker.html">Using a deal.II  Docker container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/compute_canada.html">Running Lethe on Compute Canada clusters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching your first simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../compute_canada.html">Running Lethe on Compute Canada clusters</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="../cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../cfd/simulation_control.html">Simulation Control</a></li>
@@ -241,42 +241,42 @@
           <section id="cfd-dem">
 <h1>CFD-DEM<a class="headerlink" href="#cfd-dem" title="Permalink to this headline">¶</a></h1>
 <p>This subsection includes parameters related to multiphase flow simulations using the both the gls_vans solver and the cfd-dem_coupling solver within Lethe.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection cfd-dem
+   set grad div = false
+   set void fraction time derivative = false
+   set drag force = true
+   set buoyancy force = true
+   set shear force = true
+   set pressure force = true
+   set drag model = dallavalle
+   set post processing = true
+   set coupling frequency = 200
+   set inlet boundary id = 2
+   set outlet boundary id = 3
+end
 </pre></div>
 </div>
-<dl class="simple">
-<dt>subsection cfd-dem</dt><dd><p>set grad div = false
-set void fraction time derivative = false
-set drag force = true
-set buoyancy force = true
-set shear force = true
-set pressure force = true
-set drag model = dallavalle
-set post processing = true
-set coupling frequency = 200
-set inlet boundary id = 2
-set outlet boundary id = 3</p>
-</dd>
-</dl>
-<p>end</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">grad</span> <span class="pre">div</span></code> parameter allows the enabling of the grad div stabilization for the Volume Averaged Navier Stokes equations [1]. This allows for a much better mass conservation of the system.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">fraction</span> <span class="pre">time</span> <span class="pre">derivative</span></code> parameters allows us to choose whether or not we want to account for the time derivative of the void fraction or take it equal to zero.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">drag</span> <span class="pre">force</span></code>, <code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code>, <code class="docutils literal notranslate"><span class="pre">shear</span> <span class="pre">force</span></code>, and <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">force</span></code> parameters allows us to enable or disable the respective forces in a cfd-dem simulation.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">drag</span> <span class="pre">model</span></code> parameter allows to choose the type of drag model to be implemented for the calculation of the drag force between the particles and the fluids. Available drag models at the time of writing are: Difelice [2], Rong [3], and Dallavalle [4].</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">post</span> <span class="pre">processing</span></code> parameter, when enabled allows the calculation of the pressure drop, void fraction in the packed region, and the mass conservation in a packed bed at each time step.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">drag</span> <span class="pre">force</span></code>, <code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code>, <code class="docutils literal notranslate"><span class="pre">shear</span> <span class="pre">force</span></code>, and <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">force</span></code> parameters allow us to enable or disable the respective forces in a cfd-dem simulation.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">drag</span> <span class="pre">model</span></code> parameter allows one to choose the type of drag model to be implemented for the calculation of the drag force between the particles and the fluids. Available drag models at the time of writing are: Difelice [2], Rong [3], and Dallavalle [4].</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">post</span> <span class="pre">processing</span></code> parameter, when enabled, allows the calculation of the pressure drop, void fraction in the packed region, and the mass conservation in a packed bed at each time step.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">coupling</span> <span class="pre">frequency</span></code> parameter is only applicable for the cfd-dem solver and it determines the number of DEM iterations per 1 CFD iteration.</p></li>
 </ul>
-<p>The <code class="docutils literal notranslate"><span class="pre">coupling</span> <span class="pre">frequency</span></code> parameter is used to calculate the dem time step as it is not explicitly determined in the parameter file. It is calculated as:
-.. math::
-delta t_{DEM} = frac{delta t_{CFD}}{coupling frequency}</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">coupling</span> <span class="pre">frequency</span></code> parameter is used to calculate the dem time step as it is not explicitly determined in the parameter file. It is calculated as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\Delta t_{DEM} = \frac{\Delta t_{CFD}}{coupling frequency}\]</div></div>
+</div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">inlet</span> <span class="pre">boundary</span></code> and <code class="docutils literal notranslate"><span class="pre">outlet</span> <span class="pre">boundary</span></code> parameters allows us to specify the ID of the inlet and outlet for pressure drop calculations.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">inlet</span> <span class="pre">boundary</span></code> and <code class="docutils literal notranslate"><span class="pre">outlet</span> <span class="pre">boundary</span></code> parameters allow us to specify the ID of the inlet and outlet for pressure drop calculations.</p></li>
 </ul>
-<p>[1] B. Blais, L. Barbeau, V. Bibeau, S. Gauvin, T. E. Geitani, S. Golshan, R. Kamble, G. Mirakhori, J. Chaouki, Lethe: An open-source parallel high- order adaptative cfd solver for incompressible flows, SoftwareX 12 (2020) 100579–.
-[2] R. Di Felice, The voidage function for fluid-particle interaction systems, International journal of multiphase flow 20 (1) (1994) 153–159.
-[3] L. Rong, K. Dong, A. Yu, Lattice-boltzmann simulation of fluid flow through packed beds of uniform spheres: E↵ect of porosity, Chemical en- gineering science 99 (2013) 44–58.
-[4] Sobieski, Wojciech. (2011). Drag Coefficient in Solid–Fluid System Modeling with the Eulerian Multiphase Model. Drying Technology. 29. 111-125. 10.1080/07373937.2010.482714.</p>
+<p>[1] B. Blais, L. Barbeau, V. Bibeau, S. Gauvin, T. E. Geitani, S. Golshan, R. Kamble, G. Mirakhori, J. Chaouki, Lethe: An open-source parallel high- order adaptative cfd solver for incompressible flows, SoftwareX 12 (2020) 100579.</p>
+<p>[2] R. Di Felice, The voidage function for fluid-particle interaction systems, International journal of multiphase flow 20 (1) (1994) 153–159.</p>
+<p>[3] L. Rong, K. Dong, A. Yu, Lattice-boltzmann simulation of fluid flow through packed beds of uniform spheres: Effect of porosity, Chemical engineering science 99 (2013) 44–58.</p>
+<p>[4] Sobieski, Wojciech. (2011). Drag Coefficient in Solid–Fluid System Modeling with the Eulerian Multiphase Model. Drying Technology. 29. 111-125. 10.1080/07373937.2010.482714.</p>
 </section>
 
         </article>
@@ -329,5 +329,6 @@ delta t_{DEM} = frac{delta t_{CFD}}{coupling frequency}</p>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

@@ -158,11 +158,11 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/installation.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/regular_installation.html">Regular installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../installation/docker.html">Using a deal.II  Docker container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/compute_canada.html">Running Lethe on Compute Canada clusters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching your first simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../compute_canada.html">Running Lethe on Compute Canada clusters</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="cfd.html">General, CFD and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
@@ -267,8 +267,7 @@ end
 </ul>
 <p>The <span class="math notranslate nohighlight">\(L^2\)</span> norm of the error is calculated as</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\]</div></div>
-<p>L^2 = int_Omega (u-u_a)^2 mathrm{d} Omega</p>
+\[L^2 = \int_\Omega (u-u_a)^2 \mathrm{d} \Omega\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(u\)</span> is the numerical solution and  <span class="math notranslate nohighlight">\(u_a\)</span> is the analytical solution.</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> parameter enables printing the L2 error after each mesh refinement if it is set to <code class="docutils literal notranslate"><span class="pre">verbose</span></code> and if <code class="docutils literal notranslate"><span class="pre">enable</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
