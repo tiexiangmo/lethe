@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Packing in Ball" href="packing-in-ball/packing-in-ball.html" /><link rel="prev" title="Warming Up a Viscous Fluid" href="../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="1. Packing in Circle" href="packing-in-circle/packing-in-circle.html" /><link rel="prev" title="1. Warming Up a Viscous Fluid" href="../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
         <title>Discrete Element Method - Lethe documentation</title>
@@ -202,21 +202,21 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="../incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">2D Lid-Driven Cavity Flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">2D Taylor-Couette Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">1. 2D Lid-Driven Cavity Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">2. 2D Taylor-Couette Flow</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">1. Warming Up a Viscous Fluid</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Discrete Element Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="silo/silo.html">Silo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packing-in-circle/packing-in-circle.html">1. Packing in Circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packing-in-ball/packing-in-ball.html">2. Packing in Ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotating-drum/rotating-drum.html">3. Rotating Drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">4. Rotating Drum with Post-Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotation-of-box/rotation-of-box.html">5. Rotation of Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="silo/silo.html">6. Silo</a></li>
 </ul>
 </li>
 </ul>
@@ -250,15 +250,15 @@
         <article role="main">
           <section id="discrete-element-method">
 <h1>Discrete Element Method<a class="headerlink" href="#discrete-element-method" title="Permalink to this headline">¶</a></h1>
-<p>We organize the DEM examples from the simplest (first example) to the most complicated example (last example). <a class="reference external" href="./packing-in-circle/packing-in-circle.html">Example 1</a> (packing in circle), shows a two-dimensional simulation of particles packing in a circle. This example is extended in <a class="reference external" href="./packing-in-ball/packing-in-ball.html">Example 2</a> (packing in ball) to a three-dimensional simulation. <a class="reference external" href="./rotating-drum/rotating-drum.html">Example 3</a> (rotating drum), shows a simulation in which the particles are packed in a cylinder and the cylinder is rotating). We simulate this rotation using a <code class="docutils literal notranslate"><span class="pre">rotational</span></code> boundary condition in Lethe-DEM. In <a class="reference external" href="./rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Example 4</a> (rotating drum with post-processing) we explain the post-processing features of Lethe-DEM using the same rotating drum simulation in <a class="reference external" href="./rotating-drum/rotating-drum.html">Example 3</a>. In <a class="reference external" href="./rotation-of-box/rotation-of-box.html">Example 5</a> (rotation of box), we simulate the dynamics of particles in a rotating box. The key difference between <a class="reference external" href="./rotating-drum/rotating-drum.html">Example 3</a> and <a class="reference external" href="./rotation-of-box/rotation-of-box.html">Example 5</a> is that <a class="reference external" href="./rotating-drum/rotating-drum.html">Example 3</a> uses a <code class="docutils literal notranslate"><span class="pre">rotational</span></code> boundary condition to simulate the rotating drum, while <a class="reference external" href="./rotation-of-box/rotation-of-box.html">Example 5</a> uses a rotation of triangulation (<code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">motion</span></code>). In <a class="reference external" href="./silo/silo.html">Example 6</a> (silo), we simulate the filling (using a <code class="docutils literal notranslate"><span class="pre">floating</span> <span class="pre">wall</span></code>) and discharge of particles in a wedge-shaped silo.</p>
+<p>We organize the DEM examples from the simplest (first example) to the most complicated example (last example). <a class="reference external" href="./packing-in-circle/packing-in-circle.html">Example 1</a> (packing in circle), shows a two-dimensional simulation of particles packing in a circle. This example is extended in <a class="reference external" href="./packing-in-ball/packing-in-ball.html">Example 2</a> (packing in ball) to a three-dimensional simulation. <a class="reference external" href="./rotating-drum/rotating-drum.html">Example 3</a> (rotating drum), shows a simulation in which the particles are packed in a cylinder and the cylinder is rotating. We simulate this rotation using a <code class="docutils literal notranslate"><span class="pre">rotational</span></code> boundary condition in Lethe-DEM. In <a class="reference external" href="./rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Example 4</a> (rotating drum with post-processing) we explain the post-processing features of Lethe-DEM using the same rotating drum simulation in <a class="reference external" href="./rotating-drum/rotating-drum.html">Example 3</a>. In <a class="reference external" href="./rotation-of-box/rotation-of-box.html">Example 5</a> (rotation of box), we simulate the dynamics of particles in a rotating box. The key difference between <a class="reference external" href="./rotating-drum/rotating-drum.html">Example 3</a> and <a class="reference external" href="./rotation-of-box/rotation-of-box.html">Example 5</a> is that <a class="reference external" href="./rotating-drum/rotating-drum.html">Example 3</a> uses a <code class="docutils literal notranslate"><span class="pre">rotational</span></code> boundary condition to simulate the rotating drum, while <a class="reference external" href="./rotation-of-box/rotation-of-box.html">Example 5</a> uses a rotation of triangulation (<code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">motion</span></code>). In <a class="reference external" href="./silo/silo.html">Example 6</a> (silo), we simulate the filling (using a <code class="docutils literal notranslate"><span class="pre">floating</span> <span class="pre">wall</span></code>) and discharge of particles in a wedge-shaped silo.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
-<li class="toctree-l1"><a class="reference internal" href="silo/silo.html">Silo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packing-in-circle/packing-in-circle.html">1. Packing in Circle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packing-in-ball/packing-in-ball.html">2. Packing in Ball</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotating-drum/rotating-drum.html">3. Rotating Drum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">4. Rotating Drum with Post-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotation-of-box/rotation-of-box.html">5. Rotation of Box</a></li>
+<li class="toctree-l1"><a class="reference internal" href="silo/silo.html">6. Silo</a></li>
 </ul>
 </div>
 </section>
@@ -268,12 +268,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="packing-in-ball/packing-in-ball.html">
+          <a class="next-page" href="packing-in-circle/packing-in-circle.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Packing in Ball</div>
+                <div class="title"><span class="section-number">1. </span>Packing in Circle</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -284,7 +284,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Warming Up a Viscous Fluid</div>
+                <div class="title"><span class="section-number">1. </span>Warming Up a Viscous Fluid</div>
                 
               </div>
             </a>
