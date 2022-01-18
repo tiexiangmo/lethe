@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Timer" href="timer.html" /><link rel="prev" title="Force and torque calculation" href="force_and_torque.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Finite element interpolation (FEM)" href="fem.html" /><link rel="prev" title="Mesh" href="mesh.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Post-Processing - Lethe documentation</title>
+        <title>Mesh Adaptation Control - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -169,13 +169,13 @@
 <li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Mesh Adaptation Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source_term.html">Source term</a></li>
 <li class="toctree-l3"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Post-Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
@@ -249,49 +249,99 @@
           </label>
         </div>
         <article role="main">
-          <section id="post-processing">
-<h1>Post-Processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h1>
-<p>This subsection controls the post-processing other than the forces and torque on the boundary conditions. Default values are</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection post-processing
-set calculate enstrophy           = false
-set calculate kinetic energy      = false
-set calculate apparent viscosity  = false
-set calculate pressure drop       = false
-set calculate average velocities  = false
-set calculate tracer statistics   = false
-set initial time                  = 0.0
-set inlet boundary id           = 0
-set outlet boundary id          = 1
-set enstrophy name              = enstrophy
-set kinetic energy name         = kinetic_energy
-set apparent viscosity name     = apparent_viscosity
-set pressure drop name          = pressure_drop
-set tracer statistics name      = tracer_statistics
-set verbosity                   = quiet
-set calculation frequency       = 1
-set output frequency            = 1
+          <section id="mesh-adaptation-control">
+<h1>Mesh Adaptation Control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h1>
+<p>This subsection controls the mesh adaptation method, with default values given below.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
+  # Type of mesh adaptation. Choices are  none, uniform or kelly.
+  set type                 = none
+
+  # Variable for kelly estimation. Choices are velocity, pressure or phase.
+  set variable             = velocity
+
+  # Frequency of the mesh refinement
+  set frequency            = 1
+
+  # Minimum refinement level
+  set min refinement level = 0
+
+  # Maximum refinement level
+  set max refinement level = 10
+
+  # Fraction of coarsened elements
+  set fraction coarsening  = 0.05
+
+  # Fraction of refined elements
+  set fraction refinement  = 0.1
+
+  # How the fraction of refinement/coarsening are interpreted
+  # Choices are number or fraction
+  set fraction type        = number
+
+  # Maximum number of elements
+  set max number elements  = 100000000
 end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">enstrophy</span></code> parameter enables calculation of total enstrophy.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">kinetic</span> <span class="pre">energy</span></code> parameter enables calculation of total kinetic energy.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">apparent</span> <span class="pre">viscosity</span></code> parameter enables calculation of an apparent viscosity when using a non Newtonian flow. This is mainly used to define  Reynolds number a posteriori.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">pressure</span> <span class="pre">drop</span></code> parameter enables calculation of the pressure drop from the inlet boundary to the outlet boundary.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">average</span> <span class="pre">velocities</span></code> parameter enables calculation of time-averaged velocities.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">tracer</span> <span class="pre">statistics</span></code> parameter enables calculation of tracer statistics.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">time</span></code> parameter sets the initial time to start calculations of time-averaged velocities.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">inlet</span> <span class="pre">boundary</span> <span class="pre">id</span></code> parameter sets the inlet boundary id for pressure drop calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">outlet</span> <span class="pre">boundary</span> <span class="pre">id</span></code> parameter sets the outlet boundary id for pressure drop calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">enstrophy</span> <span class="pre">name</span></code> parameter sets output file name for enstrophy calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">kinetic</span> <span class="pre">energy</span> <span class="pre">name</span></code> parameter sets output file name for kinetic energy calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">apparent</span> <span class="pre">viscosity</span> <span class="pre">name</span></code> parameter sets output file name for apparent viscosity calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">drop</span> <span class="pre">name</span></code> parameter sets output file name for pressure drop calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">statistics</span> <span class="pre">name</span></code> parameter sets output file name for tracer statistics calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> parameter specifies if the post-processing values are printed to the terminal at the end of every &lt;output frequency&gt; iteration. This does not affect the printing of output files.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculation</span> <span class="pre">frequency</span></code> parameter sets the frequency at which the enstrophy, kinetic energy, apparent viscosity, pressure drop, average velocities and tracer statistics are calculated (for the ones that are set to <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span></code> parameter sets the frequency at which the enstrophy, kinetic energy, apparent viscosity, pressure drop and tracer statistics are output to their respective files (for the ones that are set to <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p></li>
+<li><p>Two <code class="docutils literal notranslate"><span class="pre">type</span></code> of mesh adaptation are available. The <code class="docutils literal notranslate"><span class="pre">uniform</span></code> mesh adaptation refines the mesh at every cell, whereas the <code class="docutils literal notranslate"><span class="pre">kelly</span></code> uses a <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classKellyErrorEstimator.html">kelly error estimator</a> to decide which cell are refined, by estimating the error per cell for a given variable.</p></li>
+<li><dl class="simple">
+<dt>The variable for kelly estimation should be specified with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">variable</span></code>, and can be:</dt><dd><ul>
+<li><p>velocity</p></li>
+<li><p>pressure</p></li>
+<li><p>phase (for multiphase flows)</p></li>
 </ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The frequency at which the mesh is refined is controlled with the <code class="docutils literal notranslate"><span class="pre">frequency</span></code> parameter. If <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">1</span></code>, the mesh is refined at every iteration.</dt><dd><ul>
+<li><p>For transient simulation, this means at every time-step.</p></li>
+<li><p>For steady-state simulation in which the steady-state problem is solved on successively refined meshes, the user should have <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">1</span></code>, which is the default value.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The minimal and maximal refinement level reachable for a cell are controlled respectively with the <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span></code> parameters.</dt><dd><ul>
+<li><p>for <code class="docutils literal notranslate"><span class="pre">deal.ii</span></code> meshes, if the <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> is equal to the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> (see <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/mesh.html">Mesh paramater</a>), no cell will be coarser than the initial mesh.</p></li>
+<li><p>for <code class="docutils literal notranslate"><span class="pre">gmsh</span></code> imported meshes, if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span> <span class="pre">=</span> <span class="pre">0</span></code>, no cell will be coarser than the initial mesh.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a <code class="docutils literal notranslate"><span class="pre">gmsh</span></code> mesh, a cell cannot be coarsened more than it’s initial level. Consequently, adaptively refined simulations should start with a mesh as coarse as possible.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For a good compromise between speed and precision, <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> should be set to <code class="docutils literal notranslate"><span class="pre">2</span></code> or <code class="docutils literal notranslate"><span class="pre">3</span></code> more than the <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code></p>
+</div>
+<ul class="simple">
+<li><p>The fraction of cell that are refined and coarsened are controlled with the <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> and <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">coarsening</span></code> parameters.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">kelly</span></code>, and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">variable</span> <span class="pre">=</span> <span class="pre">velocity</span></code> or <code class="docutils literal notranslate"><span class="pre">pressure</span></code>, a good first start is achieve with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">fraction</span> <span class="pre">refinement</span> <span class="pre">=</span> <span class="pre">0.2</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">fraction</span> <span class="pre">coarsening</span> <span class="pre">=</span> <span class="pre">0.1</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">kelly</span></code>, and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">variable</span> <span class="pre">=</span> <span class="pre">phase</span></code>, use <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">fraction</span></code> (explained below) and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">fraction</span> <span class="pre">refinement</span> <span class="pre">=</span> <span class="pre">0.8</span></code> for a good tracking of the entire free surface (see <a class="reference external" href="file:///home/jeannej/Softwares/lethe/lethe/doc/build/html/parameters/cfd/multiphysics.html">Multiphysics</a>).</p>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>The fraction of refinement/coarsening can be interpreted in <code class="docutils literal notranslate"><span class="pre">number</span></code> or <code class="docutils literal notranslate"><span class="pre">fraction</span></code>  depending on the parameter <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">type</span></code>. At first sight, this is a relatively difficult concept to understand that is inherited from deal.II.</dt><dd><ul>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">number</span></code>  the  <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridRefinement.html#a48e5395381ed87155942a61a1edd134d">refine_and_coarsen_fixed_number</a> strategy of deal.II is used. This function provides a strategy to mark cells for refinement and coarsening with the goal of providing predictable growth in the size of the mesh by refining  and coarsening a given fraction of all cells.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">fraction</span></code>,  the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridRefinement.html#ae90dc87c4db158b8d01f6d564ac614e5">refine_and_coarsen_fixed_fraction</a> strategy is used. This function provides a strategy to mark cells for refinement and coarsening with the goal of controlling the reduction of the error estimate. Also known as the bulk criterion or Dörfler marking, this function computes the thresholds for refinement and coarsening such that the criteria of cells getting flagged for refinement make up for a certain fraction of the total error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The maximum number of elements in the entire domain can be controlled with the <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">number</span> <span class="pre">elements</span></code> parameter.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">number</span> <span class="pre">elements</span></code> parameter puts a hard limit on the number of cells in the domain, even if the <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> is increased.</p>
+</div>
 </section>
 
         </article>
@@ -299,23 +349,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="timer.html">
+          <a class="next-page" href="fem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Timer</div>
+                <div class="title">Finite element interpolation (FEM)</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="force_and_torque.html">
+          <a class="prev-page" href="mesh.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Force and torque calculation</div>
+                <div class="title">Mesh</div>
                 
               </div>
             </a>
@@ -325,7 +375,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/post_processing.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/mesh_adaptation_control.rst.txt"
                rel="nofollow">
               Show Source
             </a>
