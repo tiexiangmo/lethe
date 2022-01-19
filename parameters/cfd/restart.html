@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Void Fraction" href="void_fraction.html" /><link rel="prev" title="Boundary Conditions" href="../dem/boundary_conditions.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Discrete Element Method (DEM)" href="../dem/dem.html" /><link rel="prev" title="Nitsche" href="nitsche.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Unresolved CFD-DEM - Lethe documentation</title>
+        <title>Finite element interpolation (FEM) - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -164,22 +164,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching your first simulation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/fem.html">Finite element interpolation (FEM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/source_term.html">Source term</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/analytical_solution.html">Analytical solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/force_and_torque.html">Force and torque calculation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/post_processing.html">Post-Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/timer.html">Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/nitsche.html">Nitsche</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/restart.html">Finite element interpolation (FEM)</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="cfd.html">General, CFD and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source_term.html">Source term</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Finite element interpolation (FEM)</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -194,9 +194,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../dem/boundary_conditions.html">Boundary Conditions</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Unresolved CFD-DEM</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="void_fraction.html">Void Fraction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cfd_dem.html">CFD-DEM</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unresolved_cfd-dem/void_fraction.html">Void Fraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unresolved_cfd-dem/cfd_dem.html">CFD-DEM</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../resolved_cfd-dem/resolved_cfd-dem.html">Resolved CFD-DEM</a></li>
@@ -250,15 +250,37 @@
           </label>
         </div>
         <article role="main">
-          <section id="unresolved-cfd-dem">
-<h1>Unresolved CFD-DEM<a class="headerlink" href="#unresolved-cfd-dem" title="Permalink to this headline">¶</a></h1>
-<p>The CFD-DEM solver templates are available in both 2D (<code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling_2d</span></code>) and 3D (<code class="docutils literal notranslate"><span class="pre">cfd_dem&gt;_coupling_3d</span></code>). The following parameter subsections are defined similarly to the CFD parameter template: “Simulation Control”, “FEM”, “Physical Properties” which represent the properties of the fluid, <a class="reference internal" href="../cfd/mesh.html"><span class="doc">Mesh</span></a>, <a class="reference internal" href="../cfd/initial_conditions.html"><span class="doc">Initial Conditions</span></a>, and <a class="reference internal" href="../cfd/boundary_conditions_cfd.html"><span class="doc">Boundary conditions - CFD</span></a>. The following parameter subsections are defined similarly to the DEM parameter template: <a class="reference internal" href="../dem/model_parameters.html"><span class="doc">Model Parameters</span></a> and <a class="reference internal" href="../dem/lagrangian_physical_properties.html"><span class="doc">Lagrangian Physical Properties</span></a> which represents the physical properties of the solid phase (particles). Two new subsections are introduced for the Volume Averaged Navier Stokes (VANS) solver as well as for the coupled unresolved CFD-DEM simulations. These are <a class="reference internal" href="void_fraction.html"><span class="doc">Void Fraction</span></a> and <a class="reference internal" href="cfd_dem.html"><span class="doc">CFD-DEM</span></a> subsections. Parameters that are only applicable to the CFD-DEM solver are mentioned in their definitions.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="void_fraction.html">Void Fraction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cfd_dem.html">CFD-DEM</a></li>
-</ul>
+          <section id="finite-element-interpolation-fem">
+<h1>Finite element interpolation (FEM)<a class="headerlink" href="#finite-element-interpolation-fem" title="Permalink to this headline">¶</a></h1>
+<p>This subsection controls the restart and checkpointing of the simulation.
+This feature is used to restart a time-dependent simulation using the data written on the last checkpoint before the simulation stopped or crashed.
+The default parameters are:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection restart
+  set checkpoint = false
+  set restart    = false
+  set filename   = restart
+  set frequency  = 1
+end
+</pre></div>
 </div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> option enables creating a checkpoint of the simulation when it is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You may want to enable it when launching a time-dependent simulation if you fear you might either run out of memory/simulation time during the simulation.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">restart</span></code> option controls if the simulation will be restarted from a previous checkpoint. Turn this parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code> for the first checkpoint creation. The simulation will start from the last checkpoint when the parameter is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and will finish at the provided time end (see <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/simulation_control.html">Simulation Control</a>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">filename</span></code> parameter fixes the prefix of all the checkpointing files.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Restart files are searched for in the output path specified in subsection simulation control.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">frequency</span></code> parameter controls the checkpointing frequency. Checkpointing is very intensive from an I/O point of view, consequently it should not be done at every iteration. The checkpointing frequency is is accordance to the number of <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> (see <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/simulation_control.html">Simulation Control</a>).</p></li>
+</ul>
 </section>
 
         </article>
@@ -266,23 +288,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="void_fraction.html">
+          <a class="next-page" href="../dem/dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Void Fraction</div>
+                <div class="title">Discrete Element Method (DEM)</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../dem/boundary_conditions.html">
+          <a class="prev-page" href="nitsche.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Boundary Conditions</div>
+                <div class="title">Nitsche</div>
                 
               </div>
             </a>
@@ -292,7 +314,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/unresolved_cfd-dem/unresolved_cfd-dem.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/restart.rst.txt"
                rel="nofollow">
               Show Source
             </a>
