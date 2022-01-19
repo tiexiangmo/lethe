@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Running Lethe on Compute Canada clusters" href="compute_canada.html" /><link rel="prev" title="Regular installation" href="regular_installation.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Using a deal.II Docker container - Lethe documentation</title>
+        <title>Docker - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -157,7 +157,7 @@
   <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="installation.html">Installation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="regular_installation.html">Regular installation</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Using a deal.II  Docker container</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Docker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="compute_canada.html">Running Lethe on Compute Canada clusters</a></li>
 </ul>
 </li>
@@ -251,8 +251,14 @@
           </label>
         </div>
         <article role="main">
-          <section id="using-a-deal-ii-docker-container">
-<h1>Using a deal.II  Docker container<a class="headerlink" href="#using-a-deal-ii-docker-container" title="Permalink to this headline">¶</a></h1>
+          <section id="docker">
+<h1>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need to install <a class="reference external" href="https://www.docker.com/get-started">Docker</a> and have 5 GB of free disk space.</p>
+</div>
+<section id="using-a-deal-ii-docker-container">
+<h2>Using a deal.II  Docker container<a class="headerlink" href="#using-a-deal-ii-docker-container" title="Permalink to this headline">¶</a></h2>
 <p>The deal.II library is a mature project containing <cite>O(1,000,000)</cite> lines of C++ code, itself depending on other similar libraries (e.g. Trilinos). Compiling deal.II with its exact dependencies can be a daunting task even for moderate C++ programmers - one with many knobs and dials, normally taking 4-6 hours.</p>
 <p>Thankfully, the deal.II dev heroes also maintain some <a class="reference external" href="https://hub.docker.com/r/dealii/dealii/">Docker Hub</a> images containing pre-built deal.II libraries in a Ubuntu environment. For those unfamiliar with Docker, it allows the creation of completely isolated environments, most often pre-configured for specific apps; it is almost like a virtual machine, but running natively on your current OS (the technical term is <em>OS-level</em> virtualization, rather than <em>hardware-level</em>) - so scientific programs shouldn’t have any degradation in performance.</p>
 <p>Below are some instructions for getting pre-configured deal.II environments, reducing the time needed to install lethe’s dependencies from hours to minutes. There are 3 main parts in this tutorial:</p>
@@ -263,8 +269,8 @@
 </ul>
 <p>Sometimes it’s easier to effectively set up a completely new OS than compile millions of lines of C++…</p>
 <section id="tl-dr">
-<span id="id1"></span><h2>0. TL;DR<a class="headerlink" href="#tl-dr" title="Permalink to this headline">¶</a></h2>
-<p>Get <a class="reference external" href="https://docs.docker.com/get-docker/">Docker</a>, then in some directory run:</p>
+<span id="id2"></span><h3>0. TL;DR<a class="headerlink" href="#tl-dr" title="Permalink to this headline">¶</a></h3>
+<p>In some directory run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>local:~$ mkdir lethe-simulations <span class="o">&amp;&amp;</span> <span class="nb">cd</span> lethe-simulations
 local:~/lethe-simulations$ docker run -it --name lethe-container -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/docker-host dealii/dealii:master-focal
 To run a <span class="nb">command</span> as administrator <span class="o">(</span>user <span class="s2">"root"</span><span class="o">)</span>, use <span class="s2">"sudo &lt;command&gt;"</span>.
@@ -283,11 +289,11 @@ This starts a new docker container with an interactive terminal (<code class="co
 <p>Have fun.</p>
 </section>
 <section id="get-docker">
-<h2>1. Get Docker<a class="headerlink" href="#get-docker" title="Permalink to this headline">¶</a></h2>
+<h3>1. Get Docker<a class="headerlink" href="#get-docker" title="Permalink to this headline">¶</a></h3>
 <p>First, install Docker; complete instructions for Windows, Mac or Linux can be found <a class="reference external" href="https://docs.docker.com/get-docker/">here</a>; this should be a relatively quick step.</p>
 </section>
 <section id="launch-a-deal-ii-container">
-<h2>2. Launch a deal.II Container<a class="headerlink" href="#launch-a-deal-ii-container" title="Permalink to this headline">¶</a></h2>
+<h3>2. Launch a deal.II Container<a class="headerlink" href="#launch-a-deal-ii-container" title="Permalink to this headline">¶</a></h3>
 <p>Some Docker basics:</p>
 <ul class="simple">
 <li><p>A Docker <strong>image</strong> is a “frozen”, shareable environment - e.g. a Ubuntu terminal with pre-installed deal.II and its dependencies.</p></li>
@@ -331,7 +337,7 @@ somefile.txt
 <p>That’s all the Docker-specific tutorial! Launch your container running a deal.II image, go to <code class="code docutils literal notranslate"><span class="pre">/home/docker-host</span></code> to save your changes locally too, download lethe, compile it, and run your simulations there.</p>
 </section>
 <section id="saving-docker-commands-in-a-bash-script">
-<span id="saving-docker"></span><h2>3. Saving Docker Commands in a Bash Script<a class="headerlink" href="#saving-docker-commands-in-a-bash-script" title="Permalink to this headline">¶</a></h2>
+<span id="saving-docker"></span><h3>3. Saving Docker Commands in a Bash Script<a class="headerlink" href="#saving-docker-commands-in-a-bash-script" title="Permalink to this headline">¶</a></h3>
 <p>We can add all the commands above, plus some comments and helpful messages to a single shell script named <cite>docker_lethe.sh</cite>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 
@@ -373,9 +379,59 @@ somefile.txt
 </div>
 </section>
 <section id="final-notes">
-<h2>Final Notes<a class="headerlink" href="#final-notes" title="Permalink to this headline">¶</a></h2>
+<h3>Final Notes<a class="headerlink" href="#final-notes" title="Permalink to this headline">¶</a></h3>
 <p>You can now download, run and manage Docker containers pre-configured with deal.II; it is a powerful tool that you can use for any other projects as well, without polluting your main programming environment or spending hours figuring out the specific libraries needed (<a class="reference external" href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a> is real).</p>
 <p>You can now clone <code class="docutils literal notranslate"><span class="pre">lethe</span></code>, compile it, and run large-scale, efficient multi-physics simulations!</p>
+</section>
+</section>
+<section id="no-compilation-required-using-the-provided-lethe-docker-image">
+<h2>No compilation required: Using the Provided Lethe Docker Image<a class="headerlink" href="#no-compilation-required-using-the-provided-lethe-docker-image" title="Permalink to this headline">¶</a></h2>
+<p>If you don’t want to build Lethe and its dependencies, you can use the provided <a class="reference external" href="https://github.com/lethe-cfd/lethe/pkgs/container/lethe">Docker image</a>.</p>
+<p>For example, to launch the 2D Lid-Driven Cavity Flow simulation, run the following lines inside the root Lethe folder:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --rm <span class="se">\</span>
+    -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/dealii <span class="se">\</span>
+    ghcr.io/lethe-cfd/lethe:master <span class="se">\</span>
+    gls_navier_stokes_2d examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm
+</pre></div>
+</div>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>██╗     ███████╗████████╗██╗  ██╗███████╗
+██║     ██╔════╝╚══██╔══╝██║  ██║██╔════╝
+██║     █████╗     ██║   ███████║█████╗
+██║     ██╔══╝     ██║   ██╔══██║██╔══╝
+███████╗███████╗   ██║   ██║  ██║███████╗
+╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝
+
+
+Usage: &lt;program name&gt; [&lt;program arg&gt;, ...]
+
+Available programs:
+===================
+
+▸ cfd_dem_coupling_2d
+▸ cfd_dem_coupling_3d
+▸ dem_2d
+▸ dem_3d
+▸ dem_parameter_template
+▸ gd_navier_stokes_2d
+▸ gd_navier_stokes_3d
+▸ gls_navier_stokes_2d
+▸ gls_navier_stokes_3d
+▸ gls_nitsche_navier_stokes_22
+▸ gls_nitsche_navier_stokes_23
+▸ gls_nitsche_navier_stokes_33
+▸ gls_sharp_navier_stokes_2d
+▸ gls_sharp_navier_stokes_3d
+▸ gls_vans_2d
+▸ gls_vans_3d
+▸ initial_conditions
+▸ navier_stokes_parameter_template
+▸ rpt_3d
+▸ rpt_cell_reconstruction_3d
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -430,12 +486,19 @@ somefile.txt
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Using a deal.II  Docker container</a><ul>
+<li><a class="reference internal" href="#">Docker</a><ul>
+<li><a class="reference internal" href="#using-a-deal-ii-docker-container">Using a deal.II  Docker container</a><ul>
 <li><a class="reference internal" href="#tl-dr">0. TL;DR</a></li>
 <li><a class="reference internal" href="#get-docker">1. Get Docker</a></li>
 <li><a class="reference internal" href="#launch-a-deal-ii-container">2. Launch a deal.II Container</a></li>
 <li><a class="reference internal" href="#saving-docker-commands-in-a-bash-script">3. Saving Docker Commands in a Bash Script</a></li>
 <li><a class="reference internal" href="#final-notes">Final Notes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#no-compilation-required-using-the-provided-lethe-docker-image">No compilation required: Using the Provided Lethe Docker Image</a><ul>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
