@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Source term" href="source_term.html" /><link rel="prev" title="Finite element interpolation (FEM)" href="fem.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Multiphysics" href="multiphysics.html" /><link rel="prev" title="Timer" href="timer.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Boundary conditions - CFD - Lethe documentation</title>
+        <title>Non-linear Solver Control - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -171,13 +171,13 @@
 <li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Boundary conditions - CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source_term.html">Source term</a></li>
 <li class="toctree-l3"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="non-linear_solver_control.html">Non-linear Solver Control</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Non-linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
 <li class="toctree-l3"><a class="reference internal" href="restart.html">Finite element interpolation (FEM)</a></li>
@@ -251,66 +251,107 @@
           </label>
         </div>
         <article role="main">
-          <section id="boundary-conditions-cfd">
-<h1>Boundary conditions - CFD<a class="headerlink" href="#boundary-conditions-cfd" title="Permalink to this headline">¶</a></h1>
-<p>This subsection defines the boundary conditions associated with fluid dynamics physics. Lethe supports the following boundary conditions:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary conditions strongly impose the velocity on a boundary to be <span class="math notranslate nohighlight">\(\mathbf{u}=[0,0]^T\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}=[0,0,0]^T\)</span> in 2D and 3D respectively.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">slip</span></code> boundary conditions impose <span class="math notranslate nohighlight">\(\mathbf{u} \cdot \mathbf{n}=0\)</span>, with <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> the normal vector of the boundary. Imposing slip boundary conditions strongly is not trivial in FEM. We refer the reader to the deal.II <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/group__constraints.html">documentation</a> for explanations on how this is achieved.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">periodic</span></code> boundary conditions, in which fluid exiting the domain will reenter on the opposite side.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code> where a Dirichlet boundary condition is set from an arbitrary function. These functions can be used to define all sorts of steady-state and transient velocity boundary conditions such as rotating walls.</p></li>
-<li><p>Finally, Lethe also supports not imposing a boundary condition on an ID. Not imposing a boundary condition is equivalent to the <em>do nothing</em> boundary condition, which results in a zero net traction on a boundary. This, in fact, imposes <span class="math notranslate nohighlight">\(\int_{\Gamma}(-p\mathcal{I} + \mathbf{\tau}) \cdot \mathbf{n}=0\)</span> where <span class="math notranslate nohighlight">\(p\)</span> is the pressure, <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> is the identity tensor, <span class="math notranslate nohighlight">\(\mathbf{\tau}\)</span> is the deviatoric stress tensor  and <span class="math notranslate nohighlight">\(\Gamma\)</span> is the boundary.</p></li>
-</ul>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-  set number                  = 2
-  set time dependent          = false
-  subsection bc 0
-        set type              = function
+          <section id="non-linear-solver-control">
+<h1>Non-linear Solver Control<a class="headerlink" href="#non-linear-solver-control" title="Permalink to this headline">¶</a></h1>
+<p>The Navier-Stokes equations (and other) are non-linear equations. The parameters in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">non-linear</span> <span class="pre">solver</span></code>, whose default values are given in the text block below, control the non-linear solver used within Lethe.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
+  # Non-linear solver that will be used
+  set solver             = newton
 
-        subsection u
-            set Function expression = -y
-        end
-        subsection v
-            set Function expression = x
-        end
-        subsection w
-            set Function expression = 0
-        end
+  # State whether information from the non-linear solver should be printed
+  set verbosity          = verbose
 
-        # Center of rotation used for torque calculation
-        subsection center of rotation
-           set x = 0
-           set y = 0
-           set z = 0
-        end
-     set periodic_id         = 1
-     set periodic_direction  = 0
-  end
-  subsection bc 1
-        set type              = noslip
-  end
+  # For the inexact_newton solver, sets the tolerance to re-assemble the Jacobian matrix
+  set matrix tolerance   = 0.1
+
+  # For the inexact_newton solver, carry jacobian matrix over to the new non-linear problem
+  set reuse matrix       = false
+
+  # For the kinsol_newton solver,
+  set kinsol_strategy    = line_search
+
+  # Newton solver tolerance
+  set tolerance          = 1e-6
+
+  # Tolerance for the acceptation of the step
+  set step tolerance     = 0.9
+
+  # Maximum number of Newton Iterations
+  set max iterations     = 10
+
+  # Number of digits displayed when showing residuals
+  set residual precision = 4
+
+  # State if the RHS must be calulated at the beginning of every newton iteration
+  set force rhs calculation = false
 end
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">number</span></code> specifies the number of boundary conditions of the problem. Periodicity between 2 boundaries counts as 1 condition even if it requires two distinct boundary ids.</p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The number of boundary conditions must be specified explicitly as the ParameterHandler is not able to deduce the number of boundary conditions from the number of <code class="docutils literal notranslate"><span class="pre">bc</span></code> subsections. This is often a source of error.</p>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">dependent</span></code> specifies if a  boundary condition is time dependent (<code class="docutils literal notranslate"><span class="pre">true</span></code>) or steady (<code class="docutils literal notranslate"><span class="pre">false`</span></code>). By default, this parameter is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is there to improve the computational efficiency for transient cases in which the boundary conditions do not change.</p></li>
+<ul>
+<li><dl>
+<dt>The <code class="docutils literal notranslate"><span class="pre">solver</span></code> parameter enables to choose the nonlinear solver used. Currently, Lethe supports three non-linear solvers:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">newton</span></code> solver (default parameter value), a Newton-Raphson solver which recalculates the Jacobian matrix at every iteration (see the Theory Documentation).</p></li>
 <li><dl class="simple">
-<dt>Each fluid dynamics boundary condition is stored in a <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">no</span></code> subsection :</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> is the type of the boundary condition. Only slip, no-slip, periodic and function are enabled.</p></li>
-<li><p>The subsections <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code> and <code class="docutils literal notranslate"><span class="pre">w</span></code> are used to specify the individual components of the velocity at the boundary using function expressions. These functions can depend on position (<span class="math notranslate nohighlight">\(x,y,z\)</span>) and on time (<span class="math notranslate nohighlight">\(t\)</span>).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code> subsection is only necessary when calculating the torque applied on a boundary. See  See <a class="reference internal" href="force_and_torque.html"><span class="doc">Force and torque calculation</span></a> for more information.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">periodic</span> <span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">periodic_direction</span></code> specify the id and direction of the matching periodic boundary condition. For example, if boundary id 0 (located at xmin) is matched with boundary id 1 (located at xmax), we would set <code class="docutils literal notranslate"><span class="pre">ìd=0</span></code>, <code class="docutils literal notranslate"><span class="pre">periodic_id=1</span></code> and <code class="docutils literal notranslate"><span class="pre">periodic_direction=0</span></code>.</p></li>
+<dt><code class="docutils literal notranslate"><span class="pre">inexact_newton</span></code> solver, a Newton-Raphson solver where the Jacobian matrix is reused between iterations.</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">matrix</span> <span class="pre">tolerance</span></code> parameter sets the tolerance to re-assemble the Jacobian matrix. If the residual after a newton step <span class="math notranslate nohighlight">\(&lt;\)</span> <code class="docutils literal notranslate"><span class="pre">matrix</span> <span class="pre">tolerance</span></code> <span class="math notranslate nohighlight">\(\times\)</span> the previous residual, that iteration is considered sufficient and the Newton iteration will keep using the same jacobian matrix.</p></li>
+<li><p>Setting <code class="docutils literal notranslate"><span class="pre">reuse</span> <span class="pre">matrix</span> <span class="pre">=</span> <span class="pre">true</span></code> enables the usage of the same Jacobian matrix for the following non-linear problem.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">inexact_newton</span></code> solver, along with <code class="docutils literal notranslate"><span class="pre">reuse</span> <span class="pre">matrix</span> <span class="pre">=</span> <span class="pre">true</span></code> can be worthwhile in transient simulations with a small time-step. The goal is to seek a compromise between the cost of assembling the matrix and the preconditioner versus the cost of solving the linear system of equations.</p>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">kinsol_newton</span></code> solver, that uses the Newton-Raphson solver through deal.II, as implemented in the <a class="reference external" href="https://computing.llnl.gov/projects/sundials/kinsol">Sundials library</a>. This solver has an internal algorithm that decides whether to reassemble the Jacobian matrix or not. This non-linear solver is still being tested.</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">kinsol</span> <span class="pre">strategy</span></code> parameter enables to choose the strategy that will be used by the kinsol newton solver, and can be <code class="docutils literal notranslate"><span class="pre">line_search</span></code> (default value), <code class="docutils literal notranslate"><span class="pre">normal_newton</span></code>, <code class="docutils literal notranslate"><span class="pre">fixed_point</span></code> or <code class="docutils literal notranslate"><span class="pre">picard</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> option enables the display of the residual at each non-linear iteration, to monitor the progress of the non-linear iterations.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The residual should decrease rapidly between Newton iterations.
+Example of a <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">verbose</span></code> output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Newton iteration: 0  - Residual:  429.541
+                alpha = 1      res = 0.3705
+Newton iteration: 1  - Residual:  0.3705
+                alpha = 1      res = 0.0001044
+Newton iteration: 2  - Residual:  0.0001044
+                alpha = 1      res = 1.12e-08
+Newton iteration: 3  - Residual:  1.12e-08
+                alpha = 1      res = 1.547e-12
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">tolerance</span></code> parameter controls how much the L2 norm of the residual must decrease to proceed to the next non-linear step. If the <code class="docutils literal notranslate"><span class="pre">new_residual</span></code><span class="math notranslate nohighlight">\(&lt;\)</span> <code class="docutils literal notranslate"><span class="pre">old_residual</span></code><span class="math notranslate nohighlight">\(\times\)</span> <code class="docutils literal notranslate"><span class="pre">step</span> <span class="pre">tolerance</span></code>, then a Newton iteration is accepted. If this condition is not reached, then a relaxation of the step is applied (increasing the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter, as printed on the terminal if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">verbose</span></code>) until this condition is reached.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> parameter controls the value under which the residual must be to proceed to the next iteration.</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> parameter is directly linked to the numerical convergence of the simulation, but also to the computational cost (number of Newton iteration).</p>
+<p>For simple simulations, the tolerance can be set quite low, for instance <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">tolerance</span> <span class="pre">=</span> <span class="pre">1e-12</span></code>. However, such a tolerance can be impossible to attain for more complex simulations : the step tolerance of the non-linear solver can be increased, for instance <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">tolerance</span> <span class="pre">=</span> <span class="pre">1e-4</span></code></p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iterations</span></code> parameter sets a hard limit to the number of Newton iterations, even if the <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> is not reached.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful to always set an absolute tolerance for the linear solver that is below the tolerance of the non-linear solver. Otherwise, you might find that it is impossible to converge because the linear system of equation is solved with insufficient accuracy.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">residual</span> <span class="pre">precision</span></code> parameter enables to change the number of digits displayed when showing residuals (with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">verbose</span></code>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">force_rhs_calculation</span></code>: Force RHS recalculation at the beginning of every non-linear steps, This is required if there is a fixed point component to the non-linear solver that is changed at the beginning of every newton iteration. This is notably the case of the sharp edge method. The default value of this parameter is false.</p></li>
 </ul>
 </section>
 
@@ -319,23 +360,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="source_term.html">
+          <a class="next-page" href="multiphysics.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Source term</div>
+                <div class="title">Multiphysics</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="fem.html">
+          <a class="prev-page" href="timer.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Finite element interpolation (FEM)</div>
+                <div class="title">Timer</div>
                 
               </div>
             </a>
@@ -345,7 +386,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/boundary_conditions_cfd.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/non-linear_solver_control.rst.txt"
                rel="nofollow">
               Show Source
             </a>
