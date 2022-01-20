@@ -470,6 +470,8 @@ end
 </section>
 <section id="results">
 <h2><span class="section-number">3.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">3.6.1. </span>Uniform mesh refinement<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>For the uniform mesh refinement problem, the evolution of the L2 error is as follows:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cells error_velocity  error_pressure
   320 2.6290e-02    - 1.5068e-02     -
@@ -502,6 +504,9 @@ the error converges to zero at first order (error is divided by two when the mes
 <p>We see that the sum of both torque converge towards zero as the mesh is refined, ensuring that Newton’s third law is respected.
 The torque on the inner cylinder should be -0.83776 and we note that the torque on both cylinder converges close to that value.
 Running the simulation with finer meshes lead to this results.</p>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.6.2. </span>Adaptative mesh refinement<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Using Paraview, the steady-state velocity profile can be visualized for the adaptative mesh refinement case:</p>
 <img alt="velocity distribution" class="align-center" src="../../../_images/taylor_couette_with_nitsche_velocity_adapt.png"/>
 <p>The end of the simulation log provides the following information about the convergence of the error:</p>
@@ -527,6 +532,7 @@ Running the simulation with finer meshes lead to this results.</p>
 </pre></div>
 </div>
 <p>We see that even for a small number of cells (~18k), the error on the torque is less than 0.5%.</p>
+</section>
 </section>
 <section id="possibilities-for-extension">
 <h2><span class="section-number">3.7. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
@@ -613,7 +619,11 @@ Running the simulation with finer meshes lead to this results.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#running-the-simulation">3.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">3.6. Results</a></li>
+<li><a class="reference internal" href="#results">3.6. Results</a><ul>
+<li><a class="reference internal" href="#id2">3.6.1. Uniform mesh refinement</a></li>
+<li><a class="reference internal" href="#id3">3.6.2. Adaptative mesh refinement</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#possibilities-for-extension">3.7. Possibilities for extension</a></li>
 <li><a class="reference internal" href="#references">3.8. References</a></li>
 </ul>
