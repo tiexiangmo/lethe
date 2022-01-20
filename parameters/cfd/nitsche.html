@@ -268,19 +268,26 @@
   set number of solids = 1
 
   subsection nitsche solid 0
-        subsection mesh
-              set type = dealii
-              set grid type = hyper_ball
-              set grid arguments = 0, 0 : 0.25 : true
-              set initial refinement = 5
-              set simplex = false
-        end
-        subsection solid velocity
-              set Function expression = -y ; x
-        end
-        set particles sub iterations = 5
-        set stop if particles lost = true
+    subsection mesh
+      set type = dealii
+      set grid type = hyper_ball
+      set grid arguments = 0, 0 : 0.25 : true
+      set initial refinement = 5
+      set simplex = false
+    end
+    subsection solid velocity
+      set Function expression = -y ; x
+    end
+    subsection center of rotation
+      set x = 0
+      set y = 0
+    end
+    set number of quadrature points = 2
+    set particles sub iterations = 5
+    set stop if particles lost = true
+    set enable particles motion = false
   end
+end
 </pre></div>
 </div>
 <ul class="simple">
@@ -297,10 +304,12 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">gmsh</span></code> and a simplex mesh is given, do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">simplex</span> <span class="pre">=</span> <span class="pre">true</span></code> (it is <code class="docutils literal notranslate"><span class="pre">false</span></code> by default)</p>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">velocity</span></code> defines the velocity of the solid mesh. This velocity is defined by a <code class="docutils literal notranslate"><span class="pre">Function</span>  <span class="pre">expression</span></code> and can depend on both space and time.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">particles</span> <span class="pre">motion</span></code> must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the immersed boundary moves. If the boundary is static, for example a rotating cylinder, the shape does not have to move within the fluid and this option can be set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. This saves significant computational time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">velocity</span></code> defines the velocity of the solid mesh. This velocity is defined by a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> and can depend on both space and time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code> sets coordinates (x, y) of the center of the rotation for torque calculation. Default center of rotation is (0, 0). Add coordinate z for 3D simulations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">quadrature</span> <span class="pre">points</span></code> sets the number of Nitsche (quadrature) points to insert in a 1D cell. The number of inserted points will be higher for higher dimensions. Increasing this number will lead to a higher points density inside the solid.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span></code> splits the particle time-stepping into <code class="docutils literal notranslate"><span class="pre">n</span></code> sub time steps. This enables the particles to move less per iteration and makes the <code class="docutils literal notranslate"><span class="pre">sort_particles_into_cells_and_subdomain()</span></code> routine, which is used to locate the cells in which the particles reside, significantly faster.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">if</span> <span class="pre">particles</span> <span class="pre">lost</span></code> enables stopping the simulation if Nitsche particles have been lost. If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the simulation will continue. To prevent particle loss, try increasing the <code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">particles</span> <span class="pre">motion</span></code> must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the immersed boundary moves. If the boundary is static, for example a rotating cylinder, the shape does not have to move within the fluid and this option can be set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. This saves significant computational time.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">test</span></code> prints the positions of the particles in the terminal at the end of the simulation. This is mostly used for testing purposes.</p></li>
 </ul>
 </section>
