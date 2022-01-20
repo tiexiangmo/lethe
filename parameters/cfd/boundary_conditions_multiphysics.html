@@ -215,6 +215,7 @@
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">1. Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">2. Tracer through CAD Junction in Simplex</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -265,7 +266,8 @@
 <p>This subsection’s purpose is defining the boundary conditions associated to multiphysic problems.</p>
 <section id="heat-transfer">
 <h2>Heat Transfer<a class="headerlink" href="#heat-transfer" title="Permalink to this headline">¶</a></h2>
-<p>For heat transfer boundary conditions, the defaults parameters are:</p>
+<p>For heat transfer boundary conditions, the possible <code class="docutils literal notranslate"><span class="pre">types</span></code> are <code class="docutils literal notranslate"><span class="pre">temperature</span></code> (default) and <code class="docutils literal notranslate"><span class="pre">convection</span></code>.
+The default parameters of each are shown:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions heat transfer
 set number                  = 2
     subsection bc 0
