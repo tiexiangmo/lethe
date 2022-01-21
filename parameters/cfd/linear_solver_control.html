@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Simulation Control" href="simulation_control.html" /><link rel="prev" title="Parameters guide" href="../parameters.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Multiphysics" href="multiphysics.html" /><link rel="prev" title="Non-linear Solver Control" href="non-linear_solver_control.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>General, CFD and Multiphysics - Lethe documentation</title>
+        <title>Linear Solver Control - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -164,7 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching your first simulation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">General, CFD and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="cfd.html">General, CFD and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
@@ -178,7 +178,7 @@
 <li class="toctree-l3"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="non-linear_solver_control.html">Non-linear Solver Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="linear_solver_control.html">Linear Solver Control</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Multiphysics - Boundary Contitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
@@ -265,30 +265,189 @@
           </label>
         </div>
         <article role="main">
-          <section id="general-cfd-and-multiphysics">
-<h1>General, CFD and Multiphysics<a class="headerlink" href="#general-cfd-and-multiphysics" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+          <section id="linear-solver-control">
+<h1>Linear Solver Control<a class="headerlink" href="#linear-solver-control" title="Permalink to this headline">¶</a></h1>
+<p>In this subsection, the control options of linear solvers are specified. These control options may include solution method, maximum number of iterations, tolerance, residual precision and preconditioner information. The default values for these parameters are given in the text box below.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For further understanding about the numerical method used and advanced parameters, the interested reader is referred to the Theory Documentation.</p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
+
+  # Iterative solver for the linear system of equations
+  set method            = gmres
+
+  # State whether information from the linear solver should be printed
+  set verbosity         = verbose
+
+  # Linear solver minimum residual
+  set minimum residual  = 1e-12
+
+  # Linear solver residual
+  set relative residual = 1e-3
+
+  # Maximum solver iterations
+  set max iters         = 1000
+
+  # Force the linear solver to continue even if it fails
+  set force linear solver continuation = false
+
+  # Maximum number of krylov vectors for GMRES and AMG solvers
+  set max krylov vectors = 100
+
+  #---------------------------------------------------
+  # ILU preconditioner parameters for GMRES and BICGSTAB solvers
+  #---------------------------------------------------
+  # ILU preconditioner fill
+  set ilu preconditioner fill = 0
+
+  # ILU preconditioner tolerance
+  set ilu preconditioner absolute tolerance = 1e-12
+
+  # ILU relative tolerance
+  set ilu preconditioner relative tolerance = 1.00
+
+  #---------------------------------------------------
+  # ILU smoother/coarsener parameters for AMG preconditioner
+  #---------------------------------------------------
+  # AMG preconditioner ILU smoother/coarsener fill
+  set amg preconditioner ilu fill = 0
+
+  # AMG preconditioner ILU smoother/coarsener absolute tolerance
+  set amg preconditioner ilu absolute tolerance = 1e-12
+
+  # AMG preconditioner ILU smoother/coarsener relative tolerance
+  set amg preconditioner ilu relative tolerance = 1.00
+
+  #---------------------------------------------------
+  # other AMG solver parameters
+  #---------------------------------------------------
+  # AMG aggregation threshold
+  set amg aggregation threshold = 1e-14
+
+  # AMG number of cycles
+  set amg n cycles              = 1
+
+  # AMG w cycling. If this is set to true, W cycling is used. Otherwise, V cycling is used.
+  set amg w cycles              = false
+
+  # AMG smoother sweeps
+  set amg smoother sweeps       = 2
+
+  # amg smoother overlap
+  set amg smoother overlap      = 1
+end
+</pre></div>
+</div>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mesh.html">Mesh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="source_term.html">Source term</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="timer.html">Timer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="non-linear_solver_control.html">Non-linear Solver Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linear_solver_control.html">Linear Solver Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="boundary_conditions_multiphysics.html">Multiphysics - Boundary Contitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
-<li class="toctree-l1"><a class="reference internal" href="restart.html">Finite element interpolation (FEM)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
+<li><dl>
+<dt>The <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter enables to choose an iterative solver for the linear system of equations. Lethe currently supports these core solution strategies:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gmres</span></code> (default parameter value), a GMRES iterative solver with ILU preconditioning.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amg</span></code>, a GMRES iterative solver with AMG preconditioning and an ILU coarsener and smoother.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bicgstab</span></code>, a BICGSTAB iterative solver with ILU preconditioning.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">direct</span></code>, a direct solver using <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classTrilinosWrappers_1_1SolverDirect.html">TrilinosWrappers::SolverDirect</a>.</p></li>
 </ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Which solver is the most efficient for a given problem?</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>For steady-state problems (2D and 3D):</dt><dd><ul>
+<li><p>coarse meshes: <code class="docutils literal notranslate"><span class="pre">gmres</span></code>/<code class="docutils literal notranslate"><span class="pre">bicgstab</span></code> solver with ILU preconditioning.</p></li>
+<li><p>fine meshes (from <span class="math notranslate nohighlight">\(\approx 1\)</span> M cells): <code class="docutils literal notranslate"><span class="pre">amg</span></code> solver.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>For transient problems, this is much more problem dependent, but generally:</dt><dd><ul>
+<li><p>relatively low <span class="math notranslate nohighlight">\(\text{CFL}\)</span> condition: <code class="docutils literal notranslate"><span class="pre">gmres</span></code> solver with a low fill level, for instance <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">fill</span> <span class="pre">=</span> <span class="pre">0</span></code>. This applies even the mesh is very large (<span class="math notranslate nohighlight">\(&gt;10\)</span> M cells), because the transient version of the system of equation is much easier to solve.</p></li>
+<li><p>large <span class="math notranslate nohighlight">\(\text{CFL}\)</span> condition (<span class="math notranslate nohighlight">\(\text{CFL}&gt;10\)</span>) and/or very large mesh: <code class="docutils literal notranslate"><span class="pre">amg</span></code> solver may become preferable.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Be aware that the setup of the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner is very expensive and does not scale linearly with the size of the matrix. As such, it is generally preferable to minimize the number of assembly of such preconditioner. This can be achieved by using the <code class="docutils literal notranslate"><span class="pre">inexact</span> <span class="pre">newton</span></code> (see <a class="reference internal" href="non-linear_solver_control.html"><span class="doc">Non-linear Solver Control</span></a>).</p>
+<p>The use of <code class="docutils literal notranslate"><span class="pre">direct</span></code> solver should be avoided for 3D problems.</p>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> option enables the display of the residual at each non-linear iteration, to monitor the progress of the linear iterations.</p></li>
+</ul>
+<div class="admonition-example-of-a-set-verbosity-verbose-output admonition">
+<p class="admonition-title">Example of a <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">verbose</span></code> output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-Tolerance of iterative solver is : 0.0429541
+-Iterative solver took : 11 steps
+-Tolerance of iterative solver is : 3.62082e-05
+-Iterative solver took : 16 steps
+-Tolerance of iterative solver is : 1.05775e-08
+-Iterative solver took : 17 steps
+-Tolerance of iterative solver is : 1.00205e-12
+-Iterative solver took : 16 steps
+-Tolerance of iterative solver is : 1e-13
+-Iterative solver took : 5 steps
+-Tolerance of iterative solver is : 1e-13
+-Iterative solver took : 0 steps
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">residual</span></code> for the linear solver.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">relative</span> <span class="pre">residual</span></code> for the linear solver.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A good rule of thumb is to set the linear solver <code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">residual</span></code> at least <span class="math notranslate nohighlight">\(10\)</span> times (preferably <span class="math notranslate nohighlight">\(100\)</span> times) smaller than the <cite>Non-linear solver :doc:non-linear_solver_control</cite> <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> parameter, and keep the relative residual reasonable, for instance <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">relative</span> <span class="pre">residual</span> <span class="pre">=</span> <span class="pre">1e-3</span></code>. To lower the computational cost for more complex simulations, it can be lowered to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">relative</span> <span class="pre">residual</span> <span class="pre">=</span> <span class="pre">1e-4</span></code>.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iters</span></code> puts a hard stop on the number of solver iterations (number of steps printed when <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">verbose</span></code>).</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iters</span></code> is reached, the code will throw this type of message:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GMRES solver failed! Trying with a higher preconditioner fill level.
+</pre></div>
+</div>
+<p>meaning that the code increases the preconditioner fill (see definition below) in order to converge within the number of solver iterations. If you encounter this, consider increasing the <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iters</span></code> or adjusting other parameters, for example increasing <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">krylov</span> <span class="pre">vectors</span></code>.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">force</span> <span class="pre">linear</span> <span class="pre">solver</span> <span class="pre">continuation</span></code> enables, when set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, to force the linear solver to continue, even if the <code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">residual</span></code> is not reached. Only available for <code class="docutils literal notranslate"><span class="pre">GMRES</span></code> solver within the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code> application.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>With this mode on, errors on the linear solver convergence are not thrown. Forcing the solver to continue can be useful for debugging purposes if a given iteration is hard to pass, but use with caution!</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">krylov</span> <span class="pre">vectors</span></code> sets the maximum number of krylov vectors for <code class="docutils literal notranslate"><span class="pre">GMRES</span></code> and <code class="docutils literal notranslate"><span class="pre">AMG</span></code> solvers.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Consider using <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">max</span> <span class="pre">krylov</span> <span class="pre">vectors</span> <span class="pre">=</span> <span class="pre">200</span></code> for complex simulations with convergence issues.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">fill</span></code>, <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">absolute</span> <span class="pre">tolerance</span></code> and <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">relative</span> <span class="pre">tolerance</span></code> control the ILU preconditioner for <code class="docutils literal notranslate"><span class="pre">method</span></code> using ILU preconditioner (<code class="docutils literal notranslate"><span class="pre">gmres</span></code> and <code class="docutils literal notranslate"><span class="pre">bicgstab</span></code>). Conversely, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">preconditioner</span> <span class="pre">ilu</span> <span class="pre">fill</span></code>, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">preconditioner</span> <span class="pre">ilu</span> <span class="pre">absolute</span> <span class="pre">tolerance</span></code> and <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">preconditioner</span> <span class="pre">ilu</span> <span class="pre">relative</span> <span class="pre">tolerance</span></code> control the ILU coarsener and smoother for the AMG preconditioner.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The default values for these parameters are good starting values.</p>
+<p>For each iteration of the linear solver (at the beginning of which the tolerance of the iterative solver is computed, as printed if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">verbose</span></code>), the chosen solver starts by using the <code class="docutils literal notranslate"><span class="pre">preconditioner</span> <span class="pre">fill</span></code> given in the parameter file. If for any reason the linear solver would have crashed, it will restart with a fill level increased by 1. This restart process will happen up to a maximum of 3 times, after which it will let the solver crash.</p>
+<p>Hence, for complex simulations, if you get at almost every linear iteration the message:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GMRES solver failed! Trying with a higher preconditioner fill level. New fill = ...
+</pre></div>
+</div>
+<p>and it does not disappear when increasing <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iters</span></code>, increasing the <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">fill</span></code> in the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file will make the computation slightly faster.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">aggregation</span> <span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">n</span> <span class="pre">cycles</span></code>, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">w</span> <span class="pre">cycles</span></code> (if this is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, W cycling is used, if <code class="docutils literal notranslate"><span class="pre">false</span></code>, V cycling is used), <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">smoother</span> <span class="pre">sweeps</span></code>, and <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">smoother</span> <span class="pre">overlap</span></code> are parameters used for the AMG <code class="docutils literal notranslate"><span class="pre">method</span></code> only.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more information about the <code class="docutils literal notranslate"><span class="pre">amg</span></code> solver parameters, the reader is referred to the dealII documentation for the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classTrilinosWrappers_1_1PreconditionAMG.html">AMG preconditioner</a> and its <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/structTrilinosWrappers_1_1PreconditionAMG_1_1AdditionalData.html">Additional Data</a></p>
 </div>
 </section>
 
@@ -297,23 +456,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="simulation_control.html">
+          <a class="next-page" href="multiphysics.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Simulation Control</div>
+                <div class="title">Multiphysics</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../parameters.html">
+          <a class="prev-page" href="non-linear_solver_control.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Parameters guide</div>
+                <div class="title">Non-linear Solver Control</div>
                 
               </div>
             </a>
@@ -323,7 +482,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/cfd.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/linear_solver_control.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -342,5 +501,6 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
