@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Multiphysics Examples" href="../../multiphysics/multiphysics.html" /><link rel="prev" title="3. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Multiphysics Examples" href="../../multiphysics/multiphysics.html" /><link rel="prev" title="5. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>4. 3D Flow over periodic hills - Lethe documentation</title>
+        <title>6. 3D Flow over periodic hills - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -208,9 +208,11 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../incompressible-flow.html">Incompressible Flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">1. 2D Lid-Driven Cavity Flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">2. 2D Taylor-Couette Flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">3. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">4. 3D Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html">2. 2D Flow around a Cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">3. 2D Transient flow around an Ahmed body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">4. 2D Taylor-Couette Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">5. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">6. 3D Flow over periodic hills</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -262,32 +264,32 @@
         </div>
         <article role="main">
           <section id="d-flow-over-periodic-hills">
-<h1><span class="section-number">4. </span>3D Flow over periodic hills<a class="headerlink" href="#d-flow-over-periodic-hills" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>3D Flow over periodic hills<a class="headerlink" href="#d-flow-over-periodic-hills" title="Permalink to this headline">¶</a></h1>
 <p>This example is a well-established benchmark for Computational Fluid Dynamics software known as the <a class="reference external" href="https://kbwiki.ercoftac.org/w/index.php?title=Abstr:2D_Periodic_Hill_Flow">periodic hills flow</a>. It includes complex flow features such as the generation of an unsteady shear layer, recirculation, strong pressure gradients, attached and detached boundary layers and turbulence recycling due to the periodicity assumption.</p>
 <section id="features">
-<h2><span class="section-number">4.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code> (with Q1-Q1)</p></li>
 <li><p>Transient problem</p></li>
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">4.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible_flow/3d_periodic_hills/periodic_hills.prm</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">4.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>In this case a well-defined flow passes over a series of hills which repeat along a channel in a periodic fashion as it can be seen in the following figure (taken from ERCOFTAC [1]):</p>
 <img alt="The geometry" class="align-center" id="geometry-description" src="../../../_images/geometry_description.jpg"/>
 <p>As the flow passes over the hill, it is subjected to the effects of both the curvature of the hill and the pressure gradient. The adverse pressure gradient on the leeward side of the hill and resulting deceleration of the flow causes the boundary layer to separate from the curved hill surface. The flow then recirculates on the leeward side of the hill and reattaches in the base of the channel before the next hill. There is a short distance remaining before the subsequent hill which allows the boundary layer to recover. The flow then accelerates up and over the second hill, and the flow pattern repeats in a periodic manner.</p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">4.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>All the sections of the parameter file used in this case have been already explained in previous examples. However, for the sake of completeness, the important sections are briefly explained.</p>
 <section id="simulation-control">
-<h3><span class="section-number">4.4.1. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.1. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>This section controls the flow of the simulation.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
 # Simulation and IO Control
@@ -309,7 +311,7 @@ end
 </div>
 </section>
 <section id="physical-properties">
-<h3><span class="section-number">4.4.2. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.2. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The physical properties section is used to target a specific Reynolds number:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Physical Properties
@@ -325,7 +327,7 @@ end
 <p>Taking this into account and the fact that the height of the hill <span class="math notranslate nohighlight">\(h\)</span> is 1 <span class="math notranslate nohighlight">\(m\)</span>, we set the bulk velocity to 1 <span class="math notranslate nohighlight">\(m s^{-1}\)</span> and the <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">1.78571E-04</span></code> to obtain a Reynolds number of 5600.</p>
 </section>
 <section id="mesh">
-<h3><span class="section-number">4.4.3. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.3. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The mesh subsection specifies the computational grid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Mesh
@@ -347,7 +349,7 @@ end
 <img alt="Mesh" class="align-center" id="id1" src="../../../_images/mesh.png"/>
 </section>
 <section id="boundary-conditions">
-<h3><span class="section-number">4.4.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>In this section, we specify the boundary conditions taking into account the IDs presented in the following scheme:</p>
 <img alt="bcs" class="align-center" id="id2" src="../../../_images/boundary_conditions.png"/>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
@@ -381,7 +383,7 @@ end
 <p>First, a <code class="docutils literal notranslate"><span class="pre">periodic</span></code> boundary condition is set for both the inlet id <code class="docutils literal notranslate"><span class="pre">0</span></code> and outlet id <code class="docutils literal notranslate"><span class="pre">1</span></code> of the flow. For the bottom and top walls we set <code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary conditions, while for the side walls id <code class="docutils literal notranslate"><span class="pre">4</span></code> and <code class="docutils literal notranslate"><span class="pre">5</span></code> we consider periodic boundary conditions too, because it allows to represent the bulk flow of the channel. All the boundary conditions are set to represent the actual benchmark case.</p>
 </section>
 <section id="flow-control">
-<h3><span class="section-number">4.4.5. </span>Flow control<a class="headerlink" href="#flow-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.5. </span>Flow control<a class="headerlink" href="#flow-control" title="Permalink to this headline">¶</a></h3>
 <p>Since the flow is periodic and a specific Reynolds number is targeted for the simulation, the flow has to be controlled at each time step. To allow flow control, the subsection flow control has to be enabled.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Flow control
@@ -403,7 +405,7 @@ end
 </div>
 </section>
 <section id="post-processing">
-<h3><span class="section-number">4.4.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
 <p>The post-processing subsection allows the calculation of different quantities:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Post-Processing
@@ -417,7 +419,7 @@ end
 <p>In this example, we enable the calculation of average velocities through the parameter <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">average</span> <span class="pre">velocities</span></code> after a certain time of the simulation. In this case, this time is set to <code class="docutils literal notranslate"><span class="pre">207</span></code> as we allow for the flow to reach some stability. The results of the calculated values will be available in the <code class="docutils literal notranslate"><span class="pre">.vtu</span></code> files when opened with a visualization software.</p>
 </section>
 <section id="fem">
-<h3><span class="section-number">4.4.7. </span>FEM<a class="headerlink" href="#fem" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.7. </span>FEM<a class="headerlink" href="#fem" title="Permalink to this headline">¶</a></h3>
 <p>The FEM subsection specifies the order of the elements used for both velocity and pressure.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # FEM
@@ -431,7 +433,7 @@ end
 <p>For this example we simply consider Q1-Q1 elements. However, it can also be run using Q2-Q2 elements. In that case, it is important to remember to add the <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">qmapping</span> <span class="pre">all</span> <span class="pre">=</span> <span class="pre">true</span></code> line after the velocity and pressure orders.</p>
 </section>
 <section id="non-linear-solver-control">
-<h3><span class="section-number">4.4.8. </span>Non-Linear Solver Control<a class="headerlink" href="#non-linear-solver-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.8. </span>Non-Linear Solver Control<a class="headerlink" href="#non-linear-solver-control" title="Permalink to this headline">¶</a></h3>
 <p>The non-linear solver control section allows us to choose a method suitable for the problem that we are solving:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
 # Non-Linear Solver Control
@@ -448,7 +450,7 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">4.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code> executable is within your path, the simulation can be launched by typing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_navier_stokes_3d periodic_hills.prm
 </pre></div>
@@ -457,7 +459,7 @@ end
 <p>Due to the complexity of this example we recommend that you run this example using a cluster or supercomputer if available. For this it is necessary to add the <code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">X</span></code> command at the beginning of the line. The number of processes <code class="docutils literal notranslate"><span class="pre">X</span></code> must be adjusted according to the machine. If you want to run this in a normal desktop we recommend that you set the parameter <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">end</span></code> to <code class="docutils literal notranslate"><span class="pre">5.0</span></code>; this allows you to observe the initial behavior of the simulation.</p>
 </section>
 <section id="results">
-<h2><span class="section-number">4.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>To summarize, a coarse mesh of 250K cells was simulated, using a time step of 0.1 and taking average quantities between 207s and 1000s. The results are compared against established test data from both experiments and another CFD simulation. The experimental data corresponds to the data obtained from Rapp [2] and the computational data is extracted from the results of the LESOCC CFD code by Breuer et al. [3].</p>
 <p>The following image shows the average velocity profiles in the x-direction:</p>
 <img alt="average velocity" class="align-center" id="average-velocity" src="../../../_images/average_velocity.png"/>
@@ -468,7 +470,7 @@ end
 <p>It can be seen that there is a very good agreement of the Lethe average velocity with the values of both benchmarks. Especially at the lower wall and in the bulk of the flow. The Reynolds stresses are more sensitive than the average velocity, as we can see a bigger difference near to the separation of the flow and the reattachment zone. For the periodic hills case, the reattachment point is a good indicator of the accuracy of the simulation at the near wall region. The reattachment point reported experimentally is 4.83 and for the LESOCC code is 5.09. The value obtained with this simulation is 4.73. This is shorter than the ones reported in the literature and a possible reason for the under-prediction is the coarse mesh that is being used. This value could be further improved by using a finer mesh. In general, this example shows that Lethe can be used to simulate complex flow problems with good accuracy and coarse meshes.</p>
 </section>
 <section id="possibilities-for-extension">
-<h2><span class="section-number">4.7. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Parameter tuning</strong>: It is possible to play with different parameters of the simulation such as time average, time step and number of cells of the mesh and see the effects on the results.</p></li>
 <li><p><strong>High-order elements</strong>: It would be interesting to observe the effect of high-order elements in the simulation of the periodic hills flow. For example, Q2-Q2 elements. The only part of the parameter file that would need to change would be the <code class="docutils literal notranslate"><span class="pre">FEM</span></code> section.</p></li>
@@ -476,7 +478,7 @@ end
 </ul>
 </section>
 <section id="references">
-<h2><span class="section-number">4.8. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.8. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>[1] ERCOFTAC. File: hill3d.jpg. 2010. URL <a class="reference external" href="https://www.kbwiki.ercoftac.org/w/index.580php?title=File:Hill3d.jpg#filelinks">https://www.kbwiki.ercoftac.org/w/index.580php?title=File:Hill3d.jpg#filelinks</a>.</p>
 <p>[2] Rapp C. Experimentelle studie der turbulenten strömung über periodische hügel. Ph.D. thesis; Technische Universität München; 2009</p>
 <p>[3] Breuer M, Peller N, Rapp C, Manhart M. Flow over periodic hills – numerical and experimental study in a wide range of Reynolds numbers. Computers &amp; Fluids 2009;38(2):433–32 doi:bibinfo{doi}{<a class="reference external" href="https://doi.org/10.1016/j.compfluid.2008.05.002">https://doi.org/10.1016/j.compfluid.2008.05.002</a>}. URL <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0045793008001126">https://www.sciencedirect.com/science/article/pii/S0045793008001126</a>.</p>
@@ -504,7 +506,7 @@ end
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">3. </span>2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</div>
+                <div class="title"><span class="section-number">5. </span>2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</div>
                 
               </div>
             </a>
@@ -534,25 +536,25 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">4. 3D Flow over periodic hills</a><ul>
-<li><a class="reference internal" href="#features">4.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">4.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">4.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">4.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#simulation-control">4.4.1. Simulation control</a></li>
-<li><a class="reference internal" href="#physical-properties">4.4.2. Physical properties</a></li>
-<li><a class="reference internal" href="#mesh">4.4.3. Mesh</a></li>
-<li><a class="reference internal" href="#boundary-conditions">4.4.4. Boundary conditions</a></li>
-<li><a class="reference internal" href="#flow-control">4.4.5. Flow control</a></li>
-<li><a class="reference internal" href="#post-processing">4.4.6. Post-processing</a></li>
-<li><a class="reference internal" href="#fem">4.4.7. FEM</a></li>
-<li><a class="reference internal" href="#non-linear-solver-control">4.4.8. Non-Linear Solver Control</a></li>
+<li><a class="reference internal" href="#">6. 3D Flow over periodic hills</a><ul>
+<li><a class="reference internal" href="#features">6.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">6.2. Location of the example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">6.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">6.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#simulation-control">6.4.1. Simulation control</a></li>
+<li><a class="reference internal" href="#physical-properties">6.4.2. Physical properties</a></li>
+<li><a class="reference internal" href="#mesh">6.4.3. Mesh</a></li>
+<li><a class="reference internal" href="#boundary-conditions">6.4.4. Boundary conditions</a></li>
+<li><a class="reference internal" href="#flow-control">6.4.5. Flow control</a></li>
+<li><a class="reference internal" href="#post-processing">6.4.6. Post-processing</a></li>
+<li><a class="reference internal" href="#fem">6.4.7. FEM</a></li>
+<li><a class="reference internal" href="#non-linear-solver-control">6.4.8. Non-Linear Solver Control</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">4.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">4.6. Results</a></li>
-<li><a class="reference internal" href="#possibilities-for-extension">4.7. Possibilities for extension</a></li>
-<li><a class="reference internal" href="#references">4.8. References</a></li>
+<li><a class="reference internal" href="#running-the-simulation">6.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">6.6. Results</a></li>
+<li><a class="reference internal" href="#possibilities-for-extension">6.7. Possibilities for extension</a></li>
+<li><a class="reference internal" href="#references">6.8. References</a></li>
 </ul>
 </li>
 </ul>

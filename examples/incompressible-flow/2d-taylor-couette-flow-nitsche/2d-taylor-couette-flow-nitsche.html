@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="4. 3D Flow over periodic hills" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html" /><link rel="prev" title="2. 2D Taylor-Couette Flow" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="6. 3D Flow over periodic hills" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html" /><link rel="prev" title="4. 2D Taylor-Couette Flow" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>3. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries - Lethe documentation</title>
+        <title>5. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -208,9 +208,11 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../incompressible-flow.html">Incompressible Flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">1. 2D Lid-Driven Cavity Flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">2. 2D Taylor-Couette Flow</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">3. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">4. 3D Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html">2. 2D Flow around a Cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">3. 2D Transient flow around an Ahmed body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">4. 2D Taylor-Couette Flow</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">5. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">6. 3D Flow over periodic hills</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -262,11 +264,11 @@
         </div>
         <article role="main">
           <section id="d-taylor-couette-flow-using-nitsche-immersed-boundaries">
-<h1><span class="section-number">3. </span>2D Taylor-Couette Flow Using Nitsche Immersed Boundaries<a class="headerlink" href="#d-taylor-couette-flow-using-nitsche-immersed-boundaries" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>2D Taylor-Couette Flow Using Nitsche Immersed Boundaries<a class="headerlink" href="#d-taylor-couette-flow-using-nitsche-immersed-boundaries" title="Permalink to this headline">¶</a></h1>
 <p>This example revisits the same taylor-couette flow problem in <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">Example 2</a>,
 now using immersed boundaries to represent the inner cylinder. This example demonstrates some of the capabilities of Lethe to simulate the flow around complex geometries without meshing them explicitly with a conformal mesh, but instead by using the Nitsche immersed boundary method available within Lethe.</p>
 <section id="features">
-<h2><span class="section-number">3.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_22</span></code> (with Q1-Q1, Q2-Q1 and Q2-Q2)</p></li>
 </ul>
@@ -282,12 +284,12 @@ now using immersed boundaries to represent the inner cylinder. This example demo
 </ul>
 </section>
 <section id="location-of-the-examples">
-<h2><span class="section-number">3.2. </span>Location of the examples<a class="headerlink" href="#location-of-the-examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Location of the examples<a class="headerlink" href="#location-of-the-examples" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">examples/incompressible_flow/2d_nitsche_taylor-couette/uniform_nitsche_taylor-couette.prm</span></code>
 <code class="docutils literal notranslate"><span class="pre">examples/incompressible_flow/2d_nitsche_taylor-couette/adaptative_nitsche_taylor-couette.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">3.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>The Taylor-Couette flow is the name of a fluid flow in the gap between two long concentric cylinders with different rotational velocities.
 We simulate the same case as the regular Taylor-Couette flow where the inner cylinder rotates at a constant angular anti-clockwise velocity <span class="math notranslate nohighlight">\(\omega\)</span>,
 while the outer cylinder is fixed.
@@ -295,10 +297,10 @@ The following figure shows the geometry of this problem and the corresponding bo
 <img alt="The geometry and boundary conditions" class="align-center" id="geometry" src="../../../_images/taylor_couette.png"/>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">3.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>We first establish the meshes used for the simulation. Using Nitsche immersed boundaries, two meshes are to be defined : the fluid mesh and the geometry mesh (i.e. the inner cylinder).</p>
 <section id="mesh">
-<h3><span class="section-number">3.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection specifies the computational grid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
   set type = dealii
@@ -317,7 +319,7 @@ end
 <img alt="The fluid mesh" class="align-center" id="fluid" src="../../../_images/background_mesh_taylor-couette.png"/>
 </section>
 <section id="nitsche-mesh">
-<h3><span class="section-number">3.4.2. </span>Nitsche mesh<a class="headerlink" href="#nitsche-mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.2. </span>Nitsche mesh<a class="headerlink" href="#nitsche-mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Nitsche</span></code> subsection specifies the solid geometry embedded in the fluid domain. The Nitsche Immersed Boundary (IB) uses particles located at the
 Gauss quadrature points of the immersed mesh to represent the immersed body. For a thorough explanation of this, we refer the reader to <a class="reference external" href="https://www.dealii.org/developer/doxygen/deal.II/step_70">step-70</a> of deal.II.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection nitsche
@@ -348,7 +350,7 @@ subsection. Finally, the motion of the particle is disabled. This means that eve
 <img alt="The background mesh and the embedded particles" class="align-center" id="nitsche-particles" src="../../../_images/taylor_couette_with_nitsche_mesh.png"/>
 </section>
 <section id="boundary-conditions">
-<h3><span class="section-number">3.4.3. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.3. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> subsection becomes simple since the inner cylinder boundaries were specified in the previous section.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
   set number                  = 1
@@ -361,7 +363,7 @@ end
 <p>First, the <code class="docutils literal notranslate"><span class="pre">number</span></code> of boundary conditions to be applied must be specified. For each boundary condition, the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the boundary as well as its <code class="docutils literal notranslate"><span class="pre">type</span></code> must be specified. The outer cylinder (<code class="docutils literal notranslate"><span class="pre">0</span></code>) is static and, consequently, a <code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary condition is applied.</p>
 </section>
 <section id="physical-properties">
-<h3><span class="section-number">3.4.4. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.4. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The analytical solution for the Taylor-Couette problem is only valid at low Reynolds number. We thus set the kinematic viscosity to 1.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   subsection fluid 0
@@ -372,7 +374,7 @@ end
 </div>
 </section>
 <section id="fem-interpolation">
-<h3><span class="section-number">3.4.5. </span>FEM interpolation<a class="headerlink" href="#fem-interpolation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.5. </span>FEM interpolation<a class="headerlink" href="#fem-interpolation" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">Example 2</a> we have used second order element for velocity. In this problem, since we are using immersed boundary conditions, moving to higher order polynomials would not enhance the order of convergence as the solid boundary is not represented with high accuracy.</p>
@@ -385,13 +387,13 @@ end
 </div>
 </section>
 <section id="analytical-solution">
-<h3><span class="section-number">3.4.6. </span>Analytical solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.6. </span>Analytical solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">¶</a></h3>
 <p>Like in the first Taylor-Couette example, we add an analytical solution section to the parameter handler file. This analytical solution is more complex to define,
 since the simulation domain encompasses the inside of the inner cylinder as well as the gap between the cylinders. Because of this, we only specify the analytical
 solution for the velocity field and forego pressure. The analytical solution is only defined in the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file and we do not reproduce it here for the sake of brevity.</p>
 </section>
 <section id="forces">
-<h3><span class="section-number">3.4.7. </span>Forces<a class="headerlink" href="#forces" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.7. </span>Forces<a class="headerlink" href="#forces" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">forces</span></code> subsection controls the postprocessing of the torque and the forces acting on the boundaries of the domain.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection forces
   set verbosity             = verbose   # Output force and torques in log
@@ -406,10 +408,10 @@ end
 Setting <code class="docutils literal notranslate"><span class="pre">verbosity=verbose</span></code> will print out the value of the torque calculated for each mesh.</p>
 </section>
 <section id="simulation-control-and-mesh-refinement">
-<h3><span class="section-number">3.4.8. </span>Simulation control and mesh refinement<a class="headerlink" href="#simulation-control-and-mesh-refinement" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.8. </span>Simulation control and mesh refinement<a class="headerlink" href="#simulation-control-and-mesh-refinement" title="Permalink to this headline">¶</a></h3>
 <p>As stated above, this problem can either be solved using a uniform mesh refinement or using an adaptative mesh refinement</p>
 <section id="uniform-mesh-refinement">
-<h4><span class="section-number">3.4.8.1. </span>Uniform mesh refinement<a class="headerlink" href="#uniform-mesh-refinement" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.4.8.1. </span>Uniform mesh refinement<a class="headerlink" href="#uniform-mesh-refinement" title="Permalink to this headline">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> subsection controls the flow of the simulation. Two additional parameters are introduced in this example.
 By setting <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">mesh</span> <span class="pre">adapt=4</span></code> we configure the simulation to solve the fluid dynamics on the mesh and on four(4) subsequently refined mesh.
 This approach is very interesting, because the solution on the coarse mesh also serves as the initial guest for the solution on the finer mesh.</p>
@@ -430,7 +432,7 @@ end
 </div>
 </section>
 <section id="adaptative-mesh-refinement">
-<h4><span class="section-number">3.4.8.2. </span>Adaptative mesh refinement<a class="headerlink" href="#adaptative-mesh-refinement" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.4.8.2. </span>Adaptative mesh refinement<a class="headerlink" href="#adaptative-mesh-refinement" title="Permalink to this headline">¶</a></h4>
 <p>Since the Nitsche IB method introduces additional error on the surface of the immersed geometry, it is pertinent to investigate the results it can produce with
 adaptive mesh refinement. We now consider the following option:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
@@ -459,12 +461,12 @@ end
 </section>
 </section>
 <section id="rest-of-the-subsections">
-<h3><span class="section-number">3.4.9. </span>Rest of the subsections<a class="headerlink" href="#rest-of-the-subsections" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.4.9. </span>Rest of the subsections<a class="headerlink" href="#rest-of-the-subsections" title="Permalink to this headline">¶</a></h3>
 <p>The non-linear and linear solvers subsections do not contain any new information in this example.</p>
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">3.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_22</span></code> executable is within your path, the simulation can be launched by typing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_nitsche_navier_stokes_22 uniform_nitsche_taylor-couette.prm
 </pre></div>
@@ -476,9 +478,9 @@ end
 <p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
 </section>
 <section id="results">
-<h2><span class="section-number">3.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <section id="id2">
-<h3><span class="section-number">3.6.1. </span>Uniform mesh refinement<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.6.1. </span>Uniform mesh refinement<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>For the uniform mesh refinement problem, the evolution of the L2 error is as follows:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cells error_velocity  error_pressure
   320 2.6290e-02    - 1.5068e-02     -
@@ -513,7 +515,7 @@ The torque on the inner cylinder should be -0.83776 and we note that the torque 
 Running the simulation with finer meshes lead to this results.</p>
 </section>
 <section id="id3">
-<h3><span class="section-number">3.6.2. </span>Adaptative mesh refinement<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.6.2. </span>Adaptative mesh refinement<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Using Paraview, the steady-state velocity profile can be visualized for the adaptative mesh refinement case:</p>
 <img alt="velocity distribution" class="align-center" src="../../../_images/taylor_couette_with_nitsche_velocity_adapt.png"/>
 <p>The end of the simulation log provides the following information about the convergence of the error:</p>
@@ -542,14 +544,14 @@ Running the simulation with finer meshes lead to this results.</p>
 </section>
 </section>
 <section id="possibilities-for-extension">
-<h2><span class="section-number">3.7. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.7. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Calculate formally the order of convergence for the torque <span class="math notranslate nohighlight">\(T_z\)</span>.</p></li>
 <li><p>It could be very interesting to investigate this flow in 3D at a higher Reynolds number to see the apparition of the Taylor-Couette instability. This, however, would be a major undertaking.</p></li>
 </ul>
 </section>
 <section id="references">
-<h2><span class="section-number">3.8. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.8. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>[1] Bird, R. B., Stewart, W. E., &amp; Lightfoot, E. N. (2006). Transport phenomena (Vol. 1). John Wiley &amp; Sons.</p>
 </section>
 </section>
@@ -564,7 +566,7 @@ Running the simulation with finer meshes lead to this results.</p>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">4. </span>3D Flow over periodic hills</div>
+                <div class="title"><span class="section-number">6. </span>3D Flow over periodic hills</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -575,7 +577,7 @@ Running the simulation with finer meshes lead to this results.</p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">2. </span>2D Taylor-Couette Flow</div>
+                <div class="title"><span class="section-number">4. </span>2D Taylor-Couette Flow</div>
                 
               </div>
             </a>
@@ -605,34 +607,34 @@ Running the simulation with finer meshes lead to this results.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">3. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a><ul>
-<li><a class="reference internal" href="#features">3.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-examples">3.2. Location of the examples</a></li>
-<li><a class="reference internal" href="#description-of-the-case">3.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">3.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#mesh">3.4.1. Mesh</a></li>
-<li><a class="reference internal" href="#nitsche-mesh">3.4.2. Nitsche mesh</a></li>
-<li><a class="reference internal" href="#boundary-conditions">3.4.3. Boundary conditions</a></li>
-<li><a class="reference internal" href="#physical-properties">3.4.4. Physical properties</a></li>
-<li><a class="reference internal" href="#fem-interpolation">3.4.5. FEM interpolation</a></li>
-<li><a class="reference internal" href="#analytical-solution">3.4.6. Analytical solution</a></li>
-<li><a class="reference internal" href="#forces">3.4.7. Forces</a></li>
-<li><a class="reference internal" href="#simulation-control-and-mesh-refinement">3.4.8. Simulation control and mesh refinement</a><ul>
-<li><a class="reference internal" href="#uniform-mesh-refinement">3.4.8.1. Uniform mesh refinement</a></li>
-<li><a class="reference internal" href="#adaptative-mesh-refinement">3.4.8.2. Adaptative mesh refinement</a></li>
+<li><a class="reference internal" href="#">5. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a><ul>
+<li><a class="reference internal" href="#features">5.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-examples">5.2. Location of the examples</a></li>
+<li><a class="reference internal" href="#description-of-the-case">5.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">5.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#mesh">5.4.1. Mesh</a></li>
+<li><a class="reference internal" href="#nitsche-mesh">5.4.2. Nitsche mesh</a></li>
+<li><a class="reference internal" href="#boundary-conditions">5.4.3. Boundary conditions</a></li>
+<li><a class="reference internal" href="#physical-properties">5.4.4. Physical properties</a></li>
+<li><a class="reference internal" href="#fem-interpolation">5.4.5. FEM interpolation</a></li>
+<li><a class="reference internal" href="#analytical-solution">5.4.6. Analytical solution</a></li>
+<li><a class="reference internal" href="#forces">5.4.7. Forces</a></li>
+<li><a class="reference internal" href="#simulation-control-and-mesh-refinement">5.4.8. Simulation control and mesh refinement</a><ul>
+<li><a class="reference internal" href="#uniform-mesh-refinement">5.4.8.1. Uniform mesh refinement</a></li>
+<li><a class="reference internal" href="#adaptative-mesh-refinement">5.4.8.2. Adaptative mesh refinement</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#rest-of-the-subsections">3.4.9. Rest of the subsections</a></li>
+<li><a class="reference internal" href="#rest-of-the-subsections">5.4.9. Rest of the subsections</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">3.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">3.6. Results</a><ul>
-<li><a class="reference internal" href="#id2">3.6.1. Uniform mesh refinement</a></li>
-<li><a class="reference internal" href="#id3">3.6.2. Adaptative mesh refinement</a></li>
+<li><a class="reference internal" href="#running-the-simulation">5.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">5.6. Results</a><ul>
+<li><a class="reference internal" href="#id2">5.6.1. Uniform mesh refinement</a></li>
+<li><a class="reference internal" href="#id3">5.6.2. Adaptative mesh refinement</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#possibilities-for-extension">3.7. Possibilities for extension</a></li>
-<li><a class="reference internal" href="#references">3.8. References</a></li>
+<li><a class="reference internal" href="#possibilities-for-extension">5.7. Possibilities for extension</a></li>
+<li><a class="reference internal" href="#references">5.8. References</a></li>
 </ul>
 </li>
 </ul>
