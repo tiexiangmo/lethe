@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Mesh Adaptation Control" href="mesh_adaptation_control.html" /><link rel="prev" title="Initial Conditions" href="initial_conditions.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Discrete Element Method (DEM)" href="../dem/dem.html" /><link rel="prev" title="Dynamic flow control" href="dynamic_flow_control.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Mesh - Lethe documentation</title>
+        <title>Interface sharpening - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -168,7 +168,7 @@
 <li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
@@ -184,7 +184,7 @@
 <li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
 <li class="toctree-l3"><a class="reference internal" href="restart.html">Finite element interpolation (FEM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interface_sharpening.html">Interface sharpening</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Interface sharpening</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -272,38 +272,40 @@
           </label>
         </div>
         <article role="main">
-          <section id="mesh">
-<h1>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h1>
-<p>This subsection provides information of the simulation geometry and its mesh. The simulation geometry shape and size, number of refinements and other required information can be provided here. It should be mentioned that meshes from gmsh can also be defined in this section by setting <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">gmsh</span></code>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-  # GMSH file name
-  set file name          = none
-  set grid arguments     = -1 : 1 : false
-  set grid type          = hyper_cube
-
-  # Initial refinement of the mesh
-  set initial refinement = 0
-
-  # Type of mesh. Choices are &lt;gmsh|dealii|periodic_hills&gt;
-  set type               = dealii
-
-  # Indicates that the mesh is a simplex mesh
-  set simplex     = false
+          <section id="interface-sharpening">
+<h1>Interface sharpening<a class="headerlink" href="#interface-sharpening" title="Permalink to this headline">¶</a></h1>
+<p>When running a simulation containing multiple fluids using the volume of fluid method (VOF), the interface between two fluids becomes more blurry after each time step due to diffusion.
+To avoid that, this subsection includes parameters related to the interface sharpening. The default parameters are:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection interface sharpening
+ set sharpening threshold   = 0.5
+ set interface sharpness    = 2
+ set sharpening frequency   = 10
+end
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">interface</span> <span class="pre">sharpening</span> <span class="pre">=</span> <span class="pre">true</span></code> in the :doc:multiphysics subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">interface</span> <span class="pre">sharpening</span> <span class="pre">=</span> <span class="pre">true</span></code> in the :doc:multiphysics subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
+</div>
 <ul class="simple">
-<li><dl class="simple">
-<dt>The following choices for the mesh type are available:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">gmsh</span></code>: if this type is chosen, a <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file generated from GMSH can be used. In this case, the grid file name must be specified in the <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">name</span></code> variable.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dealii</span></code>: if this type is chosen, the deal.II grid generator class can be used. For additional documentation on these grids, you can consult the deal.II documentation for the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html">GridGenerator</a> . The type of grid is specified by the <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">type</span></code> parameter and the arguments used for grid generation by the <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">arguments</span></code> parameter.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">periodic_hills</span></code>: if this type is chosen a mesh for the periodic hills CFD benchmark is created. For more details on this type of mesh and its grid arguments refer to <a class="reference internal" href="../../examples/incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html"><span class="doc">3D Flow over periodic hills</span></a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">sharpening</span> <span class="pre">threshold</span></code> is the phase fraction threshold, and therefore takes a value between 0 and 1. It defines the interface sharpening threshold that represents the mass conservation level.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpness</span></code> parameter defines the sharpness of the moving interface (parameter <span class="math notranslate nohighlight">\(a\)</span> in the <a class="reference external" href="https://www.researchgate.net/publication/287118331_Development_of_efficient_interface_sharpening_procedure_for_viscous_incompressible_flows">interface sharpening model</a>).</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-<li><p>The initial refinement number determines the number of refinements that the grid will undergo in the simulation before the simulation is run. This allows one to automatically refine a coarse grid. By default, most deal.II grids will be as coarse as possible and will then need to be refined. This is a desirable behavior for parallel simulations, since for quad/hex meshes, the coarsest level of the grid is shared amongst all cores. Consequently, using a coarse grid with too many cells will lead to a prohibitive memory consumption.</p></li>
-<li><p><cite>simplex</cite>. If simplex is set to true, it indicates that the mesh being read is made of only simplex elements. If the mesh is of <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">dealii</span></code> it will be converted from a quad/hex mesh to a simplex mesh. If the mesh is of <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">gsmh</span></code>, it will be read from a file as long as it is only made of simplices.</p></li>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This parameter must be larger than 1 for interface sharpening. Choosing values less than 1 leads to interface smoothing instead of sharpening. A good value would be between 1 and 2.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">sharpening</span> <span class="pre">frequency</span></code> parameter defines the VOF interface sharpening frequency. It sets at what frequency the interface sharpening calculations should be carried out.</p></li>
 </ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The <a class="reference internal" href="../../examples/multiphysics/dam-break-VOF/dam-break-VOF.html"><span class="doc">Dam break VOF</span></a> example using VOF represents well the interface sharpening issue.</p>
+</div>
 </section>
 
         </article>
@@ -311,23 +313,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="mesh_adaptation_control.html">
+          <a class="next-page" href="../dem/dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Mesh Adaptation Control</div>
+                <div class="title">Discrete Element Method (DEM)</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="initial_conditions.html">
+          <a class="prev-page" href="dynamic_flow_control.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Initial Conditions</div>
+                <div class="title">Dynamic flow control</div>
                 
               </div>
             </a>
@@ -337,7 +339,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/mesh.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/interface_sharpening.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -356,5 +358,6 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
