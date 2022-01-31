@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="4. 2D Taylor-Couette Flow" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html" /><link rel="prev" title="2. 2D Flow around a Cylinder" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="5. 3D Flow Around a Sphere" href="../3d-flow-around-sphere/flow-around-sphere.html" /><link rel="prev" title="3. 2D Taylor-Couette Flow" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>3. 2D Transient flow around an Ahmed body - Lethe documentation</title>
+        <title>4. 2D Transient flow around an Ahmed body - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -211,11 +211,11 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../incompressible-flow.html">Incompressible Flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">1. 2D Lid-Driven Cavity Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html">2. 2D Flow around a Cylinder</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">3. 2D Transient flow around an Ahmed body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">4. 2D Taylor-Couette Flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">5. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-flow-around-sphere/flow-around-sphere.html">6. 3D Flow Around a Sphere</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">7. 3D Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">3. 2D Taylor-Couette Flow</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">4. 2D Transient flow around an Ahmed body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-flow-around-sphere/flow-around-sphere.html">5. 3D Flow Around a Sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">6. 3D Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">7. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -273,9 +273,9 @@
         </div>
         <article role="main">
           <section id="d-transient-flow-around-an-ahmed-body">
-<h1><span class="section-number">3. </span>2D Transient flow around an Ahmed body<a class="headerlink" href="#d-transient-flow-around-an-ahmed-body" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>2D Transient flow around an Ahmed body<a class="headerlink" href="#d-transient-flow-around-an-ahmed-body" title="Permalink to this headline">¶</a></h1>
 <section id="features">
-<h2><span class="section-number">3.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> (with Q1-Q1)</p></li>
 <li><p>Transient problem</p></li>
@@ -284,7 +284,7 @@
 </ul>
 </section>
 <section id="location-of-the-examples">
-<h2><span class="section-number">3.2. </span>Location of the examples<a class="headerlink" href="#location-of-the-examples" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Location of the examples<a class="headerlink" href="#location-of-the-examples" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible_flow/2d_ahmed_body/ahmed.prm</span></code></p></li>
 <li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible_flow/2d_ahmed_body/Ahmed_Body_20_2D.geo</span></code></p></li>
@@ -292,7 +292,7 @@
 </ul>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">3.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>In this example, a flow is passing across a fixed Ahmed body (simplified version of a car, classical benchmark for aerodynamic simulation tools). The velocity profile of the flow is simulated. The parameter file used is <code class="docutils literal notranslate"><span class="pre">ahmed.prm</span></code>.</p>
 <p>The following schematic describes the simulation.</p>
 <img alt="The geometry and boundary conditions" class="align-center" id="geometry-and-bc" src="../../../_images/ahmed_bc.png"/>
@@ -305,10 +305,10 @@
 <img alt="Geometry detailed description" class="align-center" id="geometry-detailed" src="../../../_images/ahmed_geometry.png"/>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">3.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>First, we import the mesh like in the <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">Example 3</a>.</p>
+<h2><span class="section-number">4.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>First, we import the mesh as in the <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">2D Flow around a cylinder</a>.</p>
 <section id="mesh">
-<h3><span class="section-number">3.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>Geometry parameters can be adapted in the “Parameters” section of the <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file, as shown below. Namely the step parameter <code class="docutils literal notranslate"><span class="pre">phi</span></code> can be easily adapted.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>//===========================================================================
 //Parameters
@@ -345,7 +345,7 @@ end
 </div>
 </section>
 <section id="initial-and-boundary-conditions">
-<h3><span class="section-number">3.4.2. </span>Initial and boundary conditions<a class="headerlink" href="#initial-and-boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.2. </span>Initial and boundary conditions<a class="headerlink" href="#initial-and-boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/initial_conditions.html">Initial Condition</a> and <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/boundary_conditions_cfd.html">Boundary Conditions</a> are defined as in <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">Example 3</a>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
     set type = nodal
@@ -379,7 +379,7 @@ end
 </div>
 </section>
 <section id="simulation-control">
-<h3><span class="section-number">3.4.3. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.3. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>Time integration is defined by a 1st order backward differentiation (<code class="docutils literal notranslate"><span class="pre">bdf1</span></code>), for a 4 seconds simulation (<code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">end</span></code>) with a 0.01 second <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code>. The <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">path</span></code> is defined to save obtained results in a sub-directory, as stated in <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/simulation_control.html">Simulation Control</a>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
     set method                  = bdf1
@@ -408,7 +408,7 @@ end
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 6 gls_navier_stokes_2d ahmed.prm
 </pre></div>
 </div>
-<p>where 6 is the number of CPUs used. The estimated execution time for a 4 seconds simulation with 6 CPUs in a 32 GB RAM machine is 6 minutes and 53 seconds. For 1 CPU, the estimated time is 30 minutes and 37 seconds.</p>
+<p>where 6 is the number of CPUs used. The estimated execution time for a 4 seconds simulation with 6 CPUs is 6 minutes and 53 seconds. For 1 CPU, the estimated time is 30 minutes and 37 seconds.</p>
 <p>Alternatively, specify the path to the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> in your <code class="docutils literal notranslate"><span class="pre">build/applications</span></code> folder, as follows:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 6 ../build/applications/gls_navier_stokes_2d/gls_navier_stokes_2d ahmed.prm
 </pre></div>
@@ -417,7 +417,7 @@ end
 </section>
 </section>
 <section id="results">
-<h2><span class="section-number">3.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>Transient results are shown for three <code class="docutils literal notranslate"><span class="pre">Re</span></code> values:</p>
 <div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
@@ -490,7 +490,7 @@ end
 </table></div>
 </section>
 <section id="possibilities-for-extension">
-<h2><span class="section-number">3.6. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.6. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Change the <code class="docutils literal notranslate"><span class="pre">phi</span></code> value to see the effect of the angle in the streamline.</p></li>
 <li><p>Vary the Reynolds number, or the initial and boundary conditions.</p></li>
@@ -499,7 +499,7 @@ end
 </ul>
 </section>
 <section id="references">
-<h2><span class="section-number">3.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>[1] Ahmed, S. R., Ramm, G., &amp; Faltin, G. (1984). Some salient features of the time-averaged ground vehicle wake. SAE Transactions, 473-503.</p>
 </section>
 </section>
@@ -509,23 +509,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">
+          <a class="next-page" href="../3d-flow-around-sphere/flow-around-sphere.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">4. </span>2D Taylor-Couette Flow</div>
+                <div class="title"><span class="section-number">5. </span>3D Flow Around a Sphere</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html">
+          <a class="prev-page" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">2. </span>2D Flow around a Cylinder</div>
+                <div class="title"><span class="section-number">3. </span>2D Taylor-Couette Flow</div>
                 
               </div>
             </a>
@@ -555,19 +555,19 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">3. 2D Transient flow around an Ahmed body</a><ul>
-<li><a class="reference internal" href="#features">3.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-examples">3.2. Location of the examples</a></li>
-<li><a class="reference internal" href="#description-of-the-case">3.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">3.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#mesh">3.4.1. Mesh</a></li>
-<li><a class="reference internal" href="#initial-and-boundary-conditions">3.4.2. Initial and boundary conditions</a></li>
-<li><a class="reference internal" href="#simulation-control">3.4.3. Simulation control</a></li>
+<li><a class="reference internal" href="#">4. 2D Transient flow around an Ahmed body</a><ul>
+<li><a class="reference internal" href="#features">4.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-examples">4.2. Location of the examples</a></li>
+<li><a class="reference internal" href="#description-of-the-case">4.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">4.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#mesh">4.4.1. Mesh</a></li>
+<li><a class="reference internal" href="#initial-and-boundary-conditions">4.4.2. Initial and boundary conditions</a></li>
+<li><a class="reference internal" href="#simulation-control">4.4.3. Simulation control</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#results">3.5. Results</a></li>
-<li><a class="reference internal" href="#possibilities-for-extension">3.6. Possibilities for extension</a></li>
-<li><a class="reference internal" href="#references">3.7. References</a></li>
+<li><a class="reference internal" href="#results">4.5. Results</a></li>
+<li><a class="reference internal" href="#possibilities-for-extension">4.6. Possibilities for extension</a></li>
+<li><a class="reference internal" href="#references">4.7. References</a></li>
 </ul>
 </li>
 </ul>

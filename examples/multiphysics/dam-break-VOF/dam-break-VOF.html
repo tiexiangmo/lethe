@@ -211,11 +211,11 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">1. 2D Lid-Driven Cavity Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">2. 2D Flow around a Cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">3. 2D Transient flow around an Ahmed body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">4. 2D Taylor-Couette Flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">5. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">6. 3D Flow Around a Sphere</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">7. 3D Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">3. 2D Taylor-Couette Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">4. 2D Transient flow around an Ahmed body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">5. 3D Flow Around a Sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">6. 3D Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">7. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -297,8 +297,12 @@ The corresponding parameter file is
 gravity field of <span class="math notranslate nohighlight">\(-1\)</span> is applied in the y direction.</p>
 </div>
 </section>
+<section id="location-of-the-example">
+<h2><span class="section-number">3.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/dam_break_VOF/gls_VOF_dam-break_Martin_and_Moyce.prm</span></code></p>
+</section>
 <section id="parameter-file">
-<h2><span class="section-number">3.2. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Time integration is handled by a 1st order backward differentiation scheme
 <cite>(bdf1)</cite>, for a <span class="math notranslate nohighlight">\(4.1\)</span> s simulation time with an initial
 time step of <span class="math notranslate nohighlight">\(0.01\)</span> seconds.</p>
@@ -352,7 +356,7 @@ The next section defines the interface sharpening
 parameters.</p>
 </div>
 <section id="interface-sharpening-parameters">
-<h3><span class="section-number">3.2.1. </span>Interface Sharpening Parameters<a class="headerlink" href="#interface-sharpening-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.1. </span>Interface Sharpening Parameters<a class="headerlink" href="#interface-sharpening-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The current <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> method consists of two steps:</p>
 <ol class="arabic">
 <li><p>Phase fraction limiter</p>
@@ -362,7 +366,7 @@ parameters.</p>
 </div></blockquote>
 </li>
 </ol>
-<p>The phase fraction <span class="math notranslate nohighlight">\(\phi\)</span> is a physical parameter that is bounded in the interval <span class="math notranslate nohighlight">\([0-1]\)</span>.
+<p>The phase fraction <span class="math notranslate nohighlight">\(\phi\)</span> is a physical parameter that is bounded in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>.
 The phase fraction limiter above will update the phase fraction if it failed to respect these bounds.</p>
 <ol class="arabic">
 <li><p>Interface sharpening</p>
@@ -380,7 +384,7 @@ c^{1-\alpha} \phi^{\alpha} &amp;  (0 \leq \phi &lt; c  ) \\
 frequency of the interface sharpening; <code class="docutils literal notranslate"><span class="pre">sharpening</span> <span class="pre">threshold</span></code> defines
 a phase fraction threshold for interface sharpening (generally <span class="math notranslate nohighlight">\(0.5\)</span>);
 and <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpness</span></code> is a model parameter which is generally in
-the range of <span class="math notranslate nohighlight">\((1-2]\)</span>.</p>
+the range of <span class="math notranslate nohighlight">\((1,2]\)</span>.</p>
 <p>where <span class="math notranslate nohighlight">\(\phi\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(\alpha\)</span> denote phase fraction,
 sharpening threshold, and interface sharpness respectively.
 This interface sharpening method was proposed by <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0045782500002000">Aliabadi and Tezduyar (2000)</a>.</p>
@@ -388,10 +392,10 @@ This interface sharpening method was proposed by <a class="reference external" h
 frequency of interface sharpening; sharpening threshold defines
 a phase fraction threshold for interface sharpening (generally <span class="math notranslate nohighlight">\(0.5\)</span>).
 Interface sharpness is a model parameter which is generally in
-the range of <span class="math notranslate nohighlight">\((1-2]\)</span>.</p>
+the range of <span class="math notranslate nohighlight">\((1,2]\)</span>.</p>
 </section>
 <section id="fluid-phase-parameters">
-<h3><span class="section-number">3.2.2. </span>Fluid phase parameters<a class="headerlink" href="#fluid-phase-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.2. </span>Fluid phase parameters<a class="headerlink" href="#fluid-phase-parameters" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Interface sharpening
 #---------------------------------------------------
@@ -497,7 +501,7 @@ run in parallel using mpirun</p>
 </section>
 </section>
 <section id="results">
-<h2><span class="section-number">3.3. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following image shows the screenshots of the simulation at <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1.1\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, and <span class="math notranslate nohighlight">\(4\)</span> seconds,
 with the red area and the blue area corresponding conversely to the water location and the air location.</p>
 <img alt="time-shots" class="align-center" src="../../../_images/time-series.png"/>
@@ -572,12 +576,13 @@ and refines the meshes on the interface.</p>
             <ul>
 <li><a class="reference internal" href="#">3. Dam break VOF</a><ul>
 <li><a class="reference internal" href="#features">3.1. Features</a></li>
-<li><a class="reference internal" href="#parameter-file">3.2. Parameter file</a><ul>
-<li><a class="reference internal" href="#interface-sharpening-parameters">3.2.1. Interface Sharpening Parameters</a></li>
-<li><a class="reference internal" href="#fluid-phase-parameters">3.2.2. Fluid phase parameters</a></li>
+<li><a class="reference internal" href="#location-of-the-example">3.2. Location of the example</a></li>
+<li><a class="reference internal" href="#parameter-file">3.3. Parameter file</a><ul>
+<li><a class="reference internal" href="#interface-sharpening-parameters">3.3.1. Interface Sharpening Parameters</a></li>
+<li><a class="reference internal" href="#fluid-phase-parameters">3.3.2. Fluid phase parameters</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#results">3.3. Results</a></li>
+<li><a class="reference internal" href="#results">3.4. Results</a></li>
 </ul>
 </li>
 </ul>

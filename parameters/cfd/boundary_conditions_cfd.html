@@ -211,11 +211,11 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">1. 2D Lid-Driven Cavity Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">2. 2D Flow around a Cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">3. 2D Transient flow around an Ahmed body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">4. 2D Taylor-Couette Flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">5. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">6. 3D Flow Around a Sphere</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">7. 3D Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">3. 2D Taylor-Couette Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">4. 2D Transient flow around an Ahmed body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">5. 3D Flow Around a Sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">6. 3D Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">7. 2D Taylor-Couette Flow Using Nitsche Immersed Boundaries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -286,6 +286,7 @@
   set number                  = 2
   set time dependent          = false
   subsection bc 0
+        set id                = 0
         set type              = function
 
         subsection u
@@ -324,6 +325,7 @@ end
 <li><p><code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">dependent</span></code> specifies if a  boundary condition is time dependent (<code class="docutils literal notranslate"><span class="pre">true</span></code>) or steady (<code class="docutils literal notranslate"><span class="pre">false`</span></code>). By default, this parameter is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is there to improve the computational efficiency for transient cases in which the boundary conditions do not change.</p></li>
 <li><dl class="simple">
 <dt>Each fluid dynamics boundary condition is stored in a <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">no</span></code> subsection :</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>  is the number associated with the boundary condition. By default, Lethe assumes that the id is equivalent to the number of the bc.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> is the type of the boundary condition. Only slip, no-slip, periodic and function are enabled.</p></li>
 <li><p>The subsections <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code> and <code class="docutils literal notranslate"><span class="pre">w</span></code> are used to specify the individual components of the velocity at the boundary using function expressions. These functions can depend on position (<span class="math notranslate nohighlight">\(x,y,z\)</span>) and on time (<span class="math notranslate nohighlight">\(t\)</span>).</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code> subsection is only necessary when calculating the torque applied on a boundary. See  See <a class="reference internal" href="force_and_torque.html"><span class="doc">Force and torque calculation</span></a> for more information.</p></li>
