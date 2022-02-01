@@ -278,14 +278,14 @@
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection nitsche
   set beta = 10
   set verbosity = verbose
-  set calculate forces on solid = false
-  set solid force name = force_solid
-  set calculate torques on solid = true
-  set solid torque name = torque_solid
 
   set number of solids = 1
 
   subsection nitsche solid 0
+    set calculate forces on solid = false
+    set solid force name = force_solid
+    set calculate torques on solid = true
+    set solid torque name = torque_solid
     subsection mesh
       set type = dealii
       set grid type = hyper_ball
@@ -311,10 +311,10 @@ end
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">beta</span></code> is a parameter needed to apply the immersed boundary conditions on the fluid domain, its value is normally between 1 and 1000. <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">0</span></code> (the solid has no influence on the flow) can be used for debugging purposes. A classical value is <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">10</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code> enables printing Nitsche intermediate results to the terminal.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">forces</span> <span class="pre">on</span> <span class="pre">solid</span></code> enables forces calculation on the immersed geometry, written in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">force</span> <span class="pre">name</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torques</span> <span class="pre">on</span> <span class="pre">solid</span></code> enables torques calculation, written in the file in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">torque</span> <span class="pre">name</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> specifies the number of Nitsche solids in the simulation. Each solid will then correspond to a <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">nitsche</span> <span class="pre">solid</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">nitsche</span> <span class="pre">solid</span> <span class="pre">0</span></code> defines a solid object on which the Nitsche immersed boundary is applied. Multiple solids can be added in the same fashion (add <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">nitsche</span> <span class="pre">solid</span> <span class="pre">1</span></code> etc.).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">forces</span> <span class="pre">on</span> <span class="pre">solid</span></code> enables forces calculation on the immersed geometry, written in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">force</span> <span class="pre">name</span></code>, with the solid index automatically added at the end.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torques</span> <span class="pre">on</span> <span class="pre">solid</span></code> enables torques calculation, written in the file in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">torque</span> <span class="pre">name</span></code>, with the solid index automatically added at the end.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mesh</span></code> defines the solid mesh used to apply Nitsche immersed boundary. The syntax is the same as that of the mesh subsection, see <a class="reference internal" href="mesh.html"><span class="doc">Mesh</span></a> for more details.</p></li>
 </ul>
 <div class="admonition note">

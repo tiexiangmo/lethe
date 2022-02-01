@@ -420,14 +420,14 @@ end
 </section>
 <section id="forces">
 <h3><span class="section-number">2.4.6. </span>Forces<a class="headerlink" href="#forces" title="Permalink to this headline">¶</a></h3>
-<p>To calculate forces acting on the boundary conditions, for example, the forces acting on the cylinder, we can use the forces subsection:</p>
+<p>To calculate forces acting on the boundary conditions, for example, the forces acting on the cylinder, we can use the <code class="docutils literal notranslate"><span class="pre">forces</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Force
+# Forces
 #---------------------------------------------------
 subsection forces
     set verbosity             = verbose
-    set calculate forces      = true
-    set calculate torques     = false
+    set calculate force       = true
+    set calculate torque      = false
     set force name            = force
     set output precision      = 10
     set calculation frequency = 1
@@ -435,7 +435,7 @@ subsection forces
 end
 </pre></div>
 </div>
-<p>To print the values of the forces in the terminal we set <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> to <code class="docutils literal notranslate"><span class="pre">verbose</span></code>. The calculation of the forces in all boundaries is set by the <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">calculate</span> <span class="pre">forces</span> <span class="pre">=</span> <span class="pre">true</span></code> line. A <code class="docutils literal notranslate"><span class="pre">.dat</span></code> file is created with the corresponding data. Therefore, one can specify the prefix of the file by the <code class="docutils literal notranslate"><span class="pre">force</span> <span class="pre">name</span></code> parameter, the number of significant digits for the force values by the <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">precision</span></code> and the frequency of calculation and output which are set to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>To print the values of the forces in the terminal we set <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> to <code class="docutils literal notranslate"><span class="pre">verbose</span></code>. The calculation of the forces in all boundaries is set by the <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">calculate</span> <span class="pre">force</span> <span class="pre">=</span> <span class="pre">true</span></code> line. A <code class="docutils literal notranslate"><span class="pre">.dat</span></code> file is created with the corresponding data. Therefore, one can specify the prefix of the file by the <code class="docutils literal notranslate"><span class="pre">force</span> <span class="pre">name</span></code> parameter, the number of significant digits for the force values by the <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">precision</span></code> and the frequency of calculation and output which are set to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 </section>
 </section>
 <section id="running-the-simulation">

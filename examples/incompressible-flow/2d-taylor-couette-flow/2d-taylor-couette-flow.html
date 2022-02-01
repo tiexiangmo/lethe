@@ -412,12 +412,12 @@ end
 <h3><span class="section-number">3.4.8. </span>Forces<a class="headerlink" href="#forces" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">forces</span></code> subsection controls the postprocessing of the torque and the forces acting on the boundaries of the domain.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection forces
-    set verbosity             = verbose   # Output force and torques in log &lt;quiet|verbose&gt;
-    set calculate torques     = true     # Enable torque calculation
+    set verbosity             = verbose   # Output force and torque in log &lt;quiet|verbose&gt;
+    set calculate torque      = true      # Enable torque calculation
 end
 </pre></div>
 </div>
-<p>By setting <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torques=true</span></code>, the calculation of the torque resulting from the fluid dynamics physics on every boundary of the domain is automatically calculated. Setting <code class="docutils literal notranslate"><span class="pre">verbose=verbose</span></code> will print out the value of the torque calculated for each mesh.</p>
+<p>By setting <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torque</span> <span class="pre">=</span> <span class="pre">true</span></code>, the calculation of the torque resulting from the fluid dynamics physics on every boundary of the domain is automatically calculated. Setting <code class="docutils literal notranslate"><span class="pre">verbose=verbose</span></code> will print out the value of the torque calculated for each mesh.</p>
 </section>
 <section id="rest-of-the-subsections">
 <h3><span class="section-number">3.4.9. </span>Rest of the subsections<a class="headerlink" href="#rest-of-the-subsections" title="Permalink to this headline">¶</a></h3>
