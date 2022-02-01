@@ -337,10 +337,13 @@ end
 </div>
 <p>Default values for a non Newtonian fluid are</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-set non newtonian flow      = false
+  set number of fluids              = 1
+  subsection fluid 0
+    set non newtonian flow  = false
     subsection non newtonian
-    set model               = carreau
+      set model             = carreau
     end
+  end
 end
 </pre></div>
 </div>
@@ -361,7 +364,9 @@ end
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the <strong>kinematic viscosity</strong> and <span class="math notranslate nohighlight">\(\dot{\gamma}\)</span> is the shear rate.</p>
 <p>The parameters for the Carreau model are defined by the <code class="docutils literal notranslate"><span class="pre">carreau</span></code> subsection. The default values are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-  set non newtonian flow      = true
+  set number of fluids                = 1
+  subsection fluid 0
+    set non newtonian flow    = true
     subsection non newtonian
       set model               = carreau
       subsection carreau
@@ -371,6 +376,7 @@ end
         set lambda = 1.0
         set n = 0.5
       end
+    end
   end
 end
 </pre></div>
@@ -388,15 +394,18 @@ end
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the <strong>kinematic viscosity</strong> and <span class="math notranslate nohighlight">\(\dot{\gamma}\)</span> is the shear rate.
 When using the Power-Law model, the default values are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-set non newtonian flow      = true
+  set number of fluids                = 1
+  subsection fluid 0
+    set non newtonian flow    = true
     subsection non newtonian
-    set model               = power-law
-        subsection power-law
-          set K = 1.0
-          set n = 0.5
-          set shear rate min = 1e-3
-        end
+      set model               = power-law
+      subsection power-law
+        set K = 1.0
+        set n = 0.5
+        set shear rate min = 1e-3
+      end
     end
+  end
 end
 </pre></div>
 </div>
