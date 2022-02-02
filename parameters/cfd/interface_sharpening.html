@@ -274,8 +274,8 @@
         <article role="main">
           <section id="interface-sharpening">
 <h1>Interface sharpening<a class="headerlink" href="#interface-sharpening" title="Permalink to this headline">¶</a></h1>
-<p>When running a simulation containing multiple fluids using the volume of fluid method (VOF), the interface between two fluids becomes more blurry after each time step due to diffusion.
-To avoid that, this subsection includes parameters related to the interface sharpening. The default parameters are:</p>
+<p>When running a multiphase flow simulation using the volume of fluid method (VOF), the interface between two fluids becomes more and more blurry after each time step due to numerical diffusion.</p>
+<p>To avoid that, this subsection includes parameters related to the interface sharpening.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection interface sharpening
  set sharpening threshold   = 0.5
  set interface sharpness    = 2
@@ -285,22 +285,18 @@ end
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">interface</span> <span class="pre">sharpening</span> <span class="pre">=</span> <span class="pre">true</span></code> in the :doc:multiphysics subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">interface</span> <span class="pre">sharpening</span> <span class="pre">=</span> <span class="pre">true</span></code> in the :doc:multiphysics subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
+<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">interface</span> <span class="pre">sharpening</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">sharpening</span> <span class="pre">threshold</span></code> is the phase fraction threshold, and therefore takes a value between 0 and 1. It defines the interface sharpening threshold that represents the mass conservation level.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpness</span></code> parameter defines the sharpness of the moving interface (parameter <span class="math notranslate nohighlight">\(a\)</span> in the <a class="reference external" href="https://www.researchgate.net/publication/287118331_Development_of_efficient_interface_sharpening_procedure_for_viscous_incompressible_flows">interface sharpening model</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sharpening</span> <span class="pre">threshold</span></code>: phase fraction threshold, between 0 and 1. It defines the interface sharpening threshold that represents the mass conservation level.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpness</span></code>: sharpness of the moving interface (parameter <span class="math notranslate nohighlight">\(a\)</span> in the <a class="reference external" href="https://www.researchgate.net/publication/287118331_Development_of_efficient_interface_sharpening_procedure_for_viscous_incompressible_flows">interface sharpening model</a>).</p></li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>This parameter must be larger than 1 for interface sharpening. Choosing values less than 1 leads to interface smoothing instead of sharpening. A good value would be between 1 and 2.</p>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">sharpening</span> <span class="pre">frequency</span></code> parameter defines the VOF interface sharpening frequency. It sets at what frequency the interface sharpening calculations should be carried out.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sharpening</span> <span class="pre">frequency</span></code>: sets the frequency (in number of iterations) for the interface sharpening computation.</p></li>
 </ul>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>

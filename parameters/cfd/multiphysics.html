@@ -276,22 +276,64 @@
 <h1>Multiphysics<a class="headerlink" href="#multiphysics" title="Permalink to this headline">¶</a></h1>
 <p>This subsection defines the multiphysics interface of Lethe and enables the solution of Auxiliary Physics in addition to traditional fluid dynamics simulations.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection multiphysics
-  set heat transfer = false
-  set buoyancy force = false
-  set tracer = false
-  set VOF = false
-  set interface sharpening = false
-  set viscous dissipation = false
+  # Thermal physics
+  set heat transfer           = false
+  set viscous dissipation     = false
+  set buoyancy force          = false
+
+  # Tracer
+  set tracer                  = false
+
+  # Multiphase flow
+  set VOF                     = false
+  set interface sharpening    = false
+  set conservation monitoring = false
+  set fluid index             = 0
 end
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code> parameter adds the heat transfer auxiliary physics. This is an advection-diffusion equation. If  <code class="docutils literal notranslate"><span class="pre">viscous</span> <span class="pre">dissipation</span></code> is set to true, viscous dissipation is taken into account in the heat transfer equation.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code> parameter adds the buoyancy force in the Navier-Stokes equations. The buoyancy force is calculated using the Boussinesq approximation. Note that <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code> is a prerequisite for <code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code>, and it must be set to true when we set <code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code> to true.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span></code> parameter adds a passive tracer auxiliary physics. This is an advection-diffusion equation.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">VOF</span></code> parameter enables defining a multiphasic simulation, with 2 fluids separated by a free surface. Volume-of-Fluid method is used, with the phase parameter following an advection equation. See <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a> for the definition of the VOF conditions and <a class="reference internal" href="physical_properties.html"><span class="doc">Physical Properties</span></a> for the definition of the physical properties of both fluids. At the moment, a maximum of two fluids is supported.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> parameter activates the interface sharpening method in VOF simulations.</p></li>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>: controls if the heat transfer auxiliary physics are solved. This is an advection-diffusion equation.</p>
+<dl class="simple">
+<dt>When <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code>, these optional parameters can be used:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">viscous</span> <span class="pre">dissipation</span></code>: controls if the viscous dissipation is taken into account in the heat transfer equation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code>: controls if the buoyancy force is taken into account in the Navier-Stokes equations. The buoyancy force is calculated using the Boussinesq approximation.</p></li>
 </ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The heat transfer solver is used in the example <a class="reference internal" href="../../examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html"><span class="doc">Warming Up a Viscous Fluid</span></a>.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span></code> parameter adds a passive tracer auxiliary physics. This is an advection-diffusion equation.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The tracer solver is used in the example <a class="reference internal" href="../../examples/multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html"><span class="doc">Tracer through CAD Junction in Simplex</span></a>.</p>
+</div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">VOF</span></code>: enables multiphase flow simulations, with two fluids separated by a free surface. Volume-of-Fluid method is used, with the phase parameter following an advection equation.</p>
+<p>See <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a> for the definition of the VOF conditions and <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/physical_properties.html#two-phase-simulations">Physical properties - two phase simulations</a> for the definition of the physical properties of both fluids.</p>
+<dl class="simple">
+<dt>When <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">VOF</span> <span class="pre">=</span> <span class="pre">true</span></code>, these optional parameters can be used:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>: controls if the interface sharpening method is used. Additional parameters can be found at <a class="reference internal" href="interface_sharpening.html"><span class="doc">Interface sharpening</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conservation</span> <span class="pre">monitoring</span></code>: controls if conservation is monitored at each iteration, through the volume computation of the fluid with the given <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">index</span></code>. Results are outputted in a data table (<cite>free_surface_monitoring.dat</cite>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At the moment, a maximum of two fluids is supported, with respective <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">index</span></code> of <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The VOF solver is used in the example <a class="reference internal" href="../../examples/multiphysics/dam-break-VOF/dam-break-VOF.html"><span class="doc">Dam break VOF</span></a>.</p>
+</div>
 </section>
 
         </article>
