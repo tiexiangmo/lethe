@@ -303,7 +303,7 @@ now using immersed boundaries to represent the inner cylinder. This example demo
 We simulate the same case as the regular Taylor-Couette flow where the inner cylinder rotates at a constant angular anti-clockwise velocity <span class="math notranslate nohighlight">\(\omega\)</span>,
 while the outer cylinder is fixed.
 The following figure shows the geometry of this problem and the corresponding boundary conditions.</p>
-<img alt="The geometry and boundary conditions" class="align-center" id="geometry" src="../../../_images/taylor_couette.png"/>
+<a class="reference internal image-reference" href="../../../_images/taylor_couette.svg" id="geometry"><img alt="The geometry and boundary conditions" class="align-center" height="10cm" id="geometry" src="../../../_images/taylor_couette.svg"/></a>
 </section>
 <section id="parameter-file">
 <h2><span class="section-number">7.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
@@ -325,7 +325,7 @@ end
 <p class="admonition-title">Note</p>
 <p>Most deal.II grid generators contain a minimal number of cells. The 2D <em>hyper_ball</em> mesh is made of five cells, a square one in the middle and four ones surrounding it. Indicating an <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement=3</span></code> implies that the initial mesh is refined 3 times. In 2D, each cell is divided by 4 per refinement. Consequently, the final grid is made of 320 cells.</p>
 </div>
-<img alt="The fluid mesh" class="align-center" id="fluid" src="../../../_images/background_mesh_taylor-couette.png"/>
+<a class="reference internal image-reference" href="../../../_images/background_mesh_taylor-couette.png" id="fluid"><img alt="The fluid mesh" class="align-center" id="fluid" src="../../../_images/background_mesh_taylor-couette.png" style="height: 10cm;"/></a>
 </section>
 <section id="nitsche-mesh">
 <h3><span class="section-number">7.4.2. </span>Nitsche mesh<a class="headerlink" href="#nitsche-mesh" title="Permalink to this headline">¶</a></h3>
@@ -356,7 +356,7 @@ A value of 10 is reasonable. Then, we specify the <code class="docutils literal 
 For each Nitsche IB, a mesh representing the immersed solid has to be specified. Additionally, the solid velocity of the Nitsche IB is specified using the <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">velocity</span></code>
 subsection. Finally, the motion of the particle is disabled. This means that even if the immersed particles have a non-zero velocity, they will not physically move in the fluid domain. In this case, this is because our problem has rotation symmetry and we will be seeking steady-state solutions. We note that in this problem, the Nitsche solid grid has the same dimension as the background grid. This is necessary for 2D simulations. Additionally, the Nitsche solid grid is well-refined to ensure that at approximately each fluid cell contains one particle of the immersed body. Finally, we enable the calculation of the torque on the Nitsche IB by setting <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torque</span> <span class="pre">on</span> <span class="pre">solid</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p>
 <p>The following figure illustrates the background mesh as well as the particles used to represent the IB on top of it:</p>
-<img alt="The background mesh and the embedded particles" class="align-center" id="nitsche-particles" src="../../../_images/taylor_couette_with_nitsche_mesh.png"/>
+<a class="reference internal image-reference" href="../../../_images/taylor_couette_with_nitsche_mesh.png" id="nitsche-particles"><img alt="The background mesh and the embedded particles" class="align-center" id="nitsche-particles" src="../../../_images/taylor_couette_with_nitsche_mesh.png" style="height: 10cm;"/></a>
 </section>
 <section id="boundary-conditions">
 <h3><span class="section-number">7.4.3. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
@@ -526,7 +526,7 @@ Running the simulation with finer meshes lead to this results.</p>
 <section id="id3">
 <h3><span class="section-number">7.6.2. </span>Adaptative mesh refinement<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Using Paraview, the steady-state velocity profile can be visualized for the adaptative mesh refinement case:</p>
-<img alt="velocity distribution" class="align-center" src="../../../_images/taylor_couette_with_nitsche_velocity_adapt.png"/>
+<a class="reference internal image-reference" href="../../../_images/taylor_couette_with_nitsche_velocity_adapt.png"><img alt="velocity distribution" class="align-center" src="../../../_images/taylor_couette_with_nitsche_velocity_adapt.png" style="height: 10cm;"/></a>
 <p>The end of the simulation log provides the following information about the convergence of the error:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cells error_velocity   error_pressure
   320 2.6280e-02    - 1.5068e-02     -

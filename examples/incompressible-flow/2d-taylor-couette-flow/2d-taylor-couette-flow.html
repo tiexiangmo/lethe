@@ -291,8 +291,8 @@
 <section id="description-of-the-case">
 <h2><span class="section-number">3.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>The Taylor-Couette flow is the name of a fluid flow in the gap between two long concentric cylinders with different rotational velocities. One or both of these cylinders may rotate along the axis, however generally it is assumed that the outer cylinder is fixed, and the inner cylinder rotates with a constant angular velocity. For the Taylor-Couette flow, an analytical solution of the Navier-Stokes equations can be found, although this solution is not stable for all ranges of operating conditions and becomes unstable at high Reynolds number.</p>
-<p>We assume that the inner cylinder rotates at a constant angular velocity <span class="math notranslate nohighlight">\(\omega\)</span> in the anti-clockwise direction , while the outer cylinder is fixed. The following figure shows the geometry of this problem and the corresponding boundary conditions:</p>
-<img alt="The geometry and boundary conditions" class="align-center" id="geometry" src="../../../_images/geometry.png"/>
+<p>We assume that the inner cylinder rotates at a constant angular velocity <span class="math notranslate nohighlight">\(\omega\)</span> in the anti-clockwise direction, while the outer cylinder is fixed. The following figure shows the geometry of this problem and the corresponding boundary conditions:</p>
+<a class="reference internal image-reference" href="../../../_images/geometry.svg" id="geometry"><img alt="The geometry and boundary conditions" class="align-center" height="10cm" id="geometry" src="../../../_images/geometry.svg"/></a>
 <p>The analytical solution of this problem can be found relatively easily in cylindrical coordinates (see for example the book by Bird, Stewart and Lightfoot [1]):</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[u_{\theta} = \omega R \kappa \frac{\left ( \frac{R}{r} - \frac{r}{R} \right )} {\left( \frac{1}{\kappa} - \kappa \right)}\]</div></div>
@@ -435,14 +435,14 @@ end
 <section id="results">
 <h2><span class="section-number">3.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>Using Paraview, the steady-state velocity profile can be visualized:</p>
-<img alt="velocity distribution" class="align-center" src="../../../_images/flow_patterns.png"/>
+<a class="reference internal image-reference" href="../../../_images/flow_patterns.png"><img alt="velocity distribution" class="align-center" src="../../../_images/flow_patterns.png" style="height: 10cm;"/></a>
 <p>As can be seen, each cell is curved because a Q2 isoparametric mapping was used (by setting <code class="docutils literal notranslate"><span class="pre">qmapping=true</span></code> in the FEM subsection). To visualize these high-order cells, we need to subdivide the regular cell to store additional information onto them. A good practice is to use as many subdivisions as the interpolation order of the scheme. Hence, we used <code class="docutils literal notranslate"><span class="pre">subdivision=2</span></code> in the simulation control subsection. Finally, by default, Paraview does not render high-order elements. To enable the rendering of high-order elements, the Nonlinear subdivision level slider must be increased above one. For more information on this topic, please consult the deal.II wiki page on <cite>rendering high-order elements &lt;https://github.com/dealii/dealii/wiki/Notes-on-visualizing-high-order-output&gt;</cite>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To showcase the curvature of the cells, we have illustrated the results on a mesh coarser that the initial mesh used in this simulation</p>
 </div>
 <p>A python script provided in the example folder allows to compare the velocity profile along the radius with the analytical solution. Using this script, the following resuts are obtained for the initial mesh:</p>
-<img alt="Azimuthal velocity compared with the analytical solution" class="align-center" src="../../../_images/lethe_analytical_taylor_couette_comparison.png"/>
+<a class="reference internal image-reference" href="../../../_images/lethe_analytical_taylor_couette_comparison.png"><img alt="Azimuthal velocity compared with the analytical solution" class="align-center" src="../../../_images/lethe_analytical_taylor_couette_comparison.png" style="height: 10cm;"/></a>
 <p>The end of the simulation log provides the following information about the convergence of the error:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cells  error_velocity    error_pressure
   256 9.623524e-05    - 2.595531e-04    -
