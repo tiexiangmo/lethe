@@ -281,22 +281,51 @@
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
 set number of fluids  = 1
    subsection fluid 0
-     set density              = 1
+     # Rheology
+     set rheological model = newtonian
      set kinematic viscosity  = 1
+
+     # Density
+     set density model = constant
+     set density              = 1
+
+     # Specific heat
+     set specific heat model = constant
      set specific heat        = 1
+
+     # Thermal conductivity
+     set thermal conductivity model = constant
      set thermal conductivity = 1
+
+     # Thermal expansion
+     set thermal expansion model = constant
+     set thermal expansion = 0
+
+     # Tracer diffusivity
+     set tracer diffusivity model = constant
      set tracer diffusivity   = 0
    end
 end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> parameter is the kinematic viscosity of the fluid in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span>. In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter is the density of the fluid in units of <span class="math notranslate nohighlight">\(\text{Mass} \cdot \text{Length}^{-3}\)</span></p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span></code> parameter is the specific heat of the fluid in units of <span class="math notranslate nohighlight">\(\text{Energy} \cdot \text{Temperature}^{-1} \cdot \text{Mass}^{-1}\)</span> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> parameter sets the choice of rheological model. The choices are between <code class="docutils literal notranslate"><span class="pre">newtonian</span></code>, <code class="docutils literal notranslate"><span class="pre">power-law</span></code> and <code class="docutils literal notranslate"><span class="pre">carreau</span></code>. For more details on the rheological model, see  <a class="reference internal" href="#rheological-models">rheological_models</a> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> parameter is the kinematic viscosity of the newtonain fluid in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span>. In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span>. This viscosity is only used when <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span> <span class="pre">=</span> <span class="pre">newtonian</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">model</span></code> specifies the model used to calculate the density. At the moment, only a constant density is supported.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter is the constant density of the fluid in units of <span class="math notranslate nohighlight">\(\text{Mass} \cdot \text{Length}^{-3}\)</span></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">model</span></code> specifies the model used to calculate the specific heat. At the moment, only a constant specific heat is supported.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span></code> parameter is the constant specific heat of the fluid in units of <span class="math notranslate nohighlight">\(\text{Energy} \cdot \text{Temperature}^{-1} \cdot \text{Mass}^{-1}\)</span> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal conductivity. At the moment, <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> thermal conductivity are available. For more details on the thermal conductivity models, see <a class="reference internal" href="#thermal-conductivity-models">thermal_conductivity_models</a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span></code> parameter is the thermal conductivity coefficient of the fluid with units of <span class="math notranslate nohighlight">\(\text{Power} \cdot \text{Temperature}^{-1} \cdot \text{Length}^{-1}\)</span>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal expansion coefficient. At the moment, only a constant thermal expansion is supported.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span></code> parameter is the thermal expansion coefficient of the fluid with dimension of <span class="math notranslate nohighlight">\(\text{Temperature}^{-1}\)</span>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">diffusivity</span> <span class="pre">model</span></code> specifies the model used to calculate the tracer diffusivity. At the moment, only a constant tracer diffusivity is supported.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">diffusivity</span></code> parameter is the diffusivity coefficient of the tracer in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span> . In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span> .</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default values for all physical properties models in Lethe is <code class="docutils literal notranslate"><span class="pre">constant</span></code>. Consequently, it is not necessary (and not recommended) to specify the physical property model unless this model is not constant. This generates parameter files that are easier to read.</p>
+</div>
 <section id="two-phase-simulations">
 <h2>Two phase simulations<a class="headerlink" href="#two-phase-simulations" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
@@ -327,9 +356,13 @@ end
 <li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">fluids</span> <span class="pre">=</span> <span class="pre">2</span></code> is required for a free surface simulation, otherwise an error will be thrown in the terminal.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code> indicates the properties of fluid where the phase indicator = 0 (Volume of Fluid method), as defined when initializing the free surface (see the <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a> subsection), and correspondingly <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> is located where the phase indicator = 1.</p></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Lethe now supports the use of physical properties model that are different for both phases. For example, the liquid could have a carreau rheological model and the air could have a newtonian rheological model. However, this feature has not been fully tested and could lead to unpredictable results.</p>
+</div>
 </section>
 <section id="rheological-models">
-<h2>Rheological models<a class="headerlink" href="#rheological-models" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Rheological models<a class="headerlink" href="#rheological-models" title="Permalink to this headline">¶</a></h2>
 <p>Generalized non Newtonian rheologies (for shear thinning and shear thickening flows) are supported in Lethe.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -339,7 +372,6 @@ end
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids              = 1
   subsection fluid 0
-    set non newtonian flow  = false
     subsection non newtonian
       set model             = carreau
     end
@@ -366,7 +398,6 @@ end
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids                = 1
   subsection fluid 0
-    set non newtonian flow    = true
     subsection non newtonian
       set model               = carreau
       subsection carreau
@@ -396,7 +427,6 @@ When using the Power-Law model, the default values are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids                = 1
   subsection fluid 0
-    set non newtonian flow    = true
     subsection non newtonian
       set model               = power-law
       subsection power-law
@@ -414,6 +444,13 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> parameter is the flow behavior index. low  It sets the slope in the log-log <span class="math notranslate nohighlight">\(\eta = f(\dot{\gamma})\)</span> graph.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">shear</span> <span class="pre">rate</span> <span class="pre">min</span></code> parameter yields the magnitude of the shear rate tensor for which the viscosity is calculated. Since the model uses a power operation, a nul shear rate magnitude leads to an invalid viscosity. To ensure numerical stability, the shear rate cannot go below this threshold when the viscosity  calculated.</p></li>
 </ul>
+</section>
+<section id="thermal-conductivity-models">
+<span id="id2"></span><h2>Thermal conductivity models<a class="headerlink" href="#thermal-conductivity-models" title="Permalink to this headline">¶</a></h2>
+<p>Constant and linear thermal conductivities are supported in Lethe. Constant thermal conductivity assumes a constant value of the thermal conductivity. Linear thermal conductivity assumes that that the thermal conductivity <span class="math notranslate nohighlight">\(k\)</span> varies linearly with the temperature, taking the following form:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[k = k_{A,0}+ k_{A,1} T\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(k_{A,0}\)</span> and <span class="math notranslate nohighlight">\(k_{A,1}\)</span> are constants and <span class="math notranslate nohighlight">\(T\)</span> is the temperature. This enables a linear variation of the thermal conductivity as a function of the temperature.</p>
 </section>
 </section>
 
@@ -471,6 +508,7 @@ end
 <li><a class="reference internal" href="#">Physical Properties</a><ul>
 <li><a class="reference internal" href="#two-phase-simulations">Two phase simulations</a></li>
 <li><a class="reference internal" href="#rheological-models">Rheological models</a></li>
+<li><a class="reference internal" href="#thermal-conductivity-models">Thermal conductivity models</a></li>
 </ul>
 </li>
 </ul>
