@@ -219,9 +219,10 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">1. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">2. Tracer through CAD Junction in Simplex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/dam-break-VOF/dam-break-VOF.html">3. Dam break VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/stefan_problem/stefan_problem.html">2. Stefan problem : melting of a solid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">3. Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/dam-break-VOF/dam-break-VOF.html">4. Dam break VOF</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -452,6 +453,49 @@ end
 \[k = k_{A,0}+ k_{A,1} T\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(k_{A,0}\)</span> and <span class="math notranslate nohighlight">\(k_{A,1}\)</span> are constants and <span class="math notranslate nohighlight">\(T\)</span> is the temperature. This enables a linear variation of the thermal conductivity as a function of the temperature.</p>
 </section>
+<section id="specific-heat-models">
+<h2>Specific heat models<a class="headerlink" href="#specific-heat-models" title="Permalink to this headline">¶</a></h2>
+<p>Lethe supports two types of specific heat models. Setting <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat=constant</span></code> sets a constant specific heat. Lethe also supports a <code class="docutils literal notranslate"><span class="pre">phase_change</span></code> specific heat model. This model can simulate the melting and solidification of a material. The model follows the work of Blais &amp; Ilinca [1]. This approach defines the specific heat <span class="math notranslate nohighlight">\(C_p\)</span> as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[C_p = \frac{H(T)-H(T_0)}{T-T_0}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the temperature, <span class="math notranslate nohighlight">\(T_0\)</span> is the temperature at the previous time and <span class="math notranslate nohighlight">\(H(T)\)</span> is the enthalpy, as a function of the temperature, to be:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[H(T) = H_0 + \int_{T_0}^{T} c^{*}_p (T^*) dT\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(H_0\)</span> is a reference enthalpy, taken to be 0, and <span class="math notranslate nohighlight">\(c^{*}_p\)</span> is:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}c^{*}_p  = \begin{cases} C_{p,s}\\
+            \frac{C_{p,s}+C_{p,l}}{2}+\frac{h_l}{T_l-T_s}\\
+            C_{p,l}
+            \end{cases}\end{split}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(C_{p,s}\)</span> and <span class="math notranslate nohighlight">\(C_{p,l}\)</span> are the solid and liquid specific heat, respectively. <span class="math notranslate nohighlight">\(h_l\)</span> is the latent enthalpy (enthalpy related to the phase change), <span class="math notranslate nohighlight">\(T_l\)</span> and <span class="math notranslate nohighlight">\(T_s\)</span> are the liquidus and solidus temperature. The underlying hypothesis of this model is that the melting and the solidification occurs over a phase change interval. Melting will occur between <span class="math notranslate nohighlight">\(T_s\)</span> and <span class="math notranslate nohighlight">\(T_l\)</span> and solidification will occur between <span class="math notranslate nohighlight">\(T_l\)</span> and <span class="math notranslate nohighlight">\(T_s\)</span>.</p>
+<p>This model is parameterized using the following section:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection phase change
+  # Enthalpy of the phase change
+  set latent enthalpy      = 1
+
+  # Temperature of the liquidus
+  set liquidus temperature = 1
+
+  # Temperature of the solidus
+  set solidus temperature  = 0
+
+  # Specific heat of the liquid phase
+  set specific heat liquid = 1
+
+  # Specific heat of the solid phase
+  set specific heat solid  = 1
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">latent</span> <span class="pre">enthalpy</span></code> is the latent enthalpy of the phase change: <span class="math notranslate nohighlight">\(h_l\)</span></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">liquidus</span> <span class="pre">temperature</span></code> is <span class="math notranslate nohighlight">\(T_l\)</span></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">solidus</span> <span class="pre">temperature</span></code> is <span class="math notranslate nohighlight">\(T_s\)</span></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">liquid</span></code> is <span class="math notranslate nohighlight">\(C_{p,l}\)</span></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">solid</span></code> is <span class="math notranslate nohighlight">\(C_{p,s}\)</span></p></li>
+</ul>
+<p>[1] Blais, Bruno, and Florin Ilinca. “Development and validation of a stabilized immersed boundary CFD model for freezing and melting with natural convection.” Computers &amp; Fluids 172 (2018): 564-581.</p>
+</section>
 </section>
 
         </article>
@@ -509,6 +553,7 @@ end
 <li><a class="reference internal" href="#two-phase-simulations">Two phase simulations</a></li>
 <li><a class="reference internal" href="#rheological-models">Rheological models</a></li>
 <li><a class="reference internal" href="#thermal-conductivity-models">Thermal conductivity models</a></li>
+<li><a class="reference internal" href="#specific-heat-models">Specific heat models</a></li>
 </ul>
 </li>
 </ul>

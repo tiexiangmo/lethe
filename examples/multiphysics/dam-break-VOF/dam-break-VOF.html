@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Discrete Element Method" href="../../dem/dem.html" /><link rel="prev" title="2. Tracer through CAD Junction in Simplex" href="../tracer-through-cad-junction/tracer-through-cad-junction.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Discrete Element Method" href="../../dem/dem.html" /><link rel="prev" title="3. Warming Up a Viscous Fluid" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>3. Dam break VOF - Lethe documentation</title>
+        <title>4. Dam break VOF - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -219,9 +219,10 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">1. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">2. Tracer through CAD Junction in Simplex</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">3. Dam break VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">2. Stefan problem : melting of a solid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">3. Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">4. Dam break VOF</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -273,9 +274,9 @@
         </div>
         <article role="main">
           <section id="dam-break-vof">
-<h1><span class="section-number">3. </span>Dam break VOF<a class="headerlink" href="#dam-break-vof" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Dam break VOF<a class="headerlink" href="#dam-break-vof" title="Permalink to this headline">¶</a></h1>
 <section id="features">
-<h2><span class="section-number">3.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
 <li><p>Two phase flow handled by the Volume of fluids (VOF) approach, with a phase fraction limiter and phase sharpening</p></li>
@@ -298,11 +299,11 @@ gravity field of <span class="math notranslate nohighlight">\(-1\)</span> is app
 </div>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">3.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/dam_break_VOF/gls_VOF_dam-break_Martin_and_Moyce.prm</span></code></p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">3.3. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Time integration is handled by a 1st order backward differentiation scheme
 <cite>(bdf1)</cite>, for a <span class="math notranslate nohighlight">\(4.1\)</span> s simulation time with an initial
 time step of <span class="math notranslate nohighlight">\(0.01\)</span> seconds.</p>
@@ -356,7 +357,7 @@ The next section defines the interface sharpening
 parameters.</p>
 </div>
 <section id="interface-sharpening-parameters">
-<h3><span class="section-number">3.3.1. </span>Interface Sharpening Parameters<a class="headerlink" href="#interface-sharpening-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.1. </span>Interface Sharpening Parameters<a class="headerlink" href="#interface-sharpening-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The current <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> method consists of two steps:</p>
 <ol class="arabic">
 <li><p>Phase fraction limiter</p>
@@ -395,7 +396,7 @@ Interface sharpness is a model parameter which is generally in
 the range of <span class="math notranslate nohighlight">\((1,2]\)</span>.</p>
 </section>
 <section id="fluid-phase-parameters">
-<h3><span class="section-number">3.3.2. </span>Fluid phase parameters<a class="headerlink" href="#fluid-phase-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2. </span>Fluid phase parameters<a class="headerlink" href="#fluid-phase-parameters" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Interface sharpening
 #---------------------------------------------------
@@ -501,7 +502,7 @@ run in parallel using mpirun</p>
 </section>
 </section>
 <section id="results">
-<h2><span class="section-number">3.4. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following image shows the screenshots of the simulation at <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1.1\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, and <span class="math notranslate nohighlight">\(4\)</span> seconds,
 with the red area and the blue area corresponding conversely to the water location and the air location.</p>
 <img alt="time-shots" class="align-center" src="../../../_images/time-series.png"/>
@@ -537,14 +538,14 @@ and refines the meshes on the interface.</p>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">
+          <a class="prev-page" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">2. </span>Tracer through CAD Junction in Simplex</div>
+                <div class="title"><span class="section-number">3. </span>Warming Up a Viscous Fluid</div>
                 
               </div>
             </a>
@@ -574,15 +575,15 @@ and refines the meshes on the interface.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">3. Dam break VOF</a><ul>
-<li><a class="reference internal" href="#features">3.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">3.2. Location of the example</a></li>
-<li><a class="reference internal" href="#parameter-file">3.3. Parameter file</a><ul>
-<li><a class="reference internal" href="#interface-sharpening-parameters">3.3.1. Interface Sharpening Parameters</a></li>
-<li><a class="reference internal" href="#fluid-phase-parameters">3.3.2. Fluid phase parameters</a></li>
+<li><a class="reference internal" href="#">4. Dam break VOF</a><ul>
+<li><a class="reference internal" href="#features">4.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">4.2. Location of the example</a></li>
+<li><a class="reference internal" href="#parameter-file">4.3. Parameter file</a><ul>
+<li><a class="reference internal" href="#interface-sharpening-parameters">4.3.1. Interface Sharpening Parameters</a></li>
+<li><a class="reference internal" href="#fluid-phase-parameters">4.3.2. Fluid phase parameters</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#results">3.4. Results</a></li>
+<li><a class="reference internal" href="#results">4.4. Results</a></li>
 </ul>
 </li>
 </ul>

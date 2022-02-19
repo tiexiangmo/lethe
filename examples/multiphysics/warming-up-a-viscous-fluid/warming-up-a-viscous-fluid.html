@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="2. Tracer through CAD Junction in Simplex" href="../tracer-through-cad-junction/tracer-through-cad-junction.html" /><link rel="prev" title="Multiphysics Examples" href="../multiphysics.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="4. Dam break VOF" href="../dam-break-VOF/dam-break-VOF.html" /><link rel="prev" title="2. Stefan problem : melting of a solid" href="../stefan_problem/stefan_problem.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>1. Warming Up a Viscous Fluid - Lethe documentation</title>
+        <title>3. Warming Up a Viscous Fluid - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -219,9 +219,10 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">1. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">2. Tracer through CAD Junction in Simplex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">3. Dam break VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">2. Stefan problem : melting of a solid</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">3. Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">4. Dam break VOF</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -273,10 +274,10 @@
         </div>
         <article role="main">
           <section id="warming-up-a-viscous-fluid">
-<h1><span class="section-number">1. </span>Warming Up a Viscous Fluid<a class="headerlink" href="#warming-up-a-viscous-fluid" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Warming Up a Viscous Fluid<a class="headerlink" href="#warming-up-a-viscous-fluid" title="Permalink to this headline">¶</a></h1>
 <p>This example introduces how to solve another physics along with the CFD solver.</p>
 <section id="features">
-<h2><span class="section-number">1.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
 <li><p>Transient problem</p></li>
@@ -286,11 +287,11 @@
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">1.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/warming_up_viscous_fluid</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">1.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>A viscous fluid lays between two parallel plates: one fixed and insulated, and the other moving and heated. The velocity profile and the temperature evolution are simulated. The parameter file used is <code class="docutils literal notranslate"><span class="pre">warming_up_viscous_fluid.prm</span></code>.</p>
 <p>The following schematic describes the simulation.</p>
 <a class="reference internal image-reference" href="../../../_images/warming_scheme.png"><img alt="Simulation schematic" class="align-center" src="../../../_images/warming_scheme.png" style="height: 10cm;"/></a>
@@ -304,9 +305,9 @@
 </div>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">1.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="simulation-control">
-<h3><span class="section-number">1.4.1. </span>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>Time integration is defined by a 2nd order backward differentiation (<code class="docutils literal notranslate"><span class="pre">bdf2</span></code>), for a 7.0 seconds simulation (<code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">end</span></code>) with a 0.05 second <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code>, as stated in the subsection <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Simulation Control
@@ -326,7 +327,7 @@ end
 </div>
 </section>
 <section id="fem">
-<h3><span class="section-number">1.4.2. </span>FEM<a class="headerlink" href="#fem" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.2. </span>FEM<a class="headerlink" href="#fem" title="Permalink to this headline">¶</a></h3>
 <p>The order of resolution for the <code class="docutils literal notranslate"><span class="pre">velocity</span></code>, <code class="docutils literal notranslate"><span class="pre">pressure</span></code> and <code class="docutils literal notranslate"><span class="pre">temperature</span></code> are given in the subsection FEM:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # FEM
@@ -340,7 +341,7 @@ end
 </div>
 </section>
 <section id="physical-properties">
-<h3><span class="section-number">1.4.3. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.3. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The fluid’s <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> are defined in the following subsection, according to the properties of oil.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Physical Properties
@@ -362,7 +363,7 @@ end
 </div>
 </section>
 <section id="mesh">
-<h3><span class="section-number">1.4.4. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.4. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">mesh</span></code> considered is a very basic rectangle, using the <code class="docutils literal notranslate"><span class="pre">dealii</span></code> grid type <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html#a56019d263ae45708302d5d7599f0d458">hyper_rectangle</a>, to represent the fluid volume considered between the two plates. Here, the width between the two plates is set to <code class="docutils literal notranslate"><span class="pre">0.5</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Mesh
@@ -381,7 +382,7 @@ end
 </div>
 </section>
 <section id="multiphysics">
-<h3><span class="section-number">1.4.5. </span>Multiphysics<a class="headerlink" href="#multiphysics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.5. </span>Multiphysics<a class="headerlink" href="#multiphysics" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enable to turn on (<code class="docutils literal notranslate"><span class="pre">true</span></code>) and off (<code class="docutils literal notranslate"><span class="pre">false</span></code>) the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code> and <code class="docutils literal notranslate"><span class="pre">viscous</span> <span class="pre">dissipation</span></code> must be set (see Bonuses for results without viscous dissipation).</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Multiphysics
@@ -394,7 +395,7 @@ end
 </div>
 </section>
 <section id="analytical-solution">
-<h3><span class="section-number">1.4.6. </span>Analytical Solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.6. </span>Analytical Solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">analytical</span> <span class="pre">solution</span></code> is defined, according to the fluid and simulation properties:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[T(x) = T_\omega + \frac{\rho \nu v^2}{2K}\left ( 1 - \left ( \frac{x}{B} \right )^2 \right )\]</div></div>
@@ -417,7 +418,7 @@ end
 </div>
 </section>
 <section id="boundary-conditions">
-<h3><span class="section-number">1.4.7. </span>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.7. </span>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> are set for:</p>
 <ul class="simple">
 <li><p>the fluid dynamic in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">boundary</span> <span class="pre">conditions</span></code>, with <code class="docutils literal notranslate"><span class="pre">noslip</span></code> at the left wall (<code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">0</span></code>) and a velocity of <code class="docutils literal notranslate"><span class="pre">2</span></code> in the y-direction at the right wall (<code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">1</span></code>),</p></li>
@@ -463,16 +464,16 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">1.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is launched in the same folder as the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file, using the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> solver. It takes only about 5 seconds with one cpu:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>../../exe/bin/gls_navier_stokes_2d warming_up_viscous_fluid.prm
 </pre></div>
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">1.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <section id="visualizations">
-<h3><span class="section-number">1.6.1. </span>Visualizations<a class="headerlink" href="#visualizations" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.6.1. </span>Visualizations<a class="headerlink" href="#visualizations" title="Permalink to this headline">¶</a></h3>
 <p>Convergence with regards to the analytical solution on the temperature:</p>
 <a class="reference internal image-reference" href="../../../_images/error_analytical.png"><img alt="Convergence with regards to the analytical solution on the temperature" class="align-center" src="../../../_images/error_analytical.png" style="height: 10cm;"/></a>
 <p>Domain with temperature:</p>
@@ -484,14 +485,14 @@ end
 <a class="reference internal image-reference" href="../../../_images/temperature_over_time.png"><img alt="Temperature evolution over time" class="align-center" src="../../../_images/temperature_over_time.png" style="height: 15cm;"/></a>
 </section>
 <section id="physical-interpretation">
-<h3><span class="section-number">1.6.2. </span>Physical interpretation<a class="headerlink" href="#physical-interpretation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.6.2. </span>Physical interpretation<a class="headerlink" href="#physical-interpretation" title="Permalink to this headline">¶</a></h3>
 <p>From <span class="math notranslate nohighlight">\(t=0s\)</span> to <span class="math notranslate nohighlight">\(t=2s\)</span>, the right plate (<span class="math notranslate nohighlight">\(T=80^\circ\)</span>) heats up the fluid (initially at <span class="math notranslate nohighlight">\(T=0^\circ\)</span>). At <span class="math notranslate nohighlight">\(t=2s\)</span>, the temperature is quasi-homogeneous in the fluid, with <span class="math notranslate nohighlight">\(T=80^\circ\)</span>. As the fluid continues to be forced to flow at the right wall, viscous dissipation generates more heat, so that the wall with a fixed temperature of <span class="math notranslate nohighlight">\(T=80^\circ\)</span> now cools down the fluid. A steady state between viscous dissipation heating and the fixed temperature cooling is reached at about <span class="math notranslate nohighlight">\(t=4.5s\)</span>.</p>
 </section>
 </section>
 <section id="bonuses">
-<h2><span class="section-number">1.7. </span>Bonuses<a class="headerlink" href="#bonuses" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7. </span>Bonuses<a class="headerlink" href="#bonuses" title="Permalink to this headline">¶</a></h2>
 <section id="results-for-water">
-<h3><span class="section-number">1.7.1. </span>Results for water<a class="headerlink" href="#results-for-water" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.7.1. </span>Results for water<a class="headerlink" href="#results-for-water" title="Permalink to this headline">¶</a></h3>
 <p>For water, <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Physical Properties
@@ -512,7 +513,7 @@ end
 <a class="reference internal image-reference" href="../../../_images/domain_t7_water_rescale.png"><img alt="Rescaled domain with temperature (t = 7)" src="../../../_images/domain_t7_water_rescale.png" style="width: 30%;"/></a>
 </section>
 <section id="results-without-viscous-dissipation">
-<h3><span class="section-number">1.7.2. </span>Results without viscous dissipation<a class="headerlink" href="#results-without-viscous-dissipation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.7.2. </span>Results without viscous dissipation<a class="headerlink" href="#results-without-viscous-dissipation" title="Permalink to this headline">¶</a></h3>
 <p>The viscous dissipation can be disabled physically, if the two plates remain fixed (<code class="docutils literal notranslate"><span class="pre">v=0</span></code> for <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">1</span></code>), or numerically with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">viscous</span> <span class="pre">dissipation</span> <span class="pre">=</span> <span class="pre">false</span></code>. Both cases give the same results shown below. The fluid considered is still water.</p>
 <p>After the fluid has been heated up by the right plate, the temperature is really homogeneous throughout the domain, and both minimum and maximum temperatures stay at <span class="math notranslate nohighlight">\(T_\omega=80^\circ\)</span>. Adapting the temperature scale shows that there is no viscous dissipation at all.</p>
 <a class="reference internal image-reference" href="../../../_images/temperature_over_time_water_nodiss.png"><img alt="Temperature evolution over time" class="align-center" src="../../../_images/temperature_over_time_water_nodiss.png" style="height: 15cm;"/></a>
@@ -522,7 +523,7 @@ end
 </section>
 </section>
 <section id="possibilities-for-extension">
-<h2><span class="section-number">1.8. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.8. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Study the <strong>sensitivity to the time step</strong>, namely to assess how large the <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> can be before stating any difference in the heat transfer solution.</p></li>
 <li><p>Test a <strong>different time integration scheme</strong> and see if there is any difference in the computational cost and/or the precision with regards to the analytical solution.</p></li>
@@ -536,23 +537,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">
+          <a class="next-page" href="../dam-break-VOF/dam-break-VOF.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">2. </span>Tracer through CAD Junction in Simplex</div>
+                <div class="title"><span class="section-number">4. </span>Dam break VOF</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../multiphysics.html">
+          <a class="prev-page" href="../stefan_problem/stefan_problem.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Multiphysics Examples</div>
+                <div class="title"><span class="section-number">2. </span>Stefan problem : melting of a solid</div>
                 
               </div>
             </a>
@@ -582,32 +583,32 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">1. Warming Up a Viscous Fluid</a><ul>
-<li><a class="reference internal" href="#features">1.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">1.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">1.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">1.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#simulation-control">1.4.1. Simulation Control</a></li>
-<li><a class="reference internal" href="#fem">1.4.2. FEM</a></li>
-<li><a class="reference internal" href="#physical-properties">1.4.3. Physical Properties</a></li>
-<li><a class="reference internal" href="#mesh">1.4.4. Mesh</a></li>
-<li><a class="reference internal" href="#multiphysics">1.4.5. Multiphysics</a></li>
-<li><a class="reference internal" href="#analytical-solution">1.4.6. Analytical Solution</a></li>
-<li><a class="reference internal" href="#boundary-conditions">1.4.7. Boundary Conditions</a></li>
+<li><a class="reference internal" href="#">3. Warming Up a Viscous Fluid</a><ul>
+<li><a class="reference internal" href="#features">3.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">3.2. Location of the example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">3.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">3.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#simulation-control">3.4.1. Simulation Control</a></li>
+<li><a class="reference internal" href="#fem">3.4.2. FEM</a></li>
+<li><a class="reference internal" href="#physical-properties">3.4.3. Physical Properties</a></li>
+<li><a class="reference internal" href="#mesh">3.4.4. Mesh</a></li>
+<li><a class="reference internal" href="#multiphysics">3.4.5. Multiphysics</a></li>
+<li><a class="reference internal" href="#analytical-solution">3.4.6. Analytical Solution</a></li>
+<li><a class="reference internal" href="#boundary-conditions">3.4.7. Boundary Conditions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">1.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">1.6. Results</a><ul>
-<li><a class="reference internal" href="#visualizations">1.6.1. Visualizations</a></li>
-<li><a class="reference internal" href="#physical-interpretation">1.6.2. Physical interpretation</a></li>
+<li><a class="reference internal" href="#running-the-simulation">3.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">3.6. Results</a><ul>
+<li><a class="reference internal" href="#visualizations">3.6.1. Visualizations</a></li>
+<li><a class="reference internal" href="#physical-interpretation">3.6.2. Physical interpretation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#bonuses">1.7. Bonuses</a><ul>
-<li><a class="reference internal" href="#results-for-water">1.7.1. Results for water</a></li>
-<li><a class="reference internal" href="#results-without-viscous-dissipation">1.7.2. Results without viscous dissipation</a></li>
+<li><a class="reference internal" href="#bonuses">3.7. Bonuses</a><ul>
+<li><a class="reference internal" href="#results-for-water">3.7.1. Results for water</a></li>
+<li><a class="reference internal" href="#results-without-viscous-dissipation">3.7.2. Results without viscous dissipation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#possibilities-for-extension">1.8. Possibilities for extension</a></li>
+<li><a class="reference internal" href="#possibilities-for-extension">3.8. Possibilities for extension</a></li>
 </ul>
 </li>
 </ul>

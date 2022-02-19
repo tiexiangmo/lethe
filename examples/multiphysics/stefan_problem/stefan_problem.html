@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="2. Stefan problem : melting of a solid" href="../stefan_problem/stefan_problem.html" /><link rel="prev" title="Multiphysics Examples" href="../multiphysics.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="3. Warming Up a Viscous Fluid" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html" /><link rel="prev" title="1. Tracer through CAD Junction in Simplex" href="../tracer-through-cad-junction/tracer-through-cad-junction.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>1. Tracer through CAD Junction in Simplex - Lethe documentation</title>
+        <title>2. Stefan problem : melting of a solid - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -219,8 +219,8 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">1. Tracer through CAD Junction in Simplex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">2. Stefan problem : melting of a solid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">2. Stefan problem : melting of a solid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">3. Warming Up a Viscous Fluid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">4. Dam break VOF</a></li>
 </ul>
@@ -273,206 +273,136 @@
           </label>
         </div>
         <article role="main">
-          <section id="tracer-through-cad-junction-in-simplex">
-<h1><span class="section-number">1. </span>Tracer through CAD Junction in Simplex<a class="headerlink" href="#tracer-through-cad-junction-in-simplex" title="Permalink to this headline">¶</a></h1>
-<p>In this example, we solve a problem using the simplex capabilities of Lethe.
-The simplex grids can be generated easily to represent complex geometries, such as a junction of channels made from boolean addition.
-We will also demonstrate the tracer physics capabilities.</p>
+          <section id="stefan-problem-melting-of-a-solid">
+<h1><span class="section-number">2. </span>Stefan problem : melting of a solid<a class="headerlink" href="#stefan-problem-melting-of-a-solid" title="Permalink to this headline">¶</a></h1>
+<p>This example simulates the <a class="reference external" href="https://en.wikipedia.org/wiki/Stefan_problem">Stefan</a> problem following the approach taken by <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">Blais &amp; Ilinca (2018)</a></p>
 <section id="features">
-<h2><span class="section-number">1.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code></p></li>
-<li><p>Transient problem</p></li>
-<li><p>Displays the use of the tracer physics</p></li>
-<li><p>Displays the use of a simplex mesh generated with a CAD platform</p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
+<li><p>Heat transfer pĥysics</p></li>
+<li><p>Unsteady problem handled by a BDF1 time-stepping scheme</p></li>
+<li><p>Phase change specific heat model</p></li>
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">1.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/tracer-through-cad-junction/tracer_through_cad_junction.prm</span></code></p>
-</section>
+<h2><span class="section-number">2.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/stefan_problem/stefan.prm</span></code></p>
 <section id="description-of-the-case">
-<h2><span class="section-number">1.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>A junction of pipes following an arbitrary path is difficult to mesh properly with hexaedral elements.
-A simplex mesh, on the other hand, is easy to setup and can be built with many well-established algorithms;
-all software that can create a mesh can create a simplex mesh.
-In this example, we consider a junction of pipes that follow orthogonal sinusoids.
-This case shows how a passive tracer injected in such a geometry can be used to visualize preferential paths.</p>
-<section id="generating-a-geometry-with-salome">
-<h3><span class="section-number">1.3.1. </span>Generating a geometry with SALOME<a class="headerlink" href="#generating-a-geometry-with-salome" title="Permalink to this headline">¶</a></h3>
-<p>Complex geometries can be set up and meshed with the SALOME platform.</p>
-<p>First, the geometry module must be loaded as such, and geometric shapes can be added. For example, here, disks are drawn alongside sinusoidal curves that will be used for pipe generation through extrusion. The <code class="docutils literal notranslate"><span class="pre">Fuse</span></code> command can then be used to obtain a single geometry.</p>
-<img alt="Salome menu with geometry visible" class="align-center" src="../../../_images/salome_menu.png"/>
-<img alt="Geometry generated with Salome" class="align-center" src="../../../_images/salome_geometry.png"/>
-<p>Second, the mesh module can be loaded to generate a <code class="docutils literal notranslate"><span class="pre">.mesh</span></code> file. A new mesh must be created with an associated geometry, algorithm and hypothesis. <code class="docutils literal notranslate"><span class="pre">NETGEN</span> <span class="pre">1D-2D-3D</span></code> works well, and automatic hypothesis selection can be used. The element size can be edited to specific requirements, and then the Compute command must be used to generate the grid. Through <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Export</span> <span class="pre">-&gt;</span> <span class="pre">GMF</span> <span class="pre">File</span></code>, the <code class="docutils literal notranslate"><span class="pre">.mesh</span></code> file can be output.</p>
-<img alt="Contextual menu for mesh generation in Salome" class="align-center" src="../../../_images/salome_mesh_creation.png"/>
-</section>
-<section id="adding-the-boundary-ids-from-gmsh">
-<h3><span class="section-number">1.3.2. </span>Adding the boundary IDs from Gmsh<a class="headerlink" href="#adding-the-boundary-ids-from-gmsh" title="Permalink to this headline">¶</a></h3>
-<p>A criterion for the use of <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file in Lethe is that the boundaries have an associated ID number. These numbers can be added in Gmsh.</p>
-<p>The boundaries from the mesh must be linked to a Physical object. In 3D for example, the inlet, outlet and walls must be specified as <code class="docutils literal notranslate"><span class="pre">Physical</span> <span class="pre">surfaces</span></code>. Selecting the surface for the inlet and outlet can be done easily, and then the <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file can be text-edited to add a new physical surface with the remaining surfaces.</p>
-<p>In this specific case, there are four boundaries: inlets with no tracer (1), inlet with tracer (2), walls (3) and outlets (4), as stated in the <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file (see excerpt in the text block below).</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Merge "Mesh_1.mesh";
-Physical Surface(1) = {729, 712};
-Physical Surface(2) = {10};
-Physical Surface(3) = {1:9,11:711,713:728,730:848,850,852:5000};
-Physical Surface(4) = {849, 851};
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">Physical</span> <span class="pre">Volume</span></code> must also be specified for compatibility with deal.II, as stated with this line from the <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Physical Volume(1) = {1};
-</pre></div>
-</div>
-<p>The last step in Gmsh is to generate the 3D mesh, and then save it to a <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file.</p>
+<h3><span class="section-number">2.2.1. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h3>
+<p>The Stefan problem describes the melting or the solidification of a pure substance by conduction in a 1D semi-infinite domain. This classical problem, extensively described in the literature [1], is often used as the core test case to establish the accuracy and the robustness of numerical models for phase change. Although it is established for a semi-infinite domain, it can be solved on a finite domain provided that it is sufficiently long. This problem is illustrated in the following figure:</p>
+<img alt="problem_illustration" class="align-center" src="../../../_images/stefan_problem_illustration.png"/>
+<p>The analytical solution for the temperature in the liquid is given by:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[T(x,t) = T_W + (T_S-T_W) \frac{erf\left(\frac{x}{2\sqrt{\alpha t}} \right)}{\beta}\]</div></div>
+<p>with <span class="math notranslate nohighlight">\(\alpha = \frac{k}{\rho C_p}\)</span> the thermal diffusivity, <span class="math notranslate nohighlight">\(k\)</span> the thermal conductivity, <span class="math notranslate nohighlight">\(\rho\)</span> the density,  <span class="math notranslate nohighlight">\(T_W\)</span> is the wall temperature and <span class="math notranslate nohighlight">\(T_S\)</span> is the melting (or solidification) point of a pure substance. The parameter <span class="math notranslate nohighlight">\(\beta\)</span> is obtained by solving the non-linear algebraic equation:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\beta \exp^{\beta^2} erf \beta = \frac{St}{\sqrt{\pi}}\]</div></div>
+<p>with <span class="math notranslate nohighlight">\(St\)</span> is the Stefan number which is defined as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[St = \frac{C_p \left ( T_{W}-T_{S}\right)}{h_l}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(C_p\)</span> is the specific heat (which is the same for the liquid and the solid phase) and <span class="math notranslate nohighlight">\(h_l\)</span> is the latent heat of fusion.</p>
+<p>In this example, this equation is solved using the SciPy package and Python. The displacement of the solid–liquid (the dashed lined in Fig. 1) is given by:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\delta (t) = 2 \beta \sqrt{\alpha t}\]</div></div>
+<p>the diffusivity coefficient in the liquid phase and <span class="math notranslate nohighlight">\(\delta (t)\)</span> the melting front displacement. In this example, we consider the case where <span class="math notranslate nohighlight">\(\alpha=1\)</span>, <span class="math notranslate nohighlight">\(h_l=100\)</span>, <span class="math notranslate nohighlight">\(T_W=1\)</span> and <span class="math notranslate nohighlight">\(T_S=0\)</span>. This corresponds to <span class="math notranslate nohighlight">\(St=100\)</span>. However, the model within Lethe is sufficiently robust to manage any values of the Stefan number.</p>
+<p>Although simple, this problem can be challenging to solve numerically because of the sharp impact of the phase change on the specific heat within the solidification interval. Even if this problem is inherently a 1D problem, we analyse it in 2D by generating structured quadrilateral meshes on a [0, 0]X[1, 0.1] domain. The number of nodes in the y direction is kept at 2 (one cell), but it is adjusted to 101 in the x direction which is the direction in which the heat transfer occurs and in which the interface displaces.</p>
+<p>Lethe uses a specific heat phase change model to solve this type of problem. This model is quasi-identical to the one described by <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">Blais &amp; Ilinca (2018)</a>. It is also described in the <a class="reference internal" href="../../../parameters/cfd/physical_properties.html"><span class="doc">Physical Properties</span></a> section of the documentation.</p>
 </section>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">1.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>Using Lethe requires a solver executable, in this case <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code>, and a <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file. This second one can be setup in many ways, but for this specific case two aspects must be treated with more care: the enabling of simplex mode, and the setup of the tracer physics.</p>
-<section id="enabling-the-simplex-mode">
-<h3><span class="section-number">1.4.1. </span>Enabling the Simplex mode<a class="headerlink" href="#enabling-the-simplex-mode" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mesh</span></code>, the simplex mode can be enabled with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">simplex</span> <span class="pre">=</span> <span class="pre">true</span></code>. Also, the mesh in the <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file must obviously be built with simplex elements.</p>
+<h2><span class="section-number">2.3. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>We first define the geometry in which the simulation is carried out using the mesh subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Mesh
 #---------------------------------------------------
 subsection mesh
-    set type                 = gmsh
-    set file name            = vessels.msh
-    set initial refinement   = 0
-    set simplex              = true
+        set type = dealii
+        set grid type = subdivided_hyper_rectangle
+        set grid arguments = 100, 1 : 0, 0 : 1, 0.1 : true
+        set initial refinement = 0
 end
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If the mesh type is set to <code class="docutils literal notranslate"><span class="pre">dealii</span></code> instead of <code class="docutils literal notranslate"><span class="pre">gmsh</span></code>, the deal.II generated mesh will be properly built with simplices.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>[2022-01-19] It is crucial to consider a current limitation : simplex grid refinement isn’t implemented in Lethe.</p>
-</div>
-</section>
-<section id="setting-up-the-tracer-physics">
-<h3><span class="section-number">1.4.2. </span>Setting up the tracer physics<a class="headerlink" href="#setting-up-the-tracer-physics" title="Permalink to this headline">¶</a></h3>
-<p>Using the tracer physics requires four elements: activating the physics, setting the tracer diffusivity, setting the tracer elements order and setting the boundary conditions. These elements are provided as such:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Multiphysics
-#---------------------------------------------------
-subsection multiphysics
-    set tracer = true
-end
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Physical Properties
-#---------------------------------------------------
-subsection physical properties
-    set kinematic viscosity            = 1
-    set tracer diffusivity             = 0.001
-end
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# FEM
-#---------------------------------------------------
-subsection FEM
-    set velocity order            = 1
-    set pressure order            = 1
-    set tracer order              = 1
-end
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# Tracer Boundary Conditions
-#---------------------------------------------------
-subsection boundary conditions tracer
-set number                  = 2
-    subsection bc 0
-    set id = 1
-    set type              = dirichlet
-        subsection dirichlet
-                set Function expression =  0
-        end
-    end
-    subsection bc 1
-    set id = 2
-    set type              = dirichlet
-        subsection dirichlet
-                set Function expression =  1
-        end
-    end
-end
-</pre></div>
-</div>
-<p>The boundary conditions are written in a specific way.
-We have specified 2 boundaries, a Dirichlet condition with a concentration of 1 for the first inlet, and another Dirichlet condition with a tracer concentration of 0 for the second inlet. All the remaining boundaries are unspecified.
-An unspecified boundary condition in Lethe for the tracer is considered as the natural condition of finite elements,
-which is a zero gradient condition.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span> <span class="pre">tracer</span></code> subsection is different from the general <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code>
-which concerns the flow.</p>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> subsection for the flow is setup as follows. The inlet with a high tracer concentration (<code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">2</span></code>)
-is given a higher velocity than the other two (<code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">1</span></code>). The walls of the junction (<code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">3</span></code>) are given a <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">slip</span></code> type.
-The remaining boundaries (<code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">4</span></code>) are unspecified for the same reason as in the previous subsection: no constraint
-must be applied to the outlet flow.</p>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">dealii</span></code> GridGenerator to generate a <code class="docutils literal notranslate"><span class="pre">subdivided_hyper_rectangle</span></code>. This rectangle contains 100 cells in the x direction and 1 in the y direction. It is created from two points, <span class="math notranslate nohighlight">\((0,0)\)</span> and <span class="math notranslate nohighlight">\((1,0.1)\)</span>. Finally, we give a different id to each boundary of the domain, hence the colorize option is set to true.</p>
+<p>The next step is establishing the boundary conditions:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
 # Boundary Conditions
 #---------------------------------------------------
-subsection boundary conditions
-    set number                  = 3
+subsection boundary conditions heat transfer
+  set number                  = 1
     subsection bc 0
-        set id = 1
-        set type              = function
-        subsection u
-            set Function expression = 0
-        end
-        subsection v
-            set Function expression = 0
-        end
-        subsection w
-            set Function expression = 1
-        end
-    end
-    # The boundary id = 2 will have the tracer
-    subsection bc 1
-        set id = 2
-        set type              = function
-        subsection u
-            set Function expression = 0
-        end
-        subsection v
-            set Function expression = 0
-        end
-        subsection w
-            set Function expression = 4
-        end
-    end
-    subsection bc 2
-        set id = 3
-        set type              = noslip
+    set id = 0
+            set type        = temperature
+        set value           = 1
     end
 end
 </pre></div>
 </div>
-</section>
-</section>
-<section id="simulation-and-results">
-<h2><span class="section-number">1.5. </span>Simulation and results<a class="headerlink" href="#simulation-and-results" title="Permalink to this headline">¶</a></h2>
-<p>The case must be run with the solver and the parameter file.
-The simulation is launched in the same folder as the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file,
-using the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code> solver. It takes a long time since problem is
-transient and the time steps are short:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>../../exe/bin/gls_navier_stokes_3d tracer_through_cad_junction.prm
+<p>Note that we only set one boundary condition for the temperature, which is a constant temperature on the wall which bears the ID 0 (the left wall). By default, boundaries on which boundary conditions are not specified are no-flux Neumann boundary conditions which, for a heat transfer problem results in:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\nabla T \cdot \mathbf{n} = 0\]</div></div>
+<p>Next, we define the physical properties:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+set number of fluids = 1
+  subsection fluid 0
+    set thermal conductivity model = constant
+    set thermal conductivity = 1
+
+    set specific heat model = phase_change
+    subsection phase change
+      # Enthalpy of the phase change
+      set latent enthalpy      = 100
+
+      # Temperature of the liquidus
+      set liquidus temperature = 0.02
+
+      # Temperature of the solidus
+      set solidus temperature  = 0
+
+      # Specific heat of the liquid phase
+      set specific heat liquid = 1
+
+      # Specific heat of the solid phase
+      set specific heat solid  = 1
+    end
+
+  end
+end
 </pre></div>
 </div>
-<p>The results in <code class="docutils literal notranslate"><span class="pre">.pvd</span></code> format can then be viewed using visualisation software such as Paraview.</p>
-<img alt="Simulation results in Meshgrid format" class="align-center" src="../../../_images/paraview_tracer.png"/>
-<p>The higher presence of tracer in the outlet on the same side as the tracer inlet may indicate poor mixing.
-As the tracer diffusivity is low, the mixing between the streams comes mainly from advection.
-However, since the kinematic viscosity is high, the flow is laminar (i.e. dominated by viscous forces) and
-the streamlines do not cross.</p>
+<p>This subsection defines the various parameters of the specific heat model for phase change. Key parameters to note are the solidus and liquidus temperatures. These parameters define the phase change interval, that is the temperature interval over which the phase change occurs. For pure substance, this interval should, in theory, be infinitely small. However, this leads to a numerically unstable solution. Consequently, we set a finite value which should be relatively small, but not too small as to lead to numerical instabilities. In the present case, we set this interval to 0.02C, which is sufficient to guarantee a high degree of accuracy while maintaining numerical stability. The impact of this parameter on the stability and the accuracy of the model has been studied in depth by <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">Blais &amp; Ilinca (2018)</a>.</p>
+<p>Finally, the only remaining section is the simulation control, which controls the flow of the simulation. We simulate until a <span class="math notranslate nohighlight">\(t=5s\)</span> using a time step of <span class="math notranslate nohighlight">\(\Delta t=0.02s\)</span> using a BDF1 (implicit Euler) time integration scheme and we output the solution at every iteration.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
+# Simulation Control
+#---------------------------------------------------
+subsection simulation control
+  set method                  = bdf1
+  set output frequency        = 1
+  set output name             = stefan
+  set output path = ./output/
+  set time end = 5
+  set time step = 0.02
+end
+</pre></div>
+</div>
+</section>
+<section id="results">
+<h2><span class="section-number">2.4. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The following image compares the results obtained with Lethe with the analytical solution for the Stefan problem at <span class="math notranslate nohighlight">\(t=5\)</span>. This data is extracted through the use of a python script available in the folder of the example. We see that a quasi perfect agreement can be obtained with the analytical solution of the Stefan problem.</p>
+<img alt="comparison_analytical_solution" class="align-center" src="../../../_images/lethe_stefan_comparison.png"/>
+<p>Refining the mesh, decreasing the time step and decreasing the phase change interval (by decreasing <code class="docutils literal notranslate"><span class="pre">liquidus</span> <span class="pre">temperature</span></code>) would increase the accuracy of the solution since the analytical solution of the Stefan problem is defined for a pure fluid (for which the liquid and the solidus temperatures are equal).</p>
+<section id="possibilities-for-extension">
+<h3><span class="section-number">2.4.1. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Consider different Stefan numbers:</strong> The solver in Lethe is sufficiently robust to simulate a large range of Stefan numbers. You can try to simulate the problem with different Stefan number and see how the value of the Stefan number affects the solution.</p></li>
+<li><p><strong>Simulate a more complex geometry:</strong> The phase change model can be readily used in any sort of geometry using, for example, a simplex mesh. An easy extension of this problem is to consider any 2D or 3D geometry.</p></li>
+</ul>
+</section>
+</section>
+<section id="references">
+<h2><span class="section-number">2.5. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>[1] aus der Wiesche, Stefan. “Numerical heat transfer and thermal engineering of AdBlue (SCR) tanks for combustion engine emission reduction.” Applied Thermal Engineering 27.11-12 (2007): 1790-1798.</p>
 </section>
 </section>
 
@@ -481,23 +411,23 @@ the streamlines do not cross.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../stefan_problem/stefan_problem.html">
+          <a class="next-page" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">2. </span>Stefan problem : melting of a solid</div>
+                <div class="title"><span class="section-number">3. </span>Warming Up a Viscous Fluid</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../multiphysics.html">
+          <a class="prev-page" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Multiphysics Examples</div>
+                <div class="title"><span class="section-number">1. </span>Tracer through CAD Junction in Simplex</div>
                 
               </div>
             </a>
@@ -507,7 +437,7 @@ the streamlines do not cross.</p>
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/examples/multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.rst.txt"
+            | <a class="muted-link" href="../../../_sources/examples/multiphysics/stefan_problem/stefan_problem.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -527,20 +457,18 @@ the streamlines do not cross.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">1. Tracer through CAD Junction in Simplex</a><ul>
-<li><a class="reference internal" href="#features">1.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">1.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">1.3. Description of the case</a><ul>
-<li><a class="reference internal" href="#generating-a-geometry-with-salome">1.3.1. Generating a geometry with SALOME</a></li>
-<li><a class="reference internal" href="#adding-the-boundary-ids-from-gmsh">1.3.2. Adding the boundary IDs from Gmsh</a></li>
+<li><a class="reference internal" href="#">2. Stefan problem : melting of a solid</a><ul>
+<li><a class="reference internal" href="#features">2.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">2.2. Location of the example</a><ul>
+<li><a class="reference internal" href="#description-of-the-case">2.2.1. Description of the case</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#parameter-file">1.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#enabling-the-simplex-mode">1.4.1. Enabling the Simplex mode</a></li>
-<li><a class="reference internal" href="#setting-up-the-tracer-physics">1.4.2. Setting up the tracer physics</a></li>
+<li><a class="reference internal" href="#parameter-file">2.3. Parameter file</a></li>
+<li><a class="reference internal" href="#results">2.4. Results</a><ul>
+<li><a class="reference internal" href="#possibilities-for-extension">2.4.1. Possibilities for extension</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#simulation-and-results">1.5. Simulation and results</a></li>
+<li><a class="reference internal" href="#references">2.5. References</a></li>
 </ul>
 </li>
 </ul>
@@ -557,5 +485,6 @@ the streamlines do not cross.</p>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
