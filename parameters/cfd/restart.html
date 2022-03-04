@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Dynamic flow control" href="dynamic_flow_control.html" /><link rel="prev" title="Nitsche" href="nitsche.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Finite element interpolation (FEM) - Lethe documentation</title>
+        <title>Restart - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -182,7 +182,7 @@
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Multiphysics - Boundary Contitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Finite element interpolation (FEM)</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="interface_sharpening.html">Interface sharpening</a></li>
 </ul>
@@ -273,36 +273,56 @@
           </label>
         </div>
         <article role="main">
-          <section id="finite-element-interpolation-fem">
-<h1>Finite element interpolation (FEM)<a class="headerlink" href="#finite-element-interpolation-fem" title="Permalink to this headline">¶</a></h1>
-<p>This subsection controls the restart and checkpointing of the simulation.
-This feature is used to restart a time-dependent simulation using the data written on the last checkpoint before the simulation stopped or crashed.
-The default parameters are:</p>
+          <section id="restart">
+<h1>Restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h1>
+<p>This subsection controls the checkpointing and restarting of time-dependent simulations.</p>
+<p>This feature is used both to write data at checkpoints (<cite>checkpointing</cite>) and restart a simulation (<cite>restarting</cite>) using data from the last checkpoint.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is highly advised to use it if you fear you might either run out of memory/simulation time during the simulation.</p>
+</div>
+<p>The default parameters are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection restart
+  # Checkpointing parameters
   set checkpoint = false
-  set restart    = false
-  set filename   = restart
   set frequency  = 1
+
+  # Output/input files
+  set filename   = restart
+
+  # Restarting parameters
+  set restart    = false
 end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> option enables creating a checkpoint of the simulation when it is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkpoint</span></code>: controls if a checkpoint of the simulation is created. All the files needed to restart the simulation from this checkpoint (such as <code class="docutils literal notranslate"><span class="pre">.pvdhandler</span></code>, <code class="docutils literal notranslate"><span class="pre">.triangulation</span></code>) will be written.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code>: number of iteration before the first checkpoint, and between each subsequent checkpoint.</p></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You may want to enable it when launching a time-dependent simulation if you fear you might either run out of memory/simulation time during the simulation.</p>
+<p>Checkpointing is very intensive from an I/O point of view, consequently it should not be done at every iteration. The checkpointing frequency is in accordance to the number of <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> (see <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Each checkpoint erases the previous one, so a simulation can only be restarted from the last check-point.</p>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">restart</span></code> option controls if the simulation will be restarted from a previous checkpoint. Turn this parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code> for the first checkpoint creation. The simulation will start from the last checkpoint when the parameter is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and will finish at the provided time end (see <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/simulation_control.html">Simulation Control</a>).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">filename</span></code> parameter fixes the prefix of all the checkpointing files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filename</span></code>: prefix for the files. This parameter is used to output checkpoint files as well as to load files during a restart.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Restart files are searched for in the output path specified in subsection simulation control.</p>
+<p>Files are saved (when checkpointing) and searched for (when restarting) in the <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">path</span></code> specified in subsection <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>.</p>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">frequency</span></code> parameter controls the checkpointing frequency. Checkpointing is very intensive from an I/O point of view, consequently it should not be done at every iteration. The checkpointing frequency is is accordance to the number of <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> (see <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/simulation_control.html">Simulation Control</a>).</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">restart</span></code>: controls if the simulation is to be restarted from a previous checkpoint.</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">restart</span> <span class="pre">=</span> <span class="pre">false</span></code>: for the first checkpoint creation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">restart</span> <span class="pre">=</span> <span class="pre">true</span></code>: the simulation will start from the last checkpoint and will finish at the provided <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">end</span></code> (see <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </section>
 

@@ -182,7 +182,7 @@
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Multiphysics - Boundary Contitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
-<li class="toctree-l3"><a class="reference internal" href="restart.html">Finite element interpolation (FEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="interface_sharpening.html">Interface sharpening</a></li>
 </ul>
@@ -283,13 +283,15 @@ The default parameters of each are shown:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions heat transfer
 set number                  = 2
     subsection bc 0
+        set id              = 0
         set type            = temperature
         set value           = 0
     end
     subsection bc 1
-        set type                = convection
-        set h                   = 0
-        set Tinf                = 0
+        set id              = 1
+        set type            = convection
+        set h               = 0
+        set Tinf            = 0
     end
 end
 </pre></div>
@@ -302,6 +304,7 @@ end
 <p>The number of boundary conditions must be specified explicitly as the ParameterHandler is not able to deduce the number of boundary conditions from the number of <code class="docutils literal notranslate"><span class="pre">bc</span></code> subsections. This is often a source of error.</p>
 </div>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> is the number associated with the boundary condition. By default, Lethe assumes that the id is equivalent to the number of the bc.</p></li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">type</span></code>: This is the type of boundary condition been imposed. At the moment, choices are</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code> (Dirichlet BC), to impose a given temperature <code class="docutils literal notranslate"><span class="pre">value</span></code> at the boundary</p></li>
@@ -324,7 +327,8 @@ end
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions tracer
 set number                  = 1
     subsection bc 0
-            set type              = dirichlet
+            set id          = 0
+            set type        = dirichlet
             subsection dirichlet
                 set Function expression = 0
             end
@@ -334,6 +338,7 @@ end
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">number</span></code>: This is the number of boundary conditions of the problem.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> is the number associated with the boundary condition. By default, Lethe assumes that the id is equivalent to the number of the bc.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: This is the type of boundary condition been imposed. At the moment, only dirichlet boundary conditions can be imposed for tracer.</p></li>
 </ul>
 </section>
