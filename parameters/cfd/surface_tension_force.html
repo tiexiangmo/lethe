@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Non-linear Solver Control" href="non-linear_solver_control.html" /><link rel="prev" title="Post-Processing" href="post_processing.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Discrete Element Method (DEM)" href="../dem/dem.html" /><link rel="prev" title="Interface sharpening" href="interface_sharpening.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Timer - Lethe documentation</title>
+        <title>Surface tension force - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -176,7 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="non-linear_solver_control.html">Non-linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="linear_solver_control.html">Linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
@@ -185,7 +185,7 @@
 <li class="toctree-l3"><a class="reference internal" href="restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="interface_sharpening.html">Interface sharpening</a></li>
-<li class="toctree-l3"><a class="reference internal" href="surface_tension_force.html">Surface tension force</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Surface tension force</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -285,39 +285,57 @@
           </label>
         </div>
         <article role="main">
-          <section id="timer">
-<h1>Timer<a class="headerlink" href="#timer" title="Permalink to this headline">¶</a></h1>
-<p>The timer section controls the frequency at which the timing of the simulation is output. Setting <code class="docutils literal notranslate"><span class="pre">type=iteration</span></code> outputs the timing of all elements of the simulation at the end of each iteration. Setting its value to <code class="docutils literal notranslate"><span class="pre">end</span></code> outputs the timing of all elements only at the end of the simulation. The timing can be disabled completely, which is necessary for the unit and functional tests.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection timer
-# Clock monitoring methods. Choices are none, iteration or end
-   set type = none
+          <section id="surface-tension-force">
+<h1>Surface tension force<a class="headerlink" href="#surface-tension-force" title="Permalink to this headline">¶</a></h1>
+<p>Surface tension is the tendency of a liquid to maintain the minimum possible surface area.</p>
+<p>When running a multiphase flow simulation, where at least one phase is liquid, using the volume of fluid method (VOF), enabling surface tension force ensures an accurate interface between the phases.</p>
+<p>This subsection includes parameters related to the surface tension force.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection surface tension force
+ set surface tension coefficient          = 0.1
+ set phase fraction gradient filter   = 0.0005
+ set curvature filter                         = 0.0005
+ set output auxiliary fields              = true
 end
 </pre></div>
 </div>
-<p>The timer output in Lethe is an important mechanism to monitor the relative cost of the different functions. At every time step, the timing functions will report the time spent in each function.</p>
-<p>The following table shows an example of the output of the timer:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+---------------------------------------------+------------+------------+
-| Total wallclock time elapsed since start    |      11.5s |            |
-|                                             |            |            |
-| Section                         | no. calls |  wall time | % of total |
-+---------------------------------+-----------+------------+------------+
-| assemble_rhs                    |         4 |      2.28s |        20% |
-| assemble_system                 |         4 |      7.78s |        68% |
-| output                          |         2 |      1.21s |        11% |
-| setup_ILU                       |         4 |     0.164s |       1.4% |
-| solve_linear_system             |         4 |    0.0812s |      0.71% |
-+---------------------------------+-----------+------------+------------+
-</pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
 </div>
-<p>For every block of functions, Lethe reports the number of calls, the wall time spent and the percentage of time spent in the function. It is important to monitor this when running a simulation.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">assemble_rhs</span></code> refers to the assembly of the right-hand side of the equation, that is the residual of the equation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">assemble_system</span></code> refers to the time spent assembling the matrix associated with the equation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">output</span></code> refers to the output of the <code class="docutils literal notranslate"><span class="pre">.vtu</span></code>, <code class="docutils literal notranslate"><span class="pre">.pvtu</span></code> and <code class="docutils literal notranslate"><span class="pre">.pvd</span></code> files.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setup_ILU```or</span> <span class="pre">``setup_AMG</span></code> describe the time spent to set-up the preconditioner.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">solve_linear_system</span></code> refers to the time spent solving the linear system of equations, without the time required to assemble the preconditioner.</p></li>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">coefficient</span></code>: surface tension coefficient in <span class="math notranslate nohighlight">\(Nm^{-1}\)</span>.</p></li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">fraction</span> <span class="pre">gradient</span> <span class="pre">filter</span></code>: this parameter (<span class="math notranslate nohighlight">\(\eta_n \geq 0\)</span>) applies a <a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/fld.2643">projection step</a>) to damp high frequency errors, that are magnified by differentiation, in the phase fraction gradient (<span class="math notranslate nohighlight">\(\bf{\psi}\)</span>).</dt><dd><div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\int_\Omega {\bf{v}} . {\bf{\psi}} + \eta_n \nabla {\bf{v}} . \nabla {\bf{\psi}} d\Omega = \int_\Omega {\bf{v}} . \nabla {\phi} d\Omega\]</div></div>
+</dd>
+</dl>
+</li>
 </ul>
-<p>Depending on the type of simulation, there may be other categories that appear in the timer. This is useful to monitor the functions responsible for taking up most of the simulation time.</p>
+<p>where <span class="math notranslate nohighlight">\(\bf{v}\)</span>, <span class="math notranslate nohighlight">\(\bf{\psi}\)</span>, <span class="math notranslate nohighlight">\(\eta_n \geq 0\)</span>, and <span class="math notranslate nohighlight">\(\phi\)</span> denote a piecewise continuous vector-valued test function, filtered phase fraction gradient, phase fraction gradient filter value, and phase fraction, respectively.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This parameter must be a small value larger than 0. We recommend the following procedure to choose a proper value for <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">fraction</span> <span class="pre">gradient</span> <span class="pre">filter</span></code> value: 1, Enable <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span></code> 2, Choose a small value for <span class="math notranslate nohighlight">\(\eta_n = h/10\)</span>, where <span class="math notranslate nohighlight">\(h\)</span> is the smallest mesh size 3, Run the simulation and check whether the filtered phase fraction gradient field is smooth and without oscillation 4, If the filtered phase fraction gradient field shows oscillations, increase the value <span class="math notranslate nohighlight">\(\eta_n\)</span> to a larger value (<span class="math notranslate nohighlight">\(\eta_n = h/5\)</span>, for example), and repeat this process until reaching a smooth filtered phase fraction gradient field without oscillations.</p>
+</div>
+<ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">curvature</span> <span class="pre">filter</span></code>: this parameter (<span class="math notranslate nohighlight">\(\eta_k\)</span>) applies a <a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/fld.2643">projection step</a>) to damp high frequency errors, that are magnified by differentiation, in the curvature (<span class="math notranslate nohighlight">\(k\)</span>).</dt><dd><div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\int_\Omega v k + \eta_k \nabla v . \nabla k d\Omega = \int_\Omega \nabla v . \frac{\bf{\psi}}{|\bf{\psi}|} d\Omega\]</div></div>
+</dd>
+</dl>
+</li>
+</ul>
+<p>where <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, and <span class="math notranslate nohighlight">\(\eta_k \geq 0\)</span> denote a test function, filtered curvature, and curvature filter value, respectively.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The same procedure as choosing a value for <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">fraction</span> <span class="pre">gradient</span> <span class="pre">filter</span></code> should be done for <code class="docutils literal notranslate"><span class="pre">curvature</span> <span class="pre">filter</span></code> value.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span></code>: the solver writes filtered phase fraction gradient and filtered curvature if this parameter is enabled.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The <a class="reference internal" href="../../examples/multiphysics/rising-bubble-VOF/rising-bubble-VOF.html"><span class="doc">Rising bubble VOF</span></a> example using VOF represents the application of surface tension force.</p>
+</div>
 </section>
 
         </article>
@@ -325,23 +343,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="non-linear_solver_control.html">
+          <a class="next-page" href="../dem/dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Non-linear Solver Control</div>
+                <div class="title">Discrete Element Method (DEM)</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="post_processing.html">
+          <a class="prev-page" href="interface_sharpening.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Post-Processing</div>
+                <div class="title">Interface sharpening</div>
                 
               </div>
             </a>
@@ -351,7 +369,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/timer.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/surface_tension_force.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -370,5 +388,6 @@ end
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

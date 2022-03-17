@@ -185,6 +185,7 @@
 <li class="toctree-l3"><a class="reference internal" href="restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="interface_sharpening.html">Interface sharpening</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surface_tension_force.html">Surface tension force</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -223,6 +224,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/stefan_problem/stefan_problem.html">2. Stefan problem : melting of a solid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">3. Warming Up a Viscous Fluid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/dam-break-VOF/dam-break-VOF.html">4. Dam break VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/rising-bubble-VOF/rising-bubble-VOF.html">5. Rising bubble VOF</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -298,6 +300,7 @@
   # Multiphase flow
   set VOF                     = false
   set interface sharpening    = false
+  set surface tension force = false
   set conservation monitoring = false
   set fluid monitored         = 1
 end
@@ -331,6 +334,7 @@ end
 <dl>
 <dt>When <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">VOF</span> <span class="pre">=</span> <span class="pre">true</span></code>, these optional parameters can be used:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>: controls if the interface sharpening method is used. Additional parameters can be found at <a class="reference internal" href="interface_sharpening.html"><span class="doc">Interface sharpening</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code>: controls if the surface tension force is added to the simulation. Additional parameters can be found at <a class="reference internal" href="surface_tension_force.html"><span class="doc">Surface tension force</span></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">conservation</span> <span class="pre">monitoring</span></code>: controls if conservation is monitored at each iteration, through the volume computation of the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">monitored</span></code>. Results are outputted in a data table (<cite>VOF_monitoring_fluid_0.dat</cite> or <cite>VOF_monitoring_fluid_1.dat</cite>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">monitored</span></code>: index of the monitored fluid, if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">conservation</span> <span class="pre">monitoring</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p>
 <div class="admonition important">
