@@ -300,6 +300,8 @@
    set coupling frequency = 200
    set inlet boundary id = 2
    set outlet boundary id = 3
+   set implicit stabilization = true
+   set grad-div length scale = 1
 end
 </pre></div>
 </div>
@@ -319,6 +321,8 @@ end
 </div>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">inlet</span> <span class="pre">boundary</span></code> and <code class="docutils literal notranslate"><span class="pre">outlet</span> <span class="pre">boundary</span></code> parameters allow us to specify the ID of the inlet and outlet for pressure drop calculations.</p></li>
+<li><p>The implicit stabilization parameter determines wehether or not we calculate the <span class="math notranslate nohighlight">\(\tau\)</span> for the SUPG stabilization and the <span class="math notranslate nohighlight">\(\gamma\)</span> for the grad-div stabilization using the current velocity (implicit stabilization) or the velocity at the previous time step (explicit stabilization). By default, this is set to true. If difficulties are encountered in the convergence of the non-linear solver, a good practice is to set this to false.</p></li>
+<li><p>The grad-div length scale determines the value of the length scale constant <span class="math notranslate nohighlight">\(c^*\)</span> in the calculation of <span class="math notranslate nohighlight">\(\gamma = \nu + c^* \mathbf{u}\)</span>.</p></li>
 </ul>
 <p>[1] B. Blais, L. Barbeau, V. Bibeau, S. Gauvin, T. E. Geitani, S. Golshan, R. Kamble, G. Mirakhori, J. Chaouki, Lethe: An open-source parallel high- order adaptative cfd solver for incompressible flows, SoftwareX 12 (2020) 100579.</p>
 <p>[2] R. Di Felice, The voidage function for fluid-particle interaction systems, International journal of multiphase flow 20 (1) (1994) 153–159.</p>
