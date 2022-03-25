@@ -302,10 +302,23 @@
   subsection VOF
     set Function expression = if (x&lt;0.5 &amp; y&lt;1, 1, 0)
   end
+
+  subsection ramp
+   subsection viscosity
+     set initial viscosity = 1.0
+     set iterations = 0
+     set alpha = 0.5
+   end
+   subsection n
+     set initial n = 1.0
+     set iterations = 0
+     set alpha = 0.5
+   end
+ end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter indicates which strategy is used to impose the initial conditions. The choices are : <code class="docutils literal notranslate"><span class="pre">L2projection</span></code> , <code class="docutils literal notranslate"><span class="pre">viscous</span></code> or <code class="docutils literal notranslate"><span class="pre">nodal</span></code> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter indicates which strategy is used to impose the initial conditions. The choices are : <code class="docutils literal notranslate"><span class="pre">L2projection</span></code>, <code class="docutils literal notranslate"><span class="pre">viscous</span></code>, <code class="docutils literal notranslate"><span class="pre">nodal</span></code> or <code class="docutils literal notranslate"><span class="pre">ramp</span></code>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">viscosity</span></code> parameter controls the viscosity that is  used to solve the Navier-Stokes equations when the viscous initial condition is chosen.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">uvwp</span></code> allows the user to select a function (velocity-pressure) to set a nodal or L2 projection initial condition.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">VOF</span></code> defines the areas where both fluids lay at the initial state (see section <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>). In this example, the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> is used with a boolean condition to establish the region where the fluid indicator is 0 or 1: <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(condition,</span> <span class="pre">value</span> <span class="pre">if</span> <span class="pre">true,</span> <span class="pre">value</span> <span class="pre">if</span> <span class="pre">false)</span></code>. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(x&lt;0.5</span> <span class="pre">&amp;</span> <span class="pre">y&lt;1,</span> <span class="pre">1,</span> <span class="pre">0)</span></code> means that <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> initially fills the surface where <code class="docutils literal notranslate"><span class="pre">x&lt;0.5</span></code> and <code class="docutils literal notranslate"><span class="pre">y&lt;1</span></code>, the rest being filled with <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>.</p></li>
@@ -314,6 +327,27 @@
 <p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> can be used to establish an even more complex free surface initial geometry. For example, one can create a circle of fluid : <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(</span> <span class="pre">(x^2+y^2)&lt;=(r)^2</span> <span class="pre">,1,0)</span></code></p>
 </div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">ramp</span></code> holds the parameters to operate a ramp on either or both the viscosity and the <code class="docutils literal notranslate"><span class="pre">n</span></code> parameter in rheological models (see <a class="reference internal" href="physical_properties.html"><span class="doc">Physical Properties</span></a> for more information on this parameter). When ramping on the viscosity value,</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">viscosity</span></code> is the viscosity with which the initial condition starts off. An initial viscosity of 1.0 is suggested.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">iterations</span></code> parameter sets the number of viscosity iterations before reaching the simulation viscosity.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter sets the stepping length between viscosity iterations, as seen in the following equation, where <span class="math notranslate nohighlight">\(\eta\)</span> is the viscosity and <span class="math notranslate nohighlight">\(i\)</span> stands for the iteration number.</p></li>
+</ul>
+</li>
+</ul>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\eta_{i+1} = \eta_i + \alpha (\eta_{\text{end}} - \eta_i)\]</div></div>
+<dl class="simple">
+<dt>Likewise, in the <code class="docutils literal notranslate"><span class="pre">subection</span> <span class="pre">n</span></code>, the parameters for ramping on the <code class="docutils literal notranslate"><span class="pre">n</span></code> value are the following.</dt><dd><ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">n</span></code> is the <span class="math notranslate nohighlight">\(n\)</span> value with which the initial condition starts off. An initial math:<cite>n</cite> of 1.0 is suggested.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">iterations</span></code> parameter sets the number of math:<cite>n</cite> iterations before reaching the simulation math:<cite>n</cite>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter sets the stepping length between math:<cite>n</cite> iterations, as seen in the following equation, <span class="math notranslate nohighlight">\(i\)</span> stands for the iteration number.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[n_{i+1} = n_i + \alpha (n_{\text{end}} - n_i)\]</div></div>
 </section>
 
         </article>
@@ -366,5 +400,6 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
