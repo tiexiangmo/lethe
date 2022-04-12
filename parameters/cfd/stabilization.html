@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Force and torque calculation" href="force_and_torque.html" /><link rel="prev" title="Source term" href="source_term.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Multiphysics" href="multiphysics.html" /><link rel="prev" title="Linear Solver Control" href="linear_solver_control.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Analytical solution - Lethe documentation</title>
+        <title>Stabilization - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -173,13 +173,13 @@
 <li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source_term.html">Source term</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Analytical solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="non-linear_solver_control.html">Non-linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="linear_solver_control.html">Linear Solver Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="stabilization.html">Stabilization</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Stabilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Multiphysics - Boundary Contitions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
@@ -287,94 +287,23 @@
           </label>
         </div>
         <article role="main">
-          <section id="analytical-solution">
-<h1>Analytical solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">¶</a></h1>
-<p>If the problem being simulated has a known analytical solution, or an exact solution is imposed (manufactured solutions) it can be added in this section. The default parameters are:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection analytical solution
- set enable                = false
- set verbosity             = quiet
- set filename              = L2Error
- subsection uvwp
-   set Function expression = 0; 0; 0  # In 2D : u;v;p
-     or
-   set Function expression = 0; 0; 0; 0  #In 3D u;v;w;p
- end
- subsection temperature
-   set Function expression = 0
- end
- subsection tracer
-   set Function expression = 0
- end
- subsection phase
-   set Function expression = 0
- end
+          <section id="stabilization">
+<h1>Stabilization<a class="headerlink" href="#stabilization" title="Permalink to this headline">¶</a></h1>
+<p>To solve the Navier-Stokes equations (and other), Lethe uses stabilization techniques to formulate a Petrov-Galerkin strategy in which the test function is not strictly equal to the interpolation. The stabilization provided by Lethe are relatively robust and do not require any manual tinkering. However, stabilization of FEM schemes remain an active area a research, notably when it comes to variational multi-scales (VMS) methods. This is a field in which we are doing active research. As such, Lethe possesses some advanced parameters to control the stabilization techniques used to solve the Navier-Stokes. These are <em>advanced</em> parameters and, in general, the defaults value should be used.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection stabilization
+  set use default stabilization = true
+
+  set stabilization             = pspg_supg     # &lt;pspg_supg|gls|grad_div&gt;.
 end
 </pre></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">default</span> <span class="pre">stabilization</span></code> indicates that the solver should use the default stabilization strategy, which is generally the most adequate strategy. To use an alternative strategy, this parameter must be set to false and the strategy to be used must be manually specified using the <code class="docutils literal notranslate"><span class="pre">stabilization</span></code> parameter.</p>
+<p>There are three choices of stabilization strategy:</p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span></code> parameter is set to true if the problem has an analytical solution. This enables the calculation of the analytical solution and the <span class="math notranslate nohighlight">\(L^2\)</span> norm of the error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stabilization=pspg-supg</span></code> assembles a PSPG/SUPG stabilization for the Navier-Stokes equations. This stabilization should only be used with the monolithic GLS solver.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stabilization=gls</span></code> assembles a full GLS stabilization for the Navier-Stokes equations. This stabilization is similar to the <code class="docutils literal notranslate"><span class="pre">pspg-supg</span></code>, but adds the term <span class="math notranslate nohighlight">\(\nu \nabla^2 \mathbf{v}\)</span> to the test function. This stabilization should only be used with the monolithic GLS solver.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stabilization=grad_div</span></code> assembles a grad-div penalization term in the momentum equation to ensure mass conservation. This is not a stabilization method per-say and should not be used with elements that are not LBB stable. This stabilization should only be used with the grad-div Navier-Stokes solver (<code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_2d</span></code> and <code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_3d</span></code>)</p></li>
 </ul>
-<p>The <span class="math notranslate nohighlight">\(L^2\)</span> norm of the error is calculated as</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[L^2 = \int_\Omega (u-u_a)^2 \mathrm{d} \Omega\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(u\)</span> is the numerical solution and  <span class="math notranslate nohighlight">\(u_a\)</span> is the analytical solution.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> parameter enables printing the L2 error after each mesh refinement if it is set to <code class="docutils literal notranslate"><span class="pre">verbose</span></code> and if <code class="docutils literal notranslate"><span class="pre">enable</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">filename</span></code> parameter sets the file name to output the L2 error norm if <code class="docutils literal notranslate"><span class="pre">enable</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
-</ul>
-<p>If there is an analytical solution for velocity and pressure, enter the <code class="docutils literal notranslate"><span class="pre">uvwp</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression for the analytical solution in regards to <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> for a 2D simulation and to <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(p\)</span> for a 3D simulation.</p></li>
-</ul>
-<p>If there is an analytical solution for the fluid’s temperature, enter the <code class="docutils literal notranslate"><span class="pre">temperature</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression of the temperature.</p></li>
-</ul>
-<p>If there is an analytical solution for a tracer, enter the <code class="docutils literal notranslate"><span class="pre">tracer</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression of the tracer.</p></li>
-</ul>
-<p>If there is an analytical solution for the fluid’s phase, enter the <code class="docutils literal notranslate"><span class="pre">phase</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression of the phase.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The variables <em>x</em>, <em>y</em>, <em>z</em> (3D) and <em>t</em> (time-dependant) can be used in the function expressions.</p>
-</div>
-<p>In all four last subsections, you can add a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">constants</span></code> parameter that will act as a constant in the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code>.</p>
-<p>Ex:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection analytical solution
- set enable                = true
- set verbosity             = true
- set filename              = L2Error
- subsection uvwp
-   set Function constants = A=2.0
-   set Function expression = A*y; -A*x; 0
- end
-end
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A <span class="math notranslate nohighlight">\(\pi\)</span> variable is already defined as both <code class="docutils literal notranslate"><span class="pre">pi</span></code> and <code class="docutils literal notranslate"><span class="pre">Pi</span></code></p>
-</div>
-<p>Your function expression can also contain common functions such as <span class="math notranslate nohighlight">\(\sin\)</span>, <span class="math notranslate nohighlight">\(\cos\)</span> as well as <code class="docutils literal notranslate"><span class="pre">if</span></code> statements.</p>
-<p>Ex.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection analytical solution
- set enable                = true
- set verbosity             = true
- set filename              = L2Error
- subsection phase
-   set Function expression = if(sin(x) &gt; pi, 1, 0)
- end
-end
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The first parameter in the <code class="docutils literal notranslate"><span class="pre">if()</span></code> function is the statement. If this statement is <em>true</em>, then the function expression takes the second parameter as value. If this statement is <em>false</em>, the function expression takes the third parameter as value. In this example, the analytical phase will vary within the calculation domain.</p>
-</div>
 </section>
 
         </article>
@@ -382,23 +311,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="force_and_torque.html">
+          <a class="next-page" href="multiphysics.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Force and torque calculation</div>
+                <div class="title">Multiphysics</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="source_term.html">
+          <a class="prev-page" href="linear_solver_control.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Source term</div>
+                <div class="title">Linear Solver Control</div>
                 
               </div>
             </a>
@@ -408,7 +337,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/analytical_solution.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/stabilization.rst.txt"
                rel="nofollow">
               Show Source
             </a>
