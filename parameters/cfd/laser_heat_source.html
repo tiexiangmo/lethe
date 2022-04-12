@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Unresolved CFD-DEM" href="../unresolved_cfd-dem/unresolved_cfd-dem.html" /><link rel="prev" title="Mesh" href="mesh.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Discrete Element Method (DEM)" href="../dem/dem.html" /><link rel="prev" title="Surface tension force" href="surface_tension_force.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Boundary Conditions - Lethe documentation</title>
+        <title>Laser heat source - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -164,42 +164,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching your first simulation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/fem.html">Finite element interpolation (FEM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/source_term.html">Source term</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/analytical_solution.html">Analytical solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/force_and_torque.html">Force and torque calculation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/post_processing.html">Post-Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/timer.html">Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/non-linear_solver_control.html">Non-linear Solver Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/linear_solver_control.html">Linear Solver Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/stabilization.html">Stabilization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/boundary_conditions_multiphysics.html">Multiphysics - Boundary Contitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/nitsche.html">Nitsche</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/restart.html">Restart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/interface_sharpening.html">Interface sharpening</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/surface_tension_force.html">Surface tension force</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/laser_heat_source.html">Laser heat source</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="cfd.html">General, CFD and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source_term.html">Source term</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="non-linear_solver_control.html">Non-linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linear_solver_control.html">Linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stabilization.html">Stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Multiphysics - Boundary Contitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="restart.html">Restart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interface_sharpening.html">Interface sharpening</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surface_tension_force.html">Surface tension force</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Laser heat source</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="dem.html">Discrete Element Method (DEM)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="test.html">Test</a></li>
-<li class="toctree-l3"><a class="reference internal" href="model_parameters.html">Model Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="insertion_info.html">Insertion Info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="floating_walls.html">Floating Walls</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Boundary Conditions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dem/simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/timer.html">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/test.html">Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/model_parameters.html">Model Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/insertion_info.html">Insertion Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/floating_walls.html">Floating Walls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dem/boundary_conditions.html">Boundary Conditions</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -282,65 +282,59 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="boundary-conditions">
-<h1>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h1>
-<p>In this subsection, the boundary conditions of the DEM simulation are defined. First of all, the <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">boundary</span> <span class="pre">conditions</span></code> is specified. Then for each boundary condition, its information is defined. There are four boundary types: <code class="docutils literal notranslate"><span class="pre">fixed_wall</span></code>, <code class="docutils literal notranslate"><span class="pre">outlet</span></code>, <code class="docutils literal notranslate"><span class="pre">rotational</span></code> (around the center), and <code class="docutils literal notranslate"><span class="pre">translational</span></code>. For <code class="docutils literal notranslate"><span class="pre">rotational</span></code> motion, <code class="docutils literal notranslate"><span class="pre">rotational</span> <span class="pre">speed</span></code> and <code class="docutils literal notranslate"><span class="pre">rotational</span> <span class="pre">vector</span></code> are required, while for <code class="docutils literal notranslate"><span class="pre">translational</span></code> motion, the <code class="docutils literal notranslate"><span class="pre">speed</span></code> should be defined in each direction.</p>
-<p><code class="docutils literal notranslate"><span class="pre">fixed_wall</span></code> is a static wall, and particles collide with these static walls upon reaching the wall. The only way to move these walls is to move the entire triangulation. If the <code class="docutils literal notranslate"><span class="pre">outlet</span></code> condition is chosen for a boundary, particles can leave the simulation domain via this outlet. Using <code class="docutils literal notranslate"><span class="pre">rotational</span></code> and <code class="docutils literal notranslate"><span class="pre">translational</span></code> boundary conditions, exerts imaginary rotational and translational velocities to that boundary. In other words, the boundary does not move, but the particles that have collisions with these walls receive a rotational or translational velocity from the wall. This feature is used in the rotating drum example.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection DEM boundary conditions
- # Total number of boundary motion
- set number of boundary conditions                     = 2
-
-   # For each motion, we need a separate subsection
-   subsection boundary condition 0
-
-       # ID of boundary
-       set boundary id                                 = 0
-
-       # Boundary type
-       # Choices are fixed_wall|outlet|rotational|translational
-       set type                                        = rotational
-
-       # Rotational speed magnitude
-       set rotational speed                            = 2.5
-
-       # Rotational vector
-       set rotational vector x                         = 1
-       set rotational vector y                         = 0
-       set rotational vector z                         = 0
-   end
-
- # OR for translational motion
-   subsection boundary condition 1
-
- # ID of moving boundary
-       set boundary id                                 = 1
-
- # Motion type
-       set type                                        = translational
-
- # Speed in each direction
-       set speed x                                     = 0.15
-       set speed y                                     = 0
-       set speed z                                     = 0
-   end
+          <section id="laser-heat-source">
+<h1>Laser heat source<a class="headerlink" href="#laser-heat-source" title="Permalink to this headline">¶</a></h1>
+<p>If a laser heat source is present in a simulation, it can be added in this section. The default parameters are:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection laser parameters
+     set enable                 = false
+     set concentration factor   = 2.0
+     set power                  = 100.0
+     set absorptivity           = 0.5
+     set penetration depth      = 0.0
+     set beam radius            = 0.0
+     set start time             = 0.0
+     set end time               = 1.0
+     set beam orientation       = z
+     subsection path
+       set Function expression  =  0.0; 0.0
+     end
 end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">boundary</span> <span class="pre">conditions</span></code> parameter defines the number of desired boundary conditions to be specified. Note that if a boundary condition <code class="docutils literal notranslate"><span class="pre">type</span></code> is not defined explicitly, Lethe defines it as a fixed static wall.</p></li>
-<li><p>For each boundary condition, we have to define a separate subsection. In the sample parameter list above, the <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">boundary</span> <span class="pre">conditions</span></code> is equal to 2. Hence, we need to define two subsections (<code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">boundary</span> <span class="pre">condition</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">boundary</span> <span class="pre">condition</span> <span class="pre">1</span></code>).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">id</span></code> parameter specifies the boundary ID for which the boundary condition should be applied.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter specifies the type of the boundary condition. Acceptable types are: <code class="docutils literal notranslate"><span class="pre">fixed_wall</span></code>, <code class="docutils literal notranslate"><span class="pre">outlet</span></code>, <code class="docutils literal notranslate"><span class="pre">rotational</span></code>, and <code class="docutils literal notranslate"><span class="pre">translational</span></code>. The default boundary condition type is <code class="docutils literal notranslate"><span class="pre">fixed_wall</span></code>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">rotational</span> <span class="pre">speed</span></code> parameter defines the rotational speed of the specified boundary.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">rotational</span> <span class="pre">vector</span></code> parameter specifies the rotational vector in <cite>x</cite>, <cite>y</cite>, and <cite>z</cite> directions.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">speed</span></code> parameter defines the translational speed of the specified boundary.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span></code> parameter is set to true if the problem has a laser heat source term and enables its calculation.</p></li>
+<li><p>Laser <code class="docutils literal notranslate"><span class="pre">concentration</span> <span class="pre">factor</span></code> parameter indicates the definition of the beam radius. In almost all the articles, it is assumed equal to 2.0.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">power</span></code> parameter sets the power of the laser [<span class="math notranslate nohighlight">\(ML^2T^{-3}\)</span>].</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">absorptivity</span></code> parameter is defined as the fraction of the amount of incident radiation that is absorbed by the surface, and it is measured using diffuse reﬂectance spectroscopy (DRS). Generally, a constant value in the range of 0.3-0.8 (for welding processes with titanium) are used in the literature. However, recent studies show that it varies with powder particle size distribution, and the angle of incidence that changes due to the dynamic melt pool surface [1].</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">penetration</span> <span class="pre">depth</span></code> parameter determines the penetration depth of the laser in the simulation domain in the direction of emission.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">radius</span></code> parameter defines the radius of the laser beam.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">time</span></code> parameters define the operation time window of the laser.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">orientation</span></code> parameter shows the orientation of the laser beam. For instance, if a laser beam is emitted perpendicular on a plane in x-y coordinates, the orientation of the laser beam will be in the z direction.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In two-dimensional simulations, the laser beam orientation cannot be in the z direction.</p>
+</div>
+<ul class="simple">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">path</span></code> subsection, the laser scanning path is defined using a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code>.</p></li>
+</ul>
+<p>The exponential decaying model [2] is used to simulate the haser heat souce. In the exponential decaying model, the laser heat flux is calculated using the following equation:</p>
+<blockquote>
+<div><div class="math-wrapper"><div class="math notranslate nohighlight">
+\[q(x,y,z) = \frac{\eta \alpha P}{\pi r^2 \mu} \exp{(-\eta \frac{r^2}{R^2})} \exp{(- \frac{|z|}{\mu})}\]</div></div>
+</div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(\eta\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, :math:<cite>z</cite> denote concentration factor, absorptivity, laser power, beam radius, penetration depth, radial distance from the laser focal point, and axial distance from the laser focal point, respectively.</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>[1] Zhang, Z., Huang, Y., Kasinathan, A.R., Shahabad, S.I., Ali, U., Mahmoodkhani, Y. and Toyserkani, E., 2019. 3-Dimensional heat transfer modeling for laser powder-bed fusion additive manufacturing with volumetric heat sources based on varied thermal conductivity and absorptivity. Optics &amp; Laser Technology, 109, pp.297-312.</p>
+<p>[2]Liu, S., Zhu, H., Peng, G., Yin, J. and Zeng, X., 2018. Microstructure prediction of selective laser melting AlSi10Mg using finite element analysis. Materials &amp; Design, 142, pp.319-328.</p>
+</section>
 </section>
 
         </article>
@@ -348,23 +342,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../unresolved_cfd-dem/unresolved_cfd-dem.html">
+          <a class="next-page" href="../dem/dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Unresolved CFD-DEM</div>
+                <div class="title">Discrete Element Method (DEM)</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="mesh.html">
+          <a class="prev-page" href="surface_tension_force.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Mesh</div>
+                <div class="title">Surface tension force</div>
                 
               </div>
             </a>
@@ -374,7 +368,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/dem/boundary_conditions.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/laser_heat_source.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -382,8 +376,27 @@ end
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Laser heat source</a><ul>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -393,5 +406,6 @@ end
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
