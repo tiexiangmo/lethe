@@ -294,7 +294,7 @@
 <p>This subsection’s purpose is defining the boundary conditions associated to multiphysic problems.</p>
 <section id="heat-transfer">
 <h2>Heat Transfer<a class="headerlink" href="#heat-transfer" title="Permalink to this headline">¶</a></h2>
-<p>For heat transfer boundary conditions, the possible <code class="docutils literal notranslate"><span class="pre">types</span></code> are <code class="docutils literal notranslate"><span class="pre">temperature</span></code> (default) and <code class="docutils literal notranslate"><span class="pre">convection</span></code>.
+<p>For heat transfer boundary conditions, the possible <code class="docutils literal notranslate"><span class="pre">types</span></code> are <code class="docutils literal notranslate"><span class="pre">temperature</span></code> (default) and <code class="docutils literal notranslate"><span class="pre">convection-radiation</span></code>.
 The default parameters of each are shown:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions heat transfer
 set number                  = 2
@@ -305,10 +305,12 @@ set number                  = 2
     end
     subsection bc 1
         set id              = 1
-        set type            = convection
-        set h               = 0
-        set Tinf            = 0
+        set type                = convection-radiation
+        set h                   = 0
+        set Tinf                = 0
+        set emissivity   = 0
     end
+    set Stefan-Boltzmann constant = 0.000000056703
 end
 </pre></div>
 </div>
@@ -324,14 +326,15 @@ end
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">type</span></code>: This is the type of boundary condition been imposed. At the moment, choices are</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code> (Dirichlet BC), to impose a given temperature <code class="docutils literal notranslate"><span class="pre">value</span></code> at the boundary</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">convection</span></code> (Robin BC) for cooling/heating, depending on the environment temperature at the boundary <code class="docutils literal notranslate"><span class="pre">Tinf</span></code>, with a given heat transfer coefficient <code class="docutils literal notranslate"><span class="pre">h</span></code> following Newton’s law of cooling (and heating)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">convection-radiation</span></code> (Robin BC) for cooling/heating, depending on the environment temperature at the boundary <code class="docutils literal notranslate"><span class="pre">Tinf</span></code>, with a given heat transfer coefficient <code class="docutils literal notranslate"><span class="pre">h</span></code> and emissivity of the boundary <span class="math notranslate nohighlight">\(\mathbf{\epsilon}\)</span> following Newton’s law of cooling (and heating) and Stefan-Boltzmann law of radiation</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\frac{ \partial T}{\partial \mathbf{n}} = h (T - T_\textit{inf})\]</div></div>
+\[\frac{ \partial T}{\partial \mathbf{n}} = h (T - T_{inf}) + \epsilon \sigma (T^4 - T_{inf}^4)\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{\sigma}\)</span> is the Stefan-Boltzmann constant.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>By default, the boundary condition type is <code class="docutils literal notranslate"><span class="pre">temperature</span></code> with <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">=</span> <span class="pre">0</span></code></p>
