@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="The Incompressible Navier-Stokes equations" href="navier-stokes.html" /><link rel="prev" title="Theory" href="../theory.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Contributing" href="../../contributing.html" /><link rel="prev" title="Rheology and non-Newtonian fluids" href="../fluid_dynamics/rheology.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Fluid dynamics - Lethe documentation</title>
+        <title>Unresolved CFD-DEM coupling - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -253,14 +253,14 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../theory.html">Theory</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Fluid dynamics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fem_formulation.html">Origin of the finite element formulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="stabilization.html">On the need for stabilization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rheology.html">Rheology and non-Newtonian fluids</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../fluid_dynamics/fluid_dynamics.html">Fluid dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../fluid_dynamics/navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid_dynamics/fem_formulation.html">Origin of the finite element formulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid_dynamics/stabilization.html">On the need for stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid_dynamics/rheology.html">Rheology and non-Newtonian fluids</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM coupling</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Unresolved CFD-DEM coupling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
@@ -284,22 +284,125 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="fluid-dynamics">
-<h1>Fluid dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fem_formulation.html">Origin of the finite element formulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stabilization.html">On the need for stabilization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rheology.html">Rheology and non-Newtonian fluids</a></li>
+          <section id="unresolved-cfd-dem-coupling">
+<h1>Unresolved CFD-DEM coupling<a class="headerlink" href="#unresolved-cfd-dem-coupling" title="Permalink to this headline">¶</a></h1>
+<p>Unresolved CFD-DEM is a technique with high potential for designing and analyzing multiphase flows involving particles and fluid. Some examples of these systems are fluidized beds, stirred-tanks, and flocculation processes. In this approach, we apply Newton’s second law of motion to each particle individually such that their movement is described at a micro-scale (as in DEM simulations). On the other hand, the fluid is represented at a meso-scale by a mesh of cells, to which we apply the Volume Average Navier-Stokes (VANS) equations.</p>
+<p>The micro-meso scale approach allows for particle-fluid simulations involving large numbers of particles with reasonable computational cost and highly detailed results (in both time and space). As a counterpart, the interchanged momentum between phases needs to be modeled, i.e., it is not obtained straightforwardly from the application of a no-slip boundary condition at the interface between the fluid and the particles. The following image represents the micro-meso scale approach applied in unresolved CFD-DEM simulations, where the rectangles represent mesh of the geometry and the gray spots represent the particles.</p>
+<img alt="Schematic represantion of micro-meso scale approach in unresolved CFD-DEM" class="align-center" id="geometry" src="../../_images/schematic_unresolve_cfd-dem.png"/>
+<p>In this guide, we summarize the theory behind Unresolved CFD-DEM. For further details, we refer the reader to the articles by Bérard, Patience &amp; Blais (2019) <a class="reference external" href="https://doi.org/10.1002/cjce.23686">[1]</a>, and Zhou et al. (2010) <a class="reference external" href="https://doi.org/10.1017/S002211201000306X">[2]</a>.</p>
+<section id="particles">
+<h2>Particles<a class="headerlink" href="#particles" title="Permalink to this headline">¶</a></h2>
+<p>Applying Newton’s second law on the particle <span class="math notranslate nohighlight">\(i\)</span> surrounded by fluid a <span class="math notranslate nohighlight">\(f\)</span>, we find:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}m_i \frac{\mathrm{d}\mathbf{v}_i}{\mathrm{d}t} = \sum_{j}\mathbf{f}_{c,ij} + \sum_{j}\mathbf{f}_{nc,ij} + \mathbf{f}_{pf,i} + \mathbf{f}_{g,i} \\
+I_i \frac{\mathrm{d}\mathbf{\omega}_i}{\mathrm{d}t} = \sum_{j}\left ( \mathbf{M}_{c,ij} + \mathbf{M}_{r,ij} \right ) + \sum_{w}\left ( \mathbf{M}_{c,iw} + \mathbf{M}_{r,iw} \right )\end{split}\]</div></div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(m_i\)</span> is the mass of the particle;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{v}_i\)</span> is the velocity vector;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}_{c,ij}\)</span> are the contact forces between particles <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> (detailed in the DEM section of this guide);</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}_{nc,ij}\)</span> are the non-contact forces between particles <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>, such as lubrication forces <a class="reference external" href="https://doi.org/10.1002/aic.690400418">[3]</a> (<strong>not yet available on Lethe</strong>);</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}_{pf,i}\)</span> is the force exerted by the surrounding fluid over particle <span class="math notranslate nohighlight">\(i\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}_{g,i}\)</span> is the gravitational force;</p></li>
+<li><p><span class="math notranslate nohighlight">\(I_i\)</span> is the moment of inertia;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{\omega}_i\)</span> is the angular velocity;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{M}_{c,ij}\)</span> is the torque between particles <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{M}_{r,ij}\)</span> is the rolling friction between particles <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{M}_{c,iw}\)</span> is the torque between particle <span class="math notranslate nohighlight">\(i\)</span> and walls <span class="math notranslate nohighlight">\(w\)</span>;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{M}_{c,iw}\)</span> is the rolling friction between particle <span class="math notranslate nohighlight">\(i\)</span> and walls <span class="math notranslate nohighlight">\(w\)</span>;</p></li>
 </ul>
+<p>Apart from <span class="math notranslate nohighlight">\(\mathbf{f}_{pf,i}\)</span>, all the other terms of the previous equations are detailed in the DEM section of this theory guide (<strong>under construction</strong>). The momentum transport between phases <span class="math notranslate nohighlight">\(\mathbf{f}_{pf,i}\)</span> can be written as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\mathbf{f}_{pf,i} = \mathbf{f}_{\nabla p,i} + \mathbf{f}_{\nabla \cdot \mathbf{\tau},i} + \mathbf{f}_{d,i} + \mathbf{f}_{Ar,i} + \mathbf{f}_{g,i} + \mathbf{f}''_{i}\]</div></div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}_{\nabla p,i}\)</span> is the force due to the pressure gradient;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}_{\nabla \cdot \tau,i}\)</span> is the force due to the shear stress;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}_{d,i}\)</span> is the drag force;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}_{Ar,i}\)</span> is the buoyancy (Archimedes) force;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}_{g,i}\)</span> is the force due to gravity;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}''_{i}\)</span> are the remaining forces, including virtual mass, Basset, Lift, and Magnus (currently not implemented in Lethe).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since pressure in Lethe does not account for the hydrostatic pressure, i.e., the gravity term is not taken into account in the Navier-Stokes equations (see <a class="reference internal" href="../fluid_dynamics/navier-stokes.html"><span class="doc">The Incompressible Navier-Stokes equations</span></a>), we explicitly insert <span class="math notranslate nohighlight">\(\mathbf{f}_{Ar,i}\)</span> in <span class="math notranslate nohighlight">\(\mathbf{f}_{pf,i}\)</span>.</p>
 </div>
+<p>In unresolved CFD-DEM, the drag force is calculated using correlations (frequently called drag models). The drag models implemented in Lethe are described in the <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/unresolved_cfd-dem/cfd_dem.html">unresolved CFD-DEM parameters guide</a>.</p>
+</section>
+<section id="volume-average-navier-stokes">
+<h2>Volume Average Navier-Stokes<a class="headerlink" href="#volume-average-navier-stokes" title="Permalink to this headline">¶</a></h2>
+<p>Since we represent the fluid at a meso-scale, the quantities calculated for the cells are averages among its volume. Additionally, as the volume of fluid is a fraction of the cell, the porosity (or void fraction) is taken into account. To do this, we apply the Volume Average Navier-Stokes (VANS) equations to represent the fluid phase. Mainly, the VANS equations are presented in two different formulations, so called Model A (or Set II) and Model B (or Set I).</p>
+<p>Considering an incompressible flow, the continuity equation for both models is:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\frac{\partial \varepsilon_f}{\partial t} + \nabla \cdot \left ( \varepsilon_f \mathbf{u} \right ) = 0\]</div></div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the the fluid velocity vector;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\varepsilon_f\)</span> is the void fraction.</p></li>
+</ul>
+<p>Models A and B differ from each other in the way the momentum equation is calculated. In Model A, we consider that pressure is in both phases, while for Model B the pressure is only in the fluid:</p>
+<p>Model A:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\rho_f \left ( \frac{\partial \left ( \varepsilon_f \mathbf{u} \right )}{\partial t} + \nabla \cdot \left ( \varepsilon_f \mathbf{u} \otimes \mathbf{u} \right ) \right ) = -\varepsilon \nabla p + \varepsilon \nabla \cdot \tau - \mathbf{F}_{pf}^A\]</div></div>
+<p>Model B:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\rho_f \left ( \frac{\partial \left ( \varepsilon_f \mathbf{u} \right )}{\partial t} + \nabla \cdot \left ( \varepsilon_f \mathbf{u} \otimes \mathbf{u} \right ) \right ) = -\nabla p + \nabla \cdot \tau - \mathbf{F}_{pf}^B\]</div></div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho_f\)</span> is the density of the fluid;</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> is the pressure;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau\)</span> is the shear stress;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{F}_{pf}^A\)</span> and <span class="math notranslate nohighlight">\(\mathbf{F}_{pf}^B\)</span> are the source terms representing the forces applied back in the fluid due to the interaction with particles for Models A and B, respectively.</p></li>
+</ul>
+<p>For Model A, since the pressure term corresponds to a ‘fluid fraction of the pressure’, we can write the interaction term as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\mathbf{F}_{pf}^A = \frac{1}{V_{\Omega}}\sum_{i}^{n_p}\left ( \mathbf{f}_{pf, i} - \mathbf{f}_{\nabla p, i} - \mathbf{f}_{\nabla \cdot \tau, i} \right )\]</div></div>
+<p>while for Model B, since the pressure is totally in the fluid, we write:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\mathbf{F}_{pf}^B = \frac{1}{V_{\Omega}}\sum_{i}^{n_p}\left ( \mathbf{f}_{pf, i} \right )\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(n_p\)</span> is the number of particles inside the cell <span class="math notranslate nohighlight">\(\Omega\)</span> with volume <span class="math notranslate nohighlight">\(V_{\Omega}\)</span>.</p>
+<p>Lethe is capable of simulating unresolved CFD-DEM cases with both Models A and B (see the <a class="reference internal" href="../../parameters/unresolved_cfd-dem/cfd_dem.html"><span class="doc">CFD-DEM</span></a> page of this guide).</p>
+</section>
+<section id="void-fraction">
+<h2>Void fraction<a class="headerlink" href="#void-fraction" title="Permalink to this headline">¶</a></h2>
+<p>Determining the void fraction is an important step in unresolved CFD-DEM, as can be noted by the VANS equations and the drag models <a class="reference external" href="http://dx.doi.org/10.1016/j.ces.2013.05.036">[4]</a>. In Lethe we apply the Particle Centroid Method (PCM) <a class="reference external" href="https://doi.org/10.1002/aic.14421">[5]</a>, which is simple and the most popular method. It consists of tracking the position of the centroid of each particle and applying the total volume of the particle on the calculation of the void fraction of the cell. This means that in either of the following situations the void fraction of the colored cell is the same:</p>
+<img alt="../../_images/void_frac1.png" src="../../_images/void_frac1.png"/>
+<img alt="../../_images/void_frac2.png" src="../../_images/void_frac2.png"/>
+<p>PCM can be written as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\varepsilon_f = 1 - \frac{\sum_{i}^{n_p} V_{p,i}}{V_\Omega}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(n_p\)</span> is the number of particles with centroid inside the cell <span class="math notranslate nohighlight">\(\Omega\)</span> with volume <span class="math notranslate nohighlight">\(V_{\Omega}\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The void fraction of a single cell must always be close to the actual porosity of the media, regardless of the method applied on its calculation. If the cells are too small, the void fraction will be excessively low in some cells and excessively high in others. This leads to miscalculation of quantities highly dependent of the void fraction, such as the drag force. According to the literature, <strong>cells should be at least 3 to 4 times larger than particles</strong>.</p>
+</div>
+<p>In the finite element method, the void fraction must be projected to the mesh nodes so that one can assemble the system of equations. This is done by <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> projection <a class="reference external" href="https://link.springer.com/book/10.1007/978-3-642-33287-6">[6]</a>:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\min_{\varepsilon_f \in \mathbb{R}} \frac{1}{2} \sum_i \left (\sum_j \varepsilon_{f,j} \phi_j - \varepsilon_{f,i} \right )\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\varepsilon_{f,i}\)</span> is the void fraction calculated by PCM and <span class="math notranslate nohighlight">\(\varepsilon_{f,j}\)</span> the projected void fraction.</p>
+<p>Then, we assemble and solve the following:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\int_{\Omega} \varphi_i \varepsilon_{f,j} \varphi_j d \Omega = \int_{\Omega} \varepsilon_{f,i} \varphi_i d \Omega\]</div></div>
+<p>Lethe also has the option of smoothing the void fraction profile, which helps to mitigate sharp discontinuities. To do so, the left hand side of the previous equation is substituted by:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\iint_\Omega L^2 \nabla \phi_i \nabla \phi_j d\Omega\]</div></div>
+<p>Where <span class="math notranslate nohighlight">\(L\)</span> is the smoothing length, used as parameter in Lethe unresolved CFD-DEM simulations.</p>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doi.org/10.1002/cjce.23686">[1]</a> Bérard, Patience, and Blais. Experimental methods in chemical engineering: Unresolved CFD‐DEM. The Canadian Journal of Chemical Engineering, v. 98, n. 2, p. 424-440, 2020.</p>
+<p><a class="reference external" href="https://doi.org/10.1017/S002211201000306X">[2]</a> Zhou, Kuang, Chu, and Yu, Discrete particle simulation of particle–fluid flow: model formulations and their applicability, Journal of Fluid Mechanics, vol. 661, pp. 482–510, 2010.</p>
+<p><a class="reference external" href="https://doi.org/10.1002/aic.690400418">[3]</a> Kim, Sangtae, and Karrila. Microhydrodynamics: principles and selected applications. Courier Corporation, 2013.</p>
+<p><a class="reference external" href="http://dx.doi.org/10.1016/j.ces.2013.05.036">[4]</a> L. Rong, K. Dong, A. Yu, Lattice-boltzmann simulation of fluid flow through packed beds of uniform spheres: Effect of porosity, Chemical engineering science 99 (2013) 44–58.</p>
+<p><a class="reference external" href="https://doi.org/10.1002/aic.14421">[5]</a> Z. Peng et al. Influence of void fraction calculation on fidelity of CFD‐DEM simulation of gas‐solid bubbling fluidized beds. AIChE Journal, v. 60, n. 6, p. 2000-2018, 2014.</p>
+<p><a class="reference external" href="https://link.springer.com/book/10.1007/978-3-642-33287-6">[6]</a> M. G. Larson, F. Bengzon. The finite element method: theory, implementation, and applications. Springer Science &amp; Business Media, 2013.</p>
+</section>
 </section>
 
         </article>
@@ -307,23 +410,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="navier-stokes.html">
+          <a class="next-page" href="../../contributing.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">The Incompressible Navier-Stokes equations</div>
+                <div class="title">Contributing</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../theory.html">
+          <a class="prev-page" href="../fluid_dynamics/rheology.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Theory</div>
+                <div class="title">Rheology and non-Newtonian fluids</div>
                 
               </div>
             </a>
@@ -333,7 +436,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/theory/fluid_dynamics/fluid_dynamics.rst.txt"
+            | <a class="muted-link" href="../../_sources/theory/unresolved_cfd-dem/unresolved_cfd-dem.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -341,8 +444,30 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Unresolved CFD-DEM coupling</a><ul>
+<li><a class="reference internal" href="#particles">Particles</a></li>
+<li><a class="reference internal" href="#volume-average-navier-stokes">Volume Average Navier-Stokes</a></li>
+<li><a class="reference internal" href="#void-fraction">Void fraction</a></li>
+<li><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -352,5 +477,6 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
