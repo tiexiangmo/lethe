@@ -495,10 +495,14 @@ end
 </section>
 <section id="thermal-conductivity-models">
 <span id="id2"></span><h2>Thermal conductivity models<a class="headerlink" href="#thermal-conductivity-models" title="Permalink to this headline">¶</a></h2>
-<p>Constant and linear thermal conductivities are supported in Lethe. Constant thermal conductivity assumes a constant value of the thermal conductivity. Linear thermal conductivity assumes that that the thermal conductivity <span class="math notranslate nohighlight">\(k\)</span> varies linearly with the temperature, taking the following form:</p>
+<p>Constant, linear and phase_change thermal conductivities are supported in Lethe. Constant thermal conductivity assumes a constant value of the thermal conductivity. Linear thermal conductivity assumes that that the thermal conductivity <span class="math notranslate nohighlight">\(k\)</span> varies linearly with the temperature, taking the following form:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[k = k_{A,0}+ k_{A,1} T\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(k_{A,0}\)</span> and <span class="math notranslate nohighlight">\(k_{A,1}\)</span> are constants and <span class="math notranslate nohighlight">\(T\)</span> is the temperature. This enables a linear variation of the thermal conductivity as a function of the temperature.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">phase_change</span></code> thermal conductivity model, two different values (<code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">liquid</span></code>, and <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">solid</span></code>) are required for calculating the thermal conductivities of the liquid and solid phases, respectively. For the liquid phase (T&gt;T_liquidus), the <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">liquid</span></code> is applied, while for the solid phase (T&lt;T_solidus), the model uses the <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">solid</span></code>. In the mushy zone between T_solidus and T_liquidus, the thermal conductivity is equal to:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[k = \alpha_l k_l + (1 - \alpha_l) k_s\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(k_l\)</span>, <span class="math notranslate nohighlight">\(k_s\)</span> and  <span class="math notranslate nohighlight">\(alpha_l\)</span> denote thermal conductivities of the liquid and solid phases and the liquid fraction.</p>
 </section>
 <section id="specific-heat-models">
 <h2>Specific heat models<a class="headerlink" href="#specific-heat-models" title="Permalink to this headline">¶</a></h2>
