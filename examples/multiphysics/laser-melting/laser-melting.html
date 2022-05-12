@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="6. Laser melting" href="../laser-melting/laser-melting.html" /><link rel="prev" title="4. Dam break VOF" href="../dam-break-VOF/dam-break-VOF.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Discrete Element Method" href="../../dem/dem.html" /><link rel="prev" title="5. Rising bubble VOF" href="../rising-bubble-VOF/rising-bubble-VOF.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>5. Rising bubble VOF - Lethe documentation</title>
+        <title>6. Laser melting - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -228,8 +228,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">2. Stefan problem : melting of a solid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">3. Warming Up a Viscous Fluid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">4. Dam break VOF</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">5. Rising bubble VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../laser-melting/laser-melting.html">6. Laser melting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rising-bubble-VOF/rising-bubble-VOF.html">5. Rising bubble VOF</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">6. Laser melting</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -291,185 +291,193 @@
           </label>
         </div>
         <article role="main">
-          <section id="rising-bubble-vof">
-<h1><span class="section-number">5. </span>Rising bubble VOF<a class="headerlink" href="#rising-bubble-vof" title="Permalink to this headline">¶</a></h1>
-<p>This example simulates a <a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/fld.2643">two-dimensional rising bubble</a>.</p>
+          <section id="laser-melting">
+<h1><span class="section-number">6. </span>Laser melting<a class="headerlink" href="#laser-melting" title="Permalink to this headline">¶</a></h1>
+<p>This example simulates a two-dimensional melt pool with a laser.</p>
 <section id="features">
-<h2><span class="section-number">5.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
-<li><p>Two phase flow handled by the Volume of fluids (VOF) approach, with a phase fraction limiter, phase sharpening, and surface tension force</p></li>
-<li><p>Calculation of filtered phase fraction gradient and curvature fields</p></li>
-<li><p>Unsteady problem handled by an adaptive BDF1 time-stepping scheme</p></li>
-<li><p>The use of a python script for post-processing data</p></li>
+<li><p>Laser heat source</p></li>
+<li><p>Phase change (solid-liquid)</p></li>
+<li><p>Convection-radiation heat transfer boundary condition</p></li>
+<li><p>Mesh adaptation using temperature</p></li>
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">5.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rising_bubble_VOF/rising_bubble_VOF.prm</span></code></p>
+<h2><span class="section-number">6.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/laser-melting/laser-melting.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">5.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>A circular bubble with density of 100 and kinematic viscosity of 0.01 (all the units in this example are dimensionless) is defined at an initial location (0.5, 0.5) in a rectangular column filled with a denser fluid (with a density of 1000 and kinematic viscosity of 0.01). At <span class="math notranslate nohighlight">\(t = 0\)</span> the bubble is released to rise inside the denser fluid column. The corresponding parameter file is
-<code class="docutils literal notranslate"><span class="pre">rising_bubble_VOF.prm</span></code>.</p>
+<h2><span class="section-number">6.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<p>A stainless steel rectangular block melts using a laser beam that emits perpendicular to the top surface of the block. The laser beam speed is 0.5 m/s. Due to the laser heat source, the stainless steel solid block melts in the direction of the laser. The corresponding parameter file is
+<code class="docutils literal notranslate"><span class="pre">laser_melting.prm</span></code>.</p>
 <p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
-<a class="reference internal image-reference" href="../../../_images/bubble_initial_configuration.png"><img alt="Schematic" class="align-center" src="../../../_images/bubble_initial_configuration.png" style="width: 400px;"/></a>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">noslip</span></code>, and an external
-gravity field of <span class="math notranslate nohighlight">\(-0.98\)</span> is applied in the y direction.</p>
-</div>
+<a class="reference internal image-reference" href="../../../_images/laser_phasechange.png"><img alt="Schematic" class="align-center" src="../../../_images/laser_phasechange.png" style="width: 400px;"/></a>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">5.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>Time integration is handled by a 1st order backward differentiation scheme
-<cite>(bdf1)</cite>, for a <span class="math notranslate nohighlight">\(3\)</span> s simulation time with an initial
-time step of <span class="math notranslate nohighlight">\(0.001\)</span> seconds.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This example uses an adaptive time-stepping method, where the
-time-step is modified during the simulation to keep the maximum value of the CFL condition below a given threshold. Using <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">control</span> <span class="pre">=</span> <span class="pre">time</span></code>, and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">time</span> <span class="pre">=</span> <span class="pre">0.03</span></code> the simulation results are written every 0.03 s.</p>
-</div>
+<h2><span class="section-number">6.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>Time integration is handled by a 2nd order backward differentiation scheme
+<cite>(bdf2)</cite> (for a better temporal accuracy), for a <span class="math notranslate nohighlight">\(0.0035\)</span> s simulation time with a constant
+time step of <span class="math notranslate nohighlight">\(0.000005\)</span> seconds.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
 # Simulation Control
 #---------------------------------------------------
 subsection simulation control
-    set method                         = bdf1
-    set time end                       = 3
-    set time step                      = 0.001
-    set adapt                          = true
-    set max cfl                        = 0.4
-    set stop tolerance                 = 1e-5
-    set adaptative time step scaling   = 1.1
-    set number mesh adapt              = 0
-    set output name                    = rising_bubble_VOF
-    set output control                 = time
-    set output time                    = 0.03
-    set output path                    = ./output/
-    set subdivision                    = 1
+  set method                                = bdf2
+  set time end                              = 0.0035
+  set time step                             = 0.000005
+  set output name                           = laser_phase-change
+  set output frequency                      = 1
+  set output path                           = ./output/
 end
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Make sure to create a directory named <code class="docutils literal notranslate"><span class="pre">output</span></code> in the same directory
-you are calling the solver from.  Otherwise, the solver will be unable to generate the results files and will break.</p>
+<p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">noslip</span></code>, and the heat transfer boundary conditions are <code class="docutils literal notranslate"><span class="pre">convection-radiation</span></code> with a convective heat transfer coefficient of 15 <span class="math notranslate nohighlight">\(\text{W}\text{m}^{-2}\text{K}^{-1}\)</span>, ambient temperature is 20 <span class="math notranslate nohighlight">\(^{\circ}\text{C}\)</span>, and emissivity is 0.5.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
+# Boundary Conditions
+#---------------------------------------------------
+subsection boundary conditions
+  set number                  = 4
+    subsection bc 0
+        set id = 0
+        set type              = noslip
+    end
+    subsection bc 1
+        set id = 1
+        set type              = noslip
+    end
+    subsection bc 2
+        set id = 2
+        set type              = noslip
+    end
+    subsection bc 3
+        set id = 3
+        set type              = noslip
+    end
+end
+subsection boundary conditions heat transfer
+  set number                  = 4
+    subsection bc 0
+            set id = 0
+    set type              = convection-radiation
+        set h                     = 15
+        set Tinf          = 20
+        set emissivity        = 0.5
+    end
+    subsection bc 1
+            set id = 1
+    set type              = convection-radiation
+        set h                     = 15
+        set Tinf          = 20
+        set emissivity        = 0.5
+    end
+    subsection bc 2
+            set id = 2
+    set type              = convection-radiation
+        set h                     = 15
+        set Tinf          = 20
+        set emissivity        = 0.5
+    end
+    subsection bc 3
+            set id = 3
+    set type              = convection-radiation
+        set h                     = 15
+        set Tinf          = 20
+        set emissivity        = 0.5
+    end
+end
+</pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on <cite>(true)</cite>
-and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code>,
-<code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, and <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> are chosen.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on (<code class="docutils literal notranslate"><span class="pre">true</span></code>)
+and off (<code class="docutils literal notranslate"><span class="pre">false</span></code>) the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code> is enabled.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Multiphysics
 #---------------------------------------------------
 subsection multiphysics
-    set VOF = true
-    set interface sharpening = true
-    set surface tension force       = true
+    set heat transfer               = true
 end
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If the interface sharpening is not selected, the interface
-between phases will become blurry (due to diffusion).
-The next section defines the interface sharpening
-parameters.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">laser</span> <span class="pre">parameters</span></code> section, the parameters of the laser model are defined. The exponential decaying model [1] is used to simulate the laser heat source. In the exponential decaying model, the laser heat flux is calculated using the following equation:</p>
+<blockquote>
+<div><div class="math-wrapper"><div class="math notranslate nohighlight">
+\[q(x,y,z) = \frac{\eta \alpha P}{\pi r^2 \mu} \exp{(-\eta \frac{r^2}{R^2})} \exp{(- \frac{|z|}{\mu})}\]</div></div>
+</div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(\eta\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(z\)</span> denote concentration factor, absorptivity, laser power, beam radius, penetration depth, radial distance from the laser focal point, and axial distance from the laser focal point, respectively. These parameters are explained in more detail in <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/laser_heat_source.html">laser parameters</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The scanning path of the laser is defined using a Function expression in the <code class="docutils literal notranslate"><span class="pre">path</span></code> subsection.</p>
 </div>
-<p>The interface sharpening method and its parameters are explained in <a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html"><span class="doc">Dam break VOF</span></a></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Interface sharpening
+# Laser parameters
 #---------------------------------------------------
-subsection interface sharpening
-    set sharpening threshold        = 0.5
-    set interface sharpness         = 1.4
-    set sharpening frequency        = 50
-end
-</pre></div>
-</div>
-<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial position
-of the liquid phase are defined. The light phase is initially
-defined as a circle with radius <span class="math notranslate nohighlight">\(= 0.25\)</span> at <span class="math notranslate nohighlight">\(0.5, 0.5\)</span>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Initial condition
-#---------------------------------------------------
-subsection initial conditions
-    set type = nodal
-    subsection uvwp
-        set Function expression = 0; 0; 0
-    end
-    subsection VOF
-         set Function expression = if if ((x-0.5) * (x-0.5) + (y-0.5) * (y-0.5) &lt; 0.25 * 0.25 , 1, 0)
-    end
-end
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">term</span></code> subsection defines the gravitational acceleration:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Source term
-#---------------------------------------------------
-subsection source term
+subsection laser parameters
     set enable = true
-    subsection xyz
-        set Function expression = 0;-0.98; 0
-    end
+            set concentration factor        = 2
+            set power                       = 100
+            set absorptivity                = 0.6
+            set penetration depth           = 0.000070
+            set beam radius                 = 0.000050
+            set start time                  = 0
+            set end time                    = 0.0034
+            set beam orientation            = y
+            subsection path
+                    set Function expression =  0.5 * t; 0.000500
+            end
 end
 </pre></div>
 </div>
-<p>Two fluids are present in this simulation, hence in the <code class="docutils literal notranslate"><span class="pre">physical</span>
-<span class="pre">properties</span></code> subsection, their physical properties should be defined:</p>
+<p>The laser heat source locally melts the material, which is initially in the solid phase according to the definition of the <code class="docutils literal notranslate"><span class="pre">solidus</span> <span class="pre">temperature</span></code>. Hence, the physical properties should be defined using <code class="docutils literal notranslate"><span class="pre">phase_change</span></code> models. Interested readers may find more information on phase change model in the <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/multiphysics/stefan_problem/stefan_problem.html">Stefan problem example</a> . In the <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection, the physical properties of the different phases of the fluid are defined:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Physical Properties
 #---------------------------------------------------
 subsection physical properties
-    set number of fluids         = 2
-    subsection fluid 0
-        set density              = 1000
-        set kinematic viscosity  = 0.01
+  set number of fluids                  = 1
+  subsection fluid 0
+    set thermal conductivity model  = phase_change
+    set rheological model               = phase_change
+    set specific heat model                     = phase_change
+
+    set density                                 = 4300
+
+    subsection phase change
+      # Enthalpy of the phase change
+      set latent enthalpy                   = 286000
+
+      # Temperature of the liquidus
+      set liquidus temperature              = 1750
+
+      # Temperature of the solidus
+      set solidus temperature               = 1700
+
+      # Specific heat of the liquid phase
+      set specific heat liquid              = 830
+
+      # Specific heat of the solid phase
+      set specific heat solid               = 200
+
+      set thermal conductivity solid        = 1.5
+      set thermal conductivity liquid = 33.4
+
+      # viscosity of the liquid phase
+      set viscosity liquid              = 6
+
+      # viscosity of the solid phase
+      set viscosity solid               = 100000
     end
-    subsection fluid 1
-        set density              = 100
-        set kinematic viscosity  = 0.01
-    end
+
+  end
 end
 </pre></div>
 </div>
-<p>We define two fluids here simply by setting the number of fluids to be <span class="math notranslate nohighlight">\(2\)</span>.
-In <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code>, we set the density and the kinematic viscosity for the phase associated with a VOF indicator of 0.
-A similar procedure is done for the phase associated with a VOF indicator of 1 in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
-<section id="surface-tension-force">
-<h3><span class="section-number">5.4.1. </span>Surface Tension Force<a class="headerlink" href="#surface-tension-force" title="Permalink to this headline">¶</a></h3>
-<p>In Lethe, the surface tension force (<span class="math notranslate nohighlight">\({\bf{F_{\sigma}}}\)</span>) is calculated using the following equation [1, 2]:</p>
-<blockquote>
-<div><div class="math-wrapper"><div class="math notranslate nohighlight">
-\[{\bf{F_{\sigma}}} = 2 \sigma k {\bf{\psi}}\]</div></div>
-</div></blockquote>
-<p>where <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(\bf{\psi}\)</span> denote surface tension coefficient, filtered curvature and filtered phase fraction gradient.</p>
-<p>The following equations calculate the filtered phase fraction gradient and filtered curvature, respectively.</p>
-<blockquote>
-<div><div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\int_\Omega {\bf{v}} . {\bf{\psi}} + \eta_n \nabla {\bf{v}} . \nabla {\bf{\psi}} d\Omega = \int_\Omega {\bf{v}} . \nabla {\phi} d\Omega\]</div></div>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\int_\Omega v k + \eta_k \nabla v . \nabla k d\Omega = \int_\Omega \nabla v . \frac{\bf{\psi}}{|\bf{\psi}|} d\Omega\]</div></div>
-</div></blockquote>
-<p>where <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(\bf{\psi}\)</span>, <span class="math notranslate nohighlight">\(\eta_n \geq 0\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, and <span class="math notranslate nohighlight">\(\eta_k \geq 0\)</span> denote a test function, filtered phase fraction gradient, phase fraction gradient filter value, phase fraction, filtered curvature, and curvature filter value, respectively.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Phase fraction gradient filter value (<span class="math notranslate nohighlight">\(\eta_n\)</span>) and curvature filter value (<span class="math notranslate nohighlight">\(\eta_k\)</span>) must be small values larger than 0. We recommend the following procedure to choose a proper value for these parameters: 1) Enable <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span></code> to write filtered phase fraction gradient and filtered curvature fields, 2) Choose a small value for <span class="math notranslate nohighlight">\(\eta = h/10\)</span>, where <span class="math notranslate nohighlight">\(h\)</span> is the smallest mesh size, 3) Run the simulation and check whether the filtered phase fraction gradient and filtered curvature fields are smooth and without oscillation, and 4) If the filtered phase fraction gradient and filtered curvature fields show oscillations, increase the value <span class="math notranslate nohighlight">\(\eta\)</span> to a larger value (<span class="math notranslate nohighlight">\(\eta = h/5\)</span>, for example), and repeat this process until reaching smooth filtered phase fraction gradient and filtered curvature fields without oscillations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using a <code class="docutils literal notranslate"><span class="pre">phase_change</span></code> model for the thermal conductivity, the thermal conductivity of the material varies linearly between <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">solid</span></code> and <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">liquid</span></code> when the temperature is in the range of the solidus and liquidus temperatures.</p>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Surface tension force
-#---------------------------------------------------
-subsection surface tension force
-    set surface tension coefficient            = 24.5
-    set phase fraction gradient filter   = 0.0005
-    set curvature filter                           = 0.0005
-    set output auxiliary fields                = true
-end
-</pre></div>
-</div>
-<p>We start off with a rectangular mesh that spans the domain defined by the corner points situated at the origin and at point
-<span class="math notranslate nohighlight">\([1,2]\)</span>. The first <span class="math notranslate nohighlight">\(1,2\)</span> couple defines that number of initial grid subdivisions along the length and height of the rectangle.
-This makes our initial mesh composed of perfect squares. We proceed then to redefine the mesh globally eight times by setting
+<p>We start the simulation with a rectangular mesh that spans the domain defined by the corner points situated at <span class="math notranslate nohighlight">\([-0.0001, 0]\)</span> and
+<span class="math notranslate nohighlight">\([0.0019, 0.0005]\)</span>. The first <span class="math notranslate nohighlight">\([8,2]\)</span> couple defines the number of initial grid subdivisions along the length and height of the rectangle.
+This allows for the initial mesh to be composed of perfect squares. We proceed then to redefine the mesh globally eight times by setting
 <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">initial</span> <span class="pre">refinement=8</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Mesh
@@ -477,59 +485,51 @@ This makes our initial mesh composed of perfect squares. We proceed then to rede
 subsection mesh
         set type = dealii
         set grid type = subdivided_hyper_rectangle
-        set grid arguments = 1, 2 : 0, 0 : 1, 2 : true
-        set initial refinement = 8
+        set grid arguments  = 8, 2 : -0.0001, 0 : 0.0019, 0.000500 : true
+        set initial refinement      = 8
 end
 </pre></div>
 </div>
 <p>In the <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">adaptation</span> <span class="pre">subsection</span></code>, adaptive mesh refinement is
-defined for <code class="docutils literal notranslate"><span class="pre">phase</span></code>. <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> are 6 and 8, respectively. Since the bubble rises and changes its location, we choose a rather large <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> (0.97) and moderate <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">coarsening</span></code> (0.02).</p>
+defined for <code class="docutils literal notranslate"><span class="pre">temperature</span></code>. <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> are 4 and 8, respectively. Since the laser heat source moves on the boundary and the temperature distribution changes abruptly due to the large laser heat source and radiation boundary condition, we choose 0.5 and 0.2 for <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> and <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code>, respectively.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Mesh Adaptation
 #---------------------------------------------------
 subsection mesh adaptation
     set type                    = kelly
-    set variable                = phase
+    set variable                = temperature
     set fraction type           = fraction
     set max refinement level    = 8
-    set min refinement level    = 6
+    set min refinement level    = 4
     set frequency               = 1
-    set fraction refinement     = 0.97
-    set fraction coarsening     = 0.02
+    set fraction refinement     = 0.5
+    set fraction coarsening     = 0.2
 end
 </pre></div>
 </div>
 </section>
-</section>
 <section id="running-the-simulation">
-<h2><span class="section-number">5.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Call the gls_navier_stokes_2d by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">rising_bubble_VOF.prm</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">laser_melting.prm</span></code></p>
 <p>to run the simulation using eight CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure to compile lethe in <cite>Release</cite> mode and
 run in parallel using mpirun. This simulation takes
-<span class="math notranslate nohighlight">\(\approx\)</span> 20 mins on 8 processes.</p>
+<span class="math notranslate nohighlight">\(\approx\)</span> 5 mins on 8 processes.</p>
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">5.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>The following image shows the shape and dimensions of the bubble after 3 seconds of simulation, and compares it with results of [1, 2].</p>
-<a class="reference internal image-reference" href="../../../_images/bubble.png"><img alt="bubble" class="align-center" src="../../../_images/bubble.png" style="width: 400px;"/></a>
-<p>A python post-processing code <cite>(rising_bubble.py)</cite>
-is added to the example folder to post-process the results.
-Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">./rising_bubble.py</span> <span class="pre">./output</span></code> to execute this
-post-processing code, where <code class="docutils literal notranslate"><span class="pre">./output</span></code> is the directory that
-contains the simulation results. In post-processing, the maximum and minimum axial positions of the light phase (bubble) are tracked to monitor the location of the center of the bubble as a function of time. Then, the bubble rise velocity is calculated as the derivation of the bubble axial position. These results are compared with the simulations of Zahedi, Kronbichler, and Kreiss [2]. The following images show the results of these comparisons. The oscillations in the bubble rise velocity are attributed to the different methods used for finding the centroid of the bubble, first order derivation, and smoothing of the bubble location and rise velocity.</p>
-<a class="reference internal image-reference" href="../../../_images/ymean_t.png"><img alt="ymean_t" class="align-center" src="../../../_images/ymean_t.png" style="width: 400px;"/></a>
-<a class="reference internal image-reference" href="../../../_images/bubble_rise_velocity.png"><img alt="bubble_rise_velocity" class="align-center" src="../../../_images/bubble_rise_velocity.png" style="width: 400px;"/></a>
-<p>Animation of the rising bubble example:</p>
-<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/h5aRpA4chXE" width="560"></iframe></section>
+<h2><span class="section-number">6.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The following image shows the temperature distribution in the simulation domain after 0.0034 seconds.</p>
+<a class="reference internal image-reference" href="../../../_images/temperature.png"><img alt="temperature" class="align-center" src="../../../_images/temperature.png" style="width: 800px;"/></a>
+<p>Using Paraview, we can monitor the melted region by using a temperature threshold above the liquidus temperature. The following image shows, in yellow, the melted region at <span class="math notranslate nohighlight">\(t=0.00005\)</span> s, <span class="math notranslate nohighlight">\(0.0005\)</span> s, and <span class="math notranslate nohighlight">\(0.0025\)</span> s.</p>
+<a class="reference internal image-reference" href="../../../_images/melted_region.png"><img alt="melted_region" class="align-center" src="../../../_images/melted_region.png" style="width: 800px;"/></a>
+</section>
 <section id="references">
-<h2><span class="section-number">5.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>[1] Brackbill, J.U., Kothe, D.B. and Zemach, C., 1992. A continuum method for modeling surface tension. Journal of computational physics, 100(2), pp.335-354.</p>
-<p>[2] Zahedi, S., Kronbichler, M. and Kreiss, G., 2012. Spurious currents in finite element based level set methods for two‐phase flow. International Journal for Numerical Methods in Fluids, 69(9), pp.1433-1456.</p>
+<h2><span class="section-number">6.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>[1] Liu, S., Zhu, H., Peng, G., Yin, J. and Zeng, X., 2018. Microstructure prediction of selective laser melting AlSi10Mg using finite element analysis. Materials &amp; Design, 142, pp.319-328.</p>
 </section>
 </section>
 
@@ -538,23 +538,23 @@ contains the simulation results. In post-processing, the maximum and minimum axi
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../laser-melting/laser-melting.html">
+          <a class="next-page" href="../../dem/dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">6. </span>Laser melting</div>
+                <div class="title">Discrete Element Method</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../dam-break-VOF/dam-break-VOF.html">
+          <a class="prev-page" href="../rising-bubble-VOF/rising-bubble-VOF.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">4. </span>Dam break VOF</div>
+                <div class="title"><span class="section-number">5. </span>Rising bubble VOF</div>
                 
               </div>
             </a>
@@ -564,7 +564,7 @@ contains the simulation results. In post-processing, the maximum and minimum axi
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/examples/multiphysics/rising-bubble-VOF/rising-bubble-VOF.rst.txt"
+            | <a class="muted-link" href="../../../_sources/examples/multiphysics/laser-melting/laser-melting.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -584,17 +584,14 @@ contains the simulation results. In post-processing, the maximum and minimum axi
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">5. Rising bubble VOF</a><ul>
-<li><a class="reference internal" href="#features">5.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">5.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">5.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">5.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#surface-tension-force">5.4.1. Surface Tension Force</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#running-the-simulation">5.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">5.6. Results</a></li>
-<li><a class="reference internal" href="#references">5.7. References</a></li>
+<li><a class="reference internal" href="#">6. Laser melting</a><ul>
+<li><a class="reference internal" href="#features">6.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">6.2. Location of the example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">6.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">6.4. Parameter file</a></li>
+<li><a class="reference internal" href="#running-the-simulation">6.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">6.6. Results</a></li>
+<li><a class="reference internal" href="#references">6.7. References</a></li>
 </ul>
 </li>
 </ul>
