@@ -181,12 +181,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/stabilization.html">Stabilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_multiphysics.html">Multiphysics - Boundary Contitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html">Volume of Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/nitsche.html">Nitsche</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/interface_sharpening.html">Interface sharpening</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/surface_tension_force.html">Surface tension force</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser heat source</a></li>
 </ul>
 </li>
@@ -359,27 +358,18 @@ end
 you are calling the solver from.  Otherwise, the solver will be unable to generate the results files and will break.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on <cite>(true)</cite>
-and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> and
-<code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> are chosen.</p>
+and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> is chosen.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Multiphysics
 #---------------------------------------------------
 subsection multiphysics
     set VOF = true
-    set interface sharpening = true
 end
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If the interface sharpening is not selected, the interface
-between phases will become blurry (due to diffusion).
-The next section defines the interface sharpening
-parameters.</p>
-</div>
 <section id="interface-sharpening-parameters">
 <h3><span class="section-number">4.4.1. </span>Interface Sharpening Parameters<a class="headerlink" href="#interface-sharpening-parameters" title="Permalink to this headline">¶</a></h3>
-<p>The current <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> method consists of two steps:</p>
+<p>If the interface sharpening is not enabled in the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">VOF</span></a> subsection, the interface between phases will become blurry (due to diffusion). The current <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> method consists of two steps:</p>
 <ol class="arabic">
 <li><p>Phase fraction limiter</p>
 <blockquote>
@@ -390,7 +380,7 @@ parameters.</p>
 </ol>
 <p>The phase fraction <span class="math notranslate nohighlight">\(\phi\)</span> is a physical parameter that is bounded in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>.
 The phase fraction limiter above will update the phase fraction if it failed to respect these bounds.</p>
-<ol class="arabic">
+<ol class="arabic" start="2">
 <li><p>Interface sharpening</p>
 <blockquote>
 <div><div class="math-wrapper"><div class="math notranslate nohighlight">
@@ -415,19 +405,22 @@ frequency of interface sharpening; sharpening threshold defines
 a phase fraction threshold for interface sharpening (generally <span class="math notranslate nohighlight">\(0.5\)</span>).
 Interface sharpness is a model parameter which is generally in
 the range of <span class="math notranslate nohighlight">\((1,2]\)</span>.</p>
-</section>
-<section id="fluid-phase-parameters">
-<h3><span class="section-number">4.4.2. </span>Fluid phase parameters<a class="headerlink" href="#fluid-phase-parameters" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Interface sharpening
+# VOF
 #---------------------------------------------------
-subsection interface sharpening
-    set sharpening threshold        = 0.5
-    set interface sharpness         = 2
-    set sharpening frequency        = 10
+subsection VOF
+  subsection interface sharpening
+    set enable      = true
+    set sharpening threshold   = 0.5
+    set interface sharpness    = 2
+    set sharpening frequency   = 10
+  end
 end
 </pre></div>
 </div>
+</section>
+<section id="fluid-phase-parameters">
+<h3><span class="section-number">4.4.2. </span>Fluid phase parameters<a class="headerlink" href="#fluid-phase-parameters" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial position
 of the liquid phase are defined. The liquid phase is initially
 defined as rectangle of length <span class="math notranslate nohighlight">\(= 3.5\)</span> and height <span class="math notranslate nohighlight">\(= 7\)</span>.</p>

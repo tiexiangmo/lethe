@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Multiphysics - Boundary Contitions" href="boundary_conditions_multiphysics.html" /><link rel="prev" title="Stabilization" href="stabilization.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Volume of Fluid" href="volume_of_fluid.html" /><link rel="prev" title="Stabilization" href="stabilization.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
         <title>Multiphysics - Lethe documentation</title>
@@ -181,12 +181,11 @@
 <li class="toctree-l3"><a class="reference internal" href="linear_solver_control.html">Linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stabilization.html">Stabilization</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Multiphysics - Boundary Contitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="volume_of_fluid.html">Volume of Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
 <li class="toctree-l3"><a class="reference internal" href="restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interface_sharpening.html">Interface sharpening</a></li>
-<li class="toctree-l3"><a class="reference internal" href="surface_tension_force.html">Surface tension force</a></li>
 <li class="toctree-l3"><a class="reference internal" href="laser_heat_source.html">Laser heat source</a></li>
 </ul>
 </li>
@@ -305,10 +304,6 @@
 
   # Multiphase flow
   set VOF                     = false
-  set interface sharpening    = false
-  set surface tension force = false
-  set conservation monitoring = false
-  set fluid monitored         = 1
 end
 </pre></div>
 </div>
@@ -335,28 +330,10 @@ end
 <p>The tracer solver is used in the example <a class="reference internal" href="../../examples/multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html"><span class="doc">Tracer through CAD Junction in Simplex</span></a>.</p>
 </div>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">VOF</span></code>: enables multiphase flow simulations, with two fluids separated by a free surface. Volume-of-Fluid method is used, with the phase parameter following an advection equation.</p>
-<p>See <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a> for the definition of the VOF conditions and <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/physical_properties.html#two-phase-simulations">Physical properties - two phase simulations</a> for the definition of the physical properties of both fluids.</p>
-<dl>
-<dt>When <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">VOF</span> <span class="pre">=</span> <span class="pre">true</span></code>, these optional parameters can be used:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>: controls if the interface sharpening method is used. Additional parameters can be found at <a class="reference internal" href="interface_sharpening.html"><span class="doc">Interface sharpening</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code>: controls if the surface tension force is added to the simulation. Additional parameters can be found at <a class="reference internal" href="surface_tension_force.html"><span class="doc">Surface tension force</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">conservation</span> <span class="pre">monitoring</span></code>: controls if conservation is monitored at each iteration, through the volume computation of the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">monitored</span></code>. Results are outputted in a data table (<cite>VOF_monitoring_fluid_0.dat</cite> or <cite>VOF_monitoring_fluid_1.dat</cite>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">monitored</span></code>: index of the monitored fluid, if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">conservation</span> <span class="pre">monitoring</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Must match with the index set in <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/physical_properties.html#two-phase-simulations">Physical properties - two phase simulations</a>. For instance, if the physical properties for the fluid of interest is defined in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code>, use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">fluid</span> <span class="pre">monitored</span> <span class="pre">=</span> <span class="pre">0</span></code>.</p>
-</div>
+<li><p><code class="docutils literal notranslate"><span class="pre">VOF</span></code>: enables multiphase flow simulations, with two fluids separated by a free surface, using the Volume-of-Fluid method.</p>
+<p>See <a class="reference internal" href="volume_of_fluid.html"><span class="doc">Volume of Fluid</span></a> for advanced VOF parameters, <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a> for the definition of the VOF conditions and <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/physical_properties.html#two-phase-simulations">Physical properties - two phase simulations</a> for the definition of the physical properties of both fluids.</p>
 </li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>At the moment, a maximum of two fluids is supported, with respective index of <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span></code>. By convention, air is usually the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code> and the other fluid of interest is the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
-</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>The VOF solver is used in the example <a class="reference internal" href="../../examples/multiphysics/dam-break-VOF/dam-break-VOF.html"><span class="doc">Dam break VOF</span></a>.</p>
@@ -368,12 +345,12 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="boundary_conditions_multiphysics.html">
+          <a class="next-page" href="volume_of_fluid.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Multiphysics - Boundary Contitions</div>
+                <div class="title">Volume of Fluid</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>

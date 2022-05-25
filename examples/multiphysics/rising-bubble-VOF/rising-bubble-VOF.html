@@ -181,12 +181,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/stabilization.html">Stabilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_multiphysics.html">Multiphysics - Boundary Contitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html">Volume of Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/nitsche.html">Nitsche</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/interface_sharpening.html">Interface sharpening</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/surface_tension_force.html">Surface tension force</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser heat source</a></li>
 </ul>
 </li>
@@ -356,8 +355,7 @@ end
 you are calling the solver from.  Otherwise, the solver will be unable to generate the results files and will break.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on <cite>(true)</cite>
-and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code>,
-<code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, and <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> are chosen.</p>
+and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> is chosen. The <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, and <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> are enabled in the VOF subsection (see below).</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Multiphysics
 #---------------------------------------------------
@@ -377,12 +375,18 @@ parameters.</p>
 </div>
 <p>The interface sharpening method and its parameters are explained in <a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html"><span class="doc">Dam break VOF</span></a></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Interface sharpening
+# VOF
 #---------------------------------------------------
-subsection interface sharpening
-    set sharpening threshold        = 0.5
-    set interface sharpness         = 1.4
-    set sharpening frequency        = 50
+subsection VOF
+  subsection interface sharpening
+    set enable      = true
+    set sharpening threshold    = 0.5
+    set interface sharpness     = 1.4
+    set sharpening frequency    = 50
+  end
+  subsection surface tension force
+    set enable      = true
+  end
 end
 </pre></div>
 </div>
@@ -447,23 +451,38 @@ A similar procedure is done for the phase associated with a VOF indicator of 1 i
 <p>The following equations calculate the filtered phase fraction gradient and filtered curvature, respectively.</p>
 <blockquote>
 <div><div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\int_\Omega {\bf{v}} . {\bf{\psi}} + \eta_n \nabla {\bf{v}} . \nabla {\bf{\psi}} d\Omega = \int_\Omega {\bf{v}} . \nabla {\phi} d\Omega\]</div></div>
+\[\int_\Omega \left( {\bf{v}} \cdot {\bf{\psi}} + \eta_n \nabla {\bf{v}} \cdot \nabla {\bf{\psi}} \right) d\Omega = \int_\Omega \left( {\bf{v}} \cdot \nabla {\phi} \right) d\Omega\]</div></div>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\int_\Omega v k + \eta_k \nabla v . \nabla k d\Omega = \int_\Omega \nabla v . \frac{\bf{\psi}}{|\bf{\psi}|} d\Omega\]</div></div>
+\[\int_\Omega \left( v k + \eta_k \nabla v \cdot \nabla k \right) d\Omega = \int_\Omega \left( \nabla v \cdot \frac{\bf{\psi}}{|\bf{\psi}|} \right) d\Omega\]</div></div>
 </div></blockquote>
 <p>where <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(\bf{\psi}\)</span>, <span class="math notranslate nohighlight">\(\eta_n \geq 0\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span>, <span class="math notranslate nohighlight">\(k\)</span>, and <span class="math notranslate nohighlight">\(\eta_k \geq 0\)</span> denote a test function, filtered phase fraction gradient, phase fraction gradient filter value, phase fraction, filtered curvature, and curvature filter value, respectively.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Phase fraction gradient filter value (<span class="math notranslate nohighlight">\(\eta_n\)</span>) and curvature filter value (<span class="math notranslate nohighlight">\(\eta_k\)</span>) must be small values larger than 0. We recommend the following procedure to choose a proper value for these parameters: 1) Enable <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span></code> to write filtered phase fraction gradient and filtered curvature fields, 2) Choose a small value for <span class="math notranslate nohighlight">\(\eta = h/10\)</span>, where <span class="math notranslate nohighlight">\(h\)</span> is the smallest mesh size, 3) Run the simulation and check whether the filtered phase fraction gradient and filtered curvature fields are smooth and without oscillation, and 4) If the filtered phase fraction gradient and filtered curvature fields show oscillations, increase the value <span class="math notranslate nohighlight">\(\eta\)</span> to a larger value (<span class="math notranslate nohighlight">\(\eta = h/5\)</span>, for example), and repeat this process until reaching smooth filtered phase fraction gradient and filtered curvature fields without oscillations.</p>
+<p>Phase fraction gradient filter value (<span class="math notranslate nohighlight">\(\eta_n\)</span>) and curvature filter value (<span class="math notranslate nohighlight">\(\eta_k\)</span>) must be small values larger than 0. We recommend the following procedure to choose a proper value for these parameters:</p>
+<ol class="arabic simple">
+<li><p>Enable <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span></code> to write filtered phase fraction gradient and filtered curvature fields.</p></li>
+<li><p>Choose a small value for <span class="math notranslate nohighlight">\(\eta = h/10\)</span>, where <span class="math notranslate nohighlight">\(h\)</span> is the smallest mesh size.</p></li>
+<li><p>Run the simulation and check whether the filtered phase fraction gradient and filtered curvature fields are smooth and without oscillation.</p></li>
+<li><p>If the filtered phase fraction gradient and filtered curvature fields show oscillations, increase the value <span class="math notranslate nohighlight">\(\eta\)</span> to a larger value (<span class="math notranslate nohighlight">\(\eta = h/5\)</span>, for example), and repeat this process until reaching smooth filtered phase fraction gradient and filtered curvature fields without oscillations.</p></li>
+</ol>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Surface tension force
+# VOF
 #---------------------------------------------------
-subsection surface tension force
-    set surface tension coefficient            = 24.5
-    set phase fraction gradient filter   = 0.0005
-    set curvature filter                           = 0.0005
-    set output auxiliary fields                = true
+subsection VOF
+  subsection interface sharpening
+    set enable      = true
+    set sharpening threshold    = 0.5
+    set interface sharpness     = 1.4
+    set sharpening frequency    = 50
+  end
+  subsection surface tension force
+    set enable      = true
+    set output auxiliary fields  = true
+    set surface tension coefficient    = 24.5
+    set phase fraction gradient filter = 0.0005
+    set curvature filter  = 0.0005
+  end
 end
 </pre></div>
 </div>

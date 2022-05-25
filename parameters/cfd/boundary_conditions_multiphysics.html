@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Nitsche" href="nitsche.html" /><link rel="prev" title="Multiphysics" href="multiphysics.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Nitsche" href="nitsche.html" /><link rel="prev" title="Volume of Fluid" href="volume_of_fluid.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Multiphysics - Boundary Contitions - Lethe documentation</title>
+        <title>Boundary Contitions - Multiphysics - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -181,12 +181,11 @@
 <li class="toctree-l3"><a class="reference internal" href="linear_solver_control.html">Linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stabilization.html">Stabilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Multiphysics - Boundary Contitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="volume_of_fluid.html">Volume of Fluid</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Boundary Contitions - Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
 <li class="toctree-l3"><a class="reference internal" href="restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="interface_sharpening.html">Interface sharpening</a></li>
-<li class="toctree-l3"><a class="reference internal" href="surface_tension_force.html">Surface tension force</a></li>
 <li class="toctree-l3"><a class="reference internal" href="laser_heat_source.html">Laser heat source</a></li>
 </ul>
 </li>
@@ -291,8 +290,8 @@
           </label>
         </div>
         <article role="main">
-          <section id="multiphysics-boundary-contitions">
-<h1>Multiphysics - Boundary Contitions<a class="headerlink" href="#multiphysics-boundary-contitions" title="Permalink to this headline">¶</a></h1>
+          <section id="boundary-contitions-multiphysics">
+<h1>Boundary Contitions - Multiphysics<a class="headerlink" href="#boundary-contitions-multiphysics" title="Permalink to this headline">¶</a></h1>
 <p>This subsection’s purpose is defining the boundary conditions associated to multiphysic problems.</p>
 <section id="heat-transfer">
 <h2>Heat Transfer<a class="headerlink" href="#heat-transfer" title="Permalink to this headline">¶</a></h2>
@@ -307,10 +306,10 @@ set number                  = 2
     end
     subsection bc 1
         set id              = 1
-        set type                = convection-radiation
-        set h                   = 0
-        set Tinf                = 0
-        set emissivity   = 0
+        set type            = convection-radiation
+        set h               = 0
+        set Tinf            = 0
+        set emissivity      = 0
     end
     set Stefan-Boltzmann constant = 0.000000056703
 end
@@ -326,9 +325,9 @@ end
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> is the number associated with the boundary condition. By default, Lethe assumes that the id is equivalent to the number of the bc.</p></li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">type</span></code>: This is the type of boundary condition been imposed. At the moment, choices are</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code> (Dirichlet BC), to impose a given temperature <code class="docutils literal notranslate"><span class="pre">value</span></code> at the boundary</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">convection-radiation</span></code> (Robin BC) for cooling/heating, depending on the environment temperature at the boundary <code class="docutils literal notranslate"><span class="pre">Tinf</span></code>, with a given heat transfer coefficient <code class="docutils literal notranslate"><span class="pre">h</span></code> and emissivity of the boundary <span class="math notranslate nohighlight">\(\mathbf{\epsilon}\)</span> following Newton’s law of cooling (and heating) and Stefan-Boltzmann law of radiation</p></li>
+<dt><code class="docutils literal notranslate"><span class="pre">type</span></code>: This is the type of boundary condition been imposed. At the moment, choices are:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code> (Dirichlet BC), to impose a given temperature <code class="docutils literal notranslate"><span class="pre">value</span></code> at the boundary.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">convection-radiation</span></code> (Robin BC) for cooling/heating, depending on the environment temperature at the boundary <code class="docutils literal notranslate"><span class="pre">Tinf</span></code>, with a given heat transfer coefficient <code class="docutils literal notranslate"><span class="pre">h</span></code> and emissivity of the boundary <span class="math notranslate nohighlight">\(\mathbf{\epsilon}\)</span> following Newton’s law of cooling (and heating) and Stefan-Boltzmann law of radiation.</p></li>
 </ul>
 </dd>
 </dl>
@@ -363,6 +362,35 @@ end
 <li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: This is the type of boundary condition been imposed. At the moment, only dirichlet boundary conditions can be imposed for tracer.</p></li>
 </ul>
 </section>
+<section id="vof">
+<h2>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h2>
+<p>For VOF boundary conditions (multiphase flow), the possible <code class="docutils literal notranslate"><span class="pre">types</span></code> are <code class="docutils literal notranslate"><span class="pre">none</span></code> (default) and <code class="docutils literal notranslate"><span class="pre">peeling/wetting</span></code>, as shown below.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions VOF
+set number                  = 2
+    subsection bc 0
+        set id              = 0
+        set type            = none
+    end
+    subsection bc 1
+        set id              = 1
+        set type            = peeling/wetting
+    end
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">number</span></code>: This is the number of boundary conditions of the problem.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> is the number associated with the boundary condition. By default, Lethe assumes that the id is equivalent to the number of the bc.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">type</span></code>: This is the type of boundary condition been imposed. At the moment, choices are:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">none</span></code> for which nothing happens.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peeling/wetting</span></code> for the fluid can attach to (<cite>wet</cite>) or detach from (<cite>peel</cite>) the boundary. The parameters for peeling/wetting are defined in the <a class="reference internal" href="volume_of_fluid.html"><span class="doc">Volume of Fluid</span></a> subsection of the parameter file.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -379,14 +407,14 @@ end
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="multiphysics.html">
+          <a class="prev-page" href="volume_of_fluid.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Multiphysics</div>
+                <div class="title">Volume of Fluid</div>
                 
               </div>
             </a>
@@ -416,9 +444,10 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Multiphysics - Boundary Contitions</a><ul>
+<li><a class="reference internal" href="#">Boundary Contitions - Multiphysics</a><ul>
 <li><a class="reference internal" href="#heat-transfer">Heat Transfer</a></li>
 <li><a class="reference internal" href="#tracer">Tracer</a></li>
+<li><a class="reference internal" href="#vof">VOF</a></li>
 </ul>
 </li>
 </ul>
