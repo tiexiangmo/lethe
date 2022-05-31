@@ -318,10 +318,11 @@
 <h2><span class="section-number">6.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="mesh">
 <h3><span class="section-number">6.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
-<p>Contrary to previous examples, in this example, we use a mesh generated using Gmsh. The Gmsh (with an extension of .msh) file is located inside the example folder.</p>
+<p>Contrary to previous examples, in this example, we use a mesh generated using Gmsh. The Gmsh (with an extension of .msh) file is located inside the example folder. <code class="docutils literal notranslate"><span class="pre">check</span> <span class="pre">diamond</span> <span class="pre">cells</span></code> enables searching for diamond-shaped boundary cells and adding them to particle-wall contact search cells.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                = gmsh
-    set file name   = ./silo_Golshan.msh
+    set type                         = gmsh
+    set file name             = ./silo_Golshan.msh
+    set check diamond cells = true
 end
 </pre></div>
 </div>

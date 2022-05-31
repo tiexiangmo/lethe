@@ -322,12 +322,13 @@
 <p>The parameter file of packing in ball example is very similar to packing in circle example. We only explain the parts that are different because of the three-dimensional example.</p>
 <section id="mesh">
 <h3><span class="section-number">2.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
-<p>In a three-dimensional simulation, <code class="docutils literal notranslate"><span class="pre">hyper_ball</span></code> creates a three-dimensional ball (hollow sphere). Note that the first grid argument, which is the center of the triangulation, has three components (0.0, 0.0, 0.0).</p>
+<p>In a three-dimensional simulation, <code class="docutils literal notranslate"><span class="pre">hyper_ball</span></code> creates a three-dimensional ball (hollow sphere). Note that the first grid argument, which is the center of the triangulation, has three components (0.0, 0.0, 0.0). The <code class="docutils literal notranslate"><span class="pre">expand</span> <span class="pre">particle-wall</span> <span class="pre">contact</span> <span class="pre">search</span></code> is used in concave geometries to enable particle-wall contact search with boundary faces of neighbor cells for particles located in each boundary cell.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                                                = dealii
+    set type                                                  = dealii
     set grid type                                           = hyper_ball
-    set grid arguments                                      = 0.0, 0.0, 0.0 : 0.1 : false
-    set initial refinement                                  = 3
+    set grid arguments                                         = 0.0, 0.0, 0.0 : 0.1 : false
+    set initial refinement                                     = 3
+    set expand particle-wall contact search = true
 end
 </pre></div>
 </div>
