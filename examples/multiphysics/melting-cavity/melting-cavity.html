@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="2. Stefan problem : melting of a solid" href="../stefan_problem/stefan_problem.html" /><link rel="prev" title="Multiphysics Examples" href="../multiphysics.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Discrete Element Method" href="../../dem/dem.html" /><link rel="prev" title="6. Laser melting" href="../laser-melting/laser-melting.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>1. Tracer through CAD Junction in Simplex - Lethe documentation</title>
+        <title>7. Melting Cavity - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -223,13 +223,13 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">1. Tracer through CAD Junction in Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">2. Stefan problem : melting of a solid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">3. Warming Up a Viscous Fluid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">4. Dam break VOF</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rising-bubble-VOF/rising-bubble-VOF.html">5. Rising bubble VOF</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../laser-melting/laser-melting.html">6. Laser melting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">7. Melting Cavity</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">7. Melting Cavity</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -293,206 +293,192 @@
           </label>
         </div>
         <article role="main">
-          <section id="tracer-through-cad-junction-in-simplex">
-<h1><span class="section-number">1. </span>Tracer through CAD Junction in Simplex<a class="headerlink" href="#tracer-through-cad-junction-in-simplex" title="Permalink to this headline">¶</a></h1>
-<p>In this example, we solve a problem using the simplex capabilities of Lethe.
-The simplex grids can be generated easily to represent complex geometries, such as a junction of channels made from boolean addition.
-We will also demonstrate the tracer physics capabilities.</p>
+          <section id="melting-cavity">
+<h1><span class="section-number">7. </span>Melting Cavity<a class="headerlink" href="#melting-cavity" title="Permalink to this headline">¶</a></h1>
+<p>This example simulates a <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0045793018301415">two-dimensional gallium melting cavity</a>.</p>
 <section id="features">
-<h2><span class="section-number">1.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code></p></li>
-<li><p>Transient problem</p></li>
-<li><p>Displays the use of the tracer physics</p></li>
-<li><p>Displays the use of a simplex mesh generated with a CAD platform</p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
+<li><p>Phase change (solid-liquid)</p></li>
+<li><p>Buoyant force (natural convection)</p></li>
+<li><p>Unsteady problem handled by an adaptive BDF2 time-stepping scheme</p></li>
+<li><p>Usage of a python script for post-processing data</p></li>
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">1.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/tracer-through-cad-junction/tracer_through_cad_junction.prm</span></code></p>
+<h2><span class="section-number">7.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/melting_cavity/melting_cavity.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">1.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>A junction of pipes following an arbitrary path is difficult to mesh properly with hexaedral elements.
-A simplex mesh, on the other hand, is easy to setup and can be built with many well-established algorithms;
-all software that can create a mesh can create a simplex mesh.
-In this example, we consider a junction of pipes that follow orthogonal sinusoids.
-This case shows how a passive tracer injected in such a geometry can be used to visualize preferential paths.</p>
-<section id="generating-a-geometry-with-salome">
-<h3><span class="section-number">1.3.1. </span>Generating a geometry with SALOME<a class="headerlink" href="#generating-a-geometry-with-salome" title="Permalink to this headline">¶</a></h3>
-<p>Complex geometries can be set up and meshed with the SALOME platform.</p>
-<p>First, the geometry module must be loaded as such, and geometric shapes can be added. For example, here, disks are drawn alongside sinusoidal curves that will be used for pipe generation through extrusion. The <code class="docutils literal notranslate"><span class="pre">Fuse</span></code> command can then be used to obtain a single geometry.</p>
-<img alt="Salome menu with geometry visible" class="align-center" src="../../../_images/salome_menu.png"/>
-<img alt="Geometry generated with Salome" class="align-center" src="../../../_images/salome_geometry.png"/>
-<p>Second, the mesh module can be loaded to generate a <code class="docutils literal notranslate"><span class="pre">.mesh</span></code> file. A new mesh must be created with an associated geometry, algorithm and hypothesis. <code class="docutils literal notranslate"><span class="pre">NETGEN</span> <span class="pre">1D-2D-3D</span></code> works well, and automatic hypothesis selection can be used. The element size can be edited to specific requirements, and then the Compute command must be used to generate the grid. Through <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">Export</span> <span class="pre">-&gt;</span> <span class="pre">GMF</span> <span class="pre">File</span></code>, the <code class="docutils literal notranslate"><span class="pre">.mesh</span></code> file can be output.</p>
-<img alt="Contextual menu for mesh generation in Salome" class="align-center" src="../../../_images/salome_mesh_creation.png"/>
-</section>
-<section id="adding-the-boundary-ids-from-gmsh">
-<h3><span class="section-number">1.3.2. </span>Adding the boundary IDs from Gmsh<a class="headerlink" href="#adding-the-boundary-ids-from-gmsh" title="Permalink to this headline">¶</a></h3>
-<p>A criterion for the use of <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file in Lethe is that the boundaries have an associated ID number. These numbers can be added in Gmsh.</p>
-<p>The boundaries from the mesh must be linked to a Physical object. In 3D for example, the inlet, outlet and walls must be specified as <code class="docutils literal notranslate"><span class="pre">Physical</span> <span class="pre">surfaces</span></code>. Selecting the surface for the inlet and outlet can be done easily, and then the <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file can be text-edited to add a new physical surface with the remaining surfaces.</p>
-<p>In this specific case, there are four boundaries: inlets with no tracer (1), inlet with tracer (2), walls (3) and outlets (4), as stated in the <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file (see excerpt in the text block below).</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Merge "Mesh_1.mesh";
-Physical Surface(1) = {729, 712};
-Physical Surface(2) = {10};
-Physical Surface(3) = {1:9,11:711,713:728,730:848,850,852:5000};
-Physical Surface(4) = {849, 851};
-</pre></div>
+<h2><span class="section-number">7.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<p>The melting of metals (gallium in this example) with natural convection within a cavity is a well-known benchmark. The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
+<a class="reference internal image-reference" href="../../../_images/melting_cavity.png"><img alt="Schematic" class="align-center" src="../../../_images/melting_cavity.png" style="width: 400px;"/></a>
+<dl>
+<dt>The incompressible Navier-Stokes equations with a Boussinesq approximation for the buoyant force are:</dt><dd><div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\nabla \cdot {\bf{u}} = 0\]</div></div>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\rho \frac{\partial {\bf{u}}}{\partial t} + \rho ({\bf{u}} \cdot \nabla) {\bf{u}} = -\nabla p + \nabla \cdot {\bf{\tau}} - \rho \beta {\bf{g}} (T - T_0)\]</div></div>
+</dd>
+</dl>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(T_0\)</span> denote thermal expansion coefficient and a reference temperature, respectively.</p>
+<p>A two-dimensional block of gallium (initially in solid phase) is heated from its left wall at <span class="math notranslate nohighlight">\(t = 0\)</span> s. Its initial temperature is close to (but slightly smaller than) the melting point and the temperature of the left wall is higher than the melting point. Hence, the block starts melting from the left wall. In the melted zone, close to the left wall, the buoyant force (natural convection) creates vortices inside the liquid.</p>
+<dl>
+<dt>The simulation parameters are selected according to the references [1, 2] to satisfy the desired values for the dimensionless numbers</dt><dd><div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\text{Ra} = \frac{\rho^2 \beta g (T_w - T_m) L^3}{k \mu} = 10^5\]</div></div>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\text{Gr} = \frac{g \beta (T_w - T_m) L^3}{\nu^2} = 5.5 \cdot 10^6\]</div></div>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\text{St}_l = \frac{c_p (T_w - T_m)}{\lambda} = 0.041\]</div></div>
+</dd>
+</dl>
+<p>where <span class="math notranslate nohighlight">\(\rho\)</span> is the fluid density, <span class="math notranslate nohighlight">\(\beta\)</span> denotes the thermal expansion coefficient, <span class="math notranslate nohighlight">\(g\)</span> is the magnitude of gravitational acceleration, <span class="math notranslate nohighlight">\(T_w\)</span> and <span class="math notranslate nohighlight">\(T_m\)</span> are the hot wall and the melting point temperatures, <span class="math notranslate nohighlight">\(L\)</span> denotes the characteristic length, <span class="math notranslate nohighlight">\(k\)</span> is the thermal conduction coefficient, and <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\nu\)</span> are the dynamic and kinematic viscosities, <span class="math notranslate nohighlight">\(c_p\)</span> is the specific thermal capacity, and <span class="math notranslate nohighlight">\(\lambda\)</span> is the enthalpy of melting.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">noslip</span></code>, and an external
+gravity field of <span class="math notranslate nohighlight">\(-0.00516\)</span> is applied in the <span class="math notranslate nohighlight">\(y\)</span> direction. For the heat transfer boundary conditions the temperatures of the left (<span class="math notranslate nohighlight">\(T_l = 108 ^{\circ} C\)</span>) and the right (<span class="math notranslate nohighlight">\(T_l = 104.9 ^{\circ} C\)</span>) walls are defined.</p>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">Physical</span> <span class="pre">Volume</span></code> must also be specified for compatibility with deal.II, as stated with this line from the <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Physical Volume(1) = {1};
-</pre></div>
-</div>
-<p>The last step in Gmsh is to generate the 3D mesh, and then save it to a <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file.</p>
-</section>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">1.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>Using Lethe requires a solver executable, in this case <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code>, and a <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file. This second one can be setup in many ways, but for this specific case two aspects must be treated with more care: the enabling of simplex mode, and the setup of the tracer physics.</p>
-<section id="enabling-the-simplex-mode">
-<h3><span class="section-number">1.4.1. </span>Enabling the Simplex mode<a class="headerlink" href="#enabling-the-simplex-mode" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mesh</span></code>, the simplex mode can be enabled with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">simplex</span> <span class="pre">=</span> <span class="pre">true</span></code>. Also, the mesh in the <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file must obviously be built with simplex elements.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Mesh
+<h2><span class="section-number">7.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>Time integration is handled by a 2nd order backward differentiation scheme
+<cite>(bdf2)</cite>, for a <span class="math notranslate nohighlight">\(40000\)</span> s simulation time with an initial
+time step of <span class="math notranslate nohighlight">\(0.1\)</span> second.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example uses an adaptive time-stepping method, where the
+time-step is modified during the simulation to keep the maximum value of the CFL condition below a given threshold (0.5 here). Using <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">control</span> <span class="pre">=</span> <span class="pre">time</span></code>, and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">time</span> <span class="pre">=</span> <span class="pre">100</span></code> the simulation results are written every 100 s.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the melting process is slow, and the velocity magnitude is small in the melted region. Hence, we expect large time-steps and a long simulation.</p>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
+# Simulation Control
 #---------------------------------------------------
-subsection mesh
-    set type                 = gmsh
-    set file name            = vessels.msh
-    set initial refinement   = 0
-    set simplex              = true
+subsection simulation control
+    set method                          = bdf2
+    set time end                        = 40000
+    set time step                       = 0.1
+    set max cfl                         = 0.5
+    set adaptative time step scaling    = 1.3
+    set output name                     = melting
+    set output control                  = time
+    set output time                     = 100
+    set output path                     = ./output/
 end
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If the mesh type is set to <code class="docutils literal notranslate"><span class="pre">dealii</span></code> instead of <code class="docutils literal notranslate"><span class="pre">gmsh</span></code>, the deal.II generated mesh will be properly built with simplices.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>[2022-01-19] It is crucial to consider a current limitation : simplex grid refinement isn’t implemented in Lethe.</p>
-</div>
-</section>
-<section id="setting-up-the-tracer-physics">
-<h3><span class="section-number">1.4.2. </span>Setting up the tracer physics<a class="headerlink" href="#setting-up-the-tracer-physics" title="Permalink to this headline">¶</a></h3>
-<p>Using the tracer physics requires four elements: activating the physics, setting the tracer diffusivity, setting the tracer elements order and setting the boundary conditions. These elements are provided as such:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on <cite>(true)</cite> and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code>, and <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> are chosen.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Multiphysics
 #---------------------------------------------------
 subsection multiphysics
-    set tracer = true
+    set heat transfer               = true
+    set buoyancy force              = true
+    set fluid dynamics              = true
 end
 </pre></div>
 </div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial temperature in the simulation domain are defined. The initial velocity is equal to zero as the block is in the solid phase at <span class="math notranslate nohighlight">\(t = 0\)</span> s. The initial temperature is chosen slightly (0.1 <span class="math notranslate nohighlight">\(^{\circ} C\)</span>) smaller than the melting point temperature.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# Initial condition
+#---------------------------------------------------
+subsection initial conditions
+    set type = nodal
+    subsection uvwp
+        set Function expression     = 0; 0; 0
+    end
+    subsection temperature
+        set Function expression     = 104.9
+    end
+end
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">term</span></code> subsection defines the gravitational acceleration. The value of the gravitational acceleration in this example is selected to satisfy the desired values of Ra and Gr numbers.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# Source term
+#---------------------------------------------------
+subsection source term
+    set enable                              = true
+    subsection xyz
+            set Function expression         = 0 ; -0.00516 ; 0
+    end
+end
+</pre></div>
+</div>
+<p>The solid block melts into liquid in this example, hence in the <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection, we define the phase change parameters. Similar to gravitational acceleration, the latent enthalphy of phase change is selected to satisfy the value of Stefan number. A <span class="math notranslate nohighlight">\(\Delta T = 0.1 ^{\circ} C\)</span> is selected between the solidus and liquidus temperatures. For more information about the phase change model in Lethe, visit the <a class="reference internal" href="../stefan_problem/stefan_problem.html"><span class="doc">Stefan problem</span></a> example. The viscosity of the solid phase is chosen <span class="math notranslate nohighlight">\(\approx 10000\)</span> times larger than the viscosity of the liquid phase.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Physical Properties
 #---------------------------------------------------
 subsection physical properties
-    set kinematic viscosity            = 1
-    set tracer diffusivity             = 0.001
-end
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# FEM
-#---------------------------------------------------
-subsection FEM
-    set velocity order            = 1
-    set pressure order            = 1
-    set tracer order              = 1
-end
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# Tracer Boundary Conditions
-#---------------------------------------------------
-subsection boundary conditions tracer
-set number                  = 2
-    subsection bc 0
-    set id = 1
-    set type              = dirichlet
-        subsection dirichlet
-                set Function expression =  0
+      set number of fluids                  = 1
+      subsection fluid 0
+        set thermal conductivity model      = constant
+        set thermal conductivity            = 60
+
+        set thermal expansion model         = constant
+        set thermal expansion               = 0.0002
+
+        set rheological model               = phase_change
+        set specific heat model             = phase_change
+
+        set density                         = 7500
+
+        subsection phase change
+          # Enthalpy of the phase change
+          set latent enthalpy               = 14634.1463
+
+          # Temperature of the liquidus
+          set liquidus temperature          = 105.1
+
+          # Temperature of the solidus
+          set solidus temperature           = 105
+
+          # Specific heat of the liquid phase
+          set specific heat liquid          = 200
+
+          # Specific heat of the solid phase
+          set specific heat solid           = 200
+
+          # viscosity of the liquid phase
+          set viscosity liquid              = 0.00000075
+
+          # viscosity of the solid phase
+          set viscosity solid               = 0.008
         end
-    end
-    subsection bc 1
-    set id = 2
-    set type              = dirichlet
-        subsection dirichlet
-                set Function expression =  1
-        end
-    end
-end
-</pre></div>
-</div>
-<p>The boundary conditions are written in a specific way.
-We have specified 2 boundaries, a Dirichlet condition with a concentration of 1 for the first inlet, and another Dirichlet condition with a tracer concentration of 0 for the second inlet. All the remaining boundaries are unspecified.
-An unspecified boundary condition in Lethe for the tracer is considered as the natural condition of finite elements,
-which is a zero gradient condition.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span> <span class="pre">tracer</span></code> subsection is different from the general <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code>
-which concerns the flow.</p>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> subsection for the flow is setup as follows. The inlet with a high tracer concentration (<code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">2</span></code>)
-is given a higher velocity than the other two (<code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">1</span></code>). The walls of the junction (<code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">3</span></code>) are given a <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">slip</span></code> type.
-The remaining boundaries (<code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">4</span></code>) are unspecified for the same reason as in the previous subsection: no constraint
-must be applied to the outlet flow.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# Boundary Conditions
-#---------------------------------------------------
-subsection boundary conditions
-    set number                  = 3
-    subsection bc 0
-        set id = 1
-        set type              = function
-        subsection u
-            set Function expression = 0
-        end
-        subsection v
-            set Function expression = 0
-        end
-        subsection w
-            set Function expression = 1
-        end
-    end
-    # The boundary id = 2 will have the tracer
-    subsection bc 1
-        set id = 2
-        set type              = function
-        subsection u
-            set Function expression = 0
-        end
-        subsection v
-            set Function expression = 0
-        end
-        subsection w
-            set Function expression = 4
-        end
-    end
-    subsection bc 2
-        set id = 3
-        set type              = noslip
-    end
-end
+      end
+  end
 </pre></div>
 </div>
 </section>
-</section>
-<section id="simulation-and-results">
-<h2><span class="section-number">1.5. </span>Simulation and results<a class="headerlink" href="#simulation-and-results" title="Permalink to this headline">¶</a></h2>
-<p>The case must be run with the solver and the parameter file.
-The simulation is launched in the same folder as the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file,
-using the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code> solver. It takes a long time since problem is
-transient and the time steps are short:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>../../exe/bin/gls_navier_stokes_3d tracer_through_cad_junction.prm
-</pre></div>
+<section id="running-the-simulation">
+<h2><span class="section-number">7.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Call the gls_navier_stokes_2d by invoking:</p>
+<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">12</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">melting_cavity.prm</span></code></p>
+<p>to run the simulation using twelve CPU cores. Feel free to use more.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure to compile lethe in <cite>Release</cite> mode and
+run in parallel using mpirun. This simulation takes
+<span class="math notranslate nohighlight">\(\approx\)</span> 24 hours on 12 processes.</p>
 </div>
-<p>The results in <code class="docutils literal notranslate"><span class="pre">.pvd</span></code> format can then be viewed using visualisation software such as Paraview.</p>
-<img alt="Simulation results in Meshgrid format" class="align-center" src="../../../_images/paraview_tracer.png"/>
-<p>The higher presence of tracer in the outlet on the same side as the tracer inlet may indicate poor mixing.
-As the tracer diffusivity is low, the mixing between the streams comes mainly from advection.
-However, since the kinematic viscosity is high, the flow is laminar (i.e. dominated by viscous forces) and
-the streamlines do not cross.</p>
+</section>
+<section id="results">
+<h2><span class="section-number">7.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The following animation shows the results of this simulation:</p>
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/tivAPjdCJeA" width="560"></iframe><p>A python post-processing code <cite>(melting_cavity.py)</cite>
+is added to the example folder to post-process the results.
+Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">./melting_cavity.py</span> <span class="pre">./output</span></code> to execute this
+post-processing code, where <code class="docutils literal notranslate"><span class="pre">./output</span></code> is the directory that
+contains the simulation results. In post-processing, the position of the solid-liquid interface at the top, center and bottom of the cavity, as well as the melted volume fraction are plotted and compared with experiments of Gau and Viskanta [2]. Note that the discrepancies in the interfaces are attributed to the two-dimensional simulations and they were also observed and reported by Blais et al. [1].</p>
+<a class="reference internal image-reference" href="../../../_images/xmax_t1.png"><img alt="bubble_rise_velocity" class="align-center" src="../../../_images/xmax_t1.png" style="width: 500px;"/></a>
+<a class="reference internal image-reference" href="../../../_images/melted_volume_fraction.png"><img alt="ymean_t" class="align-center" src="../../../_images/melted_volume_fraction.png" style="width: 500px;"/></a>
+</section>
+<section id="references">
+<h2><span class="section-number">7.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>[1] Blais, B. and Ilinca, F., 2018. Development and validation of a stabilized immersed boundary CFD model for freezing and melting with natural convection. Computers &amp; Fluids, 172, pp.564-581.</p>
+<p>[2] Gau, C. and Viskanta, R., 1986. Melting and solidification of a pure metal on a vertical wall.</p>
 </section>
 </section>
 
@@ -501,23 +487,23 @@ the streamlines do not cross.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../stefan_problem/stefan_problem.html">
+          <a class="next-page" href="../../dem/dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">2. </span>Stefan problem : melting of a solid</div>
+                <div class="title">Discrete Element Method</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../multiphysics.html">
+          <a class="prev-page" href="../laser-melting/laser-melting.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Multiphysics Examples</div>
+                <div class="title"><span class="section-number">6. </span>Laser melting</div>
                 
               </div>
             </a>
@@ -527,7 +513,7 @@ the streamlines do not cross.</p>
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/examples/multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.rst.txt"
+            | <a class="muted-link" href="../../../_sources/examples/multiphysics/melting-cavity/melting-cavity.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -547,20 +533,14 @@ the streamlines do not cross.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">1. Tracer through CAD Junction in Simplex</a><ul>
-<li><a class="reference internal" href="#features">1.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">1.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">1.3. Description of the case</a><ul>
-<li><a class="reference internal" href="#generating-a-geometry-with-salome">1.3.1. Generating a geometry with SALOME</a></li>
-<li><a class="reference internal" href="#adding-the-boundary-ids-from-gmsh">1.3.2. Adding the boundary IDs from Gmsh</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#parameter-file">1.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#enabling-the-simplex-mode">1.4.1. Enabling the Simplex mode</a></li>
-<li><a class="reference internal" href="#setting-up-the-tracer-physics">1.4.2. Setting up the tracer physics</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#simulation-and-results">1.5. Simulation and results</a></li>
+<li><a class="reference internal" href="#">7. Melting Cavity</a><ul>
+<li><a class="reference internal" href="#features">7.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">7.2. Location of the example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">7.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">7.4. Parameter file</a></li>
+<li><a class="reference internal" href="#running-the-simulation">7.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">7.6. Results</a></li>
+<li><a class="reference internal" href="#references">7.7. References</a></li>
 </ul>
 </li>
 </ul>
@@ -577,5 +557,6 @@ the streamlines do not cross.</p>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
