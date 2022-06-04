@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Multiphysics" href="multiphysics.html" /><link rel="prev" title="Linear Solver Control" href="linear_solver_control.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Discrete Element Method (DEM)" href="../dem/dem.html" /><link rel="prev" title="Laser heat source" href="laser_heat_source.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Stabilization - Lethe documentation</title>
+        <title>Box refinement - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -179,7 +179,7 @@
 <li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="non-linear_solver_control.html">Non-linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="linear_solver_control.html">Linear Solver Control</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stabilization.html">Stabilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="volume_of_fluid.html">Volume of Fluid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
@@ -187,7 +187,7 @@
 <li class="toctree-l3"><a class="reference internal" href="restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="laser_heat_source.html">Laser heat source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="box_refinement.html">Box refinement</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Box refinement</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -294,22 +294,33 @@
           </label>
         </div>
         <article role="main">
-          <section id="stabilization">
-<h1>Stabilization<a class="headerlink" href="#stabilization" title="Permalink to this headline">¶</a></h1>
-<p>To solve the Navier-Stokes equations (and other), Lethe uses stabilization techniques to formulate a Petrov-Galerkin strategy in which the test function is not strictly equal to the interpolation. The stabilization provided by Lethe are relatively robust and do not require any manual tinkering. However, stabilization of FEM schemes remain an active area a research, notably when it comes to variational multi-scales (VMS) methods. This is a field in which we are doing active research. As such, Lethe possesses some advanced parameters to control the stabilization techniques used to solve the Navier-Stokes. These are <em>advanced</em> parameters and, in general, the defaults value should be used.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection stabilization
-  set use default stabilization = true
-
-  set stabilization             = pspg_supg     # &lt;pspg_supg|gls|grad_div&gt;.
+          <section id="box-refinement">
+<h1>Box refinement<a class="headerlink" href="#box-refinement" title="Permalink to this headline">¶</a></h1>
+<p>The box refinement section allows for a specific region in the grid to be finer before the simulation starts. To do so, a box refinement can be added with the following example parameters:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection  box refinement
+        subsection mesh
+                set type                 = dealii
+                set grid type            = subdivided_hyper_rectangle
+                set grid arguments       = 1,1,1 : -1,-1,-1 : 1,1,1 : true
+                set initial refinement   = 0
+        end
+        set initial refinement   = 3
 end
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">default</span> <span class="pre">stabilization</span></code> indicates that the solver should use the default stabilization strategy, which is generally the most adequate strategy. To use an alternative strategy, this parameter must be set to false and the strategy to be used must be manually specified using the <code class="docutils literal notranslate"><span class="pre">stabilization</span></code> parameter.</p>
-<p>There are three choices of stabilization strategy:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">stabilization=pspg-supg</span></code> assembles a PSPG/SUPG stabilization for the Navier-Stokes equations. This stabilization should only be used with the monolithic GLS solver.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">stabilization=gls</span></code> assembles a full GLS stabilization for the Navier-Stokes equations. This stabilization is similar to the <code class="docutils literal notranslate"><span class="pre">pspg-supg</span></code>, but adds the term <span class="math notranslate nohighlight">\(\nu \nabla^2 \mathbf{v}\)</span> to the test function. This stabilization should only be used with the monolithic GLS solver.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">stabilization=grad_div</span></code> assembles a grad-div penalization term in the momentum equation to ensure mass conservation. This is not a stabilization method per-say and should not be used with elements that are not LBB stable. This stabilization should only be used with the grad-div Navier-Stokes solver (<code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_2d</span></code> and <code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_3d</span></code>)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection allows to define the region in which the fluid mesh needs to be refined. A cell will be refined if at least one of its degrees of freedom (dofs) is located within the outer boundaries of the box specified in the <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">arguments</span></code>. Therefore, in this example, every cell of the fluid mesh that has at least one of its dofs located in the hexahedron located between (-1, -1, -1) and (1,1,1) will be refined. For more information on meshes, see <a class="reference internal" href="mesh.html"><span class="doc">Mesh</span></a>.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> of the <code class="docutils literal notranslate"><span class="pre">subdivided_hyper_rectangle</span></code> should be as small as possible, since the initial refinement of the box mesh itself will not have any impact on the definition of the refinement zone.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The used mesh can be of any <code class="docutils literal notranslate"><span class="pre">type</span></code> and any <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">type</span></code>.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">box</span> <span class="pre">refinement</span></code> subsection will dictate the number of times the cells inside the box will be refined.</p></li>
 </ul>
 </section>
 
@@ -318,23 +329,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="multiphysics.html">
+          <a class="next-page" href="../dem/dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Multiphysics</div>
+                <div class="title">Discrete Element Method (DEM)</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="linear_solver_control.html">
+          <a class="prev-page" href="laser_heat_source.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Linear Solver Control</div>
+                <div class="title">Laser heat source</div>
                 
               </div>
             </a>
@@ -344,7 +355,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/stabilization.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/box_refinement.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -363,6 +374,5 @@ end
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
