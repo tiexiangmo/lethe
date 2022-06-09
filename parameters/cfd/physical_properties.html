@@ -331,13 +331,13 @@ end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> parameter sets the choice of rheological model. The choices are between <code class="docutils literal notranslate"><span class="pre">newtonian</span></code>, <code class="docutils literal notranslate"><span class="pre">power-law</span></code>, <code class="docutils literal notranslate"><span class="pre">carreau</span></code> and <code class="docutils literal notranslate"><span class="pre">phase_change</span></code>. For more details on the rheological model, see  <a class="reference internal" href="#rheological-models">rheological_models</a> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> parameter sets the choice of rheological model. The choices are between <code class="docutils literal notranslate"><span class="pre">newtonian</span></code>, <code class="docutils literal notranslate"><span class="pre">power-law</span></code>, <code class="docutils literal notranslate"><span class="pre">carreau</span></code> and <code class="docutils literal notranslate"><span class="pre">phase_change</span></code>. For more details on the rheological model, see  <a class="reference internal" href="#id1">Rheological models</a> .</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> parameter is the kinematic viscosity of the newtonain fluid in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span>. In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span>. This viscosity is only used when <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span> <span class="pre">=</span> <span class="pre">newtonian</span></code>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">model</span></code> specifies the model used to calculate the density. At the moment, only a constant density is supported.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter is the constant density of the fluid in units of <span class="math notranslate nohighlight">\(\text{Mass} \cdot \text{Length}^{-3}\)</span></p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">model</span></code> specifies the model used to calculate the specific heat. At the moment, only a constant specific heat is supported.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span></code> parameter is the constant specific heat of the fluid in units of <span class="math notranslate nohighlight">\(\text{Energy} \cdot \text{Temperature}^{-1} \cdot \text{Mass}^{-1}\)</span> .</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal conductivity. At the moment, <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> thermal conductivity are available. For more details on the thermal conductivity models, see <a class="reference internal" href="#thermal-conductivity-models">thermal_conductivity_models</a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal conductivity. At the moment, <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> thermal conductivity are available. For more details on the thermal conductivity models, see <a class="reference internal" href="#id2">Thermal conductivity models</a>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span></code> parameter is the thermal conductivity coefficient of the fluid with units of <span class="math notranslate nohighlight">\(\text{Power} \cdot \text{Temperature}^{-1} \cdot \text{Length}^{-1}\)</span>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal expansion coefficient. At the moment, only a constant thermal expansion is supported.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span></code> parameter is the thermal expansion coefficient of the fluid with dimension of <span class="math notranslate nohighlight">\(\text{Temperature}^{-1}\)</span>. Thermal expansion coefficient is used to define the buoyancy-driven flow (natural convection) using the Boussinesq approximation. Using the Boussinesq approximation, the following source term is added to the Navier-Stokes equation.</p></li>
@@ -391,45 +391,73 @@ end
 <section id="rheological-models">
 <span id="id1"></span><h2>Rheological models<a class="headerlink" href="#rheological-models" title="Permalink to this headline">¶</a></h2>
 <p>Two families of rheological models are supported in Lethe. The first one are generalized non Newtonian rheologies (for shear thinning and shear thickening flows). In these models, the viscosity depends on the shear rate. The second family of rheological models possess a viscosity that is independent of the shear rate, but that may depend on other fields such as the temperature.</p>
-<p>Default values for a non Newtonian fluid are</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> parameter sets which rheological model you are using. The default <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> is <code class="docutils literal notranslate"><span class="pre">newtonian</span></code>, which uses a constant <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids              = 1
   subsection fluid 0
-    set rheological model = carreau
+    set rheological model   = newtonian
+    set kinematic viscosity = 1.0
+  end
+end
+</pre></div>
+</div>
+<dl class="simple">
+<dt>The rheological model available options are:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">newtonian</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">power-law</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">carreau</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phase_change</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<section id="power-law-model">
+<h3>Power-law model<a class="headerlink" href="#power-law-model" title="Permalink to this headline">¶</a></h3>
+<p>The power-law model is the simplest rheological model, using only 2 parameters</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\eta(\dot{\gamma}) = K \dot{\gamma}^{n-1}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the <strong>kinematic viscosity</strong> and <span class="math notranslate nohighlight">\(\dot{\gamma}\)</span> is the local shear rate magnitude.</p>
+<a class="reference internal image-reference" href="../../_images/physical_properties_powerlaw.png"><img alt="../../_images/physical_properties_powerlaw.png" class="align-center" src="../../_images/physical_properties_powerlaw.png" style="width: 600px;"/></a>
+<p>When using the power-law model, the default values are:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+  set number of fluids                  = 1
+  subsection fluid 0
+    set rheological model   = power-law
     subsection non newtonian
+      subsection power-law
+        set K               = 1.0
+        set n               = 0.5
+        set shear rate min  = 1e-3
+      end
     end
   end
 end
 </pre></div>
 </div>
 <ul class="simple">
-<li><dl class="simple">
-<dt>The <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> parameter sets which rheological model you are using. The available options are:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">newtonian</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">carreau</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">power-law</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">phase_change</span></code></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">K</span></code> parameter is a fluid consistency index. It represents the fluid viscosity for a local shear rate of <span class="math notranslate nohighlight">\(1.0\)</span>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> parameter is the flow behavior index. It sets the slope in the log-log <span class="math notranslate nohighlight">\(\eta = f(\dot{\gamma})\)</span> graph.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">shear</span> <span class="pre">rate</span> <span class="pre">min</span></code> parameter yields the magnitude of the shear rate tensor for which the viscosity is calculated. Since the model uses a power operation, a null shear rate magnitude leads to an invalid viscosity. To ensure numerical stability, the shear rate cannot go below this threshold when the viscosity  calculated.</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
+</section>
+<section id="carreau-model">
+<h3>Carreau model<a class="headerlink" href="#carreau-model" title="Permalink to this headline">¶</a></h3>
 <p>The Carreau model is in reality the five parameter Carreau model:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\eta(\dot{\gamma}) =\eta_{\infty} + (\eta_0 - \eta_{\infty}) \left[ 1 + (\dot{\gamma}\lambda)^a\right]^{\frac{n-1}{a}}\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the <strong>kinematic viscosity</strong> and <span class="math notranslate nohighlight">\(\dot{\gamma}\)</span> is the shear rate.</p>
+<a class="reference internal image-reference" href="../../_images/physical_properties_carreau.png"><img alt="../../_images/physical_properties_carreau.png" class="align-center" src="../../_images/physical_properties_carreau.png" style="width: 600px;"/></a>
 <p>The parameters for the Carreau model are defined by the <code class="docutils literal notranslate"><span class="pre">carreau</span></code> subsection. The default values are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-  set number of fluids                = 1
+  set number of fluids                  = 1
   subsection fluid 0
-    set rheological model = carreau
+    set rheological model   = carreau
     subsection non newtonian
       subsection carreau
-        set viscosity_0       = 1.0
-        set viscosity_inf = 1.0
-        set a = 2.0
-        set lambda = 1.0
-        set n = 0.5
+        set viscosity_0          = 1.0
+        set viscosity_inf   = 1.0
+        set a               = 2.0
+        set lambda          = 1.0
+        set n               = 0.5
       end
     end
   end
@@ -441,33 +469,15 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">viscosity_inf</span></code> parameter represents the viscosity when the shear rate on the fluid becomes large.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">a</span></code> is the Carreau parameter, generally set to 2.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">lambda</span></code> is the relaxation time associated to the fluid.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> is a power parameter. It sets the slope in the log-log <span class="math notranslate nohighlight">\(\eta = f(\dot{\gamma})\)</span> graph.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> is a power parameter. It sets the slope in the log-log <span class="math notranslate nohighlight">\(\eta = f(\dot{\gamma})\)</span> graph just like in the power-law model.</p></li>
 </ul>
-<p>The power-law model is a simple rheological model:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\eta(\dot{\gamma}) = K \dot{\gamma}^{n-1}\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the <strong>kinematic viscosity</strong> and <span class="math notranslate nohighlight">\(\dot{\gamma}\)</span> is the shear rate.
-When using the Power-Law model, the default values are:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-  set number of fluids                = 1
-  subsection fluid 0
-    set rheological model = power-law
-    subsection non newtonian
-      subsection power-law
-        set K = 1.0
-        set n = 0.5
-        set shear rate min = 1e-3
-      end
-    end
-  end
-end
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Carreau model is only suitable for Newtonian and shear-thinning flows.</p>
 </div>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">K</span></code> parameter is a fluid consistency index. It represents the fluid viscosity if it were Newtonian.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">n</span></code> parameter is the flow behavior index. low  It sets the slope in the log-log <span class="math notranslate nohighlight">\(\eta = f(\dot{\gamma})\)</span> graph.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">shear</span> <span class="pre">rate</span> <span class="pre">min</span></code> parameter yields the magnitude of the shear rate tensor for which the viscosity is calculated. Since the model uses a power operation, a nul shear rate magnitude leads to an invalid viscosity. To ensure numerical stability, the shear rate cannot go below this threshold when the viscosity  calculated.</p></li>
-</ul>
+</section>
+<section id="phase-change-model">
+<h3>Phase-change model<a class="headerlink" href="#phase-change-model" title="Permalink to this headline">¶</a></h3>
 <p>The phase change model is a simple rheological model in which the viscosity depends on the temperature. This model is used to model melting and freezing of components. The kinematic viscosity <span class="math notranslate nohighlight">\(\nu\)</span> is given by :</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\begin{split}\nu =   c^{*}_p  = \begin{cases} \nu_s \; \text{if} \; T&lt;T_{s} \\
@@ -501,6 +511,7 @@ end
 <p class="admonition-title">Note</p>
 <p>The phase change subsection is used to parametrize <em>both</em> <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span> <span class="pre">=</span> <span class="pre">phase_change</span></code> <em>and</em> <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">model</span> <span class="pre">=</span> <span class="pre">phase_change</span></code>. This prevents parameter duplication.</p>
 </div>
+</section>
 </section>
 <section id="thermal-conductivity-models">
 <span id="id2"></span><h2>Thermal conductivity models<a class="headerlink" href="#thermal-conductivity-models" title="Permalink to this headline">¶</a></h2>
@@ -611,7 +622,12 @@ end
             <ul>
 <li><a class="reference internal" href="#">Physical Properties</a><ul>
 <li><a class="reference internal" href="#two-phase-simulations">Two phase simulations</a></li>
-<li><a class="reference internal" href="#rheological-models">Rheological models</a></li>
+<li><a class="reference internal" href="#rheological-models">Rheological models</a><ul>
+<li><a class="reference internal" href="#power-law-model">Power-law model</a></li>
+<li><a class="reference internal" href="#carreau-model">Carreau model</a></li>
+<li><a class="reference internal" href="#phase-change-model">Phase-change model</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#thermal-conductivity-models">Thermal conductivity models</a></li>
 <li><a class="reference internal" href="#specific-heat-models">Specific heat models</a></li>
 </ul>
