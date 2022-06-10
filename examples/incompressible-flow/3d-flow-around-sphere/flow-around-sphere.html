@@ -250,6 +250,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../resolved_cfd-dem/resolved_cfd-dem.html">Resolved CFD-DEM Examples</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../resolved_cfd-dem/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">1. Flow around a cylinder using the sharp interface method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../resolved_cfd-dem/sedimentation-1-particle/sedimentation-1-particle.html">2. Sedimentation of one particle.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../resolved_cfd-dem/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">3. Non-Newtonian flow past a sphere</a></li>
 </ul>
 </li>
 </ul>
@@ -505,7 +506,7 @@ end
 </section>
 <section id="first-case-results-re-0-1">
 <h2><span class="section-number">6.6. </span>First case results (Re = 0.1)<a class="headerlink" href="#first-case-results-re-0-1" title="Permalink to this headline">¶</a></h2>
-<p>Using Paraview, the steady-state velocity profile and the pressure profile can be visualized by operating a <em>slice</em> along the xy-plane (z-normal) that cuts in the middle of the sphere (See documentation &lt;<a class="reference external" href="https://forgeanalytics.io/blog/creating-slices-in-paraview/">https://forgeanalytics.io/blog/creating-slices-in-paraview/</a>&gt;)_.</p>
+<p>Using Paraview, the steady-state velocity profile and the pressure profile can be visualized by operating a <em>slice</em> along the xy-plane (z-normal) that cuts in the middle of the sphere (See <a class="reference external" href="https://forgeanalytics.io/blog/creating-slices-in-paraview/">documentation</a>).</p>
 <img alt="velocity distribution 0.1" class="align-center" src="../../../_images/velocity_0.1.png"/>
 <img alt="pressure distribution 0.1" class="align-center" src="../../../_images/pressure_0.1.png"/>
 <p>We can appreciate the axisymmetrical behavior of the flow. The drag on the sphere is available in the output file <code class="docutils literal notranslate"><span class="pre">force.00.dat</span></code> (the other force files <code class="docutils literal notranslate"><span class="pre">force.01.dat</span></code> and <code class="docutils literal notranslate"><span class="pre">force.02.dat</span></code> give the forces on boundary conditions 1 and 2 respectively).</p>
