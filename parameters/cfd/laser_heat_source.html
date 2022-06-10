@@ -307,7 +307,7 @@
      set beam radius            = 0.0
      set start time             = 0.0
      set end time               = 1.0
-     set beam orientation       = z
+     set beam orientation       = z-
      subsection path
        set Function expression  =  0.0; 0.0
      end
@@ -322,7 +322,7 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">penetration</span> <span class="pre">depth</span></code> parameter determines the penetration depth of the laser in the simulation domain in the direction of emission.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">radius</span></code> parameter defines the radius of the laser beam.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">time</span></code> parameters define the operation time window of the laser.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">orientation</span></code> parameter shows the orientation of the laser beam. For instance, if a laser beam is emitted perpendicular to a plane in x-y coordinates, the orientation of the laser beam will be in the z-direction.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">orientation</span></code> parameter shows the orientation and direction of the laser beam. For instance, if a laser beam is emitted perpendicular to a plane in x-y coordinates, the orientation of the laser beam will be in the z-direction. Negative (-) or positive (+) defines the direction of the laser beam. For instance if the laser beam is emitted in the negative z direction, the value of <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">orientation</span></code> will be <code class="docutils literal notranslate"><span class="pre">z-</span></code>.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
