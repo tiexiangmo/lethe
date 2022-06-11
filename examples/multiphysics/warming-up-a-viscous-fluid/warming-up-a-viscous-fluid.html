@@ -319,7 +319,7 @@
 <a class="reference internal image-reference" href="../../../_images/warming_scheme.png"><img alt="Simulation schematic" class="align-center" src="../../../_images/warming_scheme.png" style="height: 10cm;"/></a>
 <ul class="simple">
 <li><p>bc = 0 : no slip and thermal insulation boundary condition</p></li>
-<li><p>bc = 1 : flow in the y-direction (v=2) and heating at Tw</p></li>
+<li><p>bc = 1 : flow in the y-direction (<span class="math notranslate nohighlight">\(v=2\)</span>) and heating at Tw</p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -543,6 +543,61 @@ end
 <a class="reference internal image-reference" href="../../../_images/domain_t7_water_nodiss.png"><img alt="Domain with temperature (t = 7)" src="../../../_images/domain_t7_water_nodiss.png" style="width: 30%;"/></a>
 <a class="reference internal image-reference" href="../../../_images/domain_t7_water_rescale_nodiss.png"><img alt="Rescaled domain with temperature (t = 7)" src="../../../_images/domain_t7_water_rescale_nodiss.png" style="width: 30%;"/></a>
 </section>
+<section id="horizontal-domain">
+<h3><span class="section-number">3.7.3. </span>Horizontal domain<a class="headerlink" href="#horizontal-domain" title="Permalink to this headline">¶</a></h3>
+<p>Several adjustments have to be made in the <cite>.prm</cite> to turn the domain clockwise, so that it becomes horizontal, with the upper wall being the no slip and thermal insulation boundary condition, and the lower wall with the flow in the y-direction (<span class="math notranslate nohighlight">\(v=2\)</span>) and heating at Tw:</p>
+<ul class="simple">
+<li><p>in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mesh</span></code>: <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">grid</span> <span class="pre">arguments</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">0</span> <span class="pre">:</span> <span class="pre">1,</span> <span class="pre">0.5</span> <span class="pre">:</span> <span class="pre">true</span></code></p></li>
+<li><dl class="simple">
+<dt>in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">analytical</span> <span class="pre">solution</span></code>, <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">temperature</span></code>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">Function</span> <span class="pre">expression</span> <span class="pre">=</span> <span class="pre">Tw+(((rho*nu)*v*v)/(2*K))*(1-(y/B)*(y/B))</span></code></p>
+</dd>
+</dl>
+</li>
+<li><p>and most importantly, the <code class="docutils literal notranslate"><span class="pre">id</span></code> of <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> should be adapted to use the bottom and top wall (see the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html#a56019d263ae45708302d5d7599f0d458">deal.II documentation on hyper_rectangle grid generator</a> for further details):</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
+  set number                  = 2
+    subsection bc 0
+    set id = 2
+        set type              = noslip
+    end
+    subsection bc 1
+    set id = 3
+        set type              = function
+        subsection u
+            set Function expression = 2
+        end
+        subsection v
+            set Function expression = 0
+        end
+    end
+end
+
+subsection boundary conditions heat transfer
+  set number                  = 4
+    subsection bc 2
+    set id = 2
+        set type          = convection-radiation
+        set h             = 0
+        set Tinf          = 0
+    end
+    subsection bc 3
+    set id = 3
+        set type              = temperature
+        set value             = 80
+    end
+end
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For the fluid <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code>, we use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">number</span> <span class="pre">=</span> <span class="pre">2</span></code>, whereas for <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span> <span class="pre">heat</span> <span class="pre">transfer</span></code> we use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">number</span> <span class="pre">=</span> <span class="pre">4</span></code>. These two notations are perfectly equivalent, as the boundary conditions are <code class="docutils literal notranslate"><span class="pre">none</span></code> by default (or <code class="docutils literal notranslate"><span class="pre">noflux</span></code> in the case of heat transfer, see <a class="reference internal" href="../../../parameters/cfd/boundary_conditions_multiphysics.html"><span class="doc">Boundary Contitions - Multiphysics</span></a>). However, it is important to make sure that:</p>
+<ul class="simple">
+<li><p>the index in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">bc</span> <span class="pre">..</span></code> is coherent with the <code class="docutils literal notranslate"><span class="pre">number</span></code> set (if <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">=</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">1</span></code> are created but <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">2</span></code> does not exist),</p></li>
+<li><p>the index in <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">id</span> <span class="pre">=</span> <span class="pre">..</span></code> is coherent with the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the boundary in the mesh (here, the deal.II generated mesh).</p></li>
+</ul>
+</div>
+</section>
 </section>
 <section id="possibilities-for-extension">
 <h2><span class="section-number">3.8. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
@@ -628,6 +683,7 @@ end
 <li><a class="reference internal" href="#bonuses">3.7. Bonuses</a><ul>
 <li><a class="reference internal" href="#results-for-water">3.7.1. Results for water</a></li>
 <li><a class="reference internal" href="#results-without-viscous-dissipation">3.7.2. Results without viscous dissipation</a></li>
+<li><a class="reference internal" href="#horizontal-domain">3.7.3. Horizontal domain</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#possibilities-for-extension">3.8. Possibilities for extension</a></li>
