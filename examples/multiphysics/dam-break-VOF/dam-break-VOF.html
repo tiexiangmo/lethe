@@ -392,13 +392,13 @@ The phase fraction limiter above will update the phase fraction if it failed to 
 \[\begin{split}\phi :=
 \begin{cases}
 c^{1-\alpha} \phi^{\alpha} &amp;  (0 \leq \phi &lt; c  ) \\
-1-(c-1)^{1-\alpha}(1-\phi)^{\alpha} &amp; (c \leq \phi \leq 1  )
+1-(1-c)^{1-\alpha}(1-\phi)^{\alpha} &amp; (c \leq \phi \leq 1  )
 \end{cases}\end{split}\]</div></div>
 </div></blockquote>
 </li>
 </ol>
-<p><code class="docutils literal notranslate"><span class="pre">Sharpening</span> <span class="pre">frequency</span></code> is an integer parameter that defines the
-frequency of the interface sharpening; <code class="docutils literal notranslate"><span class="pre">sharpening</span> <span class="pre">threshold</span></code> defines
+<p><code class="docutils literal notranslate"><span class="pre">frequency</span></code> is an integer parameter that defines the
+frequency of the interface sharpening; <code class="docutils literal notranslate"><span class="pre">threshold</span></code> defines
 a phase fraction threshold for interface sharpening (generally <span class="math notranslate nohighlight">\(0.5\)</span>);
 and <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpness</span></code> is a model parameter which is generally in
 the range of <span class="math notranslate nohighlight">\((1,2]\)</span>.</p>
@@ -416,9 +416,9 @@ the range of <span class="math notranslate nohighlight">\((1,2]\)</span>.</p>
 subsection VOF
   subsection interface sharpening
     set enable      = true
-    set sharpening threshold   = 0.5
+    set threshold   = 0.5
     set interface sharpness    = 2
-    set sharpening frequency   = 10
+    set frequency   = 10
   end
 end
 </pre></div>

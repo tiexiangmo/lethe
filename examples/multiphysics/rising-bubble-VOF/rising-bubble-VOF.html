@@ -326,13 +326,11 @@ gravity field of <span class="math notranslate nohighlight">\(-0.98\)</span> is 
 </section>
 <section id="parameter-file">
 <h2><span class="section-number">5.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>Time integration is handled by a 1st order backward differentiation scheme
-<cite>(bdf1)</cite>, for a <span class="math notranslate nohighlight">\(3\)</span> s simulation time with an initial
-time step of <span class="math notranslate nohighlight">\(0.001\)</span> seconds.</p>
+<p>Time integration is handled by a 1st order backward differentiation scheme <cite>(bdf1)</cite>, for a <span class="math notranslate nohighlight">\(3~\text{s}\)</span> simulation time with an initial time step of <span class="math notranslate nohighlight">\(0.001~\text{s}\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This example uses an adaptive time-stepping method, where the
-time-step is modified during the simulation to keep the maximum value of the CFL condition below a given threshold. Using <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">control</span> <span class="pre">=</span> <span class="pre">time</span></code>, and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">time</span> <span class="pre">=</span> <span class="pre">0.03</span></code> the simulation results are written every 0.03 s.</p>
+time-step is modified during the simulation to keep the maximum value of the CFL condition below a given threshold. Using <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">control</span> <span class="pre">=</span> <span class="pre">time</span></code>, and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">time</span> <span class="pre">=</span> <span class="pre">0.03</span></code> the simulation results are written every <span class="math notranslate nohighlight">\(0.03~\text{s}\)</span>.</p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
 # Simulation Control
@@ -360,55 +358,12 @@ end
 you are calling the solver from.  Otherwise, the solver will be unable to generate the results files and will break.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on <cite>(true)</cite>
-and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> is chosen. The <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, and <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> are enabled in the VOF subsection (see below).</p>
+and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> is chosen. The <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, and <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> are enabled in the VOF subsection.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Multiphysics
 #---------------------------------------------------
 subsection multiphysics
     set VOF = true
-    set interface sharpening = true
-    set surface tension force       = true
-end
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If the interface sharpening is not selected, the interface
-between phases will become blurry (due to diffusion).
-The next section defines the interface sharpening
-parameters.</p>
-</div>
-<p>The interface sharpening method and its parameters are explained in <a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html"><span class="doc">Dam break VOF</span></a></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# VOF
-#---------------------------------------------------
-subsection VOF
-  subsection interface sharpening
-    set enable      = true
-    set sharpening threshold    = 0.5
-    set interface sharpness     = 1.4
-    set sharpening frequency    = 50
-  end
-  subsection surface tension force
-    set enable      = true
-  end
-end
-</pre></div>
-</div>
-<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial position
-of the liquid phase are defined. The light phase is initially
-defined as a circle with radius <span class="math notranslate nohighlight">\(= 0.25\)</span> at <span class="math notranslate nohighlight">\(0.5, 0.5\)</span>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Initial condition
-#---------------------------------------------------
-subsection initial conditions
-    set type = nodal
-    subsection uvwp
-        set Function expression = 0; 0; 0
-    end
-    subsection VOF
-         set Function expression = if if ((x-0.5) * (x-0.5) + (y-0.5) * (y-0.5) &lt; 0.25 * 0.25 , 1, 0)
-    end
 end
 </pre></div>
 </div>
@@ -424,29 +379,8 @@ subsection source term
 end
 </pre></div>
 </div>
-<p>Two fluids are present in this simulation, hence in the <code class="docutils literal notranslate"><span class="pre">physical</span>
-<span class="pre">properties</span></code> subsection, their physical properties should be defined:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Physical Properties
-#---------------------------------------------------
-subsection physical properties
-    set number of fluids         = 2
-    subsection fluid 0
-        set density              = 1000
-        set kinematic viscosity  = 0.01
-    end
-    subsection fluid 1
-        set density              = 100
-        set kinematic viscosity  = 0.01
-    end
-end
-</pre></div>
-</div>
-<p>We define two fluids here simply by setting the number of fluids to be <span class="math notranslate nohighlight">\(2\)</span>.
-In <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code>, we set the density and the kinematic viscosity for the phase associated with a VOF indicator of 0.
-A similar procedure is done for the phase associated with a VOF indicator of 1 in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
-<section id="surface-tension-force">
-<h3><span class="section-number">5.4.1. </span>Surface Tension Force<a class="headerlink" href="#surface-tension-force" title="Permalink to this headline">¶</a></h3>
+<section id="volume-of-fluid-vof">
+<h3><span class="section-number">5.4.1. </span>Volume of Fluid (VOF)<a class="headerlink" href="#volume-of-fluid-vof" title="Permalink to this headline">¶</a></h3>
 <p>In Lethe, the surface tension force (<span class="math notranslate nohighlight">\({\bf{F_{\sigma}}}\)</span>) is calculated using the following equation [1, 2]:</p>
 <blockquote>
 <div><div class="math-wrapper"><div class="math notranslate nohighlight">
@@ -471,26 +405,78 @@ A similar procedure is done for the phase associated with a VOF indicator of 1 i
 <li><p>If the filtered phase fraction gradient and filtered curvature fields show oscillations, increase the value <span class="math notranslate nohighlight">\(\eta\)</span> to a larger value (<span class="math notranslate nohighlight">\(\eta = h/5\)</span>, for example), and repeat this process until reaching smooth filtered phase fraction gradient and filtered curvature fields without oscillations.</p></li>
 </ol>
 </div>
+<p>The interface sharpening method and its parameters are explained in <a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html"><span class="doc">Dam break VOF</span></a></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # VOF
 #---------------------------------------------------
 subsection VOF
   subsection interface sharpening
     set enable      = true
-    set sharpening threshold    = 0.5
+    set threshold   = 0.5
     set interface sharpness     = 1.4
-    set sharpening frequency    = 50
+    set frequency   = 50
   end
   subsection surface tension force
     set enable      = true
-    set output auxiliary fields  = true
-    set surface tension coefficient    = 24.5
-    set phase fraction gradient filter = 0.0005
-    set curvature filter  = 0.0005
+    set surface tension coefficient     = 24.5
+    set phase fraction gradient filter  = 0.0005
+    set curvature filter                = 0.0005
+    set output auxiliary fields         = true
   end
 end
 </pre></div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the interface sharpening is not enabled, the interface between phases will become blurry (due to diffusion).</p>
+</div>
+</section>
+<section id="initial-condition">
+<h3><span class="section-number">5.4.2. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial position
+of the liquid phase are defined. The light phase is initially
+defined as a circle with radius <span class="math notranslate nohighlight">\(= 0.25\)</span> at <span class="math notranslate nohighlight">\(0.5, 0.5\)</span>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# Initial condition
+#---------------------------------------------------
+subsection initial conditions
+    set type = nodal
+    subsection uvwp
+        set Function expression = 0; 0; 0
+    end
+    subsection VOF
+         set Function expression = if if ((x-0.5) * (x-0.5) + (y-0.5) * (y-0.5) &lt; 0.25 * 0.25 , 1, 0)
+    end
+end
+</pre></div>
+</div>
+</section>
+<section id="physical-properties">
+<h3><span class="section-number">5.4.3. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<p>Two fluids are present in this simulation, hence in the <code class="docutils literal notranslate"><span class="pre">physical</span>
+<span class="pre">properties</span></code> subsection, their physical properties should be defined:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
+# Physical Properties
+#---------------------------------------------------
+subsection physical properties
+    set number of fluids         = 2
+    subsection fluid 0
+        set density              = 1000
+        set kinematic viscosity  = 0.01
+    end
+    subsection fluid 1
+        set density              = 100
+        set kinematic viscosity  = 0.01
+    end
+end
+</pre></div>
+</div>
+<p>We define two fluids here simply by setting the number of fluids to be <span class="math notranslate nohighlight">\(2\)</span>.
+In <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code>, we set the density and the kinematic viscosity for the phase associated with a VOF indicator of 0.
+A similar procedure is done for the phase associated with a VOF indicator of 1 in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
+</section>
+<section id="mesh">
+<h3><span class="section-number">5.4.4. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>We start off with a rectangular mesh that spans the domain defined by the corner points situated at the origin and at point
 <span class="math notranslate nohighlight">\([1,2]\)</span>. The first <span class="math notranslate nohighlight">\(1,2\)</span> couple defines that number of initial grid subdivisions along the length and height of the rectangle.
 This makes our initial mesh composed of perfect squares. We proceed then to redefine the mesh globally eight times by setting
@@ -613,7 +599,10 @@ contains the simulation results. In post-processing, the maximum and minimum axi
 <li><a class="reference internal" href="#location-of-the-example">5.2. Location of the example</a></li>
 <li><a class="reference internal" href="#description-of-the-case">5.3. Description of the case</a></li>
 <li><a class="reference internal" href="#parameter-file">5.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#surface-tension-force">5.4.1. Surface Tension Force</a></li>
+<li><a class="reference internal" href="#volume-of-fluid-vof">5.4.1. Volume of Fluid (VOF)</a></li>
+<li><a class="reference internal" href="#initial-condition">5.4.2. Initial condition</a></li>
+<li><a class="reference internal" href="#physical-properties">5.4.3. Physical Properties</a></li>
+<li><a class="reference internal" href="#mesh">5.4.4. Mesh</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#running-the-simulation">5.5. Running the simulation</a></li>
