@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="7. Melting Cavity" href="../melting-cavity/melting-cavity.html" /><link rel="prev" title="5. Rising bubble VOF" href="../rising-bubble-VOF/rising-bubble-VOF.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Discrete Element Method" href="../../dem/dem.html" /><link rel="prev" title="6. Melting Cavity" href="../melting-cavity/melting-cavity.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>6. Laser melting - Lethe documentation</title>
+        <title>7. Laser meltpool - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -229,8 +229,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">3. Warming Up a Viscous Fluid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">4. Dam break VOF</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rising-bubble-VOF/rising-bubble-VOF.html">5. Rising bubble VOF</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">6. Laser melting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">7. Melting Cavity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">6. Melting Cavity</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">7. Laser meltpool</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -295,49 +295,51 @@
           </label>
         </div>
         <article role="main">
-          <section id="laser-melting">
-<h1><span class="section-number">6. </span>Laser melting<a class="headerlink" href="#laser-melting" title="Permalink to this headline">¶</a></h1>
-<p>This example simulates a two-dimensional melt pool with a laser.</p>
+          <section id="laser-meltpool">
+<h1><span class="section-number">7. </span>Laser meltpool<a class="headerlink" href="#laser-meltpool" title="Permalink to this headline">¶</a></h1>
+<p>This example simulates a <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0032591022004272">two-dimensional melt pool with a laser</a>.</p>
 <section id="features">
-<h2><span class="section-number">6.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
 <li><p>Laser heat source</p></li>
 <li><p>Phase change (solid-liquid)</p></li>
+<li><p>Buoyant force (natural convection)</p></li>
 <li><p>Convection-radiation heat transfer boundary condition</p></li>
+<li><p>Unsteady problem handled by an adaptive BDF2 time-stepping scheme</p></li>
 <li><p>Mesh adaptation using temperature</p></li>
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">6.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/laser-melting/laser-melting.prm</span></code></p>
+<h2><span class="section-number">7.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/laser-meltpool/laser-meltpool.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">6.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>A stainless steel rectangular block melts using a laser beam that emits perpendicular to the top surface of the block. The laser beam speed is 0.5 m/s. Due to the laser heat source, the stainless steel solid block melts in the direction of the laser. The corresponding parameter file is
-<code class="docutils literal notranslate"><span class="pre">laser_melting.prm</span></code>.</p>
+<h2><span class="section-number">7.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<p>A Ti-6Al-4 V powder bed (assumed as a solid block in this example) melts using a laser beam that is emitted perpendicular to the top surface of the block. The laser beam speed is 0.5 m/s. Due to the laser heat source, the solid block melts in the direction of the laser. The corresponding parameter file is
+<code class="docutils literal notranslate"><span class="pre">laser_meltpool.prm</span></code>.</p>
 <p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
 <a class="reference internal image-reference" href="../../../_images/laser_phasechange.png"><img alt="Schematic" class="align-center" src="../../../_images/laser_phasechange.png" style="width: 400px;"/></a>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">6.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Time integration is handled by a 2nd order backward differentiation scheme
-<cite>(bdf2)</cite> (for a better temporal accuracy), for a <span class="math notranslate nohighlight">\(0.0035\)</span> s simulation time with a constant
-time step of <span class="math notranslate nohighlight">\(0.000005\)</span> seconds.</p>
+<cite>(bdf2)</cite> (for a better temporal accuracy), for a <span class="math notranslate nohighlight">\(0.005\)</span> seconds simulation time with a constant
+time step of <span class="math notranslate nohighlight">\(5.0 \times 10^{-6}\)</span> seconds.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
 # Simulation Control
 #---------------------------------------------------
 subsection simulation control
   set method                                = bdf2
-  set time end                              = 0.0035
+  set time end                              = 0.005
   set time step                             = 0.000005
-  set output name                           = laser_phase-change
+  set output name                           = laser_meltpool
   set output frequency                      = 1
-  set output path                           = ./output/
+  set output path                   = ./output/
 end
 </pre></div>
 </div>
-<p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">noslip</span></code>, and the heat transfer boundary conditions are <code class="docutils literal notranslate"><span class="pre">convection-radiation</span></code> with a convective heat transfer coefficient of 15 <span class="math notranslate nohighlight">\(\text{W}\text{m}^{-2}\text{K}^{-1}\)</span>, ambient temperature is 20 <span class="math notranslate nohighlight">\(^{\circ}\text{C}\)</span>, and emissivity is 0.5.</p>
+<p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">noslip</span></code>, and the heat transfer boundary conditions are <code class="docutils literal notranslate"><span class="pre">convection-radiation</span></code> with a convective heat transfer coefficient of 80 <span class="math notranslate nohighlight">\(\text{W}\text{m}^{-2}\text{K}^{-1}\)</span>, ambient temperature is 20 <span class="math notranslate nohighlight">\(^{\circ}\text{C}\)</span>, and emissivity is 0.6.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
 # Boundary Conditions
 #---------------------------------------------------
@@ -365,41 +367,43 @@ subsection boundary conditions heat transfer
     subsection bc 0
             set id = 0
     set type              = convection-radiation
-        set h                     = 15
-        set Tinf          = 20
-        set emissivity        = 0.5
+        set h                   = 80
+        set Tinf                = 20
+        set emissivity          = 0.6
     end
     subsection bc 1
             set id = 1
     set type              = convection-radiation
-        set h                     = 15
-        set Tinf          = 20
-        set emissivity        = 0.5
+        set h                   = 80
+        set Tinf                = 20
+        set emissivity          = 0.6
     end
     subsection bc 2
             set id = 2
     set type              = convection-radiation
-        set h                     = 15
-        set Tinf          = 20
-        set emissivity        = 0.5
+        set h                   = 80
+        set Tinf                = 20
+        set emissivity          = 0.6
     end
     subsection bc 3
             set id = 3
     set type              = convection-radiation
-        set h                     = 15
-        set Tinf          = 20
-        set emissivity        = 0.5
+        set h                   = 80
+        set Tinf                = 20
+        set emissivity          = 0.6
     end
 end
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on (<code class="docutils literal notranslate"><span class="pre">true</span></code>)
-and off (<code class="docutils literal notranslate"><span class="pre">false</span></code>) the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code> is enabled.</p>
+and off (<code class="docutils literal notranslate"><span class="pre">false</span></code>) the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code>, and <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> are enabled.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Multiphysics
 #---------------------------------------------------
 subsection multiphysics
-    set heat transfer               = true
+        set heat transfer          = true
+        set buoyancy force         = true
+        set fluid dynamics         = true
 end
 </pre></div>
 </div>
@@ -417,17 +421,17 @@ end
 # Laser parameters
 #---------------------------------------------------
 subsection laser parameters
-    set enable = true
-            set concentration factor       = 2
-            set power                                 = 100
-            set absorptivity               = 0.6
-            set penetration depth          = 0.000070
-            set beam radius                = 0.000050
-            set start time                 = 0
-            set end time                   = 0.0034
-            set beam orientation           = y-
+            set enable = true
+            set concentration factor      = 2
+            set power                     = 100
+            set absorptivity              = 0.6
+            set penetration depth         = 0.000070
+            set beam radius               = 0.000050
+            set start time                = 0
+            set end time                  = 0.001
+            set beam orientation          = y-
             subsection path
-                    set Function expression    =  0.5 * t; 0.000500
+                    set Function expression   =  0.5 * t; 0.000500
             end
 end
 </pre></div>
@@ -437,41 +441,44 @@ end
 # Physical Properties
 #---------------------------------------------------
 subsection physical properties
-  set number of fluids                  = 1
-  subsection fluid 0
-    set thermal conductivity model  = phase_change
-    set rheological model               = phase_change
-    set specific heat model                     = phase_change
+  set number of fluids                      = 1
+    subsection fluid 0
+                set thermal conductivity model     = phase_change
+                set thermal expansion model        = phase_change
+                set rheological model              = phase_change
+                set specific heat model            = phase_change
 
-    set density                                 = 4300
+                set density                                       = 4420
 
-    subsection phase change
-      # Enthalpy of the phase change
-      set latent enthalpy                   = 286000
+                subsection phase change
+                          # Enthalpy of the phase change
+                          set latent enthalpy               = 286000
 
-      # Temperature of the liquidus
-      set liquidus temperature              = 1750
+                          # Temperature of the liquidus
+                          set liquidus temperature          = 1650
 
-      # Temperature of the solidus
-      set solidus temperature               = 1700
+                          # Temperature of the solidus
+                          set solidus temperature           = 1604
 
-      # Specific heat of the liquid phase
-      set specific heat liquid              = 830
+                          # Specific heat of the liquid phase
+                          set specific heat liquid          = 831
 
-      # Specific heat of the solid phase
-      set specific heat solid               = 200
+                          # Specific heat of the solid phase
+                          set specific heat solid           = 670
 
-      set thermal conductivity solid        = 1.5
-      set thermal conductivity liquid = 33.4
+                          # viscosity of the liquid phase
+                          set viscosity liquid              = 0.00000069
 
-      # viscosity of the liquid phase
-      set viscosity liquid              = 6
+                          # viscosity of the solid phase
+                          set viscosity solid               = 0.008
 
-      # viscosity of the solid phase
-      set viscosity solid               = 100000
-    end
+                          set thermal conductivity solid    = 33.4
+                          set thermal conductivity liquid   = 10.6
 
-  end
+                          set thermal expansion liquid      = 0.0002
+                          set thermal expansion solid       = 0.0
+                end
+            end
 end
 </pre></div>
 </div>
@@ -480,60 +487,42 @@ end
 <p>Using a <code class="docutils literal notranslate"><span class="pre">phase_change</span></code> model for the thermal conductivity, the thermal conductivity of the material varies linearly between <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">solid</span></code> and <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">liquid</span></code> when the temperature is in the range of the solidus and liquidus temperatures.</p>
 </div>
 <p>We start the simulation with a rectangular mesh that spans the domain defined by the corner points situated at <span class="math notranslate nohighlight">\([-0.0001, 0]\)</span> and
-<span class="math notranslate nohighlight">\([0.0019, 0.0005]\)</span>. The first <span class="math notranslate nohighlight">\([8,2]\)</span> couple defines the number of initial grid subdivisions along the length and height of the rectangle.
-This allows for the initial mesh to be composed of perfect squares. We proceed then to redefine the mesh globally eight times by setting
-<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">initial</span> <span class="pre">refinement=8</span></code>.</p>
+<span class="math notranslate nohighlight">\([0.0009, 0.0005]\)</span>. The first <span class="math notranslate nohighlight">\([4,2]\)</span> couple of the <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">grid</span> <span class="pre">arguments</span></code> parameter defines the number of initial grid subdivisions along the length and height of the rectangle.
+This allows for the initial mesh to be composed of perfect squares. We proceed then to redefine the mesh globally seven times by setting
+<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">initial</span> <span class="pre">refinement=7</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Mesh
 #---------------------------------------------------
 subsection mesh
-        set type = dealii
-        set grid type = subdivided_hyper_rectangle
-        set grid arguments  = 8, 2 : -0.0001, 0 : 0.0019, 0.000500 : true
-        set initial refinement      = 8
-end
-</pre></div>
-</div>
-<p>In the <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">adaptation</span> <span class="pre">subsection</span></code>, adaptive mesh refinement is
-defined for <code class="docutils literal notranslate"><span class="pre">temperature</span></code>. <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> are 4 and 8, respectively. Since the laser heat source moves on the boundary and the temperature distribution changes abruptly due to the large laser heat source and radiation boundary condition, we choose 0.5 and 0.2 for <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> and <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code>, respectively.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Mesh Adaptation
-#---------------------------------------------------
-subsection mesh adaptation
-    set type                    = kelly
-    set variable                = temperature
-    set fraction type           = fraction
-    set max refinement level    = 8
-    set min refinement level    = 4
-    set frequency               = 1
-    set fraction refinement     = 0.5
-    set fraction coarsening     = 0.2
+        set type                = dealii
+        set grid type           = subdivided_hyper_rectangle
+        set grid arguments      = 4, 2 : -0.0001, 0 : 0.0009, 0.000500 : true
+        set initial refinement  = 7
 end
 </pre></div>
 </div>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">6.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Call the gls_navier_stokes_2d by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">laser_melting.prm</span></code></p>
-<p>to run the simulation using eight CPU cores. Feel free to use more.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">12</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">laser_meltpool.prm</span></code></p>
+<p>to run the simulation using twelve CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure to compile lethe in <cite>Release</cite> mode and
 run in parallel using mpirun. This simulation takes
-<span class="math notranslate nohighlight">\(\approx\)</span> 5 mins on 8 processes.</p>
+<span class="math notranslate nohighlight">\(\approx\)</span> 3 hours on 12 processes.</p>
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">6.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>The following image shows the temperature distribution in the simulation domain after 0.0034 seconds.</p>
-<a class="reference internal image-reference" href="../../../_images/temperature.png"><img alt="temperature" class="align-center" src="../../../_images/temperature.png" style="width: 800px;"/></a>
-<p>Using Paraview, we can monitor the melted region by using a temperature threshold above the liquidus temperature. The following image shows, in yellow, the melted region at <span class="math notranslate nohighlight">\(t=0.00005\)</span> s, <span class="math notranslate nohighlight">\(0.0005\)</span> s, and <span class="math notranslate nohighlight">\(0.0025\)</span> s.</p>
-<a class="reference internal image-reference" href="../../../_images/melted_region.png"><img alt="melted_region" class="align-center" src="../../../_images/melted_region.png" style="width: 800px;"/></a>
+<h2><span class="section-number">7.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The following animation shows the temperature distribution in the simulations domain, as well the melted zone (using white contour lines at the liquidus and solidus temperatures).</p>
+<a class="reference internal image-reference" href="../../../_images/laser_meltpool.gif"><img alt="temperature" class="align-center" src="../../../_images/laser_meltpool.gif" style="width: 600px;"/></a>
 </section>
 <section id="references">
-<h2><span class="section-number">6.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>[1] Liu, S., Zhu, H., Peng, G., Yin, J. and Zeng, X., 2018. Microstructure prediction of selective laser melting AlSi10Mg using finite element analysis. Materials &amp; Design, 142, pp.319-328.</p>
+<p>[2] Li, E., Zhou, Z., Wang, L., Zheng, Q., Zou, R. and Yu, A., 2022. Melt pool dynamics and pores formation in multi-track studies in laser powder bed fusion process. Powder Technology, p.117533.</p>
 </section>
 </section>
 
@@ -542,23 +531,23 @@ run in parallel using mpirun. This simulation takes
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../melting-cavity/melting-cavity.html">
+          <a class="next-page" href="../../dem/dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">7. </span>Melting Cavity</div>
+                <div class="title">Discrete Element Method</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../rising-bubble-VOF/rising-bubble-VOF.html">
+          <a class="prev-page" href="../melting-cavity/melting-cavity.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">5. </span>Rising bubble VOF</div>
+                <div class="title"><span class="section-number">6. </span>Melting Cavity</div>
                 
               </div>
             </a>
@@ -568,7 +557,7 @@ run in parallel using mpirun. This simulation takes
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/examples/multiphysics/laser-melting/laser-melting.rst.txt"
+            | <a class="muted-link" href="../../../_sources/examples/multiphysics/laser-meltpool/laser-meltpool.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -588,14 +577,14 @@ run in parallel using mpirun. This simulation takes
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">6. Laser melting</a><ul>
-<li><a class="reference internal" href="#features">6.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">6.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">6.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">6.4. Parameter file</a></li>
-<li><a class="reference internal" href="#running-the-simulation">6.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">6.6. Results</a></li>
-<li><a class="reference internal" href="#references">6.7. References</a></li>
+<li><a class="reference internal" href="#">7. Laser meltpool</a><ul>
+<li><a class="reference internal" href="#features">7.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">7.2. Location of the example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">7.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">7.4. Parameter file</a></li>
+<li><a class="reference internal" href="#running-the-simulation">7.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">7.6. Results</a></li>
+<li><a class="reference internal" href="#references">7.7. References</a></li>
 </ul>
 </li>
 </ul>
