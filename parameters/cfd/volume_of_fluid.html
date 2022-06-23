@@ -351,6 +351,11 @@
                 set surface tension coefficient = 0.0
                 set phase fraction gradient filter = 0.5
                 set curvature filter            = 0.5
+
+    subsection marangoni effect
+        set enable = false
+        set surface tension gradient = 0.0
+    end subsection
         end
 
 end
@@ -506,7 +511,7 @@ number of iterations to reach the mass conservation tolerance.
 </li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code>: Surface tension is the tendency of a liquid to maintain the minimum possible surface area. This subsection defines parameters to ensure an accurate interface between the two phases, used when at least one phase is liquid.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code>: Surface tension is the tendency of a liquid to maintain the minimum possible surface area. This subsection defines parameters to ensure an accurate interface between the two phases, used when at least one phase is liquid. <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">marangoni</span> <span class="pre">effect</span></code> in the <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> enables the calculation of Marangoni effect (thermocapillary effect) in simulations where the surface tension gradient (<span class="math notranslate nohighlight">\(\frac{\partial \sigma}{\partial \T}\)</span>) is not equal to zero.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: controls if <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> is considered.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code>: enables the display of the output from the surface tension force calculations. Choices are: <code class="docutils literal notranslate"><span class="pre">quiet</span></code> (default, no output) and <code class="docutils literal notranslate"><span class="pre">verbose</span></code>.</p></li>
