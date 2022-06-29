@@ -300,58 +300,62 @@
 <h1>Resolved CFD-DEM<a class="headerlink" href="#resolved-cfd-dem" title="Permalink to this headline">¶</a></h1>
 <p>This subsection contains the parameters related to the resolved CFD-DEM around particles using a <strong>sharp interface immersed boundary</strong> (IB) <strong>method</strong>. This part of the parameter file concerns the usage of <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes_2d</span></code> or <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes_3d</span></code>. These solvers can also be used to simulate the flow around static particles. In that case, using this solver eliminates the need to define a conformal mesh for the fluid between the particles.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection particles
-        set number of particles                     = 1
-        set stencil order                           = 2
-        set length ratio                            = 4
-        set assemble Navier-Stokes inside particles = false
-        set calculate force                         = true
-        set ib force output file                    = ib_force
-        set ib particles pvd file                   = ib_particles_data
-        set initial refinement                      = 0
-        set refine mesh inside radius factor        = 0.5
-        set refine mesh outside radius factor       = 1.5
-        set integrate motion                        = false
-        set particle nonlinear tolerance            = 1e-6
-        set DEM coupling frequency                  = 1000
-        set alpha                                   = 1
-        set contact search radius factor            = 3
-        set contact search frequency                            = 1
+    set number of particles                     = 1
+    set stencil order                           = 2
+    set length ratio                            = 4
+    set assemble Navier-Stokes inside particles = false
+    set calculate force                         = true
+    set ib force output file                    = ib_force
+    set ib particles pvd file                   = ib_particles_data
+    set initial refinement                      = 0
+    set refine mesh inside radius factor        = 0.5
+    set refine mesh outside radius factor       = 1.5
+    set integrate motion                        = false
+    set particle nonlinear tolerance            = 1e-6
+    set DEM coupling frequency                  = 1000
+    set alpha                                   = 1
+    set contact search radius factor            = 3
+    set contact search frequency                = 1
 
-        subsection gravity
-                set Function expression =0;0;0
+    subsection gravity
+        set Function expression =0;0;0
+    end
+
+    set wall friction coefficient               = 0
+    set wall poisson ratio                      = 0.3
+    set wall restitution coefficient            = 1
+    set wall rolling friction coefficient       = 0
+    set wall youngs modulus                     = 100000000
+    set enable lubrication force                = true
+    set lubrication range max                   = 2
+    set lubrication range min                   = 0.1
+
+    subsection particle info 0
+        set density    = 1
+        subsection position
+            set Function expression =0;0;0
         end
-
-        set wall friction coefficient               = 0
-        set wall poisson ratio                      = 0.3
-        set wall restitution coefficient            = 1
-        set wall rolling friction coefficient       = 0
-        set wall youngs modulus                     = 100000000
-        set enable lubrication force                = true
-        set lubrication range max                   = 2
-        set lubrication range min                   = 0.1
-
-        subsection particle info 0
-                set density    = 1
-                subsection position
-                        set Function expression =0;0;0
-                end
-                subsection velocity
-                        set Function expression =0;0;0
-                end
-                subsection omega
-                        set Function expression =0;0;0
-                end
-                set inertia    = 1
-                set pressure x = 0
-                set pressure y = 0
-                set pressure z = 0
-                set radius     = 0.2
-                set friction coefficient         = 0
-                set poisson ratio                = 0.3
-                set restitution coefficient      = 1
-                set rolling friction coefficient = 0
-                set youngs modulus               = 100000000
+        subsection velocity
+            set Function expression =0;0;0
         end
+        subsection omega
+            set Function expression =0;0;0
+        end
+        subsection orientation
+            set Function expression =0;0;0
+        end
+        set inertia    = 1
+        set pressure x = 0
+        set pressure y = 0
+        set pressure z = 0
+        set type       = sphere
+        set shape arguments = 0
+        set friction coefficient         = 0
+        set poisson ratio                = 0.3
+        set restitution coefficient      = 1
+        set rolling friction coefficient = 0
+        set youngs modulus               = 100000000
+    end
 end
 </pre></div>
 </div>
@@ -376,14 +380,15 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">ib</span> <span class="pre">force</span> <span class="pre">output</span> <span class="pre">file</span></code> parameter is the file name where the variables associated with each particle are stored. One file will be created for each particle in the simulation.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">ib</span> <span class="pre">particles</span> <span class="pre">pvd</span> <span class="pre">file</span></code> parameter is the file’s name that will be created to animate the particles. This file stores all the variables calculated for each of the particles. This file is compatible with Paraview.</p></li>
 </ul>
-<p>To sharpen the immersed boundary of each particles, a layer of cells around the immersed boundary can be refined forming a hypershell of refined cells.</p>
+<p>To sharpen the immersed boundary of each particle, a layer of cells around the immersed boundary can be refined forming a near-surface zone of refined cells between two thresholds: <span class="math notranslate nohighlight">\(\textit{inside factor} * \textit{radius}\)</span> and <span class="math notranslate nohighlight">\(\textit{outside factor} * \textit{radius}\)</span>. An effective radius, for non spheres, is calculated at the shape initialization and its definition is given further below.</p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">refine</span> <span class="pre">mesh</span> <span class="pre">inside</span> <span class="pre">radius</span> <span class="pre">factor</span></code> parameter defines the inside radius of the hypershell that forms the refinement zone around the particles. The radius used is the product between this factor and the particle’s radius. For example: with a particle radius of 2 and the inside radius factor of 0.8, the inside radius of the refinement zone would be 1.6 (see example below).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">refine</span> <span class="pre">mesh</span> <span class="pre">outside</span> <span class="pre">radius</span> <span class="pre">factor</span></code> parameter defines the outside radius of the hypershell that forms the refinement zone around the particles. The radius used is the product between this factor and the particle’s radius. For example: with a particle radius of 2 and the outside radius factor of 1.5, the outside radius of the refinement zone would be 3 (see example below).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">refine</span> <span class="pre">mesh</span> <span class="pre">inside</span> <span class="pre">radius</span> <span class="pre">factor</span></code> parameter defines how deep inside the solid that cells can be refined. If the absolute distance between a cell’s degree of freedom and the solid’s surface is lower than <span class="math notranslate nohighlight">\((1 - \textit{inside factor}) * \textit{radius}\)</span>, one of the two required conditions to refine this cell is met. For example: with a particle radius of 2 and the inside radius factor of 0.8, the inside reach of the refinement zone would be 0.4 (see example below).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">refine</span> <span class="pre">mesh</span> <span class="pre">outside</span> <span class="pre">radius</span> <span class="pre">factor</span></code> parameter defines how far outside the solid that cells can be refined. If the absolute distance between a cell’s degree of freedom and the solid’s surface is lower than <span class="math notranslate nohighlight">\((\textit{outside factor} - 1) * \textit{radius}\)</span>, the second of the two required conditions to refine this cell is met. For example: with a particle radius of 2 and the outside radius factor of 1.5, the outside reach of the refinement zone would be 1 (see example below).</p></li>
 </ul>
+<img alt="../../_images/particle_hypershell.png" class="align-center" src="../../_images/particle_hypershell.png"/>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>When you want to use the hypershell refinement zone around particles, the mesh adaptation type used must be <code class="docutils literal notranslate"><span class="pre">kelly</span></code>, otherwise no hypershell refinement will happen. See <a class="reference internal" href="../cfd/mesh_adaptation_control.html"><span class="doc">Mesh Adaptation Control</span></a> for more details on adaptative mesh refinement.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">adaptation</span> <span class="pre">type</span></code> must be <code class="docutils literal notranslate"><span class="pre">kelly</span></code> to use the near-particle refinement zone around particles; otherwise, no near-particle refinement will happen. See <a class="reference internal" href="../cfd/mesh_adaptation_control.html"><span class="doc">Mesh Adaptation Control</span></a> for more details on adaptative mesh refinement.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -391,11 +396,10 @@ end
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This hypershell zone will systematically be refined at each refinement step until reaching the <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> parameter in <a class="reference internal" href="../cfd/mesh_adaptation_control.html"><span class="doc">Mesh Adaptation Control</span></a>.</p>
+<p>This near-particle zone will be systematically refined at each refinement step until reaching the <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> parameter (<a class="reference internal" href="../cfd/mesh_adaptation_control.html"><span class="doc">Mesh Adaptation Control</span></a>).</p>
 </div>
-<img alt="../../_images/particle_hypershell.png" class="align-center" src="../../_images/particle_hypershell.png"/>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> parameter controls the number of refinement cycles in the hypershell refinement zone around every particle before the simulation starts.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> parameter controls the number of refinement cycles in the near-particle refinement zone around every particle before the simulation starts.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion</span></code> parameter controls if the dynamics equations of the particles are calculated. If this parameter is set to false, the particles remain static.  If <code class="docutils literal notranslate"><span class="pre">ìntegrate</span> <span class="pre">motion=true</span></code> the position and the velocity will be defined by the particles’ position and velocity function.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">DEM</span> <span class="pre">coupling</span> <span class="pre">frequency</span></code> parameter controls the number of iterations done on the DEM side for each CFD time step. It’s necessary to use a much smaller time step for the particle dynamics than for the fluid in case of contact between the particles. The particle collision happens at a much smaller time-scale than the fluid dynamics.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">nonlinear</span> <span class="pre">tolerance</span></code> parameter controls particle dynamics’ nonlinear tolerance. The nonlinear solver won’t have converged until the residual on the dynamics equations of all the particles is smaller than this threshold.</p></li>
@@ -436,17 +440,41 @@ end
 <p>The lubrication force between two particles is expressed by the equation <span class="math notranslate nohighlight">\(\mathbf{F_{lub_{ij}}} = \frac{3}{2} \pi \mu_f \left(\frac{d_{p_i} d_{p_j}}{d_{p_i}+d_{p_j}}\right)^2 \frac{1}{y}(\mathbf{v_{ij}}\cdot \mathbf{e_{ij}})\mathbf{e_{ij}}\)</span>. Where <span class="math notranslate nohighlight">\(\mu_f\)</span> is the fluid viscosity, <span class="math notranslate nohighlight">\(d_{p_i}\)</span> the diameter of the first particle, <span class="math notranslate nohighlight">\(d_{p_j}\)</span> the diameter of the second particle, <span class="math notranslate nohighlight">\(y\)</span> the gap between the two particles, <span class="math notranslate nohighlight">\(\mathbf{v_{ij}}\)</span> the relative velocity of the two particles, <span class="math notranslate nohighlight">\(\mathbf{e_{ij}}\)</span> the unit vector along the line that joint the centroide of the two particles. In the case of particle wall lubrication force we take the diameter of the second particle to be infinity <a class="reference external" href="https://doi.org/10.1002/aic.690400418">[1]</a>.
 This model requires a constant viscosity and density of the fluid.</p>
 </div>
-<p>The following parameter and subsection are all inside the subsection <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">info</span> <span class="pre">0</span></code> and have to be redefined for all particles separatly.</p>
+<p>The following parameter and subsection are all inside the subsection <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">info</span> <span class="pre">0</span></code> and have to be redefined for all particles separately.</p>
 <ul class="simple">
 <li><p>The subsection <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">info</span> <span class="pre">0</span></code> is used to define relevant information that is specific to the particle with id 0. For each particle with the index <code class="docutils literal notranslate"><span class="pre">n</span></code>, a new subsection name <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">info</span> <span class="pre">n</span></code> should be defined with relevant information.</p></li>
 <li><p>The subsection <code class="docutils literal notranslate"><span class="pre">position</span></code> defines the initial value of the particle position if the parameter <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion=true</span></code>. Otherwise, it defines the particle’s position at all points in time. This position is expressed as a function that can evolve in time. Each component of the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> corresponds to the value of coordinate X, Y, and Z.</p></li>
 <li><p>The subsection <code class="docutils literal notranslate"><span class="pre">velocity</span></code> defines the initial value of the particle velocity if the parameter <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion=true</span></code>. Otherwise, it defines the particle’s velocity at all points in time. This velocity is expressed as a function that can evolve in time. Each component of the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> corresponds to the value of its component in the X, Y, and Z direction.</p></li>
-<li><p>The subsection <code class="docutils literal notranslate"><span class="pre">omega</span></code> defines the initial value of the particle rotational velocity if the parameter <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion=true</span></code>. Otherwise, it defines the particle’s rotational velocity at all times. This rotational velocity is expressed as a function that can evolve in time. Each component of the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> corresponds to the value of its component in the X, Y, and Z direction. It’s important to note that even the 2D solver uses the rotational velocity in 3D. In that case, it will only use the Z component of the rotational velocity.</p></li>
+<li><p>If the parameter <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the subsection <code class="docutils literal notranslate"><span class="pre">omega</span></code> defines the initial value of the particle’s rotational velocity. Otherwise, it defines the particle’s rotational velocity at all time steps. This rotational velocity is expressed as a function that can evolve in time. Each component of the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> corresponds to the value of its component in the X, Y, and Z directions.</p></li>
+<li><p>The subsection <code class="docutils literal notranslate"><span class="pre">orientation</span></code> defines the initial value of the particle’s angular position around each of the axes X, then Y, and lastly Z.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The way position and orientation are defined is that the position of the solid is taken into account first, and then the orientation is considered. The orientation is considered as a rotation around each main axis, in the order X, then Y, and lastly Z. The center of rotation for this rotation is the position point of the solid.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Concerning <code class="docutils literal notranslate"><span class="pre">omega</span></code> and <code class="docutils literal notranslate"><span class="pre">orientation</span></code>, it’s important to note that even the 2D solver uses the rotational velocity in 3D. In that case, it will only use the Z component of the rotational velocity, but all three should be defined.</p>
+</div>
+<ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">inertia</span></code> parameter is used to define one of the diagonal elements of the rotational inertia matrix. Since we are defining spherical particles, we assume a uniform distribution of mass, and as such, all the diagonal elements of the rotational inertia matrix are the same.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">z</span></code> parameters are used to define the X, Y, and Z coordinate offset of the pressure reference point relative to the center of the particle. These parameters are used when the <code class="docutils literal notranslate"><span class="pre">assemble</span> <span class="pre">Navier-Stokes</span> <span class="pre">inside</span> <span class="pre">particles</span></code> parameter is set to true to define the pressure reference point.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">radius</span></code> parameter is used to define the radius of this particle.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter is used to define the geometry type of the particle. The alternatives in 2D are: <code class="docutils literal notranslate"><span class="pre">sphere</span></code>, <code class="docutils literal notranslate"><span class="pre">ellipsoid</span></code>, <code class="docutils literal notranslate"><span class="pre">rectangle</span></code>. In 3D, in addition to the previous shapes, alternatives include: <code class="docutils literal notranslate"><span class="pre">cone</span></code>, <code class="docutils literal notranslate"><span class="pre">death</span> <span class="pre">star</span></code>, <code class="docutils literal notranslate"><span class="pre">cut</span> <span class="pre">hollow</span> <span class="pre">sphere</span></code>, <code class="docutils literal notranslate"><span class="pre">torus</span></code>.</p></li>
+<li><dl class="simple">
+<dt>The <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">arguments</span></code> parameter is used to define the parameters of the shape in the form of a list separated by <code class="docutils literal notranslate"><span class="pre">,</span></code>. The required arguments and the effective radius, used for near-particle refinement, are:</dt><dd><ul>
+<li><p>Sphere: <em>radius</em>; the effective radius is the <em>radius</em>;</p></li>
+<li><p>Rectangle: <em>x half length</em>, <em>y half length</em>, [<em>z half length</em> (if 3D)]; the effective radius is the Euclidian norm of the half lengths;</p></li>
+<li><p>Ellipsoid: <em>x radius</em>, <em>y radius</em>, [<em>z radius</em> (if 3D)]; the effective radius is the Euclidian norm of the radii;</p></li>
+<li><p>Torus: <em>torus radius</em>, <em>torus thickness radius</em>; the effective radius is the <em>torus thickness radius</em>;</p></li>
+<li><p>Cone: <em>tan(base angle)</em>, <em>height</em>; the effective radius is the <em>height</em>;</p></li>
+<li><p>Cut Hollow Sphere: <em>radius</em>, <em>cut height</em>, <em>wall thickness</em>; the effective radius is the <em>radius</em>;</p></li>
+<li><p>Death Star: <em>sphere radius</em>, <em>hole radius</em>, <em>distance between centers</em>; the effective radius is the <em>sphere radius</em>.</p></li>
 </ul>
-<p>The following properties are used if the particle impact one of the boundaries of the domain or another particle. The effective properties used to calculate the impact force are calculated using a harmonic mean of the properties of the particle and the object it impacts.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The following properties are used if the particle collides with one of the boundaries of the domain or another particle. The effective properties used to calculate the impact force are the harmonic mean between the properties of the colliding entities.</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">friction</span> <span class="pre">coefficient</span></code> parameter is the coefficient of friction of the particle. This parameter is used to define the effective coefficient of friction between the wall and the particles.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">poisson</span> <span class="pre">ratio</span></code> parameter is the Poisson’s ratio of the particle’s material. This parameter is used to define the nonlinear spring constant used when a particle impacts a wall.</p></li>
@@ -456,18 +484,16 @@ This model requires a constant viscosity and density of the fluid.</p>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For a particle to be accounted for in the fluid mesh, it has to overlap one or more vertices of this fluid mesh. If the initial mesh is too coarse in regards to the particle size, the particle may not be captured if it does not intersect the outer mesh walls. To avoid this, a box refinement can be added around the particle (See Box refinement documentation).</p>
+<p>For a particle to be accounted for in the fluid mesh, it has to overlap at least one vertex of this fluid mesh. If the initial mesh is too coarse in regards to the particle size, the particle may not be captured if it does not intersect the outer mesh walls. To avoid this, a box refinement can be added around the particle (See Box refinement documentation).</p>
 </div>
-<section id="mesh-refinement">
-<h2>Mesh refinement<a class="headerlink" href="#mesh-refinement" title="Permalink to this headline">¶</a></h2>
-<p>The mesh is refined on multiple occasions during the simulations, and it can be slightly confusing to understand the sequence of refinement. There are 3 pre-simulation refinement steps. The one that occurs first is the <strong>global mesh refinement</strong>. It is set by the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection.
-The second refinement occuring is inside the <strong>box refinement zone</strong>, set by the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> in the <code class="docutils literal notranslate"><span class="pre">box</span> <span class="pre">refinement</span></code> subsection. Lastly, the <strong>particle hypershell zone</strong> is refined, defined by the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">particles</span></code> subsection.
-Therefore, the hypershell zone around each particle is refined <code class="docutils literal notranslate"><span class="pre">mesh</span></code>:<code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> + <code class="docutils literal notranslate"><span class="pre">box</span></code>:<code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> + <code class="docutils literal notranslate"><span class="pre">particle</span></code>:<code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> times before the simulations starts.</p>
+<p>Mesh refinement
+The mesh is refined on multiple occasions during the simulations, and it can be slightly confusing to understand the sequence of refinement. There are 3 pre-simulation refinement steps. The first is the <strong>global mesh refinement</strong>. It is set by the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection.
+The second refinement is inside the <strong>box refinement zone</strong>, set by the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> in the <code class="docutils literal notranslate"><span class="pre">box</span> <span class="pre">refinement</span></code> subsection. Lastly, the <strong>near-particle zone</strong> is refined, defined by the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">particles</span></code> subsection.
+Therefore, the near-particle zone around each particle is refined <code class="docutils literal notranslate"><span class="pre">mesh</span></code>:<code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> + <code class="docutils literal notranslate"><span class="pre">box</span></code>:<code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> + <code class="docutils literal notranslate"><span class="pre">particle</span></code>:<code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> times before the simulations starts.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">adaptation</span> <span class="pre">control</span></code> subsection is smaller than the summation of all initial refinement parameters, no cell can be refined more than <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code>. Note that it does not mean that the refinement stops, meaning that there can be other cells that are refined to the <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code>, but no cell can be refined more than this.</p>
 </div>
-</section>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <p>[1] Kim, Sangtae, and Seppo J. Karrila. Microhydrodynamics: principles and selected applications. Courier Corporation, 2013. <a class="reference external" href="https://doi.org/10.1002/aic.690400418">DOI</a>.</p>
@@ -526,7 +552,6 @@ Therefore, the hypershell zone around each particle is refined <code class="docu
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Resolved CFD-DEM</a><ul>
-<li><a class="reference internal" href="#mesh-refinement">Mesh refinement</a></li>
 <li><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
