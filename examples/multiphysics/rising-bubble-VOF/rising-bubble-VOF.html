@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="6. Melting Cavity" href="../melting-cavity/melting-cavity.html" /><link rel="prev" title="4. Dam break VOF" href="../dam-break-VOF/dam-break-VOF.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="7. Melting Cavity" href="../melting-cavity/melting-cavity.html" /><link rel="prev" title="5. Dam break VOF" href="../dam-break-VOF/dam-break-VOF.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>5. Rising bubble VOF - Lethe documentation</title>
+        <title>6. Rising bubble VOF - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -226,12 +226,13 @@
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">2. Stefan problem : melting of a solid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">3. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">4. Dam break VOF</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">5. Rising bubble VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">6. Melting Cavity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../laser-meltpool/laser-meltpool.html">7. Laser meltpool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rayleigh-benard-convection/rayleigh-benard-convection.html">2. Rayleigh-Bénard Convection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">3. Stefan problem : melting of a solid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">4. Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">5. Dam break VOF</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">6. Rising bubble VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">7. Melting Cavity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../laser-meltpool/laser-meltpool.html">8. Laser meltpool</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -297,10 +298,10 @@
         </div>
         <article role="main">
           <section id="rising-bubble-vof">
-<h1><span class="section-number">5. </span>Rising bubble VOF<a class="headerlink" href="#rising-bubble-vof" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Rising bubble VOF<a class="headerlink" href="#rising-bubble-vof" title="Permalink to this headline">¶</a></h1>
 <p>This example simulates a <a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/fld.2643">two-dimensional rising bubble</a>.</p>
 <section id="features">
-<h2><span class="section-number">5.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
 <li><p>Two phase flow handled by the Volume of fluids (VOF) approach, with a phase fraction limiter, phase sharpening, and surface tension force</p></li>
@@ -310,11 +311,11 @@
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">5.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rising_bubble_VOF/rising_bubble_VOF.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">5.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>A circular bubble with density of 100 and kinematic viscosity of 0.01 (all the units in this example are dimensionless) is defined at an initial location (0.5, 0.5) in a rectangular column filled with a denser fluid (with a density of 1000 and kinematic viscosity of 0.01). At <span class="math notranslate nohighlight">\(t = 0\)</span> the bubble is released to rise inside the denser fluid column. The corresponding parameter file is
 <code class="docutils literal notranslate"><span class="pre">rising_bubble_VOF.prm</span></code>.</p>
 <p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
@@ -326,7 +327,7 @@ gravity field of <span class="math notranslate nohighlight">\(-0.98\)</span> is 
 </div>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">5.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Time integration is handled by a 1st order backward differentiation scheme <cite>(bdf1)</cite>, for a <span class="math notranslate nohighlight">\(3~\text{s}\)</span> simulation time with an initial time step of <span class="math notranslate nohighlight">\(0.001~\text{s}\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -381,7 +382,7 @@ end
 </pre></div>
 </div>
 <section id="volume-of-fluid-vof">
-<h3><span class="section-number">5.4.1. </span>Volume of Fluid (VOF)<a class="headerlink" href="#volume-of-fluid-vof" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.1. </span>Volume of Fluid (VOF)<a class="headerlink" href="#volume-of-fluid-vof" title="Permalink to this headline">¶</a></h3>
 <p>In Lethe, the surface tension force (<span class="math notranslate nohighlight">\({\bf{F_{\sigma}}}\)</span>) is calculated using the following equation [1, 2]:</p>
 <blockquote>
 <div><div class="math-wrapper"><div class="math notranslate nohighlight">
@@ -433,7 +434,7 @@ end
 </div>
 </section>
 <section id="initial-condition">
-<h3><span class="section-number">5.4.2. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.2. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial position
 of the liquid phase are defined. The light phase is initially
 defined as a circle with radius <span class="math notranslate nohighlight">\(= 0.25\)</span> at <span class="math notranslate nohighlight">\(0.5, 0.5\)</span>.</p>
@@ -453,7 +454,7 @@ end
 </div>
 </section>
 <section id="physical-properties">
-<h3><span class="section-number">5.4.3. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.3. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>Two fluids are present in this simulation, hence in the <code class="docutils literal notranslate"><span class="pre">physical</span>
 <span class="pre">properties</span></code> subsection, their physical properties should be defined:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
@@ -477,7 +478,7 @@ In <code class="docutils literal notranslate"><span class="pre">subsection</span
 A similar procedure is done for the phase associated with a VOF indicator of 1 in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
 </section>
 <section id="mesh">
-<h3><span class="section-number">5.4.4. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.4. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>We start off with a rectangular mesh that spans the domain defined by the corner points situated at the origin and at point
 <span class="math notranslate nohighlight">\([1,2]\)</span>. The first <span class="math notranslate nohighlight">\(1,2\)</span> couple defines that number of initial grid subdivisions along the length and height of the rectangle.
 This makes our initial mesh composed of perfect squares. We proceed then to redefine the mesh globally eight times by setting
@@ -513,7 +514,7 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">5.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Call the gls_navier_stokes_2d by invoking:</p>
 <p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">rising_bubble_VOF.prm</span></code></p>
 <p>to run the simulation using eight CPU cores. Feel free to use more.</p>
@@ -525,7 +526,7 @@ run in parallel using mpirun. This simulation takes
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">5.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following image shows the shape and dimensions of the bubble after 3 seconds of simulation, and compares it with results of [1, 2].</p>
 <a class="reference internal image-reference" href="../../../_images/bubble.png"><img alt="bubble" class="align-center" src="../../../_images/bubble.png" style="width: 400px;"/></a>
 <p>A python post-processing code <cite>(rising_bubble.py)</cite>
@@ -538,7 +539,7 @@ contains the simulation results. In post-processing, the maximum and minimum axi
 <p>Animation of the rising bubble example:</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/h5aRpA4chXE" width="560"></iframe></section>
 <section id="references">
-<h2><span class="section-number">5.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>[1] Brackbill, J.U., Kothe, D.B. and Zemach, C., 1992. A continuum method for modeling surface tension. Journal of computational physics, 100(2), pp.335-354.</p>
 <p>[2] Zahedi, S., Kronbichler, M. and Kreiss, G., 2012. Spurious currents in finite element based level set methods for two‐phase flow. International Journal for Numerical Methods in Fluids, 69(9), pp.1433-1456.</p>
 </section>
@@ -554,7 +555,7 @@ contains the simulation results. In post-processing, the maximum and minimum axi
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">6. </span>Melting Cavity</div>
+                <div class="title"><span class="section-number">7. </span>Melting Cavity</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -565,7 +566,7 @@ contains the simulation results. In post-processing, the maximum and minimum axi
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">4. </span>Dam break VOF</div>
+                <div class="title"><span class="section-number">5. </span>Dam break VOF</div>
                 
               </div>
             </a>
@@ -595,20 +596,20 @@ contains the simulation results. In post-processing, the maximum and minimum axi
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">5. Rising bubble VOF</a><ul>
-<li><a class="reference internal" href="#features">5.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">5.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">5.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">5.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#volume-of-fluid-vof">5.4.1. Volume of Fluid (VOF)</a></li>
-<li><a class="reference internal" href="#initial-condition">5.4.2. Initial condition</a></li>
-<li><a class="reference internal" href="#physical-properties">5.4.3. Physical Properties</a></li>
-<li><a class="reference internal" href="#mesh">5.4.4. Mesh</a></li>
+<li><a class="reference internal" href="#">6. Rising bubble VOF</a><ul>
+<li><a class="reference internal" href="#features">6.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">6.2. Location of the example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">6.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">6.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#volume-of-fluid-vof">6.4.1. Volume of Fluid (VOF)</a></li>
+<li><a class="reference internal" href="#initial-condition">6.4.2. Initial condition</a></li>
+<li><a class="reference internal" href="#physical-properties">6.4.3. Physical Properties</a></li>
+<li><a class="reference internal" href="#mesh">6.4.4. Mesh</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">5.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">5.6. Results</a></li>
-<li><a class="reference internal" href="#references">5.7. References</a></li>
+<li><a class="reference internal" href="#running-the-simulation">6.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">6.6. Results</a></li>
+<li><a class="reference internal" href="#references">6.7. References</a></li>
 </ul>
 </li>
 </ul>
