@@ -330,6 +330,8 @@
     set enable lubrication force                = true
     set lubrication range max                   = 2
     set lubrication range min                   = 0.1
+            set load particles from file                = false
+            set particles file                  = particles
 
     subsection particle info 0
         set density    = 1
@@ -346,11 +348,9 @@
             set Function expression =0;0;0
         end
         set inertia    = 1
-        set pressure x = 0
-        set pressure y = 0
-        set pressure z = 0
+        set pressure location = 0; 0; 0
         set type       = sphere
-        set shape arguments = 0
+        set shape arguments = 1; 0; 0
         set friction coefficient         = 0
         set poisson ratio                = 0.3
         set restitution coefficient      = 1
@@ -427,13 +427,13 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">wall</span> <span class="pre">rolling</span> <span class="pre">friction</span> <span class="pre">coefficient</span></code> parameter is the rolling friction coefficient of the wall. This parameter is used to define the effective rolling friction coefficient between the wall and the particles. At this point in time, all the walls have the same properties.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">wall</span> <span class="pre">youngs</span> <span class="pre">modulus</span></code> parameter is the Young’s modulus of the wall’s material. This parameter is used to define the nonlinear spring constant used when a particle impacts a wall. At this point in time, all the walls have the same properties.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">lubrication</span> <span class="pre">force</span></code> parameter enables or disables the use of lubrication forces. This parameter must be set to <code class="docutils literal notranslate"><span class="pre">false</span></code> when using non-newtonian fluid.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">lubrication</span> <span class="pre">range</span> <span class="pre">max</span></code> parameter defines the distance below which the lubrication force between 2 particles or between a particle and a wall is calculated. The range is defined as a multiple of the smallest cell. The lubrication force model is used to model the force between particles when they are too close to each other to accurately resolve the flow between them.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When using a non-Newtonian fluid, the lubrication force will be automatically deactivated.</p>
 </div>
 <ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">lubrication</span> <span class="pre">range</span> <span class="pre">max</span></code> parameter defines the distance below which the lubrication force between 2 particles or between a particle and a wall is calculated. The range is defined as a multiple of the smallest cell. The lubrication force model is used to model the force between particles when they are too close to each other to accurately resolve the flow between them.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">lubrication</span> <span class="pre">range</span> <span class="pre">min</span></code> parameter defines the minimal distance used in the lubrication force calculation. The range is defined as a multiple of the smallest cell. This limits the force that can be applied on a particle since the lubrification force has a singularity when the distance between 2 particles is 0. We use this parameter to define a lower bound on the distance between 2 particles for the force calculation to avoid this singularity. Physically, this distance can be interpreted as the surface roughness of the particles.</p></li>
 </ul>
 <div class="admonition note">
@@ -441,7 +441,17 @@ end
 <p>The lubrication force between two particles is expressed by the equation <span class="math notranslate nohighlight">\(\mathbf{F_{lub_{ij}}} = \frac{3}{2} \pi \mu_f \left(\frac{d_{p_i} d_{p_j}}{d_{p_i}+d_{p_j}}\right)^2 \frac{1}{y}(\mathbf{v_{ij}}\cdot \mathbf{e_{ij}})\mathbf{e_{ij}}\)</span>. Where <span class="math notranslate nohighlight">\(\mu_f\)</span> is the fluid viscosity, <span class="math notranslate nohighlight">\(d_{p_i}\)</span> the diameter of the first particle, <span class="math notranslate nohighlight">\(d_{p_j}\)</span> the diameter of the second particle, <span class="math notranslate nohighlight">\(y\)</span> the gap between the two particles, <span class="math notranslate nohighlight">\(\mathbf{v_{ij}}\)</span> the relative velocity of the two particles, <span class="math notranslate nohighlight">\(\mathbf{e_{ij}}\)</span> the unit vector along the line that joint the centroide of the two particles. In the case of particle wall lubrication force we take the diameter of the second particle to be infinity <a class="reference external" href="https://doi.org/10.1002/aic.690400418">[1]</a>.
 This model requires a constant viscosity and density of the fluid.</p>
 </div>
-<p>The following parameter and subsection are all inside the subsection <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">info</span> <span class="pre">0</span></code> and have to be redefined for all particles separately.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">particles</span> <span class="pre">from</span> <span class="pre">file</span></code> boolean defines whether the particles are generated from an external file instead of the prm file. If this parameter is activated, the number of particles is defined directly from the file, that is, the particle’s subsection and the number of particles are ignored.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Currently this feature works only for spherical particles.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">file</span></code> The file from which the particles are defined. Each line corresponds to a particle and all the relevant variables. The file must contain the following information for each particle (the header must be defined accordingly): type shape_argument_0 shape_argument_1 shape_argument_2 p_x p_y p_z v_x v_y v_z omega_x omega_y omega_z orientation_x orientation_y orientation_z density inertia pressure_x pressure_y pressure_z youngs_modulus restitution_coefficient friction_coefficient poisson_ratio rolling_friction_coefficient</p></li>
+</ul>
+<p>The following parameter and subsection are all inside the subsection <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">info</span> <span class="pre">0</span></code> and have to be redefined for all particles separatly.</p>
 <ul class="simple">
 <li><p>The subsection <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">info</span> <span class="pre">0</span></code> is used to define relevant information that is specific to the particle with id 0. For each particle with the index <code class="docutils literal notranslate"><span class="pre">n</span></code>, a new subsection name <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">info</span> <span class="pre">n</span></code> should be defined with relevant information.</p></li>
 <li><p>The subsection <code class="docutils literal notranslate"><span class="pre">position</span></code> defines the initial value of the particle position if the parameter <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion=true</span></code>. Otherwise, it defines the particle’s position at all points in time. This position is expressed as a function that can evolve in time. Each component of the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> corresponds to the value of coordinate X, Y, and Z.</p></li>
@@ -459,7 +469,7 @@ This model requires a constant viscosity and density of the fluid.</p>
 </div>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">inertia</span></code> parameter is used to define one of the diagonal elements of the rotational inertia matrix. Since we are defining spherical particles, we assume a uniform distribution of mass, and as such, all the diagonal elements of the rotational inertia matrix are the same.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">z</span></code> parameters are used to define the X, Y, and Z coordinate offset of the pressure reference point relative to the center of the particle. These parameters are used when the <code class="docutils literal notranslate"><span class="pre">assemble</span> <span class="pre">Navier-Stokes</span> <span class="pre">inside</span> <span class="pre">particles</span></code> parameter is set to true to define the pressure reference point.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">location</span></code> parameter is used to define the X, Y, and Z coordinate offsets of the pressure reference point relative to the center of the particle. These parameters are used when the <code class="docutils literal notranslate"><span class="pre">assemble</span> <span class="pre">Navier-Stokes</span> <span class="pre">inside</span> <span class="pre">particles</span></code> parameter is set to true to define the pressure reference point.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter is used to define the geometry type of the particle. The alternatives in 2D are: <code class="docutils literal notranslate"><span class="pre">sphere</span></code>, <code class="docutils literal notranslate"><span class="pre">ellipsoid</span></code>, <code class="docutils literal notranslate"><span class="pre">rectangle</span></code>. In 3D, in addition to the previous shapes, alternatives include: <code class="docutils literal notranslate"><span class="pre">cone</span></code>, <code class="docutils literal notranslate"><span class="pre">death</span> <span class="pre">star</span></code>, <code class="docutils literal notranslate"><span class="pre">cut</span> <span class="pre">hollow</span> <span class="pre">sphere</span></code>, <code class="docutils literal notranslate"><span class="pre">torus</span></code>.</p></li>
 <li><dl class="simple">
 <dt>The <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">arguments</span></code> parameter is used to define the parameters of the shape in the form of a list separated by <code class="docutils literal notranslate"><span class="pre">,</span></code>. The required arguments and the effective radius, used for near-particle refinement, are:</dt><dd><ul>
