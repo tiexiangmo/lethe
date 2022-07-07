@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Mesh" href="mesh.html" /><link rel="prev" title="Insertion Info" href="insertion_info.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Rheology and non-Newtonian fluids" href="rheology.html" /><link rel="prev" title="On the need for stabilization" href="stabilization.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Floating Walls - Lethe documentation</title>
+        <title>Linear solvers - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -163,51 +163,51 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching your first simulation</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/fem.html">Finite element interpolation (FEM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/source_term.html">Source term</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/analytical_solution.html">Analytical solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/force_and_torque.html">Force and torque calculation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/post_processing.html">Post-Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/timer.html">Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/non-linear_solver_control.html">Non-linear Solver Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/linear_solver_control.html">Linear Solver Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/stabilization.html">Stabilization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/volume_of_fluid.html">Volume of Fluid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/nitsche.html">Nitsche</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/restart.html">Restart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/laser_heat_source.html">Laser heat source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/box_refinement.html">Box refinement</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../parameters/parameters.html">Parameters guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/physical_properties.html">Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/initial_conditions.html">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/fem.html">Finite element interpolation (FEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/source_term.html">Source term</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/analytical_solution.html">Analytical solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/force_and_torque.html">Force and torque calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/post_processing.html">Post-Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/timer.html">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/non-linear_solver_control.html">Non-linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/linear_solver_control.html">Linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/stabilization.html">Stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/volume_of_fluid.html">Volume of Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/nitsche.html">Nitsche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/restart.html">Restart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/laser_heat_source.html">Laser heat source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/box_refinement.html">Box refinement</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="dem.html">Discrete Element Method (DEM)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="test.html">Test</a></li>
-<li class="toctree-l3"><a class="reference internal" href="model_parameters.html">Model Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="insertion_info.html">Insertion Info</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Floating Walls</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="boundary_conditions.html">Boundary Conditions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/timer.html">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/test.html">Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/model_parameters.html">Model Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/insertion_info.html">Insertion Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/floating_walls.html">Floating Walls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/boundary_conditions.html">Boundary Conditions</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../unresolved_cfd-dem/void_fraction.html">Void Fraction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../unresolved_cfd-dem/cfd_dem.html">CFD-DEM</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/unresolved_cfd-dem/void_fraction.html">Void Fraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/unresolved_cfd-dem/cfd_dem.html">CFD-DEM</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../resolved_cfd-dem/resolved_cfd-dem.html">Resolved CFD-DEM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../parameters/resolved_cfd-dem/resolved_cfd-dem.html">Resolved CFD-DEM</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -257,16 +257,16 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../theory/theory.html">Theory</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../theory/fluid_dynamics/fluid_dynamics.html">Fluid dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../theory/fluid_dynamics/navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../theory/fluid_dynamics/fem_formulation.html">Origin of the finite element formulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../theory/fluid_dynamics/stabilization.html">On the need for stabilization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../theory/fluid_dynamics/linear_solvers.html">Linear solvers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../theory/fluid_dynamics/rheology.html">Rheology and non-Newtonian fluids</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../theory.html">Theory</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="fluid_dynamics.html">Fluid dynamics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fem_formulation.html">Origin of the finite element formulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stabilization.html">On the need for stabilization</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Linear solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rheology.html">Rheology and non-Newtonian fluids</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM coupling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM coupling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
@@ -298,47 +298,9 @@
           </label>
         </div>
         <article role="main">
-          <section id="floating-walls">
-<h1>Floating Walls<a class="headerlink" href="#floating-walls" title="Permalink to this headline">¶</a></h1>
-<p>Floating wall is a temporary (its start and end times are defined) flat wall, generally used for holding the particles during the filling and before the discharge stage.</p>
-<p>In this subsection, the information on floating walls is defined. First of all, the total <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">floating</span> <span class="pre">walls</span></code> is specified. Then for each floating wall, we should specify its <code class="docutils literal notranslate"><span class="pre">normal</span> <span class="pre">vector</span></code>, a <code class="docutils literal notranslate"><span class="pre">point</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">wall</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">times</span></code>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection floating walls
- # Total number of floating walls
-   set number of floating walls         = 1
-
-       subsection wall 0
-
- # Defining a point on the floating wall
-               subsection point on wall
-                       set x                        = 0
-                       set y                        = 0
-                       set z                        = -0.06
-               end
-
- # Defining normal vector of the floating wall
-               subsection normal vector
-                       set nx                       = 0
-                       set ny                       = 0.5
-                       set nz                       = 1
-               end
-
- # Starting time of the floating wall
-               set start time                    = 0
-
- # Ending time of the floating wall
-               set end time                      = 0.2
-       end
-end
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">floating</span> <span class="pre">walls</span></code> parameter defines the total number of floating walls we wish to insert during the simulation.</p></li>
-<li><p>For each floating wall, we need a separate subsection (for instance   <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">wall</span> <span class="pre">0</span></code>) in which the information of the floating wall (the normal vector, start and end times, and a point on the floating walla) is defined.</p></li>
-<li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">point</span> <span class="pre">on</span> <span class="pre">wall</span></code>, we define a point (with coordinates <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>) on the floating wall.</p></li>
-<li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">normal</span> <span class="pre">vector</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">floating</span> <span class="pre">wall</span></code>, we define the normal vector (with components of <code class="docutils literal notranslate"><span class="pre">nx</span></code>, <code class="docutils literal notranslate"><span class="pre">ny</span></code>, and <code class="docutils literal notranslate"><span class="pre">nz</span></code> in <cite>x</cite>, <cite>y</cite>, and <cite>z</cite> directions) of the floating wall.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">time</span></code> parameter specifies the start time at which the floating wall is applied in the simulation.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">time</span></code> parameter defines the time at which the floating wall is removed from the simulation. In simulations that the user wishes to keep a floating wall during the entire simulation, <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">time</span></code> should be specified greater than the total simulation time.</p></li>
-</ul>
+          <section id="linear-solvers">
+<h1>Linear solvers<a class="headerlink" href="#linear-solvers" title="Permalink to this headline">¶</a></h1>
+<p><strong>Under construction</strong></p>
 </section>
 
         </article>
@@ -346,23 +308,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="mesh.html">
+          <a class="next-page" href="rheology.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Mesh</div>
+                <div class="title">Rheology and non-Newtonian fluids</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="insertion_info.html">
+          <a class="prev-page" href="stabilization.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Insertion Info</div>
+                <div class="title">On the need for stabilization</div>
                 
               </div>
             </a>
@@ -372,7 +334,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/dem/floating_walls.rst.txt"
+            | <a class="muted-link" href="../../_sources/theory/fluid_dynamics/linear_solvers.rst.txt"
                rel="nofollow">
               Show Source
             </a>

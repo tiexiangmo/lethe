@@ -262,6 +262,7 @@
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">The Incompressible Navier-Stokes equations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fem_formulation.html">Origin of the finite element formulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stabilization.html">On the need for stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linear_solvers.html">Linear solvers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rheology.html">Rheology and non-Newtonian fluids</a></li>
 </ul>
 </li>
@@ -299,7 +300,7 @@
         <article role="main">
           <section id="the-incompressible-navier-stokes-equations">
 <h1>The Incompressible Navier-Stokes equations<a class="headerlink" href="#the-incompressible-navier-stokes-equations" title="Permalink to this headline">¶</a></h1>
-<p>Lethe was designed to solve the incompressible Navier-Stokes equations. For the physics in Lethe, we generally try to follow the convention of the <a class="reference external" href="https://en.wikipedia.org/wiki/Transport_Phenomena_(book)">BSL</a> Assuming a constant density <span class="math notranslate nohighlight">\(\rho\)</span> and kinematic viscosity <span class="math notranslate nohighlight">\(\nu\)</span>, these equations take the following form:</p>
+<p>Lethe was designed to solve the incompressible Navier-Stokes equations. For the physics in Lethe, we generally try to follow the convention of the <a class="reference external" href="https://en.wikipedia.org/wiki/Transport_Phenomena_(book)">BSL</a>. Assuming a constant density <span class="math notranslate nohighlight">\(\rho\)</span> and kinematic viscosity <span class="math notranslate nohighlight">\(\nu\)</span>, these equations take the following form:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\begin{split}\nabla \cdot \mathbf{u} &amp;= 0   \\
 \frac{\partial \mathbf{u}}{\partial t}  + \mathbf{u} \cdot \nabla \mathbf{u} &amp;= -\frac{1}{\rho} \nabla p  + \nu \nabla^2 \mathbf{u} +\mathbf{f}\end{split}\]</div></div>

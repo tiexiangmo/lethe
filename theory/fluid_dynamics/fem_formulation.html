@@ -262,6 +262,7 @@
 <li class="toctree-l3"><a class="reference internal" href="navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Origin of the finite element formulation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stabilization.html">On the need for stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linear_solvers.html">Linear solvers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rheology.html">Rheology and non-Newtonian fluids</a></li>
 </ul>
 </li>
@@ -309,7 +310,7 @@ on <span class="math notranslate nohighlight">\(\Gamma\)</span>. We multiply by 
 \[\begin{split}&amp;\int_{\Omega}  q  \partial_l u_l d\Omega =0
 \\
 &amp;\int_{\Omega}  v_k \left(\partial_t u_k+ u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) d\Omega =0\end{split}\]</div></div>
-<p>Because we want the pressure to be in <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> and the velocity to be in <span class="math notranslate nohighlight">\(\mathcal{H}^1\)</span>, we integrate by part the viscous stress and the pressure gradient. We thus obtain the weak form:</p>
+<p>Because we want the pressure to be in <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> and the velocity to be in <span class="math notranslate nohighlight">\(\mathcal{H}^1\)</span>, we integrate by parts the viscous stress and the pressure gradient terms. We thus obtain the weak form:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\begin{split} &amp;\int_{\Omega}  q  \partial_l u_l \mathrm{d}\Omega =0
  \\
@@ -320,7 +321,7 @@ on <span class="math notranslate nohighlight">\(\Gamma\)</span>. We multiply by 
 \\
  &amp;  + \int_{\Gamma} \left( v_k \right) \left( \partial_l u_k  +\delta_{lk} p \right) n_l \mathrm{d}\Gamma
   =0\end{split}\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\delta_{lk}\)</span> is the Kronecker delta and <span class="math notranslate nohighlight">\(n_j\)</span> is the outward pointing normal vector to a surface. Since we assume Dirichlet boundary conditions or zero stress  conditions
+<p>where <span class="math notranslate nohighlight">\(\delta_{lk}\)</span> is the Kronecker delta and <span class="math notranslate nohighlight">\(n_l\)</span> is the outward pointing normal vector to a surface. Since we assume Dirichlet boundary conditions or zero stress  conditions
 on <span class="math notranslate nohighlight">\(\Gamma\)</span>, this term may be discarded. Thus, when no boundary condition is applied, the boundary condition applied is:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\int_{\Gamma} \left( v_k \right) \left( \partial_l u_k  +\delta_{lk} p \right) n_l \mathrm{d}\Gamma=0\]</div></div>
@@ -331,7 +332,7 @@ This weak form is non-linear because of <span class="math notranslate nohighligh
 <p>To solve non-linear problem, Lethe uses the <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson method</a>. This method proceeds by solving recurrently for the correction vector <span class="math notranslate nohighlight">\(\mathbf{\delta x}\)</span> which is obtained by solving the following system:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\mathbf{\mathcal{J}} \mathbf{\delta x} = - \mathbf{\mathcal{R}}\]</div></div>
-<p>For the incompressible Navier-Stokes equation, this leads to a saddle point problem of the form :</p>
+<p>For the incompressible Navier-Stokes equation, this leads to a saddle point problem of the form:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{\mathcal{J}} &amp;= \left[ \begin{matrix}         A &amp; B^T  \\[0.3em]      B &amp; 0 \end{matrix} \right] \\
 \mathbf{\mathcal{R}} &amp;=  \left[ \begin{matrix} \mathbf{\mathcal{R}}_v   \\[0.3em]             \mathbf{\mathcal{R}}_q  \end{matrix} \right]\end{split}\]</div></div>

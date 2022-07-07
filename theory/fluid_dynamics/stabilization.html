@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Rheology and non-Newtonian fluids" href="rheology.html" /><link rel="prev" title="Origin of the finite element formulation" href="fem_formulation.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Linear solvers" href="linear_solvers.html" /><link rel="prev" title="Origin of the finite element formulation" href="fem_formulation.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
         <title>On the need for stabilization - Lethe documentation</title>
@@ -262,6 +262,7 @@
 <li class="toctree-l3"><a class="reference internal" href="navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fem_formulation.html">Origin of the finite element formulation</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">On the need for stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linear_solvers.html">Linear solvers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rheology.html">Rheology and non-Newtonian fluids</a></li>
 </ul>
 </li>
@@ -300,17 +301,50 @@
           <section id="on-the-need-for-stabilization">
 <h1>On the need for stabilization<a class="headerlink" href="#on-the-need-for-stabilization" title="Permalink to this headline">¶</a></h1>
 <p>It is well known that, in the absence of stabilization, the choice of the velocity and pressure finite element spaces must be done to ensure that the <a class="reference external" href="https://en.wikipedia.org/wiki/Ladyzhenskaya%E2%80%93Babu%C5%A1ka%E2%80%93Brezzi_condition">Ladyzenskaya-Babuska-Brezzi (LBB) inf-sup</a> condition is met. It is also known that the Galerkin approximation of the Navier–Stokes equations may fail in convection dominated flows, for which there are boundary layers where the velocity solution and its gradient exhibit rapid variation over short length scales. In these regions, the classical Galerkin approach may lead to numerical oscillations which may greatly pollute the solution over the entire domain. Stabilization of the elements, which is used in Lethe, can circumvent the limitations of the classical Galerkin approach and alleviate the  need to use LBB stable elements. This notably allows for the use of equal order elements (such as P1-P1).</p>
-<section id="supg-sspg-monolithic-formulation">
-<h2>SUPG/SSPG monolithic formulation<a class="headerlink" href="#supg-sspg-monolithic-formulation" title="Permalink to this headline">¶</a></h2>
-<p><strong>Under construction</strong></p>
+<section id="supg-pspg-monolithic-formulation">
+<h2>SUPG/PSPG monolithic formulation<a class="headerlink" href="#supg-pspg-monolithic-formulation" title="Permalink to this headline">¶</a></h2>
+<p>This approach consists of two new terms that are added to the classic weak formulation. The first one is known as SUPG (Streamline-Upwind/ Petro-Galerkin) formulation and it is in charge of stabilizing the formulation for convection-dominated flows. The second one is known as PSPG (Pressure-Stabilizing/ Petrov-Galerkin) and as its name indicates, it reduces pressure oscillations when using equal order elements (e.g. Q1 elements for the velocity and Q1 elements for the pressure). Thus, the new weak form of the Navier-Stokes equation is given by:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}&amp;\int_{\Omega}  q  \partial_l u_l \mathrm{d}\Omega + \sum_{k} \int_{\Omega_k} \left( \partial_t u_k + u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) \cdot \left(\tau_{PSPG} \partial_l q \right) \mathrm{d}\Omega_k  = 0
+\\
+&amp;\int_{\Omega}  v_k \left(\partial_t u_k+ u_l \partial_l u_k - f_k \right) \mathrm{d}\Omega - \int_{\Omega} \left( \partial_k \right) v_k p \mathrm{d}\Omega  + \nu \int_{\Omega} \left( \partial_l v_k \right) \left( \partial_l u_k  \right) \mathrm{d}\Omega
+\\
+&amp; + \sum_{k} \int_{\Omega_k} \left( \partial_t u_k + u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) \cdot \left(\tau_{SUPG} u_k \partial_l v_k \right) \mathrm{d}\Omega_k =0\end{split}\]</div></div>
+<p>This formulation is consistent as the added terms involve the residual and if we substitute the exact solution, the stabilization terms vanish. In the literature, one can find different definitions of the stabilization parameters <span class="math notranslate nohighlight">\(\tau_{SUPG}\)</span> and <span class="math notranslate nohighlight">\(\tau_{PSPG}\)</span>. Lethe uses the definition by <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0065215608701534">Tezduyar (1991)</a> for both stabilization parameters. In the case of a transient problem:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\tau = \left[ \left( \frac{1}{\Delta t} \right)^{2} + \left( \frac{2 |\mathrm{u}|}{h_{conv}} \right)^{2} + 9 \left( \frac{4 \nu}{h^2_{diff}} \right)^{2} \right]^{-1/2}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the time step, and <span class="math notranslate nohighlight">\(h_{conv}\)</span> and <span class="math notranslate nohighlight">\(h_{diff}\)</span> are the size of the element related to the convection transport and diffusion mechanism, respectively. In Lethe, both element sizes are set to the diameter of a sphere having a volume equivalent to that of the cell. In the case of stationary problems, the following expression is used:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\tau = \left[ \left( \frac{2 |\mathrm{u}|}{h_{conv}} \right)^{2} + 9 \left(\frac{4 \nu}{h^2_{diff}} \right)^{2} \right]^{-1/2}\]</div></div>
+<p>To solve the non-linear problem, Lethe uses again the Newton-Raphson method, however, the Jacobian and the residual are now of the following form:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{\mathcal{J}} &amp;= \left[ \begin{matrix}         A^* &amp; B^{*T}  \\[0.3em] B^* &amp; S^* \end{matrix} \right] \\
+\mathbf{\mathcal{R}} &amp;=  \left[ \begin{matrix} \mathbf{\mathcal{R}}_{v}^*   \\[0.3em]         \mathbf{\mathcal{R}}_{q}^*  \end{matrix} \right]\end{split}\]</div></div>
+<p>As it can be seen, there is an additional matrix <span class="math notranslate nohighlight">\(S^*\)</span> that appears in the linear system and eliminates the zero block on the diagonal of the Jacobian matrix.</p>
 </section>
 <section id="grad-div-block-formulation">
 <h2>Grad-Div block formulation<a class="headerlink" href="#grad-div-block-formulation" title="Permalink to this headline">¶</a></h2>
-<p><strong>Under construction</strong></p>
+<p>This approach builds on the work of <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/fld.3654">Heister et al. (2012)</a>. and can be seen as a natural parallel extension of the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/step_57.html">Step-57 of deal.ii</a>. An additional term is added to the classic weak form of the Navier-Stokes equations:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}&amp;\int_{\Omega}  q  \partial_l u_l \mathrm{d}\Omega =0
+\\
+&amp;\int_{\Omega}  v_k \left(\partial_t u_k+ u_l \partial_l u_k - f_k \right) \mathrm{d}\Omega  - \int_{\Omega} \left( \partial_k \right) v_k p \mathrm{d}\Omega
+\\
+&amp;+ \nu \int_{\Omega} \left( \partial_l v_k \right) \left( \partial_l u_k  \right) \mathrm{d}\Omega  + \sum_K \gamma \int_{\Omega_k} \partial_l u_l \partial_k v_k = 0\end{split}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\gamma\)</span> is an additional parameter that can be related to the augmented lagrangian formulation. The additional stabilization term improves the numerical accuracy of the solution and helps reduce oscillations for convection-dominated flows. In general, the optimal value for <span class="math notranslate nohighlight">\(\gamma\)</span> depends on the solution on each element and it is therefore, problem dependent. In Lethe the value of <span class="math notranslate nohighlight">\(\gamma\)</span> is equal to <span class="math notranslate nohighlight">\(1\)</span>. In this case, the linear system to be solved in each non-linear iteration has the same structure as the one obtained with the classic weak formulation. Therefore, a good preconditioning is necessary to solve the linear system at each nonlinear iteration. More on this topic is found in the linear solvers section.</p>
 </section>
 <section id="galerkin-least-squares-formulation">
 <h2>Galerkin Least-Squares formulation<a class="headerlink" href="#galerkin-least-squares-formulation" title="Permalink to this headline">¶</a></h2>
-<p><strong>Under construction</strong></p>
+<p>The GLS formulation is built as a generalization of the stabilization procedure in the SUPG/PSPG formulation. It is based on a Least-Squares term based on the momentum equation. It includes both the SUPG and PSPG terms as well as an additional term that can be seen in the weak form:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}&amp;\int_{\Omega}  q  \partial_l u_l \mathrm{d}\Omega + \sum_{k} \int_{\Omega_k} \left( \partial_t u_k + u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) \cdot \left(\tau_{PSPG} \partial_l q \right) \mathrm{d}\Omega_k  = 0
+\\
+&amp;\int_{\Omega}  v_k \left(\partial_t u_k+ u_l \partial_l u_k - f_k \right) \mathrm{d}\Omega - \int_{\Omega} \left( \partial_k \right) v_k p \mathrm{d}\Omega  + \nu \int_{\Omega} \left( \partial_l v_k \right) \left( \partial_l u_k  \right) \mathrm{d}\Omega
+\\
+&amp; + \sum_{k} \int_{\Omega_k} \left( \partial_t u_k + u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) \cdot \left(\tau_{SUPG} u_k \partial_l v_k \right) \mathrm{d}\Omega_k
+\\
+&amp; + \sum_{k} \int_{\Omega_k} \left( \partial_t u_k + u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) \cdot \left(\tau_{GLS} \nu \partial_l \partial_l u_k \right) \mathrm{d}\Omega_k  =0\end{split}\]</div></div>
+<p>This is the version of the GLS stabilization if the finite element method is only used for the spatial discretization and no time-space finite element formulation is used as is the case in Lethe. The stabilization parameters are taken to be the same in all cases and given by the same <span class="math notranslate nohighlight">\(\tau\)</span> expressions presented in the SUPG/PSPG section. The non-linear problem is solved in the same fashion and the structure of the Jacobian is the same one as that of the SUPG/PSPG formulation.</p>
 </section>
 </section>
 
@@ -319,12 +353,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="rheology.html">
+          <a class="next-page" href="linear_solvers.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Rheology and non-Newtonian fluids</div>
+                <div class="title">Linear solvers</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -366,7 +400,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">On the need for stabilization</a><ul>
-<li><a class="reference internal" href="#supg-sspg-monolithic-formulation">SUPG/SSPG monolithic formulation</a></li>
+<li><a class="reference internal" href="#supg-pspg-monolithic-formulation">SUPG/PSPG monolithic formulation</a></li>
 <li><a class="reference internal" href="#grad-div-block-formulation">Grad-Div block formulation</a></li>
 <li><a class="reference internal" href="#galerkin-least-squares-formulation">Galerkin Least-Squares formulation</a></li>
 </ul>
@@ -385,5 +419,6 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
