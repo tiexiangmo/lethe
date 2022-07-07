@@ -315,7 +315,7 @@
 </section>
 <section id="description-of-the-case">
 <h2><span class="section-number">8.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>In this case a well-defined flow passes over a series of hills which repeat along a channel in a periodic fashion as it can be seen in the following figure (taken from ERCOFTAC [1]):</p>
+<p>In this case a well-defined flow passes over a series of hills which repeat along a channel in a periodic fashion as it can be seen in the following figure (taken from ERCOFTAC <a class="reference external" href="https://kbwiki.ercoftac.org/w/index.php/File:Hill3d.jpg">[1]</a>):</p>
 <img alt="The geometry" class="align-center" id="geometry-description" src="../../../_images/geometry_description.jpg"/>
 <p>As the flow passes over the hill, it is subjected to the effects of both the curvature of the hill and the pressure gradient. The adverse pressure gradient on the leeward side of the hill and resulting deceleration of the flow causes the boundary layer to separate from the curved hill surface. The flow then recirculates on the leeward side of the hill and reattaches in the base of the channel before the next hill. There is a short distance remaining before the subsequent hill which allows the boundary layer to recover. The flow then accelerates up and over the second hill, and the flow pattern repeats in a periodic manner.</p>
 </section>
@@ -380,12 +380,12 @@ end
 <li><p><code class="docutils literal notranslate"><span class="pre">repetitions</span> <span class="pre">x,</span> <span class="pre">repetitions</span> <span class="pre">y,</span> <span class="pre">repetitions</span> <span class="pre">z</span></code>: To get cells with an aspect ratio different on the domain, different numbers of subdivisions are set, given by repetition in different coordinate directions. The minimum number of subdivisions in each direction is 1.</p></li>
 </ul>
 <p>The following image displays a coarse mesh for this example. It can be seen that the horizontal lines are shifted with the associated parameter to get more lines near walls. Here, repetitions for x, y, z allow the mesh to get more cells in x and y directions.</p>
-<img alt="Mesh" class="align-center" id="id1" src="../../../_images/mesh.png"/>
+<img alt="Mesh" class="align-center" id="id2" src="../../../_images/mesh.png"/>
 </section>
 <section id="boundary-conditions">
 <h3><span class="section-number">8.4.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>In this section, we specify the boundary conditions taking into account the IDs presented in the following scheme:</p>
-<img alt="bcs" class="align-center" id="id2" src="../../../_images/boundary_conditions.png"/>
+<img alt="bcs" class="align-center" id="id3" src="../../../_images/boundary_conditions.png"/>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
 # Boundary Conditions
 #---------------------------------------------------
@@ -494,7 +494,7 @@ end
 </section>
 <section id="results">
 <h2><span class="section-number">8.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>To summarize, a coarse mesh of 250K cells was simulated, using a time step of 0.1 and taking average quantities between 207s and 1000s. The results are compared against established test data from both experiments and another CFD simulation. The experimental data corresponds to the data obtained from Rapp [2] and the computational data is extracted from the results of the LESOCC CFD code by Breuer et al. [3].</p>
+<p>To summarize, a coarse mesh of 250K cells was simulated, using a time step of 0.1 and taking average quantities between 207s and 1000s. The results are compared against established test data from both experiments and another CFD simulation. The experimental data corresponds to the data obtained from Rapp <a class="reference external" href="https://mediatum.ub.tum.de/doc/677970/677970.pdf">[2]</a> and the computational data is extracted from the results of the LESOCC CFD code by Breuer et al. <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2008.05.002">[3]</a>.</p>
 <p>The following image shows the average velocity profiles in the x-direction:</p>
 <img alt="average velocity" class="align-center" id="average-velocity" src="../../../_images/average_velocity.png"/>
 <p>The values obtained for the reynolds normal stress in the x-direction:</p>
@@ -513,9 +513,9 @@ end
 </section>
 <section id="references">
 <h2><span class="section-number">8.8. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>[1] ERCOFTAC. File: hill3d.jpg. 2010. URL <a class="reference external" href="https://kbwiki.ercoftac.org/w/index.php/File:Hill3d.jpg">https://kbwiki.ercoftac.org/w/index.php/File:Hill3d.jpg</a>.</p>
-<p>[2] Rapp C. Experimentelle studie der turbulenten strömung über periodische hügel. Ph.D. thesis; Technische Universität München; 2009</p>
-<p>[3] Breuer M, Peller N, Rapp C, Manhart M. Flow over periodic hills – numerical and experimental study in a wide range of Reynolds numbers. Computers &amp; Fluids 2009;38(2):433–32, <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2008.05.002">https://doi.org/10.1016/j.compfluid.2008.05.002</a>.</p>
+<p><a class="reference external" href="https://kbwiki.ercoftac.org/w/index.php/File:Hill3d.jpg">[1]</a> ERCOFTAC. File: hill3d.jpg. 2010. URL <a class="reference external" href="https://kbwiki.ercoftac.org/w/index.php/File:Hill3d.jpg">https://kbwiki.ercoftac.org/w/index.php/File:Hill3d.jpg</a>.</p>
+<p><a class="reference external" href="https://mediatum.ub.tum.de/doc/677970/677970.pdf">[2]</a> Rapp C. Experimentelle studie der turbulenten strömung über periodische hügel. Ph.D. thesis; Technische Universität München; 2009</p>
+<p><a class="reference external" href="https://doi.org/10.1016/j.compfluid.2008.05.002">[3]</a> Breuer M, Peller N, Rapp C, Manhart M. Flow over periodic hills – numerical and experimental study in a wide range of Reynolds numbers. Computers &amp; Fluids 2009;38(2):433–32, <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2008.05.002">https://doi.org/10.1016/j.compfluid.2008.05.002</a>.</p>
 </section>
 </section>
 

@@ -328,7 +328,7 @@
 <p>where <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(T_0\)</span> denote thermal expansion coefficient and a reference temperature, respectively.</p>
 <p>A two-dimensional block of gallium (initially in solid phase) is heated from its left wall at <span class="math notranslate nohighlight">\(t = 0\)</span> s. Its initial temperature is close to (but slightly smaller than) the melting point and the temperature of the left wall is higher than the melting point. Hence, the block starts melting from the left wall. In the melted zone, close to the left wall, the buoyant force (natural convection) creates vortices inside the liquid.</p>
 <dl>
-<dt>The simulation parameters are selected according to the references [1, 2] to satisfy the desired values for the dimensionless numbers</dt><dd><div class="math-wrapper"><div class="math notranslate nohighlight">
+<dt>The simulation parameters are selected according to the references [<a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">1</a>, <a class="reference external" href="https://doi.org/10.1115/1.3246884">2</a>] to satisfy the desired values for the dimensionless numbers</dt><dd><div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\text{Ra} = \frac{\rho^2 \beta g (T_w - T_m) L^3 c_p}{k \mu} = 10^5\]</div></div>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\text{Gr} = \frac{g \beta (T_w - T_m) L^3}{\nu^2} = 5.5 \cdot 10^6\]</div></div>
@@ -475,14 +475,14 @@ run in parallel using mpirun. This simulation takes
 is added to the example folder to post-process the results.
 Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">./melting_cavity.py</span> <span class="pre">./output</span></code> to execute this
 post-processing code, where <code class="docutils literal notranslate"><span class="pre">./output</span></code> is the directory that
-contains the simulation results. In post-processing, the position of the solid-liquid interface at the top, center and bottom of the cavity, as well as the melted volume fraction are plotted and compared with experiments of Gau and Viskanta [2]. Note that the discrepancies in the interfaces are attributed to the two-dimensional simulations and they were also observed and reported by Blais et al. [1].</p>
+contains the simulation results. In post-processing, the position of the solid-liquid interface at the top, center and bottom of the cavity, as well as the melted volume fraction are plotted and compared with experiments of Gau and Viskanta <a class="reference external" href="https://doi.org/10.1115/1.3246884">[2]</a>. Note that the discrepancies in the interfaces are attributed to the two-dimensional simulations and they were also observed and reported by Blais et al. <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">[1]</a>.</p>
 <a class="reference internal image-reference" href="../../../_images/xmax_t1.png"><img alt="bubble_rise_velocity" class="align-center" src="../../../_images/xmax_t1.png" style="width: 500px;"/></a>
 <a class="reference internal image-reference" href="../../../_images/melted_volume_fraction.png"><img alt="ymean_t" class="align-center" src="../../../_images/melted_volume_fraction.png" style="width: 500px;"/></a>
 </section>
 <section id="references">
 <h2><span class="section-number">7.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>[1] Blais, B. and Ilinca, F., 2018. Development and validation of a stabilized immersed boundary CFD model for freezing and melting with natural convection. Computers &amp; Fluids, 172, pp.564-581.</p>
-<p>[2] Gau, C. and Viskanta, R., 1986. Melting and solidification of a pure metal on a vertical wall.</p>
+<p><a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">[1]</a> Blais, B. and Ilinca, F., 2018. Development and validation of a stabilized immersed boundary CFD model for freezing and melting with natural convection. Computers &amp; Fluids, 172, pp.564-581.</p>
+<p><a class="reference external" href="https://doi.org/10.1115/1.3246884">[2]</a> Gau, C. and Viskanta, R., 1986. Melting and solidification of a pure metal on a vertical wall.</p>
 </section>
 </section>
 

@@ -320,7 +320,7 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span></code> parameter is set to true if the problem has a laser heat source term and enables its calculation.</p></li>
 <li><p>Laser <code class="docutils literal notranslate"><span class="pre">concentration</span> <span class="pre">factor</span></code> parameter indicates the definition of the beam radius. In almost all the articles, it is assumed equal to 2.0.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">power</span></code> parameter sets the power of the laser [<span class="math notranslate nohighlight">\(ML^2T^{-3}\)</span>].</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">absorptivity</span></code> parameter is defined as the fraction of the amount of incident radiation that is absorbed by the surface, and it is measured using diffuse reﬂectance spectroscopy (DRS). Generally, a constant value in the range of 0.3-0.8 (for welding processes with titanium) ise used in the literature. However, recent studies show that it varies with powder particle size distribution and the angle of incidence that changes due to the dynamic melt pool surface [1].</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">absorptivity</span></code> parameter is defined as the fraction of the amount of incident radiation that is absorbed by the surface, and it is measured using diffuse reﬂectance spectroscopy (DRS). Generally, a constant value in the range of 0.3-0.8 (for welding processes with titanium) ise used in the literature. However, recent studies show that it varies with powder particle size distribution and the angle of incidence that changes due to the dynamic melt pool surface <a class="reference external" href="https://doi.org/10.1016/j.optlastec.2018.08.012">[1]</a>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">penetration</span> <span class="pre">depth</span></code> parameter determines the penetration depth of the laser in the simulation domain in the direction of emission.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">radius</span></code> parameter defines the radius of the laser beam.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">time</span></code> parameters define the operation time window of the laser.</p></li>
@@ -333,7 +333,7 @@ end
 <ul class="simple">
 <li><p>In the <code class="docutils literal notranslate"><span class="pre">path</span></code> subsection, the laser scanning path is defined using a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code>.</p></li>
 </ul>
-<p>The exponential decaying model [2] is used to simulate the laser heat source. In the exponential decaying model, the laser heat flux is calculated using the following equation:</p>
+<p>The exponential decaying model <a class="reference external" href="https://doi.org/10.1016/j.matdes.2018.01.022">[2]</a> is used to simulate the laser heat source. In the exponential decaying model, the laser heat flux is calculated using the following equation:</p>
 <blockquote>
 <div><div class="math-wrapper"><div class="math notranslate nohighlight">
 \[q(x,y,z) = \frac{\eta \alpha P}{\pi r^2 \mu} \exp{(-\eta \frac{r^2}{R^2})} \exp{(- \frac{|z|}{\mu})}\]</div></div>
@@ -341,8 +341,8 @@ end
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, :math:<cite>z</cite> denote concentration factor, absorptivity, laser power, beam radius, penetration depth, radial distance from the laser focal point, and axial distance from the laser focal point, respectively.</p>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>[1] Zhang, Z., Huang, Y., Kasinathan, A.R., Shahabad, S.I., Ali, U., Mahmoodkhani, Y. and Toyserkani, E., 2019. 3-Dimensional heat transfer modeling for laser powder-bed fusion additive manufacturing with volumetric heat sources based on varied thermal conductivity and absorptivity. Optics &amp; Laser Technology, 109, pp.297-312.</p>
-<p>[2] Liu, S., Zhu, H., Peng, G., Yin, J. and Zeng, X., 2018. Microstructure prediction of selective laser melting AlSi10Mg using finite element analysis. Materials &amp; Design, 142, pp.319-328.</p>
+<p><a class="reference external" href="https://doi.org/10.1016/j.optlastec.2018.08.012">[1]</a> Zhang, Z., Huang, Y., Kasinathan, A.R., Shahabad, S.I., Ali, U., Mahmoodkhani, Y. and Toyserkani, E., 2019. 3-Dimensional heat transfer modeling for laser powder-bed fusion additive manufacturing with volumetric heat sources based on varied thermal conductivity and absorptivity. Optics &amp; Laser Technology, 109, pp.297-312.</p>
+<p><a class="reference external" href="https://doi.org/10.1016/j.matdes.2018.01.022">[2]</a> Liu, S., Zhu, H., Peng, G., Yin, J. and Zeng, X., 2018. Microstructure prediction of selective laser melting AlSi10Mg using finite element analysis. Materials &amp; Design, 142, pp.319-328.</p>
 </section>
 </section>
 

@@ -529,7 +529,7 @@ end
 </section>
 <section id="specific-heat-models">
 <h2>Specific heat models<a class="headerlink" href="#specific-heat-models" title="Permalink to this headline">¶</a></h2>
-<p>Lethe supports two types of specific heat models. Setting <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat=constant</span></code> sets a constant specific heat. Lethe also supports a <code class="docutils literal notranslate"><span class="pre">phase_change</span></code> specific heat model. This model can simulate the melting and solidification of a material. The model follows the work of Blais &amp; Ilinca [1]. This approach defines the specific heat <span class="math notranslate nohighlight">\(C_p\)</span> as:</p>
+<p>Lethe supports two types of specific heat models. Setting <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat=constant</span></code> sets a constant specific heat. Lethe also supports a <code class="docutils literal notranslate"><span class="pre">phase_change</span></code> specific heat model. This model can simulate the melting and solidification of a material. The model follows the work of Blais &amp; Ilinca <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">[1]</a>. This approach defines the specific heat <span class="math notranslate nohighlight">\(C_p\)</span> as:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[C_p = \frac{H(T)-H(T_0)}{T-T_0}\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(T\)</span> is the temperature, <span class="math notranslate nohighlight">\(T_0\)</span> is the temperature at the previous time and <span class="math notranslate nohighlight">\(H(T)\)</span> is the enthalpy, as a function of the temperature, to be:</p>
@@ -568,7 +568,7 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">liquid</span></code> is <span class="math notranslate nohighlight">\(C_{p,l}\)</span></p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">solid</span></code> is <span class="math notranslate nohighlight">\(C_{p,s}\)</span></p></li>
 </ul>
-<p>[1] Blais, Bruno, and Florin Ilinca. “Development and validation of a stabilized immersed boundary CFD model for freezing and melting with natural convection.” Computers &amp; Fluids 172 (2018): 564-581.</p>
+<p><a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">[1]</a> Blais, Bruno, and Florin Ilinca. “Development and validation of a stabilized immersed boundary CFD model for freezing and melting with natural convection.” Computers &amp; Fluids 172 (2018): 564-581.</p>
 </section>
 </section>
 
