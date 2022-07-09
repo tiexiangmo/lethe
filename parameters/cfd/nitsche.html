@@ -221,7 +221,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">7. 3D Flow around a sphere</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">8. 3D Flow over periodic hills</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">9. 2D Taylor-Couette flow using Nitsche immersed boundary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/3d_nitsche_mixer_with_pbt_impeller/nitsche_mixer_with_pbt_impeller.html">10. 3D Mixer with pitched-blade turbine impeller using Nitsche immersed boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/incompressible-flow/3d_nitsche_mixer_with_pbt_impeller/nitsche_mixer_with_pbt_impeller.html">10. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -300,10 +300,19 @@
         <article role="main">
           <section id="nitsche">
 <h1>Nitsche<a class="headerlink" href="#nitsche" title="Permalink to this headline">¶</a></h1>
-<p>These parameters are used for simulations using the Nitsche immersed boundary method.</p>
+<p>These parameters are used for simulations using the Nitsche immersed boundary method. Nitsche immersed boundary method works by forcing the fluid at the location of the Gauss points of the solid triangulation in order to apply the <code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary condition within the solid object.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>For further understanding about the numerical method used and advanced parameters, the interested reader is referred to this article (to be published).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Specific solvers must be used for the Nitsche solid to be accounted for:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_22</span></code>: 2D flow simulations, with a 2D solid,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_33</span></code>: 3D flow simulations, with a 3D solid,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_23</span></code>: 3D flow simulations, with a 2D solid.</p></li>
+</ul>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection nitsche
   #---------------------------------------------------
@@ -348,7 +357,7 @@
     # Force and torque calculation on solid
     set calculate force on solid = false
     set solid force name = force_solid
-    set calculate torque on solid = true
+    set calculate torque on solid = false
     set solid torque name = torque_solid
 
     # Enable stopping the simulation if Nitsche particles have been lost
@@ -365,6 +374,18 @@ end
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code>: controls if Nitsche intermediate results are printed to the terminal.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even when <code class="docutils literal notranslate"><span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">false</span></code>, Lethe produces additional files corresponding to the Nitsche immersed boundary:</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">&lt;output-name&gt;_solid_triangulation_&lt;id&gt;.pvd</span></code>, corresponding to the mesh of the solid with index <code class="docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code> ;</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">&lt;output-name&gt;_solid_particles_&lt;id&gt;.pvd</span></code>, corresponding to the discrete particles inserted at the Gauss points of the solid triangulation, for the index <code class="docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code> .</p></li>
+</ul>
+<p>The solid particles enable the Nitsche restriction visualization, while the solid triangulation is used for animation purposes.</p>
+</div>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">mixer_solid_particles_00.pvd</span></code>, corresponding to the discrete particles inserted at the Gauss points of the solid triangulation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code>: number of Nitsche solids in the simulation.</p></li>
 </ul>
 <div class="admonition important">
@@ -373,13 +394,13 @@ end
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">nitsche</span> <span class="pre">solid</span> <span class="pre">0</span></code>: defines a solid object, with index <code class="docutils literal notranslate"><span class="pre">0</span></code>, on which the Nitsche immersed boundary is applied. Multiple solids can be added in the same fashion (<code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">nitsche</span> <span class="pre">solid</span> <span class="pre">1</span></code> etc.).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: parameter needed to apply the immersed boundary conditions on the fluid domain.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: controls the intensity of the Nitsche method application in the fluid region (restriction parameter). Higher values of <code class="docutils literal notranslate"><span class="pre">beta</span></code> lead to stiffer problems but prevent the fluid from penetrating the solid.</p></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><code class="docutils literal notranslate"><span class="pre">beta</span></code> value is normally between 1 and 1000. A classical value is <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">10</span></code> (default parameter value).</p>
+<p>For flows with Reynolds numbers <span class="math notranslate nohighlight">\(Re &gt; 1\)</span>, we found that setting <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">10</span></code> (default value) leads to satisfactory results.</p>
 <p>For <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">0</span></code>, the solid has no influence on the flow: this value can be used for debugging purposes.</p>
-<p>In case of a static solid, <code class="docutils literal notranslate"><span class="pre">beta</span></code> parameter has to be greatly increased, up to <code class="docutils literal notranslate"><span class="pre">100</span></code> or <code class="docutils literal notranslate"><span class="pre">1000</span></code>, to prevent the fluid moving through the solid.</p>
+<p>In case of a static solid, <code class="docutils literal notranslate"><span class="pre">beta</span></code> parameter has to be greatly increased, up to <code class="docutils literal notranslate"><span class="pre">100</span></code> or <code class="docutils literal notranslate"><span class="pre">1000</span></code>, to prevent the fluid moving through the solid. For highly viscous flows, even higher values of <code class="docutils literal notranslate"><span class="pre">beta</span></code> could be used to compensate for the larger shear stresses acting on the immersed solid.</p>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mesh</span></code>: defines the solid mesh used to apply Nitsche immersed boundary. The syntax is the same as that of the mesh subsection, see <a class="reference internal" href="mesh.html"><span class="doc">Mesh</span></a> for more details.</p></li>
@@ -387,6 +408,10 @@ end
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">gmsh</span></code> and a simplex mesh is given, do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">simplex</span> <span class="pre">=</span> <span class="pre">true</span></code> (default value is <code class="docutils literal notranslate"><span class="pre">false</span></code>)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The solid mesh should have a characteristic size of the same order as the fluid dynamics mesh. Using a finer mesh will not cause any problem, but will increase the computational cost without benefits.</p>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">velocity</span></code>: defines the velocity of the solid mesh. This velocity is defined by a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> and can depend on both space and time.</p></li>
@@ -409,6 +434,10 @@ end
 <p class="admonition-title">Tip</p>
 <p>For a rotating cylinder, the <code class="docutils literal notranslate"><span class="pre">Nitsche</span> <span class="pre">solid</span></code> rotates but the boundary location does not change. For such static boundaries, the shape does not have to move within the fluid and this option can be set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. This saves significant computational time.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">velocity</span></code> leads to a motion of the solid, use <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">particles</span> <span class="pre">motion</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p>
+</div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">force</span> <span class="pre">on</span> <span class="pre">solid</span></code>: controls if force calculation on the immersed geometry is enabled. If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, forces will written in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">force</span> <span class="pre">name</span></code>, with the solid index automatically added at the end.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torque</span> <span class="pre">on</span> <span class="pre">solid</span></code>: controls if torque calculation on the immersed geometry is enabled. If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, torques will be written in the file in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">torque</span> <span class="pre">name</span></code>, with the solid index automatically added at the end.</p></li>
@@ -424,7 +453,8 @@ end
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span> <span class="pre">=</span> <span class="pre">1</span></code> (default value), there is no sub iteration: the motion of the particle is solved at each <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> (see <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>).</p>
-<p>In case of particle loss, this parameter can be increased (<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span> <span class="pre">=</span> <span class="pre">5</span></code> is a good start value), but at a higher computational cost.</p>
+<p>In case of particle loss, this parameter can be increased (<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span> <span class="pre">=</span> <span class="pre">5</span></code> is a good start value) to ensure that particles are always located efficiently as they move through the cell. This increases the computational cost, but not as much as lowering the <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> (in <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>) would.</p>
+<p>Generally, it is a good practice to have sufficient <code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span></code> so as to ensure that particles do not move more than half a cell during a particle sub iteration.</p>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">quadrature</span> <span class="pre">points</span></code>: number of Nitsche (quadrature) points to insert in a 1D cell. The number of inserted points will be higher for higher dimensions. Increasing this number will lead to a higher points density inside the solid.</p></li>
