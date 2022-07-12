@@ -269,6 +269,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM coupling</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/gmsh/gmsh.html">Introduction on how to use GMSH</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../referencing.html">Referencing Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
@@ -435,7 +439,7 @@ end
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>A good rule of thumb is to set the linear solver <code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">residual</span></code> at least <span class="math notranslate nohighlight">\(10\)</span> times (preferably <span class="math notranslate nohighlight">\(100\)</span> times) smaller than the <cite>Non-linear solver :doc:non-linear_solver_control</cite> <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> parameter, and keep the relative residual reasonable, for instance <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">relative</span> <span class="pre">residual</span> <span class="pre">=</span> <span class="pre">1e-3</span></code>. To lower the computational cost for more complex simulations, it can be lowered to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">relative</span> <span class="pre">residual</span> <span class="pre">=</span> <span class="pre">1e-4</span></code>.</p>
+<p>A good rule of thumb is to set the linear solver <code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">residual</span></code> at least <span class="math notranslate nohighlight">\(10\)</span> times (preferably <span class="math notranslate nohighlight">\(100\)</span> times) smaller than the <a class="reference internal" href="non-linear_solver_control.html"><span class="doc">Non-linear Solver Control</span></a>, <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> parameter, and keep the relative residual reasonable, for instance <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">relative</span> <span class="pre">residual</span> <span class="pre">=</span> <span class="pre">1e-3</span></code>. To lower the computational cost for more complex simulations, it can be lowered to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">relative</span> <span class="pre">residual</span> <span class="pre">=</span> <span class="pre">1e-4</span></code>.</p>
 </div>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iters</span></code> puts a hard stop on the number of solver iterations (number of steps printed when <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">verbose</span></code>).</p></li>
