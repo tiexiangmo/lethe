@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -308,7 +308,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -318,69 +318,93 @@
 <h1>Source term<a class="headerlink" href="#source-term" title="Permalink to this headline">¶</a></h1>
 <p>If the problem being simulated has a source, it can be added in this section. The default parameters are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection source term
- set enable                = true
- subsection xyz
-   set Function expression = 0; 0; 0
-     or
-   set Function expression = 0; 0; 0; 0
- end
- subsection heat transfer
-   set Function expression = 0
- end
- subsection tracer
-   set Function expression = 0
- end
+
+  set enable                = true
+
+  subsection xyz
+    # Default values in 2D
+    set Function expression = 0; 0; 0
+    # in 3D: set Function expression = 0; 0; 0; 0
+  end
+
+  subsection heat transfer
+    set Function expression = 0
+  end
+
+  subsection tracer
+    set Function expression = 0
+  end
+
 end
 </pre></div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code>, used in this subsection (but also in <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a>, <a class="reference internal" href="analytical_solution.html"><span class="doc">Analytical solution</span></a>, namely), give access to several tools:</p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span></code> parameter is set to true if the problem has a source term and enables its calculation.</p></li>
+<li><p>define <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">constants</span></code></p></li>
+<li><p>use <span class="math notranslate nohighlight">\(\pi\)</span> variable, as <code class="docutils literal notranslate"><span class="pre">pi</span></code> or <code class="docutils literal notranslate"><span class="pre">Pi</span></code></p></li>
+<li><p>use common functions such as <span class="math notranslate nohighlight">\(\sin\)</span>, <span class="math notranslate nohighlight">\(\cos\)</span></p></li>
+<li><p>use <code class="docutils literal notranslate"><span class="pre">if</span></code> statements</p></li>
 </ul>
-<p>If there is a Navier-Stokes source term, enter the <code class="docutils literal notranslate"><span class="pre">xyz</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameters sets the expression for the source term. In 2D, the first two terms are the source terms for  the <em>x</em>, <em>y</em> component of the momentum equation. The third term is the mass source term. In 3D, the first three terms are for the <em>x</em>, <em>y</em> and <em>z</em> component of the momentum equation and the fourth term is for the mass source term.</p></li>
-</ul>
-<p>If there is a heat source term, enter the <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression for the heat transfer.</p></li>
-</ul>
-<p>If there is an source term for a tracer, enter the <code class="docutils literal notranslate"><span class="pre">tracer</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression for the tracer term.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The variables <em>x</em>, <em>y</em>, <em>z</em> (3D) and <em>t</em> (time-dependant) can be used in the function expressions.</p>
+<p>Check the <a class="reference internal" href="#ex-function"><span class="std std-ref">Examples of Function expression</span></a> for further help.</p>
 </div>
-<p>You can add a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">constants</span></code> parameter that will act as a constant in the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code>.</p>
-<p>Ex.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection source term
- set enable                = true
- subsection xyz
-   set Function constants = A=2.0
-   set Function expression = A*y; -A*x; 0
- end
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: controls if the problem has a source term and enables its calculation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">xyz</span></code>: defines the parameters for a Navier-Stokes source term. This source term is defined by a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> and can depend on both space and time.</p>
+<ul class="simple">
+<li><p>In 2D, the first two terms are the source terms for  the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> component of the momentum equation. The third term is the mass source term.</p></li>
+<li><p>In 3D, the first three terms are for the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> component of the momentum equation and the fourth term is for the mass source term.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">xyz</span></code>, each term can depend on both space (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and, if 3D, <code class="docutils literal notranslate"><span class="pre">z</span></code>) and time (<code class="docutils literal notranslate"><span class="pre">t</span></code>). See <a class="reference internal" href="#ex-function"><span class="std std-ref">Examples of Function expression</span></a>.</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">heat</span> <span class="pre">transfer</span></code>: defines the parameters for a heat source term. This source term is defined by a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> and can depend on both space (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and, if 3D, <code class="docutils literal notranslate"><span class="pre">z</span></code>) and time (<code class="docutils literal notranslate"><span class="pre">t</span></code>). See <a class="reference internal" href="#ex-function"><span class="std std-ref">Examples of Function expression</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">tracer</span></code>: defines the parameters for the a source term for a tracer. This source term is defined by a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> and can depend on both space (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and, if 3D, <code class="docutils literal notranslate"><span class="pre">z</span></code>) and time (<code class="docutils literal notranslate"><span class="pre">t</span></code>). See <a class="reference internal" href="#ex-function"><span class="std std-ref">Examples of Function expression</span></a>.</p></li>
+</ul>
+<section id="examples-of-function-expression">
+<span id="ex-function"></span><h2>Examples of Function expression<a class="headerlink" href="#examples-of-function-expression" title="Permalink to this headline">¶</a></h2>
+<p>CFD source term with <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">constants</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection xyz
+  set Function constants = A=2.0
+  set Function expression = A*y; -A*x; 0
+end
+</pre></div>
+</div>
+<p>CFD source term varying in time:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection xyz
+    set Function expression = 0; -10*cos(2*pi*t); 0
+end
+</pre></div>
+</div>
+<p>Heat transfer source term with <code class="docutils literal notranslate"><span class="pre">if()</span></code> condition:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection heat transfer
+  set Function expression = if(sin(x) &gt; pi, 1, 0)
+    # if ( condition , value if true , value if false )
 end
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A <span class="math notranslate nohighlight">\(\pi\)</span> variable is already defined as both <code class="docutils literal notranslate"><span class="pre">pi</span></code> and <code class="docutils literal notranslate"><span class="pre">Pi</span></code></p>
+<dl class="simple">
+<dt>The first parameter in the <code class="docutils literal notranslate"><span class="pre">if()</span></code> function is the statement. If this statement is :</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code>, then the function expression takes the second parameter as value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">false</span></code>, the function expression takes the third parameter as value.</p></li>
+</ul>
+</dd>
+</dl>
+<p>In this example, the heat source term will vary within the calculation domain.</p>
 </div>
-<p>Your function expression can also contain common functions such as <span class="math notranslate nohighlight">\(\sin\)</span>, <span class="math notranslate nohighlight">\(\cos\)</span> as well as <code class="docutils literal notranslate"><span class="pre">if</span></code> statements.</p>
-<p>Ex.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection source term
- set enable                = true
- subsection heat transfer
-   set Function expression = if(sin(x) &gt; pi, 1, 0)
- end
+<p>CFD source term with <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">constants</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection xyz
+  set Function constants = A=2.0, B=1.0
+  set Function expression = A*y; -B*x; 0
 end
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The first parameter in the <code class="docutils literal notranslate"><span class="pre">if()</span></code> function is the statement. If this statement is <em>true</em>, then the function expression takes the second parameter as value. If this statement is <em>false</em>, the function expression takes the third parameter as value. In this example, the heat source term will vary within the calculation domain.</p>
-</div>
+</section>
 </section>
 
         </article>
@@ -422,8 +446,27 @@ end
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Source term</a><ul>
+<li><a class="reference internal" href="#examples-of-function-expression">Examples of Function expression</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
