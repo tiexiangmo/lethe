@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Mesh" href="mesh.html" /><link rel="prev" title="Insertion Info" href="insertion_info.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Mesh" href="mesh.html" /><link rel="prev" title="Floating Wall" href="floating_wall.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Floating Walls - Lethe documentation</title>
+        <title>Floating Mesh (Solid Objects) - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -197,7 +197,8 @@
 <li class="toctree-l3"><a class="reference internal" href="model_parameters.html">Model Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="insertion_info.html">Insertion Info</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Floating Walls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="floating_wall.html">Floating Wall</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Floating Mesh (Solid Objects)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions.html">Boundary Conditions</a></li>
 </ul>
@@ -314,46 +315,54 @@
           </label>
         </div>
         <article role="main">
-          <section id="floating-walls">
-<h1>Floating Walls<a class="headerlink" href="#floating-walls" title="Permalink to this headline">¶</a></h1>
-<p>Floating wall is a temporary (its start and end times are defined) flat wall, generally used for holding the particles during the filling and before the discharge stage.</p>
-<p>In this subsection, the information on floating walls is defined. First of all, the total <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">floating</span> <span class="pre">walls</span></code> is specified. Then for each floating wall, we should specify its <code class="docutils literal notranslate"><span class="pre">normal</span> <span class="pre">vector</span></code>, a <code class="docutils literal notranslate"><span class="pre">point</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">wall</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">times</span></code>.</p>
+          <section id="floating-mesh-solid-objects">
+<h1>Floating Mesh (Solid Objects)<a class="headerlink" href="#floating-mesh-solid-objects" title="Permalink to this headline">¶</a></h1>
+<p>Floating meshes (solid objects) are finite (limited) auxiliary objects that can be stationary or moving. Rotating impellers, sliding surfaces, and finite stoppers are examples of floating meshes. The main differences between floating meshes and floating walls are:
+1. floating wall is a surface, while a floating mesh can be a volume or a plane
+2. floating wall is infinite, while floating mesh is finite
+3. floating wall is stationary while floating mesh may be stationary or moving.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the moment, solid objects (floating meshes) in Lethe have to be defined using triangular (simplex) meshes. Only triangular 2D meshes of 3D surfaces in the dem_3d solver are presently supported. Quadrilateral 2D meshes of 3D surfaces and 1D mesh of 2D surfaces are not supported at the moment.</p>
+</div>
+<p>This subsection explains the solid objects (floating meshes) information. First of all, the <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> is specified. Then, for each solid object, we need a <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection. In these subsections, the <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code>, and other properties of the objects are defined. Note that <code class="docutils literal notranslate"><span class="pre">simplex</span></code> must be <code class="docutils literal notranslate"><span class="pre">true</span></code> for all the objects since the solid objects are defined using simplex meshes. For more information on mesh subsection, visit <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/mesh.html">CFD mesh</a></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection floating walls
  # Total number of floating walls
-   set number of floating walls         = 1
-
-       subsection wall 0
-
- # Defining a point on the floating wall
-               subsection point on wall
-                       set x                        = 0
-                       set y                        = 0
-                       set z                        = -0.06
-               end
-
- # Defining normal vector of the floating wall
-               subsection normal vector
-                       set nx                       = 0
-                       set ny                       = 0.5
-                       set nz                       = 1
-               end
-
- # Starting time of the floating wall
-               set start time                    = 0
-
- # Ending time of the floating wall
-               set end time                      = 0.2
+   set number of solids  = 1
+     subsection  solid object 0
+       subsection mesh
+           set type                = gmsh
+           set file name           = none
+           set simplex             = true
+           set initial refinement  = 0
        end
+
+       subsection translational velocity
+           set Function expression = 0 ; 0 ; 0
+       end
+
+       subsection angular velocity
+           set Function expression = 0 ; 0 ; 0
+       end
+
+       subsection center of rotation
+           # X COR
+           set x = 0
+           # Y COR
+           set y = 0
+           # Z COR
+           set z = 0
+       end
+   end
 end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">floating</span> <span class="pre">walls</span></code> parameter defines the total number of floating walls we wish to insert during the simulation.</p></li>
-<li><p>For each floating wall, we need a separate subsection (for instance   <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">wall</span> <span class="pre">0</span></code>) in which the information of the floating wall (the normal vector, start and end times, and a point on the floating walla) is defined.</p></li>
-<li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">point</span> <span class="pre">on</span> <span class="pre">wall</span></code>, we define a point (with coordinates <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code>) on the floating wall.</p></li>
-<li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">normal</span> <span class="pre">vector</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">floating</span> <span class="pre">wall</span></code>, we define the normal vector (with components of <code class="docutils literal notranslate"><span class="pre">nx</span></code>, <code class="docutils literal notranslate"><span class="pre">ny</span></code>, and <code class="docutils literal notranslate"><span class="pre">nz</span></code> in <cite>x</cite>, <cite>y</cite>, and <cite>z</cite> directions) of the floating wall.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">time</span></code> parameter specifies the start time at which the floating wall is applied in the simulation.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">time</span></code> parameter defines the time at which the floating wall is removed from the simulation. In simulations that the user wishes to keep a floating wall during the entire simulation, <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">time</span></code> should be specified greater than the total simulation time.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> parameter defines the total number of floating meshes we wish to use during the simulation.</p></li>
+<li><p>For each floating mesh, we need a separate subsection (for instance   <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">object</span> <span class="pre">0</span></code>) in which the information of the floating mesh (<code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code>) is defined.</p></li>
+<li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">translational</span> <span class="pre">velocity</span></code>, we define the translational velocity of the floating mesh.</p></li>
+<li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">angular</span> <span class="pre">velocity</span></code>, we define the angular velocity of the floating mesh.</p></li>
+<li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code>, we define the center of rotation of the solid object (in the case of rotational motion).</p></li>
 </ul>
 </section>
 
@@ -371,14 +380,14 @@ end
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="insertion_info.html">
+          <a class="prev-page" href="floating_wall.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Insertion Info</div>
+                <div class="title">Floating Wall</div>
                 
               </div>
             </a>
@@ -388,7 +397,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/dem/floating_walls.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/dem/floating_mesh.rst.txt"
                rel="nofollow">
               Show Source
             </a>
