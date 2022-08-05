@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Folder structure of Lethe" href="../structure.html" /><link rel="prev" title="Docker" href="docker.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Running Lethe on Compute Canada clusters - Lethe documentation</title>
+        <title>Running Lethe on Digital Research Alliance of Canada clusters - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -158,7 +158,7 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="installation.html">Installation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="regular_installation.html">Regular installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Running Lethe on Compute Canada clusters</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../structure.html">Folder structure of Lethe</a></li>
@@ -188,6 +188,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../parameters/cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../parameters/cfd/laser_heat_source.html">Laser heat source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../parameters/cfd/box_refinement.html">Box refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../parameters/cfd/velocity_source.html">Velocity Source</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../parameters/dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -228,7 +229,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../examples/incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">7. 3D Flow around a sphere</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">8. 3D Flow over periodic hills</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../examples/incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">9. 2D Taylor-Couette flow using Nitsche immersed boundary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../examples/incompressible-flow/3d_nitsche_mixer_with_pbt_impeller/nitsche_mixer_with_pbt_impeller.html">10. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/incompressible-flow/3d_mixer_using_single_rotating_frame/3d_mixer_using_single_rotating_frame.html">10. 3D Ribbon Mixer using a Single Rotating Reference Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/incompressible-flow/3d_nitsche_mixer_with_pbt_impeller/nitsche_mixer_with_pbt_impeller.html">11. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../examples/multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -315,8 +317,8 @@
           </label>
         </div>
         <article role="main">
-          <section id="running-lethe-on-compute-canada-clusters">
-<h1>Running Lethe on Compute Canada clusters<a class="headerlink" href="#running-lethe-on-compute-canada-clusters" title="Permalink to this headline">¶</a></h1>
+          <section id="running-lethe-on-digital-research-alliance-of-canada-clusters">
+<h1>Running Lethe on Digital Research Alliance of Canada clusters<a class="headerlink" href="#running-lethe-on-digital-research-alliance-of-canada-clusters" title="Permalink to this headline">¶</a></h1>
 <section id="setting-up-the-folder-structure">
 <h2>Setting-up the folder structure<a class="headerlink" href="#setting-up-the-folder-structure" title="Permalink to this headline">¶</a></h2>
 <p>In your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>, create a “dealii” folder and a “lethe” folder, each containing “build” and “inst” folders:</p>
@@ -474,7 +476,7 @@ export PATH=$PATH:$HOME/lethe/inst/bin/
 </section>
 <section id="launching-simulations">
 <h2>Launching simulations<a class="headerlink" href="#launching-simulations" title="Permalink to this headline">¶</a></h2>
-<p>Simulations are sent to the scheduler via batch scripts. Visit the Compute Canada wiki page for more information about the <a class="reference external" href="https://docs.computecanada.ca/wiki/What_is_a_scheduler%3F">scheduler</a> and <a class="reference external" href="https://docs.computecanada.ca/wiki/Running_jobs">running jobs</a>. For your convenience, an example of <code class="docutils literal notranslate"><span class="pre">job.sh</span></code> used on Beluga is given below:</p>
+<p>Simulations are sent to the scheduler via batch scripts. Visit the Digital Research Alliance of Canada (Alliance) wiki page for more information about the <a class="reference external" href="https://docs.alliancecan.ca/wiki/What_is_a_scheduler%3F">scheduler</a> and <a class="reference external" href="https://docs.alliancecan.ca/wiki/Running_jobs">running jobs</a>. For your convenience, an example of <code class="docutils literal notranslate"><span class="pre">job.sh</span></code> used on Beluga is given below:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
 #SBATCH --account=$yourgroupaccount
 #SBATCH --ntasks-per-node=$X #number of parallel tasks (as in mpirun -np X)
@@ -584,7 +586,7 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Running Lethe on Compute Canada clusters</a><ul>
+<li><a class="reference internal" href="#">Running Lethe on Digital Research Alliance of Canada clusters</a><ul>
 <li><a class="reference internal" href="#setting-up-the-folder-structure">Setting-up the folder structure</a></li>
 <li><a class="reference internal" href="#installing-deal-ii">Installing deal.II</a><ul>
 <li><a class="reference internal" href="#on-niagara-beluga-graham-or-cedar">On Niagara, Beluga, Graham or Cedar</a></li>

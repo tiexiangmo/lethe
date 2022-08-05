@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Multiphysics Examples" href="../../multiphysics/multiphysics.html" /><link rel="prev" title="9. 2D Taylor-Couette flow using Nitsche immersed boundary" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Multiphysics Examples" href="../../multiphysics/multiphysics.html" /><link rel="prev" title="10. 3D Ribbon Mixer using a Single Rotating Reference Frame" href="../3d_mixer_using_single_rotating_frame/3d_mixer_using_single_rotating_frame.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>10. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary - Lethe documentation</title>
+        <title>11. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -158,7 +158,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../installation/installation.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/regular_installation.html">Regular installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/docker.html">Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation/compute_canada.html">Running Lethe on Compute Canada clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation/compute_canada.html">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder structure of Lethe</a></li>
@@ -188,6 +188,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser heat source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/box_refinement.html">Box refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/velocity_source.html">Velocity Source</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../parameters/dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -228,7 +229,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../3d-flow-around-sphere/flow-around-sphere.html">7. 3D Flow around a sphere</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">8. 3D Flow over periodic hills</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">9. 2D Taylor-Couette flow using Nitsche immersed boundary</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">10. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d_mixer_using_single_rotating_frame/3d_mixer_using_single_rotating_frame.html">10. 3D Ribbon Mixer using a Single Rotating Reference Frame</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">11. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -316,7 +318,7 @@
         </div>
         <article role="main">
           <section id="d-mixer-with-pitched-blade-turbine-impeller-using-nitsche-immersed-boundary">
-<h1><span class="section-number">10. </span>3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary<a class="headerlink" href="#d-mixer-with-pitched-blade-turbine-impeller-using-nitsche-immersed-boundary" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">11. </span>3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary<a class="headerlink" href="#d-mixer-with-pitched-blade-turbine-impeller-using-nitsche-immersed-boundary" title="Permalink to this headline">¶</a></h1>
 <p>Simulation of mixing in stirred-tanks is one important industrial application which is often simulated with Lethe. Agitated vessels are widely applied in chemical engineering as product homogenizers, heat and mass transfer enhancers, and surface area maximizers in solid-fluid processes. Batch and Continuous Stirred Tank Reactors (CSTR), for example, are among the most often reactor models applied in chemical industries that can be simulated through computational fluid dynamics.</p>
 <p>This example illustrates how the transient flow in a stirred-tank can be simulated by Lethe using the Nitsche Immersed Boundary (NIB) formulation.</p>
 <div class="admonition seealso">
@@ -325,7 +327,7 @@
 </div>
 <p><span class="raw-html"><br/></span></p>
 <section id="features">
-<h2><span class="section-number">10.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_33</span></code></p></li>
 <li><p>Transient problem</p></li>
@@ -335,7 +337,7 @@
 <p><span class="raw-html"><br/></span></p>
 </section>
 <section id="locations-of-files-used-in-the-example">
-<h2><span class="section-number">10.2. </span>Locations of Files Used in the Example<a class="headerlink" href="#locations-of-files-used-in-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.2. </span>Locations of Files Used in the Example<a class="headerlink" href="#locations-of-files-used-in-the-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible_flow/3d_nitsche_mixer_with_pbt_impeller/mixer.prm</span></code></p></li>
 <li><p>Mesh file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible_flow/3d_nitsche_mixer_with_pbt_impeller/pbt.msh</span></code></p></li>
@@ -344,7 +346,7 @@
 <p><span class="raw-html"><br/></span></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">10.3. </span>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.3. </span>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>We simulate the flow generated by a pitched blade turbine (PBT) in a stirred tank. The PBT is an axial impeller, which generates a flow pattern that amplifies axial circulation within the vessel (in opposition to radial impellers, e.g. Rushton turbines) <a class="reference external" href="https://onlinelibrary.wiley.com/doi/book/10.1002/0471451452">[1]</a>.</p>
 <p>The setup that we wish to simulate is schematized in the following figure:</p>
 <img alt="PBT and tank geometry" class="align-center" id="geometry" src="../../../_images/PBT_tank_3D.svg"/><p>The dimensions are listed in the following table:</p>
@@ -424,10 +426,10 @@
 <p><span class="raw-html"><br/></span></p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">10.4. </span>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.4. </span>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Except for the Nitsche immersed boundary, all other sections of the parameter file in the present case have been explained in previous examples. However, the important sections are briefly explained for completeness.</p>
 <section id="simulation-control">
-<h3><span class="section-number">10.4.1. </span>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.4.1. </span>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/simulation_control.html"><span class="doc">Simulation Control</span></a> subsection defines the time integration and output results:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set method                  = bdf2
@@ -453,7 +455,7 @@ end
 </ul>
 </section>
 <section id="physical-properties">
-<h3><span class="section-number">10.4.2. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.4.2. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/physical_properties.html"><span class="doc">Physical Properties</span></a> subsection defines our fluid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   subsection fluid 0
@@ -465,7 +467,7 @@ end
 <p>The kinematic viscosity is set to <span class="math notranslate nohighlight">\(0.001\)</span>. This, combined with the angular velocity of <span class="math notranslate nohighlight">\(1~\text{Hz}\)</span> and the diameter of the impeller of <span class="math notranslate nohighlight">\(0.3~\text{m}\)</span>, will allow us to simulate the vessel at <span class="math notranslate nohighlight">\(Re=300\)</span>.</p>
 </section>
 <section id="mesh">
-<h3><span class="section-number">10.4.3. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.4.3. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/mesh.html"><span class="doc">Mesh</span></a> subsection specifies the computational grid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
     set type                 = dealii
@@ -487,7 +489,7 @@ end
 </div>
 </section>
 <section id="boundary-conditions">
-<h3><span class="section-number">10.4.4. </span>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.4.4. </span>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/boundary_conditions_cfd.html"><span class="doc">Boundary conditions - CFD</span></a> subsection establishes the constraints on different parts of the domain:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
 set number                  = 3
@@ -518,7 +520,7 @@ end
 </div>
 </section>
 <section id="nitsche-immersed-boundary-parameters">
-<h3><span class="section-number">10.4.5. </span>Nitsche Immersed Boundary Parameters<a class="headerlink" href="#nitsche-immersed-boundary-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.4.5. </span>Nitsche Immersed Boundary Parameters<a class="headerlink" href="#nitsche-immersed-boundary-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/nitsche.html"><span class="doc">Nitsche</span></a> subsection is used to insert the immersed geometry and control its motion.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection nitsche
 
@@ -559,7 +561,7 @@ end
 </ul>
 </section>
 <section id="post-processing">
-<h3><span class="section-number">10.4.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.4.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
 <p>It is often desirable to obtain the time-averaged velocity field when simulating a transient flow. This is achieved through the <a class="reference internal" href="../../../parameters/cfd/post_processing.html"><span class="doc">Post-Processing</span></a> section. The averaging period is started after the flows start to stabilize and reach their pseudo steady-state. In this case, we assume it happens after <span class="math notranslate nohighlight">\(2~\text{sec}\)</span>. This choice is prone to error, which can be mitigated by increasing the duration of simulations and using a longer averaging interval.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection post-processing
    set calculate average velocities = true
@@ -569,7 +571,7 @@ end
 </div>
 </section>
 <section id="mesh-adaptation-control">
-<h3><span class="section-number">10.4.7. </span>Mesh Adaptation Control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.4.7. </span>Mesh Adaptation Control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h3>
 <p>We use <a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html"><span class="doc">Mesh Adaptation Control</span></a> on the fluid velocity, so that cells are refined in cells where the fluid velocity changes the most.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
 # Mesh Adaptation Control
@@ -595,7 +597,7 @@ end
 <p>The <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> are chosen in consideration of the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span> <span class="pre">=</span> <span class="pre">3</span></code> of the fluid mesh: the cells cannot be coarsen (as <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> = <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code>), and can be refined up to two times.</p>
 </section>
 <section id="non-linear-solver-parameters">
-<h3><span class="section-number">10.4.8. </span>Non-linear Solver Parameters<a class="headerlink" href="#non-linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.4.8. </span>Non-linear Solver Parameters<a class="headerlink" href="#non-linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Since this is a transient problem, it is not highly non-linear except for the first few iterations. Thus, we use standard <a class="reference internal" href="../../../parameters/cfd/non-linear_solver_control.html"><span class="doc">Non-linear Solver Control</span></a> parameters.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
   set tolerance               = 1e-4
@@ -606,7 +608,7 @@ end
 <p>Because the assembly of the Nitsche restriction for the immersed boundary is relatively expensive, we reuse the Jacobian matrix as much as possible. This is accomplished by setting <code class="docutils literal notranslate"><span class="pre">solver</span> <span class="pre">=</span> <span class="pre">inexact_newton</span></code>.</p>
 </section>
 <section id="linear-solver-parameters">
-<h3><span class="section-number">10.4.9. </span>Linear Solver Parameters<a class="headerlink" href="#linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.4.9. </span>Linear Solver Parameters<a class="headerlink" href="#linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Relatively standard parameters are used for the <a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html"><span class="doc">Linear Solver Control</span></a>. From our experience, the AMG preconditioner is more robust with the Nitsche immersed boundaries than the traditional ILU.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
   set method                    = amg
@@ -623,7 +625,7 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">10.5. </span>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.5. </span>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. For this more complex example, it is highly advised to use <code class="docutils literal notranslate"><span class="pre">mpirun</span></code> to parallelize the computation, with <code class="docutils literal notranslate"><span class="pre">&lt;np&gt;</span></code> the number of processes, defined accordingly with your machine’s number of cpu. The simulation can be launched by typing, in a terminal opened in the example folder:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np &lt;np&gt; &lt;/path/to/the/build/applications/gls_nitsche_navier_stokes_33/gls_nitsche_navier_stokes_33 mixer.prm&gt;
 </pre></div>
@@ -640,7 +642,7 @@ end
 </div>
 <p><span class="raw-html"><br/></span></p>
 <section id="results">
-<h3><span class="section-number">10.5.1. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">11.5.1. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
 <p>The following movie shows the evolution of the velocity magnitude as a function of time in a cut perpendicular to the radius of the vessel with and without the mesh :</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/rt6PAvgMkio" width="560"></iframe><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/jvaT76qBBTs" width="560"></iframe><p>Whereas the next one show the evolution of the axial velocity pattern in the same cut:</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/8b0ETD8EkQc" width="560"></iframe><p>Finally, the following animation illustrates the axial velocity pattern in an axial cut of the vessel:</p>
@@ -655,7 +657,7 @@ Multiple analyses can be done with this type of simulation. For example, one can
 </section>
 </section>
 <section id="possibilities-for-extension">
-<h2><span class="section-number">10.6. </span>Possibilities for Extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.6. </span>Possibilities for Extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Increase the Reynolds number:</strong> Using a finer grid, this example can be launched at even higher Reynolds numbers. In the latter case, the flow is significantly more unsteady.</p></li>
 <li><p><strong>Calculate the mixing time using the passive tracer physics:</strong> Using the passive tracer physics and the built-in post-processing tool, the mixing time in the vessel can be easily calculated.</p></li>
@@ -663,7 +665,7 @@ Multiple analyses can be done with this type of simulation. For example, one can
 <p><span class="raw-html"><br/></span></p>
 </section>
 <section id="references">
-<h2><span class="section-number">10.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/book/10.1002/0471451452">[1]</a> Paul, Edward L., Victor A. Atiemo-Obeng, and Suzanne M. Kresta, eds. Handbook of industrial mixing: science and practice. Vol. 1. John Wiley &amp; Sons, 2003.</p>
 </section>
 </section>
@@ -682,14 +684,14 @@ Multiple analyses can be done with this type of simulation. For example, one can
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">
+          <a class="prev-page" href="../3d_mixer_using_single_rotating_frame/3d_mixer_using_single_rotating_frame.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">9. </span>2D Taylor-Couette flow using Nitsche immersed boundary</div>
+                <div class="title"><span class="section-number">10. </span>3D Ribbon Mixer using a Single Rotating Reference Frame</div>
                 
               </div>
             </a>
@@ -719,28 +721,28 @@ Multiple analyses can be done with this type of simulation. For example, one can
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">10. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary</a><ul>
-<li><a class="reference internal" href="#features">10.1. Features</a></li>
-<li><a class="reference internal" href="#locations-of-files-used-in-the-example">10.2. Locations of Files Used in the Example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">10.3. Description of the Case</a></li>
-<li><a class="reference internal" href="#parameter-file">10.4. Parameter File</a><ul>
-<li><a class="reference internal" href="#simulation-control">10.4.1. Simulation Control</a></li>
-<li><a class="reference internal" href="#physical-properties">10.4.2. Physical Properties</a></li>
-<li><a class="reference internal" href="#mesh">10.4.3. Mesh</a></li>
-<li><a class="reference internal" href="#boundary-conditions">10.4.4. Boundary Conditions</a></li>
-<li><a class="reference internal" href="#nitsche-immersed-boundary-parameters">10.4.5. Nitsche Immersed Boundary Parameters</a></li>
-<li><a class="reference internal" href="#post-processing">10.4.6. Post-processing</a></li>
-<li><a class="reference internal" href="#mesh-adaptation-control">10.4.7. Mesh Adaptation Control</a></li>
-<li><a class="reference internal" href="#non-linear-solver-parameters">10.4.8. Non-linear Solver Parameters</a></li>
-<li><a class="reference internal" href="#linear-solver-parameters">10.4.9. Linear Solver Parameters</a></li>
+<li><a class="reference internal" href="#">11. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary</a><ul>
+<li><a class="reference internal" href="#features">11.1. Features</a></li>
+<li><a class="reference internal" href="#locations-of-files-used-in-the-example">11.2. Locations of Files Used in the Example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">11.3. Description of the Case</a></li>
+<li><a class="reference internal" href="#parameter-file">11.4. Parameter File</a><ul>
+<li><a class="reference internal" href="#simulation-control">11.4.1. Simulation Control</a></li>
+<li><a class="reference internal" href="#physical-properties">11.4.2. Physical Properties</a></li>
+<li><a class="reference internal" href="#mesh">11.4.3. Mesh</a></li>
+<li><a class="reference internal" href="#boundary-conditions">11.4.4. Boundary Conditions</a></li>
+<li><a class="reference internal" href="#nitsche-immersed-boundary-parameters">11.4.5. Nitsche Immersed Boundary Parameters</a></li>
+<li><a class="reference internal" href="#post-processing">11.4.6. Post-processing</a></li>
+<li><a class="reference internal" href="#mesh-adaptation-control">11.4.7. Mesh Adaptation Control</a></li>
+<li><a class="reference internal" href="#non-linear-solver-parameters">11.4.8. Non-linear Solver Parameters</a></li>
+<li><a class="reference internal" href="#linear-solver-parameters">11.4.9. Linear Solver Parameters</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">10.5. Running the Simulation</a><ul>
-<li><a class="reference internal" href="#results">10.5.1. Results</a></li>
+<li><a class="reference internal" href="#running-the-simulation">11.5. Running the Simulation</a><ul>
+<li><a class="reference internal" href="#results">11.5.1. Results</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#possibilities-for-extension">10.6. Possibilities for Extension</a></li>
-<li><a class="reference internal" href="#references">10.7. References</a></li>
+<li><a class="reference internal" href="#possibilities-for-extension">11.6. Possibilities for Extension</a></li>
+<li><a class="reference internal" href="#references">11.7. References</a></li>
 </ul>
 </li>
 </ul>
