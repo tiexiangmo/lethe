@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="6. Rising bubble VOF" href="../rising-bubble-VOF/rising-bubble-VOF.html" /><link rel="prev" title="4. Warming Up a Viscous Fluid" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Unresolved CFD-DEM" href="../../unresolved_cfd-dem/unresolved_cfd-dem.html" /><link rel="prev" title="7. Small Scale Rotating Drum (3D)" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>5. Dam break VOF - Lethe documentation</title>
+        <title>8. Granular Mixer - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -233,26 +233,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d_nitsche_mixer_with_pbt_impeller/nitsche_mixer_with_pbt_impeller.html">11. 3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rayleigh-benard-convection/rayleigh-benard-convection.html">2. Rayleigh-Bénard Convection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">3. Stefan problem : melting of a solid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">4. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">5. Dam break VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rising-bubble-VOF/rising-bubble-VOF.html">6. Rising bubble VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">7. Melting Cavity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../laser-meltpool/laser-meltpool.html">8. Laser meltpool</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">2. Rayleigh-Bénard Convection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiphysics/stefan_problem/stefan_problem.html">3. Stefan problem : melting of a solid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">4. Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiphysics/dam-break-VOF/dam-break-VOF.html">5. Dam break VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiphysics/rising-bubble-VOF/rising-bubble-VOF.html">6. Rising bubble VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiphysics/melting-cavity/melting-cavity.html">7. Melting Cavity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiphysics/laser-meltpool/laser-meltpool.html">8. Laser meltpool</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">1. Packing in Circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">2. Packing in Ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">3. Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">4. Rotating Drum with Post-Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">5. Rotation of Box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">6. Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html">7. Small Scale Rotating Drum (3D)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-mixer/granular-mixer.html">8. Granular Mixer</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../dem.html">Discrete Element Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../packing-in-circle/packing-in-circle.html">1. Packing in Circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">2. Packing in Ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">3. Rotating Drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">4. Rotating Drum with Post-Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">5. Rotation of Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">6. Silo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html">7. Small Scale Rotating Drum (3D)</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">8. Granular Mixer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -318,258 +318,136 @@
           </label>
         </div>
         <article role="main">
-          <section id="dam-break-vof">
-<h1><span class="section-number">5. </span>Dam break VOF<a class="headerlink" href="#dam-break-vof" title="Permalink to this headline">¶</a></h1>
-<p>This example simulates the dam break experiments of <a class="reference external" href="https://royalsocietypublishing.org/doi/abs/10.1098/rsta.1952.0006">Martin and Moyce (1952)</a>.</p>
+          <section id="granular-mixer">
+<h1><span class="section-number">8. </span>Granular Mixer<a class="headerlink" href="#granular-mixer" title="Permalink to this headline">¶</a></h1>
+<p>This example simulates the packing and mixing of particles in a mixer with a pitched-blade impeller. It is recommended to visit <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> for more detailed information on the concepts and physical meanings of the parameters in Lethe-DEM.</p>
 <section id="features">
-<h2><span class="section-number">5.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
-<li><p>Two phase flow handled by the Volume of fluids (VOF) approach, with a phase fraction limiter and phase sharpening</p></li>
-<li><p>Unsteady problem handled by an adaptive BDF1 time-stepping scheme</p></li>
-<li><p>The use of a python script for post-processing data</p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code></p></li>
+<li><p>Floating mesh</p></li>
+<li><p>Gmsh grids</p></li>
+<li><p>Bidispersed particles (same size and properties, but different types)</p></li>
 </ul>
 </section>
-<section id="location-of-the-example">
-<h2><span class="section-number">5.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/dam_break_VOF/gls_VOF_dam-break_Martin_and_Moyce.prm</span></code></p>
+<section id="location-of-the-examples">
+<h2><span class="section-number">8.2. </span>Location of the examples<a class="headerlink" href="#location-of-the-examples" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d_granular_mixer/granular_mixer.prm</span></code></p>
+</div></blockquote>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">5.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>A liquid is fixed behind a dam at the left most corner of
-a rectangular domain as shown in the figure below.
-At <span class="math notranslate nohighlight">\(t = 0\)</span> s, the dam is removed, and
-the liquid is released into the total simulation domain.
-The corresponding parameter file is
-<code class="docutils literal notranslate"><span class="pre">gls_VOF_dam-break_Martin_and_Moyce.prm</span></code>.</p>
-<p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
-<a class="reference internal image-reference" href="../../../_images/VOF_dam_break_configuration.png"><img alt="Schematic" class="align-center" src="../../../_images/VOF_dam_break_configuration.png" style="width: 400px;"/></a>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">slip</span></code>, and an external
-gravity field of <span class="math notranslate nohighlight">\(-1\)</span> is applied in the y direction.</p>
-</div>
+<h2><span class="section-number">8.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<p>This simulation consists of two stages: packing (0-0.5 s) and mixing (0.5-5 s) of particles. There are two types of particles in this simulation (bidispersed system), that are inserted on top of each other during the packing stage. The size and properties of the two particle types are the same, we only need to define two particle types to make the visualization easier during post-processing. At <span class="math notranslate nohighlight">\(t=0.5\)</span> s, the pitched-blade impeller starts rotating with an angular velocity of 6 rad/s and mixes the particles.</p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">5.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>Time integration is handled by a 1st order backward differentiation scheme
-<cite>(bdf1)</cite>, for a <span class="math notranslate nohighlight">\(4.1\)</span> s simulation time with an initial
-time step of <span class="math notranslate nohighlight">\(0.01\)</span> seconds.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This example uses an adaptive time-stepping method, where the
-time-steps are modified during the simulation to keep the maximum value of the CFL condition
-below a given threshold.</p>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# Simulation Control
-#---------------------------------------------------
-subsection simulation control
-    set method                         = bdf1
-    set time end                       = 4.1
-    set time step                      = 0.01
-    set adapt                          = true
-    set max cfl                        = 0.5
-    set stop tolerance                 = 1e-5
-    set adaptative time step scaling   = 1.1
-    set number mesh adapt              = 0
-    set output name                    = dam-break_VOF
-    set output frequency               = 10
-    set output path                    = ./Output/
-    set subdivision                    = 1
-end
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Make sure to create a directory named <code class="docutils literal notranslate"><span class="pre">Output</span></code> in the same directory
-you are calling the solver from.  Otherwise, the solver will be unable to generate the results files and will break.</p>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on <cite>(true)</cite>
-and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> is chosen.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Multiphysics
-#---------------------------------------------------
-subsection multiphysics
-    set VOF = true
-end
-</pre></div>
-</div>
-<section id="interface-sharpening-parameters">
-<h3><span class="section-number">5.4.1. </span>Interface Sharpening Parameters<a class="headerlink" href="#interface-sharpening-parameters" title="Permalink to this headline">¶</a></h3>
-<p>If the interface sharpening is not enabled in the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">VOF</span></a> subsection, the interface between phases will become blurry (due to diffusion). The current <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> method consists of two steps:</p>
-<ol class="arabic">
-<li><p>Phase fraction limiter</p>
-<blockquote>
-<div><div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\phi := min \left( max \left(\phi^{old},0 \right),1 \right)\]</div></div>
-</div></blockquote>
-</li>
-</ol>
-<p>The phase fraction <span class="math notranslate nohighlight">\(\phi\)</span> is a physical parameter that is bounded in the interval <span class="math notranslate nohighlight">\([0,1]\)</span>.
-The phase fraction limiter above will update the phase fraction if it failed to respect these bounds.</p>
-<ol class="arabic" start="2">
-<li><p>Interface sharpening</p>
-<blockquote>
-<div><div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\begin{split}\phi :=
-\begin{cases}
-c^{1-\alpha} \phi^{\alpha} &amp;  (0 \leq \phi &lt; c  ) \\
-1-(1-c)^{1-\alpha}(1-\phi)^{\alpha} &amp; (c \leq \phi \leq 1  )
-\end{cases}\end{split}\]</div></div>
-</div></blockquote>
-</li>
-</ol>
-<p><code class="docutils literal notranslate"><span class="pre">frequency</span></code> is an integer parameter that defines the
-frequency of the interface sharpening; <code class="docutils literal notranslate"><span class="pre">threshold</span></code> defines
-a phase fraction threshold for interface sharpening (generally <span class="math notranslate nohighlight">\(0.5\)</span>);
-and <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpness</span></code> is a model parameter which is generally in
-the range of <span class="math notranslate nohighlight">\((1,2]\)</span>.</p>
-<p>where <span class="math notranslate nohighlight">\(\phi\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(\alpha\)</span> denote phase fraction,
-sharpening threshold, and interface sharpness respectively.
-This interface sharpening method was proposed by <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0045782500002000">Aliabadi and Tezduyar (2000)</a>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Sharpening</span> <span class="pre">frequency</span></code> is an integer parameter that defines the
-frequency of interface sharpening; sharpening threshold defines
-a phase fraction threshold for interface sharpening (generally <span class="math notranslate nohighlight">\(0.5\)</span>).
-Interface sharpness is a model parameter which is generally in
-the range of <span class="math notranslate nohighlight">\((1,2]\)</span>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# VOF
-#---------------------------------------------------
-subsection VOF
-  subsection interface sharpening
-    set enable      = true
-    set threshold   = 0.5
-    set interface sharpness    = 2
-    set frequency   = 10
-  end
+<h2><span class="section-number">8.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<section id="mesh">
+<h3><span class="section-number">8.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<p>The background mesh (mixer body) is created using dealii <code class="docutils literal notranslate"><span class="pre">subdivided_cylinder</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
+    set type                = dealii
+    set grid type           = subdivided_cylinder
+    set grid arguments      = 2 : 0.05 : 0.055
+    set initial refinement  = 2
 end
 </pre></div>
 </div>
 </section>
-<section id="fluid-phase-parameters">
-<h3><span class="section-number">5.4.2. </span>Fluid phase parameters<a class="headerlink" href="#fluid-phase-parameters" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial position
-of the liquid phase are defined. The liquid phase is initially
-defined as rectangle of length <span class="math notranslate nohighlight">\(= 3.5\)</span> and height <span class="math notranslate nohighlight">\(= 7\)</span>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Initial condition
-#---------------------------------------------------
-subsection initial conditions
-    set type = nodal
-    subsection uvwp
-        set Function expression = 0; 0; 0
-    end
-    subsection VOF
-         set Function expression = if (x&lt;3.5 &amp; y&lt;7 , 1, 0)
-    end
+<section id="lagrangian-physical-properties">
+<h3><span class="section-number">8.4.2. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned earlier, there are two types of particles with the same size and properties.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
+    set gx                                  = -9.81
+    set gy                                  = 0.0
+    set gz                                  = 0.0
+    set number of particle types            = 2
+            subsection particle type 0
+            set size distribution type              = uniform
+            set diameter                            = 0.0015
+            set number                              = 23500
+            set density particles                   = 1500
+            set young modulus particles               = 1e6
+            set poisson ratio particles             = 0.5
+            set restitution coefficient particles   = 0.5
+            set friction coefficient particles      = 0.5
+            set rolling friction particles          = 0.2
+            end
+            subsection particle type 1
+            set size distribution type              = uniform
+            set diameter                            = 0.0015
+            set number                              = 23500
+            set density particles                   = 1500
+            set young modulus particles             = 1e6
+            set poisson ratio particles             = 0.5
+            set restitution coefficient particles   = 0.5
+            set friction coefficient particles      = 0.5
+            set rolling friction particles          = 0.2
+            end
+            set young modulus wall                  = 1e6
+            set poisson ratio wall                  = 0.5
+            set restitution coefficient wall        = 0.5
+            set friction coefficient wall           = 0.5
+            set rolling friction wall               = 0.2
 end
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">term</span></code> subsection defines the gravitational acceleration:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Source term
-#---------------------------------------------------
-subsection source term
-    set enable = true
-    subsection xyz
-        set Function expression = 0;-1.0; 0
+</section>
+<section id="solid-objects">
+<h3><span class="section-number">8.4.3. </span>Solid objects<a class="headerlink" href="#solid-objects" title="Permalink to this headline">¶</a></h3>
+<p>In this subsection, the floating meshes are defined. We can use dealii or gmsh to create the floating meshes. At the moment, solid objects (floating meshes) in Lethe have to be defined using triangular (simplex) meshes. Only triangular 2D meshes of 3D surfaces in the dem_3d solver are presently supported. Quadrilateral 2D meshes of 3D surfaces and 1D mesh of 2D surfaces are not supported at the moment. For each floating mesh, we need to specify a <code class="docutils literal notranslate"><span class="pre">translational</span> <span class="pre">velocity</span></code>, an <code class="docutils literal notranslate"><span class="pre">angular</span> <span class="pre">velocity</span></code>, and a <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code>. In this example, we only need an angular motion of the impeller. Note that the <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code> of the impeller is at 0, 0, 0.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection solid objects
+    set number of solids        = 1
+    subsection  solid object 0
+    subsection mesh
+        set type                = gmsh
+        set file name           = pitched_blade_impeller.msh
+        set simplex                = true
+        set initial refinement  = 0
     end
-end
-</pre></div>
-</div>
-<p>Two fluids are present in this simulation, hence in the <code class="docutils literal notranslate"><span class="pre">physical</span>
-<span class="pre">properties</span></code> subsection, their physical properties should be defined:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Physical Properties
-#---------------------------------------------------
-subsection physical properties
-    set number of fluids         = 2
-    subsection fluid 0
-        set density              = 0.02
-        set kinematic viscosity  = 0.1
+
+    subsection translational velocity
+        set Function expression = 0 ; 0 ; 0
     end
-    subsection fluid 1
-        set density              = 0.9982
-        set kinematic viscosity  = 0.01
+
+    subsection angular velocity
+        set Function expression = if(t &gt; 0.5 , 6 ,0) ; 0 ; 0
     end
-end
-</pre></div>
-</div>
-<p>We define two fluids here simply by setting the number of fluids to be <span class="math notranslate nohighlight">\(2\)</span>.
-In <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code>, we set the density and the kinematic viscosity for the phase associated with a VOF indicator of 0.
-Similar procedure is done for the phase associated with a VOF indicator of 1 in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
-<p>We start off with a rectangular mesh that spans the domain defined by the corner points situated at the origin and at point
-<span class="math notranslate nohighlight">\([14,10]\)</span>. The first <span class="math notranslate nohighlight">\(14,10\)</span> couple defines the number of initial grid subdivisions along the length and height of the rectangle.
-This makes our initial mesh composed of perfect squares. We proceed then to redefine the mesh globally four times by setting
-<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">initial</span> <span class="pre">refinement=4</span></code>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Mesh
-#---------------------------------------------------
-subsection mesh
-        set type = dealii
-        set grid type = subdivided_hyper_rectangle
-        set grid arguments = 14, 10 : 0, 0 : 14, 10 : true
-        set initial refinement = 4
-end
-</pre></div>
-</div>
-<p>In the <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">adaptation</span> <span class="pre">subsection</span></code>, adaptive mesh refinement is
-defined for <code class="docutils literal notranslate"><span class="pre">velocity</span></code>. <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span>
-<span class="pre">level</span></code> are 3 and 5, respectively.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Mesh Adaptation
-#---------------------------------------------------
-subsection mesh adaptation
-    set type                    = kelly
-    set variable                = phase
-    set fraction type           = fraction
-    set max refinement level    = 5
-    set min refinement level    = 3
-    set frequency               = 1
-    set fraction refinement     = 0.95
-    set fraction coarsening     = 0.02
+
+    subsection center of rotation
+        # X COR
+        set x                               = 0
+        # Y COR
+        set y                               = 0
+        # Z COR
+        set z                               = 0
+    end
+
+  end
+
 end
 </pre></div>
 </div>
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">5.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Call the gls_navier_stokes_2d by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">2</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">gls_VOF_dam-break_Martin_and_Moyce.prm</span></code></p>
-<p>to run the simulation using two CPU cores. Feel free to use more.</p>
+<h2><span class="section-number">8.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>This simulation can be launched by (in parallel mode on 16 processes):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 16 dem_3d granular_mixer.prm
+</pre></div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The code will compute <span class="math notranslate nohighlight">\(35,000+\)</span> dofs for <span class="math notranslate nohighlight">\(600+\)</span> time
-iterations. Make sure to compile lethe in <cite>Release</cite> mode and
-run in parallel using mpirun</p>
+<p>This example takes approximately 30 hours on 16 cores.</p>
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">5.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>The following image shows the screenshots of the simulation at <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1.1\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, and <span class="math notranslate nohighlight">\(4\)</span> seconds,
-with the red area and the blue area corresponding conversely to the water location and the air location.</p>
-<img alt="time-shots" class="align-center" src="../../../_images/time-series.png"/>
-<p>A python post-processing code <cite>(Dambreak_2d_lethe.py)</cite>
-is added to the example folder to post-process the results.
-Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">./Dambreak_2d_lethe.py</span> <span class="pre">./Output</span></code> to execute this
-post-processing code, where <code class="docutils literal notranslate"><span class="pre">./Output</span></code> is the directory that
-contains the simulation results. In post-processing, the maximum
-dimensionless lateral position of the liquid phase is tracked
-through time and compared with the experiments of Martin and Moyce
-(1952) <a class="reference external" href="https://doi.org/10.1098/rsta.1952.0006">[1]</a>. The following figure shows the result of
-the post-processing, with a very good agreement between the simulation and the experiment:</p>
-<img alt="xmax_t" class="align-center" src="../../../_images/xmax_t.png"/>
-<p>As mentioned previously, this simulation uses adaptive mesh
-refinement. The following image shows the mesh and the position of
-the interface at <span class="math notranslate nohighlight">\(4\)</span> s. The mesh refinement detects
-and refines the meshes on the interface.</p>
-<img alt="refinement" class="align-center" src="../../../_images/refinement.png"/>
-</section>
-<section id="references">
-<h2><span class="section-number">5.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://doi.org/10.1098/rsta.1952.0006">[1]</a> Martin, J. C., Moyce, W. J., Martin, J. C., Moyce, W. J., Penney, W. G., Price, A. T., &amp; Thornhill, C. K. (1952). Part IV. An experimental study of the collapse of liquid columns on a rigid horizontal plane. Philosophical Transactions of the Royal Society of London. Series A, Mathematical and Physical Sciences, 244(882), 312-324.</p>
+<h2><span class="section-number">8.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Animation of the granular mixing simulation:</p>
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/ms-gAyZcOXk" width="560"></iframe></section>
+<section id="possibility-for-extension">
+<h2><span class="section-number">8.7. </span>Possibility for extension<a class="headerlink" href="#possibility-for-extension" title="Permalink to this headline">¶</a></h2>
+<p>The same simulation can be carried out with particles of different sizes and properties to study segregation.</p>
 </section>
 </section>
 
@@ -578,23 +456,23 @@ and refines the meshes on the interface.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../rising-bubble-VOF/rising-bubble-VOF.html">
+          <a class="next-page" href="../../unresolved_cfd-dem/unresolved_cfd-dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">6. </span>Rising bubble VOF</div>
+                <div class="title">Unresolved CFD-DEM</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">
+          <a class="prev-page" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">4. </span>Warming Up a Viscous Fluid</div>
+                <div class="title"><span class="section-number">7. </span>Small Scale Rotating Drum (3D)</div>
                 
               </div>
             </a>
@@ -604,7 +482,7 @@ and refines the meshes on the interface.</p>
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/examples/multiphysics/dam-break-VOF/dam-break-VOF.rst.txt"
+            | <a class="muted-link" href="../../../_sources/examples/dem/granular-mixer/granular-mixer.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -624,18 +502,19 @@ and refines the meshes on the interface.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">5. Dam break VOF</a><ul>
-<li><a class="reference internal" href="#features">5.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">5.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">5.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">5.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#interface-sharpening-parameters">5.4.1. Interface Sharpening Parameters</a></li>
-<li><a class="reference internal" href="#fluid-phase-parameters">5.4.2. Fluid phase parameters</a></li>
+<li><a class="reference internal" href="#">8. Granular Mixer</a><ul>
+<li><a class="reference internal" href="#features">8.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-examples">8.2. Location of the examples</a></li>
+<li><a class="reference internal" href="#description-of-the-case">8.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">8.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#mesh">8.4.1. Mesh</a></li>
+<li><a class="reference internal" href="#lagrangian-physical-properties">8.4.2. Lagrangian physical properties</a></li>
+<li><a class="reference internal" href="#solid-objects">8.4.3. Solid objects</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">5.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">5.6. Results</a></li>
-<li><a class="reference internal" href="#references">5.7. References</a></li>
+<li><a class="reference internal" href="#running-the-simulation">8.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">8.6. Results</a></li>
+<li><a class="reference internal" href="#possibility-for-extension">8.7. Possibility for extension</a></li>
 </ul>
 </li>
 </ul>
