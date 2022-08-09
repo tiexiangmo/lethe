@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Introduction on how to use GMSH" href="gmsh/gmsh.html" /><link rel="prev" title="Unresolved CFD-DEM coupling" href="../theory/unresolved_cfd-dem/unresolved_cfd-dem.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Docker" href="docker.html" /><link rel="prev" title="Regular installation" href="regular_installation.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Tools - Lethe documentation</title>
+        <title>Installation on Apple ARM (M1 or M2) - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -155,11 +155,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/installation.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../installation/regular_installation.html">Regular installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/apple_arm.html">Installation on Apple ARM (M1 or M2)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/docker.html">Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/compute_canada.html">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="installation.html">Installation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="regular_installation.html">Regular installation</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Installation on Apple ARM (M1 or M2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compute_canada.html">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../structure.html">Folder structure of Lethe</a></li>
@@ -286,8 +286,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM coupling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Tools</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="gmsh/gmsh.html">Introduction on how to use GMSH</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tools/gmsh/gmsh.html">Introduction on how to use GMSH</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
@@ -313,19 +313,104 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="tools">
-<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="gmsh/gmsh.html">Introduction on how to use GMSH</a></li>
-</ul>
+          <section id="installation-on-apple-arm-m1-or-m2">
+<h1>Installation on Apple ARM (M1 or M2)<a class="headerlink" href="#installation-on-apple-arm-m1-or-m2" title="Permalink to this headline">¶</a></h1>
+<p>Lethe can be now be deployed on Apple ARM, namely M1 and M2 chips. The support for these chips is experimental, but all Lethe solvers can be deployed for this type of architecture. So far, we have found that Lethe performs very efficiently on Apple ARM architecture.</p>
+<p>The installation of Lethe consists in two steps:
+1. Installation of deal.II using the Candi toolset
+2. Installation of Lethe</p>
+<p>The easiest way to install deal.II and its dependencies under Mac OS is through the Candi toolset. Consequently, this is the only procedure which is explained here. Even under these condition, we will see that the procedure is shaky at best.</p>
+<section id="installing-deal-ii-using-candi-step-1">
+<h2>Installing deal.II using candi (Step #1)<a class="headerlink" href="#installing-deal-ii-using-candi-step-1" title="Permalink to this headline">¶</a></h2>
+<p>To install the dependencies (mpi, p4est, trilinos and METIS) all together using Candi, the following <a class="reference external" href="https://github.com/dealii/dealii/wiki/Apple-ARM-M1-OSX">procedure</a> on the deal.II wiki can be followed.</p>
+<p>Clone the candi git repository in a folder of your choice  (e.g. <code class="docutils literal notranslate"><span class="pre">$HOME/sofware/</span></code>). You can edit the <code class="docutils literal notranslate"><span class="pre">candi.cfg</span></code> file if you want to force the installation of the deal.II master version instead of the current stable version by setting the <code class="docutils literal notranslate"><span class="pre">STABLE_BUILD=false</span></code>. Under Apple ARM, we only recommend the installation of the required libraries, namely parmetis, trilinos and p4est.</p>
+<p>From the candi folder, the installation of candi can be launched using:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./candi.sh -j $num_proc --prefix=$path --packages="parmetis p4est trilinos dealii"
+</pre></div>
 </div>
+<p>After installation, you should have a <code class="docutils literal notranslate"><span class="pre">deal.ii-candi</span></code> folder in the installation prefix directory, with the dealii folder of the desired version (see section <a class="reference internal" href="regular_installation.html#update-dealii"><span class="std std-ref">Updating deal.II</span></a>), as well as the required dependencies (p4est, trilinos, etc.).</p>
+<p>After installation, add an environment variable to your <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> either manually or through the following command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=/home/username/deal.ii-candi/deal.II-&lt;version&gt;" &gt;&gt; ~/.zshrc
+</pre></div>
+</div>
+<section id="setting-the-library-and-include-paths">
+<h3>Setting the Library and Include paths<a class="headerlink" href="#setting-the-library-and-include-paths" title="Permalink to this headline">¶</a></h3>
+<p>The deal.II installation procedure might not set the correct path for the libraries agaisnt which it needs to link. These include parmetis, p4est and trilinos. To fix this issue, the include and library path must be manually added by appending the following lines to the <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=/opt/homebrew/bin:$PATH
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:path/to/candi/install/trilinos-release-12-18-1/lib/
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:path/to/candi/install/p4est-2.3.2/FAST/lib
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:path/to/candi/install/p4est-2.3.2/DEBUG/lib
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:path/to/candi/install//parmetis-4.0.3/lib
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:path/to/candi/install/trilinos-release-12-18-1/include/
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:path/to/candi/install/p4est-2.3.2/FAST/include/
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:path/to/candi/install/parmetis-4.0.3/lib/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is not a clean workaround, but so far this is the only solution we have found. We welcome any suggestions on that front!</p>
+</div>
+</section>
+<section id="fixing-trilinos-includes">
+<h3>Fixing Trilinos includes<a class="headerlink" href="#fixing-trilinos-includes" title="Permalink to this headline">¶</a></h3>
+<p>Lethe compiles using the C++ 17 standard. There is a header file in the Trilinos library which does not adhere to this standard and uses a deprecated function. When compiling with GCC, this does not pose any problem, but it does when using the built-in Clang compiler of Mac OS.</p>
+<p>The following file needs to be modified in the include dir of your Trilinos installation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">candi</span><span class="o">/</span><span class="n">install</span><span class="o">/</span><span class="n">trilinos</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">Tpetra_Import_def</span><span class="o">.</span><span class="n">hpp</span>
+</pre></div>
+</div>
+<p>At line 1169, the following line:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">numInvalidRemote</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">count_if</span><span class="w"> </span><span class="p">(</span><span class="n">remoteProcIDs</span><span class="p">.</span><span class="n">begin</span><span class="w"> </span><span class="p">(),</span><span class="w"> </span><span class="n">remoteProcIDs</span><span class="p">.</span><span class="n">end</span><span class="w"> </span><span class="p">(),</span><span class="w"></span>
+<span class="w">               </span><span class="n">std</span><span class="o">::</span><span class="n">bind1st</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">equal_to</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(),</span><span class="w"> </span><span class="mi">-1</span><span class="p">));</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Should be replaced by:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">numInvalidRemote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is still unclear to us what are the consequences of doing this, but we have found so far that it does not affect the outcome of the Lethe solvers. We are aware that this type of manual manipulation is far from being clean…</p>
+</div>
+</section>
+<section id="numdiff">
+<h3>numdiff<a class="headerlink" href="#numdiff" title="Permalink to this headline">¶</a></h3>
+<p>numdiff is used within the automatic testing procedure of Lethe to compare files obtained through floating point arithmetic. Without numdiff, Lethe automatic tests may fail when they should not. Numdiff can be installed directly from your package manager.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>brew install numdiff
+</pre></div>
+</div>
+</section>
+</section>
+<section id="installation-of-lethe-step-2">
+<h2>Installation of lethe (Step #2)<a class="headerlink" href="#installation-of-lethe-step-2" title="Permalink to this headline">¶</a></h2>
+<p>Clone lethe from the <cite>official repository &lt;https://github.com/lethe-cfd/lethe&gt;</cite></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/lethe
+</pre></div>
+</div>
+<p>Create a build folder at the same level as the lethe folder</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir build
+cd build
+</pre></div>
+</div>
+<p>Compile Lethe choosing the compilation option (Debug or Release). You can also optionally specify a path to an installation directory of your choice. We recommend that you do so, since this makes using Lethe much more comfortable.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/home/username/path/to/installation
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/username/path/to/installation
+</pre></div>
+</div>
+<p>Then you can compile:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>make -j&lt;numprocs&gt;
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -333,23 +418,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="gmsh/gmsh.html">
+          <a class="next-page" href="docker.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Introduction on how to use GMSH</div>
+                <div class="title">Docker</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">
+          <a class="prev-page" href="regular_installation.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Unresolved CFD-DEM coupling</div>
+                <div class="title">Regular installation</div>
                 
               </div>
             </a>
@@ -359,7 +444,7 @@
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/tools/tools.rst.txt"
+            | <a class="muted-link" href="../_sources/installation/apple_arm.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -367,8 +452,33 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Installation on Apple ARM (M1 or M2)</a><ul>
+<li><a class="reference internal" href="#installing-deal-ii-using-candi-step-1">Installing deal.II using candi (Step #1)</a><ul>
+<li><a class="reference internal" href="#setting-the-library-and-include-paths">Setting the Library and Include paths</a></li>
+<li><a class="reference internal" href="#fixing-trilinos-includes">Fixing Trilinos includes</a></li>
+<li><a class="reference internal" href="#numdiff">numdiff</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation-of-lethe-step-2">Installation of lethe (Step #2)</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
