@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Discrete Element Method" href="../../dem/dem.html" /><link rel="prev" title="7. Melting Cavity" href="../melting-cavity/melting-cavity.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Discrete Element Method" href="../../dem/dem.html" /><link rel="prev" title="8. Laser heating" href="../laser-heating/laser-heating.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>8. Laser meltpool - Lethe documentation</title>
+        <title>9. Laser meltpool - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -242,7 +242,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">5. Dam break VOF</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rising-bubble-VOF/rising-bubble-VOF.html">6. Rising bubble VOF</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">7. Melting Cavity</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">8. Laser meltpool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../laser-heating/laser-heating.html">8. Laser heating</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">9. Laser meltpool</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -320,10 +321,10 @@
         </div>
         <article role="main">
           <section id="laser-meltpool">
-<h1><span class="section-number">8. </span>Laser meltpool<a class="headerlink" href="#laser-meltpool" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">9. </span>Laser meltpool<a class="headerlink" href="#laser-meltpool" title="Permalink to this headline">¶</a></h1>
 <p>This example simulates a <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0032591022004272">two-dimensional melt pool with a laser</a>.</p>
 <section id="features">
-<h2><span class="section-number">8.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
 <li><p>Laser heat source</p></li>
@@ -335,18 +336,18 @@
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">8.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/laser-meltpool/laser-meltpool.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">8.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>A Ti-6Al-4 V powder bed (assumed as a solid block in this example) melts using a laser beam that is emitted perpendicular to the top surface of the block. The laser beam speed is 0.5 m/s. Due to the laser heat source, the solid block melts in the direction of the laser. The corresponding parameter file is
 <code class="docutils literal notranslate"><span class="pre">laser_meltpool.prm</span></code>.</p>
 <p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
 <a class="reference internal image-reference" href="../../../_images/laser_phasechange.png"><img alt="Schematic" class="align-center" src="../../../_images/laser_phasechange.png" style="width: 400px;"/></a>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">8.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Time integration is handled by a 2nd order backward differentiation scheme
 <cite>(bdf2)</cite> (for a better temporal accuracy), for a <span class="math notranslate nohighlight">\(0.005\)</span> seconds simulation time with a constant
 time step of <span class="math notranslate nohighlight">\(5.0 \times 10^{-6}\)</span> seconds.</p>
@@ -527,7 +528,7 @@ end
 </div>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">8.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Call the gls_navier_stokes_2d by invoking:</p>
 <p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">12</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">laser_meltpool.prm</span></code></p>
 <p>to run the simulation using twelve CPU cores. Feel free to use more.</p>
@@ -539,12 +540,12 @@ run in parallel using mpirun. This simulation takes
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">8.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following animation shows the temperature distribution in the simulations domain, as well the melted zone (using white contour lines at the liquidus and solidus temperatures).</p>
 <a class="reference internal image-reference" href="../../../_images/laser_meltpool.gif"><img alt="temperature" class="align-center" src="../../../_images/laser_meltpool.gif" style="width: 600px;"/></a>
 </section>
 <section id="references">
-<h2><span class="section-number">8.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://doi.org/10.1016/j.matdes.2018.01.022">[1]</a> Liu, S., Zhu, H., Peng, G., Yin, J. and Zeng, X., 2018. Microstructure prediction of selective laser melting AlSi10Mg using finite element analysis. Materials &amp; Design, 142, pp.319-328.</p>
 <p><a class="reference external" href="https://doi.org/10.1016/j.powtec.2022.117533">[2]</a> Li, E., Zhou, Z., Wang, L., Zheng, Q., Zou, R. and Yu, A., 2022. Melt pool dynamics and pores formation in multi-track studies in laser powder bed fusion process. Powder Technology, p.117533.</p>
 </section>
@@ -564,14 +565,14 @@ run in parallel using mpirun. This simulation takes
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../melting-cavity/melting-cavity.html">
+          <a class="prev-page" href="../laser-heating/laser-heating.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">7. </span>Melting Cavity</div>
+                <div class="title"><span class="section-number">8. </span>Laser heating</div>
                 
               </div>
             </a>
@@ -601,14 +602,14 @@ run in parallel using mpirun. This simulation takes
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">8. Laser meltpool</a><ul>
-<li><a class="reference internal" href="#features">8.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">8.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">8.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">8.4. Parameter file</a></li>
-<li><a class="reference internal" href="#running-the-simulation">8.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">8.6. Results</a></li>
-<li><a class="reference internal" href="#references">8.7. References</a></li>
+<li><a class="reference internal" href="#">9. Laser meltpool</a><ul>
+<li><a class="reference internal" href="#features">9.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">9.2. Location of the example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">9.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">9.4. Parameter file</a></li>
+<li><a class="reference internal" href="#running-the-simulation">9.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">9.6. Results</a></li>
+<li><a class="reference internal" href="#references">9.7. References</a></li>
 </ul>
 </li>
 </ul>
