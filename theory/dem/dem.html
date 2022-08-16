@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="On the need for stabilization" href="stabilization.html" /><link rel="prev" title="The Incompressible Navier-Stokes equations" href="navier-stokes.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Unresolved CFD-DEM coupling" href="../unresolved_cfd-dem/unresolved_cfd-dem.html" /><link rel="prev" title="Rheology and non-Newtonian fluids" href="../fluid_dynamics/rheology.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Origin of the finite element formulation - Lethe documentation</title>
+        <title>Discret Element Method (DEM) - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -276,15 +276,15 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../theory.html">Theory</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="fluid_dynamics.html">Fluid dynamics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Origin of the finite element formulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="stabilization.html">On the need for stabilization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="linear_solvers.html">Linear solvers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rheology.html">Rheology and non-Newtonian fluids</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../fluid_dynamics/fluid_dynamics.html">Fluid dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../fluid_dynamics/navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid_dynamics/fem_formulation.html">Origin of the finite element formulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid_dynamics/stabilization.html">On the need for stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid_dynamics/linear_solvers.html">Linear solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid_dynamics/rheology.html">Rheology and non-Newtonian fluids</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../dem/dem.html">Discret Element Method (DEM)</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Discret Element Method (DEM)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM coupling</a></li>
 </ul>
 </li>
@@ -321,61 +321,164 @@
           </label>
         </div>
         <article role="main">
-          <section id="origin-of-the-finite-element-formulation">
-<h1>Origin of the finite element formulation<a class="headerlink" href="#origin-of-the-finite-element-formulation" title="Permalink to this headline">¶</a></h1>
-<p>This section describes the FEM formulation used within Lethe. Starting from the strong form of the equations, we obtain the weak-form. We then briefly discuss the challenges associated with solving the Navier-Stokes equations before we introduce the two approaches that are available in Lethe to solve them.</p>
-<p>Starting from the incompressible Navier-Stokes equations:</p>
+          <section id="discret-element-method-dem">
+<h1>Discret Element Method (DEM)<a class="headerlink" href="#discret-element-method-dem" title="Permalink to this headline">¶</a></h1>
+<p><em>under construction</em></p>
+<p>In this guide, we summarize the theory behind DEM. For further details, we refer the reader to the article by Golshan, Munch, Gassmöller, Kronbichler &amp; Blais (2022) <a class="reference external" href="https://doi.org/10.1007/s40571-022-00478-6">[1]</a></p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\partial_l u_l &amp;= 0\\\partial_t u_k + u_l \partial_l u_k &amp;= -\frac{1}{\rho} \partial_k p + \nu \partial_l \partial_l u_k + f_k\end{aligned}\end{align} \]</div></div>
-<p>We consider a domain <span class="math notranslate nohighlight">\(\Omega\)</span> of contour <span class="math notranslate nohighlight">\(\Gamma\)</span>. Without loss of generality, we assume Dirichlet boundary conditions or zero stress  conditions
-on <span class="math notranslate nohighlight">\(\Gamma\)</span>. We multiply by two test functions <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}=v_k\)</span> for pressure and velocity respectively and integrate over the domain <span class="math notranslate nohighlight">\(\Omega\)</span>. The resulting set of equation is:</p>
+\[\begin{split}m_i\frac{d\mathbf{v_i}}{dt} &amp;= \sum_{j\in \mathcal C_i} (\mathbf{F}_{ij}^n + \mathbf{F}_{ij}^t) + m_i\mathbf{g} + \mathbf{F}_i^\text{ext} \\
+I_i\frac{d\mathbf{\omega_i}}{dt} &amp;= \sum_{j\in \mathcal C_i} (\mathbf{M}_{ij}^t + \mathbf{M}_{ij}^r) +  \mathbf{M}_i^\text{ext}\end{split}\]</div></div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(m_i\)</span> mass of the particule i;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{v_i}\)</span> velocity of the particule i;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal C_i\)</span> particles in contact list;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{F}_{ij}^n\)</span> normal contact force due to the contact between particles i and j;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{F}_{ij}^t\)</span> tangential contact force due to the contact between particles i and j;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{g}\)</span> gravitationnal acceleration;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{F}_i^\text{ext}\)</span> external forces;</p></li>
+<li><p><span class="math notranslate nohighlight">\(I_i\)</span> moment of inertia of particle i;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{\omega_i}\)</span> angular velocity of particle i;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{M}_{ij}^t\)</span> tangential friction torque due to the contact between particles i and j;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{M}_{ij}^r\)</span> rolling friction torque due to the contact between particles i and j;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{M}_i^\text{ext}\)</span> external torques;</p></li>
+</ul>
+<section id="contact-force-and-torque-models">
+<h2>Contact force and torque models<a class="headerlink" href="#contact-force-and-torque-models" title="Permalink to this headline">¶</a></h2>
+<p>The normal and tangential contact forces use linear or nonlinear viscoelastic models and are calculated as followed:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\begin{split}&amp;\int_{\Omega}  q  \partial_l u_l d\Omega =0
-\\
-&amp;\int_{\Omega}  v_k \left(\partial_t u_k+ u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) d\Omega =0\end{split}\]</div></div>
-<p>Because we want the pressure to be in <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> and the velocity to be in <span class="math notranslate nohighlight">\(\mathcal{H}^1\)</span>, we integrate by parts the viscous stress and the pressure gradient terms. We thus obtain the weak form:</p>
+\[\begin{split}\mathbf{F}_{ij}^n &amp;= -(k_n\delta_n)\mathbf{n}_{ij}-(\eta_n\mathbf{v}_{rn}) \\
+\mathbf{F}_{ij}^t &amp;= -(k_t\mathbf{\delta}_t)-(\eta_t\mathbf{v}_{rt})\end{split}\]</div></div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\delta_n\)</span> normal overlap;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{\delta_t}\)</span> tangential overlap vector;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{n}_{ij}\)</span> contact normal vector;</p></li>
+<li><p><span class="math notranslate nohighlight">\(k_n, k_t\)</span> spring constants;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\eta_n, \eta_t\)</span> damping model constants;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{v}_{rn}\)</span> relative velocity in the normal direction;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{v}_{tn}\)</span> relative velocity in the tangential direction;</p></li>
+</ul>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/collision_particles.png"><img alt="particle-particle_collision" src="../../_images/collision_particles.png" style="width: 400px;"/></a>
+<figcaption>
+<p><span class="caption-text">Representation of a typical particle-particle contact. [1]</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The contact normal vector <span class="math notranslate nohighlight">\(\mathbf{n}_{ij}\)</span> is computed as:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\begin{split} &amp;\int_{\Omega}  q  \partial_l u_l \mathrm{d}\Omega =0
- \\
- &amp;\int_{\Omega}  v_k \left(\partial_t u_k+ u_l \partial_l u_k - f_k \right) \mathrm{d}\Omega
- \\
- &amp;  - \int_{\Omega} \left( \partial_k \right) v_k p \mathrm{d}\Omega
-+ \nu \int_{\Omega} \left( \partial_l v_k \right) \left( \partial_l u_k  \right) \mathrm{d}\Omega
-\\
- &amp;  + \int_{\Gamma} \left( v_k \right) \left( \partial_l u_k  +\delta_{lk} p \right) n_l \mathrm{d}\Gamma
-  =0\end{split}\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\delta_{lk}\)</span> is the Kronecker delta and <span class="math notranslate nohighlight">\(n_l\)</span> is the outward pointing normal vector to a surface. Since we assume Dirichlet boundary conditions or zero stress  conditions
-on <span class="math notranslate nohighlight">\(\Gamma\)</span>, this term may be discarded. Thus, when no boundary condition is applied, the boundary condition applied is:</p>
+\[\mathbf{n}_{ij}=\frac{\mathbf{x}_{j}-\mathbf{x}_{i}}{\left|\mathbf{x}_{j}-\mathbf{x}_{i}\right|}\]</div></div>
+<p>The normal overlap (<span class="math notranslate nohighlight">\(\delta_n\)</span>) is the contact distance between the particles i and j. The tangential overlap (<span class="math notranslate nohighlight">\(\delta_t\)</span>) depends on the contact history and is updated during a contact.
+The normal and tangential overlaps are calculated as follow:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\int_{\Gamma} \left( v_k \right) \left( \partial_l u_k  +\delta_{lk} p \right) n_l \mathrm{d}\Gamma=0\]</div></div>
-<p>which can be seen as an outlet boundary condition where the normal stress is zero. In essence, this can be used to approximately impose an outlet boundary condition with a zero average pressure.
-This weak form is non-linear because of <span class="math notranslate nohighlight">\(u_l \partial_l u_k\)</span> term.</p>
-<section id="solving-the-non-linear-problem">
-<h2>Solving the non-linear problem<a class="headerlink" href="#solving-the-non-linear-problem" title="Permalink to this headline">¶</a></h2>
-<p>To solve non-linear problem, Lethe uses the <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson method</a>. This method proceeds by solving recurrently for the correction vector <span class="math notranslate nohighlight">\(\mathbf{\delta x}\)</span> which is obtained by solving the following system:</p>
+\[\begin{split}\delta_n =&amp; \:R_i + R_j - |\mathbf{x}_{j} - \mathbf{x}_{i}| \\
+\mathbf{\delta}_{ij}^{t,\text{new}} &amp;= \mathbf{\delta}_{ij}^{t,\text{old}}+\mathbf{v}_{rt}dt\end{split}\]</div></div>
+<p>The relative velocities calculated to allow updating the tangential overlap are described by:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\mathbf{\mathcal{J}} \mathbf{\delta x} = - \mathbf{\mathcal{R}}\]</div></div>
-<p>For the incompressible Navier-Stokes equation, this leads to a saddle point problem of the form:</p>
+\[\begin{split}\mathbf{v}_{rn} &amp;= \left(\mathbf{v}_{ij}.\mathbf{n}_{ij}\right)\mathbf{n}_{ij} \\
+\mathbf{v}_{rt} &amp;= \mathbf{v}_{ij}-\mathbf{v}_{rn} \\
+\mathbf{v}_{ij} &amp;= \mathbf{v}_i-\mathbf{v}_j+\left(R_i\mathbf{\omega}_i+R_j\mathbf{\omega}_j\right)\times\mathbf{n}_{ij}\end{split}\]</div></div>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">Spring and Damping Models used in Lethe-DEM.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 40%"/>
+<col style="width: 30%"/>
+<col style="width: 30%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Linear model definitions</p></th>
+<th class="head"><p>Nonlinear viscoelastic model definitions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Normal spring constant</p></td>
+<td><p><span class="math notranslate nohighlight">\(k_n = \frac{16}{15}\sqrt{R_{e}}Y_{e}\left(\frac{15m_{e}V^2}{16\sqrt{R_{e}}Y_{e}}\right)^{0.2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(k_n = \frac{4}{3}Y_{e}\sqrt{R_{e}\delta_n}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tangential spring constant</p></td>
+<td><p><span class="math notranslate nohighlight">\(\eta_n = \sqrt{\frac{4m_{e}k_n}{1+\left(\frac{\pi}{\ln{e}}\right)^2}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\eta_n = -2\sqrt{\frac{5}{6}}\beta\sqrt{S_nm_{e}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Normal damping model constant</p></td>
+<td><p><span class="math notranslate nohighlight">\(k_t = k_n\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(k_t = 8G_{e}\sqrt{R_{e}\delta_n}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Tangential damping model constant</p></td>
+<td><p><span class="math notranslate nohighlight">\(\eta_t = \eta_n\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\eta_t = -2\sqrt{\frac{5}{6}}\beta\sqrt{S_tm_{e}}\)</span></p></td>
+</tr>
+</tbody>
+</table></div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R_e\)</span> effective radius;</p></li>
+<li><p><span class="math notranslate nohighlight">\(Y_e\)</span> effective Young’s modulus;</p></li>
+<li><p><span class="math notranslate nohighlight">\(m_e\)</span> effective mass;</p></li>
+<li><p><span class="math notranslate nohighlight">\(V\)</span> characteristic impact velocity;</p></li>
+<li><p><span class="math notranslate nohighlight">\(e\)</span> coefficient of restitution;</p></li>
+<li><p><span class="math notranslate nohighlight">\(G_e\)</span> effective shear modulus;</p></li>
+</ul>
+<p>The parameters are computed as followed:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{\mathcal{J}} &amp;= \left[ \begin{matrix}         A &amp; B^T  \\[0.3em]      B &amp; 0 \end{matrix} \right] \\
-\mathbf{\mathcal{R}} &amp;=  \left[ \begin{matrix} \mathbf{\mathcal{R}}_v   \\[0.3em]             \mathbf{\mathcal{R}}_q  \end{matrix} \right]\end{split}\]</div></div>
-<p>The residual is:</p>
+\[\begin{split}\frac{1}{m_{e}} &amp;= \frac{1}{m_i}+\frac{1}{m_j} \\
+\frac{1}{R_{e}} &amp;= \frac{1}{R_i}+\frac{1}{R_j} \\
+\frac{1}{G_{e}} &amp;= \frac{2(2-\nu_i)(1+\nu_i)}{Y_i}+\frac{2(2-\nu_j)(1+\nu_j)}{Y_j} \\
+\frac{1}{Y_{e}} &amp;= \frac{\left(1-\nu_i^2\right)}{Y_i}+\frac{\left(1-\nu_j^2\right)}{Y_j} \\
+\beta &amp;= \frac{\ln{e}}{\sqrt{\ln^2{e}+\pi^2}} \\
+S_n &amp;= 2Y_{e}\sqrt{R_{e}\delta_n} \\
+S_t &amp;= 8G_{e}\sqrt{R_{e}\delta_n}\end{split}\]</div></div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\nu_i, \nu_j\)</span> poisson coefficient of particle i or j;</p></li>
+</ul>
+<p>Rolling friction may be calculated through a constant torque model or a viscous torque model corresponding to those equations:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{\mathcal{R}} &amp;=    \int_{\Omega}  q  \partial_l u_l \mathrm{d}\Omega
-+   \int_{\Omega}  v_k \left(\partial_t u_k+ u_l \partial_l u_k - f_k \right) \mathrm{d}\Omega \\
-&amp;  - \int_{\Omega} v_k \left( \partial_k   p\right) \mathrm{d}\Omega
-+ \nu \int_{\Omega} \left( \partial_l v_k \right) \left( \partial_l u_k  \right) \mathrm{d}\Omega\end{split}\]</div></div>
-<p>We recall that in FEM, the pressure <span class="math notranslate nohighlight">\(p\)</span> and the velocity <span class="math notranslate nohighlight">\(u_k\)</span> are obtained from the discrete nodal values from the following:</p>
+\[\begin{split}\mathbf{M}_{ij}^{r} &amp;= -\mu_{r}R_{e}|\mathbf{F}_{ij}^{n}| \mathbf{\hat{\omega}}_{ij} \\
+\mathbf{M}_{ij}^{r} &amp;= -\mu_{r}R_{e}|\mathbf{F}_{ij}^{n}||\mathbf{V}_{\omega}| \mathbf{\hat{\omega}}_{ij}\end{split}\]</div></div>
+<p>Where the parameters are:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\begin{split}p &amp;= \sum_j p_j \psi_{j}   \\
-u_k &amp;= \sum_j u_{k,j} \phi_{k,j}   \\\end{split}\]</div></div>
-<p>where  <span class="math notranslate nohighlight">\(\psi_j\)</span> is the <span class="math notranslate nohighlight">\(j\)</span> interpolation function for pressure and  <span class="math notranslate nohighlight">\(\phi_{k,j}\)</span> is the <span class="math notranslate nohighlight">\(j\)</span> interpolation function for the <span class="math notranslate nohighlight">\(k\)</span> component of the velocity.  <span class="math notranslate nohighlight">\(p_j\)</span> is the nodal value of pressure and <span class="math notranslate nohighlight">\(u_{k,j}\)</span> is the nodal value of the  <span class="math notranslate nohighlight">\(k\)</span> component of the velocity.</p>
-<p>The Jacobian is:</p>
+\[\begin{split}\mathbf{\hat{\omega}}_{ij} &amp;= \frac{\omega_{i} - \omega_{j}}{|\omega_{i} - \omega_{j}|} \\
+\mathbf{V}_{\omega} &amp;= \left( \omega_{i} \times R_{i}\mathbf{n}_{ij}-\omega_{j} \times R_{j}\mathbf{n}_{ji} \right)\end{split}\]</div></div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mu_{r}\)</span> rolling friction coefficient;</p></li>
+</ul>
+<p>Tangential torque is calculated through:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{\mathcal{J}} &amp;=    \int_{\Omega}  q  \partial_l \phi_{l,j} \mathrm{d}\Omega
-+   \int_{\Omega}  v_k \left(\partial_t \phi_{k,j}+ \phi_{l,j} \partial_l u_k + u_l \partial_l \phi_{k,j}  \right) \mathrm{d}\Omega \\
-&amp;  - \int_{\Omega} v_k \left( \partial_k   \psi_j  \right)\mathrm{d}\Omega
-+ \nu \int_{\Omega} \left( \partial_l v_k \right) \left( \partial_l \phi_{k,j}  \right) \mathrm{d}\Omega\end{split}\]</div></div>
+\[\mathbf{M}_{ij}^{t} = R_{i}\mathbf{n}_{ij} \times \mathbf{F}_{ij}^{c}\]</div></div>
+<p>Coulomb’s criterion is violated when this condition is not respected during a collision:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[|\mathbf{F}_{ij}^{t}| \geq \mu |\mathbf{F}_{ij}^{n}|\]</div></div>
+<p>A violation means the collision is having gross sliding and tangential force needs to be limited to the Coulomb limit.
+To do so, the tangential overlap <span class="math notranslate nohighlight">\(\mathbf{\delta_t}\)</span> is first limited and then the tangential force is recalculated.</p>
+<p>The tangential overlap is calculated with the tangential force with no damping force as default nonlinear contact model as follow:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{\delta_t} &amp;= \frac{\mathbf{\tilde{F}_{ij}}}{-k_{t}} \\
+\mathbf{\tilde{F}_{ij}} &amp;= \mathbf{\hat{F}_{ij}} + \eta_{t}\mathbf{v}_{rt} \\
+\mathbf{\hat{F}_{ij}^{t}} &amp;= \mu |\mathbf{F}_{ij}^{n}| \frac{\mathbf{F}_{ij}^{t}}{|\mathbf{F}_{ij}^{t}|}\end{split}\]</div></div>
+<p>Regarding the particle-wall contacts, applied models are the same than particle-particle contacts with a background triangulation and mapping with walls.</p>
+</section>
+<section id="integration-methods">
+<h2>Integration methods<a class="headerlink" href="#integration-methods" title="Permalink to this headline">¶</a></h2>
+<p>Two types of integration methods are implemented in Lethe-DEM:</p>
+<ul class="simple">
+<li><p>Explicit Euler method;</p></li>
+<li><p>Velocity Verlet method</p></li>
+</ul>
+<p>Explicit Euler method is calculated as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{v}_{i}^{n+1} &amp;= \mathbf{v}_{i}^{n} + \mathbf{a}_{i}^{n}dt \\
+\mathbf{x}_{i}^{n+1} &amp;= \mathbf{x}_{i}^{n} + \mathbf{v}_{i}^{n}dt\end{split}\]</div></div>
+<p>And velocity Verlet method is calculated with half-step velocity as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{v}_{i}^{n+\frac{1}{2}} &amp;= \mathbf{v}_{i}^{n} + \mathbf{a}_{i}^{n}\frac{dt}{2} \\
+\mathbf{x}_{i}^{n+1} &amp;= \mathbf{x}_{i}^{n} + \mathbf{v}_{i}^{n+\frac{1}{2}}dt \\
+\mathbf{v}_{i}^{n+1} &amp;= \mathbf{v}_{i}^{n+\frac{1}{2}} + \mathbf{a}_{i}^{n+1}\frac{dt}{2}\end{split}\]</div></div>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doi.org/10.1007/s40571-022-00478-6">[1]</a> Golshan et al. “Lethe-DEM: An open-source parallel discrete element solver with load balancing.” Computational Particle Mechanics (2022) p.1-20</p>
 </section>
 </section>
 
@@ -384,23 +487,23 @@ u_k &amp;= \sum_j u_{k,j} \phi_{k,j}   \\\end{split}\]</div></div>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="stabilization.html">
+          <a class="next-page" href="../unresolved_cfd-dem/unresolved_cfd-dem.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">On the need for stabilization</div>
+                <div class="title">Unresolved CFD-DEM coupling</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="navier-stokes.html">
+          <a class="prev-page" href="../fluid_dynamics/rheology.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">The Incompressible Navier-Stokes equations</div>
+                <div class="title">Rheology and non-Newtonian fluids</div>
                 
               </div>
             </a>
@@ -410,7 +513,7 @@ u_k &amp;= \sum_j u_{k,j} \phi_{k,j}   \\\end{split}\]</div></div>
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/theory/fluid_dynamics/fem_formulation.rst.txt"
+            | <a class="muted-link" href="../../_sources/theory/dem/dem.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -430,8 +533,10 @@ u_k &amp;= \sum_j u_{k,j} \phi_{k,j}   \\\end{split}\]</div></div>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Origin of the finite element formulation</a><ul>
-<li><a class="reference internal" href="#solving-the-non-linear-problem">Solving the non-linear problem</a></li>
+<li><a class="reference internal" href="#">Discret Element Method (DEM)</a><ul>
+<li><a class="reference internal" href="#contact-force-and-torque-models">Contact force and torque models</a></li>
+<li><a class="reference internal" href="#integration-methods">Integration methods</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
