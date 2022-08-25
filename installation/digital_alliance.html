@@ -342,44 +342,16 @@
 </section>
 <section id="installing-deal-ii">
 <h2>Installing deal.II<a class="headerlink" href="#installing-deal-ii" title="Permalink to this headline">¶</a></h2>
-<section id="on-niagara-beluga-graham-or-cedar">
-<h3>On Niagara, Beluga, Graham or Cedar<a class="headerlink" href="#on-niagara-beluga-graham-or-cedar" title="Permalink to this headline">¶</a></h3>
+<section id="on-niagara-beluga-narval-graham-or-cedar">
+<h3>On Niagara, Beluga, Narval, Graham or Cedar<a class="headerlink" href="#on-niagara-beluga-narval-graham-or-cedar" title="Permalink to this headline">¶</a></h3>
 <p>All operations can be performed on login nodes.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If on <strong>Niagara</strong>, this additional module is needed beforehand: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">CCEnv</span></code>.</p>
 </div>
-<p>For any cluster except Narval (that is: Niagara, Beluga, Graham, Cedar), load <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code>, and their prerequisite modules:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>module load nixpkgs/16.09
-module load gcc/7.3.0
-module load openmpi/3.1.2
-module load trilinos/12.12.1
-module load parmetis/4.0.3
-module load p4est/2.0
-</pre></div>
-</div>
-<p>Then, we can clone and compile <code class="docutils literal notranslate"><span class="pre">dealii</span></code>. Although Lethe always supports the master branch of deal.II, we maintain an identical deal.II fork on the lethe repository. This fork is always tested to make sure it works with lethe. To clone the deal.II fork github repository, execute in <code class="docutils literal notranslate"><span class="pre">$HOME/dealii</span></code> directory:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/dealii.git
-</pre></div>
-</div>
-<p>We can compile <code class="docutils literal notranslate"><span class="pre">dealii</span></code> in the <code class="docutils literal notranslate"><span class="pre">$HOME/dealii/build</span> <span class="pre">folder</span></code>, by defining the paths to installation folders of <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code> :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../dealii -DDEAL_II_WITH_MPI=ON -DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=$EBROOTTRILINOS -DDEAL_II_WITH_P4EST=ON -DP4EST_DIR=$EBROOTP4EST -DDEAL_II_WITH_METIS=ON -DMETIS_DIR=$EBROOTPARMETIS -DCMAKE_INSTALL_PREFIX=../inst
-</pre></div>
-</div>
-<p>and:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>make -j8 install
-</pre></div>
-</div>
-<p>The argument <code class="docutils literal notranslate"><span class="pre">-jX</span></code> specifies the number of processors used for the compilation. On login nodes, a maximum of 8 cores should be used in order to ensure that other users can continue using the cluster without slowdowns. In addition, the <code class="docutils literal notranslate"><span class="pre">nice</span></code> command can be used at the beginning of the call to give a lower priority to this task.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> triggers an error, run the command <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">trilinos</span></code>. If it returns <code class="docutils literal notranslate"><span class="pre">/usr/bin/which:</span> <span class="pre">no</span> <span class="pre">trilinos</span> <span class="pre">in</span></code>, try removing the deal.II build folder, recreating it and explicitly specify libraries’ paths on the <code class="docutils literal notranslate"><span class="pre">cmake</span></code>.</p>
-</div>
-</section>
-<section id="on-narval">
-<h3>On Narval<a class="headerlink" href="#on-narval" title="Permalink to this headline">¶</a></h3>
 <p>Load <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code>, and their prerequisite modules:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>module load gcc/9.3.0
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>module load StdEnv/2020
+module load gcc/9.3.0
 module load openmpi/4.0.3
 module load trilinos/13.0.1
 module load parmetis/4.0.3
@@ -390,8 +362,8 @@ module load p4est/2.2
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/dealii.git
 </pre></div>
 </div>
-<p>We can compile <code class="docutils literal notranslate"><span class="pre">dealii</span></code> in the <code class="docutils literal notranslate"><span class="pre">$HOME/dealii/build</span></code> folder, by defining the paths to installation folders of <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code> :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../dealii -DDEAL_II_WITH_MPI=ON -DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=$EBROOTTRILINOS -DDEAL_II_WITH_P4EST=ON -DP4EST_DIR=$EBROOTP4EST -DDEAL_II_WITH_METIS=ON -DMETIS_DIR=$EBROOTPARMETIS -DCMAKE_INSTALL_PREFIX=../inst -DTrilinos_FIND_COMPONENTS="Pike;PikeImplicit;PikeBlackBox;TrilinosCouplings;Panzer;PanzerMiniEM;PanzerAdaptersSTK;PanzerDiscFE;PanzerDofMgr;PanzerCore;Piro;ROL;Stokhos;Tempus;Rythmos;ShyLU;ShyLU_DD;ShyLU_DDCommon;ShyLU_DDFROSch;ShyLU_DDBDDC;Zoltan2;Zoltan2Sphynx;MueLu;Moertel;NOX;Phalanx;Percept;STK;STKExprEval;STKDoc_tests;STKUnit_tests;STKBalance;STKTools;STKTransfer;STKSearchUtil;STKSearch;STKUnit_test_utils;STKNGP_TEST;STKIO;STKMesh;STKTopology;STKSimd;STKUtil;STKMath;Compadre;Intrepid2;Intrepid;Teko;FEI;Stratimikos;Ifpack2;Anasazi;Komplex;SEACAS;SEACASEx2ex1v2;SEACASTxtexo;SEACASNumbers;SEACASNemspread;SEACASNemslice;SEACASMat2exo;SEACASMapvar-kd;SEACASMapvar;SEACASMapvarlib;SEACASExplore;SEACASGrepos;SEACASGenshell;SEACASGen3D;SEACASGjoin;SEACASFastq;SEACASEx1ex2v2;SEACASExo_format;SEACASExotxt;SEACASExomatlab;SEACASExodiff;SEACASExo2mat;SEACASEpu;SEACASEjoin;SEACASConjoin;SEACASBlot;SEACASAprepro;SEACASAlgebra;SEACASPLT;SEACASSVDI;SEACASSuplibCpp;SEACASSuplibC;SEACASSuplib;SEACASSupes;SEACASAprepro_lib;SEACASChaco;SEACASIoss;SEACASNemesis;SEACASExoIIv2for32;SEACASExodus_for;SEACASExodus;Amesos2;ShyLU_Node;ShyLU_NodeTacho;ShyLU_NodeHTS;Belos;ML;Ifpack;Zoltan2Core;Pamgen;Amesos;Galeri;AztecOO;Pliris;Isorropia;Xpetra;Thyra;ThyraTpetraAdapters;ThyraEpetraExtAdapters;ThyraEpetraAdapters;ThyraCore;Domi;TrilinosSS;Tpetra;TpetraCore;TpetraTSQR;TpetraClassic;EpetraExt;Triutils;Shards;Zoltan;Epetra;MiniTensor;Sacado;RTOp;KokkosKernels;Teuchos;TeuchosKokkosComm;TeuchosKokkosCompat;TeuchosRemainder;TeuchosNumerics;TeuchosComm;TeuchosParameterList;TeuchosParser;TeuchosCore;Kokkos;KokkosAlgorithms;KokkosContainers;KokkosCore;Gtest;TrilinosATDMConfigTests;TrilinosFrameworkTests"
+<p>We can compile <code class="docutils literal notranslate"><span class="pre">dealii</span></code> in the <code class="docutils literal notranslate"><span class="pre">$HOME/dealii/build</span></code> folder, by defining the paths to installation folders of <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code>. We compile <code class="docutils literal notranslate"><span class="pre">dealii</span></code> ony in release mode and we do not compile the test in order to increase the speed of the compilation:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../dealii -DDEAL_II_COMPONENT_EXAMPLES=OFF -DCMAKE_BUILD_TYPE=Release  -DDEAL_II_WITH_MPI=ON -DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=$EBROOTTRILINOS -DDEAL_II_WITH_P4EST=ON -DP4EST_DIR=$EBROOTP4EST -DDEAL_II_WITH_METIS=ON -DMETIS_DIR=$EBROOTPARMETIS -DCMAKE_INSTALL_PREFIX=../inst -DTrilinos_FIND_COMPONENTS="Pike;PikeImplicit;PikeBlackBox;TrilinosCouplings;Panzer;PanzerMiniEM;PanzerAdaptersSTK;PanzerDiscFE;PanzerDofMgr;PanzerCore;Piro;ROL;Stokhos;Tempus;Rythmos;ShyLU;ShyLU_DD;ShyLU_DDCommon;ShyLU_DDFROSch;ShyLU_DDBDDC;Zoltan2;Zoltan2Sphynx;MueLu;Moertel;NOX;Phalanx;Percept;STK;STKExprEval;STKDoc_tests;STKUnit_tests;STKBalance;STKTools;STKTransfer;STKSearchUtil;STKSearch;STKUnit_test_utils;STKNGP_TEST;STKIO;STKMesh;STKTopology;STKSimd;STKUtil;STKMath;Compadre;Intrepid2;Intrepid;Teko;FEI;Stratimikos;Ifpack2;Anasazi;Komplex;SEACAS;SEACASEx2ex1v2;SEACASTxtexo;SEACASNumbers;SEACASNemspread;SEACASNemslice;SEACASMat2exo;SEACASMapvar-kd;SEACASMapvar;SEACASMapvarlib;SEACASExplore;SEACASGrepos;SEACASGenshell;SEACASGen3D;SEACASGjoin;SEACASFastq;SEACASEx1ex2v2;SEACASExo_format;SEACASExotxt;SEACASExomatlab;SEACASExodiff;SEACASExo2mat;SEACASEpu;SEACASEjoin;SEACASConjoin;SEACASBlot;SEACASAprepro;SEACASAlgebra;SEACASPLT;SEACASSVDI;SEACASSuplibCpp;SEACASSuplibC;SEACASSuplib;SEACASSupes;SEACASAprepro_lib;SEACASChaco;SEACASIoss;SEACASNemesis;SEACASExoIIv2for32;SEACASExodus_for;SEACASExodus;Amesos2;ShyLU_Node;ShyLU_NodeTacho;ShyLU_NodeHTS;Belos;ML;Ifpack;Zoltan2Core;Pamgen;Amesos;Galeri;AztecOO;Pliris;Isorropia;Xpetra;Thyra;ThyraTpetraAdapters;ThyraEpetraExtAdapters;ThyraEpetraAdapters;ThyraCore;Domi;TrilinosSS;Tpetra;TpetraCore;TpetraTSQR;TpetraClassic;EpetraExt;Triutils;Shards;Zoltan;Epetra;MiniTensor;Sacado;RTOp;KokkosKernels;Teuchos;TeuchosKokkosComm;TeuchosKokkosCompat;TeuchosRemainder;TeuchosNumerics;TeuchosComm;TeuchosParameterList;TeuchosParser;TeuchosCore;Kokkos;KokkosAlgorithms;KokkosContainers;KokkosCore;Gtest;TrilinosATDMConfigTests;TrilinosFrameworkTests"
 </pre></div>
 </div>
 <p>This command is absolutely barbaric, but it is required to prevent the usage of the Zadelus library within Trilinos 13.0.1.</p>
@@ -408,19 +380,19 @@ module load p4est/2.2
 </section>
 <section id="installing-lethe">
 <h2>Installing Lethe<a class="headerlink" href="#installing-lethe" title="Permalink to this headline">¶</a></h2>
-<p>After installing deal.II, compiling Lethe on Beluga, Niagara, Graham or Cedar is relatively straightforward, especially since all of these clusters share a very similar environment. To compile Lethe, the <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code> modules should be loaded.</p>
+<p>After installing deal.II, compiling Lethe is relatively straightforward, especially since all of these clusters share a very similar environment. To compile Lethe, the <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code> modules should be loaded.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">$HOME/lethe</span></code> directory, download Lethe:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/lethe.git
 </pre></div>
 </div>
 <p>To install Lethe in the <code class="docutils literal notranslate"><span class="pre">$HOME/lethe/inst</span></code> directory (applications will be in <code class="docutils literal notranslate"><span class="pre">inst/bin</span></code>), run in the <code class="docutils literal notranslate"><span class="pre">$HOME/lethe/build</span></code> directory:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe  -DDEAL_II_DIR=../../dealii/inst -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../inst
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe  -DDEAL_II_DIR=../../dealii/inst -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../inst -DBUILD_TESTING=OFF
 make install -j8
 </pre></div>
 </div>
-<section id="installing-numdiff-if-required">
-<h3>Installing numdiff if required<a class="headerlink" href="#installing-numdiff-if-required" title="Permalink to this headline">¶</a></h3>
-<p>If numdiff is not installed, you will have an error at the cmake step of Lethe’s installation, stating that this module is missing. To install the package manually use the following steps:</p>
+<section id="installing-numdiff-to-enable-tests">
+<h3>Installing numdiff to enable tests<a class="headerlink" href="#installing-numdiff-to-enable-tests" title="Permalink to this headline">¶</a></h3>
+<p>You will need to have numdiff installed to enable the test suite, otherwise you will have an error at the cmake step of Lethe’s installation when using <code class="docutils literal notranslate"><span class="pre">-DBUILD_TESTING=ON</span></code>, stating that this module is missing. To install the package manually use the following steps:</p>
 <ol class="arabic">
 <li><p>Download the <a class="reference external" href="https://mirror.csclub.uwaterloo.ca/nongnu/numdiff/">compressed folder</a> (ex/ numdiff-5.9.0.tar.gz)</p></li>
 <li><p>Unzip it</p></li>
@@ -571,7 +543,7 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/installation/compute_canada.rst.txt"
+            | <a class="muted-link" href="../_sources/installation/digital_alliance.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -594,12 +566,11 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
 <li><a class="reference internal" href="#">Running Lethe on Digital Research Alliance of Canada clusters</a><ul>
 <li><a class="reference internal" href="#setting-up-the-folder-structure">Setting-up the folder structure</a></li>
 <li><a class="reference internal" href="#installing-deal-ii">Installing deal.II</a><ul>
-<li><a class="reference internal" href="#on-niagara-beluga-graham-or-cedar">On Niagara, Beluga, Graham or Cedar</a></li>
-<li><a class="reference internal" href="#on-narval">On Narval</a></li>
+<li><a class="reference internal" href="#on-niagara-beluga-narval-graham-or-cedar">On Niagara, Beluga, Narval, Graham or Cedar</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#installing-lethe">Installing Lethe</a><ul>
-<li><a class="reference internal" href="#installing-numdiff-if-required">Installing numdiff if required</a></li>
+<li><a class="reference internal" href="#installing-numdiff-to-enable-tests">Installing numdiff to enable tests</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#copying-local-files">Copying local files</a></li>
