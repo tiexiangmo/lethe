@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="4. Warming Up a Viscous Fluid" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html" /><link rel="prev" title="2. Rayleigh-Bénard Convection" href="../rayleigh-benard-convection/rayleigh-benard-convection.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="5. Warming Up a Viscous Fluid" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html" /><link rel="prev" title="3. Rayleigh-Taylor Instability" href="../rayleigh-taylor-instability/rayleigh-taylor-instability.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>3. Stefan problem : melting of a solid - Lethe documentation</title>
+        <title>4. Stefan problem : melting of a solid - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -238,13 +238,14 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rayleigh-benard-convection/rayleigh-benard-convection.html">2. Rayleigh-Bénard Convection</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">3. Stefan problem : melting of a solid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">4. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">5. Dam break VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rising-bubble-VOF/rising-bubble-VOF.html">6. Rising bubble VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">7. Melting Cavity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../laser-heating/laser-heating.html">8. Laser heating</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../laser-meltpool/laser-meltpool.html">9. Laser meltpool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rayleigh-taylor-instability/rayleigh-taylor-instability.html">3. Rayleigh-Taylor Instability</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">4. Stefan problem : melting of a solid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">5. Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">6. Dam break VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rising-bubble-VOF/rising-bubble-VOF.html">7. Rising bubble VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">8. Melting Cavity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../laser-heating/laser-heating.html">9. Laser heating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../laser-meltpool/laser-meltpool.html">10. Laser meltpool</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -323,10 +324,10 @@
         </div>
         <article role="main">
           <section id="stefan-problem-melting-of-a-solid">
-<h1><span class="section-number">3. </span>Stefan problem : melting of a solid<a class="headerlink" href="#stefan-problem-melting-of-a-solid" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Stefan problem : melting of a solid<a class="headerlink" href="#stefan-problem-melting-of-a-solid" title="Permalink to this headline">¶</a></h1>
 <p>This example simulates the <a class="reference external" href="https://en.wikipedia.org/wiki/Stefan_problem">Stefan</a> problem following the approach taken by <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">Blais &amp; Ilinca (2018)</a></p>
 <section id="features">
-<h2><span class="section-number">3.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
 <li><p>Heat transfer pĥysics</p></li>
@@ -335,10 +336,10 @@
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">3.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/stefan_problem/stefan.prm</span></code></p>
 <section id="description-of-the-case">
-<h3><span class="section-number">3.2.1. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h3>
 <p>The Stefan problem describes the melting or the solidification of a pure substance by conduction in a 1D semi-infinite domain. This classical problem, extensively described in the literature <a class="reference external" href="https://doi.org/10.1016/j.applthermaleng.2007.01.008">[1]</a>, is often used as the core test case to establish the accuracy and the robustness of numerical models for phase change. Although it is established for a semi-infinite domain, it can be solved on a finite domain provided that it is sufficiently long. This problem is illustrated in the following figure:</p>
 <img alt="problem_illustration" class="align-center" src="../../../_images/stefan_problem_illustration.png"/>
 <p>The analytical solution for the temperature in the liquid is given by:</p>
@@ -360,7 +361,7 @@
 </section>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">3.3. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>We first define the geometry in which the simulation is carried out using the mesh subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Mesh
@@ -437,12 +438,12 @@ end
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">3.4. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following image compares the results obtained with Lethe with the analytical solution for the Stefan problem at <span class="math notranslate nohighlight">\(t=5\)</span>. This data is extracted through the use of a python script available in the folder of the example. We see that a quasi perfect agreement can be obtained with the analytical solution of the Stefan problem.</p>
 <img alt="comparison_analytical_solution" class="align-center" src="../../../_images/lethe_stefan_comparison.png"/>
 <p>Refining the mesh, decreasing the time step and decreasing the phase change interval (by decreasing <code class="docutils literal notranslate"><span class="pre">liquidus</span> <span class="pre">temperature</span></code>) would increase the accuracy of the solution since the analytical solution of the Stefan problem is defined for a pure fluid (for which the liquid and the solidus temperatures are equal).</p>
 <section id="possibilities-for-extension">
-<h3><span class="section-number">3.4.1. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.1. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><strong>Consider different Stefan numbers:</strong> The solver in Lethe is sufficiently robust to simulate a large range of Stefan numbers. You can try to simulate the problem with different Stefan number and see how the value of the Stefan number affects the solution.</p></li>
 <li><p><strong>Simulate a more complex geometry:</strong> The phase change model can be readily used in any sort of geometry using, for example, a simplex mesh. An easy extension of this problem is to consider any 2D or 3D geometry.</p></li>
@@ -450,7 +451,7 @@ end
 </section>
 </section>
 <section id="references">
-<h2><span class="section-number">3.5. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://doi.org/10.1016/j.applthermaleng.2007.01.008">[1]</a> aus der Wiesche, Stefan. “Numerical heat transfer and thermal engineering of AdBlue (SCR) tanks for combustion engine emission reduction.” Applied Thermal Engineering 27.11-12 (2007): 1790-1798.</p>
 </section>
 </section>
@@ -465,18 +466,18 @@ end
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">4. </span>Warming Up a Viscous Fluid</div>
+                <div class="title"><span class="section-number">5. </span>Warming Up a Viscous Fluid</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../rayleigh-benard-convection/rayleigh-benard-convection.html">
+          <a class="prev-page" href="../rayleigh-taylor-instability/rayleigh-taylor-instability.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">2. </span>Rayleigh-Bénard Convection</div>
+                <div class="title"><span class="section-number">3. </span>Rayleigh-Taylor Instability</div>
                 
               </div>
             </a>
@@ -506,18 +507,18 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">3. Stefan problem : melting of a solid</a><ul>
-<li><a class="reference internal" href="#features">3.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">3.2. Location of the example</a><ul>
-<li><a class="reference internal" href="#description-of-the-case">3.2.1. Description of the case</a></li>
+<li><a class="reference internal" href="#">4. Stefan problem : melting of a solid</a><ul>
+<li><a class="reference internal" href="#features">4.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">4.2. Location of the example</a><ul>
+<li><a class="reference internal" href="#description-of-the-case">4.2.1. Description of the case</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#parameter-file">3.3. Parameter file</a></li>
-<li><a class="reference internal" href="#results">3.4. Results</a><ul>
-<li><a class="reference internal" href="#possibilities-for-extension">3.4.1. Possibilities for extension</a></li>
+<li><a class="reference internal" href="#parameter-file">4.3. Parameter file</a></li>
+<li><a class="reference internal" href="#results">4.4. Results</a><ul>
+<li><a class="reference internal" href="#possibilities-for-extension">4.4.1. Possibilities for extension</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#references">3.5. References</a></li>
+<li><a class="reference internal" href="#references">4.5. References</a></li>
 </ul>
 </li>
 </ul>

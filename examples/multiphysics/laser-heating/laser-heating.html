@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="9. Laser meltpool" href="../laser-meltpool/laser-meltpool.html" /><link rel="prev" title="7. Melting Cavity" href="../melting-cavity/melting-cavity.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="10. Laser meltpool" href="../laser-meltpool/laser-meltpool.html" /><link rel="prev" title="8. Melting Cavity" href="../melting-cavity/melting-cavity.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>8. Laser heating - Lethe documentation</title>
+        <title>9. Laser heating - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -238,13 +238,14 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../multiphysics.html">Multiphysics Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rayleigh-benard-convection/rayleigh-benard-convection.html">2. Rayleigh-Bénard Convection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">3. Stefan problem : melting of a solid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">4. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">5. Dam break VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rising-bubble-VOF/rising-bubble-VOF.html">6. Rising bubble VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">7. Melting Cavity</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">8. Laser heating</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../laser-meltpool/laser-meltpool.html">9. Laser meltpool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rayleigh-taylor-instability/rayleigh-taylor-instability.html">3. Rayleigh-Taylor Instability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stefan_problem/stefan_problem.html">4. Stefan problem : melting of a solid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">5. Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dam-break-VOF/dam-break-VOF.html">6. Dam break VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rising-bubble-VOF/rising-bubble-VOF.html">7. Rising bubble VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../melting-cavity/melting-cavity.html">8. Melting Cavity</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">9. Laser heating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../laser-meltpool/laser-meltpool.html">10. Laser meltpool</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -323,10 +324,10 @@
         </div>
         <article role="main">
           <section id="laser-heating">
-<h1><span class="section-number">8. </span>Laser heating<a class="headerlink" href="#laser-heating" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">9. </span>Laser heating<a class="headerlink" href="#laser-heating" title="Permalink to this headline">¶</a></h1>
 <p>This example simulates a three-dimensional solid block heated with a laser beam which follows a complex path. This mimics an additive manufacturing process.</p>
 <section id="features">
-<h2><span class="section-number">8.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code></p></li>
 <li><p>Laser heat source</p></li>
@@ -337,18 +338,18 @@
 </ul>
 </section>
 <section id="location-of-the-example">
-<h2><span class="section-number">8.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2. </span>Location of the example<a class="headerlink" href="#location-of-the-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/laser_heating/laser_heating.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">8.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>A laser beam heats a three-dimensional solid block. The laser beam is emitted perpendicular to the top surface of the block in the negative z direction. The following schematic describes the geometry and dimensions of block and laser beam:</p>
 <a class="reference internal image-reference" href="../../../_images/geometry.png"><img alt="Schematic" class="align-center" src="../../../_images/geometry.png" style="width: 400px;"/></a>
 <p>The laser path changes with time. The laser beam radius and penetration depth are both set to <span class="math notranslate nohighlight">\(0.00005\)</span> m. Because of this small radius and penetration depth, we use adaptive mesh refinement based on the temperature. Thermal boundary conditions are <code class="docutils literal notranslate"><span class="pre">convection-radiation</span></code> with a convective heat transfer coefficient of 5 and an emissivity of 0.4. The corresponding parameter file is:
 <code class="docutils literal notranslate"><span class="pre">laser_heating.prm</span></code>.</p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">8.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Time integration is handled by a 2nd order backward differentiation scheme <cite>(bdf2)</cite> (for a better temporal accuracy), for a <span class="math notranslate nohighlight">\(0.003\)</span> seconds simulation time with a constant
 time step of <span class="math notranslate nohighlight">\(5.0 \times 10^{-5}\)</span> seconds.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
@@ -443,7 +444,7 @@ end
 </div>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">8.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Call the gls_navier_stokes_3d by invoking:</p>
 <p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes_3d</span> <span class="pre">laser_heating.prm</span></code></p>
 <p>to run the simulation using eight CPU cores. Feel free to use more.</p>
@@ -455,10 +456,10 @@ run in parallel using mpirun. This simulation takes
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">8.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following animation shows the temperature distribution in the simulations domain, as well the laser path.</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/e9bZ_3DAyZk" width="560"></iframe><section id="possibility-for-extension">
-<h3><span class="section-number">8.6.1. </span>Possibility for extension<a class="headerlink" href="#possibility-for-extension" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.6.1. </span>Possibility for extension<a class="headerlink" href="#possibility-for-extension" title="Permalink to this headline">¶</a></h3>
 <p>This example can be extended to implement phase change (melting the solid block by laser and solidifying again after cooling).</p>
 </section>
 </section>
@@ -474,7 +475,7 @@ run in parallel using mpirun. This simulation takes
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">9. </span>Laser meltpool</div>
+                <div class="title"><span class="section-number">10. </span>Laser meltpool</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -485,7 +486,7 @@ run in parallel using mpirun. This simulation takes
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">7. </span>Melting Cavity</div>
+                <div class="title"><span class="section-number">8. </span>Melting Cavity</div>
                 
               </div>
             </a>
@@ -515,14 +516,14 @@ run in parallel using mpirun. This simulation takes
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">8. Laser heating</a><ul>
-<li><a class="reference internal" href="#features">8.1. Features</a></li>
-<li><a class="reference internal" href="#location-of-the-example">8.2. Location of the example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">8.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">8.4. Parameter file</a></li>
-<li><a class="reference internal" href="#running-the-simulation">8.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">8.6. Results</a><ul>
-<li><a class="reference internal" href="#possibility-for-extension">8.6.1. Possibility for extension</a></li>
+<li><a class="reference internal" href="#">9. Laser heating</a><ul>
+<li><a class="reference internal" href="#features">9.1. Features</a></li>
+<li><a class="reference internal" href="#location-of-the-example">9.2. Location of the example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">9.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">9.4. Parameter file</a></li>
+<li><a class="reference internal" href="#running-the-simulation">9.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">9.6. Results</a><ul>
+<li><a class="reference internal" href="#possibility-for-extension">9.6.1. Possibility for extension</a></li>
 </ul>
 </li>
 </ul>

@@ -238,13 +238,14 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">1. Tracer through CAD Junction in Simplex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">2. Rayleigh-Bénard Convection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/stefan_problem/stefan_problem.html">3. Stefan problem : melting of a solid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">4. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/dam-break-VOF/dam-break-VOF.html">5. Dam break VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/rising-bubble-VOF/rising-bubble-VOF.html">6. Rising bubble VOF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/melting-cavity/melting-cavity.html">7. Melting Cavity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/laser-heating/laser-heating.html">8. Laser heating</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/laser-meltpool/laser-meltpool.html">9. Laser meltpool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability.html">3. Rayleigh-Taylor Instability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/stefan_problem/stefan_problem.html">4. Stefan problem : melting of a solid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">5. Warming Up a Viscous Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/dam-break-VOF/dam-break-VOF.html">6. Dam break VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/rising-bubble-VOF/rising-bubble-VOF.html">7. Rising bubble VOF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/melting-cavity/melting-cavity.html">8. Melting Cavity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/laser-heating/laser-heating.html">9. Laser heating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/multiphysics/laser-meltpool/laser-meltpool.html">10. Laser meltpool</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -332,7 +333,6 @@
 </div>
 <p>The default values of the VOF parameters are given in the text box below.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection VOF
-
         set viscous dissipative fluid = fluid 1
 
         subsection interface sharpening
@@ -408,9 +408,8 @@ end
 <p class="admonition-title">Tip</p>
 <p>Applying viscous dissipation in one of the fluids instead of both is particularly useful when one of the fluids is air. For numerical stability, the <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> of the air is usually increased. However, but we do not want to have viscous dissipation in the air, because it would result in an unrealistic increase in its temperature.</p>
 </div>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">interface</span> <span class="pre">sharpening</span></code>: defines parameters to counter numerical diffusion of the VOF method and to avoid the interface between the two fluids becoming more and more blurry after each time step.</p>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">interface</span> <span class="pre">sharpening</span></code>: defines parameters to counter numerical diffusion of the VOF method and to avoid the interface between the two fluids becoming more and more blurry after each time step.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: controls if interface sharpening is enabled.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code>: sets the frequency (in number of iterations) for the interface sharpening computation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpness</span></code>: sharpness of the moving interface (parameter <span class="math notranslate nohighlight">\(a\)</span> in the <a class="reference external" href="https://www.researchgate.net/publication/287118331_Development_of_efficient_interface_sharpening_procedure_for_viscous_incompressible_flows">interface sharpening model</a>).</p></li>
