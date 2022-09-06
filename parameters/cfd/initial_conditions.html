@@ -184,7 +184,7 @@
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="volume_of_fluid.html">Multiphase Flow - Volume of Fluid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nitsche.html">Nitsche Immersed Boundary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="laser_heat_source.html">Laser heat source</a></li>
@@ -341,6 +341,10 @@
     set Function expression = if (x&lt;0.5 &amp; y&lt;1, 1, 0)
   end
 
+  subsection temperature
+    set Function expression = 0
+  end
+
   subsection ramp
    subsection viscosity
      set initial viscosity = 1.0
@@ -366,6 +370,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> can be used to establish an even more complex free surface initial geometry. For example, one can create a circle of fluid : <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(</span> <span class="pre">(x^2+y^2)&lt;=(r)^2</span> <span class="pre">,1,0)</span></code></p>
 </div>
 <ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">temperature</span></code> allows the user to define an initial temperature for the fluid domain (if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">tranfer</span> <span class="pre">=</span> <span class="pre">true</span></code> in <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>).</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">ramp</span></code> holds the parameters to operate a ramp on either or both the viscosity and the <code class="docutils literal notranslate"><span class="pre">n</span></code> parameter in rheological models (see <a class="reference internal" href="physical_properties.html"><span class="doc">Physical Properties</span></a> for more information on this parameter). When ramping on the viscosity value,</p>
 <ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">viscosity</span></code> is the viscosity with which the initial condition starts off. An initial viscosity of 1.0 is suggested.</p></li>

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Restart" href="restart.html" /><link rel="prev" title="Boundary Contitions - Multiphysics" href="boundary_conditions_multiphysics.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Nitsche - Lethe documentation</title>
+        <title>Nitsche Immersed Boundary - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -184,7 +184,7 @@
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="volume_of_fluid.html">Multiphase Flow - Volume of Fluid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Nitsche</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Nitsche Immersed Boundary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="laser_heat_source.html">Laser heat source</a></li>
@@ -323,8 +323,8 @@
           </label>
         </div>
         <article role="main">
-          <section id="nitsche">
-<h1>Nitsche<a class="headerlink" href="#nitsche" title="Permalink to this headline">¶</a></h1>
+          <section id="nitsche-immersed-boundary">
+<h1>Nitsche Immersed Boundary<a class="headerlink" href="#nitsche-immersed-boundary" title="Permalink to this headline">¶</a></h1>
 <p>These parameters are used for simulations using the Nitsche immersed boundary method. Nitsche immersed boundary method works by forcing the fluid at the location of the Gauss points of the solid triangulation in order to apply the <code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary condition within the solid object.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -344,16 +344,14 @@
   # General parameters
   #---------------------------------------------------
   set verbosity = quiet
-  set number of solids = 1
+  set number of solids = 0
 
   #---------------------------------------------------
   # Solid parameters
   #---------------------------------------------------
   subsection nitsche solid 0
-    # Penalization term for Nitsche method
-    set beta = 10
-
-    # Solid mesh
+    # Solid Mesh
+    #=================================================
     subsection mesh
       set type = dealii
       set grid type = hyper_ball
@@ -362,12 +360,43 @@
       set simplex = false
     end
 
+    # Velocity boundary condition parameters
+    #=================================================
+    # Penalization term for Nitsche method, on the velocity
+    set beta = 10
+
     # Solid velocity
     subsection solid velocity
       # Default values in 2D
       set Function expression = 0 ; 0
       # in 3D: set Function expression = 0 ; 0 ; 0
     end
+
+    # Condition on the motion of particles
+    set enable particles motion = false
+
+    # Number of sub iterations for the motion of the particles
+    set particles sub iterations = 1
+
+    # Heat boundary condition parameters
+    #=================================================
+    set enable heat boundary condition = false
+
+    # Penalization term for Nitsche method, on the energy equation
+    set beta heat = 10
+
+    # Solid temperature
+    subsection solid temperature
+      set Function expression = 0
+    end
+
+    # Post-processing parameters
+    #=================================================
+    # Force and torque calculation on solid
+    set calculate force on solid = false
+    set solid force name = force_solid
+    set calculate torque on solid = false
+    set solid torque name = torque_solid
 
     # Center of rotation, used for torque calculation
     subsection center of rotation
@@ -376,20 +405,10 @@
       # in 3D: set z = 0
     end
 
-    # Condition on the motion of particles
-    set enable particles motion = false
-
-    # Force and torque calculation on solid
-    set calculate force on solid = false
-    set solid force name = force_solid
-    set calculate torque on solid = false
-    set solid torque name = torque_solid
-
+    # Simulation control parameters
+    #=================================================
     # Enable stopping the simulation if Nitsche particles have been lost
     set stop if particles lost = true
-
-    # Number of sub iterations for the motion of the particles
-    set particles sub iterations = 1
 
     # Number of Nitsche (quadrature) points to insert in a 1D cell
     set number of quadrature points = 2
@@ -410,24 +429,18 @@ end
 <p>The solid particles enable the Nitsche restriction visualization, while the solid triangulation is used for animation purposes.</p>
 </div>
 <ul class="simple">
-<li><p>the <code class="docutils literal notranslate"><span class="pre">mixer_solid_particles_00.pvd</span></code>, corresponding to the discrete particles inserted at the Gauss points of the solid triangulation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code>: number of Nitsche solids in the simulation.</p></li>
 </ul>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The number of solids must be specified explicitly. This is often a source of error.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Each solid will then correspond to a <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">nitsche</span> <span class="pre">solid</span></code>.</p>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">nitsche</span> <span class="pre">solid</span> <span class="pre">0</span></code>: defines a solid object, with index <code class="docutils literal notranslate"><span class="pre">0</span></code>, on which the Nitsche immersed boundary is applied. Multiple solids can be added in the same fashion (<code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">nitsche</span> <span class="pre">solid</span> <span class="pre">1</span></code> etc.).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: controls the intensity of the Nitsche method application in the fluid region (restriction parameter). Higher values of <code class="docutils literal notranslate"><span class="pre">beta</span></code> lead to stiffer problems but prevent the fluid from penetrating the solid.</p></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For flows with Reynolds numbers <span class="math notranslate nohighlight">\(Re &gt; 1\)</span>, we found that setting <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">10</span></code> (default value) leads to satisfactory results.</p>
-<p>For <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">0</span></code>, the solid has no influence on the flow: this value can be used for debugging purposes.</p>
-<p>In case of a static solid, <code class="docutils literal notranslate"><span class="pre">beta</span></code> parameter has to be greatly increased, up to <code class="docutils literal notranslate"><span class="pre">100</span></code> or <code class="docutils literal notranslate"><span class="pre">1000</span></code>, to prevent the fluid moving through the solid. For highly viscous flows, even higher values of <code class="docutils literal notranslate"><span class="pre">beta</span></code> could be used to compensate for the larger shear stresses acting on the immersed solid.</p>
-</div>
-<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mesh</span></code>: defines the solid mesh used to apply Nitsche immersed boundary. The syntax is the same as that of the mesh subsection, see <a class="reference internal" href="mesh.html"><span class="doc">Mesh</span></a> for more details.</p></li>
 </ul>
 <div class="admonition warning">
@@ -437,6 +450,15 @@ end
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The solid mesh should have a characteristic size of the same order as the fluid dynamics mesh. Using a finer mesh will not cause any problem, but will increase the computational cost without benefits.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: penalization term, which controls the intensity of the Nitsche method application on the velocity of the fluid region. Higher values of <code class="docutils literal notranslate"><span class="pre">beta</span></code> lead to stiffer problems but prevent the fluid from penetrating the solid.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For flows with Reynolds numbers <span class="math notranslate nohighlight">\(Re &gt; 1\)</span>, we found that setting <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">10</span></code> (default value) leads to satisfactory results.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">0</span></code>, the solid has no influence on the flow: this value can be used for debugging purposes.</p>
+<p>In case of a static solid, <code class="docutils literal notranslate"><span class="pre">beta</span></code> parameter has to be greatly increased, up to <code class="docutils literal notranslate"><span class="pre">100</span></code> or <code class="docutils literal notranslate"><span class="pre">1000</span></code>, to prevent the fluid moving through the solid. For highly viscous flows, even higher values of <code class="docutils literal notranslate"><span class="pre">beta</span></code> could be used to compensate for the larger shear stresses acting on the immersed solid.</p>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">velocity</span></code>: defines the velocity of the solid mesh. This velocity is defined by a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> and can depend on both space and time.</p></li>
@@ -452,7 +474,6 @@ end
 <p>The unit of the solid velocity value depends on the units of the mesh: if the mesh is build with the meter as the base unit, the velocity will be in <span class="math notranslate nohighlight">\(m/s\)</span>.</p>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code>: <span class="math notranslate nohighlight">\((x, y)\)</span> coordinates of the center of the rotation, used for torque calculation. Default center of rotation is (0, 0). Add <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">z</span></code> for 3D simulations.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">particles</span> <span class="pre">motion</span></code>: controls if the immersed boundary moves within the fluid domain.</p></li>
 </ul>
 <div class="admonition tip">
@@ -464,15 +485,6 @@ end
 <p>When the <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">velocity</span></code> leads to a motion of the solid, use <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">particles</span> <span class="pre">motion</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">force</span> <span class="pre">on</span> <span class="pre">solid</span></code>: controls if force calculation on the immersed geometry is enabled. If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, forces will written in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">force</span> <span class="pre">name</span></code>, with the solid index automatically added at the end.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torque</span> <span class="pre">on</span> <span class="pre">solid</span></code>: controls if torque calculation on the immersed geometry is enabled. If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, torques will be written in the file in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">torque</span> <span class="pre">name</span></code>, with the solid index automatically added at the end.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">if</span> <span class="pre">particles</span> <span class="pre">lost</span></code>: controls if the simulation is stopped when Nitsche particles have been lost. If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the simulation will continue.</p></li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Particle loss can happen when particles move through multiple cells during a time step. This can be caused by a big <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> (see <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>), a high fluid <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">refinement</span></code> (see <a class="reference internal" href="mesh.html"><span class="doc">Mesh</span></a>), or a high CFL. To prevent particle loss, try increasing the number of <code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span></code>.</p>
-</div>
-<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span></code>: number of sub iterations for the motion of the particles.</p></li>
 </ul>
 <div class="admonition tip">
@@ -482,11 +494,41 @@ end
 <p>Generally, it is a good practice to have sufficient <code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span></code> so as to ensure that particles do not move more than half a cell during a particle sub iteration.</p>
 </div>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">heat</span> <span class="pre">boundary</span> <span class="pre">condition</span></code>: controls if a heat boundary condition is imposed on the Nitsche immersed boundary. Use to attribute a given temperature to the Nitsche solid (defined in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">temperature</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">heat</span></code>: penalization term on the heat equation, which controls the intensity of the Nitsche method application on the temperature of the fluid region. Higher values of <code class="docutils literal notranslate"><span class="pre">beta</span></code> forces the fluid near the solid to have a temperature matching the one of the solid (defined in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">temperature</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">temperature</span></code>: defines the temperature of the solid mesh. This temperature is defined by a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> and can depend on both space and time. This parameter is used only if:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">heat</span> <span class="pre">boundary</span> <span class="pre">condition</span> <span class="pre">=</span> <span class="pre">true</span></code>, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfert</span> <span class="pre">=</span> <span class="pre">true</span></code> in <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The heat transfert with nitsche boundary conditions is not compatible with the <code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_23</span></code> solver for now.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">force</span> <span class="pre">on</span> <span class="pre">solid</span></code>: controls if force calculation on the immersed geometry is enabled. If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, forces will written in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">force</span> <span class="pre">name</span></code>, with the solid index automatically added at the end.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torque</span> <span class="pre">on</span> <span class="pre">solid</span></code>: controls if torque calculation on the immersed geometry is enabled. If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, torques will be written in the file in the output file named <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">torque</span> <span class="pre">name</span></code>, with the solid index automatically added at the end.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code>: <span class="math notranslate nohighlight">\((x, y)\)</span> coordinates of the center of the rotation, used for torque calculation. Default center of rotation is (0, 0). Add <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">z</span></code> for 3D simulations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stop</span> <span class="pre">if</span> <span class="pre">particles</span> <span class="pre">lost</span></code>: controls if the simulation is stopped when Nitsche particles have been lost. If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the simulation will continue.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Particle loss can happen when particles move through multiple cells during a time step. This can be caused by a big <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> (see <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>), a high fluid <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">refinement</span></code> (see <a class="reference internal" href="mesh.html"><span class="doc">Mesh</span></a>), or a high CFL. To prevent particle loss, try increasing the number of <code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">sub</span> <span class="pre">iterations</span></code>.</p>
+</div>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">quadrature</span> <span class="pre">points</span></code>: number of Nitsche (quadrature) points to insert in a 1D cell. The number of inserted points will be higher for higher dimensions. Increasing this number will lead to a higher points density inside the solid.</p></li>
 </ul>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>The VOF solver is used in the example <a class="reference internal" href="../../examples/incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html"><span class="doc">2D Taylor-Couette flow using Nitsche immersed boundary</span></a>.</p>
+<dl class="simple">
+<dt>The Nitsche immersed boundary method is used in the examples:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../../examples/incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html"><span class="doc">2D Taylor-Couette flow using Nitsche immersed boundary</span></a></p></li>
+<li><p><a class="reference internal" href="../../examples/incompressible-flow/3d_nitsche_mixer_with_pbt_impeller/nitsche_mixer_with_pbt_impeller.html"><span class="doc">3D Mixer with Pitched-Blade Turbine Impeller using Nitsche Immersed Boundary</span></a></p></li>
+</ul>
+</dd>
+</dl>
 </div>
 </section>
 

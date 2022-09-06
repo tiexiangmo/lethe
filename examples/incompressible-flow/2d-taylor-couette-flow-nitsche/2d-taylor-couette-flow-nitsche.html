@@ -184,7 +184,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html">Multiphase Flow - Volume of Fluid</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/nitsche.html">Nitsche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/nitsche.html">Nitsche Immersed Boundary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser heat source</a></li>
@@ -325,7 +325,7 @@
         <article role="main">
           <section id="d-taylor-couette-flow-using-nitsche-immersed-boundary">
 <h1><span class="section-number">9. </span>2D Taylor-Couette flow using Nitsche immersed boundary<a class="headerlink" href="#d-taylor-couette-flow-using-nitsche-immersed-boundary" title="Permalink to this headline">¶</a></h1>
-<p>This example revisits the same taylor-couette flow problem in <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">Example 2</a>,
+<p>This example revisits the same taylor-couette flow problem in <a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html"><span class="doc">2D Taylor-Couette flow</span></a>,
 now using immersed boundaries to represent the inner cylinder. This example demonstrates some of the capabilities of Lethe to simulate the flow around complex geometries without meshing them explicitly with a conformal mesh, but instead by using the Nitsche immersed boundary method available within Lethe.</p>
 <section id="features">
 <h2><span class="section-number">9.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
@@ -539,8 +539,8 @@ end
 </section>
 <section id="results">
 <h2><span class="section-number">9.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<section id="id2">
-<h3><span class="section-number">9.6.1. </span>Uniform mesh refinement<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<section id="id1">
+<h3><span class="section-number">9.6.1. </span>Uniform mesh refinement<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>For the uniform mesh refinement problem, the evolution of the L2 error is as follows:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cells error_velocity  error_pressure
   320 2.6290e-02    - 1.5068e-02     -
@@ -574,8 +574,8 @@ the error converges to zero at first order (error is divided by two when the mes
 The torque on the inner cylinder should be -0.83776 and we note that the torque on both cylinder converges close to that value.
 Running the simulation with finer meshes lead to this results.</p>
 </section>
-<section id="id3">
-<h3><span class="section-number">9.6.2. </span>Adaptative mesh refinement<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<section id="id2">
+<h3><span class="section-number">9.6.2. </span>Adaptative mesh refinement<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Using Paraview, the steady-state velocity profile can be visualized for the adaptative mesh refinement case:</p>
 <a class="reference internal image-reference" href="../../../_images/taylor_couette_with_nitsche_velocity_adapt.png"><img alt="velocity distribution" class="align-center" src="../../../_images/taylor_couette_with_nitsche_velocity_adapt.png" style="height: 10cm;"/></a>
 <p>The end of the simulation log provides the following information about the convergence of the error:</p>
@@ -689,8 +689,8 @@ Running the simulation with finer meshes lead to this results.</p>
 </li>
 <li><a class="reference internal" href="#running-the-simulation">9.5. Running the simulation</a></li>
 <li><a class="reference internal" href="#results">9.6. Results</a><ul>
-<li><a class="reference internal" href="#id2">9.6.1. Uniform mesh refinement</a></li>
-<li><a class="reference internal" href="#id3">9.6.2. Adaptative mesh refinement</a></li>
+<li><a class="reference internal" href="#id1">9.6.1. Uniform mesh refinement</a></li>
+<li><a class="reference internal" href="#id2">9.6.2. Adaptative mesh refinement</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#possibilities-for-extension">9.7. Possibilities for extension</a></li>
