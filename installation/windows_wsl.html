@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Folder structure of Lethe" href="../structure.html" /><link rel="prev" title="Docker" href="docker.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Installation on Apple ARM (M1 or M2)" href="apple_arm.html" /><link rel="prev" title="Regular installation on Linux" href="regular_installation.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Running Lethe on Digital Research Alliance of Canada clusters - Lethe documentation</title>
+        <title>Windows with WSL - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
@@ -157,10 +157,10 @@
   <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="installation.html">Installation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="regular_installation.html">Regular installation on Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows_wsl.html">Windows with WSL</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Windows with WSL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apple_arm.html">Installation on Apple ARM (M1 or M2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="digital_alliance.html">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../structure.html">Folder structure of Lethe</a></li>
@@ -324,192 +324,318 @@
           </label>
         </div>
         <article role="main">
-          <section id="running-lethe-on-digital-research-alliance-of-canada-clusters">
-<h1>Running Lethe on Digital Research Alliance of Canada clusters<a class="headerlink" href="#running-lethe-on-digital-research-alliance-of-canada-clusters" title="Permalink to this headline">¶</a></h1>
-<section id="setting-up-the-folder-structure">
-<h2>Setting-up the folder structure<a class="headerlink" href="#setting-up-the-folder-structure" title="Permalink to this headline">¶</a></h2>
-<p>In your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>, create a “dealii” folder and a “lethe” folder, each containing “build” and “inst” folders:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir -p {dealii,lethe}/{build,inst}
-</pre></div>
+          <section id="windows-with-wsl">
+<h1>Windows with WSL<a class="headerlink" href="#windows-with-wsl" title="Permalink to this headline">¶</a></h1>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/windows.png"><img alt="../_images/windows.png" src="../_images/windows.png" style="height: 100px;"/></a>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Distributions compatibility: Windows 10 and Windows 11</p>
 </div>
-<p>The deal.II and Lethe projects can then be cloned in their corresponding folders, as indicated later in this tutorial.</p>
-<p>After installation is complete, the folder structure will be, for deal.II (and likewise for Lethe):</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">$HOME/dealii/dealii</span></code> for deal.ii git,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$HOME/dealii/build</span></code> for compilation (<code class="docutils literal notranslate"><span class="pre">cmake</span></code> command),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$HOME/dealii/inst</span></code> for installation (<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> command)</p></li>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>This tutorial is aimed at Windows users who have no prior knowledge of Linux. To keep it simple, all dependencies are installed using candi. Installation options given in this tutorial are well suited for lethe users. If you are a developer or need more options, see <a class="reference internal" href="regular_installation.html"><span class="doc">Regular installation on Linux</span></a>.</p>
+</div>
+<dl class="simple">
+<dt>Throughout this tutorial:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../_images/windows.png"><img alt="win_shell" src="../_images/windows.png" style="height: 15px;"/></a> indicates operations performed in the Windows session, and</p></li>
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> indicates operations performed in the Linux subsystem.</p></li>
 </ul>
-<p>Folders can be open with the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command (<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$folder_path</span></code>).</p>
-<p>For the sake of clarity, this is the folder structure considered for the rest of this tutorial.</p>
-</section>
-<section id="installing-deal-ii">
-<h2>Installing deal.II<a class="headerlink" href="#installing-deal-ii" title="Permalink to this headline">¶</a></h2>
-<section id="on-niagara-beluga-narval-graham-or-cedar">
-<h3>On Niagara, Beluga, Narval, Graham or Cedar<a class="headerlink" href="#on-niagara-beluga-narval-graham-or-cedar" title="Permalink to this headline">¶</a></h3>
-<p>All operations can be performed on login nodes.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If on <strong>Niagara</strong>, this additional module is needed beforehand: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">CCEnv</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To execute a command on a shell (Ubuntu or Windows command prompt), type or copy/paste the given command and hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>. Multiple commands are given in multiple lines, or separated by <code class="docutils literal notranslate"><span class="pre">;</span></code>: when copying/pasting, they will be executed one after the other.</p>
 </div>
-<p>Load <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code>, and their prerequisite modules:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>module load StdEnv/2020
-module load gcc/9.3.0
-module load openmpi/4.0.3
-module load trilinos/13.0.1
-module load parmetis/4.0.3
-module load p4est/2.2
+<section id="installing-wsl-and-ubuntu-step-0">
+<h2>Installing WSL and Ubuntu (Step #0)<a class="headerlink" href="#installing-wsl-and-ubuntu-step-0" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../_images/windows.png"><img alt="win_shell" src="../_images/windows.png" style="height: 15px;"/></a> Install WSL (Windows Subsystem for Linux), and Ubuntu 22.04 LTS from the microsoft store, following the steps indicated <a class="reference external" href="https://linuxconfig.org/ubuntu-22-04-on-wsl-windows-subsystem-for-linux">in this tutorial</a></p></li>
+</ol>
+<div class="admonition-verify-the-installed-version-of-wsl admonition">
+<p class="admonition-title">Verify the installed version of WSL</p>
+<p>In the windows command prompt (Start menu &gt; <code class="docutils literal notranslate"><span class="pre">cmd</span></code>):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>wsl -l -v
 </pre></div>
 </div>
-<p>Then, we can clone and compile <code class="docutils literal notranslate"><span class="pre">dealii</span></code>. Although Lethe always supports the master branch of deal.II, we maintain an identical deal.II fork on the lethe repository. This fork is always tested to make sure it works with lethe. To clone the deal.II fork github repository, execute in <code class="docutils literal notranslate"><span class="pre">$HOME/dealii</span></code> directory:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/dealii.git
+<p>should indicate <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">2</span></code>. If not, follow this to update WSL: <a class="reference external" href="https://docs.microsoft.com/fr-fr/windows/wsl/install#upgrade-version-from-wsl-1-to-wsl-2">https://docs.microsoft.com/fr-fr/windows/wsl/install#upgrade-version-from-wsl-1-to-wsl-2</a></p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><a class="reference internal" href="../_images/windows.png"><img alt="win_shell" src="../_images/windows.png" style="height: 15px;"/></a> Launch Ubuntu (from the start menu) and <a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> update Ubuntu:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt upgrade
 </pre></div>
 </div>
-<p>We can compile <code class="docutils literal notranslate"><span class="pre">dealii</span></code> in the <code class="docutils literal notranslate"><span class="pre">$HOME/dealii/build</span></code> folder, by defining the paths to installation folders of <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code>. To increase the speed of this step, we skip <code class="docutils literal notranslate"><span class="pre">dealii</span></code> tests and compile in release mode only.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../dealii -DDEAL_II_COMPONENT_EXAMPLES=OFF -DCMAKE_BUILD_TYPE=Release  -DDEAL_II_WITH_MPI=ON -DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=$EBROOTTRILINOS -DDEAL_II_WITH_P4EST=ON -DP4EST_DIR=$EBROOTP4EST -DDEAL_II_WITH_METIS=ON -DMETIS_DIR=$EBROOTPARMETIS -DCMAKE_INSTALL_PREFIX=../inst -DTrilinos_FIND_COMPONENTS="Pike;PikeImplicit;PikeBlackBox;TrilinosCouplings;Panzer;PanzerMiniEM;PanzerAdaptersSTK;PanzerDiscFE;PanzerDofMgr;PanzerCore;Piro;ROL;Stokhos;Tempus;Rythmos;ShyLU;ShyLU_DD;ShyLU_DDCommon;ShyLU_DDFROSch;ShyLU_DDBDDC;Zoltan2;Zoltan2Sphynx;MueLu;Moertel;NOX;Phalanx;Percept;STK;STKExprEval;STKDoc_tests;STKUnit_tests;STKBalance;STKTools;STKTransfer;STKSearchUtil;STKSearch;STKUnit_test_utils;STKNGP_TEST;STKIO;STKMesh;STKTopology;STKSimd;STKUtil;STKMath;Compadre;Intrepid2;Intrepid;Teko;FEI;Stratimikos;Ifpack2;Anasazi;Komplex;SEACAS;SEACASEx2ex1v2;SEACASTxtexo;SEACASNumbers;SEACASNemspread;SEACASNemslice;SEACASMat2exo;SEACASMapvar-kd;SEACASMapvar;SEACASMapvarlib;SEACASExplore;SEACASGrepos;SEACASGenshell;SEACASGen3D;SEACASGjoin;SEACASFastq;SEACASEx1ex2v2;SEACASExo_format;SEACASExotxt;SEACASExomatlab;SEACASExodiff;SEACASExo2mat;SEACASEpu;SEACASEjoin;SEACASConjoin;SEACASBlot;SEACASAprepro;SEACASAlgebra;SEACASPLT;SEACASSVDI;SEACASSuplibCpp;SEACASSuplibC;SEACASSuplib;SEACASSupes;SEACASAprepro_lib;SEACASChaco;SEACASIoss;SEACASNemesis;SEACASExoIIv2for32;SEACASExodus_for;SEACASExodus;Amesos2;ShyLU_Node;ShyLU_NodeTacho;ShyLU_NodeHTS;Belos;ML;Ifpack;Zoltan2Core;Pamgen;Amesos;Galeri;AztecOO;Pliris;Isorropia;Xpetra;Thyra;ThyraTpetraAdapters;ThyraEpetraExtAdapters;ThyraEpetraAdapters;ThyraCore;Domi;TrilinosSS;Tpetra;TpetraCore;TpetraTSQR;TpetraClassic;EpetraExt;Triutils;Shards;Zoltan;Epetra;MiniTensor;Sacado;RTOp;KokkosKernels;Teuchos;TeuchosKokkosComm;TeuchosKokkosCompat;TeuchosRemainder;TeuchosNumerics;TeuchosComm;TeuchosParameterList;TeuchosParser;TeuchosCore;Kokkos;KokkosAlgorithms;KokkosContainers;KokkosCore;Gtest;TrilinosATDMConfigTests;TrilinosFrameworkTests"
-</pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">sudo</span></code> command will ask you to type your user password, as defined during Ubuntu installation. Note that Linux does not show any symbol while typing a password, contrary to Windows with <code class="docutils literal notranslate"><span class="pre">*</span></code>: simply type your password and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
 </div>
-<p>This command is absolutely barbaric, but it is required to prevent the usage of the Zadelus library within Trilinos 13.0.1.</p>
-<p>and:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>make -j8 install
-</pre></div>
-</div>
-<p>The argument <code class="docutils literal notranslate"><span class="pre">-jX</span></code> specifies the number of processors used for the compilation. On login nodes, a maximum of 8 cores should be used in order to ensure that other users can continue using the cluster without slowdowns. In addition, the <code class="docutils literal notranslate"><span class="pre">nice</span></code> command can be used at the beginning of the call to give a lower priority to this task.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> triggers an error, run the command <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">trilinos</span></code>. If it returns <code class="docutils literal notranslate"><span class="pre">/usr/bin/which:</span> <span class="pre">no</span> <span class="pre">trilinos</span> <span class="pre">in</span></code>, try removing the deal.II build folder, recreating it and explicitly specify libraries’ paths on the <code class="docutils literal notranslate"><span class="pre">cmake</span></code>.</p>
-</div>
-</section>
-</section>
-<section id="installing-lethe">
-<h2>Installing Lethe<a class="headerlink" href="#installing-lethe" title="Permalink to this headline">¶</a></h2>
-<p>After installing deal.II, compiling Lethe is relatively straightforward, especially since all of these clusters share a very similar environment. To compile Lethe, the <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code> modules should be loaded.</p>
-<p>In the <code class="docutils literal notranslate"><span class="pre">$HOME/lethe</span></code> directory, download Lethe:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/lethe.git
-</pre></div>
-</div>
-<p>To install Lethe in the <code class="docutils literal notranslate"><span class="pre">$HOME/lethe/inst</span></code> directory (applications will be in <code class="docutils literal notranslate"><span class="pre">inst/bin</span></code>), run in the <code class="docutils literal notranslate"><span class="pre">$HOME/lethe/build</span></code> directory:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe  -DDEAL_II_DIR=../../dealii/inst -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../inst -DBUILD_TESTING=OFF
-make install -j8
-</pre></div>
-</div>
-<section id="installing-numdiff-to-enable-tests">
-<h3>Installing numdiff to enable tests<a class="headerlink" href="#installing-numdiff-to-enable-tests" title="Permalink to this headline">¶</a></h3>
-<p>You will need to have numdiff installed to enable the test suite, otherwise you will have an error at the cmake step of Lethe’s installation when using <code class="docutils literal notranslate"><span class="pre">-DBUILD_TESTING=ON</span></code>, stating that this module is missing. To install the package manually use the following steps:</p>
-<ol class="arabic">
-<li><p>Download the <a class="reference external" href="https://mirror.csclub.uwaterloo.ca/nongnu/numdiff/">compressed folder</a> (ex/ numdiff-5.9.0.tar.gz)</p></li>
-<li><p>Unzip it</p></li>
-<li><p>Copy it with <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-r</span></code> to your Compute Canada account on the chosen cluster (see <a class="reference internal" href="#copying-local-files"><span class="std std-ref">Copying local files</span></a> section)</p></li>
-<li><p>In the numdiff folder on the cluster, execute:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./configure
-make
-</pre></div>
-</div>
+<p>When prompted “do you want to continue?”, proceed by typing <code class="docutils literal notranslate"><span class="pre">y</span></code> and hitting <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
+<ol class="arabic simple" start="3">
+<li><dl class="simple">
+<dt><a class="reference internal" href="../_images/windows.png"><img alt="win_shell" src="../_images/windows.png" style="height: 15px;"/></a> (optional) To activate copy/paste in the Linux sub-terminal (<a class="reference external" href="https://defragged.org/2020/10/29/how-to-copy-paste-in-windows-subsystem-for-linux-wsl/">tutorial with screenshots</a>):</dt><dd><ul class="simple">
+<li><p>right-click on the Ubuntu Window pane header</p></li>
+<li><p>in <code class="docutils literal notranslate"><span class="pre">Properties</span></code>, select <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">Ctrl+Shift+C/V</span> <span class="pre">as</span> <span class="pre">Copy/Paste</span></code></p></li>
+<li><p>you can then use <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+V</span></code> to paste text or commands in the Linux sub-terminal</p></li>
+</ul>
+</dd>
+</dl>
 </li>
-<li><p>Add it to your path environment:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PATH=$PATH:$HOME/path/to/numdiff/folder
-</pre></div>
-</div>
+<li><dl class="simple">
+<dt><a class="reference internal" href="../_images/windows.png"><img alt="win_shell" src="../_images/windows.png" style="height: 15px;"/></a> (optional) For better ease in the Linux terminal (better coloring, multiple tabs), change the default terminal:</dt><dd><ul class="simple">
+<li><p>in the microsoft store, download <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">Terminal</span></code></p></li>
+<li><p>in the <code class="docutils literal notranslate"><span class="pre">parameters</span></code> of <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">Terminal</span></code>, select on the left pannel “start”: change default profile with <code class="docutils literal notranslate"><span class="pre">Ubuntu-22.04</span></code></p></li>
+<li><p>from now on, you can use this application instead to launch Ubuntu terminal</p></li>
+</ul>
+</dd>
+</dl>
 </li>
 </ol>
-</section>
-</section>
-<section id="copying-local-files">
-<span id="id1"></span><h2>Copying local files<a class="headerlink" href="#copying-local-files" title="Permalink to this headline">¶</a></h2>
-<p>On Linux, use <code class="docutils literal notranslate"><span class="pre">scp</span></code> (for secure copy) to copy needed files for the simulation (<code class="docutils literal notranslate"><span class="pre">prm</span></code>, <code class="docutils literal notranslate"><span class="pre">msh</span></code>):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>scp /home/path/in/your/computer/*.prm username@clustername.calculcanada.ca:/scratch/path/in/cluster
-</pre></div>
-</div>
-<p>If you need to copy a folder, use <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-r</span></code>.</p>
-<p>Simulation files must be in scratch. To get the address of your scratch folder, in your cluster account run:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd $SCRATCH
-pwd
-</pre></div>
-</div>
-<p>On Windows, use third-party, such as <code class="docutils literal notranslate"><span class="pre">PuTTY</span></code> (see the <a class="reference external" href="https://docs.computecanada.ca/wiki/Transferring_data">wiki page on Transferring data</a>))</p>
-</section>
-<section id="creating-a-dealii">
-<h2>Creating a .dealii<a class="headerlink" href="#creating-a-dealii" title="Permalink to this headline">¶</a></h2>
-<p>In order to call your deal.II local installation, it is convenient to create a <code class="docutils literal notranslate"><span class="pre">.dealii</span></code> file in your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nano .dealii
-</pre></div>
-</div>
-<p>In the nano terminal, copy-paste (with <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+V</span></code>):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>module load CCEnv #if on Niagara
-module load nixpkgs/16.09
-module load gcc/7.3.0
-module load openmpi/3.1.2
-module load p4est/2.0
-module load trilinos/12.12.1
-module load parmetis/4.0.3
-
-export DEAL_II_DIR=$HOME/dealii/inst/
-export PATH=$PATH:$HOME/lethe/inst/bin/
-</pre></div>
-</div>
-<p>Exit the nano mode with <code class="docutils literal notranslate"><span class="pre">Ctrl+x</span></code> and save the document by hitting <code class="docutils literal notranslate"><span class="pre">y</span></code> on the prompt “Save modify buffer?” (in the bottom). The prompt “File Name to Write: .dealii” should then appear, hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
-<p>You can then source it on the terminal with:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>source $HOME/.dealii
-</pre></div>
-</div>
-<p>and use it in your <code class="docutils literal notranslate"><span class="pre">.sh</span></code> script (see Launching simulations below).</p>
-</section>
-<section id="launching-simulations">
-<h2>Launching simulations<a class="headerlink" href="#launching-simulations" title="Permalink to this headline">¶</a></h2>
-<p>Simulations are sent to the scheduler via batch scripts. Visit the Digital Research Alliance of Canada (Alliance) wiki page for more information about the <a class="reference external" href="https://docs.alliancecan.ca/wiki/What_is_a_scheduler%3F">scheduler</a> and <a class="reference external" href="https://docs.alliancecan.ca/wiki/Running_jobs">running jobs</a>. For your convenience, an example of <code class="docutils literal notranslate"><span class="pre">job.sh</span></code> used on Beluga is given below:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-#SBATCH --account=$yourgroupaccount
-#SBATCH --ntasks-per-node=$X #number of parallel tasks (as in mpirun -np X)
-#SBATCH --nodes=1 #number of whole nodes used (each with up to 40 tasks-per-node)
-#SBATCH --time=1:00:00 #maximum time for the simulation (hh:mm:ss)
-#SBATCH --mem=120G #memory usage per node. See cluster specification for maximal amount.
-#SBATCH --job-name=$yourjobname
-#SBATCH --mail-type=END #email preferences
-#SBATCH --mail-type=FAIL
-#SBATCH --mail-user=$your.email.adress@email.provider
-
-source $HOME/.dealii
-srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.prm
-</pre></div>
-</div>
-<p>The job is sent using:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sbatch job.sh
-</pre></div>
-</div>
-<p>Status can be followed with the <code class="docutils literal notranslate"><span class="pre">sq</span></code> command: under <code class="docutils literal notranslate"><span class="pre">ST</span></code>, <code class="docutils literal notranslate"><span class="pre">PD</span></code> indicates a pending job, and <code class="docutils literal notranslate"><span class="pre">R</span></code> a running job.</p>
-<p>Console outputs are written in <code class="docutils literal notranslate"><span class="pre">slurm-$jobID.out</span></code>. For instance, to display the 20 last lines from this file, use:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>tail -n 20 slurm-$jobID.out
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you need to launch multiple simulations, such as with varying parameter, feel free to adapt one of the scripts provided on <a class="reference external" href="https://github.com/lethe-cfd/lethe-utils/tree/master/python/cluster">lethe-utils</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<dl class="simple">
+<dt>A (very) few Linux commands useful for navigation:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">$dir</span></code>: (make directory) create a directory with the name specified as <code class="docutils literal notranslate"><span class="pre">$dir</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$dir</span></code>: (change directory) move to the directory <code class="docutils literal notranslate"><span class="pre">$dir</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>: move up to the parent directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code>: (print working directory) return the directory you are in</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$HOME</span></code>: move to your home directory (<code class="docutils literal notranslate"><span class="pre">/home/&lt;user_name&gt;/</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+<p>You can find <a class="reference external" href="https://linuxconfig.org/linux-commands">here</a> a thorough guide for the most basic Linux commands.</p>
 </div>
 </section>
-<section id="saving-a-ssh-key-linux">
-<h2>Saving a SSH key (linux)<a class="headerlink" href="#saving-a-ssh-key-linux" title="Permalink to this headline">¶</a></h2>
-<p>To save your key on the cluster, so that it is not asked for each log or <code class="docutils literal notranslate"><span class="pre">scp</span></code>, generate your ssh-key with:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ssh-keygen
+<section id="installing-deal-ii-using-candi-step-1">
+<h2>Installing deal.II using candi (Step #1)<a class="headerlink" href="#installing-deal-ii-using-candi-step-1" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This step is by far the most troublesome in all Lethe installation. Read and follow each step carefully.</p>
+</div>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Install candi required packages:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install lsb-release git subversion wget \
+bc libgmp-dev build-essential autoconf automake cmake \
+libtool gfortran libboost-all-dev zlib1g-dev openmpi-bin \
+openmpi-common libopenmpi-dev libblas3 libblas-dev \
+liblapack3 liblapack-dev libsuitesparse-dev
 </pre></div>
 </div>
-<p>which defaults to an RSA key. If you want to specify the key type you want to generate (i.e. ED25519 key), type</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t ed25519
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The symbols <code class="docutils literal notranslate"><span class="pre">\</span></code> indicate that this a single command written on multiple lines.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Install compilers:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gcc-10 g++-10 gfortran-10
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>ED25519 keys are preferred to RSA keys since they are more secure and performant. Seek more information in the <cite>Gitlab Documentation&lt;https://docs.gitlab.com/ee/user/ssh.html&gt;</cite>.</p>
-</div>
-<p>To upload this local key to your Compute Canada Database account (CCDB) use:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ssh-copy-id username@clustername.computecanada.ca
+<ol class="arabic simple" start="3">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Create folders (suggested structure):</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir Softwares; cd Softwares
+mkdir candi; cd candi
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This command does not work on Niagara anymore. You may use the following:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cat ~/.ssh/$KEY_ID.pub
+<p>Note the use of <code class="docutils literal notranslate"><span class="pre">;</span></code> which enable to serialize operations on a single execution line.</p>
+<ol class="arabic simple" start="4">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Download candi:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dealii/candi.git .
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">$KEY_ID.pub</span></code> is the public key file located in <code class="docutils literal notranslate"><span class="pre">~/.ssh/</span></code>. For more information, see <a class="reference external" href="https://docs.scinet.utoronto.ca/index.php/SSH#SSH_Keys">SSH documentation</a>.</p>
+<p>Do not forget the <code class="docutils literal notranslate"><span class="pre">.</span></code> at the end of the command, which means “here”.</p>
+<ol class="arabic" start="5">
+<li><dl>
+<dt><a class="reference internal" href="../_images/windows.png"><img alt="win_shell" src="../_images/windows.png" style="height: 15px;"/></a> Modify installation parameters (deal.II version and trilinos version):</dt><dd><ul class="simple">
+<li><p>open Windows file manager, and on the left panel (along with <code class="docutils literal notranslate"><span class="pre">Files</span></code>, <code class="docutils literal notranslate"><span class="pre">Computer</span></code> etc.) click on the <code class="docutils literal notranslate"><span class="pre">Ubuntu</span></code> mount.</p></li>
+<li><p>navigate to reach the candi folder, in: <code class="docutils literal notranslate"><span class="pre">/home/&lt;user_name&gt;/Softwares/candi</span></code></p></li>
+<li><p>open the <code class="docutils literal notranslate"><span class="pre">candi.cfg</span></code> file with notepad (or other text editor) and change the following lines:</p></li>
+</ul>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 9%"/>
+<col style="width: 47%"/>
+<col style="width: 44%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>line #</p></th>
+<th class="head"><p>initial parameter</p></th>
+<th class="head"><p>changed parameter</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>7</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CLEAN_BUILD=OFF</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CLEAN_BUILD=ON</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>86</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">PACKAGES="${PACKAGES}</span> <span class="pre">once:netcdf"</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PACKAGES="${PACKAGES}</span> <span class="pre">once:netcdf"</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>97</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DEAL_II_VERSION=v9.4.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DEAL_II_VERSION=master</span></code></p></td>
+</tr>
+</tbody>
+</table></div>
+<ul class="simple">
+<li><p>save and close</p></li>
+<li><p>navigate to reach the following subfolder: <code class="docutils literal notranslate"><span class="pre">deal.II-toolchain/packages/</span></code></p></li>
+<li><p>open the <code class="docutils literal notranslate"><span class="pre">trilinos.package</span></code> file with notepad and change the following lines:</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The prefix <code class="docutils literal notranslate"><span class="pre">#</span></code> is used to comment a line. Here we are simply commenting lines 19 and 20, and uncommenting lines 25 and 26, to change the trilinos version.</p>
+</div>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 8%"/>
+<col style="width: 47%"/>
+<col style="width: 46%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>line #</p></th>
+<th class="head"><p>initial parameter</p></th>
+<th class="head"><p>changed parameter</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>19</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VERSION=12-18-1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#VERSION=12-18-1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CHECKSUM=9c1d151169949bca6cf203831e4d6aee</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#CHECKSUM=9c1d151169949bca6cf203831e4d6aee</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#VERSION=12-12-1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VERSION=12-12-1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#CHECKSUM=ecd4606fa332212433c98bf950a69cc7</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CHECKSUM=ecd4606fa332212433c98bf950a69cc7</span></code></p></td>
+</tr>
+</tbody>
+</table></div>
+<ul class="simple">
+<li><p>save and close</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Still in the candi subfolder, run candi installation script:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./candi.sh -j$numprocs
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Where <code class="docutils literal notranslate"><span class="pre">$numprocs</span></code> corresponds to the number of processors used for the compilation:</dt><dd><ul class="simple">
+<li><p>if you have less than 8Gb of RAM, use 1 to 2 procs: <code class="docutils literal notranslate"><span class="pre">./candi.sh</span> <span class="pre">-j1</span></code> or <code class="docutils literal notranslate"><span class="pre">./candi.sh</span> <span class="pre">-j2</span></code></p></li>
+<li><p>if you have 16Gb of RAM and above, <code class="docutils literal notranslate"><span class="pre">$numprocs</span></code> can be the number of physical cores minus 1. For instance, for a computer with 6 physical cores: <code class="docutils literal notranslate"><span class="pre">./candi.sh</span> <span class="pre">-j5</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Candi will print messages asking you if you installed the dependency. Hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code> two times to validate and the installation will launch. If new lines are written in the console, this means the installation is going on correctly. The installation will take from 1 to 3 hours depending on your hardware.</p>
+<p>If the installation is stuck (no change on the console for a few minutes), hitting <code class="docutils literal notranslate"><span class="pre">Enter</span></code> can unstuck it.</p>
+<p>You can exit the installation at any time hitting <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> 2-3 times.</p>
+</div>
+<ol class="arabic simple" start="7">
+<li><dl class="simple">
+<dt><a class="reference internal" href="../_images/windows.png"><img alt="win_shell" src="../_images/windows.png" style="height: 15px;"/></a> At the end of the installation, check that you have deal.II and its dependencies installed:</dt><dd><ul class="simple">
+<li><p>on Windows file manager, go to the Ubuntu mount</p></li>
+<li><p>in <code class="docutils literal notranslate"><span class="pre">home/&lt;user_name&gt;</span></code> you should have a folder <code class="docutils literal notranslate"><span class="pre">deal.ii-candi</span></code></p></li>
+<li><p>inside this folder, you should have folders for the dependencies, namely: p4est, petsc, parmetis, trilinos</p></li>
+<li><p>you should also see this folder: <code class="docutils literal notranslate"><span class="pre">deal.II-master</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Add a deal.II environment variable in Ubuntu through the following command:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=$HOME/deal.ii-candi/deal.II-master" &gt;&gt; ~/.bashrc
+</pre></div>
+</div>
+</section>
+<section id="installing-lethe-step-2">
+<h2>Installing Lethe (Step #2)<a class="headerlink" href="#installing-lethe-step-2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Set-up the folder structure: in the <code class="docutils literal notranslate"><span class="pre">Softwares</span></code> folder created at the beginning of Step #1 (if you are in the candi folder, type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>), type:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir -p lethe/{git,build,inst}
+</pre></div>
+</div>
+<p>After installation is complete, the folder structure will be:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lethe/git</span></code> with lethe downloaded files (git),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lethe/build</span></code> for compilation files (<code class="docutils literal notranslate"><span class="pre">cmake</span></code> command),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lethe/inst</span></code> for installation files (<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> command).</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Download lethe:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd lethe
+git clone https://github.com/lethe-cfd/lethe git
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Build lethe:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd build
+cmake ../git -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../inst/
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Compile lethe:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>make -j$numprocs
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Where <code class="docutils literal notranslate"><span class="pre">$numprocs</span></code> corresponds to the number of processors used for the compilation:</dt><dd><ul class="simple">
+<li><p>if you have less than 8Gb of RAM, use 1 to 2 procs: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j1</span></code> or <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j2</span></code></p></li>
+<li><p>if you have 16Gb of RAM and above, <code class="docutils literal notranslate"><span class="pre">$numprocs</span></code> can be the number of physical cores minus 1. For instance, for a computer with 6 physical cores: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j5</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<ol class="arabic simple" start="5">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> (optional) Test your installation, still in the build folder:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ctest -j$numprocs
+</pre></div>
+</div>
+<p>This will take from a few minutes to an hour, depending on your hardware. At the end, you should have this message on the console:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>100% tests passed
+</pre></div>
+</div>
+<p>Congratulations, you are ready to use lethe! You are now ready for <a class="reference internal" href="../first_simulation.html"><span class="doc">Launching your first simulation</span></a>.</p>
+</section>
+<section id="updating-deal-ii-and-lethe">
+<h2>Updating deal.II and lethe<a class="headerlink" href="#updating-deal-ii-and-lethe" title="Permalink to this headline">¶</a></h2>
+<p>If you have already installed deal.II and lethe, you can update them without doing the entire installation from scratch:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Update deal.ii by typing, from your home directory:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd Softwares/candi
+./candi.sh -j$numprocs
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Then, update lethe:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd ../lethe/git
+git pull
+cd ../build
+cmake ../git -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../inst/
+make -j$numprocs
+</pre></div>
 </div>
 </section>
 </section>
@@ -519,23 +645,23 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../structure.html">
+          <a class="next-page" href="apple_arm.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Folder structure of Lethe</div>
+                <div class="title">Installation on Apple ARM (M1 or M2)</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="docker.html">
+          <a class="prev-page" href="regular_installation.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Docker</div>
+                <div class="title">Regular installation on Linux</div>
                 
               </div>
             </a>
@@ -545,7 +671,7 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/installation/digital_alliance.rst.txt"
+            | <a class="muted-link" href="../_sources/installation/windows_wsl.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -565,20 +691,11 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Running Lethe on Digital Research Alliance of Canada clusters</a><ul>
-<li><a class="reference internal" href="#setting-up-the-folder-structure">Setting-up the folder structure</a></li>
-<li><a class="reference internal" href="#installing-deal-ii">Installing deal.II</a><ul>
-<li><a class="reference internal" href="#on-niagara-beluga-narval-graham-or-cedar">On Niagara, Beluga, Narval, Graham or Cedar</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#installing-lethe">Installing Lethe</a><ul>
-<li><a class="reference internal" href="#installing-numdiff-to-enable-tests">Installing numdiff to enable tests</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#copying-local-files">Copying local files</a></li>
-<li><a class="reference internal" href="#creating-a-dealii">Creating a .dealii</a></li>
-<li><a class="reference internal" href="#launching-simulations">Launching simulations</a></li>
-<li><a class="reference internal" href="#saving-a-ssh-key-linux">Saving a SSH key (linux)</a></li>
+<li><a class="reference internal" href="#">Windows with WSL</a><ul>
+<li><a class="reference internal" href="#installing-wsl-and-ubuntu-step-0">Installing WSL and Ubuntu (Step #0)</a></li>
+<li><a class="reference internal" href="#installing-deal-ii-using-candi-step-1">Installing deal.II using candi (Step #1)</a></li>
+<li><a class="reference internal" href="#installing-lethe-step-2">Installing Lethe (Step #2)</a></li>
+<li><a class="reference internal" href="#updating-deal-ii-and-lethe">Updating deal.II and lethe</a></li>
 </ul>
 </li>
 </ul>
