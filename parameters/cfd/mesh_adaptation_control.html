@@ -340,7 +340,8 @@
   # Type of mesh adaptation. Choices are  none, uniform or kelly.
   set type                     = none
 
-  # Variable for kelly estimation. Choices are velocity, pressure, phase or temperature.
+  # Variable(s) for kelly estimation. Choices are velocity, pressure, phase or temperature.
+  # For multi-variables refinement, separate the different variables with a comma
   set variable                 = velocity
 
   # Frequency of the mesh refinement
@@ -353,9 +354,11 @@
   set max refinement level     = 10
 
   # Fraction of coarsened elements
+  # For multi-variables refinement, separate the different fractions with a comma
   set fraction coarsening      = 0.05
 
   # Fraction of refined elements
+  # For multi-variables refinement, separate the different fractions with a comma
   set fraction refinement      = 0.1
 
   # How the fraction of refinement/coarsening are interpreted
@@ -370,18 +373,31 @@
 end
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><p>Two <code class="docutils literal notranslate"><span class="pre">type</span></code> of mesh adaptation are available. The <code class="docutils literal notranslate"><span class="pre">uniform</span></code> mesh adaptation refines the mesh at every cell, whereas the <code class="docutils literal notranslate"><span class="pre">kelly</span></code> uses a <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classKellyErrorEstimator.html">kelly error estimator</a> to decide which cell are refined, by estimating the error per cell for a given variable.</p></li>
-<li><dl class="simple">
-<dt>The variable for kelly estimation should be specified with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">variable</span></code>, and can be:</dt><dd><ul>
-<li><p>velocity</p></li>
-<li><p>pressure</p></li>
-<li><p>phase (for multiphase flows)</p></li>
-<li><p>temperature</p></li>
+<li><dl>
+<dt>The variable for kelly estimation should be specified with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">variable</span></code>, and can be: velocity, pressure, phase (for multiphase flows), temperature</dt><dd><ul class="simple">
+<li><p>Mesh adaptation can be defined on multiple variables, separated with a coma (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">variable</span> <span class="pre">=</span> <span class="pre">velocity,temperature</span></code>, or <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">variable</span> <span class="pre">=</span> <span class="pre">velocity,phase,pressure</span></code> etc.).</p></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The different <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> and <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">coarsening</span></code> must be defined explicitly (see these parameters definition below).</p>
+</div>
 </dd>
 </dl>
 </li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<dl class="simple">
+<dt>In the case of multiple variable mesh adaptation, the cells are:</dt><dd><ul class="simple">
+<li><p>refined if refinement is necessary for at least one variable</p></li>
+<li><p>coarsened if coarsening is necessary for <em>all</em> variables</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<ul class="simple">
 <li><dl class="simple">
 <dt>The frequency at which the mesh is refined is controlled with the <code class="docutils literal notranslate"><span class="pre">frequency</span></code> parameter. If <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">1</span></code>, the mesh is refined at every iteration.</dt><dd><ul>
 <li><p>For transient simulation, this means at every time-step.</p></li>
@@ -407,8 +423,18 @@ end
 <p class="admonition-title">Tip</p>
 <p>For a good compromise between speed and precision, <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> should be set to <code class="docutils literal notranslate"><span class="pre">2</span></code> or <code class="docutils literal notranslate"><span class="pre">3</span></code> more than the <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code></p>
 </div>
-<ul class="simple">
-<li><p>The fraction of cell that are refined and coarsened are controlled with the <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> and <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">coarsening</span></code> parameters.</p></li>
+<ul>
+<li><dl>
+<dt>The fraction of cell that are refined and coarsened are controlled with the <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> and <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">coarsening</span></code> parameters.</dt><dd><ul class="simple">
+<li><p>Fractions for mesh adaptation on multiple variables must be separated with a coma (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">fraction</span> <span class="pre">refinement</span> <span class="pre">=</span> <span class="pre">0.2,0.2</span></code>, or <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">fraction</span> <span class="pre">coarsening</span> <span class="pre">=</span> <span class="pre">0.1,0.3</span></code> etc.).</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The different <code class="docutils literal notranslate"><span class="pre">variable</span></code> must be defined explicitly (see this parameter definition above).</p>
+</div>
+</dd>
+</dl>
+</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
