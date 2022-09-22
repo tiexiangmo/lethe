@@ -9,6 +9,7 @@
         <title>Running Lethe on Digital Research Alliance of Canada clusters - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     
     
@@ -338,7 +339,7 @@
 <section id="setting-up-the-folder-structure">
 <h2>Setting-up the folder structure<a class="headerlink" href="#setting-up-the-folder-structure" title="Permalink to this headline">¶</a></h2>
 <p>In your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>, create a “dealii” folder and a “lethe” folder, each containing “build” and “inst” folders:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir -p {dealii,lethe}/{build,inst}
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir -p {dealii,lethe}/{build,inst}
 </pre></div>
 </div>
 <p>The deal.II and Lethe projects can then be cloned in their corresponding folders, as indicated later in this tutorial.</p>
@@ -361,7 +362,7 @@
 <p>If on <strong>Niagara</strong>, this additional module is needed beforehand: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">CCEnv</span></code>.</p>
 </div>
 <p>Load <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code>, and their prerequisite modules:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>module load StdEnv/2020
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>module load StdEnv/2020
 module load gcc/9.3.0
 module load openmpi/4.0.3
 module load trilinos/13.0.1
@@ -370,16 +371,16 @@ module load p4est/2.2
 </pre></div>
 </div>
 <p>Then, we can clone and compile <code class="docutils literal notranslate"><span class="pre">dealii</span></code>. Although Lethe always supports the master branch of deal.II, we maintain an identical deal.II fork on the lethe repository. This fork is always tested to make sure it works with lethe. To clone the deal.II fork github repository, execute in <code class="docutils literal notranslate"><span class="pre">$HOME/dealii</span></code> directory:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/dealii.git
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/dealii.git
 </pre></div>
 </div>
 <p>We can compile <code class="docutils literal notranslate"><span class="pre">dealii</span></code> in the <code class="docutils literal notranslate"><span class="pre">$HOME/dealii/build</span></code> folder, by defining the paths to installation folders of <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code>. To increase the speed of this step, we skip <code class="docutils literal notranslate"><span class="pre">dealii</span></code> tests and compile in release mode only.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../dealii -DDEAL_II_COMPONENT_EXAMPLES=OFF -DCMAKE_BUILD_TYPE=Release  -DDEAL_II_WITH_MPI=ON -DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=$EBROOTTRILINOS -DDEAL_II_WITH_P4EST=ON -DP4EST_DIR=$EBROOTP4EST -DDEAL_II_WITH_METIS=ON -DMETIS_DIR=$EBROOTPARMETIS -DCMAKE_INSTALL_PREFIX=../inst -DTrilinos_FIND_COMPONENTS="Pike;PikeImplicit;PikeBlackBox;TrilinosCouplings;Panzer;PanzerMiniEM;PanzerAdaptersSTK;PanzerDiscFE;PanzerDofMgr;PanzerCore;Piro;ROL;Stokhos;Tempus;Rythmos;ShyLU;ShyLU_DD;ShyLU_DDCommon;ShyLU_DDFROSch;ShyLU_DDBDDC;Zoltan2;Zoltan2Sphynx;MueLu;Moertel;NOX;Phalanx;Percept;STK;STKExprEval;STKDoc_tests;STKUnit_tests;STKBalance;STKTools;STKTransfer;STKSearchUtil;STKSearch;STKUnit_test_utils;STKNGP_TEST;STKIO;STKMesh;STKTopology;STKSimd;STKUtil;STKMath;Compadre;Intrepid2;Intrepid;Teko;FEI;Stratimikos;Ifpack2;Anasazi;Komplex;SEACAS;SEACASEx2ex1v2;SEACASTxtexo;SEACASNumbers;SEACASNemspread;SEACASNemslice;SEACASMat2exo;SEACASMapvar-kd;SEACASMapvar;SEACASMapvarlib;SEACASExplore;SEACASGrepos;SEACASGenshell;SEACASGen3D;SEACASGjoin;SEACASFastq;SEACASEx1ex2v2;SEACASExo_format;SEACASExotxt;SEACASExomatlab;SEACASExodiff;SEACASExo2mat;SEACASEpu;SEACASEjoin;SEACASConjoin;SEACASBlot;SEACASAprepro;SEACASAlgebra;SEACASPLT;SEACASSVDI;SEACASSuplibCpp;SEACASSuplibC;SEACASSuplib;SEACASSupes;SEACASAprepro_lib;SEACASChaco;SEACASIoss;SEACASNemesis;SEACASExoIIv2for32;SEACASExodus_for;SEACASExodus;Amesos2;ShyLU_Node;ShyLU_NodeTacho;ShyLU_NodeHTS;Belos;ML;Ifpack;Zoltan2Core;Pamgen;Amesos;Galeri;AztecOO;Pliris;Isorropia;Xpetra;Thyra;ThyraTpetraAdapters;ThyraEpetraExtAdapters;ThyraEpetraAdapters;ThyraCore;Domi;TrilinosSS;Tpetra;TpetraCore;TpetraTSQR;TpetraClassic;EpetraExt;Triutils;Shards;Zoltan;Epetra;MiniTensor;Sacado;RTOp;KokkosKernels;Teuchos;TeuchosKokkosComm;TeuchosKokkosCompat;TeuchosRemainder;TeuchosNumerics;TeuchosComm;TeuchosParameterList;TeuchosParser;TeuchosCore;Kokkos;KokkosAlgorithms;KokkosContainers;KokkosCore;Gtest;TrilinosATDMConfigTests;TrilinosFrameworkTests"
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../dealii -DDEAL_II_COMPONENT_EXAMPLES=OFF -DCMAKE_BUILD_TYPE=Release  -DDEAL_II_WITH_MPI=ON -DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=$EBROOTTRILINOS -DDEAL_II_WITH_P4EST=ON -DP4EST_DIR=$EBROOTP4EST -DDEAL_II_WITH_METIS=ON -DMETIS_DIR=$EBROOTPARMETIS -DCMAKE_INSTALL_PREFIX=../inst -DTrilinos_FIND_COMPONENTS="Pike;PikeImplicit;PikeBlackBox;TrilinosCouplings;Panzer;PanzerMiniEM;PanzerAdaptersSTK;PanzerDiscFE;PanzerDofMgr;PanzerCore;Piro;ROL;Stokhos;Tempus;Rythmos;ShyLU;ShyLU_DD;ShyLU_DDCommon;ShyLU_DDFROSch;ShyLU_DDBDDC;Zoltan2;Zoltan2Sphynx;MueLu;Moertel;NOX;Phalanx;Percept;STK;STKExprEval;STKDoc_tests;STKUnit_tests;STKBalance;STKTools;STKTransfer;STKSearchUtil;STKSearch;STKUnit_test_utils;STKNGP_TEST;STKIO;STKMesh;STKTopology;STKSimd;STKUtil;STKMath;Compadre;Intrepid2;Intrepid;Teko;FEI;Stratimikos;Ifpack2;Anasazi;Komplex;SEACAS;SEACASEx2ex1v2;SEACASTxtexo;SEACASNumbers;SEACASNemspread;SEACASNemslice;SEACASMat2exo;SEACASMapvar-kd;SEACASMapvar;SEACASMapvarlib;SEACASExplore;SEACASGrepos;SEACASGenshell;SEACASGen3D;SEACASGjoin;SEACASFastq;SEACASEx1ex2v2;SEACASExo_format;SEACASExotxt;SEACASExomatlab;SEACASExodiff;SEACASExo2mat;SEACASEpu;SEACASEjoin;SEACASConjoin;SEACASBlot;SEACASAprepro;SEACASAlgebra;SEACASPLT;SEACASSVDI;SEACASSuplibCpp;SEACASSuplibC;SEACASSuplib;SEACASSupes;SEACASAprepro_lib;SEACASChaco;SEACASIoss;SEACASNemesis;SEACASExoIIv2for32;SEACASExodus_for;SEACASExodus;Amesos2;ShyLU_Node;ShyLU_NodeTacho;ShyLU_NodeHTS;Belos;ML;Ifpack;Zoltan2Core;Pamgen;Amesos;Galeri;AztecOO;Pliris;Isorropia;Xpetra;Thyra;ThyraTpetraAdapters;ThyraEpetraExtAdapters;ThyraEpetraAdapters;ThyraCore;Domi;TrilinosSS;Tpetra;TpetraCore;TpetraTSQR;TpetraClassic;EpetraExt;Triutils;Shards;Zoltan;Epetra;MiniTensor;Sacado;RTOp;KokkosKernels;Teuchos;TeuchosKokkosComm;TeuchosKokkosCompat;TeuchosRemainder;TeuchosNumerics;TeuchosComm;TeuchosParameterList;TeuchosParser;TeuchosCore;Kokkos;KokkosAlgorithms;KokkosContainers;KokkosCore;Gtest;TrilinosATDMConfigTests;TrilinosFrameworkTests"
 </pre></div>
 </div>
 <p>This command is absolutely barbaric, but it is required to prevent the usage of the Zadelus library within Trilinos 13.0.1.</p>
 <p>and:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>make -j8 install
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>make -j8 install
 </pre></div>
 </div>
 <p>The argument <code class="docutils literal notranslate"><span class="pre">-jX</span></code> specifies the number of processors used for the compilation. On login nodes, a maximum of 8 cores should be used in order to ensure that other users can continue using the cluster without slowdowns. In addition, the <code class="docutils literal notranslate"><span class="pre">nice</span></code> command can be used at the beginning of the call to give a lower priority to this task.</p>
@@ -393,11 +394,11 @@ module load p4est/2.2
 <h2>Installing Lethe<a class="headerlink" href="#installing-lethe" title="Permalink to this headline">¶</a></h2>
 <p>After installing deal.II, compiling Lethe is relatively straightforward, especially since all of these clusters share a very similar environment. To compile Lethe, the <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code> modules should be loaded.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">$HOME/lethe</span></code> directory, download Lethe:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/lethe.git
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/lethe.git
 </pre></div>
 </div>
 <p>To install Lethe in the <code class="docutils literal notranslate"><span class="pre">$HOME/lethe/inst</span></code> directory (applications will be in <code class="docutils literal notranslate"><span class="pre">inst/bin</span></code>), run in the <code class="docutils literal notranslate"><span class="pre">$HOME/lethe/build</span></code> directory:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe  -DDEAL_II_DIR=../../dealii/inst -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../inst -DBUILD_TESTING=OFF
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe  -DDEAL_II_DIR=../../dealii/inst -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../inst -DBUILD_TESTING=OFF
 make install -j8
 </pre></div>
 </div>
@@ -409,13 +410,13 @@ make install -j8
 <li><p>Unzip it</p></li>
 <li><p>Copy it with <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-r</span></code> to your Compute Canada account on the chosen cluster (see <a class="reference internal" href="#copying-local-files"><span class="std std-ref">Copying local files</span></a> section)</p></li>
 <li><p>In the numdiff folder on the cluster, execute:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./configure
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>./configure
 make
 </pre></div>
 </div>
 </li>
 <li><p>Add it to your path environment:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PATH=$PATH:$HOME/path/to/numdiff/folder
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>PATH=$PATH:$HOME/path/to/numdiff/folder
 </pre></div>
 </div>
 </li>
@@ -425,12 +426,12 @@ make
 <section id="copying-local-files">
 <span id="id1"></span><h2>Copying local files<a class="headerlink" href="#copying-local-files" title="Permalink to this headline">¶</a></h2>
 <p>On Linux, use <code class="docutils literal notranslate"><span class="pre">scp</span></code> (for secure copy) to copy needed files for the simulation (<code class="docutils literal notranslate"><span class="pre">prm</span></code>, <code class="docutils literal notranslate"><span class="pre">msh</span></code>):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>scp /home/path/in/your/computer/*.prm username@clustername.calculcanada.ca:/scratch/path/in/cluster
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>scp /home/path/in/your/computer/*.prm username@clustername.calculcanada.ca:/scratch/path/in/cluster
 </pre></div>
 </div>
 <p>If you need to copy a folder, use <code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">-r</span></code>.</p>
 <p>Simulation files must be in scratch. To get the address of your scratch folder, in your cluster account run:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd $SCRATCH
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cd $SCRATCH
 pwd
 </pre></div>
 </div>
@@ -439,17 +440,17 @@ pwd
 <section id="creating-a-dealii">
 <h2>Creating a .dealii<a class="headerlink" href="#creating-a-dealii" title="Permalink to this headline">¶</a></h2>
 <p>In order to call your deal.II local installation, it is convenient to create a <code class="docutils literal notranslate"><span class="pre">.dealii</span></code> file in your <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nano .dealii
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>nano .dealii
 </pre></div>
 </div>
 <p>In the nano terminal, copy-paste (with <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+V</span></code>):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>module load CCEnv #if on Niagara
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>module load CCEnv #if on Niagara
 module load nixpkgs/16.09
-module load gcc/7.3.0
-module load openmpi/3.1.2
-module load p4est/2.0
-module load trilinos/12.12.1
+module load gcc/9.3.0
+module load openmpi/4.0.3
+module load trilinos/13.0.1
 module load parmetis/4.0.3
+module load p4est/2.2
 
 export DEAL_II_DIR=$HOME/dealii/inst/
 export PATH=$PATH:$HOME/lethe/inst/bin/
@@ -457,7 +458,7 @@ export PATH=$PATH:$HOME/lethe/inst/bin/
 </div>
 <p>Exit the nano mode with <code class="docutils literal notranslate"><span class="pre">Ctrl+x</span></code> and save the document by hitting <code class="docutils literal notranslate"><span class="pre">y</span></code> on the prompt “Save modify buffer?” (in the bottom). The prompt “File Name to Write: .dealii” should then appear, hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
 <p>You can then source it on the terminal with:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>source $HOME/.dealii
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>source $HOME/.dealii
 </pre></div>
 </div>
 <p>and use it in your <code class="docutils literal notranslate"><span class="pre">.sh</span></code> script (see Launching simulations below).</p>
@@ -465,7 +466,7 @@ export PATH=$PATH:$HOME/lethe/inst/bin/
 <section id="launching-simulations">
 <h2>Launching simulations<a class="headerlink" href="#launching-simulations" title="Permalink to this headline">¶</a></h2>
 <p>Simulations are sent to the scheduler via batch scripts. Visit the Digital Research Alliance of Canada (Alliance) wiki page for more information about the <a class="reference external" href="https://docs.alliancecan.ca/wiki/What_is_a_scheduler%3F">scheduler</a> and <a class="reference external" href="https://docs.alliancecan.ca/wiki/Running_jobs">running jobs</a>. For your convenience, an example of <code class="docutils literal notranslate"><span class="pre">job.sh</span></code> used on Beluga is given below:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
 #SBATCH --account=$yourgroupaccount
 #SBATCH --ntasks-per-node=$X #number of parallel tasks (as in mpirun -np X)
 #SBATCH --nodes=1 #number of whole nodes used (each with up to 40 tasks-per-node)
@@ -481,12 +482,12 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
 </pre></div>
 </div>
 <p>The job is sent using:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sbatch job.sh
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sbatch job.sh
 </pre></div>
 </div>
 <p>Status can be followed with the <code class="docutils literal notranslate"><span class="pre">sq</span></code> command: under <code class="docutils literal notranslate"><span class="pre">ST</span></code>, <code class="docutils literal notranslate"><span class="pre">PD</span></code> indicates a pending job, and <code class="docutils literal notranslate"><span class="pre">R</span></code> a running job.</p>
 <p>Console outputs are written in <code class="docutils literal notranslate"><span class="pre">slurm-$jobID.out</span></code>. For instance, to display the 20 last lines from this file, use:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>tail -n 20 slurm-$jobID.out
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>tail -n 20 slurm-$jobID.out
 </pre></div>
 </div>
 <div class="admonition note">
@@ -497,11 +498,11 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
 <section id="saving-a-ssh-key-linux">
 <h2>Saving a SSH key (linux)<a class="headerlink" href="#saving-a-ssh-key-linux" title="Permalink to this headline">¶</a></h2>
 <p>To save your key on the cluster, so that it is not asked for each log or <code class="docutils literal notranslate"><span class="pre">scp</span></code>, generate your ssh-key with:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ssh-keygen
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>ssh-keygen
 </pre></div>
 </div>
 <p>which defaults to an RSA key. If you want to specify the key type you want to generate (i.e. ED25519 key), type</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t ed25519
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t ed25519
 </pre></div>
 </div>
 <div class="admonition note">
@@ -509,13 +510,13 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
 <p>ED25519 keys are preferred to RSA keys since they are more secure and performant. Seek more information in the <cite>Gitlab Documentation&lt;https://docs.gitlab.com/ee/user/ssh.html&gt;</cite>.</p>
 </div>
 <p>To upload this local key to your Compute Canada Database account (CCDB) use:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ssh-copy-id username@clustername.computecanada.ca
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>ssh-copy-id username@clustername.computecanada.ca
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This command does not work on Niagara anymore. You may use the following:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cat ~/.ssh/$KEY_ID.pub
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cat ~/.ssh/$KEY_ID.pub
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">$KEY_ID.pub</span></code> is the public key file located in <code class="docutils literal notranslate"><span class="pre">~/.ssh/</span></code>. For more information, see <a class="reference external" href="https://docs.scinet.utoronto.ca/index.php/SSH#SSH_Keys">SSH documentation</a>.</p>
@@ -604,5 +605,7 @@ srun $HOME/lethe/inst/bin/$lethe_application_name_wanted $parameter_file_name.pr
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

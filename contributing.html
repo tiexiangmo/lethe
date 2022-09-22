@@ -9,6 +9,7 @@
         <title>Contributing - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     
     
@@ -376,22 +377,26 @@
 <li><p>Sphinx v4.x</p></li>
 </ul>
 <p>To install required system packages:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python3 build-essential
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python3 build-essential
 </pre></div>
 </div>
 <p>To install Sphinx globally:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">'sphinx==4.*'</span>
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">'sphinx==4.*'</span>
+</pre></div>
+</div>
+<p>To install additional packages:</p>
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install sphinx-copybutton
 </pre></div>
 </div>
 <p>Then, install the Sphinx requirements:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -r doc/requirements.txt
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -r doc/requirements.txt
 </pre></div>
 </div>
 </section>
 <section id="build-html">
 <h4>Build HTML<a class="headerlink" href="#build-html" title="Permalink to this headline">¶</a></h4>
 <p>To build standalone HTML files like the CI would, enter the following commands:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> doc
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> doc
 make html
 </pre></div>
 </div>
@@ -590,6 +595,8 @@ make html
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

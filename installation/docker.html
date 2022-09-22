@@ -9,6 +9,7 @@
         <title>Docker - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     
     
@@ -353,19 +354,19 @@
 <section id="tl-dr">
 <span id="id2"></span><h3>0. TL;DR<a class="headerlink" href="#tl-dr" title="Permalink to this headline">¶</a></h3>
 <p>In some directory run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>local:~$ mkdir lethe-simulations <span class="o">&amp;&amp;</span> <span class="nb">cd</span> lethe-simulations
-local:~/lethe-simulations$ docker run -it --name lethe-container -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/docker-host dealii/dealii:master-focal
-To run a <span class="nb">command</span> as administrator <span class="o">(</span>user <span class="s2">"root"</span><span class="o">)</span>, use <span class="s2">"sudo &lt;command&gt;"</span>.
-See <span class="s2">"man sudo_root"</span> <span class="k">for</span> details.
+<div class="copy-button highlight-bash notranslate"><div class="highlight"><pre><span></span>  local:~$ mkdir lethe-simulations <span class="o">&amp;&amp;</span> <span class="nb">cd</span> lethe-simulations
+  local:~/lethe-simulations$ docker run -it --name lethe-container -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/docker-host dealii/dealii:master-focal
+  To run a <span class="nb">command</span> as administrator <span class="o">(</span>user <span class="s2">"root"</span><span class="o">)</span>, use <span class="s2">"sudo &lt;command&gt;"</span>.
+  See <span class="s2">"man sudo_root"</span> <span class="k">for</span> details.
 
-dealii@2e92a38a6223:~$ <span class="nb">cd</span> /home/docker-host/
-dealii@2e92a38a6223:/home/docker-host/$ <span class="c1"># compile lethe and run simulations here</span>
+  dealii@2e92a38a6223:~$ <span class="nb">cd</span> /home/docker-host/
+  dealii@2e92a38a6223:/home/docker-host/$ <span class="c1"># compile lethe and run simulations here</span>
 </pre></div>
 </div>
 <p>And do the final lethe compilation step.
 This starts a new docker container with an interactive terminal (<code class="code docutils literal notranslate"><span class="pre">-it</span></code>) named <code class="code docutils literal notranslate"><span class="pre">lethe-container</span></code>, mounting the current directory on your machine to <code class="code docutils literal notranslate"><span class="pre">/home/docker-host</span></code>. Inside the container, run any simulations in the <code class="code docutils literal notranslate"><span class="pre">/home/docker-host</span></code> directory to save them locally too.</p>
 <p>Exit the docker container with <code class="code docutils literal notranslate"><span class="pre">ctrl-d</span></code>; run <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span> <span class="pre">-a</span></code> to see the current containers on your machine - you’ll see the <code class="code docutils literal notranslate"><span class="pre">lethe-container</span></code>. Restart your container and attach to its terminal with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker start lethe-container <span class="o">&amp;&amp;</span> docker attach lethe-container
+<div class="copy-button highlight-bash notranslate"><div class="highlight"><pre><span></span>docker start lethe-container <span class="o">&amp;&amp;</span> docker attach lethe-container
 </pre></div>
 </div>
 <p>Have fun.</p>
@@ -382,25 +383,25 @@ This starts a new docker container with an interactive terminal (<code class="co
 <li><p>You can launch a <strong>container</strong> running that specific image, in which you can e.g. compile lethe and run simulations. Indeed, you can run multiple separate containers of the same image.</p></li>
 </ul>
 <p>In your terminal, you can then run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -it --name lethe-container dealii/dealii:master-focal
+<div class="copy-button highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -it --name lethe-container dealii/dealii:master-focal
 </pre></div>
 </div>
 <p>This starts a new container with an interactive terminal (<code class="code docutils literal notranslate"><span class="pre">-it</span></code>) running the <code class="code docutils literal notranslate"><span class="pre">dealii/dealii:master-focal</span></code> image (<a class="reference external" href="https://hub.docker.com/r/dealii/dealii/tags">see here</a> for all the deal.II images) named <code class="code docutils literal notranslate"><span class="pre">lethe-container</span></code>. Press <code class="code docutils literal notranslate"><span class="pre">ctrl-d</span></code> to exit the container.</p>
 <p>To see your current docker containers, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker ps -a
+<div class="copy-button highlight-bash notranslate"><div class="highlight"><pre><span></span>docker ps -a
 
 CONTAINER ID   IMAGE                        COMMAND   CREATED          STATUS                      PORTS     NAMES
 e3a7f71639f6   dealii/dealii:master-focal   <span class="s2">"bash"</span>    <span class="m">14</span> minutes ago   Exited <span class="o">(</span><span class="m">0</span><span class="o">)</span> <span class="m">35</span> seconds ago             lethe-container
 </pre></div>
 </div>
 <p>This container saved your changes. You can restart and attach to the container’s terminal by running:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker start lethe-container <span class="o">&amp;&amp;</span> docker attach lethe-container
+<div class="copy-button highlight-bash notranslate"><div class="highlight"><pre><span></span>docker start lethe-container <span class="o">&amp;&amp;</span> docker attach lethe-container
 </pre></div>
 </div>
 <p>If you want to, you can remove the container with <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">rm</span> <span class="pre">lethe-container</span></code>; you’ll start a new fresh container by running the <code class="code docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run...</span></code> command above.</p>
 <p>However, any files saved in the container are only accessible inside it, and are lost when removing the container. For simulations on the other hand, we want their outputs to be saved and accessible on the local machine (e.g. to post-process them); for this, we will <em>mount</em> a directory from the local machine to the container with <code class="code docutils literal notranslate"><span class="pre">-v</span> <span class="pre">LOCAL_DIR:CONTAINER_DIR</span></code>. While in the container, anything you save to <code class="code docutils literal notranslate"><span class="pre">CONTAINER_DIR</span></code> will be accessible on your local machine in <code class="code docutils literal notranslate"><span class="pre">LOCAL_DIR</span></code>.</p>
 <p>For example, on your local machine:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>local:~$ mkdir ~/lethe-simulations
+<div class="copy-button highlight-bash notranslate"><div class="highlight"><pre><span></span>local:~$ mkdir ~/lethe-simulations
 local:~$ <span class="nb">cd</span> ~/lethe-simulations
 local:~/lethe-simulations$ ls
 
@@ -421,7 +422,7 @@ somefile.txt
 <section id="saving-docker-commands-in-a-bash-script">
 <span id="saving-docker"></span><h3>3. Saving Docker Commands in a Bash Script<a class="headerlink" href="#saving-docker-commands-in-a-bash-script" title="Permalink to this headline">¶</a></h3>
 <p>We can add all the commands above, plus some comments and helpful messages to a single shell script named <cite>docker_lethe.sh</cite>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="copy-button highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 
 <span class="c1"># Launch a persistent docker container from a given image, automatically re-attaching to it on</span>
 <span class="c1"># future runs.</span>
@@ -456,7 +457,7 @@ somefile.txt
 </pre></div>
 </div>
 <p>Then just execute the shell script:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>local:~/lethe-simulations$ sh docker_lethe.sh
+<div class="copy-button highlight-bash notranslate"><div class="highlight"><pre><span></span>local:~/lethe-simulations$ sh docker_lethe.sh
 </pre></div>
 </div>
 </section>
@@ -470,10 +471,10 @@ somefile.txt
 <h2>No compilation required: Using the Provided Lethe Docker Image<a class="headerlink" href="#no-compilation-required-using-the-provided-lethe-docker-image" title="Permalink to this headline">¶</a></h2>
 <p>If you don’t want to build Lethe and its dependencies, you can use the provided <a class="reference external" href="https://github.com/lethe-cfd/lethe/pkgs/container/lethe">Docker image</a>.</p>
 <p>For example, to launch the 2D Lid-Driven Cavity Flow simulation, run the following lines inside the root Lethe folder:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --rm <span class="se">\</span>
-    -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/dealii <span class="se">\</span>
-    ghcr.io/lethe-cfd/lethe:master <span class="se">\</span>
-    gls_navier_stokes_2d examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --rm <span class="se">\</span>
+  -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/dealii <span class="se">\</span>
+  ghcr.io/lethe-cfd/lethe:master <span class="se">\</span>
+  gls_navier_stokes_2d examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm
 </pre></div>
 </div>
 <section id="usage">
@@ -597,5 +598,7 @@ Available programs:
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

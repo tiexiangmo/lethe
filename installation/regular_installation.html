@@ -9,6 +9,7 @@
         <title>Regular installation on Linux - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     
     
@@ -385,7 +386,7 @@
 <p>To install the dependencies (MPI, p4est, trilinos and METIS) all together using candi, the <a class="reference external" href="https://github.com/dealii/candi.git">procedure</a> on the candi repository can be followed.</p>
 <p>Clone the candi git repository in a folder of your choice  (e.g. <code class="docutils literal notranslate"><span class="pre">/home/username/software</span></code>). You can edit the <code class="docutils literal notranslate"><span class="pre">candi.cfg</span></code> file if you want to alter which dependencies are compiled. This can notably be used to force the installation of the deal.II master version instead of the current stable version by setting the <code class="docutils literal notranslate"><span class="pre">STABLE_BUILD=false</span></code></p>
 <p>From the candi folder, the installation of candi can be launched using:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./candi.sh -j $num_proc --prefix=$path
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>./candi.sh -j $num_proc --prefix=$path
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">$num_proc</span></code> is the number of threads you want to use to compile deal.II and <code class="docutils literal notranslate"><span class="pre">$path</span></code> the installation prefix that is desired (e.g. <code class="docutils literal notranslate"><span class="pre">/home/username/software/candi</span></code>).</p>
@@ -395,7 +396,7 @@
 </div>
 <p>After installation, you should have a <code class="docutils literal notranslate"><span class="pre">deal.II-candi</span></code> folder in the installation prefix directory, with the dealii folder of the desired version (see section <a class="reference internal" href="#update-dealii"><span class="std std-ref">Updating deal.II</span></a>), as well as the required dependencies (p4est, trilinos, etc.).</p>
 <p>After installation, add an environment variable to your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> either manually or through the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=/home/username/deal.ii-candi/deal.II-&lt;version&gt;" &gt;&gt; ~/.bashrc
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=/home/username/deal.ii-candi/deal.II-&lt;version&gt;" &gt;&gt; ~/.bashrc
 </pre></div>
 </div>
 </section>
@@ -410,18 +411,18 @@
 <h3>MPI<a class="headerlink" href="#mpi" title="Permalink to this headline">¶</a></h3>
 <p>MPI, for Message Passing Interface, is required for the installation of all components of Lethe. Therefore it should be the first thing you install. On Debian Linux-based OS, MPI can be installed directly from your package manager.</p>
 <p>As an example, in Ubuntu:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libopenmpi-dev openmpi-bin openmpi-common
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libopenmpi-dev openmpi-bin openmpi-common
 </pre></div>
 </div>
 <p>In Manjaro or other arch based linux distribution:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -Sy openmpi
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -Sy openmpi
 </pre></div>
 </div>
 </section>
 <section id="numdiff">
 <h3>numdiff<a class="headerlink" href="#numdiff" title="Permalink to this headline">¶</a></h3>
 <p>numdiff is used within the automatic testing procedure of Lethe to compare files obtained through floating point arithmetic. Without numdiff, Lethe automatic tests may fail when they should not. numdiff can be installed directly from your package manager.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install numdiff
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install numdiff
 </pre></div>
 </div>
 <p>Regrettably, numdiff is not available in the pacman package manager. It can be downloaded from the following <a class="reference external" href="http://www.nongnu.org/numdiff/">website</a>. If you are using an arch distribution, we assume that you will already know how to carry on with the installation of numdiff.</p>
@@ -441,28 +442,28 @@
 <section id="installation-of-deal-ii">
 <h3>Installation of deal.II<a class="headerlink" href="#installation-of-deal-ii" title="Permalink to this headline">¶</a></h3>
 <p>Clone deal.II from the <a class="reference external" href="https://github.com/dealii/dealii">deal.ii official repository</a></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dealii/dealii
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dealii/dealii
 </pre></div>
 </div>
 <p>Configure deal.II in a build folder at the same level as the source code</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir build
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir build
 cd build
 </pre></div>
 </div>
 <p>Depending on how you have installed p4est, Trilinos and METIS, you may need to specify the installation folder of the three libraries</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../dealii -DDEAL_II_WITH_MPI=ON -DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=path/to/your/trilinos/installation -DDEAL_II_WITH_P4EST=ON -DP4EST_DIR=path/to/your/p4est/installation  -DDEAL_II_WITH_METIS=ON -DMETIS_DIR=path/to/your/metis/installation -DCMAKE_INSTALL_PREFIX=/path/to/desired/installation`
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../dealii -DDEAL_II_WITH_MPI=ON -DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=path/to/your/trilinos/installation -DDEAL_II_WITH_P4EST=ON -DP4EST_DIR=path/to/your/p4est/installation  -DDEAL_II_WITH_METIS=ON -DMETIS_DIR=path/to/your/metis/installation -DCMAKE_INSTALL_PREFIX=/path/to/desired/installation`
 </pre></div>
 </div>
 <p>Compile deal.II</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>make -j&lt;nprocessor&gt; install
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>make -j&lt;nprocessor&gt; install
 </pre></div>
 </div>
 <p>Create an environment variable for the deal.II directory</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>export DEAL_II_DIR=/path/to/dealii/installation
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>export DEAL_II_DIR=/path/to/dealii/installation
 </pre></div>
 </div>
 <p>It is generally recommended to add the variable to your bashrc so it is always loaded:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=/path/to/dealii/installation" &gt;&gt; ~/.bashrc
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=/path/to/dealii/installation" &gt;&gt; ~/.bashrc
 </pre></div>
 </div>
 </section>
@@ -470,31 +471,31 @@ cd build
 <section id="installing-lethe-step-2">
 <span id="install-lethe"></span><h2>Installing lethe (Step #2)<a class="headerlink" href="#installing-lethe-step-2" title="Permalink to this headline">¶</a></h2>
 <p>Clone lethe from the <a class="reference external" href="https://github.com/lethe-cfd/lethe">Lethe official repository</a>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/lethe
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/lethe
 </pre></div>
 </div>
 <p>Create a build folder at the same level as the lethe folder</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir build
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir build
 cd build
 </pre></div>
 </div>
 <p>Build Lethe choosing the compilation option (Debug or Release). You can also optionally specify a path to an installation directory of your choice. We recommend that you do so, since this makes using Lethe much more comfortable.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/home/username/path/to/installation
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/home/username/path/to/installation
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/username/path/to/installation
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/username/path/to/installation
 </pre></div>
 </div>
 <p>Then you can compile:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>make -j&lt;numprocs&gt;
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>make -j&lt;numprocs&gt;
 </pre></div>
 </div>
 </section>
 <section id="testing-your-installation-step-3">
 <h2>Testing your installation (Step #3)<a class="headerlink" href="#testing-your-installation-step-3" title="Permalink to this headline">¶</a></h2>
 <p>Lethe comes pre-packaged with an extensive test suit for all of its modules. It can be used to test the validity of your installation. Within the build folder, the test suite can be launched with the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ctest -j $numprocs
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>ctest -j $numprocs
 </pre></div>
 </div>
 <p>where $numprocs can be the number of physical cores on your machine.</p>
@@ -508,7 +509,7 @@ cd build
 <section id="with-candi">
 <h3>With candi<a class="headerlink" href="#with-candi" title="Permalink to this headline">¶</a></h3>
 <p>In the candi folder (for instance, <code class="docutils literal notranslate"><span class="pre">/home/username/software/candi</span></code>), modify the <code class="docutils literal notranslate"><span class="pre">candi.cfg</span></code> to get the latest dealii version, by changing the <code class="docutils literal notranslate"><span class="pre">DEAL_II_VERSION</span></code> variable in the case of an official release, or by changing the <code class="docutils literal notranslate"><span class="pre">STABLE_BUILD</span></code> in the case of a development release. The <code class="docutils literal notranslate"><span class="pre">candi.cfg</span></code> should contain:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Install the following deal.II version:
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span># Install the following deal.II version:
 DEAL_II_VERSION=v9.3.0
 
 # Would you like to build stable version of deal.II?
@@ -610,5 +611,7 @@ STABLE_BUILD=true
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>

@@ -9,6 +9,7 @@
         <title>Windows with WSL - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     
     
@@ -365,7 +366,7 @@
 <div class="admonition-verify-the-installed-version-of-wsl admonition">
 <p class="admonition-title">Verify the installed version of WSL</p>
 <p>In the windows command prompt (Start menu &gt; <code class="docutils literal notranslate"><span class="pre">cmd</span></code>):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>wsl -l -v
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>wsl -l -v
 </pre></div>
 </div>
 <p>should indicate <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">2</span></code>. If not, follow this to update WSL: <a class="reference external" href="https://docs.microsoft.com/fr-fr/windows/wsl/install#upgrade-version-from-wsl-1-to-wsl-2">https://docs.microsoft.com/fr-fr/windows/wsl/install#upgrade-version-from-wsl-1-to-wsl-2</a></p>
@@ -373,7 +374,7 @@
 <ol class="arabic simple" start="2">
 <li><p><a class="reference internal" href="../_images/windows.png"><img alt="win_shell" src="../_images/windows.png" style="height: 15px;"/></a> Launch Ubuntu (from the start menu) and <a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> update Ubuntu:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt update
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt update
 sudo apt upgrade
 </pre></div>
 </div>
@@ -426,7 +427,7 @@ sudo apt upgrade
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Install candi required packages:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install lsb-release git subversion wget \
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install lsb-release git subversion wget \
 bc libgmp-dev build-essential autoconf automake cmake \
 libtool gfortran libboost-all-dev zlib1g-dev openmpi-bin \
 openmpi-common libopenmpi-dev libblas3 libblas-dev \
@@ -440,13 +441,13 @@ liblapack3 liblapack-dev libsuitesparse-dev
 <ol class="arabic simple" start="2">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Install compilers:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gcc-10 g++-10 gfortran-10
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gcc-10 g++-10 gfortran-10
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Create folders (suggested structure):</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir Softwares; cd Softwares
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir Softwares; cd Softwares
 mkdir candi; cd candi
 </pre></div>
 </div>
@@ -454,7 +455,7 @@ mkdir candi; cd candi
 <ol class="arabic simple" start="4">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Download candi:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dealii/candi.git .
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dealii/candi.git .
 </pre></div>
 </div>
 <p>Do not forget the <code class="docutils literal notranslate"><span class="pre">.</span></code> at the end of the command, which means “here”.</p>
@@ -540,7 +541,7 @@ mkdir candi; cd candi
 </li>
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Still in the candi subfolder, run candi installation script:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>./candi.sh -j$numprocs
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>./candi.sh -j$numprocs
 </pre></div>
 </div>
 <dl class="simple">
@@ -569,7 +570,7 @@ mkdir candi; cd candi
 </li>
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Add a deal.II environment variable in Ubuntu through the following command:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=$HOME/deal.ii-candi/deal.II-master" &gt;&gt; ~/.bashrc
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=$HOME/deal.ii-candi/deal.II-master" &gt;&gt; ~/.bashrc
 </pre></div>
 </div>
 </section>
@@ -578,7 +579,7 @@ mkdir candi; cd candi
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Set-up the folder structure: in the <code class="docutils literal notranslate"><span class="pre">Softwares</span></code> folder created at the beginning of Step #1 (if you are in the candi folder, type <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>), type:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir -p lethe/{git,build,inst}
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir -p lethe/{git,build,inst}
 </pre></div>
 </div>
 <p>After installation is complete, the folder structure will be:</p>
@@ -590,21 +591,21 @@ mkdir candi; cd candi
 <ol class="arabic simple" start="2">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Download lethe:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd lethe
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cd lethe
 git clone https://github.com/lethe-cfd/lethe git
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Build lethe:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd build
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cd build
 cmake ../git -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../inst/
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Compile lethe:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>make -j$numprocs
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>make -j$numprocs
 </pre></div>
 </div>
 <dl class="simple">
@@ -617,7 +618,7 @@ cmake ../git -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../inst/
 <ol class="arabic simple" start="5">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> (optional) Test your installation, still in the build folder:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ctest -j$numprocs
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>ctest -j$numprocs
 </pre></div>
 </div>
 <p>This will take from a few minutes to an hour, depending on your hardware. At the end, you should have this message on the console:</p>
@@ -632,14 +633,14 @@ cmake ../git -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../inst/
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Update deal.ii by typing, from your home directory:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd Softwares/candi
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cd Softwares/candi
 ./candi.sh -j$numprocs
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p><a class="reference internal" href="../_images/linux.png"><img alt="linux_shell" src="../_images/linux.png" style="height: 15px;"/></a> Then, update lethe:</p></li>
 </ol>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd ../lethe/git
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cd ../lethe/git
 git pull
 cd ../build
 cmake ../git -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../inst/
@@ -721,5 +722,7 @@ make -j$numprocs
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     </body>
 </html>
