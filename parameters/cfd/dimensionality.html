@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Force and torque calculation" href="force_and_torque.html" /><link rel="prev" title="Source term" href="source_term.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Physical Properties" href="physical_properties.html" /><link rel="prev" title="Simulation Control" href="simulation_control.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Analytical solution - Lethe documentation</title>
+        <title>Dimensionality - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -169,7 +169,7 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="cfd.html">General, CFD and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dimensionality.html">Dimensionality</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Dimensionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="physical_properties.html">Physical Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
@@ -177,7 +177,7 @@
 <li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="source_term.html">Source term</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Analytical solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and torque calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="post_processing.html">Post-Processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
@@ -335,94 +335,22 @@
           </label>
         </div>
         <article role="main">
-          <section id="analytical-solution">
-<h1>Analytical solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">¶</a></h1>
-<p>If the problem being simulated has a known analytical solution, or an exact solution is imposed (manufactured solutions) it can be added in this section. The default parameters are:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection analytical solution
- set enable                = false
- set verbosity             = quiet
- set filename              = L2Error
- subsection uvwp
-   set Function expression = 0; 0; 0  # In 2D : u;v;p
-     or
-   set Function expression = 0; 0; 0; 0  #In 3D u;v;w;p
- end
- subsection temperature
-   set Function expression = 0
- end
- subsection tracer
-   set Function expression = 0
- end
- subsection VOF
-   set Function expression = 0
- end
-end
+          <section id="dimensionality">
+<h1>Dimensionality<a class="headerlink" href="#dimensionality" title="Permalink to this headline">¶</a></h1>
+<p>This subsection is used to automatically rescale the physical properties of a simulation for cases in which
+the fundamental dimensions (length, time, mass, temperature) that are used are not in SI units but the physical properties (e.g. thermal conductivity) are known in SI units.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection dimensionality
+  set length      = 1 #meter
+
+  set mass        = 1 #kilogramm
+
+  set time        = 1 #second
+
+  set temperature = 1 #Kelvin
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span></code> parameter is set to true if the problem has an analytical solution. This enables the calculation of the analytical solution and the <span class="math notranslate nohighlight">\(L^2\)</span> norm of the error.</p></li>
-</ul>
-<p>The <span class="math notranslate nohighlight">\(L^2\)</span> norm of the error is calculated as</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[L^2 = \int_\Omega (u-u_a)^2 \mathrm{d} \Omega\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(u\)</span> is the numerical solution and  <span class="math notranslate nohighlight">\(u_a\)</span> is the analytical solution.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> parameter enables printing the L2 error after each mesh refinement if it is set to <code class="docutils literal notranslate"><span class="pre">verbose</span></code> and if <code class="docutils literal notranslate"><span class="pre">enable</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">filename</span></code> parameter sets the file name to output the L2 error norm if <code class="docutils literal notranslate"><span class="pre">enable</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
-</ul>
-<p>If there is an analytical solution for velocity and pressure, enter the <code class="docutils literal notranslate"><span class="pre">uvwp</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression for the analytical solution in regards to <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(p\)</span> for a 2D simulation and to <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(p\)</span> for a 3D simulation.</p></li>
-</ul>
-<p>If there is an analytical solution for the fluid’s temperature, enter the <code class="docutils literal notranslate"><span class="pre">temperature</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression of the temperature.</p></li>
-</ul>
-<p>If there is an analytical solution for a tracer, enter the <code class="docutils literal notranslate"><span class="pre">tracer</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression of the tracer.</p></li>
-</ul>
-<p>If there is an analytical solution for the VOF physics, enter the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection.</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> parameter sets the expression of the VOF indicator.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The variables <em>x</em>, <em>y</em>, <em>z</em> (3D) and <em>t</em> (time-dependant) can be used in the function expressions.</p>
-</div>
-<p>In all four last subsections, you can add a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">constants</span></code> parameter that will act as a constant in the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code>.</p>
-<p>Ex:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection analytical solution
- set enable                = true
- set verbosity             = true
- set filename              = L2Error
- subsection uvwp
-   set Function constants = A=2.0
-   set Function expression = A*y; -A*x; 0
- end
-end
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A <span class="math notranslate nohighlight">\(\pi\)</span> variable is already defined as both <code class="docutils literal notranslate"><span class="pre">pi</span></code> and <code class="docutils literal notranslate"><span class="pre">Pi</span></code></p>
-</div>
-<p>Your function expression can also contain common functions such as <span class="math notranslate nohighlight">\(\sin\)</span>, <span class="math notranslate nohighlight">\(\cos\)</span> as well as <code class="docutils literal notranslate"><span class="pre">if</span></code> statements.</p>
-<p>Ex.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection analytical solution
- set enable                = true
- set verbosity             = true
- set filename              = L2Error
- subsection phase
-   set Function expression = if(sin(x) &gt; pi, 1, 0)
- end
-end
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The first parameter in the <code class="docutils literal notranslate"><span class="pre">if()</span></code> function is the statement. If this statement is <em>true</em>, then the function expression takes the second parameter as value. If this statement is <em>false</em>, the function expression takes the third parameter as value. In this example, the analytical phase will vary within the calculation domain.</p>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">length</span></code>, <code class="docutils literal notranslate"><span class="pre">mass</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">temperature</span></code> are the fundamental dimensions that may be required. By default, it is assumed that SI units are used.
+For example, if a mesh is made in millimeters, such that a height of <span class="math notranslate nohighlight">\(0.100\)</span> in the mesh file, but the user still wishes to specify the viscosity in <span class="math notranslate nohighlight">\(m^2/s\)</span>, the user can set <code class="docutils literal notranslate"><span class="pre">length=0.001</span></code> to automatically rescale the physical properties.</p>
 </section>
 
         </article>
@@ -430,23 +358,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="force_and_torque.html">
+          <a class="next-page" href="physical_properties.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Force and torque calculation</div>
+                <div class="title">Physical Properties</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="source_term.html">
+          <a class="prev-page" href="simulation_control.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Source term</div>
+                <div class="title">Simulation Control</div>
                 
               </div>
             </a>
@@ -456,7 +384,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/cfd/analytical_solution.rst.txt"
+            | <a class="muted-link" href="../../_sources/parameters/cfd/dimensionality.rst.txt"
                rel="nofollow">
               Show Source
             </a>
