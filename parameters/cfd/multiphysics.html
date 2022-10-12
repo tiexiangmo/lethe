@@ -339,8 +339,9 @@
 <h1>Multiphysics<a class="headerlink" href="#multiphysics" title="Permalink to this headline">¶</a></h1>
 <p>This subsection defines the multiphysics interface of Lethe and enables the solution of Auxiliary Physics in addition to traditional fluid dynamics simulations.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection multiphysics
+  set fluid dynamics          = true
+
   # Thermal physics
-  set fluid mechanics         = true
   set heat transfer           = false
   set viscous dissipation     = false
   set buoyancy force          = false
@@ -353,6 +354,13 @@
   set VOF                     = false
 end
 </pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code>: controls if the fluid dynamics are solved. This is <code class="docutils literal notranslate"><span class="pre">true</span></code> by default and can be turned to <code class="docutils literal notranslate"><span class="pre">false</span></code> to enable calculation of an auxiliary physic only. When appropriate, this can decrease drastically the computation time.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span> <span class="pre">=</span> <span class="pre">false</span></code> and <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code> enables to solve the heat transfer equations with a large time step, with the fluid velocity being defined from the <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a>.</p>
 </div>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>: controls if the heat transfer auxiliary physics are solved. This is an advection-diffusion equation.</p>
