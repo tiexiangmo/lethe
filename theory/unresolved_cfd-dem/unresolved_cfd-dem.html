@@ -382,7 +382,7 @@ I_i \frac{\mathrm{d}\mathbf{\omega}_i}{\mathrm{d}t} = \sum_{j}\left ( \mathbf{M}
 </section>
 <section id="volume-average-navier-stokes">
 <h2>Volume Average Navier-Stokes<a class="headerlink" href="#volume-average-navier-stokes" title="Permalink to this headline">¶</a></h2>
-<p>Since we represent the fluid at a meso-scale, the quantities calculated for the cells are averages among its volume. Additionally, as the volume of fluid is a fraction of the cell, the porosity (or void fraction) is taken into account. To do this, we apply the Volume Average Navier-Stokes (VANS) equations to represent the fluid phase. Mainly, the VANS equations are presented in two different formulations, so called Model A (or Set II) and Model B (or Set I).</p>
+<p>Since we represent the fluid at a meso-scale, the quantities calculated for the cells are averages among its volume. Additionally, as the volume of fluid is a fraction of the cell, the porosity (or void fraction) is taken into account. To do this, we apply the Volume Average Navier-Stokes (VANS) equations to represent the fluid phase. Mainly, the VANS equations are presented in two different formulations, so called Model A (or Set II) and Model B (or Set I) <a class="reference external" href="https://doi.org/10.1017/S002211201000306X">[2]</a>.</p>
 <p>Considering an incompressible flow, the continuity equation for both models is:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\frac{\partial \varepsilon_f}{\partial t} + \nabla \cdot \left ( \varepsilon_f \mathbf{u} \right ) = 0\]</div></div>
@@ -391,7 +391,7 @@ I_i \frac{\mathrm{d}\mathbf{\omega}_i}{\mathrm{d}t} = \sum_{j}\left ( \mathbf{M}
 <li><p><span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the the fluid velocity vector;</p></li>
 <li><p><span class="math notranslate nohighlight">\(\varepsilon_f\)</span> is the void fraction.</p></li>
 </ul>
-<p>Models A and B differ from each other in the way the momentum equation is calculated. In Model A, we consider that pressure is in both phases, while for Model B the pressure is only in the fluid:</p>
+<p>Models A and B differ from each other in the way the momentum equation is calculated. In Model A, we consider that the pressure and the viscous shear stress are in both phases, while for Model B both are only in the fluid <a class="reference external" href="https://doi.org/10.1017/S002211201000306X">[2]</a>:</p>
 <p>Model A:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\rho_f \left ( \frac{\partial \left ( \varepsilon_f \mathbf{u} \right )}{\partial t} + \nabla \cdot \left ( \varepsilon_f \mathbf{u} \otimes \mathbf{u} \right ) \right ) = -\varepsilon \nabla p + \varepsilon \nabla \cdot \tau - \mathbf{F}_{pf}^A\]</div></div>
@@ -405,10 +405,10 @@ I_i \frac{\mathrm{d}\mathbf{\omega}_i}{\mathrm{d}t} = \sum_{j}\left ( \mathbf{M}
 <li><p><span class="math notranslate nohighlight">\(\tau\)</span> is the shear stress;</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathbf{F}_{pf}^A\)</span> and <span class="math notranslate nohighlight">\(\mathbf{F}_{pf}^B\)</span> are the source terms representing the forces applied back in the fluid due to the interaction with particles for Models A and B, respectively.</p></li>
 </ul>
-<p>For Model A, since the pressure term corresponds to a ‘fluid fraction of the pressure’, we can write the interaction term as:</p>
+<p>For Model A, since the pressure and shear stress terms are considered to be partially in the particle’s phase, we can write the interaction term as:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\mathbf{F}_{pf}^A = \frac{1}{V_{\Omega}}\sum_{i}^{n_p}\left ( \mathbf{f}_{pf, i} - \mathbf{f}_{\nabla p, i} - \mathbf{f}_{\nabla \cdot \tau, i} \right )\]</div></div>
-<p>while for Model B, since the pressure is totally in the fluid, we write:</p>
+<p>while for Model B, since the pressure and shear stress are totally in the fluid, we write:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\mathbf{F}_{pf}^B = \frac{1}{V_{\Omega}}\sum_{i}^{n_p}\left ( \mathbf{f}_{pf, i} \right )\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(n_p\)</span> is the number of particles inside the cell <span class="math notranslate nohighlight">\(\Omega\)</span> with volume <span class="math notranslate nohighlight">\(V_{\Omega}\)</span>.</p>
