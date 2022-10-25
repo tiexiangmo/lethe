@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Unresolved CFD-DEM" href="../../unresolved-cfd-dem/unresolved-cfd-dem.html" /><link rel="prev" title="7. Small scale rotating drum (3D)" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Unresolved CFD-DEM" href="../../unresolved-cfd-dem/unresolved-cfd-dem.html" /><link rel="prev" title="8. Small scale rotating drum (3D)" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>8. Granular mixer - Lethe documentation</title>
+        <title>9. Granular mixer - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -267,8 +267,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">4. Rotating drum with post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">5. Rotation of box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">6. Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html">7. Small scale rotating drum (3D)</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">8. Granular mixer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">7. Rectangular hopper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html">8. Small scale rotating drum (3D)</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">9. Granular mixer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -336,10 +337,10 @@
         </div>
         <article role="main">
           <section id="granular-mixer">
-<h1><span class="section-number">8. </span>Granular mixer<a class="headerlink" href="#granular-mixer" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">9. </span>Granular mixer<a class="headerlink" href="#granular-mixer" title="Permalink to this headline">¶</a></h1>
 <p>This example simulates the packing and mixing of particles in a mixer with a pitched-blade impeller. It is recommended to visit <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> for more detailed information on the concepts and physical meanings of the parameters in Lethe-DEM.</p>
 <section id="features">
-<h2><span class="section-number">8.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code></p></li>
 <li><p>Floating mesh</p></li>
@@ -348,17 +349,17 @@
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">8.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-granular-mixer/granular-mixer.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">8.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>This simulation consists of two stages: packing (0-0.5 s) and mixing (0.5-5 s) of particles. There are two types of particles in this simulation (bidispersed system), that are inserted on top of each other during the packing stage. The size and properties of the two particle types are the same, we only need to define two particle types to make the visualization easier during post-processing. At <span class="math notranslate nohighlight">\(t=0.5\)</span> s, the pitched-blade impeller starts rotating with an angular velocity of 6 rad/s and mixes the particles.</p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">8.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="mesh">
-<h3><span class="section-number">8.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The background mesh (mixer body) is created using dealii <code class="docutils literal notranslate"><span class="pre">subdivided_cylinder</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
     set type                = dealii
@@ -370,7 +371,7 @@ end
 </div>
 </section>
 <section id="lagrangian-physical-properties">
-<h3><span class="section-number">8.4.2. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.4.2. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned earlier, there are two types of particles with the same size and properties.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
     set gx                                  = -9.81
@@ -409,7 +410,7 @@ end
 </div>
 </section>
 <section id="solid-objects">
-<h3><span class="section-number">8.4.3. </span>Solid objects<a class="headerlink" href="#solid-objects" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">9.4.3. </span>Solid objects<a class="headerlink" href="#solid-objects" title="Permalink to this headline">¶</a></h3>
 <p>In this subsection, the floating meshes are defined. We can use dealii or gmsh to create the floating meshes. At the moment, solid objects (floating meshes) in Lethe have to be defined using triangular (simplex) meshes. Only triangular 2D meshes of 3D surfaces in the dem_3d solver are presently supported. Quadrilateral 2D meshes of 3D surfaces and 1D mesh of 2D surfaces are not supported at the moment. For each floating mesh, we need to specify a <code class="docutils literal notranslate"><span class="pre">translational</span> <span class="pre">velocity</span></code>, an <code class="docutils literal notranslate"><span class="pre">angular</span> <span class="pre">velocity</span></code>, and a <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code>. In this example, we only need an angular motion of the impeller. Note that the <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code> of the impeller is at 0, 0, 0.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection solid objects
     set number of solids        = 1
@@ -446,7 +447,7 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">8.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>This simulation can be launched by (in parallel mode on 16 processes):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 16 dem_3d granular-mixer.prm
 </pre></div>
@@ -457,11 +458,11 @@ end
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">8.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>Animation of the granular mixing simulation:</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/ms-gAyZcOXk" width="560"></iframe></section>
 <section id="possibility-for-extension">
-<h2><span class="section-number">8.7. </span>Possibility for extension<a class="headerlink" href="#possibility-for-extension" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">9.7. </span>Possibility for extension<a class="headerlink" href="#possibility-for-extension" title="Permalink to this headline">¶</a></h2>
 <p>The same simulation can be carried out with particles of different sizes and properties to study segregation.</p>
 </section>
 </section>
@@ -487,7 +488,7 @@ end
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">7. </span>Small scale rotating drum (3D)</div>
+                <div class="title"><span class="section-number">8. </span>Small scale rotating drum (3D)</div>
                 
               </div>
             </a>
@@ -517,19 +518,19 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">8. Granular mixer</a><ul>
-<li><a class="reference internal" href="#features">8.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">8.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">8.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">8.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#mesh">8.4.1. Mesh</a></li>
-<li><a class="reference internal" href="#lagrangian-physical-properties">8.4.2. Lagrangian physical properties</a></li>
-<li><a class="reference internal" href="#solid-objects">8.4.3. Solid objects</a></li>
+<li><a class="reference internal" href="#">9. Granular mixer</a><ul>
+<li><a class="reference internal" href="#features">9.1. Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">9.2. Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">9.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">9.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#mesh">9.4.1. Mesh</a></li>
+<li><a class="reference internal" href="#lagrangian-physical-properties">9.4.2. Lagrangian physical properties</a></li>
+<li><a class="reference internal" href="#solid-objects">9.4.3. Solid objects</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">8.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">8.6. Results</a></li>
-<li><a class="reference internal" href="#possibility-for-extension">8.7. Possibility for extension</a></li>
+<li><a class="reference internal" href="#running-the-simulation">9.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">9.6. Results</a></li>
+<li><a class="reference internal" href="#possibility-for-extension">9.7. Possibility for extension</a></li>
 </ul>
 </li>
 </ul>
