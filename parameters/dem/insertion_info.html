@@ -363,6 +363,14 @@
  set insertion box maximum y                   = 0.05
  set insertion box maximum z                   = 0.07
 
+ # Initial conditions at insertion
+ set velocity x = 0.0
+ set velocity y = 0.0
+ set velocity z = 0.0
+ set omega x = 0.0
+ set omega y = 0.0
+ set omega z = 0.0
+
  # insertion distance threshold controls the distance between the center of inserted particles (the distance is: [distance threshold] * [diameter of particles]). The distance is modified by a random number if non_uniform insertion is chosen
  set insertion distance threshold              = 2
 
@@ -399,6 +407,14 @@ end
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We recommend that the defined insertion box have at least a distance of <span class="math notranslate nohighlight">\({d^{max}_p}\)</span> (maximum diameter of particles) from the triangulation boundaries. Otherwise, particles may have an overlap with the triangulation walls in the insertion.</p>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">z</span></code> determine the initial translational velocity (in <span class="math notranslate nohighlight">\(\frac{m}{s}\)</span>) at which particles are inserted in the x, y, and z directions, respectively.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">z</span></code> determine the initial rotational velocity (in <span class="math notranslate nohighlight">\(\frac{rad}{s}\)</span>) at which particles are inserted in the x, y, and z directions, respectively.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">info</span></code> subsection is valid for all particle types, by using <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">y</span></code>, or <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">z</span></code>, the given condition is applied to all particles, indistinctively.</p>
 </div>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code> parameter determines the initial distance between the particles in the insertion. As a result, it must be larger than 1 to avoid any initial collision between the inserted particles.</p></li>
