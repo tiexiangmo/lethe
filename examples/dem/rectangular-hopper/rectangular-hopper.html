@@ -362,10 +362,11 @@ Since those are not available at the time in Lethe, we do not consider periodic 
 <h2><span class="section-number">7.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="mesh">
 <h3><span class="section-number">7.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
-<p>The mesh is a hopper with 90° angle generated with GMSH having a top part for the filling and a bottom part which acts as a collector of the particle.</p>
+<p>The mesh is a hopper with 90° angle generated with GMSH having a top part for the filling and a bottom part which acts as a collector of the particle.
+The geometry follow the Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> base case and was handled in order to generate a structured mesh.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
     set type                                = gmsh
-    set file name                           = hopper90.msh
+    set file name                           = hopper_structured.msh
     set initial refinement                  = 1
     set expand particle-wall contact search = false
     set check diamond cells                 = true
@@ -378,17 +379,17 @@ end
 <col style="width: 50%"/>
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><figure class="align-center" id="id7">
+<tr class="row-odd"><td><figure class="align-center" id="id8">
 <a class="reference internal image-reference" href="../../../_images/packed_hopper_2d.png"><img alt="Mesh" src="../../../_images/packed_hopper_2d.png" style="width: 300px;"/></a>
 <figcaption>
-<p><span class="caption-text">Rectangular hopper packed with particle before the discharge with a 2d view.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Rectangular hopper packed with particle before the discharge with a 2d view.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </td>
-<td><figure class="align-center" id="id8">
+<td><figure class="align-center" id="id9">
 <a class="reference internal image-reference" href="../../../_images/packed_hopper_3d.png"><img alt="Mesh" src="../../../_images/packed_hopper_3d.png" style="width: 300px;"/></a>
 <figcaption>
-<p><span class="caption-text">Rectangular hopper packed with particle before the discharge with a 3d view.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Rectangular hopper packed with particle before the discharge with a 3d view.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </td>
@@ -460,10 +461,11 @@ end
     set contact detection method                = dynamic
     set dynamic contact search size coefficient = 0.9
     set load balance method                     = frequent
-    set load balance frequency                  = 200000
+    set load balance frequency                  = 50000
     set neighborhood threshold                  = 1.3
     set particle particle contact force method  = hertz_mindlin_limit_overlap
     set particle wall contact force method      = nonlinear
+    set rolling resistance torque method        = constant_resistance
     set integration method                      = velocity_verlet
 end
 </pre></div>
@@ -527,10 +529,10 @@ This module is a script called <code class="docutils literal notranslate"><span 
 <section id="results-post-processing">
 <h2><span class="section-number">7.7. </span>Results post-processing<a class="headerlink" href="#results-post-processing" title="Permalink to this headline">¶</a></h2>
 <p>Mass flow rate results after post-processing and comparison with the results of Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> for the base case of the hooper with a 90° angle.</p>
-<figure class="align-center" id="id9">
+<figure class="align-center" id="id10">
 <a class="reference internal image-reference" href="../../../_images/figure_hopper.png"><img alt="Results of mass flow rate." src="../../../_images/figure_hopper.png" style="width: 600px;"/></a>
 <figcaption>
-<p><span class="caption-text">Mass flow rate results.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Mass flow rate results.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
@@ -538,11 +540,11 @@ This module is a script called <code class="docutils literal notranslate"><span 
 <h2><span class="section-number">7.8. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>As seen in the following figure, the simulation was not run until all the particles are discharged in the bottom part.
 Since the mass flow rate is constant during the discharge, simulating the very end is not necessary.
-The simulated mass discharging rate is 86.94 g/s.</p>
-<figure class="align-center" id="id10">
+The simulated mass discharging rate is 84.94 g/s.</p>
+<figure class="align-center" id="id11">
 <a class="reference internal image-reference" href="../../../_images/simulation_end.png"><img alt="Mesh" src="../../../_images/simulation_end.png" style="width: 300px;"/></a>
 <figcaption>
-<p><span class="caption-text">Rectangular hopper at the end of the simulation.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Rectangular hopper at the end of the simulation.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
