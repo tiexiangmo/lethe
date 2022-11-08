@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Resolved CFD-DEM Examples" href="../../resolved-cfd-dem/resolved-cfd-dem.html" /><link rel="prev" title="1. Cylindrical packed bed" href="../cylindrical-packed-bed/cylindrical-packed-bed.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Resolved CFD-DEM Examples" href="../../resolved-cfd-dem/resolved-cfd-dem.html" /><link rel="prev" title="3. Gas-solid spouted bed" href="../gas-solid-spouted-bed/gas-solid-spouted-bed.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>2. Gas-solid fluidized bed - Lethe documentation</title>
+        <title>4. Boycott Effect - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -274,7 +274,9 @@
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../cylindrical-packed-bed/cylindrical-packed-bed.html">1. Cylindrical packed bed</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">2. Gas-solid fluidized bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">2. Gas-solid fluidized bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gas-solid-spouted-bed/gas-solid-spouted-bed.html">3. Gas-solid spouted bed</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">4. Boycott Effect</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../resolved-cfd-dem/resolved-cfd-dem.html">Resolved CFD-DEM Examples</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -336,207 +338,180 @@
           </label>
         </div>
         <article role="main">
-          <section id="gas-solid-fluidized-bed">
-<h1><span class="section-number">2. </span>Gas-solid fluidized bed<a class="headerlink" href="#gas-solid-fluidized-bed" title="Permalink to this headline">¶</a></h1>
-<p>It is strongly recommended to visit <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a>  and <a class="reference external" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">CFD-DEM parameters</a> for more detailed information on the concepts and physical meaning of the parameters ind DEM and CFD-DEM.</p>
+          <section id="boycott-effect">
+<h1><span class="section-number">4. </span>Boycott Effect<a class="headerlink" href="#boycott-effect" title="Permalink to this headline">¶</a></h1>
+<p>It is strongly recommended to visit <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a>  and <a class="reference external" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">CFD-DEM parameters</a> for more detailed information on the concepts and physical meaning of the parameters used in the DEM and CFD-DEM solvers.</p>
 <section id="features">
-<h2><span class="section-number">2.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code> and <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling_3d</span></code></p></li>
 <li><p>Three-dimensional problem</p></li>
-<li><p>Displays the selection of models and physical properties.</p></li>
-<li><p>Simulates a solid-gas fluidized bed.</p></li>
+<li><p>Displays the selection of models and physical properties</p></li>
+<li><p>Simulates a solid-liquid sedimentation</p></li>
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">2.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/square-fluidized-bed</span></code></p>
+<h2><span class="section-number">4.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/boycott-effect/boycott-effect.prm</span></code>
+<code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/boycott-effect/particle_generator.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">2.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>This example simulates the fluidization of spherical particles in air. First, we use Lethe-DEM to fill the bed with particles. We enable check-pointing in order to write the DEM checkpoint files which will be used as the starting point of the CFD-DEM simulation. Then, we use the <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling_3d</span></code> solver within Lethe to simulate the fluidization of the particles by initially reading the checkpoint files from the DEM simulation.</p>
+<h2><span class="section-number">4.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<p>This example simulates the sedimentation of a group of particles in a viscous fluid. Two cases were simulated. In the first case, the channel is placed vertically. In the second case, the channel is inclined at <span class="math notranslate nohighlight">\(20^{\circ}\)</span> with respect to the gravity. First, we use Lethe-DEM to insert the particles. We enable check-pointing in order to write the DEM checkpoint files which will be used as the starting point of the CFD-DEM simulation. Then, we use the <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling_3d</span></code> solver within Lethe to simulate the sedimentation of particles by initially reading the checkpoint files from the DEM simulation.</p>
 </section>
 <section id="dem-parameter-file">
-<h2><span class="section-number">2.4. </span>DEM parameter file<a class="headerlink" href="#dem-parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>The syntax is flexible. Parameters do not need to be specified in a specific order, but only within the subsection in which they belong. All parameter subsections are described in the <a class="reference external" href="../../../parameters.html">parameter section</a> of the documentation.</p>
-<p>To set-up the square fluidized bed case, we first fill the bed with particles.</p>
-<p>We first introduce the different sections of the parameter file <code class="docutils literal notranslate"><span class="pre">dem-packing-in-fluidized-bed.prm</span></code> needed to run this simulation.</p>
+<h2><span class="section-number">4.4. </span>DEM parameter file<a class="headerlink" href="#dem-parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>The syntax of this parameter file is flexible. Parameters do not need to be specified in a specific order, but only within the subsection in which they belong. All parameter subsections are descrichannel in the <a class="reference external" href="../../../parameters/parameters.html">parameter section</a> of the documentation.</p>
+<p>We introduce the different sections of the parameter file <code class="docutils literal notranslate"><span class="pre">dem-packing-in-fluidized-channel.prm</span></code> needed to run this simulation. Most subsections are explained in detail in other CFD-DEM examples such as:  <a class="reference external" href="../../../examples/unresolved-cfd-dem/gas-solid-spouted-channel/gas-solid-spouted-channel.html">Gas-solid spouted channel</a>. Therefore, we will not go over them in detail.</p>
 <section id="mesh">
-<h3><span class="section-number">2.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
-<p>In this example, we are simulating a squared fluidized bed that has a half length of 0.1 m, and a side of 0.04 m. We use the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html#ac76417d7404b75cf53c732f456e6e971">subdivided_hyper_rectangle GridGenerator</a>  in order to generate the mesh. The square bed is divided 40 times in the y direction. The following portion of the DEM parameter file shows the function called:</p>
+<h3><span class="section-number">4.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<p>In this example, we are simulating a rectangular channel. We use the deal.II GridGenerator in order to generate a hyper rectangle that is subdivided along its height. The following portion of the DEM parameter file shows the function called:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                                                = dealii
-    set grid type                                           = subdivided_hyper_rectangle
-    set grid arguments                                      = 1,5,1:-0.02,-0.1,-0.02:0.02,0.1,0.02:true
-    set initial refinement                                  = 3
+    set type                                = dealii
+    set grid type                           = subdivided_hyper_rectangle
+    set grid arguments                      = 15,70,15:-0.03,0,-0.03:0.03,0.4,0.03:true
+    set initial refinement                  = 0
+    set expand particle-wall contact search = false
 end
 </pre></div>
 </div>
 </section>
 <section id="simulation-control">
-<h3><span class="section-number">2.4.2. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
-<p>Another subsection, which is generally the one we put at the top of the parameter files, is the <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> . <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code>, end time, log, and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span></code> are defined here. Additionally, users can specify the output folder for the simulation results in this subsection. The <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">frequency</span></code> parameter controls the frequency at which the iteration number is printed on the terminal. If <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">1000</span></code> the iteration number will be printed out every 1000 iterations. This is an easy way to monitor the progress of the simulation. A simulation time of 1 s was chosen with a time step of 0.000005. It is important to choose a long enough time as to allow all particles to come to rest. We store the output files generated in the folder output_dem:</p>
+<h3><span class="section-number">4.4.2. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<p>The time step in this case is the same as the time end. Since we only seek to insert the particles at the top of the channel, we only require 1 insertion time step. We do not need the particles to be packed, therefore by doing this, the particles will be inserted, but will not fall under the action of gravity.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-    set time step                                            = 0.000005
-    set time end                                             = 0.5
-    set log frequency                                        = 1000
-    set output frequency                                     = 1000
-    set output path                                          = ./output_dem/
-end
+     set time step        = 1e-6
+     set time end         = 1e-6
+     set log frequency    = 1000
+     set output frequency = 1
+     set output path      = ./output_dem/
+ end
 </pre></div>
 </div>
 </section>
 <section id="restart">
-<h3><span class="section-number">2.4.3. </span>Restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling_3d</span></code> solver requires reading several DEM files to start the simulation. For this, we have to write the DEM simulation information. This is done by enabling the check-pointing option in the restart subsection. We give the written files a prefix “dem” set in the “set filename” option. The DEM parameter file is initialized exactly as the cylindrical packed bed example. The difference is in the number of particles, their physical proprties, and the insertion box defined based on the new geometry. For more explanation about the individual subsections, refer to the <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> and the <a class="reference external" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">CFD-DEM parameters</a> .</p>
+<h3><span class="section-number">4.4.3. </span>Restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
+<p>We save the files obtained from the single iteration by setting the frequency = 1. These files will be used to start the CFD-DEM simulation.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection restart
-    set checkpoint                                   = true
-    set frequency                                    = 1000
-    set restart                                      = false
-    set filename                                     = dem
+    set checkpoint = true
+    set frequency  = 1
+    set restart    = false
+    set filename   = dem
 end
 </pre></div>
 </div>
 </section>
 <section id="model-parameters">
-<h3><span class="section-number">2.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The section on model parameters is explained in the DEM examples. We show the chosen parameters for this section:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
-    set contact detection method                             = dynamic
-    set load balance method                                  = dynamic
-    set load balance threshold                               = 0.5
-    set dynamic load balance check frequency                 = 10000
-    set neighborhood threshold                               = 1.5
-    set particle particle contact force method               = hertz_mindlin_limit_overlap
-    set particle wall contact force method                   = nonlinear
-    set integration method                                   = velocity_verlet
+    set contact detection method               = dynamic
+    set contact detection frequency            = 10
+    set neighborhood threshold                 = 1.3
+    set rolling resistance torque method       = constant_resistance
+    set particle particle contact force method = hertz_mindlin_limit_force
+    set particle wall contact force method     = nonlinear
+    set integration method                     = velocity_verlet
 end
 </pre></div>
 </div>
-<p>We enable dynamic load balancing in order to fully take advantage of the parallelization of the code.</p>
 </section>
 <section id="lagrangian-physical-properties">
-<h3><span class="section-number">2.4.5. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
-<p>The physical properties section of the particles allows us to specify the different parameters related to the particle such as its density, diameter, and the different coefficients that dictates the collision behavior of the particles. Also, in this section we define the total number of particles for the simulation. The gravitational acceleration as well as the physical properties of particles and walls are specified in the <code class="docutils literal notranslate"><span class="pre">Lagrangian</span> <span class="pre">physical</span> <span class="pre">properties</span></code> subsection. These properties include diameter and density of particles, Young’s modulus, Poisson’s ratio, restitution coefficient, friction and rolling friction coefficients. We insert 30,000 particles in the simulation.</p>
+<h3><span class="section-number">4.4.5. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
+<p>The gravity is set to 0 as we only need to insert the particles in the specified insertion box.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
-    set gx                                                  = 0
-    set gy                                                  = -9.81
-    set gz                                                  = 0
-    set number of particle types                            = 1
-            subsection particle type 0
-                    set size distribution type              = uniform
-                    set diameter                            = 0.001
-                    set number                              = 30000
-                    set density particles                   = 1500
-                    set young modulus particles             = 1000000
-                    set poisson ratio particles             = 0.3
-                    set restitution coefficient particles   = 0.2
-                    set friction coefficient particles      = 0.1
-                    set rolling friction particles          = 0.2
-            end
-    set young modulus wall                                  = 1000000
-    set poisson ratio wall                                  = 0.3
-    set restitution coefficient wall                        = 0.2
-    set friction coefficient wall                           = 0.1
-    set rolling friction wall                               = 0.3
+    set gx                       = 0.0
+    set gy                       = 0.0
+    set gz                       = 0
+    set number of particle types = 1
+    subsection particle type 0
+            set size distribution type            = uniform
+            set diameter                          = 0.002
+            set number                            = 8379
+            set density particles                 = 1200
+            set young modulus particles           = 1e6
+            set poisson ratio particles           = 0.25
+            set restitution coefficient particles = 0.97
+            set friction coefficient particles    = 0.3
+            set rolling friction particles        = 0.1
+    end
+    set young modulus wall           = 1e6
+    set poisson ratio wall           = 0.25
+    set restitution coefficient wall = 0.97
+    set friction coefficient wall    = 0.3
+    set rolling friction wall        = 0.1
 end
 </pre></div>
 </div>
 </section>
 <section id="insertion-info">
-<h3><span class="section-number">2.4.6. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">info</span></code> subsection manages the insertion of particles. It allows us to control the insertion of particles at each time step. This section is already explained in the DEM examples. However, further information regarding the information box will be given. The volume of the insertion box should be large enough to fit all particles. Also, its bounds should be located within the mesh generated in the Mesh subsection.</p>
+<h3><span class="section-number">4.4.6. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
+<p>We insert the particles uniformly in the specified insertion box at the top of the channel.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
-    set insertion method                                    = non_uniform
-    set inserted number of particles at each time step      = 2000
-    set insertion frequency                                 = 2000
-    set insertion box minimum x                             = -0.018
-    set insertion box minimum y                             = -0.05
-    set insertion box minimum z                             = -0.018
-    set insertion box maximum x                             = 0.018
-    set insertion box maximum y                             = 0.05
-    set insertion box maximum z                             = 0.018
-    set insertion distance threshold                        = 1.5
-    set insertion random number range                       = 0.2
-    set insertion random number seed                        = 19
-end
-</pre></div>
-</div>
-</section>
-<section id="floating-walls">
-<h3><span class="section-number">2.4.7. </span>Floating walls<a class="headerlink" href="#floating-walls" title="Permalink to this headline">¶</a></h3>
-<p>We need to pack the particles in the middle of the square bed. Therefore, we create a stopper (floating wall) somewhere below the center of the bed. We chose the point with a y-coordinate of -0.06 to create the wall. We then define a normal to the wall at this point. Make sure that the end time of the floating wall is bigger than the simulation time to ensure that the particles remain suspended. This is shown in:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection floating walls
-  set number of floating walls                      = 1
-    subsection wall 0
-            subsection point on wall
-                    set x                           = 0
-                    set y                           = -0.06
-                    set z                           = 0
-            end
-            subsection normal vector
-                    set nx                          = 0
-                    set ny                          = 1
-                    set nz                          = 0
-            end
-            set start time                          = 0
-            set end time                            = 5
-    end
-
+    set insertion method                               = uniform
+    set inserted number of particles at each time step = 8379
+    set insertion frequency                            = 2000
+    set insertion box minimum x                        = -0.025
+    set insertion box minimum y                        = 0.3
+    set insertion box minimum z                        = -0.025
+    set insertion box maximum x                        = 0.026
+    set insertion box maximum y                        = 0.396
+    set insertion box maximum z                        = 0.026
+    set insertion distance threshold                   = 1.2
+    set insertion random number range                  = 0.4
+    set insertion random number seed                   = 19
 end
 </pre></div>
 </div>
 </section>
 </section>
 <section id="running-the-dem-simulation">
-<h2><span class="section-number">2.5. </span>Running the DEM simulation<a class="headerlink" href="#running-the-dem-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5. </span>Running the DEM simulation<a class="headerlink" href="#running-the-dem-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code> executable is within your path, the simulation can be launched on a single processor by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dem_3d dem-packing-in-fluidized-bed.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dem_3d particle-generator.prm
 </pre></div>
 </div>
 <p>or in parallel (where 8 represents the number of processors)</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d packing_in_square_duct.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d particle-generator.prm
 </pre></div>
 </div>
-<p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Running the packing should take approximatively 20 minutes on 8 cores.</p>
-</div>
-<p>After the particles have been packed inside the square bed, it is now possible to simulate the fluidization of particles.</p>
+<p>The figure below shoes the particles inserted at the top of the channel at the end of the DEM simulation.</p>
+<img alt="inserted particles at the top of the channel" class="align-center" src="../../../_images/packing.png"/>
+<p>After the particles have been inserted it is now possible to simulate the sedimentation of particles.</p>
 </section>
 <section id="cfd-dem-parameter-file">
-<h2><span class="section-number">2.6. </span>CFD-DEM parameter file<a class="headerlink" href="#cfd-dem-parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>The CFD simulation is to be carried out using the packed bed simulated in the previous step. We will discuss the different parameter file sections. The mesh section is identical to that of the DEM so it will not be shown here.</p>
-<section id="id3">
-<h3><span class="section-number">2.6.1. </span>Simulation control<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>The simulation is run for 1 s with a time step of 0.002 s. The time scheme chosen for the simulation is first order backward difference method (BDF1). The simulation control section is shown:</p>
+<h2><span class="section-number">4.6. </span>CFD-DEM parameter file<a class="headerlink" href="#cfd-dem-parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>The CFD simulation is to be carried out using the particles inserted within the previous step. We will discuss the different parameter file sections. Some sections are identical to that of the DEM so they will not be shown again.</p>
+<section id="id1">
+<h3><span class="section-number">4.6.1. </span>Simulation control<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The simulation is run for <span class="math notranslate nohighlight">\(2\)</span> s with a time step of <span class="math notranslate nohighlight">\(0.005\)</span> s. The time scheme chosen for the simulation is first order backward difference method (BDF1). The simulation control section is shown:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-    set method                          = bdf1
-    set output name                     = result_
-    set output frequency                = 10
-    set startup time scaling            = 0.6
-    set time end                        = 1
-    set time step                       = 0.002
-    set output path                     = ./output/
-end
+     set method               = bdf1
+     set number mesh adapt    = 0
+     set output name          = result_
+     set output frequency     = 20
+     set time end             = 2
+     set time step            = 0.005
+     set output path          = ./output/
+ end
 </pre></div>
 </div>
 </section>
 <section id="physical-properties">
-<h3><span class="section-number">2.6.2. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
-<p>The physical properties subsection allows us to determine the density and viscosity of the fluid. We choose a density of 1 and viscosity of 0.00001 as to simulate the flow of air.</p>
+<h3><span class="section-number">4.6.2. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<p>The physical properties subsection allows us to determine the density and viscosity of the fluid. We choose a density of <span class="math notranslate nohighlight">\(1115.6\)</span> and a kinematic viscosity of <span class="math notranslate nohighlight">\(0.00000177\)</span> as to simulate the flow of a sugar-water solution with <span class="math notranslate nohighlight">\(20\)</span> % by weight sugar at <span class="math notranslate nohighlight">\(20^{\circ}\)</span> C.
+The dynamic viscosity of a 20 % sugar-water solution by weight at <span class="math notranslate nohighlight">\(20^{\circ} C\)</span> is 1.97 cP.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
     subsection fluid 0
-        set kinematic viscosity            = 0.00001
-        set density                        = 1
-      end
+            set kinematic viscosity = 0.00000177
+            set density             = 1115.6
+    end
 end
 </pre></div>
 </div>
 </section>
 <section id="initial-conditions">
-<h3><span class="section-number">2.6.3. </span>Initial conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.6.3. </span>Initial conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
 <p>For the initial conditions, we choose zero initial conditions for the velocity.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
     set type = nodal
@@ -548,123 +523,122 @@ end
 </div>
 </section>
 <section id="boundary-conditions">
-<h3><span class="section-number">2.6.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
-<p>For the boundary conditions, we choose a slip boundary condition on the walls of the square bed (IDs = 0, 1, 4, 5) and an inlet velocity of 0.2 m/s at the lower face of the bed (ID = 2).</p>
+<h3><span class="section-number">4.6.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<p>For the boundary conditions, we choose a slip boundary condition on all the walls of the channel and the channel except the bottom and the top of the channel where a no-slip boundary condition is imposed. For more information about the boundary conditions, please refer to the <a class="reference external" href="../../../parameters/cfd/boundary_conditions_cfd.html">Boundary Conditions Section</a></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-   set number                  = 5
-    subsection bc 0
-        set id                 = 0
-        set type              = slip
-    end
-   subsection bc 1
-       set id                  = 1
-       set type              = slip
-    end
-   subsection bc 2
-       set id                  = 4
-       set type              = slip
-    end
-   subsection bc 3
-       set id                  = 5
-       set type              = slip
-    end
-   subsection bc 4
-       set id                  = 2
-       set type              = function
-       subsection u
-        set Function expression = 0
-       end
-       subsection v
-        set Function expression = 2
-       end
-       subsection w
-        set Function expression = 0
-       end
-   end
-end
+     set number = 6
+     subsection bc 0
+             set id   = 0
+             set type = slip
+      end
+     subsection bc 1
+             set id   = 1
+             set type = slip
+     end
+     subsection bc 2
+             set id   = 2
+             set type = noslip
+     end
+     subsection bc 3
+             set id   = 3
+             set type = noslip
+     end
+     subsection bc 4
+             set id   = 4
+             set type = slip
+     end
+     subsection bc 5
+             set id   = 5
+             set type = slip
+     end
+ end
 </pre></div>
 </div>
-<p>The additional sections for the CFD-DEM simulations are the void fraction subsection and the CFD-DEM subsection. These subsections are described in detail in the <a class="reference external" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">CFD-DEM parameters</a> .</p>
+</section>
+<section id="id2">
+<h3><span class="section-number">4.6.5. </span>Lagrangian physical properties<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>This section is identical to the one previously mentioned for the DEM simulation of particle insertion. The only difference is the definition of gravity. For the vertical case, we set <span class="math notranslate nohighlight">\(g_y = -9.81\)</span> and <span class="math notranslate nohighlight">\(g_x = g_z = 0\)</span>. For the inclined case, we determine the gravity by setting: <span class="math notranslate nohighlight">\(g_x = \frac{-9.81}{cos \theta}, \; g_y = \frac{-9.81}{sin \theta}, \; g_z = 0\)</span> where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle of inclination with the vertical.</p>
+<p>The additional sections for the CFD-DEM simulations are the void fraction subsection and the CFD-DEM subsection. These subsections are descrichannel in detail in the <a class="reference external" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">CFD-DEM parameters</a> .</p>
 </section>
 <section id="void-fraction">
-<h3><span class="section-number">2.6.5. </span>Void fraction<a class="headerlink" href="#void-fraction" title="Permalink to this headline">¶</a></h3>
-<p>Since we are calculating the void fraction using the packed bed of the DEM simulation, we set the mode to “dem”. For this, we need to read the dem files which we already wrote using check-pointing. We, therefore, set the read dem to “true” and specify the prefix of the dem files to be dem. In order to ensure that our void fraction projection is bounded, we choose an upper bound limit of 1. We decide not to lower bound the void fraction and thus attributed a value of 0 to the L2 lower bound parameter. We now choose a smoothing factor for the void fraction to reduce discontinuity which can lead to oscillations in the velocity. The factor we choose is around the square of twice the particle’s diameter.</p>
+<h3><span class="section-number">4.6.6. </span>Void fraction<a class="headerlink" href="#void-fraction" title="Permalink to this headline">¶</a></h3>
+<p>Since we are calculating the void fraction using the particle insertion of the DEM simulation, we set the <code class="docutils literal notranslate"><span class="pre">mode</span></code> to <code class="docutils literal notranslate"><span class="pre">dem</span></code>. For this, we need to read the dem files which we already wrote using check-pointing. We, therefore, set the <code class="docutils literal notranslate"><span class="pre">read</span> <span class="pre">dem</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> and specify the prefix of the dem files to be dem.
+We choose to use the quadrature centered method (QCM) to calculate the void fraction. This method does not require smoothing the void fraction as it is continuous in space and time. For this, we specify the <code class="docutils literal notranslate"><span class="pre">mode</span></code> to be <code class="docutils literal notranslate"><span class="pre">qcm</span></code>. We want the radius of our volume averaging sphere to be equal to the length of the element where the void fraction is being calculated. We don’t want the volume of the sphere to be equal to the volume of the element.
+For this, we set the <code class="docutils literal notranslate"><span class="pre">qcm</span> <span class="pre">sphere</span> <span class="pre">equal</span> <span class="pre">cell</span> <span class="pre">volume</span></code> equals to <code class="docutils literal notranslate"><span class="pre">false</span></code>. Since we want to keep the mass conservative properties of the  <span class="math notranslate nohighlight">\(L^2\)</span> projection, we do not bound the void fraction and as such we set <code class="docutils literal notranslate"><span class="pre">bound</span> <span class="pre">void</span> <span class="pre">fraction</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection void fraction
-    set mode = dem
-    set read dem = true
-    set dem file name = dem
-    set l2 smoothing factor = 0.000005
-    set l2 lower bound = 0
-    set l2 upper bound = 1
-    set bound void fraction = true
+    set mode                         = qcm
+    set qcm sphere equal cell volume = false
+    set read dem                     = true
+    set dem file name                = dem
+    set bound void fraction          = false
 end
 </pre></div>
 </div>
 </section>
 <section id="cfd-dem">
-<h3><span class="section-number">2.6.6. </span>CFD-DEM<a class="headerlink" href="#cfd-dem" title="Permalink to this headline">¶</a></h3>
-<p>We also enable grad_div stabilization in order to improve local mass conservation. The void fraction time derivative is enabled to account for the time variation of the void fraction.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For certain simulations, this parameter should be disabled to improve stability of the solver.</p>
-</div>
+<h3><span class="section-number">4.6.7. </span>CFD-DEM<a class="headerlink" href="#cfd-dem" title="Permalink to this headline">¶</a></h3>
+<p>We also enable grad-div stabilization in order to improve local mass conservation. The void fraction time derivative is disabled as the two phases have close densities and as such the time variation of the void fraction may lead to unstable simulations.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection cfd-dem
-    set grad div = true
-    set void fraction time derivative = true
-    set drag force = true
-    set buoyancy force = true
-    set shear force = false
-    set pressure force = false
-    set drag model = difelice
-    set post processing = true
-    set inlet boundary id = 2
-    set outlet boundary id = 3
-    set coupling frequency = 100
-    set vans model = modelB
+    set grad div                      = true
+    set void fraction time derivative = false
+    set drag force                    = true
+    set buoyancy force                = true
+    set shear force                   = true
+    set pressure force                = true
+    set drag model                    = difelice
+    set post processing               = true
+    set coupling frequency            = 250
+    set grad-div length scale         = 0.005
+    set implicit stabilization        = false
+    set vans model                    = modelA
 end
 </pre></div>
 </div>
-<p>We determine the drag model to be used for the calculation of particle-fluid forces. Currently, Difelice, Rong and Dallavalle models are supported. Other optional forces that can be enabled are the buoyancy force, the shear force and the pressure force. We only decide to enable drag and buoyancy as for air, the other forces are considered to be negligible. The VANS model we are solving is model B. Other possible option is model A.</p>
+<p>We determine the drag model to be used for the calculation of particle-fluid forces. We enable buoyancy, drag, shear and pressure forces. For drag, we use the Di Felice model to determine the momentum transfer exchange coefficient. The VANS model we are solving is model A. Other possible option is model B.</p>
 <p>Finally, the linear and non-linear solver controls are defined.</p>
 </section>
 <section id="non-linear-solver-control">
-<h3><span class="section-number">2.6.7. </span>Non-linear solver control<a class="headerlink" href="#non-linear-solver-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.6.8. </span>Non-linear solver control<a class="headerlink" href="#non-linear-solver-control" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-    set tolerance               = 1e-9
-    set max iterations          = 10
-    set verbosity               = verbose
+    set solver           = inexact_newton
+    set tolerance        = 1e-8
+    set max iterations   = 10
+    set verbosity        = verbose
+    set matrix tolerance = 0.75
 end
 </pre></div>
 </div>
+<p>We use the <code class="docutils literal notranslate"><span class="pre">inexact_newton</span></code> solver as to avoid the reconstruction of the system matrix at each Newton iteration. For more information about the non-linear solver, please refer to the <a class="reference external" href="../../../parameters/cfd/non-linear_solver_control.html">Non Linear Solver Section</a></p>
 </section>
 <section id="linear-solver-control">
-<h3><span class="section-number">2.6.8. </span>Linear solver control<a class="headerlink" href="#linear-solver-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.6.9. </span>Linear solver control<a class="headerlink" href="#linear-solver-control" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-    set method                                 = gmres
-    set max iters                              = 5000
-    set relative residual                      = 1e-3
-    set minimum residual                       = 1e-11
-    set ilu preconditioner fill                = 1
-    set ilu preconditioner absolute tolerance  = 1e-14
-    set ilu preconditioner relative tolerance  = 1.00
-    set verbosity                              = verbose
-    set max krylov vectors                     = 200
+    set method                                = gmres
+    set max iters                             = 5000
+    set relative residual                     = 1e-3
+    set minimum residual                      = 1e-10
+    set ilu preconditioner fill               = 0
+    set ilu preconditioner absolute tolerance = 1e-12
+    set ilu preconditioner relative tolerance = 1
+    set verbosity                             = verbose
+    set max krylov vectors                    = 200
 end
 </pre></div>
 </div>
+<p>For more information about the non-linear solver, please refer to the <a class="reference external" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Section</a></p>
 </section>
 </section>
 <section id="running-the-cfd-dem-simulation">
-<h2><span class="section-number">2.7. </span>Running the CFD-DEM simulation<a class="headerlink" href="#running-the-cfd-dem-simulation" title="Permalink to this headline">¶</a></h2>
-<p>The simulation is run using the cfd_dem_coupling_3d application as per the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>path_to_cfd_dem_application/cfd_dem_coupling_3d fluidized-bed.prm
+<h2><span class="section-number">4.7. </span>Running the CFD-DEM simulation<a class="headerlink" href="#running-the-cfd-dem-simulation" title="Permalink to this headline">¶</a></h2>
+<p>The simulation is run using the <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling_3d</span></code> application as per the following command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>path_to_cfd_dem_application/cfd_dem_coupling_3d boycott-effect.prm
 </pre></div>
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">2.8. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>The results are shown in an animation below. We show the fluidization of the particles as the gas is introduced from the bottom of the bed.</p>
-<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/ygJI42x4K5c" width="560"></iframe></section>
+<h2><span class="section-number">4.8. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The results are shown in an animation below. The sedimentation of the particles in a vertical and inclined channel demonstrate different behaviors. This clearly shows the boycott effect as the fluid circulates in the inclined channel resulting in a larger velocity for both the fluid and particles. Thus, the particles fall further compared to the vertical channel where the fluid velocity is almost null, and the particles’ acceleration is low.</p>
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/ZyY5C6o6R8Q" width="560"></iframe></section>
 </section>
 
         </article>
@@ -681,14 +655,14 @@ end
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../cylindrical-packed-bed/cylindrical-packed-bed.html">
+          <a class="prev-page" href="../gas-solid-spouted-bed/gas-solid-spouted-bed.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">1. </span>Cylindrical packed bed</div>
+                <div class="title"><span class="section-number">3. </span>Gas-solid spouted bed</div>
                 
               </div>
             </a>
@@ -698,7 +672,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/examples/unresolved-cfd-dem/square-fluidized-bed/square-fluidized-bed.rst.txt"
+            | <a class="muted-link" href="../../../_sources/examples/unresolved-cfd-dem/boycott-effect/boycott-effect.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -718,34 +692,34 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">2. Gas-solid fluidized bed</a><ul>
-<li><a class="reference internal" href="#features">2.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">2.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">2.3. Description of the case</a></li>
-<li><a class="reference internal" href="#dem-parameter-file">2.4. DEM parameter file</a><ul>
-<li><a class="reference internal" href="#mesh">2.4.1. Mesh</a></li>
-<li><a class="reference internal" href="#simulation-control">2.4.2. Simulation control</a></li>
-<li><a class="reference internal" href="#restart">2.4.3. Restart</a></li>
-<li><a class="reference internal" href="#model-parameters">2.4.4. Model parameters</a></li>
-<li><a class="reference internal" href="#lagrangian-physical-properties">2.4.5. Lagrangian physical properties</a></li>
-<li><a class="reference internal" href="#insertion-info">2.4.6. Insertion info</a></li>
-<li><a class="reference internal" href="#floating-walls">2.4.7. Floating walls</a></li>
+<li><a class="reference internal" href="#">4. Boycott Effect</a><ul>
+<li><a class="reference internal" href="#features">4.1. Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">4.2. Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">4.3. Description of the case</a></li>
+<li><a class="reference internal" href="#dem-parameter-file">4.4. DEM parameter file</a><ul>
+<li><a class="reference internal" href="#mesh">4.4.1. Mesh</a></li>
+<li><a class="reference internal" href="#simulation-control">4.4.2. Simulation control</a></li>
+<li><a class="reference internal" href="#restart">4.4.3. Restart</a></li>
+<li><a class="reference internal" href="#model-parameters">4.4.4. Model parameters</a></li>
+<li><a class="reference internal" href="#lagrangian-physical-properties">4.4.5. Lagrangian physical properties</a></li>
+<li><a class="reference internal" href="#insertion-info">4.4.6. Insertion info</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-dem-simulation">2.5. Running the DEM simulation</a></li>
-<li><a class="reference internal" href="#cfd-dem-parameter-file">2.6. CFD-DEM parameter file</a><ul>
-<li><a class="reference internal" href="#id3">2.6.1. Simulation control</a></li>
-<li><a class="reference internal" href="#physical-properties">2.6.2. Physical properties</a></li>
-<li><a class="reference internal" href="#initial-conditions">2.6.3. Initial conditions</a></li>
-<li><a class="reference internal" href="#boundary-conditions">2.6.4. Boundary conditions</a></li>
-<li><a class="reference internal" href="#void-fraction">2.6.5. Void fraction</a></li>
-<li><a class="reference internal" href="#cfd-dem">2.6.6. CFD-DEM</a></li>
-<li><a class="reference internal" href="#non-linear-solver-control">2.6.7. Non-linear solver control</a></li>
-<li><a class="reference internal" href="#linear-solver-control">2.6.8. Linear solver control</a></li>
+<li><a class="reference internal" href="#running-the-dem-simulation">4.5. Running the DEM simulation</a></li>
+<li><a class="reference internal" href="#cfd-dem-parameter-file">4.6. CFD-DEM parameter file</a><ul>
+<li><a class="reference internal" href="#id1">4.6.1. Simulation control</a></li>
+<li><a class="reference internal" href="#physical-properties">4.6.2. Physical properties</a></li>
+<li><a class="reference internal" href="#initial-conditions">4.6.3. Initial conditions</a></li>
+<li><a class="reference internal" href="#boundary-conditions">4.6.4. Boundary conditions</a></li>
+<li><a class="reference internal" href="#id2">4.6.5. Lagrangian physical properties</a></li>
+<li><a class="reference internal" href="#void-fraction">4.6.6. Void fraction</a></li>
+<li><a class="reference internal" href="#cfd-dem">4.6.7. CFD-DEM</a></li>
+<li><a class="reference internal" href="#non-linear-solver-control">4.6.8. Non-linear solver control</a></li>
+<li><a class="reference internal" href="#linear-solver-control">4.6.9. Linear solver control</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-cfd-dem-simulation">2.7. Running the CFD-DEM simulation</a></li>
-<li><a class="reference internal" href="#results">2.8. Results</a></li>
+<li><a class="reference internal" href="#running-the-cfd-dem-simulation">4.7. Running the CFD-DEM simulation</a></li>
+<li><a class="reference internal" href="#results">4.8. Results</a></li>
 </ul>
 </li>
 </ul>
@@ -764,5 +738,6 @@ end
     <script src="../../../_static/scripts/furo.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
