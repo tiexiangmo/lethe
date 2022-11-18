@@ -206,6 +206,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/dem/floating_mesh.html">Floating Mesh (Solid Objects)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/dem/mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/dem/boundary_conditions.html">Boundary Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/dem/post-processing.html">Post-processing</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -362,16 +363,9 @@
 <h2><span class="section-number">4.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="post-processing">
 <h3><span class="section-number">4.4.1. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
-<p>First, we set the variable <code class="docutils literal notranslate"><span class="pre">Lagrangian</span> <span class="pre">post</span> <span class="pre">processing</span></code> equal to true. This enables Lagrangian post-processing calculations. Then we specify the post-processing features that should be obtained. At the moment, Lethe-DEM supports the calculation of <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">average</span> <span class="pre">velocity</span></code>, and <code class="docutils literal notranslate"><span class="pre">granular</span> <span class="pre">temperature</span></code>. We set the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">step</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">step</span></code> of the post-processing calculations. In the period between initial and end steps, Lethe-DEM calculates and writes the granular temperature and average velocity of particles in cells at a frequency of <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span></code>. <code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">velocity</span> <span class="pre">output</span> <span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">granular</span> <span class="pre">temperature</span> <span class="pre">output</span> <span class="pre">name</span></code> define the names of the written post-processing files for average velocity and granular temperature, respectively.</p>
+<p>First, we set the variable <code class="docutils literal notranslate"><span class="pre">Lagrangian</span> <span class="pre">post-processing</span></code> equal to <code class="docutils literal notranslate"><span class="pre">true</span></code>. This enables Lagrangian post-processing calculations. Lethe-DEM built-in post-processing capabilities are detailed in the <a class="reference internal" href="../../../parameters/dem/post-processing.html"><span class="doc">Post-processing</span></a> section of the parameters guide.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection post-processing
-    set Lagrangian post processing                          = true
-    set calculate particles average velocity        = true
-    set calculate granular temperature                      = true
-    set initial step                                        = 8500000
-    set end step                                                            = 9500000
-    set output frequency                                            = 1000
-    set particles velocity output name              = average_velocity
-    set granular temperature output name            = granular_temperature
+    set Lagrangian post-processing = true
 end
 </pre></div>
 </div>
