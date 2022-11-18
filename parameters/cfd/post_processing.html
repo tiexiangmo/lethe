@@ -359,6 +359,7 @@ set tracer statistics name      = tracer_statistics
 set verbosity                   = quiet
 set calculation frequency       = 1
 set output frequency            = 1
+set smoothing                   = false
 end
 </pre></div>
 </div>
@@ -380,6 +381,7 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> parameter specifies if the post-processing values are printed to the terminal at the end of every &lt;output frequency&gt; iteration. This does not affect the printing of output files.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">calculation</span> <span class="pre">frequency</span></code> parameter sets the frequency at which the enstrophy, kinetic energy, apparent viscosity, pressure drop, average velocities and tracer statistics are calculated (for the ones that are set to <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span></code> parameter sets the frequency at which the enstrophy, kinetic energy, apparent viscosity, pressure drop and tracer statistics are output to their respective files (for the ones that are set to <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">smoothing</span></code> parameter sets if the Qcriterion field will be smoothed using an L2-projection over the nodes. The same will shortly be applied to the Vorticity.</p></li>
 </ul>
 </section>
 
