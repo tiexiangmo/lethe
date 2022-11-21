@@ -374,7 +374,7 @@
 \[At = \frac{\rho_r - 1}{\rho_r + 1} = 0.5\]</div></div>
 </dd>
 </dl>
-<p>A perturbed interface defined as <span class="math notranslate nohighlight">\(2H + 0.1 \cos{2 \pi x} / H\)</span> separates the fluids. At the top and bottom boundaries, a no-slip boundary condition is applied, while on the left and right walls, a periodic boundary condition is used. The temporal evolution of the interface is compared with the simulations of Garoosi and Hooman [2] at dimensionless times (<span class="math notranslate nohighlight">\(t = t \sqrt{\bf{g} / H}\)</span>) of 1.5, 2.5, 3.5, 4.0 and 4.5.</p>
+<p>A perturbed interface defined as <span class="math notranslate nohighlight">\(2H + 0.1 H \cos{(2 \pi x / H)}\)</span> separates the fluids. At the top and bottom boundaries, a no-slip boundary condition is applied, while on the left and right walls, a periodic boundary condition is used. The temporal evolution of the interface is visually compared with the simulations of Garoosi and Hooman (2022) <a class="reference internal" href="#id3">[2]</a> at dimensionless times (<span class="math notranslate nohighlight">\(t^* = t \sqrt{\bf{g} / H}\)</span>) of 1.5, 2.5, 3.5, 4.0 and 4.5. The temporal evolution of the spike and the bubble positions are then compared to the results of He et al (1999) <a class="reference internal" href="#id2">[1]</a>. The term “spike” refers to the lowest point of fluid 1 and the term “bubble” refers to the highest point of fluid 0.</p>
 </section>
 <section id="parameter-file">
 <h2><span class="section-number">1.2.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
@@ -562,7 +562,7 @@ end
 <section id="running-the-simulation">
 <h2><span class="section-number">1.2.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Call the gls_navier_stokes_2d by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">rayleigh-taylor-instability.prm</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">rayleigh-taylor-instability-adaptive-sharpening.prm</span></code></p>
 <p>to run the simulations using eight CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -574,15 +574,19 @@ run in parallel using mpirun. This simulation takes
 <section id="results">
 <h2><span class="section-number">1.2.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following animation shows the results of this simulation:</p>
-<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/hZwbFob_Jj4" width="560"></iframe><p>In the following figure, we compare the simulation results with that of Garoosi and Hooman [2].</p>
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/hZwbFob_Jj4" width="560"></iframe><p>In the following figure, we compare the simulation results with that of Garoosi and Hooman (2022) <a class="reference internal" href="#id3">[2]</a>.</p>
 <a class="reference internal image-reference" href="../../../_images/comparison.png"><img alt="Schematic" class="align-center" src="../../../_images/comparison.png" style="width: 400px;"/></a>
+<p>In the figure below, we compare the position of the spike and the bubble with the results of He et al (1999) <a class="reference internal" href="#id2">[1]</a>. It can be seen that as <span class="math notranslate nohighlight">\(t^*\)</span> increases, there is a growing difference between the spike position of the current simulation and that of He et al (1999) <a class="reference internal" href="#id2">[1]</a>. Nevertheless, the bubble position follows the same evolution as the reference.</p>
+<a class="reference internal image-reference" href="../../../_images/spike_and_bubble_evolution_He_et_al_comparison.png"><img alt="Comparison of the spike and bubble positions with He et al (1999) values." class="align-center" src="../../../_images/spike_and_bubble_evolution_He_et_al_comparison.png" style="width: 800px;"/></a>
+<p>With higher levels of refinement, we can see better correspondence between the values. However, there is still a gap between the spike positions for larger values of <span class="math notranslate nohighlight">\(t^*\)</span>.</p>
+<a class="reference internal image-reference" href="../../../_images/spike_and_bubble_evolution_ref_max_10_ref_min_8.png"><img alt="He et al comparison for a max refinement of 10 and a min refinement of 8. We see a better correspondence in the positions of the spike and the bubble. However, for large values of t*, there is still gap between the positions." class="align-center" src="../../../_images/spike_and_bubble_evolution_ref_max_10_ref_min_8.png" style="width: 800px;"/></a>
 <p>The following figure shows the mass of fluid 1 throughout the simulation with a constant interface sharpening.</p>
 <a class="reference internal image-reference" href="../../../_images/mass-of-fluid1.png"><img alt="Schematic" class="align-center" src="../../../_images/mass-of-fluid1.png" style="width: 400px;"/></a>
 </section>
 <section id="references">
 <h2><span class="section-number">1.2.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>[1] He, X., Chen, S. and Zhang, R., 1999. A lattice Boltzmann scheme for incompressible multiphase flow and its application in simulation of Rayleigh–Taylor instability. Journal of computational physics, 152(2), pp.642-663.</p>
-<p>[2] Garoosi, F. and Hooman, K., 2022. Numerical simulation of multiphase flows using an enhanced Volume-of-Fluid (VOF) method. International Journal of Mechanical Sciences, 215, p.106956.</p>
+<p id="id2">[1] He, X., Chen, S. and Zhang, R., 1999. A lattice Boltzmann scheme for incompressible multiphase flow and its application in simulation of Rayleigh–Taylor instability. Journal of computational physics, 152(2), pp.642-663. <a class="reference external" href="https://doi.org/10.1006/jcph.1999.6257">https://doi.org/10.1006/jcph.1999.6257</a></p>
+<p id="id3">[2] Garoosi, F. and Hooman, K., 2022. Numerical simulation of multiphase flows using an enhanced Volume-of-Fluid (VOF) method. International Journal of Mechanical Sciences, 215, p.106956. <a class="reference external" href="https://doi.org/10.1016/j.ijmecsci.2021.106956">https://doi.org/10.1016/j.ijmecsci.2021.106956</a></p>
 </section>
 </section>
 
