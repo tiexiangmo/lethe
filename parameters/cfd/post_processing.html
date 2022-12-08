@@ -170,7 +170,7 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="cfd.html">General, CFD and Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="analytical_solution.html">Analytical solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Contitions - Multiphysics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Conditions - Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="box_refinement.html">Box refinement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dimensionality.html">Dimensionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
@@ -343,46 +343,165 @@
 <h1>Post-Processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h1>
 <p>This subsection controls the post-processing other than the forces and torque on the boundary conditions. Default values are</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection post-processing
-set calculate enstrophy           = false
-set calculate kinetic energy      = false
-set calculate apparent viscosity  = false
-set calculate pressure drop       = false
-set calculate average velocities  = false
-set calculate tracer statistics   = false
-set initial time                  = 0.0
-set inlet boundary id           = 0
-set outlet boundary id          = 1
-set enstrophy name              = enstrophy
-set kinetic energy name         = kinetic_energy
-set apparent viscosity name     = apparent_viscosity
-set pressure drop name          = pressure_drop
-set tracer statistics name      = tracer_statistics
-set verbosity                   = quiet
-set calculation frequency       = 1
-set output frequency            = 1
-set smoothing                   = false
+
+      set verbosity                   = quiet
+      set output frequency            = 1
+
+      #---------------------------------------------------
+      # Fluid dynamic post-processing
+      #---------------------------------------------------
+      # Kinetic energy calculation
+      set calculate kinetic energy    = false
+      set kinetic energy name         = kinetic_energy
+
+      # Average velocities calculation
+      set calculate average velocities  = false
+      set initial time                  = 0.0
+
+      # Pressure drop calculation
+      set calculate pressure drop     = false
+      set pressure drop name          = pressure_drop
+      set inlet boundary id           = 0
+      set outlet boundary id          = 1
+
+      # Enstrophy calculation
+      set calculate enstrophy         = false
+      set enstrophy name              = enstrophy
+
+      # Others
+      set smoothing                   = false
+
+      #---------------------------------------------------
+      # Physical properties post-processing
+      #---------------------------------------------------
+      set calculate apparent viscosity  = false
+      set apparent viscosity name       = apparent_viscosity
+
+      #---------------------------------------------------
+      # Multiphysics post-processing
+      #---------------------------------------------------
+      # Tracer statistics
+      set calculate tracer statistics   = false
+      set tracer statistics name        = tracer_statistics
+
+      # Thermal postprocesses
+      set postprocessed fluid                 = both
+      set calculate temperature statistics    = false
+      set temperature statistics name         = temperature_statistics
+      set calculate heat flux                 = false
+      set heat flux name                      = heat_flux
+
 end
 </pre></div>
 </div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code>: enables the display of the post-processing values in the terminal. This does not affect the printing of output files. Choices are: <code class="docutils literal notranslate"><span class="pre">quiet</span></code> (default, no output) or <code class="docutils literal notranslate"><span class="pre">verbose</span></code> (output at every iteration).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span></code>: frequency at which the enabled post-processing is outputted in the respective file. For <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">1</span></code> (default value), results are outputted at each iteration.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">kinetic</span> <span class="pre">energy</span></code>: controls if calculation of total kinetic energy is enabled.</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kinetic</span> <span class="pre">energy</span> <span class="pre">name</span></code>: output filename for kinetic energy calculations.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">average</span> <span class="pre">velocities</span></code>: controls if calculation of time-averaged velocities is enabled.</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">time</span></code>: initial time used for the average velocities calculations.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">pressure</span> <span class="pre">drop</span></code>: controls if calculation of the pressure drop from the inlet boundary to the outlet boundary is enabled.</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">inlet</span> <span class="pre">boundary</span> <span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">outlet</span> <span class="pre">boundary</span> <span class="pre">id</span></code>: define the IDs for inlet and outlet boundaries, respectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">drop</span> <span class="pre">name</span></code>: output filename for pressure drop calculations.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">enstrophy</span></code>: controls if calculation of total enstrophy, which corresponds to dissipation effects in the fluid, is enabled.</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">enstrophy</span> <span class="pre">name</span></code>: output filename for enstrophy calculations.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">smoothing</span></code>: controls if the Qcriterion field will be smoothed using an L2-projection over the nodes. The same will shortly be applied to the Vorticity.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">apparent</span> <span class="pre">viscosity</span></code>: controls if parameter calculation of an apparent viscosity is enabled, when using a non Newtonian flow (see section Physical properties - <a class="reference internal" href="physical_properties.html#rheological-models"><span class="std std-ref">Rheological models</span></a>). This is mainly used to define the Reynolds number <cite>a posteriori</cite>.</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">apparent</span> <span class="pre">viscosity</span> <span class="pre">name</span></code>: output filename for apparent viscosity calculations.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">tracer</span> <span class="pre">statistics</span></code>: controls if calculation of tracer statistics is enabled. Statistics include: minimum, maximum, average and standard-deviation.</dt><dd><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">tracer</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
+</div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">enstrophy</span></code> parameter enables calculation of total enstrophy.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">kinetic</span> <span class="pre">energy</span></code> parameter enables calculation of total kinetic energy.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">apparent</span> <span class="pre">viscosity</span></code> parameter enables calculation of an apparent viscosity when using a non Newtonian flow. This is mainly used to define  Reynolds number a posteriori.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">pressure</span> <span class="pre">drop</span></code> parameter enables calculation of the pressure drop from the inlet boundary to the outlet boundary.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">average</span> <span class="pre">velocities</span></code> parameter enables calculation of time-averaged velocities.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">tracer</span> <span class="pre">statistics</span></code> parameter enables calculation of tracer statistics.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">time</span></code> parameter sets the initial time to start calculations of time-averaged velocities.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">inlet</span> <span class="pre">boundary</span> <span class="pre">id</span></code> parameter sets the inlet boundary id for pressure drop calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">outlet</span> <span class="pre">boundary</span> <span class="pre">id</span></code> parameter sets the outlet boundary id for pressure drop calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">enstrophy</span> <span class="pre">name</span></code> parameter sets output file name for enstrophy calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">kinetic</span> <span class="pre">energy</span> <span class="pre">name</span></code> parameter sets output file name for kinetic energy calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">apparent</span> <span class="pre">viscosity</span> <span class="pre">name</span></code> parameter sets output file name for apparent viscosity calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">drop</span> <span class="pre">name</span></code> parameter sets output file name for pressure drop calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">statistics</span> <span class="pre">name</span></code> parameter sets output file name for tracer statistics calculations.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> parameter specifies if the post-processing values are printed to the terminal at the end of every &lt;output frequency&gt; iteration. This does not affect the printing of output files.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">calculation</span> <span class="pre">frequency</span></code> parameter sets the frequency at which the enstrophy, kinetic energy, apparent viscosity, pressure drop, average velocities and tracer statistics are calculated (for the ones that are set to <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span></code> parameter sets the frequency at which the enstrophy, kinetic energy, apparent viscosity, pressure drop and tracer statistics are output to their respective files (for the ones that are set to <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">smoothing</span></code> parameter sets if the Qcriterion field will be smoothed using an L2-projection over the nodes. The same will shortly be applied to the Vorticity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">statistics</span> <span class="pre">name</span></code>: output filename for tracer statistics calculations.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">postprocessed</span> <span class="pre">fluid</span></code>: fluid domain used for thermal postprocesses. Choices are<span class="classifier"><code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code>, or <code class="docutils literal notranslate"><span class="pre">both</span></code> (default).</span></dt><dd><ul class="simple">
+<li><p>For monophasic simulations (<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">VOF</span> <span class="pre">=</span> <span class="pre">false</span></code> in <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>), <code class="docutils literal notranslate"><span class="pre">both</span></code> and <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code> are equivalent and the temperature statistics are computed over the entire domain.</p></li>
+<li><p>For multiphasic simulations (<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">VOF</span> <span class="pre">=</span> <span class="pre">true</span></code> in <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>), temperature statistics can be computed over the entire domain (<code class="docutils literal notranslate"><span class="pre">both</span></code>) or inside a given fluid only (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code>), with the fluid IDs defined in Physical properties - <a class="reference internal" href="physical_properties.html#two-phase-simulations"><span class="std std-ref">Two phase simulations</span></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The output files will have a suffix depending on the <code class="docutils literal notranslate"><span class="pre">postprocessed</span> <span class="pre">fluid</span></code>: <code class="docutils literal notranslate"><span class="pre">fluid_0</span></code>, <code class="docutils literal notranslate"><span class="pre">fluid_1</span></code> and <code class="docutils literal notranslate"><span class="pre">all_domain</span></code>.</p>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">temperature</span> <span class="pre">statistics</span></code>: controls if calculation of temperature statistics is enabled. Statistics include: minimum, maximum, average and standard-deviation.</dt><dd><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">statistics</span> <span class="pre">name</span></code>: output filename for temperature statistics calculations.</p></li>
+</ul>
+<div class="admonition-example-of-temperature-statistics-table admonition">
+<p class="admonition-title">Example of temperature statistics table:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> time  min    max    average std-dev
+0.0000 0.0000 3.9434  0.1515  0.6943
+0.2000 2.5183 4.9390  3.3917  0.7229
+</pre></div>
+</div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">heat</span> <span class="pre">flux</span></code>: controls if calculation of heat flux is enabled. If enabled, two quantities are postprocessed:</dt><dd><ul class="simple">
+<li><p>the heat flux <span class="math notranslate nohighlight">\(\mathbf{\Phi}\)</span> for each <a class="reference internal" href="boundary_conditions_multiphysics.html#heat-transfer-bc"><span class="std std-ref">Heat Transfer</span></a> boundary condition.</p></li>
+</ul>
+<p>The output table is appended with one column per boundary condition, named <code class="docutils literal notranslate"><span class="pre">bc_i</span></code> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the index of the boundary in the parameter file.</p>
+<ul class="simple">
+<li><p>the thermal energy (<span class="math notranslate nohighlight">\(\mathbf{Q} = m c_p \mathbf{T}\)</span>) over the domain defined by <code class="docutils literal notranslate"><span class="pre">postprocessed</span> <span class="pre">fluid</span></code>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">flux</span> <span class="pre">name</span></code>: output filename for temperature statistics calculations.</p></li>
+</ul>
+<div class="admonition-example-of-heat-flux-table admonition">
+<p class="admonition-title">Example of heat flux table:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> time   bc_0    bc_1    thermal_energy_fluid_1
+0.0000 64.0000  0.6400                  0.0313
+0.2000  3.6963  0.0976                  0.6965
+</pre></div>
+</div>
+</div>
+</dd>
+</dl>
+</li>
 </ul>
 </section>
 
@@ -438,5 +557,6 @@ end
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
