@@ -192,7 +192,7 @@
 <li class="toctree-l3"><a class="reference internal" href="stabilization.html">Stabilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="velocity_source.html">Velocity Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="volume_of_fluid.html">Multiphase Flow - Volume of Fluid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="volume_of_fluid.html">Volume of Fluid (Multiphase Flow)</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -390,7 +390,7 @@ end
 </div>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">VOF</span></code>: enables multiphase flow simulations, with two fluids separated by a free surface, using the Volume-of-Fluid method.</p>
-<p>See <a class="reference internal" href="volume_of_fluid.html"><span class="doc">Multiphase Flow - Volume of Fluid</span></a> for advanced VOF parameters, <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a> for the definition of the VOF conditions and <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/physical_properties.html#two-phase-simulations">Physical properties - two phase simulations</a> for the definition of the physical properties of both fluids.</p>
+<p>See <a class="reference internal" href="volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a> for advanced VOF parameters, <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a> for the definition of the VOF conditions and <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/physical_properties.html#two-phase-simulations">Physical properties - two phase simulations</a> for the definition of the physical properties of both fluids.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">average</span> <span class="pre">velocity</span> <span class="pre">field</span></code>:  controls if the advection of the subphysics is done using the average velocity field instead of the current velocity field. This is useful when the flow dynamics and the subphysics reach a pseudo-steady state at different time scales. To use this feature, the user should launch a simulation with the fluid mechanics solver and use the time averaging feature. Once the time average of the velocity field is sufficiently established, the simulation should be stopped and restarted without the fluid mechanics solver. The subphysics can then be solved using a larger time step.</p></li>
 </ul>
