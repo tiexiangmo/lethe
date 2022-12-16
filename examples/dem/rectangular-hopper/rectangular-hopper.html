@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="8. Small scale rotating drum (3D)" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html" /><link rel="prev" title="6. Silo" href="../silo/silo.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="9. Granular mixer" href="../granular-mixer/granular-mixer.html" /><link rel="prev" title="7. Silo" href="../silo/silo.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>7. Rectangular hopper - Lethe documentation</title>
+        <title>8. Rectangular hopper - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -264,12 +264,12 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../dem.html">Discrete Element Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-circle/packing-in-circle.html">1. Packing in circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">2. Packing in ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">3. Rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">4. Rotating drum with post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">5. Rotation of box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">6. Silo</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">7. Rectangular hopper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html">8. Small scale rotating drum (3D)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">3. Small scale rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">4. Rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">5. Rotating drum with post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">6. Rotation of box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">7. Silo</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">8. Rectangular hopper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../granular-mixer/granular-mixer.html">9. Granular mixer</a></li>
 </ul>
 </li>
@@ -340,11 +340,11 @@
         </div>
         <article role="main">
           <section id="rectangular-hopper">
-<h1><span class="section-number">7. </span>Rectangular hopper<a class="headerlink" href="#rectangular-hopper" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Rectangular hopper<a class="headerlink" href="#rectangular-hopper" title="Permalink to this headline">¶</a></h1>
 <p>This example simulates the filling and discharging of particles in a rectangular hopper.
 We set up this simulation based on the simulation of Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a>. It is recommended to visit <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> for more detailed information on the concepts and physical meanings of the parameters in Lethe-DEM.</p>
 <section id="features">
-<h2><span class="section-number">7.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code></p></li>
 <li><p>Floating walls</p></li>
@@ -353,18 +353,18 @@ We set up this simulation based on the simulation of Anand et al. <a class="refe
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">7.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-rectangular-hopper/hopper.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">7.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>This simulation consists of two stages: filling (0-4 s) and discharge (4-7.5 s) of particles. Anand et al. uses periodic boundaries in the z axis allowing to use a thin width for simulation.
 Since those are not available at the time in Lethe, we do not consider periodic boundaries. To minimize the impact of collision of particle with walls along the z axis, the width and the number of particle were multiplied by 6 (40740 particles instead of 6790). This corresponds to a width of 15 times the particle diameter.</p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">7.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="mesh">
-<h3><span class="section-number">7.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The mesh is a hopper with 90° angle generated with GMSH having a top part for the filling and a bottom part which acts as a collector of the particle.
 The geometry follow the Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> base case and was handled in order to generate a structured mesh.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
@@ -401,7 +401,7 @@ end
 </table></div>
 </section>
 <section id="insertion-info">
-<h3><span class="section-number">7.4.2. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.2. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
 <p>An insertion box is defined inside and the top part of the hopper. The inserted number of particles per time step is chosen to be a factor of the total number of particle. In this case, 14 insertion steps are required to fill up the hopper with particles.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
     set insertion method                               = non_uniform
@@ -421,7 +421,7 @@ end
 </div>
 </section>
 <section id="lagrangian-physical-properties">
-<h3><span class="section-number">7.4.3. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.3. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The total number of particles in this simulation is 40740. All particles have a diameter of 2.24 mm.</p>
 <p>The following properties are chosen according to the Anand et al. paper :</p>
 <ul class="simple">
@@ -458,7 +458,7 @@ end
 </div>
 </section>
 <section id="model-parameters">
-<h3><span class="section-number">7.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Model parameters are based on the <a class="reference external" href="../silo/silo.html">Silo example</a>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
     set contact detection method                = dynamic
@@ -475,7 +475,7 @@ end
 </div>
 </section>
 <section id="simulation-control">
-<h3><span class="section-number">7.4.5. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.5. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>The time end of the simulation is 7.5 where most of the particles are discharged and the DEM time step is 1e-5 s which corresponds to 2.9% of Rayleigh time step.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
     set time step        = 1e-5
@@ -489,7 +489,7 @@ end
 </div>
 </section>
 <section id="floating-walls">
-<h3><span class="section-number">7.4.6. </span>Floating walls<a class="headerlink" href="#floating-walls" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.4.6. </span>Floating walls<a class="headerlink" href="#floating-walls" title="Permalink to this headline">¶</a></h3>
 <p>Floating wall in this example is handled as explained in the <a class="reference external" href="../silo/silo.html">Silo example</a>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection floating walls
     set number of floating walls = 1
@@ -513,14 +513,14 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">7.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>This simulation can be launched by</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d hopper.prm
 </pre></div>
 </div>
 </section>
 <section id="post-processing">
-<h2><span class="section-number">7.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
 <p>A Python post-processing code called <code class="docutils literal notranslate"><span class="pre">hopper_post_processing.py</span></code> is provided with this example. It is used to measure the flow rate of particles with a module reading the output files generated by the simulation.
 This module is a script called <code class="docutils literal notranslate"><span class="pre">Lethe_pyvista_tools.py</span></code> that uses <a class="reference external" href="https://docs.pyvista.org/">PyVista</a> to extract data from the pvd/vtu files and stores it in a dictionary ready to use for post-processing.</p>
 <p>It also compares the data generated by the simulation to data from Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a>.</p>
@@ -530,7 +530,7 @@ This module is a script called <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="results-post-processing">
-<h2><span class="section-number">7.7. </span>Results post-processing<a class="headerlink" href="#results-post-processing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.7. </span>Results post-processing<a class="headerlink" href="#results-post-processing" title="Permalink to this headline">¶</a></h2>
 <p>Mass flow rate results after post-processing and comparison with the results of Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> for the base case of the hooper with a 90° angle.</p>
 <figure class="align-center" id="id10">
 <a class="reference internal image-reference" href="../../../_images/figure_hopper.png"><img alt="Results of mass flow rate." src="../../../_images/figure_hopper.png" style="width: 600px;"/></a>
@@ -540,7 +540,7 @@ This module is a script called <code class="docutils literal notranslate"><span 
 </figure>
 </section>
 <section id="results">
-<h2><span class="section-number">7.8. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.8. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>As seen in the following figure, the simulation was not run until all the particles are discharged in the bottom part.
 Since the mass flow rate is constant during the discharge, simulating the very end is not necessary.
 The simulated mass discharging rate is 84.94 g/s.</p>
@@ -552,7 +552,7 @@ The simulated mass discharging rate is 84.94 g/s.</p>
 </figure>
 </section>
 <section id="reference">
-<h2><span class="section-number">7.9. </span>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.9. </span>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> Anand, A., Curtis, J. S., Wassgren, C. R., Hancock, B. C., &amp; Ketterhagen, W. R. (2008). Predicting discharge dynamics from a rectangular hopper using the discrete element method (DEM). Chemical Engineering Science, 63(24), 5821-5830.</p>
 </section>
 </section>
@@ -562,12 +562,12 @@ The simulated mass discharging rate is 84.94 g/s.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html">
+          <a class="next-page" href="../granular-mixer/granular-mixer.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">8. </span>Small scale rotating drum (3D)</div>
+                <div class="title"><span class="section-number">9. </span>Granular mixer</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -578,7 +578,7 @@ The simulated mass discharging rate is 84.94 g/s.</p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">6. </span>Silo</div>
+                <div class="title"><span class="section-number">7. </span>Silo</div>
                 
               </div>
             </a>
@@ -608,24 +608,24 @@ The simulated mass discharging rate is 84.94 g/s.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">7. Rectangular hopper</a><ul>
-<li><a class="reference internal" href="#features">7.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">7.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">7.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">7.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#mesh">7.4.1. Mesh</a></li>
-<li><a class="reference internal" href="#insertion-info">7.4.2. Insertion info</a></li>
-<li><a class="reference internal" href="#lagrangian-physical-properties">7.4.3. Lagrangian physical properties</a></li>
-<li><a class="reference internal" href="#model-parameters">7.4.4. Model parameters</a></li>
-<li><a class="reference internal" href="#simulation-control">7.4.5. Simulation control</a></li>
-<li><a class="reference internal" href="#floating-walls">7.4.6. Floating walls</a></li>
+<li><a class="reference internal" href="#">8. Rectangular hopper</a><ul>
+<li><a class="reference internal" href="#features">8.1. Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">8.2. Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">8.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">8.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#mesh">8.4.1. Mesh</a></li>
+<li><a class="reference internal" href="#insertion-info">8.4.2. Insertion info</a></li>
+<li><a class="reference internal" href="#lagrangian-physical-properties">8.4.3. Lagrangian physical properties</a></li>
+<li><a class="reference internal" href="#model-parameters">8.4.4. Model parameters</a></li>
+<li><a class="reference internal" href="#simulation-control">8.4.5. Simulation control</a></li>
+<li><a class="reference internal" href="#floating-walls">8.4.6. Floating walls</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">7.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#post-processing">7.6. Post-processing</a></li>
-<li><a class="reference internal" href="#results-post-processing">7.7. Results post-processing</a></li>
-<li><a class="reference internal" href="#results">7.8. Results</a></li>
-<li><a class="reference internal" href="#reference">7.9. Reference</a></li>
+<li><a class="reference internal" href="#running-the-simulation">8.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#post-processing">8.6. Post-processing</a></li>
+<li><a class="reference internal" href="#results-post-processing">8.7. Results post-processing</a></li>
+<li><a class="reference internal" href="#results">8.8. Results</a></li>
+<li><a class="reference internal" href="#reference">8.9. Reference</a></li>
 </ul>
 </li>
 </ul>

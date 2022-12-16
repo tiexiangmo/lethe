@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="7. Rectangular hopper" href="../rectangular-hopper/rectangular-hopper.html" /><link rel="prev" title="5. Rotation of box" href="../rotation-of-box/rotation-of-box.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="8. Rectangular hopper" href="../rectangular-hopper/rectangular-hopper.html" /><link rel="prev" title="6. Rotation of box" href="../rotation-of-box/rotation-of-box.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>6. Silo - Lethe documentation</title>
+        <title>7. Silo - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -264,12 +264,12 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../dem.html">Discrete Element Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-circle/packing-in-circle.html">1. Packing in circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">2. Packing in ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">3. Rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">4. Rotating drum with post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">5. Rotation of box</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">6. Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">7. Rectangular hopper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-small-scale-rotating-drum/3d-small-scale-rotating-drum.html">8. Small scale rotating drum (3D)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">3. Small scale rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">4. Rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">5. Rotating drum with post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">6. Rotation of box</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">7. Silo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">8. Rectangular hopper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../granular-mixer/granular-mixer.html">9. Granular mixer</a></li>
 </ul>
 </li>
@@ -340,10 +340,10 @@
         </div>
         <article role="main">
           <section id="silo">
-<h1><span class="section-number">6. </span>Silo<a class="headerlink" href="#silo" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Silo<a class="headerlink" href="#silo" title="Permalink to this headline">¶</a></h1>
 <p>This is the sixth example of Lethe-DEM. This example simulates the filling and discharge of particles in a wedge-shaped silo. We set up this simulation according to the experiments of Golshan et al. <a class="reference external" href="https://doi.org/10.1016/j.powtec.2020.06.093">[1]</a>. It is recommended to visit <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> for more detailed information on the concepts and physical meanings of the parameters in Lethe-DEM.</p>
 <section id="features">
-<h2><span class="section-number">6.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code></p></li>
 <li><p>Floating walls</p></li>
@@ -352,17 +352,17 @@
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">6.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-silo/silo-Golshan.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">6.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>This simulation consists of two stages: filling (0-4 s) and discharge (4-40 s) of particles. During the filling stage, we use a stopper (floating wall) to keep the inserted particles in the hopper region of the silo. When all the particles are inserted and packed in the hopper, we remove the stopper and particles leave the hopper.</p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">6.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="mesh">
-<h3><span class="section-number">6.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>Contrary to previous examples, in this example, we use a mesh generated using <a class="reference external" href="https://gmsh.info/">Gmsh</a>. The Gmsh file (extension .msh) is located inside the example folder. We refine this mesh once by setting <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement=1</span></code> to ensure that the cells are sufficiently small to enable efficient contact detection. The mesh generated by Gmsh contains diamond cells, which are cells that only share a line with the boundary and not a complete face. <code class="docutils literal notranslate"><span class="pre">check</span> <span class="pre">diamond</span> <span class="pre">cells=true</span></code> enables searching for diamond-shaped boundary cells. Such cells can appear in unstructured grids, but they are detrimental to the stability of DEM simulations. Enabling this option adds these cells to the particle-wall contact search cells and is necessary to ensure stable collisions with the wall in the vicinity of diamond cells.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
     set type                          = gmsh
@@ -374,7 +374,7 @@ end
 </div>
 </section>
 <section id="insertion-info">
-<h3><span class="section-number">6.4.2. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.4.2. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
 <p>An insertion box is defined inside and on the top of the silo.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
     set insertion method                                                            = non_uniform
@@ -394,7 +394,7 @@ end
 </div>
 </section>
 <section id="lagrangian-physical-properties">
-<h3><span class="section-number">6.4.3. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.4.3. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The total number of particles in this simulation is equal to 132300. Considering the <code class="docutils literal notranslate"><span class="pre">inserted</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">time</span> <span class="pre">step</span>  <span class="pre">=</span> <span class="pre">20000</span></code>, we expect that all the particles be inserted in 7 insertion steps.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
     set gx                                                                          = 0.0
@@ -420,7 +420,7 @@ end
 </div>
 </section>
 <section id="model-parameters">
-<h3><span class="section-number">6.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
   set contact detection method                                      = dynamic
   set dynamic contact search size coefficient       = 0.8
@@ -435,7 +435,7 @@ end
 </div>
 </section>
 <section id="simulation-control">
-<h3><span class="section-number">6.4.5. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.4.5. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set time step                             = 1e-5
   set time end                                              = 40
@@ -446,7 +446,7 @@ end
 </div>
 </section>
 <section id="restart">
-<h3><span class="section-number">6.4.6. </span>Restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.4.6. </span>Restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
 <p>In this subsection, we specify the checkpointing parameters. Checkpoints are very useful in long simulations. If the simulation breaks, we can continue the simulation from the last written checkpoint. First, we enable checkpointing by setting the <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> parameter to true. Then, we choose a <code class="docutils literal notranslate"><span class="pre">filename</span></code> for the checkpoint files and specify the checkpointing <code class="docutils literal notranslate"><span class="pre">frequency</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection restart
     set checkpoint                          = true
@@ -457,7 +457,7 @@ end
 </div>
 </section>
 <section id="floating-walls">
-<h3><span class="section-number">6.4.7. </span>Floating walls<a class="headerlink" href="#floating-walls" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.4.7. </span>Floating walls<a class="headerlink" href="#floating-walls" title="Permalink to this headline">¶</a></h3>
 <p>Floating wall is a temporary (its start and end times are defined) flat wall, generally used for holding the particles during the filling and before the discharge stage.</p>
 <p>In this subsection, the information on floating walls is defined. First of all, the total <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">floating</span> <span class="pre">walls</span></code> is specified. Then for each floating wall, we should specify its <code class="docutils literal notranslate"><span class="pre">normal</span> <span class="pre">vector</span></code>, a <code class="docutils literal notranslate"><span class="pre">point</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">wall</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">times</span></code>.</p>
 <p>In this simulation, we need a stopper (floating wall) in the filling stage (0-4 s). Hence, we set <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">time</span></code> equal to 0 and 4, respectively. The stopper should be in the <cite>xy</cite> plane and be located at the bottom of the silo. We use this information to select the point on the stopper (0, 0, 0) and its normal vector (0, 0, 1).</p>
@@ -483,7 +483,7 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">6.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>This simulation can be launched by (in parallel mode on 32 processes):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 32 dem_3d silo-Golshan.prm
 </pre></div>
@@ -494,12 +494,12 @@ end
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">6.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>Animation of the silo simulation:</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/fWzza739UVg" width="560"></iframe><p>Animation of the subdomains distribution throughout the simulation:</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/uoQG97SO6Zc" width="560"></iframe></section>
 <section id="reference">
-<h2><span class="section-number">6.7. </span>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.7. </span>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://doi.org/10.1016/j.powtec.2020.06.093">[1]</a> Golshan, S., Esgandari, B., Zarghami, R., Blais, B. and Saleh, K., 2020. Experimental and DEM studies of velocity profiles and residence time distribution of non-spherical particles in silos. Powder Technology, 373, pp.510-521.</p>
 </section>
 </section>
@@ -514,7 +514,7 @@ end
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">7. </span>Rectangular hopper</div>
+                <div class="title"><span class="section-number">8. </span>Rectangular hopper</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -525,7 +525,7 @@ end
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">5. </span>Rotation of box</div>
+                <div class="title"><span class="section-number">6. </span>Rotation of box</div>
                 
               </div>
             </a>
@@ -555,23 +555,23 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">6. Silo</a><ul>
-<li><a class="reference internal" href="#features">6.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">6.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">6.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">6.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#mesh">6.4.1. Mesh</a></li>
-<li><a class="reference internal" href="#insertion-info">6.4.2. Insertion info</a></li>
-<li><a class="reference internal" href="#lagrangian-physical-properties">6.4.3. Lagrangian physical properties</a></li>
-<li><a class="reference internal" href="#model-parameters">6.4.4. Model parameters</a></li>
-<li><a class="reference internal" href="#simulation-control">6.4.5. Simulation control</a></li>
-<li><a class="reference internal" href="#restart">6.4.6. Restart</a></li>
-<li><a class="reference internal" href="#floating-walls">6.4.7. Floating walls</a></li>
+<li><a class="reference internal" href="#">7. Silo</a><ul>
+<li><a class="reference internal" href="#features">7.1. Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">7.2. Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">7.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">7.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#mesh">7.4.1. Mesh</a></li>
+<li><a class="reference internal" href="#insertion-info">7.4.2. Insertion info</a></li>
+<li><a class="reference internal" href="#lagrangian-physical-properties">7.4.3. Lagrangian physical properties</a></li>
+<li><a class="reference internal" href="#model-parameters">7.4.4. Model parameters</a></li>
+<li><a class="reference internal" href="#simulation-control">7.4.5. Simulation control</a></li>
+<li><a class="reference internal" href="#restart">7.4.6. Restart</a></li>
+<li><a class="reference internal" href="#floating-walls">7.4.7. Floating walls</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">6.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">6.6. Results</a></li>
-<li><a class="reference internal" href="#reference">6.7. Reference</a></li>
+<li><a class="reference internal" href="#running-the-simulation">7.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">7.6. Results</a></li>
+<li><a class="reference internal" href="#reference">7.7. Reference</a></li>
 </ul>
 </li>
 </ul>
