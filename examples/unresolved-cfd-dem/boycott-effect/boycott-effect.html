@@ -368,11 +368,11 @@
 <h3><span class="section-number">4.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>In this example, we are simulating a rectangular channel. We use the deal.II GridGenerator in order to generate a hyper rectangle that is subdivided along its height. The following portion of the DEM parameter file shows the function called:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                                = dealii
-    set grid type                           = subdivided_hyper_rectangle
-    set grid arguments                      = 15,70,15:-0.03,0,-0.03:0.03,0.4,0.03:true
-    set initial refinement                  = 0
-    set expand particle-wall contact search = false
+  set type                                = dealii
+  set grid type                           = subdivided_hyper_rectangle
+  set grid arguments                      = 15,70,15:-0.03,0,-0.03:0.03,0.4,0.03:true
+  set initial refinement                  = 0
+  set expand particle-wall contact search = false
 end
 </pre></div>
 </div>
@@ -381,11 +381,11 @@ end
 <h3><span class="section-number">4.4.2. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>The time step in this case is the same as the time end. Since we only seek to insert the particles at the top of the channel, we only require 1 insertion time step. We do not need the particles to be packed, therefore by doing this, the particles will be inserted, but will not fall under the action of gravity.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-     set time step        = 1e-6
-     set time end         = 1e-6
-     set log frequency    = 1000
-     set output frequency = 1
-     set output path      = ./output_dem/
+   set time step        = 1e-6
+   set time end         = 1e-6
+   set log frequency    = 1000
+   set output frequency = 1
+   set output path      = ./output_dem/
  end
 </pre></div>
 </div>
@@ -394,10 +394,10 @@ end
 <h3><span class="section-number">4.4.3. </span>Restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
 <p>We save the files obtained from the single iteration by setting the frequency = 1. These files will be used to start the CFD-DEM simulation.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection restart
-    set checkpoint = true
-    set frequency  = 1
-    set restart    = false
-    set filename   = dem
+  set checkpoint = true
+  set frequency  = 1
+  set restart    = false
+  set filename   = dem
 end
 </pre></div>
 </div>
@@ -406,13 +406,13 @@ end
 <h3><span class="section-number">4.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The section on model parameters is explained in the DEM examples. We show the chosen parameters for this section:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
-    set contact detection method               = dynamic
-    set contact detection frequency            = 10
-    set neighborhood threshold                 = 1.3
-    set rolling resistance torque method       = constant_resistance
-    set particle particle contact force method = hertz_mindlin_limit_force
-    set particle wall contact force method     = nonlinear
-    set integration method                     = velocity_verlet
+  set contact detection method               = dynamic
+  set contact detection frequency            = 10
+  set neighborhood threshold                 = 1.3
+  set rolling resistance torque method       = constant_resistance
+  set particle particle contact force method = hertz_mindlin_limit_force
+  set particle wall contact force method     = nonlinear
+  set integration method                     = velocity_verlet
 end
 </pre></div>
 </div>
@@ -421,26 +421,26 @@ end
 <h3><span class="section-number">4.4.5. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The gravity is set to 0 as we only need to insert the particles in the specified insertion box.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
-    set gx                       = 0.0
-    set gy                       = 0.0
-    set gz                       = 0
-    set number of particle types = 1
-    subsection particle type 0
-            set size distribution type            = uniform
-            set diameter                          = 0.002
-            set number                            = 8379
-            set density particles                 = 1200
-            set young modulus particles           = 1e6
-            set poisson ratio particles           = 0.25
-            set restitution coefficient particles = 0.97
-            set friction coefficient particles    = 0.3
-            set rolling friction particles        = 0.1
-    end
-    set young modulus wall           = 1e6
-    set poisson ratio wall           = 0.25
-    set restitution coefficient wall = 0.97
-    set friction coefficient wall    = 0.3
-    set rolling friction wall        = 0.1
+  set gx                       = 0.0
+  set gy                       = 0.0
+  set gz                       = 0.0
+  set number of particle types = 1
+  subsection particle type 0
+    set size distribution type            = uniform
+    set diameter                          = 0.002
+    set number                            = 8379
+    set density particles                 = 1200
+    set young modulus particles           = 1e6
+    set poisson ratio particles           = 0.25
+    set restitution coefficient particles = 0.97
+    set friction coefficient particles    = 0.3
+    set rolling friction particles        = 0.1
+  end
+  set young modulus wall           = 1e6
+  set poisson ratio wall           = 0.25
+  set restitution coefficient wall = 0.97
+  set friction coefficient wall    = 0.3
+  set rolling friction wall        = 0.1
 end
 </pre></div>
 </div>
@@ -449,18 +449,18 @@ end
 <h3><span class="section-number">4.4.6. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
 <p>We insert the particles uniformly in the specified insertion box at the top of the channel.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
-    set insertion method                               = uniform
-    set inserted number of particles at each time step = 8379
-    set insertion frequency                            = 2000
-    set insertion box minimum x                        = -0.025
-    set insertion box minimum y                        = 0.3
-    set insertion box minimum z                        = -0.025
-    set insertion box maximum x                        = 0.026
-    set insertion box maximum y                        = 0.396
-    set insertion box maximum z                        = 0.026
-    set insertion distance threshold                   = 1.2
-    set insertion random number range                  = 0.4
-    set insertion random number seed                   = 19
+  set insertion method                               = uniform
+  set inserted number of particles at each time step = 8379
+  set insertion frequency                            = 2000
+  set insertion box minimum x                        = -0.025
+  set insertion box minimum y                        = 0.3
+  set insertion box minimum z                        = -0.025
+  set insertion box maximum x                        = 0.026
+  set insertion box maximum y                        = 0.396
+  set insertion box maximum z                        = 0.026
+  set insertion distance threshold                   = 1.2
+  set insertion random number range                  = 0.4
+  set insertion random number seed                   = 19
 end
 </pre></div>
 </div>
@@ -487,14 +487,14 @@ end
 <h3><span class="section-number">4.6.1. </span>Simulation control<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The simulation is run for <span class="math notranslate nohighlight">\(2\)</span> s with a time step of <span class="math notranslate nohighlight">\(0.005\)</span> s. The time scheme chosen for the simulation is first order backward difference method (BDF1). The simulation control section is shown:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-     set method               = bdf1
-     set number mesh adapt    = 0
-     set output name          = result_
-     set output frequency     = 20
-     set time end             = 2
-     set time step            = 0.005
-     set output path          = ./output/
- end
+  set method               = bdf1
+  set number mesh adapt    = 0
+  set output name          = result_
+  set output frequency     = 20
+  set time end             = 2
+  set time step            = 0.005
+  set output path          = ./output/
+end
 </pre></div>
 </div>
 </section>
@@ -503,10 +503,10 @@ end
 <p>The physical properties subsection allows us to determine the density and viscosity of the fluid. We choose a density of <span class="math notranslate nohighlight">\(1115.6\)</span> and a kinematic viscosity of <span class="math notranslate nohighlight">\(0.00000177\)</span> as to simulate the flow of a sugar-water solution with <span class="math notranslate nohighlight">\(20\)</span> % by weight sugar at <span class="math notranslate nohighlight">\(20^{\circ}\)</span> C.
 The dynamic viscosity of a 20 % sugar-water solution by weight at <span class="math notranslate nohighlight">\(20^{\circ} C\)</span> is 1.97 cP.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-    subsection fluid 0
-            set kinematic viscosity = 0.00000177
-            set density             = 1115.6
-    end
+  subsection fluid 0
+    set kinematic viscosity = 0.00000177
+    set density             = 1115.6
+  end
 end
 </pre></div>
 </div>
@@ -515,10 +515,10 @@ end
 <h3><span class="section-number">4.6.3. </span>Initial conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
 <p>For the initial conditions, we choose zero initial conditions for the velocity.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
-    set type = nodal
-    subsection uvwp
-        set Function expression = 0; 0; 0; 0
-    end
+  set type = nodal
+  subsection uvwp
+    set Function expression = 0; 0; 0; 0
+  end
 end
 </pre></div>
 </div>
@@ -527,32 +527,32 @@ end
 <h3><span class="section-number">4.6.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>For the boundary conditions, we choose a slip boundary condition on all the walls of the channel and the channel except the bottom and the top of the channel where a no-slip boundary condition is imposed. For more information about the boundary conditions, please refer to the <a class="reference external" href="../../../parameters/cfd/boundary_conditions_cfd.html">Boundary Conditions Section</a></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-     set number = 6
-     subsection bc 0
-             set id   = 0
-             set type = slip
-      end
-     subsection bc 1
-             set id   = 1
-             set type = slip
-     end
-     subsection bc 2
-             set id   = 2
-             set type = noslip
-     end
-     subsection bc 3
-             set id   = 3
-             set type = noslip
-     end
-     subsection bc 4
-             set id   = 4
-             set type = slip
-     end
-     subsection bc 5
-             set id   = 5
-             set type = slip
-     end
- end
+  set number = 6
+  subsection bc 0
+    set id   = 0
+    set type = slip
+  end
+  subsection bc 1
+    set id   = 1
+    set type = slip
+  end
+  subsection bc 2
+    set id   = 2
+    set type = noslip
+  end
+  subsection bc 3
+    set id   = 3
+    set type = noslip
+  end
+  subsection bc 4
+    set id   = 4
+    set type = slip
+  end
+  subsection bc 5
+    set id   = 5
+    set type = slip
+  end
+end
 </pre></div>
 </div>
 </section>
@@ -567,11 +567,11 @@ end
 We choose to use the quadrature centered method (QCM) to calculate the void fraction. This method does not require smoothing the void fraction as it is continuous in space and time. For this, we specify the <code class="docutils literal notranslate"><span class="pre">mode</span></code> to be <code class="docutils literal notranslate"><span class="pre">qcm</span></code>. We want the radius of our volume averaging sphere to be equal to the length of the element where the void fraction is being calculated. We don’t want the volume of the sphere to be equal to the volume of the element.
 For this, we set the <code class="docutils literal notranslate"><span class="pre">qcm</span> <span class="pre">sphere</span> <span class="pre">equal</span> <span class="pre">cell</span> <span class="pre">volume</span></code> equals to <code class="docutils literal notranslate"><span class="pre">false</span></code>. Since we want to keep the mass conservative properties of the  <span class="math notranslate nohighlight">\(L^2\)</span> projection, we do not bound the void fraction and as such we set <code class="docutils literal notranslate"><span class="pre">bound</span> <span class="pre">void</span> <span class="pre">fraction</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection void fraction
-    set mode                         = qcm
-    set qcm sphere equal cell volume = false
-    set read dem                     = true
-    set dem file name                = dem
-    set bound void fraction          = false
+  set mode                         = qcm
+  set qcm sphere equal cell volume = false
+  set read dem                     = true
+  set dem file name                = dem
+  set bound void fraction          = false
 end
 </pre></div>
 </div>
@@ -580,18 +580,17 @@ end
 <h3><span class="section-number">4.6.7. </span>CFD-DEM<a class="headerlink" href="#cfd-dem" title="Permalink to this headline">¶</a></h3>
 <p>We also enable grad-div stabilization in order to improve local mass conservation. The void fraction time derivative is disabled as the two phases have close densities and as such the time variation of the void fraction may lead to unstable simulations.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection cfd-dem
-    set grad div                      = true
-    set void fraction time derivative = false
-    set drag force                    = true
-    set buoyancy force                = true
-    set shear force                   = true
-    set pressure force                = true
-    set drag model                    = difelice
-    set post processing               = true
-    set coupling frequency            = 250
-    set grad-div length scale         = 0.005
-    set implicit stabilization        = false
-    set vans model                    = modelA
+  set grad div                      = true
+  set void fraction time derivative = false
+  set drag force                    = true
+  set buoyancy force                = true
+  set shear force                   = true
+  set pressure force                = true
+  set drag model                    = difelice
+  set post processing               = true
+  set coupling frequency            = 250
+  set grad-div length scale         = 0.005
+  set vans model                    = modelA
 end
 </pre></div>
 </div>
@@ -601,11 +600,11 @@ end
 <section id="non-linear-solver-control">
 <h3><span class="section-number">4.6.8. </span>Non-linear solver control<a class="headerlink" href="#non-linear-solver-control" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-    set solver           = inexact_newton
-    set tolerance        = 1e-8
-    set max iterations   = 10
-    set verbosity        = verbose
-    set matrix tolerance = 0.75
+  set solver           = inexact_newton
+  set tolerance        = 1e-8
+  set max iterations   = 10
+  set verbosity        = verbose
+  set matrix tolerance = 0.75
 end
 </pre></div>
 </div>
@@ -614,15 +613,15 @@ end
 <section id="linear-solver-control">
 <h3><span class="section-number">4.6.9. </span>Linear solver control<a class="headerlink" href="#linear-solver-control" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-    set method                                = gmres
-    set max iters                             = 5000
-    set relative residual                     = 1e-3
-    set minimum residual                      = 1e-10
-    set ilu preconditioner fill               = 0
-    set ilu preconditioner absolute tolerance = 1e-12
-    set ilu preconditioner relative tolerance = 1
-    set verbosity                             = verbose
-    set max krylov vectors                    = 200
+  set method                                = gmres
+  set max iters                             = 5000
+  set relative residual                     = 1e-3
+  set minimum residual                      = 1e-10
+  set ilu preconditioner fill               = 0
+  set ilu preconditioner absolute tolerance = 1e-12
+  set ilu preconditioner relative tolerance = 1
+  set verbosity                             = verbose
+  set max krylov vectors                    = 200
 end
 </pre></div>
 </div>

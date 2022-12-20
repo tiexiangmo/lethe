@@ -389,8 +389,8 @@ radius=0.5;           // Radius of sphere
 </div>
 <p>In the parameter file, the mesh is read this way:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-  set type               = gmsh
-  set file name          = sphere.msh
+  set type      = gmsh
+  set file name = sphere.msh
 end
 </pre></div>
 </div>
@@ -404,24 +404,24 @@ end
 <h3><span class="section-number">7.4.2. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> subsection establishes the constraints on different parts of the domain. They are the same for all three parameter sets.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-  set number                  = 3
+  set number = 3
   subsection bc 0
-      set type              = noslip
+    set type = noslip
   end
   subsection bc 1
-      set type              = function
-      subsection u
-          set Function expression = 1
-      end
-      subsection v
-          set Function expression = 0
-      end
-      subsection w
-          set Function expression = 0
-      end
+    set type = function
+    subsection u
+      set Function expression = 1
+    end
+    subsection v
+      set Function expression = 0
+    end
+    subsection w
+      set Function expression = 0
+    end
   end
   subsection bc 2
-      set type              = slip
+    set type = slip
   end
 end
 </pre></div>
@@ -462,8 +462,8 @@ end
 <p>The default FEM parameters for this example use first order polynomials. They can be changed to Q2-Q1 elements.</p>
 <p>We specify the interpolation order for both pressure and velocity using the <code class="docutils literal notranslate"><span class="pre">FEM</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
-    set velocity order            = 1
-    set pressure order            = 1
+  set velocity order = 1
+  set pressure order = 1
 end
 </pre></div>
 </div>
@@ -477,26 +477,26 @@ end
 <p>The parameters also slightly differ from one problem to another as different examples experience different flow regimes.</p>
 <p>In fact, for the Re = 0.1, we have a laminar to creeping flow, meaning that the flow is very steady, and therefore can be solved in steady-state.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-  set method                  = steady
-  set number mesh adapt       = 0
-  set output name             = sphere-output
-  set output frequency        = 1
-  set subdivision             = 1
+  set method            = steady
+  set number mesh adapt = 0
+  set output name       = sphere-output
+  set output frequency  = 1
+  set subdivision       = 1
 end
 </pre></div>
 </div>
 <p>At Re = 150, the flow has separated, resulting in an unstable wake and recirculation. It is hence more difficult to converge to a steady-state solution.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-  set method                  = steady_bdf
-  set time step                     = 0.1
-  set adapt                         = true
-  set max cfl                       = 1000
-  set stop tolerance          = 1e-5
+  set method                       = steady_bdf
+  set time step                    = 0.1
+  set adapt                        = true
+  set max cfl                      = 1000
+  set stop tolerance               = 1e-5
   set adaptative time step scaling = 1.2
-  set number mesh adapt       = 0
-  set output name             = sphere-output
-  set output frequency        = 1
-  set subdivision             = 1
+  set number mesh adapt            = 0
+  set output name                  = sphere-output
+  set output frequency             = 1
+  set subdivision                  = 1
 end
 </pre></div>
 </div>
@@ -506,7 +506,7 @@ end
 <h3><span class="section-number">7.4.6. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
 <p>An initial condition is introduced for the Re = 150 problem. This way, a Re = 10 initial condition is set. Since the solution can easily be found at Re = 10, this is used as an initial attempt to find the solution at Re=150.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
-  set type = viscous
+  set type      = viscous
   set viscosity = 0.1
 end
 </pre></div>
@@ -516,15 +516,15 @@ end
 <h3><span class="section-number">7.4.7. </span>Mesh adaptation control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h3>
 <p>To increase the accuracy of the drag coefficient, the mesh must be refined in areas of interest, such as on the front face of the sphere and in the developing wake. Therefore, a dynamic adaptive mesh was introduced to refine the mesh in such regions.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
-  set type                    = kelly
-  set fraction coarsening     = 0.05
-  set fraction refinement     = 0.1
-  set fraction type         = number
-  set max number elements     = 100000
-  set min refinement level    = 0
-  set max refinement level    = 4
-  set variable                      = pressure
-  set frequency         = 5
+  set type                 = kelly
+  set fraction coarsening  = 0.05
+  set fraction refinement  = 0.1
+  set fraction type        = number
+  set max number elements  = 100000
+  set min refinement level = 0
+  set max refinement level = 4
+  set variable             = pressure
+  set frequency            = 5
 end
 </pre></div>
 </div>

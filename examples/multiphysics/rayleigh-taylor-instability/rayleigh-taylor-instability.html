@@ -391,15 +391,15 @@ time-step is modified during the simulation to keep the maximum value of the CFL
 # Simulation Control
 #---------------------------------------------------
 subsection simulation control
-    set method         = bdf1
-    set time end       = 0.75
-    set time step      = 0.0002
-    set adapt          = true
-    set max cfl        = 0.9
-    set output name    = rayleigh-taylor
-    set output path    = ./output/
-    set output control = time
-    set output time    = 0.005
+  set method         = bdf1
+  set time end       = 0.75
+  set time step      = 0.0002
+  set adapt          = true
+  set max cfl        = 0.9
+  set output name    = rayleigh-taylor
+  set output path    = ./output/
+  set output control = time
+  set output time    = 0.005
 end
 </pre></div>
 </div>
@@ -408,7 +408,7 @@ end
 # Multiphysics
 #---------------------------------------------------
 subsection multiphysics
-    set VOF       = true
+  set VOF = true
 end
 </pre></div>
 </div>
@@ -417,10 +417,10 @@ end
 # Source term
 #---------------------------------------------------
 subsection source term
-    set enable                      = true
-    subsection xyz
-        set Function expression     = 0 ; -9.81 ; 0
-    end
+  set enable = true
+  subsection xyz
+    set Function expression = 0 ; -9.81 ; 0
+  end
 end
 </pre></div>
 </div>
@@ -429,15 +429,15 @@ end
 # Physical Properties
 #---------------------------------------------------
 subsection physical properties
-    set number of fluids     = 2
-    subsection fluid 0
-      set density                   = 100
-      set kinematic viscosity       = 0.00153
-    end
-    subsection fluid 1
-      set density           = 300
-      set kinematic viscosity       = 0.00153
-    end
+  set number of fluids = 2
+  subsection fluid 0
+    set density             = 100
+    set kinematic viscosity = 0.00153
+  end
+  subsection fluid 1
+    set density             = 300
+    set kinematic viscosity = 0.00153
+  end
 end
 </pre></div>
 </div>
@@ -446,14 +446,14 @@ end
 # Initial Condition
 #---------------------------------------------------
 subsection initial conditions
-    set type = nodal
-    subsection uvwp
-            set Function expression = 0; 0; 0
-    end
+  set type = nodal
+  subsection uvwp
+    set Function expression = 0; 0; 0
+  end
 
-    subsection VOF
-            set Function expression = if (y&gt;(0.5 + 0.1 * 0.25 * cos(2 *3.1415 * x / 0.25)) , 1, 0)
-    end
+  subsection VOF
+    set Function expression = if (y&gt;(0.5 + 0.1 * 0.25 * cos(2 *3.1415 * x / 0.25)) , 1, 0)
+  end
 end
 </pre></div>
 </div>
@@ -476,15 +476,15 @@ We set <code class="docutils literal notranslate"><span class="pre">initial</spa
 # Mesh Adaptation
 #---------------------------------------------------
 subsection mesh adaptation
-  set type                          = kelly
-  set variable                      = phase
-  set fraction type                 = fraction
-  set max refinement level          = 7
-  set min refinement level          = 5
-  set frequency                     = 1
-  set fraction refinement           = 0.99
-  set fraction coarsening           = 0.01
-  set initial refinement steps      = 4
+  set type                     = kelly
+  set variable                 = phase
+  set fraction type            = fraction
+  set max refinement level     = 7
+  set min refinement level     = 5
+  set frequency                = 1
+  set fraction refinement      = 0.99
+  set fraction coarsening      = 0.01
+  set initial refinement steps = 4
 end
 </pre></div>
 </div>
@@ -493,21 +493,21 @@ end
 # Boundary Conditions
 #---------------------------------------------------
 subsection boundary conditions
-  set number                  = 3
-    subsection bc 0
-    set id = 0
-        set type              = periodic
-        set periodic_id           = 1
-        set periodic_direction = 0
-    end
-    subsection bc 1
-    set id = 2
-        set type              = noslip
-    end
-    subsection bc 2
-    set id = 3
-        set type              = noslip
-    end
+  set number = 3
+  subsection bc 0
+    set id                 = 0
+    set type               = periodic
+    set periodic_id        = 1
+    set periodic_direction = 0
+  end
+  subsection bc 1
+    set id   = 2
+    set type = noslip
+  end
+  subsection bc 2
+    set id   = 3
+    set type = noslip
+  end
 end
 </pre></div>
 </div>
@@ -517,18 +517,18 @@ end
 #---------------------------------------------------
 subsection VOF
   subsection interface sharpening
-    set enable                      = true
+    set enable              = true
     set threshold           = 0.5
     set interface sharpness = 1.5
     set frequency           = 25
-    set type                        = constant
+    set type                = constant
   end
 
   subsection mass conservation
-    set monitoring                  = true
-    set monitored fluid             = fluid 1
-    set tolerance                   = 1e-6
-    set verbosity                   = quiet
+    set monitoring      = true
+    set monitored fluid = fluid 1
+    set tolerance       = 1e-6
+    set verbosity       = quiet
   end
 end
 </pre></div>
@@ -546,15 +546,14 @@ subsection VOF
     set type                    = adaptative
     set threshold max deviation = 0.2
     set max iterations          = 50
- end
-
- subsection mass conservation
-    set monitoring                  = true
-    set  monitored fluid            = fluid 1
-    set tolerance                   = 1e-2
-    set verbosity                   = quiet
   end
 
+  subsection mass conservation
+    set monitoring      = true
+    set monitored fluid = fluid 1
+    set tolerance       = 1e-2
+    set verbosity       = quiet
+  end
 end
 </pre></div>
 </div>

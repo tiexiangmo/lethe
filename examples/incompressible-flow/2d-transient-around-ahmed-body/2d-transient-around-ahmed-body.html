@@ -401,8 +401,8 @@ ymax = 1000/unit;
 <p>The initial <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/mesh.html">Mesh</a> is built with <a class="reference external" href="https://gmsh.info/#Download">Gmsh</a>. It is defined as transfinite at the body boundary layer and between the body and the road, and free for the rest of the domain. The mesh is dynamically refined throughout the simulation. This will be explained later in this example.</p>
 <p>The input mesh <code class="docutils literal notranslate"><span class="pre">Ahmed-Body-20-2D.msh</span></code> is in the same folder as the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file. The mesh subsection is set to use this file.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                 = gmsh
-    set file name            = Ahmed-Body-20-2D.msh
+  set type      = gmsh
+  set file name = Ahmed-Body-20-2D.msh
 end
 </pre></div>
 </div>
@@ -415,32 +415,32 @@ end
 <h3><span class="section-number">5.4.2. </span>Initial and boundary conditions<a class="headerlink" href="#initial-and-boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/initial_conditions.html">Initial Condition</a> and <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/boundary_conditions_cfd.html">Boundary Conditions</a> are defined as in <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">Example 3</a>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
-    set type = nodal
-    subsection uvwp
-        set Function expression = 1; 0; 0
-    end
+  set type = nodal
+  subsection uvwp
+    set Function expression = 1; 0; 0
+  end
 end
 
 subsection boundary conditions
-    set number                  = 3
-    subsection bc 0
-        set type              = noslip
-    end
-    subsection bc 1
-        set type              = function
+  set number = 3
+  subsection bc 0
+    set type = noslip
+  end
+  subsection bc 1
+    set type = function
     subsection u
-        set Function expression = 1
+      set Function expression = 1
     end
     subsection v
-        set Function expression = 0
+      set Function expression = 0
     end
     subsection w
-        set Function expression = 0
+      set Function expression = 0
     end
-    end
-    subsection bc 2
-        set type              = slip
-    end
+  end
+  subsection bc 2
+    set type = slip
+  end
 end
 </pre></div>
 </div>
@@ -449,12 +449,12 @@ end
 <h3><span class="section-number">5.4.3. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>Time integration is defined by a 1st order backward differentiation (<code class="docutils literal notranslate"><span class="pre">bdf1</span></code>), for a 4 seconds simulation (<code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">end</span></code>) with a 0.01 second <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code>. The <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">path</span></code> is defined to save obtained results in a sub-directory, as stated in <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/simulation_control.html">Simulation Control</a>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-    set method                  = bdf1
-    set output frequency        = 1
-    set output name             = ahmed-output
-    set output path             = ./Re720/
-    set time end                = 4
-    set time step                 = 0.01
+  set method           = bdf1
+  set output frequency = 1
+  set output name      = ahmed-output
+  set output path      = ./Re720/
+  set time end         = 4
+  set time step        = 0.01
 end
 </pre></div>
 </div>
@@ -464,9 +464,9 @@ end
 </div>
 <p>Ahmed bodies are typically studied considering a 60 m/s flow of air. Here, the flow speed is set to 1 (<code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">=</span> <span class="pre">1</span></code>) so that the Reynolds number for the simulation (<code class="docutils literal notranslate"><span class="pre">Re</span> <span class="pre">=</span> <span class="pre">uL/ν</span></code>, with <code class="docutils literal notranslate"><span class="pre">L</span></code> the height of the Ahmed body) is varied  by changing the <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-   subsection fluid 0
-       set kinematic viscosity         = 4e-4
-    end
+  subsection fluid 0
+    set kinematic viscosity = 4e-4
+  end
 end
 </pre></div>
 </div>

@@ -377,10 +377,10 @@
 <h3><span class="section-number">1.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection specifies the computational grid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                 = dealii
-    set grid type            = hyper_cube
-    set grid arguments       = 0 : 1 : true
-    set initial refinement   = 6
+  set type               = dealii
+  set grid type          = hyper_cube
+  set grid arguments     = 0 : 1 : true
+  set initial refinement = 6
 end
 </pre></div>
 </div>
@@ -393,29 +393,29 @@ end
 <h3><span class="section-number">1.4.2. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> subsection establishes the constraints on different parts of the domain:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-set number                  = 4
-    subsection bc 0
-        set id                = 0
-        set type              = noslip
+  set number = 4
+  subsection bc 0
+    set id   = 0
+    set type = noslip
+  end
+  subsection bc 1
+    set id   = 1
+    set type = noslip
+  end
+  subsection bc 2
+    set id   = 2
+    set type = noslip
+  end
+  subsection bc 3
+    set id   = 3
+    set type = function
+    subsection u
+      set Function expression = 1
     end
-    subsection bc 1
-        set id                = 1
-        set type              = noslip
+    subsection v
+      set Function expression = 0
     end
-    subsection bc 2
-        set id                = 2
-        set type              = noslip
-    end
-    subsection bc 3
-        set id                = 3
-        set type              = function
-        subsection u
-            set Function expression = 1
-        end
-        subsection v
-            set Function expression = 0
-        end
-    end
+  end
 end
 </pre></div>
 </div>
@@ -426,7 +426,7 @@ end
 <p>For the base case, we wish to simulate the lid-driven cavity at a Reynolds number of 400. Since the characteristic dimension of the cavity is <span class="math notranslate nohighlight">\(L=1\)</span> and the velocity of the top boundary is <span class="math notranslate nohighlight">\(u=1\)</span>, the Reynolds number is <span class="math notranslate nohighlight">\(Re=\frac{1}{\nu}\)</span> where <span class="math notranslate nohighlight">\(\nu\)</span> is the kinematic viscosity. The kinematic viscosity is set by the <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   subsection fluid 0
-    set kinematic viscosity            = 0.0025
+    set kinematic viscosity = 0.0025
   end
 end
 </pre></div>
@@ -438,8 +438,8 @@ end
 <p>Lethe supports the use of arbitrary interpolation order. The default solver for this case is <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> which uses a stabilized method and supports equal order interpolation.</p>
 <p>We specify the interpolation order for both pressure and velocity using the <code class="docutils literal notranslate"><span class="pre">FEM</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
-    set velocity order            = 1
-    set pressure order            = 1
+  set velocity order = 1
+  set pressure order = 1
 end
 </pre></div>
 </div>
@@ -452,8 +452,8 @@ end
 <h3><span class="section-number">1.4.5. </span>Non-linear solver parameters<a class="headerlink" href="#non-linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Lethe is an implicit CFD solver. Consequently, each time-step requires the solution of a non-linear system of equations. By default, Lethe uses a Newton solver for which a <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> must be specified:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set tolerance               = 1e-8
-  set verbosity               = verbose
+  set tolerance = 1e-8
+  set verbosity = verbose
 end
 </pre></div>
 </div>
@@ -467,8 +467,8 @@ end
 <p>A good thing to remember is that, generally, linear solver parameters control the robustness of the simulation.</p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-  set method                                 = amg
-  set verbosity                              = verbose
+  set method    = amg
+  set verbosity = verbose
 end
 </pre></div>
 </div>
@@ -509,17 +509,14 @@ end
 <p>We now consider the case at a Reynolds number of 7500. At this value of the Reynolds number, the <code class="docutils literal notranslate"><span class="pre">steady</span></code> solver will generally not converge as the problem is too non-linear (or too stiff). A workaround for this issue is to use an adjoint time-stepping strategy. This strategy consists in transforming the steady-state problem into a transient problem and to use an increasingly large time-step to reach a steady-state solution. This method is called <code class="docutils literal notranslate"><span class="pre">steady_bdf</span></code> in Lethe.</p>
 <p>It can be used by modifying the <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-  set method                  = steady_bdf
-
+  set method = steady_bdf
   set adapt = true
   # Maximum CFL value
-  set max cfl                      = 1000
+  set max cfl = 1000
   # Tolerance at which the simulation is stopped
-  set stop tolerance               = 1e-10
-
+  set stop tolerance = 1e-10
   # Adaptative time step scaling
   set adaptative time step scaling = 1.05
-
   set time step = 0.001
 end
 </pre></div>

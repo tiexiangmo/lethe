@@ -372,12 +372,9 @@
 <section id="mesh">
 <h3><span class="section-number">2.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>Lethe supports the use of existing mesh files:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Mesh
-#---------------------------------------------------
-subsection mesh
-    set type                 = gmsh
-    set file name            = cylinder-structured.msh
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
+  set type      = gmsh
+  set file name = cylinder-structured.msh
 end
 </pre></div>
 </div>
@@ -386,19 +383,16 @@ end
 <section id="mesh-adaptation-control">
 <h3><span class="section-number">2.4.2. </span>Mesh adaptation control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h3>
 <p>This is the first example that uses a non-uniform mesh adaptation. The parameters used are specified in the mesh adaptation control subsection:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# Mesh Adaptation Control
-#---------------------------------------------------
-subsection mesh adaptation
-  set type                    = kelly
-  set variable                = velocity
-  set fraction type           = number
-  set max number elements     = 70000
-  set max refinement level    = 6
-  set min refinement level    = 0
-  set frequency               = 1
-  set fraction refinement     = 0.3
-  set fraction coarsening     = 0.1
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
+  set type                 = kelly
+  set variable             = velocity
+  set fraction type        = number
+  set max number elements  = 70000
+  set max refinement level = 6
+  set min refinement level = 0
+  set frequency            = 1
+  set fraction refinement  = 0.3
+  set fraction coarsening  = 0.1
 end
 </pre></div>
 </div>
@@ -411,17 +405,14 @@ end
 <section id="manifolds">
 <h3><span class="section-number">2.4.3. </span>Manifolds<a class="headerlink" href="#manifolds" title="Permalink to this headline">¶</a></h3>
 <p>All the deal.II meshes supported by Lethe that correspond to the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html">GridGenerator</a> class, attach by default manifolds to meshes when needed. However, if another type of mesh is used in Lethe, it is possible to attach manifolds adding a section to the parameter file that looks as follows:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# Manifolds
-#---------------------------------------------------
-subsection manifolds
-  set number                  = 1
-    subsection manifold 0
-        set id                = 0
-        set type              = spherical
-        set arg1              = 8
-        set arg2              = 8
-    end
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection manifolds
+  set number = 1
+  subsection manifold 0
+    set id   = 0
+    set type = spherical
+    set arg1 = 8
+    set arg2 = 8
+  end
 end
 </pre></div>
 </div>
@@ -439,10 +430,10 @@ end
 <h3><span class="section-number">2.4.4. </span>Initial conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
 <p>Despite this problem being a steady-state problem, one known strategy to improve convergence is to set a coherent initial condition. In Lethe, this can be achieved by the initial conditions subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
-    set type = nodal
-    subsection uvwp
-        set Function expression = 1; 0; 0
-    end
+  set type = nodal
+  subsection uvwp
+    set Function expression = 1; 0; 0
+  end
 end
 </pre></div>
 </div>
@@ -453,25 +444,25 @@ end
 <p>In this section, we specify the boundary conditions taking into account the IDs presented in the following schematic:</p>
 <img alt="The boundary conditions" class="align-center" id="geometry-bc" src="../../../_images/geometry-bc.png"/>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-    set number                  = 3
-    subsection bc 0
-        set type              = noslip
+  set number = 3
+  subsection bc 0
+    set type = noslip
+  end
+  subsection bc 1
+    set type = function
+    subsection u
+      set Function expression = 1
     end
-    subsection bc 1
-        set type              = function
-        subsection u
-            set Function expression = 1
-        end
-        subsection v
-            set Function expression = 0
-        end
-        subsection w
-            set Function expression = 0
-        end
+    subsection v
+      set Function expression = 0
     end
-    subsection bc 2
-        set type              = slip
+    subsection w
+      set Function expression = 0
     end
+  end
+  subsection bc 2
+    set type = slip
+  end
 end
 </pre></div>
 </div>
@@ -488,17 +479,14 @@ end
 <section id="forces">
 <h3><span class="section-number">2.4.6. </span>Forces<a class="headerlink" href="#forces" title="Permalink to this headline">¶</a></h3>
 <p>To calculate forces acting on the boundary conditions, for example, the forces acting on the cylinder, we can use the <code class="docutils literal notranslate"><span class="pre">forces</span></code> subsection:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Forces
-#---------------------------------------------------
-subsection forces
-    set verbosity             = verbose
-    set calculate force       = true
-    set calculate torque      = false
-    set force name            = force
-    set output precision      = 10
-    set calculation frequency = 1
-    set output frequency      = 1
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection forces
+  set verbosity             = verbose
+  set calculate force       = true
+  set calculate torque      = false
+  set force name            = force
+  set output precision      = 10
+  set calculation frequency = 1
+  set output frequency      = 1
 end
 </pre></div>
 </div>

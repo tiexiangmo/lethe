@@ -379,9 +379,9 @@ The following figure shows the geometry of this problem and the corresponding bo
 <h3><span class="section-number">9.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection specifies the computational grid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-  set type = dealii
-  set grid type = hyper_ball
-  set grid arguments = 0, 0 : 1 : true
+  set type               = dealii
+  set grid type          = hyper_ball
+  set grid arguments     = 0, 0 : 1 : true
   set initial refinement = 3
 end
 </pre></div>
@@ -399,22 +399,22 @@ end
 <p>The <code class="docutils literal notranslate"><span class="pre">Nitsche</span></code> subsection specifies the solid geometry embedded in the fluid domain. The Nitsche Immersed Boundary (IB) uses particles located at the
 Gauss quadrature points of the immersed mesh to represent the immersed body. For a thorough explanation of this, we refer the reader to <a class="reference external" href="https://www.dealii.org/developer/doxygen/deal.II/step_70">step-70</a> of deal.II.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection nitsche
-  set beta = 10
+  set beta             = 10
+  set verbosity        = verbose
   set number of solids = 1
+
   subsection nitsche solid 0
     subsection mesh
-      set type = dealii
-      set grid type = hyper_ball
-      set grid arguments = 0, 0 : 0.25 : true
+      set type               = dealii
+      set grid type          = hyper_ball
+      set grid arguments     = 0, 0 : 0.25 : true
       set initial refinement = 6
     end
     subsection solid velocity
       set Function expression = -y ; x
     end
-    set enable particles motion       = false
-    set calculate torque on solid     = true
+    set calculate torque on solid = true
   end
-  set verbosity = verbose
 end
 </pre></div>
 </div>
@@ -429,10 +429,11 @@ subsection. Finally, the motion of the particle is disabled. This means that eve
 <h3><span class="section-number">9.4.3. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> subsection becomes simple since the inner cylinder boundaries were specified in the previous section.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-  set number                  = 1
-    subsection bc 0
-        set type              = noslip
-    end
+  set number = 1
+  subsection bc 0
+    set id   = 0
+    set type = noslip
+  end
 end
 </pre></div>
 </div>
@@ -443,7 +444,7 @@ end
 <p>The analytical solution for the Taylor-Couette problem is only valid at low Reynolds number. We thus set the kinematic viscosity to 1.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   subsection fluid 0
-    set kinematic viscosity            = 1.0
+    set kinematic viscosity = 1.0
   end
 end
 </pre></div>
@@ -456,8 +457,8 @@ end
 <p>In <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">Example 2</a> we have used second order element for velocity. In this problem, since we are using immersed boundary conditions, moving to higher order polynomials would not enhance the order of convergence as the solid boundary is not represented with high accuracy.</p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
-    set velocity order            = 1
-    set pressure order            = 1
+  set velocity order = 1
+  set pressure order = 1
 end
 </pre></div>
 </div>
@@ -492,17 +493,17 @@ Setting <code class="docutils literal notranslate"><span class="pre">verbosity=v
 By setting <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">mesh</span> <span class="pre">adapt=4</span></code> we configure the simulation to solve the fluid dynamics on the mesh and on four(4) subsequently refined mesh.
 This approach is very interesting, because the solution on the coarse mesh also serves as the initial guest for the solution on the finer mesh.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-  set method                  = steady
-  set number mesh adapt       = 4
-  set output name             = taylor_couette_22
-  set output frequency        = 1
-  set output path             = ./
+  set method            = steady
+  set number mesh adapt = 4
+  set output name       = taylor_couette_22
+  set output frequency  = 1
+  set output path       = ./
 end
 </pre></div>
 </div>
 <p>We then set the mesh adaptation <code class="docutils literal notranslate"><span class="pre">type</span></code> to <code class="docutils literal notranslate"><span class="pre">uniform</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
-  set type                    = uniform
+  set type = uniform
 end
 </pre></div>
 </div>
@@ -522,15 +523,15 @@ end
 </div>
 <p>The mesh can be dynamically adapted using Kelly error estimates on the velocity, pressure or variables arising from other physics.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
-  set type                    = kelly
-  set variable                = velocity
-  set fraction type           = number
-  set max number elements     = 500000
-  set max refinement level    = 15
-  set min refinement level    = 0
-  set frequency               = 1
-  set fraction refinement     = 0.3
-  set fraction coarsening     = 0.15
+  set type                 = kelly
+  set variable             = velocity
+  set fraction type        = number
+  set max number elements  = 500000
+  set max refinement level = 15
+  set min refinement level = 0
+  set frequency            = 1
+  set fraction refinement  = 0.3
+  set fraction coarsening  = 0.15
 end
 </pre></div>
 </div>

@@ -375,10 +375,10 @@
 <h3><span class="section-number">3.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection specifies the computational grid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                 = dealii
-    set grid type = hyper_shell
-    set grid arguments = 0, 0 : 0.25 : 1 : 4:  true
-    set initial refinement   = 3
+  set type               = dealii
+  set grid type          = hyper_shell
+  set grid arguments     = 0, 0 : 0.25 : 1 : 4:  true
+  set initial refinement = 3
 end
 </pre></div>
 </div>
@@ -389,21 +389,21 @@ end
 <h3><span class="section-number">3.4.2. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> subsection establishes the constraints on different parts of the domain:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-  set number                  = 2
+  set number = 2
   subsection bc 0
-      set type              = function
-      subsection u
-          set Function expression = -y
-      end
-      subsection v
-          set Function expression = x
-      end
-      subsection w
-          set Function expression = 0
-      end
+    set type = function
+    subsection u
+      set Function expression = -y
     end
+    subsection v
+      set Function expression = x
+    end
+    subsection w
+      set Function expression = 0
+    end
+  end
   subsection bc 1
-      set type              = noslip
+    set type = noslip
   end
 end
 </pre></div>
@@ -415,7 +415,7 @@ end
 <p>The analytical solution for the Taylor-Couette problem is only valid at low Reynolds number. We thus set the kinematic viscosity to 1.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   subsection fluid 0
-    set kinematic viscosity            = 1.0
+    set kinematic viscosity = 1.0
   end
 end
 </pre></div>
@@ -425,8 +425,8 @@ end
 <h3><span class="section-number">3.4.4. </span>FEM interpolation<a class="headerlink" href="#fem-interpolation" title="Permalink to this headline">¶</a></h3>
 <p>Lethe supports the use of arbitrary interpolation order. The <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> norm of the error is <span class="math notranslate nohighlight">\(\mathcal{O}\left(h^{n+1} \right)\)</span> where <span class="math notranslate nohighlight">\(h\)</span> is a measure of the element size and <cite>n=1</cite> is the interpolation order of the velocity. However, since the torque applied on the inner cylinder depends on the deviatoric stress tensor, which depends on the velocity gradient, it’s error will be <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>. Taking this into account, we use second order polynomials in this example to obtain higher accuracy on the torque. We specify the interpolation order for both pressure and velocity using the <code class="docutils literal notranslate"><span class="pre">FEM</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
-    set velocity order            = 2
-    set pressure order            = 1
+    set velocity order = 2
+    set pressure order = 1
 end
 </pre></div>
 </div>
@@ -442,13 +442,13 @@ end
 \[L^2 = \int_\Omega (u-u_a)^2 \mathrm{d} \Omega\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(u\)</span> is the numerical solution, <span class="math notranslate nohighlight">\(u_a\)</span> is the analytical solution and <span class="math notranslate nohighlight">\(\Omega\)</span> is the domain of the simulation.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection analytical solution
-  set enable                 = true
-    subsection uvwp
-            # A= -(kappa * kappa) / (1. - kappa * kappa);
-            # B= ri * ri / (1. - kappa * kappa);
-            set Function constants = kappa=0.25, ri=0.25, A=-0.06666666666666667, B=0.06666666666666666667
-            set Function expression = -sin(atan2(y,x))*(-(kappa*kappa) / (1-kappa*kappa)* sqrt(x*x+y*y)+ ri*ri/(1-kappa*kappa)/sqrt(x*x+y*y)); cos(atan2(y,x))*(-(kappa*kappa) / (1-kappa*kappa)* sqrt(x*x+y*y)+ ri*ri/(1-kappa*kappa)/sqrt(x*x+y*y)) ; A*A*(x^2+y^2)/2 + 2 *A*B *ln(sqrt(x^2+y^2)) - 0.5*B*B/(x^2+y^2)
-    end
+  set enable = true
+  subsection uvwp
+    # A= -(kappa * kappa) / (1. - kappa * kappa);
+    # B= ri * ri / (1. - kappa * kappa);
+    set Function constants  = kappa=0.25, ri=0.25, A=-0.06666666666666667, B=0.06666666666666666667
+    set Function expression = -sin(atan2(y,x))*(-(kappa*kappa) / (1-kappa*kappa)* sqrt(x*x+y*y)+ ri*ri/(1-kappa*kappa)/sqrt(x*x+y*y)); cos(atan2(y,x))*(-(kappa*kappa) / (1-kappa*kappa)* sqrt(x*x+y*y)+ ri*ri/(1-kappa*kappa)/sqrt(x*x+y*y)) ; A*A*(x^2+y^2)/2 + 2 *A*B *ln(sqrt(x^2+y^2)) - 0.5*B*B/(x^2+y^2)
+  end
 end
 </pre></div>
 </div>
@@ -458,10 +458,10 @@ end
 <h3><span class="section-number">3.4.6. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> subsection controls the flow of the simulation. Two additional parameters are introduced in this example. By setting <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">mesh</span> <span class="pre">adapt=2</span></code> we configure to simulation to carry out to solve the fluid dynamics on the mesh and on two subsequently refined mesh. This approach is very interesting, because the solution on the coarse mesh also serves as the initial guest for the solution on the finer mesh. We set <code class="docutils literal notranslate"><span class="pre">subdivision=2</span></code> to allow the rendering of high-order elements in Paraview. This will be explained later in the example.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-  set method                  = steady
-  set output name             = couette
-  set subdivision             = 2
-  set number mesh adapt       = 2      # If steady, no mesh adaptation
+  set method            = steady
+  set output name       = couette
+  set subdivision       = 2
+  set number mesh adapt = 2 # If steady, no mesh adaptation
 end
 </pre></div>
 </div>
@@ -470,7 +470,7 @@ end
 <h3><span class="section-number">3.4.7. </span>Mesh adaptation<a class="headerlink" href="#mesh-adaptation" title="Permalink to this headline">¶</a></h3>
 <p>Mesh adaptation is quite complex in Lethe. The mesh can be dynamically adapted using Kelly error estimates on the velocity, pressure or variables arising from other physics. Lethe also supports uniform mesh refinement. Since we wish to measure the convergence of the error with respect to an analytical solution, we specify a uniform mesh refinement by setting <code class="docutils literal notranslate"><span class="pre">type=uniform</span></code></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
-  set type                    = uniform
+  set type = uniform
 end
 </pre></div>
 </div>
@@ -479,8 +479,8 @@ end
 <h3><span class="section-number">3.4.8. </span>Forces<a class="headerlink" href="#forces" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">forces</span></code> subsection controls the postprocessing of the torque and the forces acting on the boundaries of the domain.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection forces
-    set verbosity             = verbose   # Output force and torque in log &lt;quiet|verbose&gt;
-    set calculate torque      = true      # Enable torque calculation
+  set verbosity        = verbose # Output force and torques in log &lt;quiet|verbose&gt;
+  set calculate torque = true    # Enable torque calculation
 end
 </pre></div>
 </div>

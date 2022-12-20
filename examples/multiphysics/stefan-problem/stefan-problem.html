@@ -383,10 +383,10 @@
 # Mesh
 #---------------------------------------------------
 subsection mesh
-        set type = dealii
-        set grid type = subdivided_hyper_rectangle
-        set grid arguments = 100, 1 : 0, 0 : 1, 0.1 : true
-        set initial refinement = 0
+  set type               = dealii
+  set grid type          = subdivided_hyper_rectangle
+  set grid arguments     = 100, 1 : 0, 0 : 1, 0.1 : true
+  set initial refinement = 0
 end
 </pre></div>
 </div>
@@ -396,12 +396,12 @@ end
 # Boundary Conditions
 #---------------------------------------------------
 subsection boundary conditions heat transfer
-  set number                  = 1
-    subsection bc 0
-    set id = 0
-            set type        = temperature
-        set value           = 1
-    end
+  set number = 1
+  subsection bc 0
+    set id    = 0
+    set type  = temperature
+    set value = 1
+  end
 end
 </pre></div>
 </div>
@@ -410,29 +410,28 @@ end
 \[\nabla T \cdot \mathbf{n} = 0\]</div></div>
 <p>Next, we define the physical properties:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-set number of fluids = 1
+  set number of fluids = 1
   subsection fluid 0
     set thermal conductivity model = constant
-    set thermal conductivity = 1
+    set thermal conductivity       = 1
 
     set specific heat model = phase_change
     subsection phase change
       # Enthalpy of the phase change
-      set latent enthalpy      = 100
+      set latent enthalpy = 100
 
       # Temperature of the liquidus
       set liquidus temperature = 0.02
 
       # Temperature of the solidus
-      set solidus temperature  = 0
+      set solidus temperature = 0
 
       # Specific heat of the liquid phase
       set specific heat liquid = 1
 
       # Specific heat of the solid phase
-      set specific heat solid  = 1
+      set specific heat solid = 1
     end
-
   end
 end
 </pre></div>
@@ -443,12 +442,12 @@ end
 # Simulation Control
 #---------------------------------------------------
 subsection simulation control
-  set method                  = bdf1
-  set output frequency        = 1
-  set output name             = stefan
-  set output path = ./output/
-  set time end = 5
-  set time step = 0.02
+  set method           = bdf1
+  set output frequency = 1
+  set output name      = stefan
+  set output path      = ./output/
+  set time end         = 5
+  set time step        = 0.02
 end
 </pre></div>
 </div>

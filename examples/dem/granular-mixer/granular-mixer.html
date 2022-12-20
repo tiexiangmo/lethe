@@ -365,10 +365,10 @@
 <h3><span class="section-number">9.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The background mesh (mixer body) is created using dealii <code class="docutils literal notranslate"><span class="pre">subdivided_cylinder</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                = dealii
-    set grid type           = subdivided_cylinder
-    set grid arguments      = 2 : 0.05 : 0.055
-    set initial refinement  = 2
+  set type                = dealii
+  set grid type           = subdivided_cylinder
+  set grid arguments      = 2 : 0.05 : 0.055
+  set initial refinement  = 2
 end
 </pre></div>
 </div>
@@ -377,34 +377,34 @@ end
 <h3><span class="section-number">9.4.2. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned earlier, there are two types of particles with the same size and properties.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
-    set gx                                  = -9.81
-    set gy                                  = 0.0
-    set gz                                  = 0.0
-    set number of particle types            = 2
-            subsection particle type 0
-            set size distribution type              = uniform
-            set diameter                            = 0.0015
-            set number                              = 23500
-            set density particles                   = 1500
-            set young modulus particles               = 1e6
-            set poisson ratio particles             = 0.5
-            set restitution coefficient particles   = 0.5
-            set friction coefficient particles      = 0.5
-            end
-            subsection particle type 1
-            set size distribution type              = uniform
-            set diameter                            = 0.0015
-            set number                              = 23500
-            set density particles                   = 1500
-            set young modulus particles             = 1e6
-            set poisson ratio particles             = 0.5
-            set restitution coefficient particles   = 0.5
-            set friction coefficient particles      = 0.5
-            end
-            set young modulus wall                  = 1e6
-            set poisson ratio wall                  = 0.5
-            set restitution coefficient wall        = 0.5
-            set friction coefficient wall           = 0.5
+  set gx                                  = -9.81
+  set gy                                  = 0.0
+  set gz                                  = 0.0
+  set number of particle types            = 2
+  subsection particle type 0
+    set size distribution type              = uniform
+    set diameter                            = 0.0015
+    set number                              = 23500
+    set density particles                   = 1500
+    set young modulus particles               = 1e6
+    set poisson ratio particles             = 0.5
+    set restitution coefficient particles   = 0.5
+    set friction coefficient particles      = 0.5
+  end
+  subsection particle type 1
+    set size distribution type              = uniform
+    set diameter                            = 0.0015
+    set number                              = 23500
+    set density particles                   = 1500
+    set young modulus particles             = 1e6
+    set poisson ratio particles             = 0.5
+    set restitution coefficient particles   = 0.5
+    set friction coefficient particles      = 0.5
+  end
+  set young modulus wall                  = 1e6
+  set poisson ratio wall                  = 0.5
+  set restitution coefficient wall        = 0.5
+  set friction coefficient wall           = 0.5
 end
 </pre></div>
 </div>
@@ -413,34 +413,31 @@ end
 <h3><span class="section-number">9.4.3. </span>Solid objects<a class="headerlink" href="#solid-objects" title="Permalink to this headline">¶</a></h3>
 <p>In this subsection, the floating meshes are defined. We can use dealii or gmsh to create the floating meshes. At the moment, solid objects (floating meshes) in Lethe have to be defined using triangular (simplex) meshes. Only triangular 2D meshes of 3D surfaces in the dem_3d solver are presently supported. Quadrilateral 2D meshes of 3D surfaces and 1D mesh of 2D surfaces are not supported at the moment. For each floating mesh, we need to specify a <code class="docutils literal notranslate"><span class="pre">translational</span> <span class="pre">velocity</span></code>, an <code class="docutils literal notranslate"><span class="pre">angular</span> <span class="pre">velocity</span></code>, and a <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code>. In this example, we only need an angular motion of the impeller. Note that the <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code> of the impeller is at 0, 0, 0.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection solid objects
-    set number of solids        = 1
-    subsection  solid object 0
+  set number of solids = 1
+  subsection solid object 0
     subsection mesh
-        set type                = gmsh
-        set file name           = pitched-blade-impeller.msh
-        set simplex                = true
-        set initial refinement  = 0
+      set type               = gmsh
+      set file name          = pitched-blade-impeller.msh
+      set simplex            = true
+      set initial refinement = 0
     end
 
     subsection translational velocity
-        set Function expression = 0 ; 0 ; 0
+      set Function expression = 0 ; 0 ; 0
     end
-
     subsection angular velocity
-        set Function expression = if(t &gt; 0.5 , 6 ,0) ; 0 ; 0
+      set Function expression = if(t&gt;0.5,6,0) ; 0 ; 0
     end
 
     subsection center of rotation
-        # X COR
-        set x                               = 0
-        # Y COR
-        set y                               = 0
-        # Z COR
-        set z                               = 0
+      # X COR
+      set x = 0
+      # Y COR
+      set y = 0
+      # Z COR
+      set z = 0
     end
-
   end
-
 end
 </pre></div>
 </div>

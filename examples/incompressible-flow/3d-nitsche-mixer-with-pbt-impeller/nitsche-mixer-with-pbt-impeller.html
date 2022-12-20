@@ -454,13 +454,13 @@
 <h3><span class="section-number">11.4.1. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/simulation_control.html"><span class="doc">Simulation Control</span></a> subsection defines the time integration and output results:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-  set method                  = bdf2
-  set output name             = mixer
-  set output path             = ./output/
-  set output frequency        = 2
-  set time end                = 5
-  set time step               = 0.02
-  set output boundaries       = true
+  set method            = bdf2
+  set output name       = mixer
+  set output path       = ./output/
+  set output frequency  = 2
+  set time end          = 5
+  set time step         = 0.02
+  set output boundaries = true
 end
 </pre></div>
 </div>
@@ -481,7 +481,7 @@ end
 <p>The <a class="reference internal" href="../../../parameters/cfd/physical_properties.html"><span class="doc">Physical Properties</span></a> subsection defines our fluid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   subsection fluid 0
-    set kinematic viscosity            = 0.001
+    set kinematic viscosity = 0.001
   end
 end
 </pre></div>
@@ -492,10 +492,10 @@ end
 <h3><span class="section-number">11.4.3. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/mesh.html"><span class="doc">Mesh</span></a> subsection specifies the computational grid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                 = dealii
-    set grid type            = subdivided_cylinder
-    set grid arguments       = 2:0.5:0.5
-    set initial refinement   = 3
+    set type               = dealii
+    set grid type          = subdivided_cylinder
+    set grid arguments     = 2:0.5:0.5
+    set initial refinement = 3
 end
 </pre></div>
 </div>
@@ -514,19 +514,19 @@ end
 <h3><span class="section-number">11.4.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/boundary_conditions_cfd.html"><span class="doc">Boundary conditions - CFD</span></a> subsection establishes the constraints on different parts of the domain:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-set number                  = 3
-    subsection bc 0
-        set id                = 0
-        set type              = noslip
-    end
-    subsection bc 1
-        set id                = 1
-        set type              = noslip
-    end
-    subsection bc 2
-        set id                = 2
-        set type              = slip
-    end
+  set number = 3
+  subsection bc 0
+    set id   = 0
+    set type = noslip
+  end
+  subsection bc 1
+    set id   = 1
+    set type = noslip
+  end
+  subsection bc 2
+    set id   = 2
+    set type = slip
+  end
 end
 </pre></div>
 </div>
@@ -547,20 +547,19 @@ end
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection nitsche
   set number of solids = 1
   subsection nitsche solid 0
-          subsection mesh
-                set type                 = gmsh
-                set file name            = pbt.msh
-                set simplex              = true
-          end
+    subsection mesh
+      set type      = gmsh
+      set file name = pbt.msh
+      set simplex   = true
+    end
     subsection solid velocity
-            set Function expression = 0 ; 1*2*pi*z ; -1*2*pi*y
+      set Function expression = 0 ; 1*2*pi*z ; -1*2*pi*y
     end
 
+    set calculate torque on solid = true
     set enable particles motion   = true
     set particles sub iterations  = 10
-    set calculate torque on solid = true
   end
-
 end
 </pre></div>
 </div>
@@ -586,8 +585,8 @@ end
 <h3><span class="section-number">11.4.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
 <p>It is often desirable to obtain the time-averaged velocity field when simulating a transient flow. This is achieved through the <a class="reference internal" href="../../../parameters/cfd/post_processing.html"><span class="doc">Post-Processing</span></a> section. The averaging period is started after the flows start to stabilize and reach their pseudo steady-state. In this case, we assume it happens after <span class="math notranslate nohighlight">\(2~\text{sec}\)</span>. This choice is prone to error, which can be mitigated by increasing the duration of simulations and using a longer averaging interval.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection post-processing
-   set calculate average velocities = true
-   set initial time = 2
+  set calculate average velocities = true
+  set initial time                 = 2
 end
 </pre></div>
 </div>
@@ -595,18 +594,15 @@ end
 <section id="mesh-adaptation-control">
 <h3><span class="section-number">11.4.7. </span>Mesh adaptation control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h3>
 <p>We use <a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html"><span class="doc">Mesh Adaptation Control</span></a> on the fluid velocity, so that cells are refined in cells where the fluid velocity changes the most.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# Mesh Adaptation Control
-#---------------------------------------------------
-subsection mesh adaptation
-  set type                    = kelly
-  set variable                = velocity
-  set fraction type           = fraction
-  set max number elements     = 1200000
-  set max refinement level    = 5
-  set min refinement level    = 3
-  set frequency               = 5
-  set fraction refinement     = 0.2
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
+  set type                 = kelly
+  set variable             = velocity
+  set fraction type        = fraction
+  set max number elements  = 1200000
+  set max refinement level = 5
+  set min refinement level = 3
+  set frequency            = 5
+  set fraction refinement  = 0.2
 end
 </pre></div>
 </div>
@@ -622,8 +618,8 @@ end
 <h3><span class="section-number">11.4.8. </span>Non-linear solver parameters<a class="headerlink" href="#non-linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Since this is a transient problem, it is not highly non-linear except for the first few iterations. Thus, we use standard <a class="reference internal" href="../../../parameters/cfd/non-linear_solver_control.html"><span class="doc">Non-linear Solver Control</span></a> parameters.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set tolerance               = 1e-4
-  set solver                  = inexact_newton
+  set tolerance = 1e-4
+  set solver    = inexact_newton
 end
 </pre></div>
 </div>
@@ -633,13 +629,13 @@ end
 <h3><span class="section-number">11.4.9. </span>Linear solver parameters<a class="headerlink" href="#linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Relatively standard parameters are used for the <a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html"><span class="doc">Linear Solver Control</span></a>. From our experience, the AMG preconditioner is more robust with the Nitsche immersed boundaries than the traditional ILU.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-  set method                    = amg
-  set max iters                 = 200
-  set minimum residual          = 1e-7
-  set amg preconditioner ilu absolute tolerance    = 1e-8
-  set amg preconditioner ilu relative tolerance    = 2.00
-  set amg aggregation threshold = 1e-10
-  set max krylov vectors        = 200
+  set method                                    = amg
+  set max iters                                 = 200
+  set minimum residual                          = 1e-7
+  set amg preconditioner ilu absolute tolerance = 1e-8
+  set amg preconditioner ilu relative tolerance = 2.00
+  set amg aggregation threshold                 = 1e-10
+  set max krylov vectors                        = 200
 end
 </pre></div>
 </div>

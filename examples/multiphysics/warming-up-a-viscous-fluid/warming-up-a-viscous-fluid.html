@@ -379,11 +379,11 @@
 # Simulation Control
 #---------------------------------------------------
 subsection simulation control
-  set method                  = bdf2
-  set time step               = 0.05
-  set time end                = 7.0
-  set output name             = warming-up
-  set output frequency        = 1
+  set method           = bdf2
+  set time step        = 0.05
+  set time end         = 7.0
+  set output name      = warming-up
+  set output frequency = 1
 end
 </pre></div>
 </div>
@@ -399,9 +399,9 @@ end
 # FEM
 #---------------------------------------------------
 subsection FEM
-  set velocity order        = 1
-  set pressure order        = 1
-  set temperature order     = 2
+  set velocity order    = 1
+  set pressure order    = 1
+  set temperature order = 2
 end
 </pre></div>
 </div>
@@ -415,11 +415,11 @@ end
 subsection physical properties
   subsection fluid 0
     set density              = 0.9
-    set kinematic viscosity    = 0.5
+    set kinematic viscosity  = 0.5
     set thermal conductivity = 0.12
   end
-# water = 1 density, 0.01 viscosity, 0.59 conductivity
-# oil = 0.9 density, 0.5 viscosity, 0.12 conductivity
+  # water = 1 density, 0.01 viscosity, 0.59 conductivity
+  # oil = 0.9 density, 0.5 viscosity, 0.12 conductivity
 end
 </pre></div>
 </div>
@@ -435,9 +435,9 @@ end
 # Mesh
 #---------------------------------------------------
 subsection mesh
-  set type = dealii
-  set grid type = hyper_rectangle
-  set grid arguments = 0, 0 : 0.5, 1 : true
+  set type               = dealii
+  set grid type          = hyper_rectangle
+  set grid arguments     = 0, 0 : 0.5, 1 : true
   set initial refinement = 4
 end
 </pre></div>
@@ -454,7 +454,7 @@ end
 # Multiphysics
 #---------------------------------------------------
 subsection multiphysics
-  set heat transfer = true
+  set heat transfer       = true
   set viscous dissipation = true
 end
 </pre></div>
@@ -470,15 +470,15 @@ end
 # Analytical Solution
 #---------------------------------------------------
 subsection analytical solution
-  set enable                 = true
+  set enable    = true
   set verbosity = verbose
-    subsection uvwp
-            set Function expression =  0 ; 0 ; 0
-    end
-    subsection temperature
-      set Function constants = rho=0.9, nu=0.5, K=0.12, Tw=80, v=2, B=0.5
-          set Function expression = Tw+(((rho*nu)*v*v)/(2*K))*(1-(x/B)*(x/B))
-    end
+  subsection uvwp
+    set Function expression = 0 ; 0 ; 0
+  end
+  subsection temperature
+    set Function constants  = rho=0.9, nu=0.5, K=0.12, Tw=80, v=2, B=0.5
+    set Function expression = Tw+(((rho*nu)*v*v)/(2*K))*(1-(x/B)*(x/B))
+  end
 end
 </pre></div>
 </div>
@@ -494,36 +494,36 @@ end
 # Boundary Conditions
 #---------------------------------------------------
 subsection boundary conditions
-  set number                  = 2
-    subsection bc 0
-    set id = 0
-        set type              = noslip
+  set number = 2
+  subsection bc 0
+    set id   = 0
+    set type = noslip
+  end
+  subsection bc 1
+    set id   = 1
+    set type = function
+    subsection u
+      set Function expression = 0
     end
-    subsection bc 1
-    set id = 1
-        set type              = function
-        subsection u
-            set Function expression = 0
-        end
-        subsection v
-            set Function expression = 2
-        end
+    subsection v
+      set Function expression = 2
     end
+  end
 end
 
 subsection boundary conditions heat transfer
-  set number                  = 2
-    subsection bc 0
-    set id = 0
-        set type          = convection
-    set h             = 0
-    set Tinf          = 0
-    end
-    subsection bc 1
-    set id = 1
-        set type              = temperature
-    set value             = 80
-    end
+  set number = 2
+  subsection bc 0
+    set id   = 0
+    set type = convection-radiation
+    set h    = 0
+    set Tinf = 0
+  end
+  subsection bc 1
+    set id    = 1
+    set type  = temperature
+    set value = 80
+  end
 end
 </pre></div>
 </div>
@@ -564,9 +564,11 @@ end
 # Physical Properties
 #---------------------------------------------------
 subsection physical properties
-  set density              = 1
-  set kinematic viscosity    = 0.01
-  set thermal conductivity = 0.59
+  subsection fluid 0
+   set density              = 1
+   set kinematic viscosity    = 0.01
+   set thermal conductivity = 0.59
+  end
 # water = 1 density, 0.01 viscosity, 0.59 conductivity
 # oil = 0.9 density, 0.5 viscosity, 0.12 conductivity
 end
@@ -600,36 +602,36 @@ end
 <li><p>and most importantly, the <code class="docutils literal notranslate"><span class="pre">id</span></code> of <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> should be adapted to use the bottom and top wall (see the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html#a56019d263ae45708302d5d7599f0d458">deal.II documentation on hyper_rectangle grid generator</a> for further details):</p></li>
 </ul>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
-  set number                  = 2
-    subsection bc 0
-    set id = 2
-        set type              = noslip
+  set number = 2
+  subsection bc 0
+    set id   = 2
+    set type = noslip
+  end
+  subsection bc 1
+    set id   = 3
+    set type = function
+    subsection u
+      set Function expression = 2
     end
-    subsection bc 1
-    set id = 3
-        set type              = function
-        subsection u
-            set Function expression = 2
-        end
-        subsection v
-            set Function expression = 0
-        end
+    subsection v
+      set Function expression = 0
     end
+  end
 end
 
 subsection boundary conditions heat transfer
-  set number                  = 4
-    subsection bc 2
-    set id = 2
-        set type          = convection-radiation
-        set h             = 0
-        set Tinf          = 0
-    end
-    subsection bc 3
-    set id = 3
-        set type              = temperature
-        set value             = 80
-    end
+  set number = 4
+  subsection bc 2
+    set id   = 2
+    set type = convection-radiation
+    set h    = 0
+    set Tinf = 0
+  end
+  subsection bc 3
+    set id    = 3
+    set type  = temperature
+    set value = 80
+  end
 end
 </pre></div>
 </div>

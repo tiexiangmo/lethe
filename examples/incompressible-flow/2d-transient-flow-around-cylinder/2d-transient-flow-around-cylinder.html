@@ -373,12 +373,12 @@
 <h3><span class="section-number">6.4.1. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>This example uses a 2nd order backward differentiation (<code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">bdf2</span></code>) for the time integration scheme. The simulation time is set to 200 seconds with the <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">end</span></code> parameter and a time step of 0.05 seconds is used (<code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span> <span class="pre">=</span> <span class="pre">0.05</span></code>).</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-    set method                = bdf2
-    set output name           = cylinder-output
-    set output frequency      = 1
-    set output path           = ./Re200/
-    set time end              = 200.0
-    set time step                     = 0.05
+  set method           = bdf2
+  set output name      = cylinder-output
+  set output frequency = 1
+  set output path      = ./Re200/
+  set time end         = 200.0
+  set time step        = 0.05
 end
 </pre></div>
 </div>
@@ -387,8 +387,8 @@ end
 <h3><span class="section-number">6.4.2. </span>FEM interpolation<a class="headerlink" href="#fem-interpolation" title="Permalink to this headline">¶</a></h3>
 <p>The interpolation orders for the velocity and pressure are set to Q2-Q1 in the <code class="docutils literal notranslate"><span class="pre">FEM</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
-    set velocity order  = 2
-    set pressure order  = 1
+  set velocity order = 2
+  set pressure order = 1
 end
 </pre></div>
 </div>
@@ -397,9 +397,9 @@ end
 <h3><span class="section-number">6.4.3. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The initial mesh is generated with <a class="reference external" href="https://gmsh.info/#Download">Gmsh</a> and imported as described in  <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">2D Flow around a cylinder</a>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                = gmsh
-    set file name           = cylinder-structured.msh
-    set initial refinement  = 1
+  set type               = gmsh
+  set file name          = cylinder-structured.msh
+  set initial refinement = 1
 end
 </pre></div>
 </div>
@@ -408,15 +408,15 @@ end
 <h3><span class="section-number">6.4.4. </span>Mesh adaptation control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h3>
 <p>While the discretization in the wake of the cylinder has less impact on the forces acting on the cylinder wall than the boundary layer discretization, it is interesting to well resolve the wake to capture the von Kármán vortex street pattern. Therefore, to adapt the mesh in the boundary layer and the wake as the vortices are shed, a non-uniform mesh adaptation is performed at each time step and the parameters are specified using the <code class="docutils literal notranslate"><span class="pre">Mesh</span> <span class="pre">Adaptation</span> <span class="pre">Control</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
-    set type                   = kelly
-    set variable               = pressure
-    set fraction type          = number
-    set max number elements    = 70000
-    set max refinement level   = 3
-    set min refinement level   = 1
-    set frequency              = 1
-    set fraction refinement    = 0.02
-    set fraction coarsening    = 0.01
+  set type                 = kelly
+  set variable             = pressure
+  set fraction type        = number
+  set max number elements  = 70000
+  set max refinement level = 3
+  set min refinement level = 1
+  set frequency            = 1
+  set fraction refinement  = 0.02
+  set fraction coarsening  = 0.01
 end
 </pre></div>
 </div>
@@ -426,32 +426,32 @@ end
 <h3><span class="section-number">6.4.5. </span>Initial and boundary conditions<a class="headerlink" href="#initial-and-boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/initial_conditions.html">Initial Condition</a> and <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/boundary_conditions_cfd.html">Boundary Conditions</a> are defined as in <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">2D Flow around a cylinder</a>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
-    set type = nodal
-    subsection uvwp
-            set Function expression = 1; 0; 0
-    end
+  set type = nodal
+  subsection uvwp
+    set Function expression = 1; 0; 0
+  end
 end
 
 subsection boundary conditions
-    set number                  = 3
-    subsection bc 0
-        set type              = noslip
+  set number = 3
+  subsection bc 0
+    set type = noslip
+  end
+  subsection bc 1
+    set type = function
+    subsection u
+      set Function expression = 1
     end
-    subsection bc 1
-        set type              = function
-        subsection u
-            set Function expression = 1
-        end
-        subsection v
-            set Function expression = 0
-        end
-        subsection w
-            set Function expression = 0
-        end
+    subsection v
+      set Function expression = 0
     end
-    subsection bc 2
-        set type              = slip
+    subsection w
+      set Function expression = 0
     end
+  end
+  subsection bc 2
+    set type = slip
+  end
 end
 </pre></div>
 </div>
@@ -460,9 +460,9 @@ end
 <h3><span class="section-number">6.4.6. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The Reynolds number must be high enough to capture a transient flow and study the evolution of the drag and lift coefficients in time. Therefore, we set Re = 200 through the value of the kinematic viscosity in the same manner as for the <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">2D Lid-driven cavity flow</a>. Since <span class="math notranslate nohighlight">\(U_\infty = 1\)</span> and the <span class="math notranslate nohighlight">\(D = 1\)</span>, we have <span class="math notranslate nohighlight">\(Re=\frac{1}{\nu}\)</span>, where <span class="math notranslate nohighlight">\(\nu\)</span> is the kinematic viscosity.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-    subsection fluid 0
-      set kinematic viscosity            = 0.005
-    end
+  subsection fluid 0
+    set kinematic viscosity = 0.005
+  end
 end
 </pre></div>
 </div>
@@ -471,13 +471,13 @@ end
 <h3><span class="section-number">6.4.7. </span>Forces<a class="headerlink" href="#forces" title="Permalink to this headline">¶</a></h3>
 <p>Since we want to study the time evolution of the drag and lift coefficients, the force acting on the boundaries must be computed. We thus use the <code class="docutils literal notranslate"><span class="pre">forces</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection forces
-   set verbosity             = verbose
-   set calculate force       = true
-   set calculate torque      = false
-   set force name            = force
-   set output precision      = 10
-   set calculation frequency = 1
-   set output frequency      = 10
+  set verbosity             = verbose
+  set calculate force       = true
+  set calculate torque      = false
+  set force name            = force
+  set output precision      = 10
+  set calculation frequency = 1
+  set output frequency      = 10
 end
 </pre></div>
 </div>

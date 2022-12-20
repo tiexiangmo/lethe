@@ -372,13 +372,13 @@ time step of <span class="math notranslate nohighlight">\(5.0 \times 10^{-5}\)</
 # Simulation Control
 #---------------------------------------------------
 subsection simulation control
-    set method                      = bdf2
-    set time end                    = 0.003
-    set time step                   = 0.00005
-    set output name                 = laser-heating
-    set output frequency            = 1
-    set output path                 = ./output/
-    set subdivision                 = 1
+  set method           = bdf2
+  set time end         = 0.003
+  set time step        = 0.00005
+  set output name      = laser-heating
+  set output frequency = 1
+  set output path      = ./output/
+  set subdivision      = 1
 end
 </pre></div>
 </div>
@@ -387,19 +387,19 @@ end
 # Boundary Conditions
 #---------------------------------------------------
 subsection boundary conditions
-  set number                  = 1
-    subsection bc 0
-        set type              = noslip
-    end
+  set number = 1
+  subsection bc 0
+    set type = noslip
+  end
 end
 subsection boundary conditions heat transfer
-  set number                  = 1
-    subsection bc 0
-    set type              = convection-radiation
-        set h                     = 5
-        set Tinf          = 20
-        set emissivity        = 0.4
-    end
+  set number = 1
+  subsection bc 0
+    set type       = convection-radiation
+    set h          = 5
+    set Tinf       = 20
+    set emissivity = 0.4
+  end
 end
 </pre></div>
 </div>
@@ -409,7 +409,7 @@ and off (<code class="docutils literal notranslate"><span class="pre">false</spa
 # Multiphysics
 #---------------------------------------------------
 subsection multiphysics
-        set heat transfer          = true
+  set heat transfer = true
 end
 </pre></div>
 </div>
@@ -427,18 +427,18 @@ end
 # Laser parameters
 #---------------------------------------------------
 subsection laser parameters
-            set enable = true
-            set concentration factor = 50
-            set power = 3
-            set absorptivity = 0.6
-            set penetration depth = 0.00005
-            set beam radius = 0.00005
-            set start time = 0
-            set end time = 0.003
-            set beam orientation = z-
-            subsection path
-                    set Function expression = if(t&lt;0.001, 0.5 * t, if(t&lt;0.002, 0.0005, if(t&lt;0.003 , 0.0005-0.5 * (t-0.002), -1))); if(t&lt;0.001, 0.00025, if(t &lt; 0.002, 0.00025 - 0.5 * (t-0.001) , if(t &lt; 0.003 , -0.00025, -1))) ; 0.0003
-            end
+  set enable               = true
+  set concentration factor = 50
+  set power                = 3
+  set absorptivity         = 0.6
+  set penetration depth    = 0.00005
+  set beam radius          = 0.00005
+  set start time           = 0
+  set end time             = 0.003
+  set beam orientation     = z-
+  subsection path
+    set Function expression = if(t&lt;0.001, 0.5 * t, if(t&lt;0.002, 0.0005, if(t&lt;0.003 , 0.0005-0.5 * (t-0.002), -1))); if(t&lt;0.001, 0.00025, if(t &lt; 0.002, 0.00025 - 0.5 * (t-0.001) , if(t &lt; 0.003 , -0.00025, -1))) ; 0.0003
+  end
 end
 </pre></div>
 </div>
@@ -447,14 +447,14 @@ end
 # Mesh Adaptation
 #---------------------------------------------------
 subsection mesh adaptation
-  set type                    = kelly
-  set variable                = temperature
-  set fraction type           = fraction
-  set max refinement level    = 4
-  set min refinement level    = 0
-  set frequency               = 1
-  set fraction refinement     = 0.5
-  set fraction coarsening     = 0.2
+  set type                 = kelly
+  set variable             = temperature
+  set fraction type        = fraction
+  set max refinement level = 4
+  set min refinement level = 0
+  set frequency            = 1
+  set fraction refinement  = 0.5
+  set fraction coarsening  = 0.2
 end
 </pre></div>
 </div>
