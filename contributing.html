@@ -382,27 +382,27 @@
 <li><p>Sphinx v4.x</p></li>
 </ul>
 <p>To install required system packages:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo apt-get install python3 build-essential
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>build-essential
 </pre></div>
 </div>
 <p>To install Sphinx globally:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install <span class="s1">'sphinx==4.*'</span>
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'sphinx==4.*'</span>
 </pre></div>
 </div>
 <p>To install additional packages:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install sphinx-copybutton
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-copybutton
 </pre></div>
 </div>
 <p>Then, install the Sphinx requirements:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -r doc/requirements.txt
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>doc/requirements.txt
 </pre></div>
 </div>
 </section>
 <section id="build-html">
 <h4>Build HTML<a class="headerlink" href="#build-html" title="Permalink to this headline">¶</a></h4>
 <p>To build standalone HTML files like the CI would, enter the following commands:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> doc
-make html
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>doc
+make<span class="w"> </span>html
 </pre></div>
 </div>
 <p>The generated files should be in the <code class="docutils literal notranslate"><span class="pre">build/html</span></code> directory. Open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in a browser to view the rendered documents.</p>
@@ -475,9 +475,9 @@ make html
     }
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>

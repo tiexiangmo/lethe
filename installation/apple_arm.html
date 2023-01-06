@@ -388,13 +388,13 @@ export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:path/to/candi/install/parmetis-4.0
 </pre></div>
 </div>
 <p>At line 1169, the following line:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">numInvalidRemote</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="n">std</span><span class="o">::</span><span class="n">count_if</span><span class="w"> </span><span class="p">(</span><span class="n">remoteProcIDs</span><span class="p">.</span><span class="n">begin</span><span class="w"> </span><span class="p">(),</span><span class="w"> </span><span class="n">remoteProcIDs</span><span class="p">.</span><span class="n">end</span><span class="w"> </span><span class="p">(),</span><span class="w"></span>
-<span class="w">               </span><span class="n">std</span><span class="o">::</span><span class="n">bind1st</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">equal_to</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(),</span><span class="w"> </span><span class="mi">-1</span><span class="p">));</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">numInvalidRemote</span><span class="w"> </span><span class="o">=</span>
+<span class="n">std</span><span class="o">::</span><span class="n">count_if</span><span class="w"> </span><span class="p">(</span><span class="n">remoteProcIDs</span><span class="p">.</span><span class="n">begin</span><span class="w"> </span><span class="p">(),</span><span class="w"> </span><span class="n">remoteProcIDs</span><span class="p">.</span><span class="n">end</span><span class="w"> </span><span class="p">(),</span>
+<span class="w">               </span><span class="n">std</span><span class="o">::</span><span class="n">bind1st</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">equal_to</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(),</span><span class="w"> </span><span class="mi">-1</span><span class="p">));</span>
 </pre></div>
 </div>
 <p>Should be replaced by:</p>
-<div class="copy-button highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">numInvalidRemote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<div class="copy-button highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">size_type</span><span class="w"> </span><span class="n">numInvalidRemote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition warning">
