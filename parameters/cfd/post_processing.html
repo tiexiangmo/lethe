@@ -391,7 +391,6 @@
   set temperature statistics name      = temperature_statistics
   set calculate heat flux              = false
   set heat flux name                   = heat_flux
-  set convective flux name             = convective_flux
 
 end
 </pre></div>
@@ -478,38 +477,44 @@ end
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">heat</span> <span class="pre">flux</span></code>: controls if calculation of heat flux is enabled. If enabled, two quantities are postprocessed:</dt><dd><ul class="simple">
-<li><p>the total heat flux <span class="math notranslate nohighlight">\(q_{tot}\)</span> for each <a class="reference internal" href="boundary_conditions_multiphysics.html#heat-transfer-bc"><span class="std std-ref">Heat Transfer</span></a> boundary condition. The total heat flux on a boundary <span class="math notranslate nohighlight">\(\Gamma\)</span> is defined as:</p></li>
-</ul>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[q_{tot} = \int_\Gamma (\rho C_p \mathbf{u} T - k \nabla T) \cdot \mathbf{n}\]</div></div>
-<p>The output table is appended with one column per boundary condition, named <code class="docutils literal notranslate"><span class="pre">bc_i</span></code> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the index of the boundary in the parameter file.</p>
-<ul class="simple">
-<li><p>the convective heat flux <span class="math notranslate nohighlight">\(q_{conv}\)</span> for each <a class="reference internal" href="boundary_conditions_multiphysics.html#heat-transfer-bc"><span class="std std-ref">Heat Transfer</span></a> boundary condition. The convective heat flux on a boundary <span class="math notranslate nohighlight">\(\Gamma\)</span> is defined as:</p></li>
-</ul>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[q_{conv} = \int_\Gamma  h (T-T_\infty)\]</div></div>
-<ul class="simple">
-<li><p>the thermal energy (<span class="math notranslate nohighlight">\(\mathbf{Q} = m c_p \mathbf{T}\)</span>) over the domain defined by <code class="docutils literal notranslate"><span class="pre">postprocessed</span> <span class="pre">fluid</span></code>.</p></li>
-</ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">heat</span> <span class="pre">flux</span></code>: controls if calculation of heat flux is enabled. If enabled, these quantities are postprocessed:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">flux</span> <span class="pre">name</span></code>: output filename for temperature statistics calculations.</p></li>
-</ul>
+<ol class="arabic simple">
+<li><p>the total heat flux <span class="math notranslate nohighlight">\(q_{tot}\)</span> for each <a class="reference internal" href="boundary_conditions_multiphysics.html#heat-transfer-bc"><span class="std std-ref">Heat Transfer</span></a> boundary condition. The total heat flux on a boundary <span class="math notranslate nohighlight">\(\Gamma\)</span> is defined as:</p></li>
+</ol>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[q_\text{tot} = \int_\Gamma (\rho C_p \mathbf{u} \mathbf{T} - k \nabla \mathbf{T}) \cdot \mathbf{n}\]</div></div>
+<p>The output table is appended with one column per <a class="reference internal" href="boundary_conditions_multiphysics.html#heat-transfer-bc"><span class="std std-ref">Heat Transfer</span></a> boundary condition, named <code class="docutils literal notranslate"><span class="pre">bc_i</span></code> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the index of the boundary in the parameter file.</p>
+<ol class="arabic simple" start="2">
+<li><p>the convective heat flux <span class="math notranslate nohighlight">\(q_\text{conv}\)</span> for each <a class="reference internal" href="boundary_conditions_multiphysics.html#heat-transfer-bc"><span class="std std-ref">Heat Transfer</span></a> boundary condition. The convective heat flux on a boundary <span class="math notranslate nohighlight">\(\Gamma\)</span> is defined as:</p></li>
+</ol>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[q_\text{conv} = \int_\Gamma  h (\mathbf{T}-\mathbf{T}_\infty)\]</div></div>
+<p>The output table is appended with one column per <a class="reference internal" href="boundary_conditions_multiphysics.html#heat-transfer-bc"><span class="std std-ref">Heat Transfer</span></a> boundary condition, named <code class="docutils literal notranslate"><span class="pre">bc_i</span></code> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the index of the boundary in the parameter file.</p>
+<ol class="arabic simple" start="3">
+<li><p>the thermal energy (<span class="math notranslate nohighlight">\(\mathbf{Q} = m c_p \mathbf{T}\)</span>) over the domain defined by <code class="docutils literal notranslate"><span class="pre">postprocessed</span> <span class="pre">fluid</span></code>.</p></li>
+<li><p>if there is a <a class="reference internal" href="nitsche.html"><span class="doc">Nitsche Immersed Boundary</span></a>, the total heat fluxes on each solid: <span class="math notranslate nohighlight">\(q_\text{nitsche} = \beta_\text{heat} \left( \mathbf{T}_\text{nitsche} - \mathbf{T} \right)\)</span></p></li>
+</ol>
+<p>The output table is appended with one column per solid, named <code class="docutils literal notranslate"><span class="pre">nitsche_solid_i</span></code> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the index of the <code class="docutils literal notranslate"><span class="pre">nitsche</span> <span class="pre">solid</span></code> in the parameter file.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">enable</span> <span class="pre">heat</span> <span class="pre">boundary</span> <span class="pre">condition</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="nitsche.html"><span class="doc">Nitsche Immersed Boundary</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
+</div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">flux</span> <span class="pre">name</span></code>: output filename for heat flux calculations.</p>
 <div class="admonition-example-of-heat-flux-table admonition">
 <p class="admonition-title">Example of heat flux table:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> time   bc_0    bc_1       thermal_energy_fluid_1
-0.0000 64.0000  0.6400               0.0313
-0.2000  3.6963  0.0976               0.6965
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> time  total_flux_bc_0 convective_flux_bc_0 thermal_energy_fluid flux_nitsche_solid_0
+0.0000          0.0000               0.0000               0.0000            1000.0000
+1.0000         -0.9732               0.0000               1.4856               0.9732
 </pre></div>
 </div>
 </div>
-</dd>
-</dl>
+</li>
+</ul>
 </li>
 </ul>
 </section>
