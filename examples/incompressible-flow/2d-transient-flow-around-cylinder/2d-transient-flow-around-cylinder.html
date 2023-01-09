@@ -376,7 +376,7 @@
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set method           = bdf2
   set output name      = cylinder-output
-  set output frequency = 1
+  set output frequency = 5
   set output path      = ./Re200/
   set time end         = 200.0
   set time step        = 0.05
@@ -468,8 +468,23 @@ end
 </pre></div>
 </div>
 </section>
+<section id="linear-solver">
+<h3><span class="section-number">6.4.7. </span>Linear solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h3>
+<p>For 2D problems, the AMG preconditioner is an adequate preconditioner. It is especially robust for the first few time-steps for which the velocity and pressure profile is not well-defined because the initial conditions are not mass conservative.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
+  set verbosity                                 = verbose
+  set method                                    = amg
+  set relative residual                         = 1e-4
+  set minimum residual                          = 1e-8
+  set amg preconditioner ilu fill               = 0
+  set amg preconditioner ilu absolute tolerance = 1e-12
+  set amg preconditioner ilu relative tolerance = 1.00
+end
+</pre></div>
+</div>
+</section>
 <section id="forces">
-<h3><span class="section-number">6.4.7. </span>Forces<a class="headerlink" href="#forces" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.8. </span>Forces<a class="headerlink" href="#forces" title="Permalink to this headline">¶</a></h3>
 <p>Since we want to study the time evolution of the drag and lift coefficients, the force acting on the boundaries must be computed. We thus use the <code class="docutils literal notranslate"><span class="pre">forces</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection forces
   set verbosity             = verbose
@@ -504,7 +519,7 @@ end
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The estimated time to simulate 200 seconds is about 3 hours 45 minutes with 10 CPUs.</p>
+<p>The estimated time to simulate 200 seconds is about 3 hours with 10 CPUs.</p>
 </div>
 </section>
 <section id="results">
@@ -543,8 +558,8 @@ end
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Lethe example</p></td>
-<td><p>1.392 <span class="math notranslate nohighlight">\(\pm\)</span> 0.048</p></td>
-<td><p>-0.006 <span class="math notranslate nohighlight">\(\pm\)</span> 0.072</p></td>
+<td><p>1.396 <span class="math notranslate nohighlight">\(\pm\)</span> 0.048</p></td>
+<td><p>-0.003 <span class="math notranslate nohighlight">\(\pm\)</span> 0.072</p></td>
 <td><p>0.2</p></td>
 </tr>
 <tr class="row-odd"><td><p>Lethe Sharp <a class="reference external" href="https://doi.org/10.1016/j.compfluid.2022.105415">[2]</a></p></td>
@@ -643,7 +658,8 @@ Computers &amp; Fluids, Volume 239, 105415, <a class="reference external" href="
 <li><a class="reference internal" href="#mesh-adaptation-control">6.4.4. Mesh adaptation control</a></li>
 <li><a class="reference internal" href="#initial-and-boundary-conditions">6.4.5. Initial and boundary conditions</a></li>
 <li><a class="reference internal" href="#physical-properties">6.4.6. Physical Properties</a></li>
-<li><a class="reference internal" href="#forces">6.4.7. Forces</a></li>
+<li><a class="reference internal" href="#linear-solver">6.4.7. Linear solver</a></li>
+<li><a class="reference internal" href="#forces">6.4.8. Forces</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#running-the-simulation">6.5. Running the simulation</a></li>
