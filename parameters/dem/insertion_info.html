@@ -368,6 +368,11 @@
  set insertion box maximum y                   = 0.05
  set insertion box maximum z                   = 0.07
 
+ # Directions of insertion (0: x, 1: y, 2: z)
+ set insertion first direction                 = 0
+ set insertion second direction                = 1
+ set insertion third direction                 = 2
+
  # Initial conditions at insertion
  set velocity x = 0.0
  set velocity y = 0.0
@@ -414,6 +419,7 @@ end
 <p>We recommend that the defined insertion box have at least a distance of <span class="math notranslate nohighlight">\({d^{max}_p}\)</span> (maximum diameter of particles) from the triangulation boundaries. Otherwise, particles may have an overlap with the triangulation walls in the insertion.</p>
 </div>
 <ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">first</span> <span class="pre">direction</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">second</span> <span class="pre">direction</span></code>, and <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">third</span> <span class="pre">direction</span></code> parameters define the directions of insertion. For example, if <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">first</span> <span class="pre">direction</span></code> = 0, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">second</span> <span class="pre">direction</span></code> = 1, and <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">third</span> <span class="pre">direction</span></code> = 2, the particles are inserted in priority in the x, in y, and then in z directions This is the default configuration. This is useful to specify the insertion directions to cover a specific area of the insertion box with the first and second direction parameters.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">z</span></code> determine the initial translational velocity (in <span class="math notranslate nohighlight">\(\frac{m}{s}\)</span>) at which particles are inserted in the x, y, and z directions, respectively.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">z</span></code> determine the initial rotational velocity (in <span class="math notranslate nohighlight">\(\frac{rad}{s}\)</span>) at which particles are inserted in the x, y, and z directions, respectively.</p></li>
 </ul>
