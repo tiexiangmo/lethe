@@ -363,13 +363,14 @@
 <h2>Installing deal.II<a class="headerlink" href="#installing-deal-ii" title="Permalink to this headline">¶</a></h2>
 <section id="on-niagara-beluga-narval-graham-or-cedar">
 <h3>On Niagara, Beluga, Narval, Graham or Cedar<a class="headerlink" href="#on-niagara-beluga-narval-graham-or-cedar" title="Permalink to this headline">¶</a></h3>
-<p>All operations can be performed on login nodes.</p>
+<p>All operations must be performed on login nodes.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If on <strong>Niagara</strong>, this additional module is needed beforehand: <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">CCEnv</span></code>.</p>
 </div>
 <p>Load <code class="docutils literal notranslate"><span class="pre">Trilinos</span></code>, <code class="docutils literal notranslate"><span class="pre">Parmetis</span></code> and <code class="docutils literal notranslate"><span class="pre">P4est</span></code>, and their prerequisite modules:</p>
 <div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>module load StdEnv/2020
+module load cmake/3.23.1
 module load gcc/9.3.0
 module load openmpi/4.0.3
 module load trilinos/13.0.1
@@ -391,10 +392,6 @@ module load p4est/2.2
 </pre></div>
 </div>
 <p>The argument <code class="docutils literal notranslate"><span class="pre">-jX</span></code> specifies the number of processors used for the compilation. On login nodes, a maximum of 8 cores should be used in order to ensure that other users can continue using the cluster without slowdowns. In addition, the <code class="docutils literal notranslate"><span class="pre">nice</span></code> command can be used at the beginning of the call to give a lower priority to this task.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> triggers an error, run the command <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">trilinos</span></code>. If it returns <code class="docutils literal notranslate"><span class="pre">/usr/bin/which:</span> <span class="pre">no</span> <span class="pre">trilinos</span> <span class="pre">in</span></code>, try removing the deal.II build folder, recreating it and explicitly specify libraries’ paths on the <code class="docutils literal notranslate"><span class="pre">cmake</span></code>.</p>
-</div>
 </section>
 </section>
 <section id="installing-lethe">
@@ -452,7 +449,8 @@ pwd
 </div>
 <p>In the nano terminal, copy-paste (with <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+V</span></code>):</p>
 <div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>module load CCEnv #if on Niagara
-module load nixpkgs/16.09
+module load StdEnv/2020
+module load cmake/3.23.1
 module load gcc/9.3.0
 module load openmpi/4.0.3
 module load trilinos/13.0.1
