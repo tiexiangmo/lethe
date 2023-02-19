@@ -357,6 +357,12 @@
 
   subsection VOF
     set Function expression = if (x&lt;0.5 &amp; y&lt;1, 1, 0)
+
+    subsection projection step
+      set enable           = false
+      set diffusion factor = 1
+    end
+
   end
 
   subsection temperature
@@ -377,20 +383,31 @@
  end
 </pre></div>
 </div>
-<ul class="simple">
+<ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter indicates which strategy is used to impose the initial conditions. The choices are : <code class="docutils literal notranslate"><span class="pre">L2projection</span></code>, <code class="docutils literal notranslate"><span class="pre">viscous</span></code>, <code class="docutils literal notranslate"><span class="pre">nodal</span></code> or <code class="docutils literal notranslate"><span class="pre">ramp</span></code>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">viscosity</span></code> parameter controls the viscosity that is  used to solve the Navier-Stokes equations when the viscous initial condition is chosen.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">uvwp</span></code> allows the user to select a function (velocity-pressure) to set a nodal or L2 projection initial condition.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">VOF</span></code> defines the areas where both fluids lay at the initial state (see section <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>). In this example, the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> is used with a boolean condition to establish the region where the fluid indicator is 0 or 1: <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(condition,</span> <span class="pre">value</span> <span class="pre">if</span> <span class="pre">true,</span> <span class="pre">value</span> <span class="pre">if</span> <span class="pre">false)</span></code>. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(x&lt;0.5</span> <span class="pre">&amp;</span> <span class="pre">y&lt;1,</span> <span class="pre">1,</span> <span class="pre">0)</span></code> means that <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> initially fills the surface where <code class="docutils literal notranslate"><span class="pre">x&lt;0.5</span></code> and <code class="docutils literal notranslate"><span class="pre">y&lt;1</span></code>, the rest being filled with <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>.</p></li>
-</ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">VOF</span></code> defines the areas where both fluids lay at the initial state (see section <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>). In this example, the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> is used with a boolean condition to establish the region where the fluid indicator is 0 or 1: <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(condition,</span> <span class="pre">value</span> <span class="pre">if</span> <span class="pre">true,</span> <span class="pre">value</span> <span class="pre">if</span> <span class="pre">false)</span></code>. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(x&lt;0.5</span> <span class="pre">&amp;</span> <span class="pre">y&lt;1,</span> <span class="pre">1,</span> <span class="pre">0)</span></code> means that <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> initially fills the surface where <code class="docutils literal notranslate"><span class="pre">x&lt;0.5</span></code> and <code class="docutils literal notranslate"><span class="pre">y&lt;1</span></code>, the rest being filled with <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> can be used to establish an even more complex free surface initial geometry. For example, one can create a circle of fluid : <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(</span> <span class="pre">(x^2+y^2)&lt;=(r)^2</span> <span class="pre">,1,0)</span></code></p>
 </div>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">projection</span> <span class="pre">step</span></code> allows to smooth the VOF initial condition using a projection step and avoid a staircase definition of the free surface.</p>
 <ul class="simple">
+<li><p>When the parameter <code class="docutils literal notranslate"><span class="pre">enable</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the initial condition is projected following :</p></li>
+</ul>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\psi(\Omega_K) = \int_{\Omega_K} \phi d\Omega\]</div></div>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\int_\Omega \left( \psi^* v + \eta_\psi \nabla \psi^* \cdot \nabla v  \right) d\Omega = \int_\Omega \psi v  d\Omega\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\psi(\Omega_K)\)</span> corresponds to a color function value on the Kth element, <span class="math notranslate nohighlight">\(\phi\)</span> is the phase fraction, <span class="math notranslate nohighlight">\(\psi^*\)</span> is the smoothed phase fraction, <span class="math notranslate nohighlight">\(\eta_\psi = \alpha h^2\)</span> with <span class="math notranslate nohighlight">\(\alpha\)</span> corresponding to the <code class="docutils literal notranslate"><span class="pre">diffusion</span> <span class="pre">factor</span></code> and <span class="math notranslate nohighlight">\(h\)</span> to the cell size, and <span class="math notranslate nohighlight">\(v\)</span> is a test function.</p>
+</li>
+</ul>
+</li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">temperature</span></code> allows the user to define an initial temperature for the fluid domain (if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">tranfer</span> <span class="pre">=</span> <span class="pre">true</span></code> in <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>).</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">ramp</span></code> holds the parameters to operate a ramp on either or both the viscosity and the <code class="docutils literal notranslate"><span class="pre">n</span></code> parameter in rheological models (see <a class="reference internal" href="physical_properties.html"><span class="doc">Physical Properties</span></a> for more information on this parameter). When ramping on the viscosity value,</p>
-<ul>
+<ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">viscosity</span></code> is the viscosity with which the initial condition starts off. An initial viscosity of 1.0 is suggested.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">iterations</span></code> parameter sets the number of viscosity iterations before reaching the simulation viscosity.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> parameter sets the stepping length between viscosity iterations, as seen in the following equation, where <span class="math notranslate nohighlight">\(\eta\)</span> is the viscosity and <span class="math notranslate nohighlight">\(i\)</span> stands for the iteration number.</p></li>
