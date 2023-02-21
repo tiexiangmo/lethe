@@ -370,8 +370,8 @@
   set calculate enstrophy         = false
   set enstrophy name              = enstrophy
 
-    # Others
-    set smoothed output fields    = false
+  # Others
+  set smoothed output fields    = false
 
   #---------------------------------------------------
   # Physical properties post-processing
@@ -392,6 +392,10 @@
   set temperature statistics name      = temperature_statistics
   set calculate heat flux              = false
   set heat flux name                   = heat_flux
+
+  # VOF postprocessing
+  set calculate VOF barycenter         = false
+  set VOF barycenter name              = vof_barycenter_information
 
 end
 </pre></div>
@@ -459,12 +463,9 @@ end
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">temperature</span> <span class="pre">statistics</span></code>: controls if calculation of temperature statistics is enabled. Statistics include: minimum, maximum, average and standard-deviation.</dt><dd><div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
-</div>
-<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">temperature</span> <span class="pre">statistics</span></code>: controls if calculation of temperature statistics is enabled. Statistics include: minimum, maximum, average and standard-deviation.</p>
+<blockquote>
+<div><ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">statistics</span> <span class="pre">name</span></code>: output filename for temperature statistics calculations.</p></li>
 </ul>
 <div class="admonition-example-of-temperature-statistics-table admonition">
@@ -475,14 +476,9 @@ end
 </pre></div>
 </div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">heat</span> <span class="pre">flux</span></code>: controls if calculation of heat flux is enabled. If enabled, these quantities are postprocessed:</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
-</div>
 <ol class="arabic simple">
 <li><p>the total heat flux <span class="math notranslate nohighlight">\(q_{tot}\)</span> for each <a class="reference internal" href="boundary_conditions_multiphysics.html#heat-transfer-bc"><span class="std std-ref">Heat Transfer</span></a> boundary condition. The total heat flux on a boundary <span class="math notranslate nohighlight">\(\Gamma\)</span> is defined as:</p></li>
 </ol>
@@ -516,6 +512,25 @@ end
 </div>
 </li>
 </ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">VOF</span> <span class="pre">barycenter</span></code>: calculates the barycenter of fluid 1 and its velocity VOF simulations. The barycenter <span class="math notranslate nohighlight">\(\mathbf{x}_b\)</span> and its velocity <span class="math notranslate nohighlight">\(\mathbf{v}_b\)</span> are defined as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\mathbf{x_b} = \frac{\int_{\Omega} \psi \mathbf{x} \mathrm{d}\Omega }{\int_{\Omega} \psi \mathrm{d}\Omega}\]</div></div>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\mathbf{v_b} = \frac{\int_{\Omega} \psi \mathbf{u} \mathrm{d}\Omega }{\int_{\Omega} \psi \mathrm{d}\Omega}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\psi\)</span> is the filtered phase indicator.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">statistics</span> <span class="pre">name</span></code>: output filename for temperature statistics calculations.</p>
+<blockquote>
+<div><div class="admonition-example-of-temperature-statistics-table admonition">
+<p class="admonition-title">Example of temperature statistics table:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> time  min    max    average std-dev
+0.0000 0.0000 3.9434  0.1515  0.6943
+0.2000 2.5183 4.9390  3.3917  0.7229
+</pre></div>
+</div>
+</div>
+</div></blockquote>
 </li>
 </ul>
 </section>
