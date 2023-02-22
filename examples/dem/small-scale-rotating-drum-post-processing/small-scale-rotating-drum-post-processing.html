@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="10. Granular dam-break" href="../granular-dam-break/granular-dam-break.html" /><link rel="prev" title="8. Silo" href="../silo/silo.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="5. Rotating drum" href="../rotating-drum/rotating-drum.html" /><link rel="prev" title="3. Small scale rotating drum" href="../small-scale-rotating-drum/small-scale-rotating-drum.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>9. Rectangular hopper - Lethe documentation</title>
+        <title>4. Small scale rotating drum post-processing - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -266,12 +266,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-circle/packing-in-circle.html">1. Packing in circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">2. Packing in ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">3. Small scale rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">4. Small scale rotating drum post-processing</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">4. Small scale rotating drum post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">5. Rotating drum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">6. Rotating drum with post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">7. Rotation of box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">8. Silo</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">9. Rectangular hopper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">9. Rectangular hopper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../granular-dam-break/granular-dam-break.html">10. Granular dam-break</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../granular-mixer/granular-mixer.html">11. Granular mixer</a></li>
 </ul>
@@ -342,327 +342,175 @@
           </label>
         </div>
         <article role="main">
-          <section id="rectangular-hopper">
-<h1><span class="section-number">9. </span>Rectangular hopper<a class="headerlink" href="#rectangular-hopper" title="Permalink to this headline">¶</a></h1>
-<p>This example simulates the filling and discharging of particles in a rectangular hopper.
-We set up this simulation based on the simulation of Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a>. It is recommended to visit <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> for more detailed information on the concepts and physical meanings of the parameters in Lethe-DEM.
-The main example does not use periodic boundary conditions in the depth of the hopper like article, but an extended case, presented at the end, does.</p>
+          <section id="small-scale-rotating-drum-post-processing">
+<h1><span class="section-number">4. </span>Small scale rotating drum post-processing<a class="headerlink" href="#small-scale-rotating-drum-post-processing" title="Permalink to this headline">¶</a></h1>
+<p>This is an example of how to post-process results obtained in the <a class="reference external" href="../../dem/rotating-drum/small-scale-rotating-drum.html">Small scale rotating drum example</a> using <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a>, a Python module is based on <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, built to facilitate the reading of Lethe results using <a class="reference external" href="https://www.python.org/">Python</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This example uses the DEM files of the <a class="reference external" href="../../dem/rotating-drum/small-scale-rotating-drum.html">Small scale rotating drum example</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a> to work, along with <a class="reference external" href="https://www.python.org/downloads/">Python 3</a>, the following libraries are needed: <a class="reference external" href="https://docs.python.org/3/library/os.html">os</a>, <a class="reference external" href="https://numpy.org/">NumPy</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, and <a class="reference external" href="https://tqdm.github.io/">tqdm</a>. If any of the modules are missing, use <a class="reference external" href="https://pypi.org/project/pip/">pip</a> to install it running <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">$NAME_OF_THE_MODULE</span></code> on the terminal.</p>
+</div>
 <section id="features">
-<h2><span class="section-number">9.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code></p></li>
-<li><p>Floating walls</p></li>
-<li><p><a class="reference external" href="https://gmsh.info/">GMSH</a> grids</p></li>
-<li><p>Python post-processing script using <a class="reference external" href="https://docs.pyvista.org/">PyVista</a></p></li>
-<li><p>Periodic boundaries in DEM (for extensional version of the case only, see section 7.9)</p></li>
+<li><p>DEM simulation</p></li>
+<li><p>Post-processing using <a class="reference external" href="https://www.python.org/">Python</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a>, and <a class="reference external" href="https://www.paraview.org/">ParaView</a>.</p></li>
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">9.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-rectangular-hopper/hopper.prm</span></code></p>
+<h2><span class="section-number">4.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Parameters file for particle insertion: <code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-small-scale-rotating-drum/packing-rotating-drum.prm</span></code></p></li>
+<li><p>Parameters file for drum rotation: <code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-small-scale-rotating-drum/small-rotating-drum-dem.prm</span></code></p></li>
+<li><p>Python module for Lethe data post-processing: <code class="docutils literal notranslate"><span class="pre">/contrib/postprocessing/lethe_pyvista_tools.py</span></code></p></li>
+<li><p>Python script using module for rotating drum post-processing: <code class="docutils literal notranslate"><span class="pre">/examples/postprocessing/small-scale-rotating-drum-postprocessing/example_small_rotating_drum.py</span></code></p></li>
+</ul>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">9.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>This simulation consists of two stages: filling (0-4 s) and discharge (4-7.5 s) of particles. Anand et al. uses periodic boundaries in the z axis allowing to use a thin width for simulation.
-In the main exemple, we do not consider periodic boundaries. To minimize the impact of collision of particle with walls along the z axis, the width and the number of particle were multiplied by 6 (40740 particles instead of 6790). This corresponds to a width of 15 times the particle diameter.</p>
-</section>
-<section id="parameter-file">
-<h2><span class="section-number">9.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
-<section id="mesh">
-<h3><span class="section-number">9.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
-<p>The mesh is a hopper with 90° angle generated with GMSH having a top part for the filling and a bottom part which acts as a collector of the particle.
-The geometry follow the Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> base case and was handled in order to generate a structured mesh.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-  set type                                = gmsh
-  set file name                           = hopper_structured.msh
-  set initial refinement                  = 1
-  set expand particle-wall contact search = false
-  set check diamond cells                 = true
-end
-</pre></div>
-</div>
-<div class="table-wrapper"><table class="docutils align-default">
-<colgroup>
-<col style="width: 50%"/>
-<col style="width: 50%"/>
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><figure class="align-center" id="id11">
-<a class="reference internal image-reference" href="../../../_images/packed_hopper_2d.png"><img alt="Mesh" src="../../../_images/packed_hopper_2d.png" style="width: 300px;"/></a>
-<figcaption>
-<p><span class="caption-text">Rectangular hopper packed with particle before the discharge with a 2d view.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</td>
-<td><figure class="align-center" id="id12">
-<a class="reference internal image-reference" href="../../../_images/packed_hopper_3d.png"><img alt="Mesh" src="../../../_images/packed_hopper_3d.png" style="width: 300px;"/></a>
-<figcaption>
-<p><span class="caption-text">Rectangular hopper packed with particle before the discharge with a 3d view.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</td>
-</tr>
-</tbody>
-</table></div>
-</section>
-<section id="insertion-info">
-<h3><span class="section-number">9.4.2. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
-<p>An insertion box is defined inside and the top part of the hopper. The inserted number of particles per time step is chosen to be a factor of the total number of particle. In this case, 14 insertion steps are required to fill up the hopper with particles.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
-  set insertion method                               = non_uniform
-  set inserted number of particles at each time step = 2910
-  set insertion frequency                            = 25000
-  set insertion box minimum x                        = -0.1030
-  set insertion box minimum y                        = 0.10644
-  set insertion box minimum z                        = .00224
-  set insertion box maximum x                        = 0.1030
-  set insertion box maximum y                        = 0.16020
-  set insertion box maximum z                        = 0.03136
-  set insertion distance threshold                   = 1.5
-  set insertion random number range                  = 0.1
-  set insertion random number seed                   = 20
-end
-</pre></div>
-</div>
-</section>
-<section id="lagrangian-physical-properties">
-<h3><span class="section-number">9.4.3. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
-<p>The total number of particles in this simulation is 40740. All particles have a diameter of 2.24 mm.</p>
-<p>The following properties are chosen according to the Anand et al. paper :</p>
-<ul class="simple">
-<li><p>Uniform distribution of spherical particles</p></li>
-<li><p>Diameter (2.24 mm)</p></li>
-<li><p>Density of glass (2.5 g/cm³)</p></li>
-<li><p>Restitution coefficient of particle-particle (0.94)</p></li>
-<li><p>Restitution coefficient of particle-wall (0.90)</p></li>
-<li><p>Friction coefficient of particle-particle (0.2)</p></li>
-</ul>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
-  set gx                       = 0.0
-  set gy                       = -9.81
-  set gz                       = 0.0
-  set number of particle types = 1
-  subsection particle type 0
-    set size distribution type            = uniform
-    set diameter                          = 0.00224
-    set number                            = 40740
-    set density particles                 = 2500
-    set young modulus particles           = 1e6
-    set poisson ratio particles           = 0.3
-    set restitution coefficient particles = 0.94
-    set friction coefficient particles    = 0.2
-    set rolling friction particles        = 0.09
-  end
-  set young modulus wall           = 1e6
-  set poisson ratio wall           = 0.3
-  set friction coefficient wall    = 0.2
-  set restitution coefficient wall = 0.9
-  set rolling friction wall        = 0.09
-end
-</pre></div>
-</div>
-</section>
-<section id="model-parameters">
-<h3><span class="section-number">9.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
-<p>Model parameters are based on the <a class="reference external" href="../silo/silo.html">Silo example</a>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
-  set contact detection method                = dynamic
-  set dynamic contact search size coefficient = 0.9
-  set load balance method                     = frequent
-  set load balance frequency                  = 50000
-  set neighborhood threshold                  = 1.3
-  set particle particle contact force method  = hertz_mindlin_limit_overlap
-  set particle wall contact force method      = nonlinear
-  set rolling resistance torque method        = constant_resistance
-  set integration method                      = velocity_verlet
-end
-</pre></div>
-</div>
-</section>
-<section id="simulation-control">
-<h3><span class="section-number">9.4.5. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
-<p>The time end of the simulation is 7.5 where most of the particles are discharged and the DEM time step is 1e-5 s which corresponds to 2.9% of Rayleigh time step.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-  set time step        = 1e-5
-  set time end         = 7.5
-  set log frequency    = 1000
-  set output frequency = 1000
-  set output path      = ./output/
-  set output name      = hopper
-end
-</pre></div>
-</div>
-</section>
-<section id="floating-walls">
-<h3><span class="section-number">9.4.6. </span>Floating walls<a class="headerlink" href="#floating-walls" title="Permalink to this headline">¶</a></h3>
-<p>Floating wall in this example is handled as explained in the <a class="reference external" href="../silo/silo.html">Silo example</a>.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection floating walls
-  set number of floating walls = 1
-  subsection wall 0
-    subsection point on wall
-      set x = 0
-      set y = 0
-      set z = 0
-    end
-    subsection normal vector
-      set nx = 0
-      set ny = 1
-      set nz = 0
-    end
-    set start time = 0
-    set end time   = 4
-  end
-end
-</pre></div>
-</div>
-</section>
-</section>
-<section id="running-the-simulation">
-<h2><span class="section-number">9.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>This simulation can be launched by</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d hopper.prm
-</pre></div>
-</div>
-</section>
-<section id="post-processing">
-<h2><span class="section-number">9.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
-<p>A Python post-processing code called <code class="docutils literal notranslate"><span class="pre">hopper_post_processing.py</span></code> is provided with this example. It is used to measure the flow rate of particles.</p>
-<p>It also compares the data generated by the simulation to data from Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a>.</p>
-<p>It is possible to run the post-processing code with the following line. The arguments are the simulation path and the prm file name.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 hopper_post_processing.py ./ hopper.prm
-</pre></div>
-</div>
+<h2><span class="section-number">4.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<p>In this example, we illustrate the mixing inside a rotating drum by coloring the particles according to their radial position right after their full packing. To do so, we post-process Lethe-DEM data using <a class="reference external" href="https://www.python.org/">Python</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a>, and <a class="reference external" href="https://www.paraview.org/">ParaView</a></p>
+<p>The DEM files used in this example are obtained following the <a class="reference external" href="../../dem/rotating-drum/small-scale-rotating-drum.html">Small scale rotating drum example</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">hopper_post_processing.py</span></code> uses the <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools.py</span></code> module. For more information about the module, refer to the <a class="reference external" href="../small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small rotating drum post-processing example</a></p>
+<p>It is not necessary to use all mentioned tools, but they are used in this example to show different ways to process the data according to user’s need.</p>
 </div>
 </section>
-<section id="results-post-processing">
-<h2><span class="section-number">9.7. </span>Results post-processing<a class="headerlink" href="#results-post-processing" title="Permalink to this headline">¶</a></h2>
-<p>Mass flow rate results after post-processing and comparison with the results of Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> for the base case of the hooper with a 90° angle.</p>
-<figure class="align-center" id="id13">
-<a class="reference internal image-reference" href="../../../_images/figure_hopper.png"><img alt="Results of mass discharge." src="../../../_images/figure_hopper.png" style="width: 600px;"/></a>
-<figcaption>
-<p><span class="caption-text">Mass discharge results.</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<section id="python-code">
+<h2><span class="section-number">4.4. </span>Python code<a class="headerlink" href="#python-code" title="Permalink to this headline">¶</a></h2>
+<section id="module-importing">
+<h3><span class="section-number">4.4.1. </span>Module importing<a class="headerlink" href="#module-importing" title="Permalink to this headline">¶</a></h3>
+<p>The module <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a> was conceived to optimize the reading and post-treatment of Lethe data using Python. It is based on <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, a versatile module that can be used to manipulate Lethe results.</p>
+<p>First of all, we import the module to our Python script. There are two ways to do so. In the case of this example, we use the <a class="reference external" href="https://docs.python.org/3/library/sys.html">sys</a> module to import it directly from Lethe’s directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">path_to_module</span> <span class="o">=</span> <span class="s1">'../../../contrib/postprocessing/'</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path_to_module</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">lethe_pyvista_tools</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>where <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.path:~:text=in%20version%203.10.-,sys.path%C2%B6,-A%20list%20of">sys.path</a> is a list of strings that specifies the search path for modules. However, one can simply copy the <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools.py</a> file to the same folder as the Python post-processing script is and simply import it, such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lethe_pyvista_tools</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> means that we want to import all members of lethe_pyvista_tools.</p>
+</section>
+<section id="constructing-the-object">
+<h3><span class="section-number">4.4.2. </span>Constructing the object<a class="headerlink" href="#constructing-the-object" title="Permalink to this headline">¶</a></h3>
+<p>The following step is to create an object to receive the data. In the present case, the object is called <code class="docutils literal notranslate"><span class="pre">particles</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particles</span> <span class="o">=</span> <span class="n">lethe_pyvista_tools</span><span class="p">(</span><span class="n">case_path</span> <span class="o">=</span> <span class="s2">"."</span><span class="p">,</span> <span class="n">prm_file_name</span> <span class="o">=</span> <span class="s2">"small-rotating-drum-dem.prm"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, the constructor <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools</span></code> receives two arguments: <code class="docutils literal notranslate"><span class="pre">case_path</span></code> and <code class="docutils literal notranslate"><span class="pre">prm_file_name</span></code>. In the above code line, <code class="docutils literal notranslate"><span class="pre">"."</span></code> means that the <code class="docutils literal notranslate"><span class="pre">case_path</span></code> is the path where we currently are, but it can be any path where the case is. The <code class="docutils literal notranslate"><span class="pre">prm_file_name</span></code> argument takes <code class="docutils literal notranslate"><span class="pre">"small-rotating-drum-dem.prm"</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Together with the object <code class="docutils literal notranslate"><span class="pre">particles</span></code>, <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools</span></code> creates a dictionary with all parameters in the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file. To access the parameter, we can use <code class="docutils literal notranslate"><span class="pre">particles.prm_dict['$NAME_OF_THE_PARAMETER']</span></code>. In the present case for example, the diameter of the particles can be easily printed using <code class="docutils literal notranslate"><span class="pre">print(particles.prm_dict['diameter'])</span></code>. This can be useful for post-processing routines with multiple simulations.</p>
+</div>
+</section>
+<section id="reading-lethe-results-to-python">
+<h3><span class="section-number">4.4.3. </span>Reading Lethe results to Python<a class="headerlink" href="#reading-lethe-results-to-python" title="Permalink to this headline">¶</a></h3>
+<p>Next, we read the results into Python:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particles</span><span class="o">.</span><span class="n">read_lethe_to_pyvista</span><span class="p">(</span><span class="n">pvd_name</span> <span class="o">=</span> <span class="s2">"out.pvd"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">read_lethe_to_pyvista</span></code> takes the name of the <code class="docutils literal notranslate"><span class="pre">.pvd</span></code> file generated by the simulation. The method can take 3 other arguments: <code class="docutils literal notranslate"><span class="pre">first</span></code>, <code class="docutils literal notranslate"><span class="pre">last</span></code>, and <code class="docutils literal notranslate"><span class="pre">interval</span></code>, standing for the first and last time-steps to be read and the interval between the time-steps, respectively. By default, <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">interval</span> <span class="pre">=</span> <span class="pre">1</span></code>, and <code class="docutils literal notranslate"><span class="pre">last</span></code> is the last time-step of the data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">read_lethe_to_pyvista</span></code> reading function assigns the datasets of each time-step to the object <code class="docutils literal notranslate"><span class="pre">particles</span></code>. Each time-step corresponds to a <a class="reference external" href="https://docs.pyvista.org/user-guide/vtk_to_pyvista.html#">PyVista dataset</a>, and can be accessed using <code class="docutils literal notranslate"><span class="pre">particles.df[$TIME-step_NUMBER]</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If we set <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">=</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">particles.df[0]</span></code> corresponds to the dataset of the 2nd output time-step. In all situations from now on, everytime we refer to a time-step, it will correspond to a dataset.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Since this is a post-processing module, we can only have access to data that was previously output. If one needs more time resolution than the data in hand, the simulation must be <a class="reference external" href="../../../parameters/dem/simulation_control">reran with a smaller time-step</a></p>
+</div>
+</section>
+<section id="creation-of-a-new-array">
+<h3><span class="section-number">4.4.4. </span>Creation of a new array<a class="headerlink" href="#creation-of-a-new-array" title="Permalink to this headline">¶</a></h3>
+<p>To color the particles according to their position, we use the function <code class="docutils literal notranslate"><span class="pre">array_modifier</span></code>, which takes the following arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reference_array_name</span></code>: Name of the array used to sort the data and identify the particles at all time-steps. Other arrays, such as <code class="docutils literal notranslate"><span class="pre">Type</span></code> or any other array, can be used for this. By default: <code class="docutils literal notranslate"><span class="pre">"ID"</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">array_name</span></code>: Name of the new array. If there is an array with the same name, it will be rewritten according to the other arguments. By default: <code class="docutils literal notranslate"><span class="pre">"new_array"</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">restart_array</span></code>: If <code class="docutils literal notranslate"><span class="pre">True</span></code>, gives <code class="docutils literal notranslate"><span class="pre">standard_value</span></code> to the entire array before applying the modifications to it. If one wants to modify part of the array keeping the rest intact, it must be set as <code class="docutils literal notranslate"><span class="pre">False</span></code>. By default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">condition</span></code>: Takes a string and uses it in an if condition to modify the array. Variables accepted include <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">w</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, and any other array (<code class="docutils literal notranslate"><span class="pre">ID</span></code> for example). It also accepts a combination of them, such as <code class="docutils literal notranslate"><span class="pre">"x*w**2</span> <span class="pre">+</span> <span class="pre">t</span> <span class="pre">&gt;</span> <span class="pre">2</span> <span class="pre">and</span> <span class="pre">ID</span> <span class="pre">&gt;</span> <span class="pre">0"</span></code>. By default: <code class="docutils literal notranslate"><span class="pre">""</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">array_values</span></code>: New values to the array. This argument accepts a single value (which will be repeated to all data respecting the given <code class="docutils literal notranslate"><span class="pre">condition</span></code>), a <a class="reference external" href="https://numpy.org/">NumPy</a> array, or <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">Python list</a> (with the same length (<code class="docutils literal notranslate"><span class="pre">len</span></code>) of all other arrays in <code class="docutils literal notranslate"><span class="pre">particles.df</span></code>), or a string such as <code class="docutils literal notranslate"><span class="pre">"2*x</span> <span class="pre">+</span> <span class="pre">t"</span></code> (working just like the <code class="docutils literal notranslate"><span class="pre">condition</span></code> argument). By default: <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">standard_value</span></code>: If <code class="docutils literal notranslate"><span class="pre">restart</span> <span class="pre">array</span> <span class="pre">=</span> <span class="pre">True</span></code> or the array is a completely new array, the <code class="docutils literal notranslate"><span class="pre">standard_value</span></code> will be plugged to the entire array before modifying it. By default: <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time_dependent</span></code>: <code class="docutils literal notranslate"><span class="pre">array_modifier</span></code> can be time dependent or not. If set <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">condition</span></code> will be tested to each of the time-steps, while if it is <code class="docutils literal notranslate"><span class="pre">False</span></code>, it will be applied using the <code class="docutils literal notranslate"><span class="pre">reference_time_step</span></code> instead, and the modification will be just replicated to the other time-steps. By default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reference_time_step</span></code>: Reference time-step to which the modification will be applied. If <code class="docutils literal notranslate"><span class="pre">time_dependent</span> <span class="pre">=</span> <span class="pre">False</span></code>, the result of the modificaition applied to <code class="docutils literal notranslate"><span class="pre">reference_time_step</span></code> will be simply replicated to the others. By default: <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>As explained in the previous subsection, <code class="docutils literal notranslate"><span class="pre">reference_time_step</span></code> only refers to time-steps that were read into the code using <code class="docutils literal notranslate"><span class="pre">read_lethe_to_pyvista</span></code>.</p>
+</div>
+<p>The following block of code creates an array named <code class="docutils literal notranslate"><span class="pre">particle_color</span></code> using the <code class="docutils literal notranslate"><span class="pre">array_modifier</span></code> function, assigning <code class="docutils literal notranslate"><span class="pre">1</span></code> to all particles with radial position <span class="math notranslate nohighlight">\(&gt; 0.025\)</span> at the end of the packing (40th time-step):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="s2">"(y**2 + z**2)**(1/2) &gt; 0.025"</span>
+<span class="n">particles</span><span class="o">.</span><span class="n">array_modifier</span><span class="p">(</span><span class="n">array_name</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">array_values</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">reference_time_step</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Since the rotating drum is placed along the <span class="math notranslate nohighlight">\(x\)</span> axis, we use <span class="math notranslate nohighlight">\(\sqrt{y^2 + z^2}\)</span> to assess the radial position of particles.</p>
+<p>To create an additional layer of particles with different colors, we use the same function again with a different condition.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="s2">"(y**2 + z**2)**(1/2) &gt; 0.04"</span>
+<span class="n">particles</span><span class="o">.</span><span class="n">array_modifier</span><span class="p">(</span><span class="n">array_name</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">array_values</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">reference_time_step</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">restart_array</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This time, we set <code class="docutils literal notranslate"><span class="pre">restart_array</span> <span class="pre">=</span> <span class="pre">False</span></code> to guarantee it is not going to affect the previous modification to the array.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If we applied the second condition first, since conditions would overlap, intead of 3 layers of particles we would have only two.</p>
+</div>
+</section>
+</section>
+<section id="visualizing-the-results">
+<h2><span class="section-number">4.5. </span>Visualizing the results<a class="headerlink" href="#visualizing-the-results" title="Permalink to this headline">¶</a></h2>
+<p>We have two visualization options. One would be the <a class="reference external" href="https://docs.pyvista.org/api/plotting/index.html">PyVista visualization tools</a>, such as <a class="reference external" href="https://docs.pyvista.org/api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter">PyVista Plotter</a>. The other option is to use <a class="reference external" href="https://www.paraview.org/">ParaView</a>.</p>
+<section id="pyvista-visualization">
+<h3><span class="section-number">4.5.1. </span>PyVista visualization<a class="headerlink" href="#pyvista-visualization" title="Permalink to this headline">¶</a></h3>
+<p>To visualize particle data using PyVista, first we need to create a single particle with diameter 1 and a given angular resolution:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">theta_resolution</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">phi_resolution</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The next step is to use this object as base to represent all particles:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particle_glyph</span> <span class="o">=</span> <span class="n">particles</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">glyph</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="s1">'Diameter'</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="n">sphere</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, we are using the first time-step of the data (<code class="docutils literal notranslate"><span class="pre">particles.df[0]</span></code>) as example.</p>
+<p>Now that particles are created, we can visualize them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">particle_glyph</span><span class="p">,</span> <span class="n">scalars</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will open one iteractive window such as this one:</p>
+<img alt="PyVista visualization window" class="align-center" src="../../../_images/pyvista_window.png"/>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is possible to <a class="reference external" href="https://docs.pyvista.org/api/plotting/_autosummary/pyvista.BasePlotter.open_movie.html#open-movie">create movies with PyVista</a> looping through time-steps.</p>
+</div>
+</section>
+<section id="paraview-visualization">
+<h3><span class="section-number">4.5.2. </span>ParaView visualization<a class="headerlink" href="#paraview-visualization" title="Permalink to this headline">¶</a></h3>
+<p>First, we need to save the new data with the modifications. To do so, we can use the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particles</span><span class="o">.</span><span class="n">write_vtu</span><span class="p">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s2">"mod_"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will save all data in the output folder of the simulation. All files will have a <code class="docutils literal notranslate"><span class="pre">prefix</span></code> and can be opened in ParaView just like any other Lethe simulation.</p>
+<img alt="ParaView" class="align-center" src="../../../_images/paraview_window.png"/>
+<img alt="ParaView zoom in" class="align-center" src="../../../_images/paraview_window_zoom.png"/>
+</section>
 </section>
 <section id="results">
-<h2><span class="section-number">9.8. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>As seen in the following figure, the simulation was not run until all the particles are discharged in the bottom part.
-Since the mass flow rate is constant during the discharge, simulating the very end is not necessary.
-The simulated mass discharging rate is 84.94 g/s.</p>
-<figure class="align-center" id="id14">
-<a class="reference internal image-reference" href="../../../_images/simulation_end.png"><img alt="Mesh" src="../../../_images/simulation_end.png" style="width: 300px;"/></a>
-<figcaption>
-<p><span class="caption-text">Rectangular hopper at the end of the simulation.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<h2><span class="section-number">4.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Following we present one video of the full simulation with particles colored by their initial position.</p>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/qxO4MD_zg2w" title="Rotating drum - mixing study" width="560"></iframe><p>The simulation results show that the layers in red and green, that is, particles close to the walls, tend to mix faster than the ones in the center.</p>
 </section>
-<section id="case-with-periodic-boundary-conditions">
-<h2><span class="section-number">9.9. </span>Case with periodic boundary conditions<a class="headerlink" href="#case-with-periodic-boundary-conditions" title="Permalink to this headline">¶</a></h2>
-<p>Periodic boundary conditions feature was not implemented when this example was created. Since it is now, this example is now extended to show how to use it. The original case in Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> did use periodic boundaries.
-The modifications on the parameters of the previous example is the mesh thickness and the number of particles and also the addition of the boundary condition section.</p>
-<section id="id7">
-<h3><span class="section-number">9.9.1. </span>Mesh<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<p>The hopper in this case has the same shape with a depth reduces by a factor of 6. The depth is the same than the article and a new GMSH file is used.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
-    set type                                = gmsh
-    set file name                           = hopper_structured_periodic.msh
-    set initial refinement                  = 1
-    set expand particle-wall contact search = false
-    set check diamond cells                 = true
-end
-</pre></div>
-</div>
-<figure class="align-center" id="id15">
-<a class="reference internal image-reference" href="../../../_images/packed_hopper_periodic_3d.png"><img alt="Mesh" src="../../../_images/packed_hopper_periodic_3d.png" style="width: 300px;"/></a>
-<figcaption>
-<p><span class="caption-text">Rectangular periodic hopper packed with particle before the discharge with a 3d view.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="boundary-conditions">
-<h3><span class="section-number">9.9.2. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
-<p>The previous example did not need any parameters on a section for the boundary conditions since all walls are treated as solid boundaries by default.
-We need to specify which boundaries are periodic and the perpendicular direction, here the periodic ids are 0 and 1 and the axis is z, corresponding to value of 2.
-The feature only works with one pair of periodic boundaries.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection DEM boundary conditions
-    set number of boundary conditions = 1
-
-    subsection boundary condition 0
-        set type                      = periodic
-        set periodic id 0             = 0
-        set periodic id 1             = 1
-        set periodic direction        = 2
-    end
-end
-</pre></div>
-</div>
-</section>
-<section id="id8">
-<h3><span class="section-number">9.9.3. </span>Lagrangian physical properties<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<p>The total number of particles of this simulation is 6790: 6 times less than the previous example.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
-    set gx                       = 0.0
-    set gy                       = -9.81
-    set gz                       = 0.0
-    set number of particle types = 1
-    subsection particle type 0
-        set size distribution type            = uniform
-        set diameter                          = 0.00224
-        set number                            = 6790
-        set density particles                 = 2500
-        set young modulus particles           = 1e6
-        set poisson ratio particles           = 0.3
-        set restitution coefficient particles = 0.94
-        set friction coefficient particles    = 0.2
-        set rolling friction particles        = 0.09
-    end
-    set young modulus wall           = 1e6
-    set poisson ratio wall           = 0.3
-    set friction coefficient wall    = 0.2
-    set restitution coefficient wall = 0.9
-    set rolling friction wall        = 0.09
-end
-</pre></div>
-</div>
-</section>
-<section id="id9">
-<h3><span class="section-number">9.9.4. </span>Insertion info<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p>Since the geometry of the mesh and the number of the particles are not the same, the insertion info have to be modified according to the new domain of the mesh with an inserted number of particles corresponding to the new number.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
-    set insertion method                               = non_uniform
-    set inserted number of particles at each time step = 2910
-    set insertion frequency                            = 25000
-    set insertion box minimum x                        = -0.1030
-    set insertion box minimum y                        Rectangular hopper at the end of the simulation.   = 0.10644
-    set insertion box minimum z                        = .00224
-    set insertion box maximum x                        = 0.1030
-    set insertion box maximum y                        = 0.16020
-    set insertion box maximum z                        = 0.03136
-    set insertion distance threshold                   = 1.5
-    set insertion random number range                  = 0.1
-    set insertion random number seed                   = 20
-end
-</pre></div>
-</div>
-</section>
-<section id="results-comparison">
-<h3><span class="section-number">9.9.5. </span>Results comparison<a class="headerlink" href="#results-comparison" title="Permalink to this headline">¶</a></h3>
-<p>Here is the comparison of the results from the original simulation with Lethe DEM, the simulation with periodic boundary conditions with Lethe and the results from Anand et al. paper.
-The simulated mass discharging rate is 84.94 g/s from the original simulation and 88.77 g/s with PBC. Also, the run time of the simulation goes from about 3 hours and 15 minutes to 30 minutes on 8 cores.</p>
-<figure class="align-center" id="id16">
-<a class="reference internal image-reference" href="../../../_images/figure_hopper_comparison.png"><img alt="Comparison" src="../../../_images/figure_hopper_comparison.png" style="width: 600px;"/></a>
-<figcaption>
-<p><span class="caption-text">Comparison of mass discharge results from the 2 simulations and the journal article.</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</section>
-</section>
-<section id="reference">
-<h2><span class="section-number">9.10. </span>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> Anand, A., Curtis, J. S., Wassgren, C. R., Hancock, B. C., &amp; Ketterhagen, W. R. (2008). Predicting discharge dynamics from a rectangular hopper using the discrete element method (DEM). Chemical Engineering Science, 63(24), 5821-5830.</p>
+<section id="possibilities-for-extension">
+<h2><span class="section-number">4.7. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Give a different <code class="docutils literal notranslate"><span class="pre">condition</span></code> to create the <code class="docutils literal notranslate"><span class="pre">particle_color</span></code> array</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools</span></code> for a different problem, modifying the <code class="docutils literal notranslate"><span class="pre">condition</span></code> accordingly</p></li>
+<li><p>Use the tools in the <a class="reference external" href="https://docs.pyvista.org">PyVista official repository</a> to create screenshots, movies, and plots with the data.</p></li>
+<li><p>Change the rotation velocity and track the mixing of the three layers of particles</p></li>
+</ul>
 </section>
 </section>
 
@@ -671,23 +519,23 @@ The simulated mass discharging rate is 84.94 g/s from the original simulation an
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../granular-dam-break/granular-dam-break.html">
+          <a class="next-page" href="../rotating-drum/rotating-drum.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">10. </span>Granular dam-break</div>
+                <div class="title"><span class="section-number">5. </span>Rotating drum</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../silo/silo.html">
+          <a class="prev-page" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">8. </span>Silo</div>
+                <div class="title"><span class="section-number">3. </span>Small scale rotating drum</div>
                 
               </div>
             </a>
@@ -697,7 +545,7 @@ The simulated mass discharging rate is 84.94 g/s from the original simulation an
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/examples/dem/rectangular-hopper/rectangular-hopper.rst.txt"
+            | <a class="muted-link" href="../../../_sources/examples/dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -717,32 +565,24 @@ The simulated mass discharging rate is 84.94 g/s from the original simulation an
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">9. Rectangular hopper</a><ul>
-<li><a class="reference internal" href="#features">9.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">9.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">9.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">9.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#mesh">9.4.1. Mesh</a></li>
-<li><a class="reference internal" href="#insertion-info">9.4.2. Insertion info</a></li>
-<li><a class="reference internal" href="#lagrangian-physical-properties">9.4.3. Lagrangian physical properties</a></li>
-<li><a class="reference internal" href="#model-parameters">9.4.4. Model parameters</a></li>
-<li><a class="reference internal" href="#simulation-control">9.4.5. Simulation control</a></li>
-<li><a class="reference internal" href="#floating-walls">9.4.6. Floating walls</a></li>
+<li><a class="reference internal" href="#">4. Small scale rotating drum post-processing</a><ul>
+<li><a class="reference internal" href="#features">4.1. Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">4.2. Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">4.3. Description of the case</a></li>
+<li><a class="reference internal" href="#python-code">4.4. Python code</a><ul>
+<li><a class="reference internal" href="#module-importing">4.4.1. Module importing</a></li>
+<li><a class="reference internal" href="#constructing-the-object">4.4.2. Constructing the object</a></li>
+<li><a class="reference internal" href="#reading-lethe-results-to-python">4.4.3. Reading Lethe results to Python</a></li>
+<li><a class="reference internal" href="#creation-of-a-new-array">4.4.4. Creation of a new array</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">9.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#post-processing">9.6. Post-processing</a></li>
-<li><a class="reference internal" href="#results-post-processing">9.7. Results post-processing</a></li>
-<li><a class="reference internal" href="#results">9.8. Results</a></li>
-<li><a class="reference internal" href="#case-with-periodic-boundary-conditions">9.9. Case with periodic boundary conditions</a><ul>
-<li><a class="reference internal" href="#id7">9.9.1. Mesh</a></li>
-<li><a class="reference internal" href="#boundary-conditions">9.9.2. Boundary conditions</a></li>
-<li><a class="reference internal" href="#id8">9.9.3. Lagrangian physical properties</a></li>
-<li><a class="reference internal" href="#id9">9.9.4. Insertion info</a></li>
-<li><a class="reference internal" href="#results-comparison">9.9.5. Results comparison</a></li>
+<li><a class="reference internal" href="#visualizing-the-results">4.5. Visualizing the results</a><ul>
+<li><a class="reference internal" href="#pyvista-visualization">4.5.1. PyVista visualization</a></li>
+<li><a class="reference internal" href="#paraview-visualization">4.5.2. ParaView visualization</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#reference">9.10. Reference</a></li>
+<li><a class="reference internal" href="#results">4.6. Results</a></li>
+<li><a class="reference internal" href="#possibilities-for-extension">4.7. Possibilities for extension</a></li>
 </ul>
 </li>
 </ul>
@@ -761,5 +601,6 @@ The simulated mass discharging rate is 84.94 g/s from the original simulation an
     <script src="../../../_static/scripts/furo.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
