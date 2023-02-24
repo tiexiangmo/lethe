@@ -128,10 +128,15 @@ GDNavierStokesSolver<dim>::setup_assemblers()
               std::make_shared<GDNavierStokesAssemblerCore<dim>>(
                 this->simulation_control, gamma));
 
+          else if (this->simulation_parameters.stabilization.stabilization ==
+                   Parameters::Stabilization::NavierStokesStabilization::gls)
+            this->assemblers.push_back(
+              std::make_shared<GLSNavierStokesAssemblerCore<dim>>(
+                this->simulation_control));
+
           else
             throw std::runtime_error(
-              "Using the GD solver with a stabilization other than the grad_div "
-              "stabilization will lead to an unstable block solver that is unable to converge");
+              "Using the GD solver with a stabilization other than the grad_div stabilization will lead to an unstable block solver  that is unable to converge");
         }
     }
 }
@@ -200,7 +205,9 @@ GDNavierStokesSolver<dim>::assemble_system_matrix()
   // hanging node constraints for pressure DoFs. This means that our
   // whole system matrix will have rows that are completely
   // zero. Luckily, FGMRES handles these rows without any problem.
-  system_matrix.block(1, 1) = 0;
+  if (this->simulation_parameters.stabilization.stabilization ==
+      Parameters::Stabilization::NavierStokesStabilization::grad_div)
+    system_matrix.block(1, 1) = 0;
 }
 
 
@@ -209,8 +216,8 @@ template <int dim>
 void
 GDNavierStokesSolver<dim>::assemble_local_system_matrix(
   const typename DoFHandler<dim>::active_cell_iterator &cell,
-  NavierStokesScratchData<dim> &                        scratch_data,
-  StabilizedMethodsTensorCopyData<dim> &                copy_data)
+  NavierStokesScratchData<dim>                         &scratch_data,
+  StabilizedMethodsTensorCopyData<dim>                 &copy_data)
 {
   copy_data.cell_is_local = cell->is_locally_owned();
   if (!cell->is_locally_owned())
@@ -335,8 +342,8 @@ template <int dim>
 void
 GDNavierStokesSolver<dim>::assemble_local_system_rhs(
   const typename DoFHandler<dim>::active_cell_iterator &cell,
-  NavierStokesScratchData<dim> &                        scratch_data,
-  StabilizedMethodsTensorCopyData<dim> &                copy_data)
+  NavierStokesScratchData<dim>                         &scratch_data,
+  StabilizedMethodsTensorCopyData<dim>                 &copy_data)
 {
   copy_data.cell_is_local = cell->is_locally_owned();
   if (!cell->is_locally_owned())
@@ -875,15 +882,28 @@ GDNavierStokesSolver<dim>::setup_ILU()
 
   pressure_ilu_preconditioner->initialize(system_matrix.block(1, 1),
                                           preconditionerOptions);
-  system_ilu_preconditioner = std::make_shared<
-    BlockSchurPreconditioner<TrilinosWrappers::PreconditionILU>>(
-    gamma,
-    this->simulation_parameters.physical_properties_manager.viscosity_scale,
-    system_matrix,
-    pressure_mass_matrix,
-    &(*velocity_ilu_preconditioner),
-    &(*pressure_ilu_preconditioner),
-    this->simulation_parameters.linear_solver);
+
+  if (this->simulation_parameters.stabilization.stabilization ==
+      Parameters::Stabilization::NavierStokesStabilization::gls)
+    system_gls_ilu_preconditioner = std::make_shared<
+      BlockRawSchurPreconditioner<TrilinosWrappers::PreconditionILU>>(
+      gamma,
+      this->simulation_parameters.physical_properties_manager.viscosity_scale,
+      system_matrix,
+      pressure_mass_matrix,
+      &(*velocity_ilu_preconditioner),
+      &(*pressure_ilu_preconditioner),
+      this->simulation_parameters.linear_solver);
+  else
+    system_ilu_preconditioner = std::make_shared<
+      BlockSchurPreconditioner<TrilinosWrappers::PreconditionILU>>(
+      gamma,
+      this->simulation_parameters.physical_properties_manager.viscosity_scale,
+      system_matrix,
+      pressure_mass_matrix,
+      &(*velocity_ilu_preconditioner),
+      &(*pressure_ilu_preconditioner),
+      this->simulation_parameters.linear_solver);
 }
 
 template <int dim>
@@ -964,7 +984,7 @@ GDNavierStokesSolver<dim>::setup_AMG()
   if (this->pressure_fem_degree > 1)
     higher_order_elements = true;
   TrilinosWrappers::PreconditionAMG::AdditionalData
-                                      pressure_preconditioner_options(elliptic_pressure,
+                         pressure_preconditioner_options(elliptic_pressure,
                                     higher_order_elements,
                                     n_cycles,
                                     w_cycle,
@@ -975,7 +995,7 @@ GDNavierStokesSolver<dim>::setup_AMG()
                                     output_details,
                                     smoother_type,
                                     coarse_type);
-  Teuchos::ParameterList              pressure_parameter_ml;
+  Teuchos::ParameterList pressure_parameter_ml;
   std::unique_ptr<Epetra_MultiVector> pressure_distributed_constant_modes;
   velocity_preconditioner_options.set_parameters(
     pressure_parameter_ml,
@@ -1040,10 +1060,18 @@ GDNavierStokesSolver<dim>::solve_system_GMRES(const bool   initial_step,
 
   {
     TimerOutput::Scope t(this->computing_timer, "solve_linear_system");
-    solver.solve(this->system_matrix,
-                 this->newton_update,
-                 this->system_rhs,
-                 *system_ilu_preconditioner);
+
+    if (this->simulation_parameters.stabilization.stabilization ==
+        Parameters::Stabilization::NavierStokesStabilization::gls)
+      solver.solve(this->system_matrix,
+                   this->newton_update,
+                   this->system_rhs,
+                   *system_gls_ilu_preconditioner);
+    else
+      solver.solve(this->system_matrix,
+                   this->newton_update,
+                   this->system_rhs,
+                   *system_ilu_preconditioner);
     if (this->simulation_parameters.linear_solver.verbosity !=
         Parameters::Verbosity::quiet)
       {
