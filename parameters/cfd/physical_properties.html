@@ -254,6 +254,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/melting-cavity/melting-cavity.html">2.4. Melting Cavity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/laser-heating/laser-heating.html">2.5. Laser heating</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/laser-meltpool/laser-meltpool.html">2.6. Laser meltpool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">2.7. Concentric heat exchanger</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../examples/multiphysics/tracer.html">3. Tracer</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -346,46 +347,48 @@
 <h1>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Lethe supports both single phase and two phase (through VOF) simulations. The same subsection is used to manage both types of simulation using the fluid subsections.</p>
+<p>Lethe supports single phase, two phase (using VOF) and conjugate simulations. This is managed using the fluid and solid subsections.</p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
-set number of fluids  = 1
-   subsection fluid 0
-     # Rheology
-     set rheological model = newtonian
-     set kinematic viscosity  = 1
+  set number of fluids        = 1
+  subsection fluid 0
+    # Rheology
+    set rheological model = newtonian
+    set kinematic viscosity   = 1
 
-     # Density
-     set density model = constant
-     set density              = 1
+    # Density
+    set density model = constant
+    set density               = 1
 
-     # Specific heat
-     set specific heat model = constant
-     set specific heat        = 1
+    # Specific heat
+    set specific heat model = constant
+    set specific heat         = 1
 
-     # Thermal conductivity
-     set thermal conductivity model = constant
-     set thermal conductivity = 1
+    # Thermal conductivity
+    set thermal conductivity model = constant
+    set thermal conductivity = 1
 
-     # Thermal expansion
-     set thermal expansion model = constant
-     set thermal expansion = 0
+    # Thermal expansion
+    set thermal expansion model = constant
+    set thermal expansion = 0
 
-     # Tracer diffusivity
-     set tracer diffusivity model = constant
-     set tracer diffusivity   = 0
-   end
+    # Tracer diffusivity
+    set tracer diffusivity model = constant
+    set tracer diffusivity   = 0
+  end
+  set number of solids        = 0
 end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> parameter sets the choice of rheological model. The choices are between <code class="docutils literal notranslate"><span class="pre">newtonian</span></code>, <code class="docutils literal notranslate"><span class="pre">power-law</span></code>, <code class="docutils literal notranslate"><span class="pre">carreau</span></code> and <code class="docutils literal notranslate"><span class="pre">phase_change</span></code>. For more details on the rheological model, see  <a class="reference internal" href="#id2">Rheological models</a> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">fluids</span></code> parameter controls the number of fluids in the simulation. This parameter is set to <code class="docutils literal notranslate"><span class="pre">1</span></code> except in <a class="reference internal" href="#two-phase-simulations">two phase simulations</a> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> parameter sets the choice of rheological model. The choices are between <code class="docutils literal notranslate"><span class="pre">newtonian</span></code>, <code class="docutils literal notranslate"><span class="pre">power-law</span></code>, <code class="docutils literal notranslate"><span class="pre">carreau</span></code> and <code class="docutils literal notranslate"><span class="pre">phase_change</span></code>. For more details on the rheological model, see  <a class="reference internal" href="#id3">Rheological models</a> .</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> parameter is the kinematic viscosity of the newtonain fluid in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span>. In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span>. This viscosity is only used when <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span> <span class="pre">=</span> <span class="pre">newtonian</span></code>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">model</span></code> specifies the model used to calculate the density. At the moment, only a constant density is supported.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter is the constant density of the fluid in units of <span class="math notranslate nohighlight">\(\text{Mass} \cdot \text{Length}^{-3}\)</span></p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">model</span></code> specifies the model used to calculate the specific heat. At the moment, only a constant specific heat is supported.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span></code> parameter is the constant specific heat of the fluid in units of <span class="math notranslate nohighlight">\(\text{Energy} \cdot \text{Temperature}^{-1} \cdot \text{Mass}^{-1}\)</span> .</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal conductivity. At the moment, <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> thermal conductivity are available. For more details on the thermal conductivity models, see <a class="reference internal" href="#id3">Thermal conductivity models</a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal conductivity. At the moment, <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> thermal conductivity are available. For more details on the thermal conductivity models, see <a class="reference internal" href="#id4">Thermal conductivity models</a>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span></code> parameter is the thermal conductivity coefficient of the fluid with units of <span class="math notranslate nohighlight">\(\text{Power} \cdot \text{Temperature}^{-1} \cdot \text{Length}^{-1}\)</span>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal expansion coefficient. At the moment, only a constant thermal expansion is supported.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span></code> parameter is the thermal expansion coefficient of the fluid with dimension of <span class="math notranslate nohighlight">\(\text{Temperature}^{-1}\)</span>. Thermal expansion coefficient is used to define the buoyancy-driven flow (natural convection) using the Boussinesq approximation. Using the Boussinesq approximation, the following source term is added to the Navier-Stokes equation.</p></li>
@@ -396,6 +399,7 @@ end
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">diffusivity</span> <span class="pre">model</span></code> specifies the model used to calculate the tracer diffusivity. At the moment, only a constant tracer diffusivity is supported.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">diffusivity</span></code> parameter is the diffusivity coefficient of the tracer in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span> . In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> parameter controls the number of solid regions. Solid regions are currently only implemented for <a class="reference internal" href="#conjugate-heat-transfer">conjugate heat transfer</a>.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -436,8 +440,40 @@ end
 <p>Lethe now supports the use of physical properties models that are different for both phases. For example, the liquid could have a carreau rheological model and the air could have a newtonian rheological model. However, this feature has not been fully tested and could lead to unpredictable results. Use with caution.</p>
 </div>
 </section>
+<section id="conjugate-heat-transfer">
+<span id="id2"></span><h2>Conjugate heat transfer<a class="headerlink" href="#conjugate-heat-transfer" title="Permalink to this headline">¶</a></h2>
+<p>Conjugate heat transfer enables the addition of solid regions in which the fluid dynamics is not solved for. To enable the presence of a solid region, <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> must be put to 1. By default, the region with the <code class="docutils literal notranslate"><span class="pre">material_id=0</span></code> will be the fluid region whereas the region with <code class="docutils literal notranslate"><span class="pre">material_id=1</span></code> will be the solid region. The physcal properties of the solid region are set in an identical fashion as those of the fluid.</p>
+<blockquote>
+<div><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is an experimental feature. It has not been tested on a large range of application cases.</p>
+</div>
+</div></blockquote>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+  set number of fluids        = 1
+  subsection fluid 0
+    ...
+  end
+  set number of solids        = 1
+  subsection solid 0
+    # Density
+    set density model = constant
+    set density               = 1
+
+    # Specific heat
+    set specific heat model = constant
+    set specific heat         = 1
+
+    # Thermal conductivity
+    set thermal conductivity model = constant
+    set thermal conductivity = 1
+  end
+end
+</pre></div>
+</div>
+</section>
 <section id="rheological-models">
-<span id="id2"></span><h2>Rheological models<a class="headerlink" href="#rheological-models" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Rheological models<a class="headerlink" href="#rheological-models" title="Permalink to this headline">¶</a></h2>
 <p>Two families of rheological models are supported in Lethe. The first one are generalized non Newtonian rheologies (for shear thinning and shear thickening flows). In these models, the viscosity depends on the shear rate. The second family of rheological models possess a viscosity that is independent of the shear rate, but that may depend on other fields such as the temperature.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> parameter sets which rheological model you are using. The default <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> is <code class="docutils literal notranslate"><span class="pre">newtonian</span></code>, which uses a constant <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
@@ -562,7 +598,7 @@ end
 </section>
 </section>
 <section id="thermal-conductivity-models">
-<span id="id3"></span><h2>Thermal conductivity models<a class="headerlink" href="#thermal-conductivity-models" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Thermal conductivity models<a class="headerlink" href="#thermal-conductivity-models" title="Permalink to this headline">¶</a></h2>
 <p>Constant, linear and phase_change thermal conductivities are supported in Lethe. Constant thermal conductivity assumes a constant value of the thermal conductivity. Linear thermal conductivity assumes that that the thermal conductivity <span class="math notranslate nohighlight">\(k\)</span> varies linearly with the temperature, taking the following form:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[k = k_{A,0}+ k_{A,1} T\]</div></div>
@@ -670,6 +706,7 @@ end
             <ul>
 <li><a class="reference internal" href="#">Physical Properties</a><ul>
 <li><a class="reference internal" href="#two-phase-simulations">Two phase simulations</a></li>
+<li><a class="reference internal" href="#conjugate-heat-transfer">Conjugate heat transfer</a></li>
 <li><a class="reference internal" href="#rheological-models">Rheological models</a><ul>
 <li><a class="reference internal" href="#power-law-model">Power-law model</a></li>
 <li><a class="reference internal" href="#carreau-model">Carreau model</a></li>
