@@ -393,9 +393,8 @@ subsection simulation control
   set time step        = 0.01
   set adapt            = true
   set max cfl          = 0.5
-  set stop tolerance   = 1e-5
   set output name      = dam-break
-  set output frequency = 10
+  set output frequency = 20
   set output path      = ./output/
 end
 </pre></div>
@@ -442,6 +441,11 @@ frequency of interface sharpening; sharpening threshold defines
 a phase fraction threshold for interface sharpening (generally <span class="math notranslate nohighlight">\(0.5\)</span>).
 Interface sharpness is a model parameter which is generally in
 the range of <span class="math notranslate nohighlight">\((1,2]\)</span>.</p>
+<ol class="arabic simple" start="3">
+<li><p>Phase filtering</p></li>
+</ol>
+<p>The phase filtration is enabled in this example. We refer the reader to the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a>
+documentation for more explanation on the phase filtration.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # VOF
 #---------------------------------------------------
@@ -451,6 +455,12 @@ subsection VOF
     set threshold           = 0.5
     set interface sharpness = 2
     set frequency           = 10
+  end
+
+  subsection phase filtration
+    set type            = tanh
+    set verbosity       = quiet
+    set beta            = 10
   end
 end
 </pre></div>
@@ -566,7 +576,8 @@ run in parallel using mpirun</p>
 <section id="results">
 <h2><span class="section-number">1.1.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following image shows the screenshots of the simulation at <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1.1\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, and <span class="math notranslate nohighlight">\(4\)</span> seconds,
-with the red area and the blue area corresponding conversely to the water location and the air location.</p>
+of the phase results without and with phase filtering.
+The red area corresponds to the liquid phase and the blue area corresponds to the air phase.</p>
 <img alt="time-shots" class="align-center" src="../../../_images/time-series.png"/>
 <p>A python post-processing code <cite>(dam-break-2d.py)</cite>
 is added to the example folder to post-process the results.
@@ -576,7 +587,7 @@ contains the simulation results. In post-processing, the maximum
 dimensionless lateral position of the liquid phase is tracked
 through time and compared with the experiments of Martin and Moyce
 (1952) <a class="reference external" href="https://doi.org/10.1098/rsta.1952.0006">[1]</a>. The following figure shows the result of
-the post-processing, with a very good agreement between the simulation and the experiment:</p>
+the post-processing, with a good agreement between the simulation and the experiment:</p>
 <img alt="xmax_t" class="align-center" src="../../../_images/xmax-t.png"/>
 <p>As mentioned previously, this simulation uses adaptive mesh
 refinement. The following image shows the mesh and the position of
