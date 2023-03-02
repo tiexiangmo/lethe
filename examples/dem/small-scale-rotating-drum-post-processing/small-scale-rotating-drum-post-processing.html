@@ -352,7 +352,7 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>For <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a> to work, along with <a class="reference external" href="https://www.python.org/downloads/">Python 3</a>, the following libraries are needed: <a class="reference external" href="https://docs.python.org/3/library/os.html">os</a>, <a class="reference external" href="https://numpy.org/">NumPy</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, and <a class="reference external" href="https://tqdm.github.io/">tqdm</a>. If any of the modules are missing, use <a class="reference external" href="https://pypi.org/project/pip/">pip</a> to install it running <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">$NAME_OF_THE_MODULE</span></code> on the terminal.</p>
+<p>For <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a> to work, along with <a class="reference external" href="https://www.python.org/downloads/">Python 3</a>, the following libraries are needed: <a class="reference external" href="https://docs.python.org/3/library/os.html">os</a>, <a class="reference external" href="https://numpy.org/">NumPy</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://tqdm.github.io/">tqdm</a>, <a class="reference external" href="https://matplotlib.org/stable/index.html">matplotlib</a>, and <a class="reference external" href="https://scipy.org/">SciPy</a>, and <a class="reference external" href="https://scikit-learn.org/stable/index.html">scikit-learn</a>. If any of the modules are missing, use <a class="reference external" href="https://pypi.org/project/pip/">pip</a> to install it running <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">$NAME_OF_THE_MODULE</span></code> on the terminal.</p>
 </div>
 <section id="features">
 <h2><span class="section-number">4.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
@@ -372,7 +372,8 @@
 </section>
 <section id="description-of-the-case">
 <h2><span class="section-number">4.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>In this example, we illustrate the mixing inside a rotating drum by coloring the particles according to their radial position right after their full packing. To do so, we post-process Lethe-DEM data using <a class="reference external" href="https://www.python.org/">Python</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a>, and <a class="reference external" href="https://www.paraview.org/">ParaView</a></p>
+<p>In this example, we illustrate the mixing inside a rotating drum by coloring the particles according to their radial position right after their full packing. To do so, we post-process Lethe-DEM data using <a class="reference external" href="https://www.python.org/">Python</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a>, and <a class="reference external" href="https://www.paraview.org/">ParaView</a>.</p>
+<p>Additionally, we calculate the mixing index using the Nearest Neighbors Method (NNM) [<a class="reference external" href="https://www.researchgate.net/profile/Niels-Deen/publication/228722534_Characterizing_solids_mixing_in_DEM_simulations/links/00b495289f429c5b39000000/Characterizing-solids-mixing-in-DEM-simulations.pdf">1</a>] and Doucet method [<a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0263876208002724">2</a>, <a class="reference external" href="https://doi.org/10.1016/j.cherd.2016.12.018">3</a>].</p>
 <p>The DEM files used in this example are obtained following the <a class="reference external" href="../../dem/rotating-drum/small-scale-rotating-drum.html">Small scale rotating drum example</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -389,12 +390,14 @@
 <span class="n">path_to_module</span> <span class="o">=</span> <span class="s1">'../../../contrib/postprocessing/'</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path_to_module</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">lethe_pyvista_tools</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
-<p>where <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.path:~:text=in%20version%203.10.-,sys.path%C2%B6,-A%20list%20of">sys.path</a> is a list of strings that specifies the search path for modules. However, one can simply copy the <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools.py</a> file to the same folder as the Python post-processing script is and simply import it, such as:</p>
+<p>where <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.path:~:text=in%20version%203.10.-,sys.path%C2%B6,-A%20list%20of">sys.path</a> is a list of strings that specifies the search path for modules. However, one can simply copy the <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools.py</a> file to the same folder as the Python post-processing script is and import it, such as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lethe_pyvista_tools</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
+<p>One third and very convenient way to always import the module without copying it or even adding the <code class="docutils literal notranslate"><span class="pre">sys.path.append(path_to_module)</span></code> is permanentely adding the path to the module (<code class="docutils literal notranslate"><span class="pre">/contrib/postprocessing/</span></code>) to your <a class="reference external" href="https://docs.python.org/3/library/sys_path_init.html#:~:text=The%20PYTHONPATH%20environment%20variable%20is,all%20installed%20Python%20versions%2Fenvironments.">PYTHONPATH</a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> means that we want to import all members of lethe_pyvista_tools.</p>
 </section>
 <section id="constructing-the-object">
@@ -428,7 +431,7 @@
 </section>
 <section id="creation-of-a-new-array">
 <h3><span class="section-number">4.4.4. </span>Creation of a new array<a class="headerlink" href="#creation-of-a-new-array" title="Permalink to this headline">¶</a></h3>
-<p>To color the particles according to their position, we use the function <code class="docutils literal notranslate"><span class="pre">array_modifier</span></code>, which takes the following arguments:</p>
+<p>To color the particles according to their position, we use the function <code class="docutils literal notranslate"><span class="pre">modify_array</span></code>, which takes the following arguments:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">reference_array_name</span></code>: Name of the array used to sort the data and identify the particles at all time-steps. Other arrays, such as <code class="docutils literal notranslate"><span class="pre">Type</span></code> or any other array, can be used for this. By default: <code class="docutils literal notranslate"><span class="pre">"ID"</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">array_name</span></code>: Name of the new array. If there is an array with the same name, it will be rewritten according to the other arguments. By default: <code class="docutils literal notranslate"><span class="pre">"new_array"</span></code></p></li>
@@ -436,22 +439,22 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">condition</span></code>: Takes a string and uses it in an if condition to modify the array. Variables accepted include <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">w</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code>, and any other array (<code class="docutils literal notranslate"><span class="pre">ID</span></code> for example). It also accepts a combination of them, such as <code class="docutils literal notranslate"><span class="pre">"x*w**2</span> <span class="pre">+</span> <span class="pre">t</span> <span class="pre">&gt;</span> <span class="pre">2</span> <span class="pre">and</span> <span class="pre">ID</span> <span class="pre">&gt;</span> <span class="pre">0"</span></code>. By default: <code class="docutils literal notranslate"><span class="pre">""</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">array_values</span></code>: New values to the array. This argument accepts a single value (which will be repeated to all data respecting the given <code class="docutils literal notranslate"><span class="pre">condition</span></code>), a <a class="reference external" href="https://numpy.org/">NumPy</a> array, or <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">Python list</a> (with the same length (<code class="docutils literal notranslate"><span class="pre">len</span></code>) of all other arrays in <code class="docutils literal notranslate"><span class="pre">particles.df</span></code>), or a string such as <code class="docutils literal notranslate"><span class="pre">"2*x</span> <span class="pre">+</span> <span class="pre">t"</span></code> (working just like the <code class="docutils literal notranslate"><span class="pre">condition</span></code> argument). By default: <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">standard_value</span></code>: If <code class="docutils literal notranslate"><span class="pre">restart</span> <span class="pre">array</span> <span class="pre">=</span> <span class="pre">True</span></code> or the array is a completely new array, the <code class="docutils literal notranslate"><span class="pre">standard_value</span></code> will be plugged to the entire array before modifying it. By default: <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">time_dependent</span></code>: <code class="docutils literal notranslate"><span class="pre">array_modifier</span></code> can be time dependent or not. If set <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">condition</span></code> will be tested to each of the time-steps, while if it is <code class="docutils literal notranslate"><span class="pre">False</span></code>, it will be applied using the <code class="docutils literal notranslate"><span class="pre">reference_time_step</span></code> instead, and the modification will be just replicated to the other time-steps. By default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time_dependent</span></code>: <code class="docutils literal notranslate"><span class="pre">modify_array</span></code> can be time dependent or not. If set <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">condition</span></code> will be tested to each of the time-steps, while if it is <code class="docutils literal notranslate"><span class="pre">False</span></code>, it will be applied using the <code class="docutils literal notranslate"><span class="pre">reference_time_step</span></code> instead, and the modification will be just replicated to the other time-steps. By default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">reference_time_step</span></code>: Reference time-step to which the modification will be applied. If <code class="docutils literal notranslate"><span class="pre">time_dependent</span> <span class="pre">=</span> <span class="pre">False</span></code>, the result of the modificaition applied to <code class="docutils literal notranslate"><span class="pre">reference_time_step</span></code> will be simply replicated to the others. By default: <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>As explained in the previous subsection, <code class="docutils literal notranslate"><span class="pre">reference_time_step</span></code> only refers to time-steps that were read into the code using <code class="docutils literal notranslate"><span class="pre">read_lethe_to_pyvista</span></code>.</p>
 </div>
-<p>The following block of code creates an array named <code class="docutils literal notranslate"><span class="pre">particle_color</span></code> using the <code class="docutils literal notranslate"><span class="pre">array_modifier</span></code> function, assigning <code class="docutils literal notranslate"><span class="pre">1</span></code> to all particles with radial position <span class="math notranslate nohighlight">\(&gt; 0.025\)</span> at the end of the packing (40th time-step):</p>
+<p>The following block of code creates an array named <code class="docutils literal notranslate"><span class="pre">particle_color</span></code> using the <code class="docutils literal notranslate"><span class="pre">modify_array</span></code> function, assigning <code class="docutils literal notranslate"><span class="pre">1</span></code> to all particles with radial position <span class="math notranslate nohighlight">\(&gt; 0.025\)</span> at the end of the packing (40th time-step):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="s2">"(y**2 + z**2)**(1/2) &gt; 0.025"</span>
-<span class="n">particles</span><span class="o">.</span><span class="n">array_modifier</span><span class="p">(</span><span class="n">array_name</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">array_values</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">reference_time_step</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">particles</span><span class="o">.</span><span class="n">modify_array</span><span class="p">(</span><span class="n">array_name</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">array_values</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">reference_time_step</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Since the rotating drum is placed along the <span class="math notranslate nohighlight">\(x\)</span> axis, we use <span class="math notranslate nohighlight">\(\sqrt{y^2 + z^2}\)</span> to assess the radial position of particles.</p>
 <p>To create an additional layer of particles with different colors, we use the same function again with a different condition.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="s2">"(y**2 + z**2)**(1/2) &gt; 0.04"</span>
-<span class="n">particles</span><span class="o">.</span><span class="n">array_modifier</span><span class="p">(</span><span class="n">array_name</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">array_values</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">reference_time_step</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">restart_array</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">particles</span><span class="o">.</span><span class="n">modify_array</span><span class="p">(</span><span class="n">array_name</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">array_values</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">reference_time_step</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">restart_array</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This time, we set <code class="docutils literal notranslate"><span class="pre">restart_array</span> <span class="pre">=</span> <span class="pre">False</span></code> to guarantee it is not going to affect the previous modification to the array.</p>
@@ -476,9 +479,9 @@
 </div>
 <p>Here, we are using the first time-step of the data (<code class="docutils literal notranslate"><span class="pre">particles.df[0]</span></code>) as example.</p>
 <p>Now that particles are created, we can visualize them:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">particle_glyph</span><span class="p">,</span> <span class="n">scalars</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">particle_glyph</span><span class="p">,</span> <span class="n">scalars</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>This will open one iteractive window such as this one:</p>
@@ -499,18 +502,97 @@
 <img alt="ParaView zoom in" class="align-center" src="../../../_images/paraview_window_zoom.png"/>
 </section>
 </section>
+<section id="mixing-index">
+<h2><span class="section-number">4.6. </span>Mixing index<a class="headerlink" href="#mixing-index" title="Permalink to this headline">¶</a></h2>
+<p>We used two methods to calculate the mixing index of the rotating drum:</p>
+<ul class="simple">
+<li><p>Nearest Neighbors Method (NNM) [<a class="reference external" href="https://www.researchgate.net/profile/Niels-Deen/publication/228722534_Characterizing_solids_mixing_in_DEM_simulations/links/00b495289f429c5b39000000/Characterizing-solids-mixing-in-DEM-simulations.pdf">1</a>].</p></li>
+<li><p>Doucet method [<a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0263876208002724">2</a>, <a class="reference external" href="https://doi.org/10.1016/j.cherd.2016.12.018">3</a>].</p></li>
+</ul>
+<section id="nearest-neighbors-method">
+<h3><span class="section-number">4.6.1. </span>Nearest Neighbors Method<a class="headerlink" href="#nearest-neighbors-method" title="Permalink to this headline">¶</a></h3>
+<p>One example of application of the <code class="docutils literal notranslate"><span class="pre">modify_array</span></code> method is on the calculation of the mixing index using the Nearest Neighbors Method (NNM) [<a class="reference external" href="https://www.researchgate.net/profile/Niels-Deen/publication/228722534_Characterizing_solids_mixing_in_DEM_simulations/links/00b495289f429c5b39000000/Characterizing-solids-mixing-in-DEM-simulations.pdf">1</a>]. To do so, we first need to split the domain in half. Since we are interested on working with the radial mixing, first we need to calculate the cylindric coordinates of each particle:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particles</span><span class="o">.</span><span class="n">get_cylindrical_coords</span><span class="p">(</span><span class="n">radial_components</span> <span class="o">=</span> <span class="s2">"yz"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Given the radial components, this method assigns <code class="docutils literal notranslate"><span class="pre">.points_cyl</span></code> to the object <code class="docutils literal notranslate"><span class="pre">particles</span></code>. The coordinates <span class="math notranslate nohighlight">\([0, 1, 2]\)</span> are <span class="math notranslate nohighlight">\([r, \theta, Z]\)</span>, respectively</p>
+<p>To help us finding where to split the domain, we will also find the radial coordinate of the center of mass of the particles at <code class="docutils literal notranslate"><span class="pre">reference_time_step</span> <span class="pre">=</span> <span class="pre">40</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r_center_mass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">points_cyl</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Now we can split the domain:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"(y**2 + z**2)**(1/2) &gt; </span><span class="si">{</span><span class="n">r_center_mass</span><span class="si">}</span><span class="s2">"</span>
+<span class="n">particles</span><span class="o">.</span><span class="n">modify_array</span><span class="p">(</span><span class="n">array_name</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="n">condition</span><span class="p">,</span> <span class="n">array_values</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">restart_array</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">reference_time_step</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We need to set <code class="docutils literal notranslate"><span class="pre">restart_array</span> <span class="pre">=</span> <span class="pre">True</span></code> since we are doing a new split on the particles using the same <code class="docutils literal notranslate"><span class="pre">array_name</span> <span class="pre">=</span> <span class="pre">'particle_color'</span></code>.</p>
+</div>
+<p>The following method is used to find the <code class="docutils literal notranslate"><span class="pre">15</span></code> nearest neighbors of each particle:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particles</span><span class="o">.</span><span class="n">get_nearest_neighbors</span><span class="p">(</span><span class="n">return_id</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To get the indice and the position of the nearest neighbor (<cite>0</cite>) of particle <cite>2</cite> at the 5th time-step, the following can be used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neighbor_indice</span> <span class="o">=</span> <span class="n">particles</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">neighbor_indice</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>It is also possible to print the neighbor’s <cite>ID</cite> and its distance to particle <abbr>2</abbr></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">neighbors_id</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">neighbors_dist</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>All set, now we can calculate the mixing index using NNM and store it in <cite>particles.mixing_index_nnm</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particles</span><span class="o">.</span><span class="n">mixing_index_nearest_neighbors</span><span class="p">(</span><span class="n">reference_array</span> <span class="o">=</span> <span class="s2">"particle_color"</span><span class="p">,</span> <span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">mixing_index_array_name</span> <span class="o">=</span> <span class="s2">"mixing_index_NNM"</span><span class="p">)</span>
+<span class="n">particles</span><span class="o">.</span><span class="n">mixing_index_nnm</span> <span class="o">=</span> <span class="n">particles</span><span class="o">.</span><span class="n">mixing_index</span>
+</pre></div>
+</div>
+<p>This method calculates the mixing index for each particles and stores it in an array named according to the parameter <cite>mixing_index_array_name</cite>. This array can be used for vizualization:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particles</span><span class="o">.</span><span class="n">write_vtu</span><span class="p">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s2">"mix_"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The same way as before, <code class="docutils literal notranslate"><span class="pre">vtu</span></code> and <code class="docutils literal notranslate"><span class="pre">pvd</span></code> will be stored with prefix <code class="docutils literal notranslate"><span class="pre">"mix_"</span></code> in the output folder of the simulation.</p>
+<img alt="ParaView zoom in NNM" class="align-center" src="../../../_images/paraview_window_zoom_nnm.png"/>
+</section>
+<section id="doucet-mixing-index">
+<h3><span class="section-number">4.6.2. </span>Doucet mixing index<a class="headerlink" href="#doucet-mixing-index" title="Permalink to this headline">¶</a></h3>
+<p>Similar to NNM, we are interested in the mixing index results using cylindrical coordinates. Calculating the Doucet mixing index is as simple as running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">particles</span><span class="o">.</span><span class="n">mixing_index_doucet</span><span class="p">(</span><span class="n">reference_time_step</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">use_cyl</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">increasing_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">particles</span><span class="o">.</span><span class="n">mixing_index_doucet</span> <span class="o">=</span> <span class="n">particles</span><span class="o">.</span><span class="n">mixing_index</span>
+</pre></div>
+</div>
+<p>Usually, Doucet mixing index decreases with mixing, but for comparison with NNM purposes we do <code class="docutils literal notranslate"><span class="pre">increasing_index</span> <span class="pre">=</span> <span class="pre">True</span></code>. Doucet method does not need any sort of splitting of particles, so it is not necessary to split them previous to using this method.</p>
+</section>
+</section>
 <section id="results">
-<h2><span class="section-number">4.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.7. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>Following we present one video of the full simulation with particles colored by their initial position.</p>
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/qxO4MD_zg2w" title="Rotating drum - mixing study" width="560"></iframe><p>The simulation results show that the layers in red and green, that is, particles close to the walls, tend to mix faster than the ones in the center.</p>
+<p>The poor mixing of the particles is confirmed with NNM and Doucet mixing indices. To plot both indices as a function of time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">time_list</span><span class="p">[</span><span class="mi">40</span><span class="p">:],</span> <span class="n">particles</span><span class="o">.</span><span class="n">mixing_index_nnm</span><span class="p">[</span><span class="mi">40</span><span class="p">:],</span> <span class="s1">'-b'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">"Generalized NNM"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">time_list</span><span class="p">[</span><span class="mi">40</span><span class="p">:],</span> <span class="n">particles</span><span class="o">.</span><span class="n">mixing_index_doucet</span><span class="p">[</span><span class="mi">40</span><span class="p">:],</span> <span class="s1">'--k'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">"Doucet"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">time_list</span><span class="p">[</span><span class="mi">40</span><span class="p">:],</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">time_list</span><span class="p">[</span><span class="mi">40</span><span class="p">:])),</span> <span class="s1">':r'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Time [s]"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Mixing index [-]"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">particles</span><span class="o">.</span><span class="n">time_list</span><span class="p">[</span><span class="mi">40</span><span class="p">],</span> <span class="n">particles</span><span class="o">.</span><span class="n">time_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"./mixing_index.png"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">rotational</span> <span class="pre">speed</span> <span class="pre">=</span> <span class="pre">2</span></code>, the following is observed:</p>
+<img alt="ParaView zoom in NNM" class="align-center" src="../../../_images/mixing_indices_comparison.png"/>
+<p>As shown, neither of the mixing indices point to a full mixing of the particles, even at higher simulation times. NNM is always above Doucet, indicating that the main mixing component must not be the radius. Higher rotating velocities can improve results.</p>
 </section>
 <section id="possibilities-for-extension">
-<h2><span class="section-number">4.7. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.8. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Give a different <code class="docutils literal notranslate"><span class="pre">condition</span></code> to create the <code class="docutils literal notranslate"><span class="pre">particle_color</span></code> array</p></li>
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools</span></code> for a different problem, modifying the <code class="docutils literal notranslate"><span class="pre">condition</span></code> accordingly</p></li>
 <li><p>Use the tools in the <a class="reference external" href="https://docs.pyvista.org">PyVista official repository</a> to create screenshots, movies, and plots with the data.</p></li>
-<li><p>Change the rotation velocity and track the mixing of the three layers of particles</p></li>
+<li><p>Change the rotation velocity and track the mixing indices.</p></li>
 </ul>
 </section>
 </section>
@@ -582,8 +664,13 @@
 <li><a class="reference internal" href="#paraview-visualization">4.5.2. ParaView visualization</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#results">4.6. Results</a></li>
-<li><a class="reference internal" href="#possibilities-for-extension">4.7. Possibilities for extension</a></li>
+<li><a class="reference internal" href="#mixing-index">4.6. Mixing index</a><ul>
+<li><a class="reference internal" href="#nearest-neighbors-method">4.6.1. Nearest Neighbors Method</a></li>
+<li><a class="reference internal" href="#doucet-mixing-index">4.6.2. Doucet mixing index</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#results">4.7. Results</a></li>
+<li><a class="reference internal" href="#possibilities-for-extension">4.8. Possibilities for extension</a></li>
 </ul>
 </li>
 </ul>
