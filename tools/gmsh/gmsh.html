@@ -675,9 +675,65 @@ end
 </div>
 <p>A mesh can also be partially structured, to better encounter for a boundary layer for instance: see the <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file provided with the <a class="reference internal" href="../../examples/incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html"><span class="doc">2D Transient flow around an Ahmed body</span></a> example.</p>
 </section>
+<section id="boundary-layer-mesh">
+<span id="tips"></span><h3>Boundary Layer Mesh<a class="headerlink" href="#boundary-layer-mesh" title="Permalink to this headline">¶</a></h3>
+<p>Some problems require special attention in the vicinity of surfaces, especially when one wishes to take into account boundary layer effects. Gmsh is equipped with tools to mesh geometries to obtain high accuracy near surfaces: transfinite meshes and the Field Boundary Layer.
+This section first gives an example of the use of the Field Boundary Layer in a simple case. An application on a more complex geometry, a naca0012 airfoil will be shown at end. The <code class="docutils literal notranslate"><span class="pre">.geo</span></code> and <code class="docutils literal notranslate"><span class="pre">.msh</span></code> will be available in an example very soon.</p>
+<p>First, we define the geometry: a rectangular plate in a square enclosure. We want to mesh the area between the two objects. Without further parameterization of the .geo, we obtain the following mesh:</p>
+<a class="reference internal image-reference" href="../../_images/basicMesh.png" id="basic-mesh"><img alt="The surface is meshed without specific instructions around the plate" class="align-center" id="basic-mesh" src="../../_images/basicMesh.png" style="width: 400px;"/></a>
+<p>We will now use one of the many fields offered by gmsh. These objects allow you to perform various operations on the mesh: define a box where to mesh more finely, calculate a field of distances to a precise point and combine with a Threshold etc. We are interested in the Field BoundaryLayer which allows, given curves and points, to make a boundary layer mesh in the neighbourhood of these entities. The parameters are the following (for an exhaustive list of parameters and possibilities, see the <a class="reference external" href="http://gmsh.info/dev/doc/texinfo/gmsh.pdf">user manual</a>   p303-304):</p>
+<ol class="arabic simple">
+<li><p>Set the BoundaryLayer Field:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">BoundaryLayer</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Specify the curves which define your boundary:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">CurvesList</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">};</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Set the desired characteristics of the boundary layer, size of the elements close/far to the surface, size ratio between two successive layers and maximal thickness of the boundary layer:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">SizeFar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">Field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Size</span> <span class="o">=</span> <span class="mf">0.004</span><span class="p">;</span>
+<span class="n">Field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Ratio</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span>
+<span class="n">Field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Thickness</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Specify if the elements must be quadrangles and apply the field:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Quads</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">BoundaryLayer</span> <span class="n">Field</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here is the mesh generated with the previous settings around the plate:</p>
+<a class="reference internal image-reference" href="../../_images/noFan.png" id="bondary-layer-basic"><img alt="The mesh generated with a BoundaryLayer Field around the plate" class="align-center" id="bondary-layer-basic" src="../../_images/noFan.png" style="width: 600px;"/></a>
+<ol class="arabic simple" start="5">
+<li><p>The result is interesting, although the elements at the corners are skewed. This can be solved by feeding the field a list of the points at the corners which will be defined as FanPoints. Then, one may refine the mesh by specifying a number of elements for each fan. Alternatively, the size can be defined as the same for all points, see the commented line below.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">FanPointsList</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">};</span>
+<span class="n">Field</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">FanPointsSizesList</span> <span class="o">=</span> <span class="p">{</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">17</span><span class="p">};</span>
+<span class="o">//</span><span class="n">Mesh</span><span class="o">.</span><span class="n">BoundaryLayerFanElements</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>We obtain the following mesh which is much better to account for boundary layer effects:</p>
+<a class="reference internal image-reference" href="../../_images/boundaryLayerMesh.png" id="id5"><img alt="The surface is meshed with small elements at the surface of the plate" class="align-center" id="id5" src="../../_images/boundaryLayerMesh.png" style="width: 600px;"/></a>
+<p>If we take a closer look at the surface, the geometric progression of the sizes of elements becomes visible:</p>
+<a class="reference internal image-reference" href="../../_images/zoom.png" id="zoom-boundary-layer-mesh"><img alt="The mesh is highly refined close to the surface" class="align-center" id="zoom-boundary-layer-mesh" src="../../_images/zoom.png" style="width: 600px;"/></a>
+<p>The mesh around the angle looks like this:</p>
+<a class="reference internal image-reference" href="../../_images/angle.png" id="fan-boundary-layer-mesh"><img alt="The angles are also meshed accordingly" class="align-center" id="fan-boundary-layer-mesh" src="../../_images/angle.png" style="width: 600px;"/></a>
+<p>You now know everything about boundary layer meshing. Here is an example on a naca0012 airfoil profile. The <code class="docutils literal notranslate"><span class="pre">.geo</span></code> will be available on a future example very soon.</p>
+<a class="reference internal image-reference" href="../../_images/nacaWhole.png" id="naca-in-box"><img alt="naca0012 airfoil profile with 2000 points on its surface" class="align-center" id="naca-in-box" src="../../_images/nacaWhole.png" style="width: 600px;"/></a>
+<a class="reference internal image-reference" href="../../_images/naca_big.png" id="zoom-naca"><img alt="boundary layer mesh around naca" class="align-center" id="zoom-naca" src="../../_images/naca_big.png" style="width: 600px;"/></a>
+<a class="reference internal image-reference" href="../../_images/voisinageFan.png" id="fan-naca"><img alt="The trailing edge requires a specific meshing to simulate the phenomenas happening here" class="align-center" id="fan-naca" src="../../_images/voisinageFan.png" style="width: 600px;"/></a>
+</section>
 </section>
 <section id="other-tips">
-<span id="tips"></span><h2>Other tips<a class="headerlink" href="#other-tips" title="Permalink to this headline">¶</a></h2>
+<h2>Other tips<a class="headerlink" href="#other-tips" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><dl>
 <dt>Use variables and functions to make your <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file more adaptative</dt><dd><ul class="simple">
@@ -796,6 +852,7 @@ end
 <li><a class="reference internal" href="#unstructured">Unstructured</a></li>
 <li><a class="reference internal" href="#attractors-for-local-mesh-refinement">Attractors for local mesh refinement</a></li>
 <li><a class="reference internal" href="#structured-quad-mesh">Structured - Quad mesh</a></li>
+<li><a class="reference internal" href="#boundary-layer-mesh">Boundary Layer Mesh</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#other-tips">Other tips</a></li>
