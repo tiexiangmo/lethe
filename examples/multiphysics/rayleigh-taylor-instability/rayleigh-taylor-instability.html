@@ -454,10 +454,11 @@ subsection physical properties
 end
 </pre></div>
 </div>
-<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code> subsection, we need to define the interface between the heavy and light fluids. We define this interface by using a function expression in the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection of the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code> subsection, we need to define the interface between the heavy and light fluids. We define this interface by using a function expression in the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection of the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>. The interface between the two fluids is made smoother with the <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/initial_conditions.html">projection step</a> parameter.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Initial Condition
 #---------------------------------------------------
+
 subsection initial conditions
   set type = nodal
   subsection uvwp
@@ -466,6 +467,12 @@ subsection initial conditions
 
   subsection VOF
     set Function expression = if (y&gt;(0.5 + 0.1 * 0.25 * cos(2 *3.1415 * x / 0.25)) , 1, 0)
+
+    subsection projection step
+      set enable           = true
+      set diffusion factor = 1
+    end
+
   end
 end
 </pre></div>
@@ -528,6 +535,7 @@ end
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # VOF
 #---------------------------------------------------
+
 subsection VOF
   subsection interface sharpening
     set enable              = true
@@ -540,8 +548,14 @@ subsection VOF
   subsection mass conservation
     set monitoring      = true
     set monitored fluid = fluid 1
-    set tolerance       = 1e-6
-    set verbosity       = quiet
+    set tolerance       = 1e-2
+    set verbosity       = extra verbose
+  end
+
+  subsection phase filtration
+    set type  = tanh
+    set verbosity = verbose
+    set beta = 10
   end
 end
 </pre></div>
@@ -550,6 +564,7 @@ end
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # VOF
 #---------------------------------------------------
+
 subsection VOF
   subsection interface sharpening
     set enable                  = true
@@ -565,11 +580,19 @@ subsection VOF
     set monitoring      = true
     set monitored fluid = fluid 1
     set tolerance       = 1e-2
-    set verbosity       = quiet
+    set verbosity       = extra verbose
+  end
+
+  subsection phase filtration
+    set type  = tanh
+    set verbosity = verbose
+    set beta = 10
   end
 end
 </pre></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code> is enabled in this example. We refer the reader to the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a>
+documentation for more explanation on the phase filtration.</p>
 </section>
 <section id="running-the-simulation">
 <h2><span class="section-number">1.2.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
@@ -585,6 +608,8 @@ run in parallel using mpirun. This simulation takes
 </section>
 <section id="results">
 <h2><span class="section-number">1.2.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>In the following picture, the boundary between the two fluids is compared with (right) and without (left) <code class="docutils literal notranslate"><span class="pre">projection</span> <span class="pre">step</span></code> :</p>
+<a class="reference internal image-reference" href="../../../_images/smoothedInitialCondition.png"><img alt="Schematic" class="align-center" src="../../../_images/smoothedInitialCondition.png" style="width: 800px;"/></a>
 <p>The following animation shows the results of this simulation:</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/hZwbFob_Jj4" width="560"></iframe><p>In the following figure, we compare the simulation results with that of Garoosi and Hooman (2022) <a class="reference internal" href="#id3">[2]</a>.</p>
 <a class="reference internal image-reference" href="../../../_images/comparison.png"><img alt="Schematic" class="align-center" src="../../../_images/comparison.png" style="width: 400px;"/></a>
@@ -592,8 +617,9 @@ run in parallel using mpirun. This simulation takes
 <a class="reference internal image-reference" href="../../../_images/spike_and_bubble_evolution_He_et_al_comparison.png"><img alt="Comparison of the spike and bubble positions with He et al (1999) values." class="align-center" src="../../../_images/spike_and_bubble_evolution_He_et_al_comparison.png" style="width: 800px;"/></a>
 <p>With higher levels of refinement, we can see better correspondence between the values. However, there is still a gap between the spike positions for larger values of <span class="math notranslate nohighlight">\(t^*\)</span>.</p>
 <a class="reference internal image-reference" href="../../../_images/spike_and_bubble_evolution_ref_max_10_ref_min_8.png"><img alt="He et al comparison for a max refinement of 10 and a min refinement of 8. We see a better correspondence in the positions of the spike and the bubble. However, for large values of t*, there is still gap between the positions." class="align-center" src="../../../_images/spike_and_bubble_evolution_ref_max_10_ref_min_8.png" style="width: 800px;"/></a>
-<p>The following figure shows the mass of fluid 1 throughout the simulation with a constant interface sharpening.</p>
-<a class="reference internal image-reference" href="../../../_images/mass-of-fluid1.png"><img alt="Schematic" class="align-center" src="../../../_images/mass-of-fluid1.png" style="width: 400px;"/></a>
+<p>The following figures shows the mass of fluid 1 throughout the simulation with a constant (top) and adaptive (bottom) interface sharpening.</p>
+<a class="reference internal image-reference" href="../../../_images/constant_mass.png"><img alt="Schematic" class="align-center" src="../../../_images/constant_mass.png" style="width: 400px;"/></a>
+<a class="reference internal image-reference" href="../../../_images/adaptive_mass.png"><img alt="Schematic" class="align-center" src="../../../_images/adaptive_mass.png" style="width: 400px;"/></a>
 </section>
 <section id="references">
 <h2><span class="section-number">1.2.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
