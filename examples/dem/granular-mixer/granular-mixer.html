@@ -381,7 +381,7 @@
   set type                = dealii
   set grid type           = subdivided_cylinder
   set grid arguments      = 2 : 0.05 : 0.055
-  set initial refinement  = 2
+  set initial refinement  = 3
 end
 </pre></div>
 </div>
@@ -458,13 +458,13 @@ end
 </section>
 <section id="running-the-simulation">
 <h2><span class="section-number">11.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>This simulation can be launched by (in parallel mode on 16 processes):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 16 dem_3d granular-mixer.prm
+<p>This simulation can be launched by (in parallel mode on 8 processes):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d granular-mixer.prm
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This example takes approximately 30 hours on 16 cores.</p>
+<p>This example takes approximately 2 hours on 8 cores.</p>
 </div>
 </section>
 <section id="results">
