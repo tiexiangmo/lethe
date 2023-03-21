@@ -392,7 +392,7 @@ end
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
   set insertion method                               = non_uniform
   set inserted number of particles at each time step = 20000
-  set insertion frequency                            = 20000
+  set insertion frequency                            = 10000
   set insertion box minimum x                        = -0.37
   set insertion box minimum y                        = -0.042
   set insertion box minimum z                        = 0.9
@@ -436,9 +436,9 @@ end
 <h3><span class="section-number">8.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
   set contact detection method                = dynamic
-  set dynamic contact search size coefficient = 0.8
+  set dynamic contact search size coefficient = 0.9
   set load balance method                     = frequent
-  set load balance frequency                  = 100000
+  set load balance frequency                  = 10000
   set neighborhood threshold                  = 1.3
   set particle particle contact force method  = hertz_mindlin_limit_overlap
   set particle wall contact force method      = nonlinear
@@ -450,8 +450,8 @@ end
 <section id="simulation-control">
 <h3><span class="section-number">8.4.5. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
-  set time step        = 1e-5
-  set time end         = 40
+  set time step        = 2e-5
+  set time end         = 30
   set log frequency    = 1000
   set output frequency = 1000
 end
@@ -463,7 +463,6 @@ end
 <p>In this subsection, we specify the checkpointing parameters. Checkpoints are very useful in long simulations. If the simulation breaks, we can continue the simulation from the last written checkpoint. First, we enable checkpointing by setting the <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> parameter to true. Then, we choose a <code class="docutils literal notranslate"><span class="pre">filename</span></code> for the checkpoint files and specify the checkpointing <code class="docutils literal notranslate"><span class="pre">frequency</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection restart
   set checkpoint = true
-  set filename   = sliding_restart
   set frequency  = 100000
 end
 </pre></div>
@@ -497,13 +496,13 @@ end
 </section>
 <section id="running-the-simulation">
 <h2><span class="section-number">8.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>This simulation can be launched by (in parallel mode on 32 processes):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 32 dem_3d silo-Golshan.prm
+<p>This simulation can be launched in parallel (e.g. using 8 processes) by running:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d silo-Golshan.prm
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This example takes approximately 48 hours on 32 cores. This high computational cost is due to the long simulation time (40 s of real-time) and the high number of particles. The number of particles can be reduced to have a shorter simulation time. For example, the entire simulation could be run in less than an hour on an 8 cores processor if only 13 230 particles are inserted.</p>
+<p>This example takes approximately 14 hours on 8 cores. This high computational time is due to the long simulation time (30 s of real-time).</p>
 </div>
 </section>
 <section id="results">
