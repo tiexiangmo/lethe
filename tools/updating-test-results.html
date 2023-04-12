@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Windows with WSL" href="windows_wsl.html" /><link rel="prev" title="Installation" href="installation.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Introduction on how to use GMSH" href="gmsh/gmsh.html" /><link rel="prev" title="Tools" href="tools.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Regular installation on Linux - Lethe documentation</title>
+        <title>Updating test results - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -156,12 +156,12 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 current has-children"><a class="reference internal" href="installation.html">Installation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Regular installation on Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="windows_wsl.html">Windows with WSL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apple_arm.html">Installation on Apple ARM (M1 or M2)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="digital_alliance.html">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/installation.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/regular_installation.html">Regular installation on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/windows_wsl.html">Windows with WSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/apple_arm.html">Installation on Apple ARM (M1 or M2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/docker.html">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../structure.html">Folder structure of Lethe</a></li>
@@ -318,10 +318,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM coupling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tools/updating-test-results.html">Updating test results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tools/gmsh/gmsh.html">Introduction on how to use GMSH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tools/automatic_launch/automatic_launch.html">How to automatically create and launch Lethe simulations</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="tools.html">Tools</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Updating test results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gmsh/gmsh.html">Introduction on how to use GMSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="automatic_launch/automatic_launch.html">How to automatically create and launch Lethe simulations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
@@ -353,195 +353,45 @@
           </label>
         </div>
         <article role="main">
-          <section id="regular-installation-on-linux">
-<h1>Regular installation on Linux<a class="headerlink" href="#regular-installation-on-linux" title="Permalink to this headline">¶</a></h1>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../_images/linux.png"><img alt="../_images/linux.png" src="../_images/linux.png" style="height: 100px;"/></a>
-</figure>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Distributions compatibility: Ubuntu 18.04 LTS, Ubuntu 20.04 LTS, Ubuntu 22.04 LTS, Centos 7 and Manjaro</p>
-</div>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Dependencies: deal.II library (<a class="reference external" href="https://www.dealii.org/">deal.II website</a>) and its dependencies (MPI, numdiff, p4est, trilinos and METIS)</dt><dd><ul>
-<li><p>Lethe requires a modern version of the deal.II library. At the time of this writing, <code class="docutils literal notranslate"><span class="pre">deal.II</span> <span class="pre">9.4</span></code> and <code class="docutils literal notranslate"><span class="pre">deal.II</span> <span class="pre">10.0pre</span></code> (the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch version) are supported.</p></li>
-<li><p>The compatibility with these two branches is ensured by Continuous Integration (CI) using Github Actions.</p></li>
-<li><p>A <a class="reference external" href="https://github.com/lethe-cfd/dealii">dealii fork</a> is maintained by Lethe team. This fork does not include any modification to deal.II library, but it is the latest version with which Lethe was tested. We work hard to ensure compatibility with the latest deal.II version and we do not modify the library except through pull requests on the official deal.II repository.</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Lethe cannot be installed if deal.II has not been configured with p4est, trilinos and METIS. Although Lethe can be run in serial and parallel mode (through MPI), it uses p4est, METIS and trilinos for mesh decomposition and the linear solvers respectively.</p>
-</div>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Lethe installation steps:</dt><dd><ol class="arabic simple">
-<li><p>Installation of deal.II dependencies (MPI, numdiff, p4est, trilinos and METIS)</p></li>
-<li><p>Installation of the deal.II library</p></li>
-<li><p>Installation of Lethe</p></li>
-</ol>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Methods to install deal.II and its dependencies:</dt><dd><ol class="arabic simple">
-<li><p>through candi shell script (<a class="reference external" href="https://github.com/dealii/candi">candi github page</a>): <strong>this is by far the easiest way to proceed</strong>, since it requires much less manual intervention. Even if you do not want to use candi to install deal.II, you can use it for the dependencies.</p></li>
-<li><p>manually</p></li>
-</ol>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>On a single core computer with 8GB of RAM, count up to 8 hours for a first installation, and 3 hours for a deal.II update. On a machine with 16 cores and 32GB of RAM, this process will take less than an hour or so. The installation of deal.II and its dependencies (especially trilinos), can be extremely RAM consuming. Installation on a machine with less than 8GB of RAM is difficult at best, impossible at worst.</p>
-</div>
-<section id="installing-deal-ii-using-candi-step-1">
-<h2>Installing deal.II using candi (Step #1)<a class="headerlink" href="#installing-deal-ii-using-candi-step-1" title="Permalink to this headline">¶</a></h2>
-<p>To install the dependencies (MPI, p4est, trilinos and METIS) all together using candi, the <a class="reference external" href="https://github.com/dealii/candi.git">procedure</a> on the candi repository can be followed.</p>
-<p>Clone the candi git repository in a folder of your choice  (e.g. <code class="docutils literal notranslate"><span class="pre">/home/username/software</span></code>). You can edit the <code class="docutils literal notranslate"><span class="pre">candi.cfg</span></code> file if you want to alter which dependencies are compiled. This can notably be used to force the installation of the deal.II master version instead of the current stable version by setting the <code class="docutils literal notranslate"><span class="pre">STABLE_BUILD=false</span></code></p>
-<p>From the candi folder, the installation of candi can be launched using:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>./candi.sh -j $num_proc --prefix=$path
+          <section id="updating-test-results">
+<h1>Updating test results<a class="headerlink" href="#updating-test-results" title="Permalink to this headline">¶</a></h1>
+<p>Lethe’s test suite compares individual test results against reference
+results, stored in so-called golden files, which are known, to some
+extent, to be good.
+However, these golden files can turn out to be wrong, or can change
+slightly, either in format or numerical precision.</p>
+<p>Updating the golden files manually is tedious, and so the
+<cite>update-golden</cite> build target exists to automate this process.
+The <cite>update-golden</cite> target launches the
+file:<cite>contrib/utilities/update-golden.tl</cite> script with appropriate
+arguments.</p>
+<p>The file:<cite>contrib/utilities/update-golden.tl</cite> script’s only dependency
+is <a class="reference external" href="https://www.nongnu.org/txr/">TXR</a>.</p>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>TXR can be installed to file:<cite>/usr/local/bin</cite> as follows:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span><span class="s1">'https://www.kylheku.com/cgit/txr/snapshot/txr-285.tar.gz'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xzf<span class="w"> </span>-
+<span class="nb">cd</span><span class="w"> </span>txr-285
+make
+sudo<span class="w"> </span>make<span class="w"> </span>install
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">$num_proc</span></code> is the number of threads you want to use to compile deal.II and <code class="docutils literal notranslate"><span class="pre">$path</span></code> the installation prefix that is desired (e.g. <code class="docutils literal notranslate"><span class="pre">/home/username/software/candi</span></code>).</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>For a computer with 8Gb of RAM, 1 thread (<code class="docutils literal notranslate"><span class="pre">num_proc=1</span></code>) should be used. For 16 Gb, 4 threads is reasonable. For 32 Gb, 16 threads or more can be used.</p>
-</div>
-<p>After installation, you should have a <code class="docutils literal notranslate"><span class="pre">deal.II-candi</span></code> folder in the installation prefix directory, with the dealii folder of the desired version (see section <a class="reference internal" href="#update-dealii"><span class="std std-ref">Updating deal.II</span></a>), as well as the required dependencies (p4est, trilinos, etc.).</p>
-<p>After installation, add an environment variable to your <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> either manually or through the following command:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=/home/username/deal.ii-candi/deal.II-&lt;version&gt;" &gt;&gt; ~/.bashrc
+<p>If Lethe’s build was configured before TXR was installed, then the
+<cite>update-golden</cite> target will not exist.
+In this situation, the build has to be reconfigured, for example with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-S.<span class="w"> </span>-Bbuild
 </pre></div>
 </div>
+<p>assuming the current directory is Lethe’s root directory, and the build
+directory file:<cite>build</cite>.</p>
 </section>
-<section id="installing-deal-ii-manually-step-1">
-<h2>Installing deal.II manually (Step #1)<a class="headerlink" href="#installing-deal-ii-manually-step-1" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have installed deal.II through candi, you can skip right away to <a class="reference internal" href="#install-lethe"><span class="std std-ref">Installing lethe (Step #2)</span></a></p>
-</div>
-<p>We first need to install the deal.II dependencies.</p>
-<section id="mpi">
-<h3>MPI<a class="headerlink" href="#mpi" title="Permalink to this headline">¶</a></h3>
-<p>MPI, for Message Passing Interface, is required for the installation of all components of Lethe. Therefore it should be the first thing you install. On Debian Linux-based OS, MPI can be installed directly from your package manager.</p>
-<p>As an example, in Ubuntu:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libopenmpi-dev openmpi-bin openmpi-common
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Assuming the build directory is file:<cite>build</cite>, the following command
+updates the golden files:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>update-golden
 </pre></div>
 </div>
-<p>In Manjaro or other arch based linux distribution:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pacman -Sy openmpi
-</pre></div>
-</div>
-</section>
-<section id="numdiff">
-<h3>numdiff<a class="headerlink" href="#numdiff" title="Permalink to this headline">¶</a></h3>
-<p>numdiff is used within the automatic testing procedure of Lethe to compare files obtained through floating point arithmetic. Without numdiff, Lethe automatic tests may fail when they should not. numdiff can be installed directly from your package manager.</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install numdiff
-</pre></div>
-</div>
-<p>Regrettably, numdiff is not available in the pacman package manager. It can be downloaded from the following <a class="reference external" href="http://www.nongnu.org/numdiff/">website</a>. If you are using an arch distribution, we assume that you will already know how to carry on with the installation of numdiff.</p>
-</section>
-<section id="p4est">
-<h3>P4est<a class="headerlink" href="#p4est" title="Permalink to this headline">¶</a></h3>
-<p>To install p4est, the usual <a class="reference external" href="https://www.dealii.org/current/external-libs/p4est.html">installation</a> of deal.II can be followed.</p>
-</section>
-<section id="trilinos">
-<h3>Trilinos<a class="headerlink" href="#trilinos" title="Permalink to this headline">¶</a></h3>
-<p>The installation of trilinos should be done using the <a class="reference external" href="https://www.dealii.org/current/external-libs/trilinos.html">installation procedure</a> of deal.II.</p>
-</section>
-<section id="metis">
-<h3>METIS<a class="headerlink" href="#metis" title="Permalink to this headline">¶</a></h3>
-<p>METIS is used for mesh partitioning for parallel computing purposes, specifically in cases with simplex grids. It can be downloaded in this <a class="reference external" href="http://glaros.dtc.umn.edu/gkhome/metis/metis/download">link</a> or through candi.</p>
-</section>
-<section id="installation-of-deal-ii">
-<h3>Installation of deal.II<a class="headerlink" href="#installation-of-deal-ii" title="Permalink to this headline">¶</a></h3>
-<p>Clone deal.II from the <a class="reference external" href="https://github.com/dealii/dealii">deal.ii official repository</a></p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/dealii/dealii
-</pre></div>
-</div>
-<p>Configure deal.II in a build folder at the same level as the source code</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir build
-cd build
-</pre></div>
-</div>
-<p>Depending on how you have installed p4est, Trilinos and METIS, you may need to specify the installation folder of the three libraries</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../dealii -DDEAL_II_WITH_MPI=ON -DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=path/to/your/trilinos/installation -DDEAL_II_WITH_P4EST=ON -DP4EST_DIR=path/to/your/p4est/installation  -DDEAL_II_WITH_METIS=ON -DMETIS_DIR=path/to/your/metis/installation -DCMAKE_INSTALL_PREFIX=/path/to/desired/installation`
-</pre></div>
-</div>
-<p>Compile deal.II</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>make -j&lt;nprocessor&gt; install
-</pre></div>
-</div>
-<p>Create an environment variable for the deal.II directory</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>export DEAL_II_DIR=/path/to/dealii/installation
-</pre></div>
-</div>
-<p>It is generally recommended to add the variable to your bashrc so it is always loaded:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>echo "export DEAL_II_DIR=/path/to/dealii/installation" &gt;&gt; ~/.bashrc
-</pre></div>
-</div>
-</section>
-</section>
-<section id="installing-lethe-step-2">
-<span id="install-lethe"></span><h2>Installing lethe (Step #2)<a class="headerlink" href="#installing-lethe-step-2" title="Permalink to this headline">¶</a></h2>
-<p>Clone lethe from the <a class="reference external" href="https://github.com/lethe-cfd/lethe">Lethe official repository</a>.</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lethe-cfd/lethe
-</pre></div>
-</div>
-<p>Create a build folder at the same level as the lethe folder</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mkdir build
-cd build
-</pre></div>
-</div>
-<p>Build Lethe choosing the compilation option (Debug or Release). You can also optionally specify a path to an installation directory of your choice. We recommend that you do so, since this makes using Lethe much more comfortable.</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/home/username/path/to/installation
-</pre></div>
-</div>
-<p>or</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>cmake ../lethe -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/username/path/to/installation
-</pre></div>
-</div>
-<p>Then you can compile:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>make -j&lt;numprocs&gt;
-</pre></div>
-</div>
-</section>
-<section id="testing-your-installation-step-3">
-<h2>Testing your installation (Step #3)<a class="headerlink" href="#testing-your-installation-step-3" title="Permalink to this headline">¶</a></h2>
-<p>Lethe comes pre-packaged with an extensive test suit for all of its modules. It can be used to test the validity of your installation. Within the build folder, the test suite can be launched with the following command:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>ctest -j $numprocs
-</pre></div>
-</div>
-<p>where $numprocs can be the number of physical cores on your machine.</p>
-</section>
-<section id="updating-deal-ii">
-<span id="update-dealii"></span><h2>Updating deal.II<a class="headerlink" href="#updating-deal-ii" title="Permalink to this headline">¶</a></h2>
-<section id="through-the-git-repository">
-<h3>Through the git repository<a class="headerlink" href="#through-the-git-repository" title="Permalink to this headline">¶</a></h3>
-<p>The deal.II version supported by Lethe is updated and tested every week or so, see the repository <a class="reference external" href="https://github.com/lethe-cfd/dealii">here</a>. If Lethe was installed with this forked version of deal.II, updating your deal.II installation is as simple as pulling the repository and recompiling the deal.II library. If your deal.II was installed manually using the deal.II master repository, the same process can be used.</p>
-</section>
-<section id="with-candi">
-<h3>With candi<a class="headerlink" href="#with-candi" title="Permalink to this headline">¶</a></h3>
-<p>In the candi folder (for instance, <code class="docutils literal notranslate"><span class="pre">/home/username/software/candi</span></code>), modify the <code class="docutils literal notranslate"><span class="pre">candi.cfg</span></code> to get the latest dealii version, by changing the <code class="docutils literal notranslate"><span class="pre">DEAL_II_VERSION</span></code> variable in the case of an official release, or by changing the <code class="docutils literal notranslate"><span class="pre">STABLE_BUILD</span></code> in the case of a development release. The <code class="docutils literal notranslate"><span class="pre">candi.cfg</span></code> should contain:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span># Install the following deal.II version:
-DEAL_II_VERSION=v9.3.0
-
-# Would you like to build stable version of deal.II?
-# If STABLE_BUILD=false, then the development version of deal.II will be
-# installed.
-STABLE_BUILD=true
-#STABLE_BUILD=false
-</pre></div>
-</div>
-<p>Run the command <code class="docutils literal notranslate"><span class="pre">./candi.sh</span></code> to install the new version of dealii.</p>
-<p>In your <code class="docutils literal notranslate"><span class="pre">/home/deal.ii-candi</span></code> folder, you should have a new folder with the dealii updated version (specified in <code class="docutils literal notranslate"><span class="pre">DEAL_II_VERSION</span></code>, or <code class="docutils literal notranslate"><span class="pre">deal.II-master</span></code> in the case of development version)</p>
-<p>You might need to delete the build folder of Lethe and redo the installation process from scratch, but this is rarely the case.</p>
-</section>
 </section>
 </section>
 
@@ -550,23 +400,23 @@ STABLE_BUILD=true
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="windows_wsl.html">
+          <a class="next-page" href="gmsh/gmsh.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Windows with WSL</div>
+                <div class="title">Introduction on how to use GMSH</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="installation.html">
+          <a class="prev-page" href="tools.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Installation</div>
+                <div class="title">Tools</div>
                 
               </div>
             </a>
@@ -576,7 +426,7 @@ STABLE_BUILD=true
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../_sources/installation/regular_installation.rst.txt"
+            | <a class="muted-link" href="../_sources/tools/updating-test-results.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -596,24 +446,9 @@ STABLE_BUILD=true
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Regular installation on Linux</a><ul>
-<li><a class="reference internal" href="#installing-deal-ii-using-candi-step-1">Installing deal.II using candi (Step #1)</a></li>
-<li><a class="reference internal" href="#installing-deal-ii-manually-step-1">Installing deal.II manually (Step #1)</a><ul>
-<li><a class="reference internal" href="#mpi">MPI</a></li>
-<li><a class="reference internal" href="#numdiff">numdiff</a></li>
-<li><a class="reference internal" href="#p4est">P4est</a></li>
-<li><a class="reference internal" href="#trilinos">Trilinos</a></li>
-<li><a class="reference internal" href="#metis">METIS</a></li>
-<li><a class="reference internal" href="#installation-of-deal-ii">Installation of deal.II</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#installing-lethe-step-2">Installing lethe (Step #2)</a></li>
-<li><a class="reference internal" href="#testing-your-installation-step-3">Testing your installation (Step #3)</a></li>
-<li><a class="reference internal" href="#updating-deal-ii">Updating deal.II</a><ul>
-<li><a class="reference internal" href="#through-the-git-repository">Through the git repository</a></li>
-<li><a class="reference internal" href="#with-candi">With candi</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Updating test results</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
 </ul>
 </li>
 </ul>
