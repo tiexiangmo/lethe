@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="1.4. 3D Dam Break With an Obstacle" href="../3d-dam-break/3d-dam-break.html" /><link rel="prev" title="1.2. Rayleigh-Taylor instability" href="../rayleigh-taylor-instability/rayleigh-taylor-instability.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="1.5. 3D Dam Break With an Obstacle" href="../3d-dam-break/3d-dam-break.html" /><link rel="prev" title="1.3. Static bubble" href="../static-bubble/static-bubble.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>1.3. Rising bubble - Lethe documentation</title>
+        <title>1.4. Rising bubble - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -243,8 +243,9 @@
 <li class="toctree-l3 current has-children"><a class="reference internal" href="../vof.html">1. VOF</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../dam-break/dam-break.html">1.1. Dam-break</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../rayleigh-taylor-instability/rayleigh-taylor-instability.html">1.2. Rayleigh-Taylor instability</a></li>
-<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">1.3. Rising bubble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../3d-dam-break/3d-dam-break.html">1.4. 3D Dam Break With an Obstacle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../static-bubble/static-bubble.html">1.3. Static bubble</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">1.4. Rising bubble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../3d-dam-break/3d-dam-break.html">1.5. 3D Dam Break With an Obstacle</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../heat-transfer.html">2. Heat transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -354,10 +355,10 @@
         </div>
         <article role="main">
           <section id="rising-bubble">
-<h1><span class="section-number">1.3. </span>Rising bubble<a class="headerlink" href="#rising-bubble" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.4. </span>Rising bubble<a class="headerlink" href="#rising-bubble" title="Permalink to this headline">¶</a></h1>
 <p>This example simulates a <a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/fld.2643">two-dimensional rising bubble</a>.</p>
 <section id="features">
-<h2><span class="section-number">1.3.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
 <li><p>Two phase flow handled by the Volume of fluids (VOF) approach with phase filtering, phase sharpening, and surface tension force</p></li>
@@ -367,14 +368,14 @@
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">1.3.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rising-bubble/rising_bubble.prm</span></code></p></li>
 <li><p>Python file to generate plot: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rising-bubble/rising_bubble.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">1.3.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>A circular bubble with density of 100 and kinematic viscosity of 0.01 (all the units in this example are dimensionless) is defined at an initial location (0.5, 0.5) in a rectangular column filled with a denser fluid (with a density of 1000 and kinematic viscosity of 0.01). At <span class="math notranslate nohighlight">\(t = 0\)</span> the bubble is released to rise inside the denser fluid column. The corresponding parameter file is
 <code class="docutils literal notranslate"><span class="pre">rising-bubble.prm</span></code>.</p>
 <p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
@@ -386,7 +387,7 @@ gravity field of <span class="math notranslate nohighlight">\(-0.98\)</span> is 
 </div>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">1.3.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Time integration is handled by a 1st order backward differentiation scheme <cite>(bdf1)</cite>, for a <span class="math notranslate nohighlight">\(3~\text{s}\)</span> simulation time with an initial time step of <span class="math notranslate nohighlight">\(0.001~\text{s}\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -431,37 +432,9 @@ end
 </pre></div>
 </div>
 <section id="volume-of-fluid-vof">
-<h3><span class="section-number">1.3.4.1. </span>Volume of Fluid (VOF)<a class="headerlink" href="#volume-of-fluid-vof" title="Permalink to this headline">¶</a></h3>
-<p>In Lethe, the surface tension force (<span class="math notranslate nohighlight">\({\bf{F_{\sigma}}}\)</span>) is calculated using the continuous surface force (CSF) [1, 2]:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[{\bf{F_{\sigma}}} = \sigma k \nabla {\phi}\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(\nabla {\phi}\)</span> denote respectively the surface tension coefficient, the filtered curvature and the phase fraction gradient. <span class="math notranslate nohighlight">\(\rho\)</span>, <span class="math notranslate nohighlight">\(\rho_1\)</span>, and <span class="math notranslate nohighlight">\(\rho_2\)</span> are the density of the flow, the density of phase 0, and the density of phase 1, respectively.</p>
-<p>The curvature <span class="math notranslate nohighlight">\(k\)</span> is computed according to:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[k = - \nabla \cdot \bf{n}\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\bf{n}\)</span> is the unit normal vector of the free surface. The latter is obtained with:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\bf{n} = \frac{\nabla \phi}{|\phi|}\]</div></div>
-<p>When including the surface tension force in the resolution of the Navier-Stokes equations, the numerical computation of the curvature can give rise to parasitic flows near the interface between the two fluids. To avoid such spurious currents, the phase fraction gradient and curvature are filtered using L2-projections.
-The following equations calculate the filtered phase fraction gradient and filtered curvature, respectively.</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\int_\Omega \left( {\bf{v}} \cdot {\bf{\psi}} + \eta_n \nabla {\bf{v}} \cdot \nabla {\bf{\psi}} \right) d\Omega = \int_\Omega \left( {\bf{v}} \cdot \nabla {\phi} \right) d\Omega\]</div></div>
-<p>where <span class="math notranslate nohighlight">\({\bf{v}}\)</span> is a vector test function, <span class="math notranslate nohighlight">\(\bf{\psi}\)</span> is the filtered phase fraction gradient, <span class="math notranslate nohighlight">\(\eta_n = \alpha h^2\)</span> is the phase fraction gradient filter value with <span class="math notranslate nohighlight">\(h\)</span> denoting the cell size, and <span class="math notranslate nohighlight">\(\phi\)</span> is the phase fraction.</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\int_\Omega \left( v k + \eta_k \nabla v \cdot \nabla k \right) d\Omega = \int_\Omega \left( \nabla v \cdot \frac{\bf{\psi}}{|\bf{\psi}|} \right) d\Omega\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(k\)</span> is the filtered curvature, and <span class="math notranslate nohighlight">\(\eta_k = \beta h^2\)</span> is the curvature filter value, and <span class="math notranslate nohighlight">\(v\)</span> is a test function.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The phase fraction gradient filter value (<span class="math notranslate nohighlight">\(\eta_n = \alpha h^2\)</span>) and curvature filter value (<span class="math notranslate nohighlight">\(\eta_k = \beta h^2\)</span>) must be small values larger than 0. The values of <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are controlled respectively by the parameters <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">fraction</span> <span class="pre">gradient</span> <span class="pre">filter</span> <span class="pre">factor</span></code> and <code class="docutils literal notranslate"><span class="pre">curvature</span> <span class="pre">filter</span> <span class="pre">factor</span></code>  in the parameter file.
-We recommend the following procedure to choose a proper value for these parameters:</p>
-<ol class="arabic simple">
-<li><p>Enable <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span></code> to write filtered phase fraction gradient and filtered curvature fields.</p></li>
-<li><p>Choose a value close to 1, for example, the default values  <span class="math notranslate nohighlight">\(\alpha = 4\)</span> and <span class="math notranslate nohighlight">\(\beta = 1\)</span>.</p></li>
-<li><p>Run the simulation and check whether the filtered phase fraction gradient and filtered curvature fields are smooth and without oscillation.</p></li>
-<li><p>If the filtered phase fraction gradient and filtered curvature fields show oscillations, increase the value <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> to larger values, and repeat this process until reaching smooth filtered phase fraction gradient and filtered curvature fields without oscillations. Generally, the default values should be sufficient.</p></li>
-</ol>
-</div>
-<p>The interface sharpening method and its parameters are explained in the <a class="reference internal" href="../dam-break/dam-break.html"><span class="doc">Dam-break</span></a> example. We also enable phase filtration. This filters the phase field used for the calculation of physical properties by stiffening the value of the phase fraction. We refer the reader to the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a> documentation for more explanation on the phase filtration.</p>
+<h3><span class="section-number">1.4.4.1. </span>Volume of Fluid (VOF)<a class="headerlink" href="#volume-of-fluid-vof" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection, three features are enabled : the <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, the <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code> and the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code>.</p>
+<p>The interface sharpening method and its parameters are explained in the <a class="reference internal" href="../dam-break/dam-break.html"><span class="doc">Dam-break</span></a> example. The phase filtration filters the phase field used for the calculation of physical properties by stiffening the value of the phase fraction. We refer the reader to the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a> documentation for more explanation on the phase filtration. Finally, the surface tension force computation is explained in the <a class="reference internal" href="../static-bubble/static-bubble.html"><span class="doc">Static bubble</span></a> example.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # VOF
 #---------------------------------------------------
@@ -491,11 +464,11 @@ end
 </div>
 </section>
 <section id="initial-condition">
-<h3><span class="section-number">1.3.4.2. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.4.2. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial position
 of the liquid phase are defined. The light phase is initially
 defined as a circle with a radius <span class="math notranslate nohighlight">\(r= 0.25\)</span> at <span class="math notranslate nohighlight">\((x,y)=(0.5, 0.5)\)</span>. We enable the use of a projection step to ensure that the initial phase distribution
-sufficiently smooth.</p>
+sufficiently smooth, as explained in the <a class="reference internal" href="../static-bubble/static-bubble.html"><span class="doc">Static bubble</span></a> example.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Initial condition
 #---------------------------------------------------
@@ -517,7 +490,7 @@ end
 </div>
 </section>
 <section id="physical-properties">
-<h3><span class="section-number">1.3.4.3. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.4.3. </span>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>We define two fluids here simply by setting the number of fluids to be <span class="math notranslate nohighlight">\(2\)</span>.
 In <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code>, we set the density and the kinematic viscosity for the phase associated with a VOF indicator of 0.
 A similar procedure is done for the phase associated with a VOF indicator of 1 in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>:</p>
@@ -539,7 +512,7 @@ end
 </div>
 </section>
 <section id="mesh">
-<h3><span class="section-number">1.3.4.4. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.4.4. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>We start off with a rectangular mesh that spans the domain defined by the corner points situated at the origin and at point
 <span class="math notranslate nohighlight">\([1,2]\)</span>. The first <span class="math notranslate nohighlight">\(1,2\)</span> couple defines that number of initial grid subdivisions along the length and height of the rectangle.
 This makes our initial mesh composed of perfect squares. We proceed then to redefine the mesh globally six times by setting
@@ -576,7 +549,7 @@ end
 </div>
 </section>
 <section id="post-processing-fluid-barycenter-position-and-velocity">
-<h3><span class="section-number">1.3.4.5. </span>Post-processing: Fluid barycenter position and velocity<a class="headerlink" href="#post-processing-fluid-barycenter-position-and-velocity" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.4.5. </span>Post-processing: Fluid barycenter position and velocity<a class="headerlink" href="#post-processing-fluid-barycenter-position-and-velocity" title="Permalink to this headline">¶</a></h3>
 <p>To compare our simulation results to the literature, we extract the position and the velocity of the barycenter of the bubble. This generates a <code class="docutils literal notranslate"><span class="pre">vof_barycenter_information.dat</span></code> file which contains the position and the velocity of the barycenter of the bubble.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Post-processing
@@ -591,7 +564,7 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">1.3.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Call the gls_navier_stokes_2d by invoking:</p>
 <p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">rising-bubble.prm</span></code></p>
 <p>to run the simulation using eight CPU cores. Feel free to use more.</p>
@@ -603,7 +576,7 @@ run in parallel using mpirun. This simulation takes
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">1.3.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following image shows the shape and dimensions of the bubble after 3 seconds of simulation, and compares it with results of [<a class="reference external" href="https://doi.org/10.1002/fld.2643">2</a>, <a class="reference external" href="https://doi.org/10.1002/fld.1934">3</a> ].</p>
 <a class="reference internal image-reference" href="../../../_images/bubble.png"><img alt="bubble" class="align-center" src="../../../_images/bubble.png" style="width: 400px;"/></a>
 <p>A python post-processing code <cite>(rising-bubble.py)</cite> is added to the example folder to post-process the data files generated by the barycenter post-processing.
@@ -614,7 +587,7 @@ contains the simulation results. The results for the barycenter position and vel
 <p>Animation of the rising bubble example:</p>
 <iframe allowfullscreen="" frameborder="0" height="450" src="https://www.youtube.com/embed/o73WJ36-2zo" width="800"></iframe></section>
 <section id="references">
-<h2><span class="section-number">1.3.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://doi.org/10.1016/0021-9991(92)90240-Y">[1]</a> Brackbill, J.U., Kothe, D.B. and Zemach, C., 1992. A continuum method for modeling surface tension. Journal of computational physics, 100(2), pp.335-354.</p>
 <p><a class="reference external" href="https://doi.org/10.1002/fld.2643">[2]</a> Zahedi, S., Kronbichler, M. and Kreiss, G., 2012. Spurious currents in finite element based level set methods for two‐phase flow. International Journal for Numerical Methods in Fluids, 69(9), pp.1433-1456.</p>
 <p><a class="reference external" href="https://doi.org/10.1002/fld.1934">[3]</a> Hysing, S., Turek, S., Kuzmin, D., Parolini, N., Burman, E., Ganesan, S., &amp; Tobiska, L. (2009). Quantitative benchmark computations of two‐dimensional bubble dynamics. International Journal for Numerical Methods in Fluids, 60(11), 1259-1288.</p>
@@ -631,18 +604,18 @@ contains the simulation results. The results for the barycenter position and vel
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">1.4. </span>3D Dam Break With an Obstacle</div>
+                <div class="title"><span class="section-number">1.5. </span>3D Dam Break With an Obstacle</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../rayleigh-taylor-instability/rayleigh-taylor-instability.html">
+          <a class="prev-page" href="../static-bubble/static-bubble.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">1.2. </span>Rayleigh-Taylor instability</div>
+                <div class="title"><span class="section-number">1.3. </span>Static bubble</div>
                 
               </div>
             </a>
@@ -672,21 +645,21 @@ contains the simulation results. The results for the barycenter position and vel
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">1.3. Rising bubble</a><ul>
-<li><a class="reference internal" href="#features">1.3.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">1.3.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">1.3.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">1.3.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#volume-of-fluid-vof">1.3.4.1. Volume of Fluid (VOF)</a></li>
-<li><a class="reference internal" href="#initial-condition">1.3.4.2. Initial condition</a></li>
-<li><a class="reference internal" href="#physical-properties">1.3.4.3. Physical Properties</a></li>
-<li><a class="reference internal" href="#mesh">1.3.4.4. Mesh</a></li>
-<li><a class="reference internal" href="#post-processing-fluid-barycenter-position-and-velocity">1.3.4.5. Post-processing: Fluid barycenter position and velocity</a></li>
+<li><a class="reference internal" href="#">1.4. Rising bubble</a><ul>
+<li><a class="reference internal" href="#features">1.4.1. Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">1.4.2. Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">1.4.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">1.4.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#volume-of-fluid-vof">1.4.4.1. Volume of Fluid (VOF)</a></li>
+<li><a class="reference internal" href="#initial-condition">1.4.4.2. Initial condition</a></li>
+<li><a class="reference internal" href="#physical-properties">1.4.4.3. Physical Properties</a></li>
+<li><a class="reference internal" href="#mesh">1.4.4.4. Mesh</a></li>
+<li><a class="reference internal" href="#post-processing-fluid-barycenter-position-and-velocity">1.4.4.5. Post-processing: Fluid barycenter position and velocity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">1.3.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">1.3.6. Results</a></li>
-<li><a class="reference internal" href="#references">1.3.7. References</a></li>
+<li><a class="reference internal" href="#running-the-simulation">1.4.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">1.4.6. Results</a></li>
+<li><a class="reference internal" href="#references">1.4.7. References</a></li>
 </ul>
 </li>
 </ul>
