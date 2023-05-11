@@ -362,6 +362,9 @@
   set use default stabilization = true
 
   set stabilization             = pspg_supg     # &lt;pspg_supg|gls|grad_div&gt;.
+
+  # Pressure scaling factor
+  set pressure scaling factor   = 1
 end
 </pre></div>
 </div>
@@ -372,6 +375,7 @@ end
 <li><p><code class="docutils literal notranslate"><span class="pre">stabilization=gls</span></code> assembles a full GLS stabilization for the Navier-Stokes equations. This stabilization is similar to the <code class="docutils literal notranslate"><span class="pre">pspg-supg</span></code>, but adds the term <span class="math notranslate nohighlight">\(\nu \nabla^2 \mathbf{v}\)</span> to the test function. This stabilization should only be used with the monolithic GLS solver.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stabilization=grad_div</span></code> assembles a grad-div penalization term in the momentum equation to ensure mass conservation. This is not a stabilization method per-say and should not be used with elements that are not LBB stable. This stabilization should only be used with the grad-div Navier-Stokes solver (<code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_2d</span></code> and <code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_3d</span></code>)</p></li>
 </ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">scaling</span> <span class="pre">factor</span></code> parameter is used as a multiplier for the pressure in the momentum equation; the inverse of the factor is applied to the pressure after solving. It helps the convergence of the linear solver  by decreasing the condition number for cases where pressure and velocity have very different scales.</p>
 </section>
 
         </article>
