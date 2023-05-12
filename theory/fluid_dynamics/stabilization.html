@@ -392,7 +392,7 @@
 </section>
 <section id="galerkin-least-squares-formulation">
 <h2>Galerkin Least-Squares formulation<a class="headerlink" href="#galerkin-least-squares-formulation" title="Permalink to this headline">¶</a></h2>
-<p>The GLS formulation is built as a generalization of the stabilization procedure in the SUPG/PSPG formulation. It is based on a Least-Squares term based on the momentum equation. It includes both the SUPG and PSPG terms as well as an additional term that can be seen in the weak form:</p>
+<p>The GLS formulation is built as a generalization of the stabilization procedure in the SUPG/PSPG formulation. It consists of both the SUPG and PSPG terms as well as two additional terms: a term based on a Least-Squares term based on the momentum equation and a term based on a Least-Squares term based on the incompressibility constraint. All terms can be seen in the following weak form:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\begin{split}&amp;\int_{\Omega}  q  \partial_l u_l \mathrm{d}\Omega + \sum_{k} \int_{\Omega_k} \left( \partial_t u_k + u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) \cdot \left(\tau_{PSPG} \partial_l q \right) \mathrm{d}\Omega_k  = 0
 \\
@@ -400,8 +400,13 @@
 \\
 &amp; + \sum_{k} \int_{\Omega_k} \left( \partial_t u_k + u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) \cdot \left(\tau_{SUPG} u_k \partial_l v_k \right) \mathrm{d}\Omega_k
 \\
-&amp; + \sum_{k} \int_{\Omega_k} \left( \partial_t u_k + u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) \cdot \left(\tau_{GLS} \nu \partial_l \partial_l v_k \right) \mathrm{d}\Omega_k  =0\end{split}\]</div></div>
-<p>This is the version of the GLS stabilization if the finite element method is only used for the spatial discretization and no time-space finite element formulation is used as is the case in Lethe. The stabilization parameters are taken to be the same in all cases and given by the same <span class="math notranslate nohighlight">\(\tau\)</span> expressions presented in the SUPG/PSPG section. The non-linear problem is solved in the same fashion and the structure of the Jacobian is the same one as that of the SUPG/PSPG formulation.</p>
+&amp; + \sum_{k} \int_{\Omega_k} \left( \partial_t u_k + u_l \partial_l u_k + \partial_k p - \nu \partial_l \partial_l u_k - f_k \right) \cdot \left(\tau_{GLS} \nu \partial_l \partial_l v_k \right) \mathrm{d}\Omega_k
+\\
+&amp; + \sum_{k} \int_{\Omega_k} \tau_{LSIC} (\partial_l v_l) (\partial_l u_l) \mathrm{d}\Omega_k = 0\end{split}\]</div></div>
+<p>This is the version of the GLS stabilization if the finite element method is only used for the spatial discretization and no time-space finite element formulation is used as is the case in Lethe. The stabilization parameters are taken to be the same for the SUPG, PSPG and GLS terms, and given by the same <span class="math notranslate nohighlight">\(\tau\)</span> expressions presented in the SUPG/PSPG section. In the case of the LSIC term, the stabilization parameter is defined as:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[\tau_{LSIC} = \frac{|\mathrm{u}| h}{2}\]</div></div>
+<p>The non-linear problem is solved in the same fashion and the structure of the Jacobian is the same one as that of the SUPG/PSPG formulation.</p>
 </section>
 </section>
 
