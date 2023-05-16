@@ -367,6 +367,10 @@
 <h3>Title<a class="headerlink" href="#title" title="Permalink to this headline">¶</a></h3>
 <p>Each pull request should only either fix an issue, add a single feature or restructure the code for one aspect, plus a test, if needed, to certify it. If there are many aspects to change, it is better to create multiples branches and create multiple pull requests. The title should start with an action verb and only contain one idea.</p>
 </section>
+<section id="format">
+<h3>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<p>Lethe uses clang-format to have a uniform indentation across all source files. You should always run the indentation script in the contrib folder before creating a PR: <code class="docutils literal notranslate"><span class="pre">contrib/utilities/indent-all</span></code>. If there are compatibility issues, you can run before that script either <code class="docutils literal notranslate"><span class="pre">./contrib/utilities/download_clang_format</span></code> or  <code class="docutils literal notranslate"><span class="pre">./contrib/utilities/compile_clang_format</span></code>. For parameter files, there is a specific script that can be run as follows:  <code class="docutils literal notranslate"><span class="pre">prmindent</span> <span class="pre">-i</span> <span class="pre">name_of_file.prm</span></code>.</p>
+</section>
 <section id="review-process">
 <h3>Review process<a class="headerlink" href="#review-process" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -588,6 +592,7 @@ make<span class="w"> </span>html
 <li><a class="reference internal" href="#">Contributing</a><ul>
 <li><a class="reference internal" href="#pull-requests">Pull requests</a><ul>
 <li><a class="reference internal" href="#title">Title</a></li>
+<li><a class="reference internal" href="#format">Format</a></li>
 <li><a class="reference internal" href="#review-process">Review process</a></li>
 <li><a class="reference internal" href="#review-responsibility">Review responsibility</a></li>
 </ul>
