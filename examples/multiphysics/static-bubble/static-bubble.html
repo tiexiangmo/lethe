@@ -380,7 +380,7 @@
 <a class="reference internal image-reference" href="../../../_images/static-bubble.png"><img alt="Schematic" class="align-center" src="../../../_images/static-bubble.png" style="width: 400px;"/></a>
 <section id="surface-tension-force">
 <span id="id1"></span><h3><span class="section-number">1.3.3.1. </span>Surface tension force<a class="headerlink" href="#surface-tension-force" title="Permalink to this headline">¶</a></h3>
-<p>As its name suggests, the surface tension <span class="math notranslate nohighlight">\(\bf{f_{\sigma}}\)</span> is a surface force. It is applied at the interface between two immisible fluids and is given by :</p>
+<p>As its name suggests, the surface tension <span class="math notranslate nohighlight">\(\bf{f_{\sigma}}\)</span> is a surface force. It is applied at the interface between two immiscible fluids and is given by:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[{\bf{f_{\sigma}}} = \sigma \kappa {\bf{n}}\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the surface tension coefficient, <span class="math notranslate nohighlight">\(\kappa\)</span> is the curvature and <span class="math notranslate nohighlight">\(\bf{n}\)</span> is the unit normal vector of the free surface. Here, <span class="math notranslate nohighlight">\({\bf{f_{\sigma}}}\)</span> is a force per unit of area. To account for its effect in the Navier-Stokes equations, the surface force is transformed in a volumetric surface force <span class="math notranslate nohighlight">\(\bf{F_{\sigma}}\)</span> using the continuous surface force (CSF) model [<a class="reference external" href="https://doi.org/10.1016/0021-9991(92)90240-Y">1</a>], that is:</p>
@@ -394,7 +394,7 @@
 \[\kappa = - \nabla \cdot \bf{n}\]</div></div>
 <p>and the unit normal vector of the free surface is obtained with:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\bf{n} = \frac{\nabla \phi}{|\phi|}\]</div></div>
+\[\bf{n} = \frac{\nabla \phi}{|\nabla \phi|}\]</div></div>
 <p>When including the surface tension force in the resolution of the Navier-Stokes equations, the numerical computation of the curvature can give rise to parasitic flows near the interface between the two fluids. To avoid such spurious currents, the phase fraction gradient and curvature are filtered using projection steps, as presented in section <a class="reference internal" href="#normal-and-curvature-computations"><span class="std std-ref">Normal and curvature computations</span></a>.</p>
 <p>The static bubble case is a relevant case to study the spurious currents, since the analytical solution is zero for the velocity. Therefore, non-zero velocities in the computed velocity field are considered as spurious currents [<a class="reference external" href="https://doi.org/10.1002/fld.2643">2</a>]. The analytical pressure drop between the interior (<span class="math notranslate nohighlight">\(p_{int}\)</span>) and exterior (<span class="math notranslate nohighlight">\(p_{ext}\)</span>) of the bubble is given by the Young-Laplace relation:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
@@ -462,7 +462,7 @@ end
 <section id="initial-conditions">
 <h3><span class="section-number">1.3.4.2. </span>Initial conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code> subsection, the initial velocity and initial position of the droplet are defined. The droplet is initially
-defined as a circle with a radius <span class="math notranslate nohighlight">\(R= 0.5\)</span> in the center of the defined computational domain at <span class="math notranslate nohighlight">\((x,y)=(0.0, 0.0)\)</span>. We enable the use of a projection step with diffusion in the subsection <code class="docutils literal notranslate"><span class="pre">projection</span> <span class="pre">step</span></code> to ensure that the initial phase distribution is sufficiently smooth and avoid a staircase respresentation of the interface. This projection step is implemented in the same way as described in section <a class="reference internal" href="#normal-and-curvature-computations"><span class="std std-ref">Normal and curvature computations</span></a>. We refer to the parameter guide <a class="reference internal" href="../../../parameters/cfd/initial_conditions.html"><span class="doc">Initial Conditions</span></a> for more details.</p>
+defined as a circle with a radius <span class="math notranslate nohighlight">\(R= 0.5\)</span> in the center of the defined computational domain at <span class="math notranslate nohighlight">\((x,y)=(0.0, 0.0)\)</span>. We enable the use of a projection step with diffusion in the subsection <code class="docutils literal notranslate"><span class="pre">projection</span> <span class="pre">step</span></code> to ensure that the initial phase distribution is sufficiently smooth and avoid a staircase representation of the interface. This projection step is implemented in the same way as described in section <a class="reference internal" href="#normal-and-curvature-computations"><span class="std std-ref">Normal and curvature computations</span></a>. We refer to the parameter guide <a class="reference internal" href="../../../parameters/cfd/initial_conditions.html"><span class="doc">Initial Conditions</span></a> for more details.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Initial condition
 #---------------------------------------------------
@@ -475,7 +475,7 @@ subsection initial conditions
   subsection VOF
     set Function expression = if (x^2 + y^2 &lt; 0.5^2 , 1, 0)
     subsection projection step
-      set enable = true
+      set enable           = true
       set diffusion factor = 1
     end
   end
@@ -536,7 +536,7 @@ end
 <section id="analytical-solution">
 <h3><span class="section-number">1.3.4.5. </span>Analytical solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">¶</a></h3>
 <p>As presented in the section <a class="reference internal" href="#surface-tension-force"><span class="std std-ref">Surface tension force</span></a>, the analytical solution for this case is zero for the velocity and the pressure drop is given by <span class="math notranslate nohighlight">\(\Delta p = \sigma \kappa\)</span> whit <span class="math notranslate nohighlight">\(\kappa = 1/R\)</span>. For <span class="math notranslate nohighlight">\(\sigma = 1.0\)</span> and <span class="math notranslate nohighlight">\(R=0.5\)</span>, we have <span class="math notranslate nohighlight">\(\Delta p = 2.0\)</span>.</p>
-<p>When providing the analytical solution in the <code class="docutils literal notranslate"><span class="pre">analytical</span> <span class="pre">solution</span></code> subsection and setting the parameter <code class="docutils literal notranslate"><span class="pre">enable</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>, we can monitor the <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> norm of the error on the velocity and pressure fields. They are ouputed in the file specify in the parameter <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p>
+<p>When providing the analytical solution in the <code class="docutils literal notranslate"><span class="pre">analytical</span> <span class="pre">solution</span></code> subsection and setting the parameter <code class="docutils literal notranslate"><span class="pre">enable</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>, we can monitor the <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> norm of the error on the velocity and pressure fields. They are outputted in the file specified in the parameter <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Analytical solution
 #---------------------------------------------------

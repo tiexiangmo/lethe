@@ -383,8 +383,8 @@
 <a class="reference internal image-reference" href="../../../_images/bubble-initial-configuration.png"><img alt="Schematic" class="align-center" src="../../../_images/bubble-initial-configuration.png" style="width: 400px;"/></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">noslip</span></code>, and an external
-gravity field of <span class="math notranslate nohighlight">\(-0.98\)</span> is applied in the y direction.</p>
+<p>On the upper and bottom walls <code class="docutils literal notranslate"><span class="pre">slip</span></code> boundary conditions are applied, and on side walls the boundary conditions are <code class="docutils literal notranslate"><span class="pre">noslip</span></code>.
+An external gravity field of <span class="math notranslate nohighlight">\(-0.98\)</span> is applied in the y direction.</p>
 </div>
 </section>
 <section id="parameter-file">
@@ -468,7 +468,7 @@ end
 <h3><span class="section-number">1.4.4.2. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial position
 of the liquid phase are defined. The light phase is initially
-defined as a circle with a radius <span class="math notranslate nohighlight">\(r= 0.25\)</span> at <span class="math notranslate nohighlight">\((x,y)=(0.5, 0.5)\)</span>. We enable the use of a projection step to ensure that the initial phase distribution
+defined as a circle with a radius <span class="math notranslate nohighlight">\(r= 0.25\)</span> at <span class="math notranslate nohighlight">\((x,y)=(0.5, 0.5)\)</span>. We enable the use of a projection step to ensure that the initial phase distribution is
 sufficiently smooth, as explained in the <a class="reference internal" href="../static-bubble/static-bubble.html"><span class="doc">Static bubble</span></a> example.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Initial condition
