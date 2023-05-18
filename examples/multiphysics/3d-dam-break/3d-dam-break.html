@@ -366,7 +366,7 @@
 <h2><span class="section-number">1.5.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code> (Q1-Q1)</p></li>
-<li><p>Two phase flow handled by the Volume-of-Fluids (VOF) approach with interface sharpening</p></li>
+<li><p>Two phase flow handled by the Volume-of-Fluids (VOF) approach with phase fraction filtration</p></li>
 <li><p>Mesh adaptation using phase fraction</p></li>
 <li><p>Unsteady problem handled by an adaptive BDF1 time-stepping scheme</p></li>
 <li><p>The use of a python script for post-processing data</p></li>
@@ -383,7 +383,7 @@
 </section>
 <section id="description-of-the-case">
 <span id="id2"></span><h2><span class="section-number">1.5.2. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>For this example, the simulated fluids are water and air. Initially, the water is at rest on the right side of the tank (represented in dashed blue lines in the figures below). At <span class="math notranslate nohighlight">\(t = 0\)</span> s, the gate opens instantaneously and the water starts flowing under the action of gravity, <span class="math notranslate nohighlight">\(\mathbf{g} = (-9.81 \  \mathbf{j}) \frac{\text{m}}{\text{s}^2}\)</span>. The tank in which this experiment happens has the following dimensions: <span class="math notranslate nohighlight">\(3.22 \times 1.00 \times 1.00\)</span> m. On all boundaries, <code class="docutils literal notranslate"><span class="pre">slip</span></code> conditions were applied. On the left side of the tank, a rectangular box-shaped obstacle is presented (colored in grey in the figures).</p>
+<p>For this example, the simulated fluids are water and air. Initially, the water is at rest on the right side of the tank (represented in dashed blue lines in the figures below). At <span class="math notranslate nohighlight">\(t = 0 \ \text{s}\)</span>, the gate opens instantaneously and the water starts flowing under the action of gravity, <span class="math notranslate nohighlight">\(\mathbf{g} = (-9.81 \  \mathbf{j}) \frac{\text{m}}{\text{s}^2}\)</span>. The tank in which this experiment happens has the following dimensions: <span class="math notranslate nohighlight">\(3.22 \times 1.00 \times 1.00 \ \text{m}\)</span>. On all boundaries, <code class="docutils literal notranslate"><span class="pre">slip</span></code> conditions were applied. On the left side of the tank, a rectangular box-shaped obstacle is presented (colored in grey in the figures).</p>
 <p>Along the x-axis, the water height is measured at 4 different positions. These positions are represented by red crosses in the figure below.</p>
 <div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
@@ -441,7 +441,7 @@
 <h2><span class="section-number">1.5.3. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="simulation-control">
 <h3><span class="section-number">1.5.3.1. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
-<p>Time integration is handled by a 1st order backward differentiation scheme (<cite>bdf1</cite>), for a <span class="math notranslate nohighlight">\(6\)</span> s simulation time with an initial time step of <span class="math notranslate nohighlight">\(0.001\)</span> s. Time-step adaptation is enabled using <code class="docutils literal notranslate"><span class="pre">adapt=true</span></code>
+<p>Time integration is handled by a 1st order backward differentiation scheme (<cite>bdf1</cite>), for a <span class="math notranslate nohighlight">\(6 \ \text{s}\)</span> simulation time with an initial time step of <span class="math notranslate nohighlight">\(0.001 \ \text{s}\)</span>. Time-step adaptation is enabled using <code class="docutils literal notranslate"><span class="pre">adapt=true</span></code>
 and the max CFL is <span class="math notranslate nohighlight">\(0.5\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -483,7 +483,7 @@ end
 </section>
 <section id="physical-properties">
 <h3><span class="section-number">1.5.3.3. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection defines the physical properties of the fluids. In this example, we need two fluids with densities of <span class="math notranslate nohighlight">\(1.204 \ \frac{kg}{m^3}\)</span> (air) and <span class="math notranslate nohighlight">\(1000 \ \frac{kg}{m^3}\)</span> (water). However, the current numerical model was not able to solve with the real dynamic viscosities of the fluids. Therefore, they were altered in order to run the simulation.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection defines the physical properties of the fluids. In this example, we need two fluids with densities of <span class="math notranslate nohighlight">\(1.204 \ \frac{\text{kg}}{\text{m}^3}\)</span> (air) and <span class="math notranslate nohighlight">\(1000 \ \frac{\text{kg}}{\text{m}^3}\)</span> (water). However, the current numerical model was not able to solve with the real dynamic viscosities of the fluids. Therefore, they were altered in order to run the simulation.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Altering the dynamic viscosities of the fluids will surely have an impact on the results. We will show this impact in the <a class="reference internal" href="#results">results</a> section.</p>
@@ -544,18 +544,15 @@ end
 </section>
 <section id="vof">
 <h3><span class="section-number">1.5.3.6. </span>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection, we enable <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> to reconstruct the interface and keep it sharp during the simulation. Here we use the default <code class="docutils literal notranslate"><span class="pre">constant</span></code> method for interface sharpening.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection, we select the <code class="docutils literal notranslate"><span class="pre">tanh</span></code> filter to filter the phase fraction and get a more defined interface. We set the value of beta to 10.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # VOF
 #---------------------------------------------------
 
 subsection VOF
-  subsection interface sharpening
-    set enable                  = true
-    set threshold               = 0.5
-    set interface sharpness     = 1.5
-    set frequency               = 10
-    set type                    = constant
+  subsection phase filtration
+    set type   = tanh
+    set beta   = 10
   end
 end
 </pre></div>
@@ -603,13 +600,13 @@ end
 <p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">$number_of_CPU_cores</span> <span class="pre">gls_navier_stokes_3d</span> <span class="pre">3d-dam-break.prm</span></code></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Make sure to compile Lethe in <cite>Release</cite> mode and run in parallel using <code class="docutils literal notranslate"><span class="pre">mpirun</span></code>. This simulation took <span class="math notranslate nohighlight">\(\approx\)</span> 15.5 hours on 40 processes (runned on the <a class="reference external" href="https://docs.alliancecan.ca/wiki/B%C3%A9luga/en">Béluga</a> cluster).</p>
+<p>Make sure to compile Lethe in <cite>Release</cite> mode and run in parallel using <code class="docutils literal notranslate"><span class="pre">mpirun</span></code>. This simulation took <span class="math notranslate nohighlight">\(\approx\)</span> 17 hours on 64 processes (runned on the <a class="reference external" href="https://docs.alliancecan.ca/wiki/Narval/en">Narval</a> cluster).</p>
 </div>
 </section>
 <section id="results">
 <span id="id3"></span><h2><span class="section-number">1.5.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following video shows the results of the simulation:</p>
-<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/XGp7pxBQvWY" width="560"></iframe><p>In the following figure, we compare the water height evolution at 4 the positions mentioned in the <a class="reference internal" href="#description-of-the-case">description of the case</a> section with the experimental results obtained from MARIN (available <a class="reference external" href="https://www.spheric-sph.org/tests/test-02">here</a>):</p>
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/gaz4PiqhOzg" width="560"></iframe><p>In the following figure, we compare the water height evolution at the 4 positions mentioned in the <a class="reference internal" href="#description-of-the-case">description of the case</a> section with the experimental results obtained from MARIN (available <a class="reference external" href="https://www.spheric-sph.org/tests/test-02">here</a>):</p>
 <div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
 <col style="width: 100%"/>
@@ -625,7 +622,7 @@ end
 </tr>
 </tbody>
 </table></div>
-<p>As we can see, the simulated general evolution of the height seems to follow the experimentation results. However, on all 4 subplots, we notice that the height is overestimated. We also notice a slight shift to the right for <span class="math notranslate nohighlight">\(H2\)</span>,  <span class="math notranslate nohighlight">\(H3\)</span>, and <span class="math notranslate nohighlight">\(H4\)</span> evolutions. These observations may be explained by the “highly viscous air” (fluid 0) that acts as an obstacle to the free flow of the water. Additionally, fluid 1 representing the water is 1000 times more viscous than regular water. With these results, we can see that the model needs to be improved to be able to accurately simulate low-viscosity fluids such as air.</p>
+<p>As we can see, the simulated general evolution of the height seems to follow the experimentation results. However, on all 4 subplots, we notice that the height is overestimated. We also notice a slight shift to the right for <span class="math notranslate nohighlight">\(H2\)</span>,  <span class="math notranslate nohighlight">\(H3\)</span>, and <span class="math notranslate nohighlight">\(H4\)</span> evolutions. These observations may be explained by the “highly viscous air” (fluid 0) that acts as an obstacle to the free flow of the water. Additionally, fluid 1 representing the water is 1000 times more viscous than regular water. With these results, we can see that the model needs to be improved to be able to accurately simulate low-viscosity fluids such as air. Furthermore, we observe that the wave formed at the impact with the obstacle doesn’t collapse the right way due to the lack of compressibility of the air being simulated.</p>
 </section>
 <section id="references">
 <h2><span class="section-number">1.5.6. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
