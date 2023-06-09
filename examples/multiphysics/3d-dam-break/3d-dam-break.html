@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="2. Heat transfer" href="../heat-transfer.html" /><link rel="prev" title="1.4. Rising bubble" href="../rising-bubble/rising-bubble.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="2. Heat transfer" href="../heat-transfer.html" /><link rel="prev" title="1.5. Sloshing in a rectangular tank" href="../sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>1.5. 3D Dam Break With an Obstacle - Lethe documentation</title>
+        <title>1.6. 3D Dam Break With an Obstacle - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -246,7 +246,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../rayleigh-taylor-instability/rayleigh-taylor-instability.html">1.2. Rayleigh-Taylor instability</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../static-bubble/static-bubble.html">1.3. Static bubble</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../rising-bubble/rising-bubble.html">1.4. Rising bubble</a></li>
-<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">1.5. 3D Dam Break With an Obstacle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">1.5. Sloshing in a rectangular tank</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">1.6. 3D Dam Break With an Obstacle</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../heat-transfer.html">2. Heat transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -356,14 +357,14 @@
         </div>
         <article role="main">
           <section id="d-dam-break-with-an-obstacle">
-<h1><span class="section-number">1.5. </span>3D Dam Break With an Obstacle<a class="headerlink" href="#d-dam-break-with-an-obstacle" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.6. </span>3D Dam Break With an Obstacle<a class="headerlink" href="#d-dam-break-with-an-obstacle" title="Permalink to this headline">¶</a></h1>
 <p>This example simulates a dam break experiment from the Maritime Research Institute Netherlands (MARIN) <a class="reference external" href="https://www.spheric-sph.org/tests/test-02">[1]</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This example displays the need for improvement of low-viscosity fluid flow simulation of the current numeric model. Further work will be done to improve this aspect of the model.</p>
 </div>
 <section id="features">
-<h2><span class="section-number">1.5.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code> (Q1-Q1)</p></li>
 <li><p>Two phase flow handled by the Volume-of-Fluids (VOF) approach with phase fraction filtration</p></li>
@@ -372,7 +373,7 @@
 <li><p>The use of a python script for post-processing data</p></li>
 </ul>
 <section id="files-used-in-this-example">
-<h3><span class="section-number">1.5.1.1. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.1.1. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/3d-dam-break/3d-dam-break.prm</span></code></p></li>
 <li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/3d-dam-break/tank_with_obstacle.geo</span></code></p></li>
@@ -382,7 +383,7 @@
 </section>
 </section>
 <section id="description-of-the-case">
-<span id="id2"></span><h2><span class="section-number">1.5.2. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2><span class="section-number">1.6.2. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>For this example, the simulated fluids are water and air. Initially, the water is at rest on the right side of the tank (represented in dashed blue lines in the figures below). At <span class="math notranslate nohighlight">\(t = 0 \ \text{s}\)</span>, the gate opens instantaneously and the water starts flowing under the action of gravity, <span class="math notranslate nohighlight">\(\mathbf{g} = (-9.81 \  \mathbf{j}) \frac{\text{m}}{\text{s}^2}\)</span>. The tank in which this experiment happens has the following dimensions: <span class="math notranslate nohighlight">\(3.22 \times 1.00 \times 1.00 \ \text{m}\)</span>. On all boundaries, <code class="docutils literal notranslate"><span class="pre">slip</span></code> conditions were applied. On the left side of the tank, a rectangular box-shaped obstacle is presented (colored in grey in the figures).</p>
 <p>Along the x-axis, the water height is measured at 4 different positions. These positions are represented by red crosses in the figure below.</p>
 <div class="table-wrapper"><table class="docutils align-default">
@@ -438,9 +439,9 @@
 </table></div>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">1.5.3. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6.3. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="simulation-control">
-<h3><span class="section-number">1.5.3.1. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.3.1. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>Time integration is handled by a 1st order backward differentiation scheme (<cite>bdf1</cite>), for a <span class="math notranslate nohighlight">\(6 \ \text{s}\)</span> simulation time with an initial time step of <span class="math notranslate nohighlight">\(0.001 \ \text{s}\)</span>. Time-step adaptation is enabled using <code class="docutils literal notranslate"><span class="pre">adapt=true</span></code>
 and the max CFL is <span class="math notranslate nohighlight">\(0.5\)</span>.</p>
 <div class="admonition note">
@@ -467,7 +468,7 @@ end
 </div>
 </section>
 <section id="multiphysics">
-<h3><span class="section-number">1.5.3.2. </span>Multiphysics<a class="headerlink" href="#multiphysics" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.3.2. </span>Multiphysics<a class="headerlink" href="#multiphysics" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on <cite>(true)</cite>
 and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> is chosen.
 Note that the fluid dynamics are solved by default.</p>
@@ -482,7 +483,7 @@ end
 </div>
 </section>
 <section id="physical-properties">
-<h3><span class="section-number">1.5.3.3. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.3.3. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection defines the physical properties of the fluids. In this example, we need two fluids with densities of <span class="math notranslate nohighlight">\(1.204 \ \frac{\text{kg}}{\text{m}^3}\)</span> (air) and <span class="math notranslate nohighlight">\(1000 \ \frac{\text{kg}}{\text{m}^3}\)</span> (water). However, the current numerical model was not able to solve with the real dynamic viscosities of the fluids. Therefore, they were altered in order to run the simulation.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -507,7 +508,7 @@ end
 </div>
 </section>
 <section id="initial-condition">
-<h3><span class="section-number">1.5.3.4. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.3.4. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code> subsection, we need to define the interface between the two fluids. We define this interface by using a function expression in the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection of the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Initial Condition
@@ -527,7 +528,7 @@ end
 </div>
 </section>
 <section id="source-term">
-<h3><span class="section-number">1.5.3.5. </span>Source term<a class="headerlink" href="#source-term" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.3.5. </span>Source term<a class="headerlink" href="#source-term" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">term</span></code> subsection, we define the gravitational acceleration.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Source term
@@ -543,7 +544,7 @@ end
 </div>
 </section>
 <section id="vof">
-<h3><span class="section-number">1.5.3.6. </span>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.3.6. </span>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection, we select the <code class="docutils literal notranslate"><span class="pre">tanh</span></code> filter to filter the phase fraction and get a more defined interface. We set the value of beta to 10.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # VOF
@@ -559,7 +560,7 @@ end
 </div>
 </section>
 <section id="mesh">
-<h3><span class="section-number">1.5.3.7. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.3.7. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection, we specify the mesh used in this example. The structured mesh used in this example can be generated from the <code class="docutils literal notranslate"><span class="pre">tank.geo</span></code> file using <a class="reference external" href="https://gmsh.info/#Download">Gmsh</a>. The initial refinement is set to <span class="math notranslate nohighlight">\(3\)</span>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Mesh
@@ -573,7 +574,7 @@ end
 </div>
 </section>
 <section id="mesh-adaptation">
-<h3><span class="section-number">1.5.3.8. </span>Mesh Adaptation<a class="headerlink" href="#mesh-adaptation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.3.8. </span>Mesh Adaptation<a class="headerlink" href="#mesh-adaptation" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">adaptation</span></code> section controls the dynamic mesh adaptation. Here, we choose <code class="docutils literal notranslate"><span class="pre">phase</span></code> and <code class="docutils literal notranslate"><span class="pre">pressure</span></code> as the <code class="docutils literal notranslate"><span class="pre">refinement</span> <span class="pre">variables</span></code>. The maximum and minimum refinement levels are respectively set to <span class="math notranslate nohighlight">\(4\)</span> and <span class="math notranslate nohighlight">\(2\)</span>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
 # Mesh Adaptation
@@ -595,7 +596,7 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">1.5.4. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6.4. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>We call the gls_navier_stokes_3d by invoking:</p>
 <p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">$number_of_CPU_cores</span> <span class="pre">gls_navier_stokes_3d</span> <span class="pre">3d-dam-break.prm</span></code></p>
 <div class="admonition warning">
@@ -604,7 +605,7 @@ end
 </div>
 </section>
 <section id="results">
-<span id="id3"></span><h2><span class="section-number">1.5.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2><span class="section-number">1.6.5. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following video shows the results of the simulation:</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/gaz4PiqhOzg" width="560"></iframe><p>In the following figure, we compare the water height evolution at the 4 positions mentioned in the <a class="reference internal" href="#description-of-the-case">description of the case</a> section with the experimental results obtained from MARIN (available <a class="reference external" href="https://www.spheric-sph.org/tests/test-02">here</a>):</p>
 <div class="table-wrapper"><table class="docutils align-default">
@@ -625,7 +626,7 @@ end
 <p>As we can see, the simulated general evolution of the height seems to follow the experimentation results. However, on all 4 subplots, we notice that the height is overestimated. We also notice a slight shift to the right for <span class="math notranslate nohighlight">\(H2\)</span>,  <span class="math notranslate nohighlight">\(H3\)</span>, and <span class="math notranslate nohighlight">\(H4\)</span> evolutions. These observations may be explained by the “highly viscous air” (fluid 0) that acts as an obstacle to the free flow of the water. Additionally, fluid 1 representing the water is 1000 times more viscous than regular water. With these results, we can see that the model needs to be improved to be able to accurately simulate low-viscosity fluids such as air. Furthermore, we observe that the wave formed at the impact with the obstacle doesn’t collapse the right way due to the lack of compressibility of the air being simulated.</p>
 </section>
 <section id="references">
-<h2><span class="section-number">1.5.6. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6.6. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://www.spheric-sph.org/tests/test-02">[1]</a> Issa, R., &amp; Violeau, D. (2006). Test-case 2, 3D dambreaking, Release 1.1. ERCOFTAC, SPH European Research Interest Community SIG, Électricité de France, Laboratoire National d’Hydraulique et Environnement.</p>
 </section>
 </section>
@@ -644,14 +645,14 @@ end
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../rising-bubble/rising-bubble.html">
+          <a class="prev-page" href="../sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">1.4. </span>Rising bubble</div>
+                <div class="title"><span class="section-number">1.5. </span>Sloshing in a rectangular tank</div>
                 
               </div>
             </a>
@@ -681,26 +682,26 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">1.5. 3D Dam Break With an Obstacle</a><ul>
-<li><a class="reference internal" href="#features">1.5.1. Features</a><ul>
-<li><a class="reference internal" href="#files-used-in-this-example">1.5.1.1. Files used in this example</a></li>
+<li><a class="reference internal" href="#">1.6. 3D Dam Break With an Obstacle</a><ul>
+<li><a class="reference internal" href="#features">1.6.1. Features</a><ul>
+<li><a class="reference internal" href="#files-used-in-this-example">1.6.1.1. Files used in this example</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#description-of-the-case">1.5.2. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">1.5.3. Parameter file</a><ul>
-<li><a class="reference internal" href="#simulation-control">1.5.3.1. Simulation control</a></li>
-<li><a class="reference internal" href="#multiphysics">1.5.3.2. Multiphysics</a></li>
-<li><a class="reference internal" href="#physical-properties">1.5.3.3. Physical properties</a></li>
-<li><a class="reference internal" href="#initial-condition">1.5.3.4. Initial condition</a></li>
-<li><a class="reference internal" href="#source-term">1.5.3.5. Source term</a></li>
-<li><a class="reference internal" href="#vof">1.5.3.6. VOF</a></li>
-<li><a class="reference internal" href="#mesh">1.5.3.7. Mesh</a></li>
-<li><a class="reference internal" href="#mesh-adaptation">1.5.3.8. Mesh Adaptation</a></li>
+<li><a class="reference internal" href="#description-of-the-case">1.6.2. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">1.6.3. Parameter file</a><ul>
+<li><a class="reference internal" href="#simulation-control">1.6.3.1. Simulation control</a></li>
+<li><a class="reference internal" href="#multiphysics">1.6.3.2. Multiphysics</a></li>
+<li><a class="reference internal" href="#physical-properties">1.6.3.3. Physical properties</a></li>
+<li><a class="reference internal" href="#initial-condition">1.6.3.4. Initial condition</a></li>
+<li><a class="reference internal" href="#source-term">1.6.3.5. Source term</a></li>
+<li><a class="reference internal" href="#vof">1.6.3.6. VOF</a></li>
+<li><a class="reference internal" href="#mesh">1.6.3.7. Mesh</a></li>
+<li><a class="reference internal" href="#mesh-adaptation">1.6.3.8. Mesh Adaptation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">1.5.4. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">1.5.5. Results</a></li>
-<li><a class="reference internal" href="#references">1.5.6. References</a></li>
+<li><a class="reference internal" href="#running-the-simulation">1.6.4. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">1.6.5. Results</a></li>
+<li><a class="reference internal" href="#references">1.6.6. References</a></li>
 </ul>
 </li>
 </ul>
