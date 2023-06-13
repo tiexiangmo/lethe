@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="2. Packing in ball" href="../packing-in-ball/packing-in-ball.html" /><link rel="prev" title="Discrete Element Method" href="../dem.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="3. Packing in ball" href="../packing-in-ball/packing-in-ball.html" /><link rel="prev" title="1. Bouncing particle" href="../bouncing-particle/bouncing-particle.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>1. Packing in circle - Lethe documentation</title>
+        <title>2. Packing in circle - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -267,17 +267,18 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../dem.html">Discrete Element Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">1. Packing in circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">2. Packing in ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">3. Small scale rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">4. Small scale rotating drum post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">5. Rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">6. Rotating drum with post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">7. Rotation of box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">8. Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">9. Rectangular hopper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../granular-dam-break/granular-dam-break.html">10. Granular dam-break</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../granular-mixer/granular-mixer.html">11. Granular mixer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bouncing-particle/bouncing-particle.html">1. Bouncing particle</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">2. Packing in circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">3. Packing in ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">4. Small scale rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">5. Small scale rotating drum post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">6. Rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">7. Rotating drum with post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">8. Rotation of box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">9. Silo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">10. Rectangular hopper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../granular-dam-break/granular-dam-break.html">11. Granular dam-break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../granular-mixer/granular-mixer.html">12. Granular mixer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -357,10 +358,10 @@
         </div>
         <article role="main">
           <section id="packing-in-circle">
-<h1><span class="section-number">1. </span>Packing in circle<a class="headerlink" href="#packing-in-circle" title="Permalink to this headline">¶</a></h1>
-<p>This is the first example of Lethe-DEM. This example introduces the concept of parameter files to parametrize Lethe simulations. It is strongly recommended to visit <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> for more detailed information on the concepts and physical meaning of the parameters in Lethe-DEM.</p>
+<h1><span class="section-number">2. </span>Packing in circle<a class="headerlink" href="#packing-in-circle" title="Permalink to this headline">¶</a></h1>
+<p>This example introduces the concept of parameter files to parametrize Lethe simulations. It is strongly recommended to visit <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> for more detailed information on the concepts and physical meaning of the parameters in Lethe-DEM.</p>
 <section id="features">
-<h2><span class="section-number">1.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_2d</span></code></p></li>
 <li><p>Two-dimensional problem</p></li>
@@ -368,15 +369,15 @@
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">1.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">/examples/dem/2d-packing-in-circle/packing-in-circle.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">1.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>Packing in a circle is the most basic example in Lethe-DEM. In this example, 50 two-dimensional particles are inserted in a circle. Due to the action of gravity, they accelerate in the defined direction of gravity. Upon reaching the outer periphery of the circle (the boundary walls of the triangulation), the particle-wall contact stops the particles from leaving the triangulation. Finally a balance forms between the particle-particle and particle-wall contact force and the gravity force. Particles lose kinetic energy (and velocity), get packed on the triangulation boundary, and remain at rest.</p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">1.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Lethe simulations are controlled by <em>parameter files</em> which possess the extension <code class="docutils literal notranslate"><span class="pre">.prm</span></code>. This is the default text format of the ParameterHandler class of the deal.ii library from which Lethe derives. For more information on this class, we refer to the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classParameterHandler.html">deal.II documentation</a>.</p>
 <p>Parameter files are made of subsections which describe a portion of the simulation (e.g. physical properties, simulation control). In parameter files, lines starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> are comments. Parameters are set using the following syntax:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>set parameter name = value
@@ -385,7 +386,7 @@
 <p>The syntax is flexible. Parameters do not need to be specified in a specific order, but only within the subsection in which they belong. For a full list of the parameters within Lethe-DEM, we refer to the DEM parameter page.</p>
 <p>To set-up the packing-in-circle case, we first need to establish the triangulation used for the simulation.</p>
 <section id="mesh">
-<h3><span class="section-number">1.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.1. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection specifies the computational grid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
   set type                                = dealii
@@ -410,7 +411,7 @@ end
 </div>
 </section>
 <section id="insertion-info">
-<h3><span class="section-number">1.4.2. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.2. </span>Insertion info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">info</span></code> subsection manages the insertion of particles.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
   set insertion method                               = non_uniform
@@ -443,7 +444,7 @@ end
 <p><code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code> specifies the initial distance between the particles in the insertion. If we choose a <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion, this initial distance is added by a random number to generate randomness. The random numbers are generated in the range [0 -<code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code>], and from a seed of <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code>.</p>
 </section>
 <section id="lagrangian-physical-properties">
-<h3><span class="section-number">1.4.3. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.3. </span>Lagrangian physical properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The gravitational acceleration as well as the physical properties of particles and walls are specified in the <code class="docutils literal notranslate"><span class="pre">Lagrangian</span> <span class="pre">physical</span> <span class="pre">properties</span></code> subsection. These properties include diameter and density of particles, Young’s modulus, Poisson’s ratio, restitution coefficient and friction coefficients.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
   set gx                       = 0.0
@@ -473,7 +474,7 @@ end
 </div>
 </section>
 <section id="model-parameters">
-<h3><span class="section-number">1.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.4. </span>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">parameters</span></code> subsection, DEM simulation parameters are defined.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
   set contact detection method                = dynamic
@@ -496,7 +497,7 @@ end
 <p><code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">contact</span> <span class="pre">search</span> <span class="pre">size</span> <span class="pre">coefficient</span></code>, as illustrated in the equation above, is a safety factor to ensure the late detection of particles will not happen in the simulations with <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> contact search; and its value should be defined generally in the range of 0.5-1. 0.5 is a rather conservative value for <code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">contact</span> <span class="pre">search</span> <span class="pre">size</span> <span class="pre">coefficient</span></code>.</p>
 </section>
 <section id="simulation-control">
-<h3><span class="section-number">1.4.5. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.5. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>The last subsection, which is generally the one we put at the top of the parameter files, is the <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> . <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code>, end time, log and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span></code> are defined here. Additionally, users can specify the output folder for the simulation results in this subsection. The <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">frequency</span></code> parameter controls the frequency at which the iteration number is printed on the terminal. If <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">1000</span></code> the iteration number will be printed out every 1000 iterations. This is an easy way to monitor the progress of the simulation.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set time step        = 1e-6
@@ -509,7 +510,7 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">1.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">dem_2d</span></code> executable is within your path, the simulation can be launched by typing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dem_2d packing-in-circle.prm
 </pre></div>
@@ -521,7 +522,7 @@ end
 </div>
 </section>
 <section id="results">
-<h2><span class="section-number">1.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>Packed particles at the end of simulation:</p>
 <img alt="velocity distribution" class="align-center" src="../../../_images/packing-in-circle.png"/>
 </section>
@@ -537,18 +538,18 @@ end
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">2. </span>Packing in ball</div>
+                <div class="title"><span class="section-number">3. </span>Packing in ball</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../dem.html">
+          <a class="prev-page" href="../bouncing-particle/bouncing-particle.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Discrete Element Method</div>
+                <div class="title"><span class="section-number">1. </span>Bouncing particle</div>
                 
               </div>
             </a>
@@ -578,20 +579,20 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">1. Packing in circle</a><ul>
-<li><a class="reference internal" href="#features">1.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">1.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">1.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">1.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#mesh">1.4.1. Mesh</a></li>
-<li><a class="reference internal" href="#insertion-info">1.4.2. Insertion info</a></li>
-<li><a class="reference internal" href="#lagrangian-physical-properties">1.4.3. Lagrangian physical properties</a></li>
-<li><a class="reference internal" href="#model-parameters">1.4.4. Model parameters</a></li>
-<li><a class="reference internal" href="#simulation-control">1.4.5. Simulation control</a></li>
+<li><a class="reference internal" href="#">2. Packing in circle</a><ul>
+<li><a class="reference internal" href="#features">2.1. Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">2.2. Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">2.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">2.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#mesh">2.4.1. Mesh</a></li>
+<li><a class="reference internal" href="#insertion-info">2.4.2. Insertion info</a></li>
+<li><a class="reference internal" href="#lagrangian-physical-properties">2.4.3. Lagrangian physical properties</a></li>
+<li><a class="reference internal" href="#model-parameters">2.4.4. Model parameters</a></li>
+<li><a class="reference internal" href="#simulation-control">2.4.5. Simulation control</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">1.5. Running the simulation</a></li>
-<li><a class="reference internal" href="#results">1.6. Results</a></li>
+<li><a class="reference internal" href="#running-the-simulation">2.5. Running the simulation</a></li>
+<li><a class="reference internal" href="#results">2.6. Results</a></li>
 </ul>
 </li>
 </ul>

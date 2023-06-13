@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="7. Rotation of box" href="../rotation-of-box/rotation-of-box.html" /><link rel="prev" title="5. Rotating drum" href="../rotating-drum/rotating-drum.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="8. Rotation of box" href="../rotation-of-box/rotation-of-box.html" /><link rel="prev" title="6. Rotating drum" href="../rotating-drum/rotating-drum.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>6. Rotating drum with post-processing - Lethe documentation</title>
+        <title>7. Rotating drum with post-processing - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -267,17 +267,18 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../dem.html">Discrete Element Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../packing-in-circle/packing-in-circle.html">1. Packing in circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">2. Packing in ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">3. Small scale rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">4. Small scale rotating drum post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">5. Rotating drum</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">6. Rotating drum with post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">7. Rotation of box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">8. Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">9. Rectangular hopper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../granular-dam-break/granular-dam-break.html">10. Granular dam-break</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../granular-mixer/granular-mixer.html">11. Granular mixer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bouncing-particle/bouncing-particle.html">1. Bouncing particle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-in-circle/packing-in-circle.html">2. Packing in circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">3. Packing in ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">4. Small scale rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">5. Small scale rotating drum post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">6. Rotating drum</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">7. Rotating drum with post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">8. Rotation of box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">9. Silo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">10. Rectangular hopper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../granular-dam-break/granular-dam-break.html">11. Granular dam-break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../granular-mixer/granular-mixer.html">12. Granular mixer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -357,10 +358,10 @@
         </div>
         <article role="main">
           <section id="rotating-drum-with-post-processing">
-<h1><span class="section-number">6. </span>Rotating drum with post-processing<a class="headerlink" href="#rotating-drum-with-post-processing" title="Permalink to this headline">¶</a></h1>
-<p>This is the fourth example of Lethe-DEM. This is a mini-example that only adds Lagrangian post-processing features to the rotating drum example (example 3). Hence, we only explain the post-processing subsection in this example.</p>
+<h1><span class="section-number">7. </span>Rotating drum with post-processing<a class="headerlink" href="#rotating-drum-with-post-processing" title="Permalink to this headline">¶</a></h1>
+<p>This is a mini-example that only adds Lagrangian post-processing features to the rotating drum example (example 3). Hence, we only explain the post-processing subsection in this example.</p>
 <section id="features">
-<h2><span class="section-number">6.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code></p></li>
 <li><p>Rotational boundary</p></li>
@@ -369,17 +370,17 @@
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">6.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-rotating-drum-with-post-processing/rotating-drum-with-post-processing.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">6.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>This example is identical the rotating drum example. The only difference is that in this example, we use Lagrangian post-processing to obtain granular temperature and average velocity (averaged in cells) distribution.</p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">6.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="post-processing">
-<h3><span class="section-number">6.4.1. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.4.1. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
 <p>First, we set the variable <code class="docutils literal notranslate"><span class="pre">Lagrangian</span> <span class="pre">post-processing</span></code> equal to <code class="docutils literal notranslate"><span class="pre">true</span></code>. This enables Lagrangian post-processing calculations. Lethe-DEM built-in post-processing capabilities are detailed in the <a class="reference internal" href="../../../parameters/dem/post-processing.html"><span class="doc">Post-processing</span></a> section of the parameters guide.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection post-processing
   set Lagrangian post-processing = true
@@ -400,7 +401,7 @@ end
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">7. </span>Rotation of box</div>
+                <div class="title"><span class="section-number">8. </span>Rotation of box</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -411,7 +412,7 @@ end
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">5. </span>Rotating drum</div>
+                <div class="title"><span class="section-number">6. </span>Rotating drum</div>
                 
               </div>
             </a>
@@ -441,12 +442,12 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">6. Rotating drum with post-processing</a><ul>
-<li><a class="reference internal" href="#features">6.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">6.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">6.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">6.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#post-processing">6.4.1. Post-processing</a></li>
+<li><a class="reference internal" href="#">7. Rotating drum with post-processing</a><ul>
+<li><a class="reference internal" href="#features">7.1. Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">7.2. Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">7.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">7.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#post-processing">7.4.1. Post-processing</a></li>
 </ul>
 </li>
 </ul>

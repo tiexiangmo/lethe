@@ -267,17 +267,18 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/packing-in-circle/packing-in-circle.html">1. Packing in circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/packing-in-ball/packing-in-ball.html">2. Packing in ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/small-scale-rotating-drum/small-scale-rotating-drum.html">3. Small scale rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">4. Small scale rotating drum post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/rotating-drum/rotating-drum.html">5. Rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">6. Rotating drum with post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/rotation-of-box/rotation-of-box.html">7. Rotation of box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/silo/silo.html">8. Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/rectangular-hopper/rectangular-hopper.html">9. Rectangular hopper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/granular-dam-break/granular-dam-break.html">10. Granular dam-break</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/granular-mixer/granular-mixer.html">11. Granular mixer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/bouncing-particle/bouncing-particle.html">1. Bouncing particle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/packing-in-circle/packing-in-circle.html">2. Packing in circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/packing-in-ball/packing-in-ball.html">3. Packing in ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/small-scale-rotating-drum/small-scale-rotating-drum.html">4. Small scale rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">5. Small scale rotating drum post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/rotating-drum/rotating-drum.html">6. Rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">7. Rotating drum with post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/rotation-of-box/rotation-of-box.html">8. Rotation of box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/silo/silo.html">9. Silo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/rectangular-hopper/rectangular-hopper.html">10. Rectangular hopper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/granular-dam-break/granular-dam-break.html">11. Granular dam-break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dem/granular-mixer/granular-mixer.html">12. Granular mixer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -431,16 +432,16 @@ The normal and tangential overlaps are calculated as follow:</p>
 <td><p><span class="math notranslate nohighlight">\(k_n = \frac{16}{15}\sqrt{R_{e}}Y_{e}\left(\frac{15m_{e}V^2}{16\sqrt{R_{e}}Y_{e}}\right)^{0.2}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(k_n = \frac{4}{3}Y_{e}\sqrt{R_{e}\delta_n}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p>Tangential spring constant</p></td>
-<td><p><span class="math notranslate nohighlight">\(\eta_n = \sqrt{\frac{4m_{e}k_n}{1+\left(\frac{\pi}{\ln{e}}\right)^2}}\)</span></p></td>
+<tr class="row-odd"><td><p>Normal damping model constant</p></td>
+<td><p><span class="math notranslate nohighlight">\(\eta_n = -2\beta\sqrt{m_{e} k_n}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\eta_n = -2\sqrt{\frac{5}{6}}\beta\sqrt{S_nm_{e}}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p>Normal damping model constant</p></td>
-<td><p><span class="math notranslate nohighlight">\(k_t = k_n\)</span></p></td>
+<tr class="row-even"><td><p>Tangential spring constant</p></td>
+<td><p><span class="math notranslate nohighlight">\(k_t = 0.4 k_n\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(k_t = 8G_{e}\sqrt{R_{e}\delta_n}\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>Tangential damping model constant</p></td>
-<td><p><span class="math notranslate nohighlight">\(\eta_t = \eta_n\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\eta_t = -2\beta\sqrt{m_{e} k_t}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\eta_t = -2\sqrt{\frac{5}{6}}\beta\sqrt{S_tm_{e}}\)</span></p></td>
 </tr>
 </tbody>
@@ -450,7 +451,7 @@ The normal and tangential overlaps are calculated as follow:</p>
 <li><p><span class="math notranslate nohighlight">\(R_e\)</span> effective radius;</p></li>
 <li><p><span class="math notranslate nohighlight">\(Y_e\)</span> effective Young’s modulus;</p></li>
 <li><p><span class="math notranslate nohighlight">\(m_e\)</span> effective mass;</p></li>
-<li><p><span class="math notranslate nohighlight">\(V\)</span> characteristic impact velocity;</p></li>
+<li><p><span class="math notranslate nohighlight">\(V\)</span> characteristic impact velocity, this parameters is set to 1.0;</p></li>
 <li><p><span class="math notranslate nohighlight">\(e\)</span> coefficient of restitution;</p></li>
 <li><p><span class="math notranslate nohighlight">\(G_e\)</span> effective shear modulus;</p></li>
 </ul>
@@ -513,7 +514,8 @@ To do so, the tangential overlap <span class="math notranslate nohighlight">\(\m
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://doi.org/10.1007/s40571-022-00478-6">[1]</a> Golshan et al. “Lethe-DEM: An open-source parallel discrete element solver with load balancing.” Computational Particle Mechanics (2022) p.1-20</p>
+<p><a class="reference external" href="https://doi.org/10.1007/s40571-022-00478-6">[1]</a> Golshan et al. “Lethe-DEM: An open-source parallel discrete element solver with load balancing.” Computational Particle Mechanics (2022) p.1-20
+[2] R. Garg, J. Galvin-Carney, T. Li, and S. Pannala, “Documentation of open-source MFIX–DEM software for gas-solids flows,” Tingwen Li Dr., p. 10, Sep. 2012.</p>
 </section>
 </section>
 
