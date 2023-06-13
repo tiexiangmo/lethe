@@ -367,8 +367,9 @@
     set calculate force                         = true
     set ib force output file                    = ib_force
     set ib particles pvd file                   = ib_particles_data
-    set initial refinement                      = 0
     set levels not precalculated                = 0
+    set initial refinement                      = 0
+    set refinement zone extrapolation           = false
     set refine mesh inside radius factor        = 0.5
     set refine mesh outside radius factor       = 1.5
     set integrate motion                        = false
@@ -462,6 +463,7 @@ end
 </div>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> parameter controls the number of refinement cycles in the near-particle refinement zone around every particle before the simulation starts.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">refinement</span> <span class="pre">zone</span> <span class="pre">extrapolation</span></code> parameter controls how the refinement zone is evaluated. By default, the refinement zone is around the particle’s last position (If this parameter is false). If this parameter is set to true, the refinement zone position is extrapolated from the particle’s current velocity. It will then apply all the initial refinement steps at the particle’s new position. This is used when the particle moves significantly between two time steps.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">levels</span> <span class="pre">not</span> <span class="pre">precalculated</span></code> parameter controls the number of layers of the hierarchical grid used by Lethe that are ignored by precalculations. It allows to reduce the memory footprint at the cost of an increased computing time. At the moment, this is used only for RBF shapes. The value should be increased when the RBF contains a lot of nodes and/or the grid is extremely fine.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion</span></code> parameter controls if the dynamics equations of the particles are calculated. If this parameter is set to false, the particles remain static.  If <code class="docutils literal notranslate"><span class="pre">ìntegrate</span> <span class="pre">motion=true</span></code> the position and the velocity will be defined by the particles’ position and velocity function.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">DEM</span> <span class="pre">coupling</span> <span class="pre">frequency</span></code> parameter controls the number of iterations done on the DEM side for each CFD time step. It’s necessary to use a much smaller time step for the particle dynamics than for the fluid in case of contact between the particles. The particle collision happens at a much smaller time-scale than the fluid dynamics.</p></li>
