@@ -371,9 +371,8 @@
 <h2><span class="section-number">1.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/bouncing_particle_original.prm</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/Bisection.py</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/Bouncing_particle_case_generator.py</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/Bouncing_particle_post-processing.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/bouncing_particle_case_generator.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/bouncing_particle_post-processing.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -434,7 +433,7 @@ end
 end
 </pre></div>
 </div>
-<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> and the <code class="docutils literal notranslate"><span class="pre">restitution</span> <span class="pre">coefficient</span></code> of both the wall and particle are not yet defined in the <code class="docutils literal notranslate"><span class="pre">bouncing_particle_original.prm</span></code> file. A Python code called <code class="docutils literal notranslate"><span class="pre">Bouncing_particle_case_generator.py</span></code> is provided with this example. This code allows the generation 6 parameter files each using a different restitution coefficient values (from 0.5 to 1.0) for one specific normal spring constant. The <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> parameter will be determined using a bisection algorithm to satisfy the desired normal spring constant. Assuming you have Python3 installed on your machine, this code can be launched using this next line:</p>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> and the <code class="docutils literal notranslate"><span class="pre">restitution</span> <span class="pre">coefficient</span></code> of both the wall and particle are not yet defined in the <code class="docutils literal notranslate"><span class="pre">bouncing_particle_original.prm</span></code> file. A Python code called <code class="docutils literal notranslate"><span class="pre">bouncing_particle_case_generator.py</span></code> is provided with this example. This code allows the generation 6 parameter files each using a different restitution coefficient values (from 0.5 to 1.0) for one specific normal spring constant. The <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> parameter will be determined using a bisection algorithm to satisfy the desired normal spring constant. Assuming you have Python3 installed on your machine, this code can be launched using this next line:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 Lethe_case_generator.py 5000000
 </pre></div>
 </div>
@@ -456,7 +455,7 @@ end
 \[h_{k}^{max} = (h_0 - r_p)e^{2k} + rp\]</div></div>
 <p>with <span class="math notranslate nohighlight">\(k\)</span> represent the <span class="math notranslate nohighlight">\(k^{th}\)</span> bounce, <span class="math notranslate nohighlight">\(h_0\)</span> the starting height and <span class="math notranslate nohighlight">\(r_p\)</span> the radius of the particle.</p>
 <p>Once the 6 simulations have been run, use the following line in your command line to run the post-processing code :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 Bouncing_particle_post_processing.py
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 bouncing_particle_post_processing.py
 </pre></div>
 </div>
 <p>A figure will be generated which compares the analytical solution with the simulation results.</p>
