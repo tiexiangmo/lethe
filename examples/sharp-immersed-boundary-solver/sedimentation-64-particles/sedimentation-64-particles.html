@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="2.2. Non-Newtonian flow past a sphere" href="../sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html" /><link rel="prev" title="2. Incompressible Flow" href="../incompressible-flow.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="2. Incompressible Flow" href="../incompressible-flow.html" /><link rel="prev" title="1.1. Sedimentation of one particle" href="../sedimentation-1-particle/sedimentation-1-particle.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>2.1. Flow around a cylinder using the sharp interface method - Lethe documentation</title>
+        <title>1.2. Sedimentation of 64 particles - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -289,13 +289,13 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../sharp-immersed-boundary-solver.html">Sharp Immersed Boundary Solver</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 has-children"><a class="reference internal" href="../resolved-cfd-dem.html">1. Resolved CFD-DEM Examples</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 current has-children"><a class="reference internal" href="../resolved-cfd-dem.html">1. Resolved CFD-DEM Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../sedimentation-1-particle/sedimentation-1-particle.html">1.1. Sedimentation of one particle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sedimentation-64-particles/sedimentation-64-particles.html">1.2. Sedimentation of 64 particles</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">1.2. Sedimentation of 64 particles</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current has-children"><a class="reference internal" href="../incompressible-flow.html">2. Incompressible Flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">2.1. Flow around a cylinder using the sharp interface method</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../incompressible-flow.html">2. Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">2.1. Flow around a cylinder using the sharp interface method</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">2.2. Non-Newtonian flow past a sphere</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">2.3. 3D Mixer with pitched-blade turbine impeller using Composite Sharp-immersed boundary</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">2.4. 3D Mixer with pitched-blade turbine impeller using OpenCascade Sharp-immersed boundary</a></li>
@@ -358,146 +358,287 @@
           </label>
         </div>
         <article role="main">
-          <section id="flow-around-a-cylinder-using-the-sharp-interface-method">
-<h1><span class="section-number">2.1. </span>Flow around a cylinder using the sharp interface method<a class="headerlink" href="#flow-around-a-cylinder-using-the-sharp-interface-method" title="Permalink to this headline">¶</a></h1>
-<section id="features">
-<h2><span class="section-number">2.1.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+          <section id="sedimentation-of-64-particles">
+<h1><span class="section-number">1.2. </span>Sedimentation of 64 particles<a class="headerlink" href="#sedimentation-of-64-particles" title="Permalink to this headline">¶</a></h1>
+<p>This example aims to introduce the user on how to carry resolved CFD-DEM simulation with a larger number of particles.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes_2d</span></code> (with Q1-Q1)</p></li>
-<li><p>Steady-state problem</p></li>
-<li><p>Explains how to set sharp interface immersed boundary to represent a particle</p></li>
-<li><p>Displays the use of non-uniform mesh adaptation</p></li>
+<li><p>This case is computationally expensive. It can take several days to run on a desktop computer. You can reduce the computational cost by reducing the mesh density or the number of particles.</p></li>
+</ul>
+</div>
+<section id="features">
+<h2><span class="section-number">1.2.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes_3d</span></code> (with Q1Q1)</p></li>
+<li><p>Transient problem</p></li>
+<li><p>Displays the capability of the resolved CFD-DEM solver for the flow around multiple particles</p></li>
+<li><p>Displays the robustness of the resolved CFD-DEM Solver.</p></li>
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">2.1.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">/examples/sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.prm</span></code></p></li>
-</ul>
+<h2><span class="section-number">1.2.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">/examples/sharp-immersed-boundary-solver/sedimentation-64-particle/sedimentation-64-particle.prm</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/examples/sharp-immersed-boundary-solver/sedimentation-64-particle/particles.input</span></code></p>
+</div></blockquote>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">2.1.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt>In this example, we study the flow around a static cylinder in 2D using the sharp-interface method to represent the cylinder. The geometry of the flow takes the same basic case defined in</dt><dd><p><a class="reference internal" href="../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html"><span class="doc">2D Flow around a cylinder</span></a>. As such, we use the parameter file associated with <a class="reference internal" href="../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html"><span class="doc">2D Flow around a cylinder</span></a> as the base for this example. The exact dimensions for this example can be found in the following figure.</p>
-</dd>
-</dl>
-<img alt="Simulation schematic" class="align-center" src="../../../_images/cylinder-case.png"/>
-<p>This case uses a cartesian structured rectangular mesh, and we define the position and radius of the immersed boundary.</p>
-<p>The mesh is defined using the following subsection.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Mesh
-#---------------------------------------------------
-subsection mesh
-    set type               = dealii
-    set grid type          = subdivided_hyper_rectangle
-    set grid arguments     = 2,1: 0,0 : 32 , 16  : true
-    set initial refinement = 6
+<h2><span class="section-number">1.2.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<p>The case consists in the release of 64 particles (<span class="math notranslate nohighlight">\(\rho_p=0.0015 \frac{\text{kg}}{\text{cm}^{3}}\)</span>) with a diameter of 0.25 cm arranged in a 4 by 4 by 4 cubic array centered 21 cm above the bottom of the container. The container is a 2 by 2 by 24 cm rectangle. The viscosity of the fluid is <span class="math notranslate nohighlight">\(\mu_f=0.0001 \frac{\text{kg}}{\text{s cm}}\)</span>. The density of the fluid is <span class="math notranslate nohighlight">\(\rho_f=0.001 \frac{\text{kg}}{\text{cm}^{3}}\)</span>. The gravity constant is <span class="math notranslate nohighlight">\(g= -981 \frac{\text{cm}}{\text{s}^{2}}\)</span>. The particles accelerate due to gravity until they hit the bottom of the container, which at this point, we stop the simulation. All the container walls have no-slip boundary conditions except at the top of the container, where we define an open boundary.</p>
+</section>
+<section id="parameter-file">
+<h2><span class="section-number">1.2.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<p>We explain every part of this parameter file in detail. In each section of the parameter file, we describe relevant parameters. The omitted parameters are only user preference parameters and have no impact on the simulation results. For more information on these parameters we suggest visiting the <a class="reference internal" href="../../../parameters/parameters.html"><span class="doc">Parameters guide</span></a>.</p>
+<section id="simulation-and-io-control">
+<h3><span class="section-number">1.2.4.1. </span>Simulation and IO control<a class="headerlink" href="#simulation-and-io-control" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
+  set method             = bdf2
+  set bdf startup method = multiple step bdf
+  set time step          = 0.0025
+  set time end           = 5
+  set output name        = out
+  set output frequency   = 1
 end
 </pre></div>
 </div>
-<p>As for the <a class="reference internal" href="../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html"><span class="doc">2D Flow around a cylinder</span></a>, we define the boundary conditions in order to have an inlet on the left, two slip boundary conditions at the top and bottom, and an outlet on the right of the domain.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# Boundary Conditions
-#---------------------------------------------------
-
-subsection boundary conditions
-  set number = 3
-
-  subsection bc 0
-    set id   = 0
-    set type = function
-    subsection u
-      set Function expression = 1
-    end
-    subsection v
-      set Function expression = 0
-    end
-    subsection w
-      set Function expression = 0
-    end
-  end
-  subsection bc 1
-    set id   = 2
-    set type = slip
-  end
-  subsection bc 2
-    set id   = 3
-    set type = slip
-  end
-end
-</pre></div>
-</div>
-<p>The initial condition has been modified compared to the initial solution proposed in <a class="reference internal" href="../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html"><span class="doc">2D Flow around a cylinder</span></a>. We use the following initial condition to ensure that the particle’s boundary condition is satisfied.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Initial condition
-#---------------------------------------------------
-subsection initial conditions
-  set type = nodal
-  subsection uvwp
-      set Function expression = 0; 0; 0
-  end
-end
-</pre></div>
-</div>
-<p>The only thing that is left to define is the immersed boundary.
-In this case, we want to define a circular boundary of radius 0.5 center at (8,8) that has no velocity. We use the sphere to model the cylinder in 2D.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# IB particules
-#---------------------------------------------------
-subsection particles
-  set number of particles                     = 1
-  set stencil order                           = 2
-  set refine mesh inside radius factor        = 0.8
-  set refine mesh outside radius factor       = 1.2
-  set initial refinement                      = 0
-  set integrate motion                        = false
-  set assemble Navier-Stokes inside particles = false
-  subsection particle info 0
-    subsection position
-      set Function expression = 8;8
-    end
-    subsection velocity
-      set Function expression = 0;0
-    end
-    set type            = sphere
-    set shape arguments = 0.5
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">method</span></code> is set to  <code class="docutils literal notranslate"><span class="pre">bdf2</span></code> to have a second-order time-stepping method. This ensures a low error due to the time discretization in this case.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">step</span></code> is set to  0.0025. This time step is small enough to prevent large error due to the time discretization.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">end</span></code> is set to  4.0. This is slightly longer than the time needed for all the particles to reach the bottom of the container</p></li>
+</ul>
+</section>
+<section id="physical-properties">
+<h3><span class="section-number">1.2.4.2. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
+  subsection fluid 0
+    set kinematic viscosity = 0.1
+    set density             = 0.001
   end
 end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span></code> is set to one as we only want one particle.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">stencil</span> <span class="pre">order</span></code> is set to 2 as this is the highest order that is compatible with the FEM scheme and it does not lead to Runge instability. The highest order of stencil compatible with a FEM scheme is defined by the polynomial order of the scheme time the number of dimensions. In this case 2.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">refine</span> <span class="pre">mesh</span> <span class="pre">inside</span> <span class="pre">radius</span> <span class="pre">factor</span></code> is set to 0.8. This will create a mesh refinement around the particle that avoids having hanging nodes in the calculation and help ensure an adequately fine mesh around the particle.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">refine</span> <span class="pre">mesh</span> <span class="pre">outside</span> <span class="pre">radius</span> <span class="pre">factor</span></code> is set to 1.2. This will create a mesh refinement around the particle that avoids having hanging nodes in the calculation and help ensure an adequately fine mesh around the particle.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> is set to 0. In this case, the initial mesh is small enough to ensure that the mesh around the particle is sufficiently smaller than the particle. In this case, it is not necessary to pre-refine the mesh around the particle.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion</span></code> is set to false because we are not interested in the dynamic of the particle as this is a steady case.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">assemble</span> <span class="pre">Navier-Stokes</span> <span class="pre">inside</span> <span class="pre">particles</span></code> is set to false because we are not interested in the flow inside of the particle.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">position</span></code> Function expression is set to 8;8 as the position of the particle is constant in time, and the center of the particle is at this position.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">velocity</span></code> Function expression is set to 0;0 as the velocity of the particle is 0 and the case is steady.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> is set to  0.1. This value is derived from the case description by dividing <span class="math notranslate nohighlight">\(\mu_f\)</span> by <span class="math notranslate nohighlight">\(\rho_f\)</span>. This parameter changes the Reynolds number of the case since it is one of the variables in the evaluation of the Reynolds number but also by changing the terminal velocity of the particle.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">density</span></code> is set to 0.001 according to the description of the problem.</p></li>
 </ul>
-<p>All the other parameters have been set to their default values since they do not play a role in this case.</p>
 </section>
-<section id="results">
-<h2><span class="section-number">2.1.4. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>The simulation of this case results in the following solution for the velocity and pressure field.</p>
-<p>Velocity:</p>
-<img alt="Simulation schematic" class="align-center" src="../../../_images/exemple10-velocite.png"/>
-<p>Pressure:</p>
-<img alt="Simulation schematic" class="align-center" src="../../../_images/exemple10-pression.png"/>
-<p>We get the following force applied on the particle for each of the mesh refinements, which is similar to the one obtained with a conformal mesh in <a class="reference internal" href="../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html"><span class="doc">2D Flow around a cylinder</span></a>. With the conformal mesh drag force applied to the particle is 7.123. The difference between the 2 can mostly be attributed to the discretization error.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>particle_ID    T_z      f_x       f_y
-      0 -0.033177 5.698080  0.016542
-      0 -0.006670 6.438133  0.004265
-      0 -0.000349 6.773126 -0.000063
-      0  0.000040 6.905268 -0.000170
-      0 -0.000014 6.962307  0.000057
+<section id="fem">
+<h3><span class="section-number">1.2.4.3. </span>FEM<a class="headerlink" href="#fem" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
+  set velocity order = 1
+  set pressure order = 1
+end
 </pre></div>
 </div>
+<p>Here we use Q1Q1 elements to reduce the computational cost.</p>
+</section>
+<section id="mesh">
+<h3><span class="section-number">1.2.4.4. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
+    set type                 = dealii
+    set grid type            = subdivided_hyper_rectangle
+    set grid arguments       = 1,1,12: 0,0,0 : 2 , 2 , 24 : true
+    set initial refinement   = 4
+end
+</pre></div>
+</div>
+<p>The domain is a rectangular box: we can directly use a subdivided hyper rectangle mesh from the deal.II library. In this case, we have oriented the z-direction with gravity. As such, we have the long side of the box along this axis.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">arguments</span></code> is set to  <code class="docutils literal notranslate"><span class="pre">1,1,12:</span> <span class="pre">0,0,0</span> <span class="pre">:</span> <span class="pre">2,2,24</span> <span class="pre">:</span> <span class="pre">true</span></code>. This section has 3 subsections. First <code class="docutils literal notranslate"><span class="pre">1,1,12</span></code> describes the initial subdivision of the box. This subdivision has been chosen as it is the smallest mesh we can do of the box in order to have cubic elements. Secondly <code class="docutils literal notranslate"><span class="pre">0,0,0</span> <span class="pre">:</span> <span class="pre">2,2,24</span></code> describes the 2 points from which we have derived the rectangular box (0,0,0) and  (2,2,24). Finally, we have <code class="docutils literal notranslate"><span class="pre">true</span></code>, which is a boolean to activate the coloration of the boundary. This allows us to define separate boundary conditions at each side of the box.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> is set to 4. This will ensure to have a base mesh that is a bit finer than the particle size.</p></li>
+</ul>
+</section>
+<section id="mesh-adaptation-control">
+<h3><span class="section-number">1.2.4.5. </span>Mesh adaptation control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
+  set fraction coarsening = 0.2
+  set fraction refinement = 0.025
+  set fraction type = number
+  set frequency = 1
+  set max number elements = 750000
+  set max refinement level = 6
+  set min refinement level = 4
+  set type = kelly
+  set variable = velocity
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">coarsening</span></code> is set to 0.2. This limits the accumulation of elements when the particle is moving. It allows for cells far from the particle to be coarsened when the particles get further away.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> is set to 0.025. The objective here is to refine elements that become close to the particle when it’s moving. This will mostly refine elements around the particle that are not included in the refinement zone around the particle. The refinement zone around the particle will be discussed in more detail in the IB particle section.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">frequency</span></code> is set to 1. Since the particle is moving at each time step, the refinement zone around it should be reevaluated at each time step.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> is set to 6. This parameter limits how small the elements around the particle can get, limiting the total number of elements in the problem. Here we limit the mesh size to 8 elements per diameter of the particle. This should be sufficient to show the capabilities of the solver. However, the discretization error is not negligible in this case.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> is set to <code class="docutils literal notranslate"><span class="pre">kelly</span></code>. Since the particle is moving and we do not want a uniform refinement of all the cells, we use the kelly error estimator based on the <code class="docutils literal notranslate"><span class="pre">velocity</span></code> variable.</p></li>
+</ul>
+</section>
+<section id="boundary-conditions">
+<h3><span class="section-number">1.2.4.6. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
+  set number = 5
+  subsection bc 0
+    set id   = 0
+    set type = noslip
+  end
+  subsection bc 1
+    set id   = 1
+    set type = noslip
+  end
+  subsection bc 2
+    set id   = 2
+    set type = noslip
+  end
+  subsection bc 3
+    set id   = 4
+    set type = noslip
+  end
+  subsection bc 4
+    set id   = 5
+    set type = noslip
+  end
+end
+</pre></div>
+</div>
+<p>Here we define the 5 <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">slip</span></code> boundaries for all the box walls and let the 6th boundary free, to represent the top of the box. We refer the reader to the <a class="reference internal" href="../../../parameters/cfd/boundary_conditions_cfd.html"><span class="doc">Boundary conditions - CFD</span></a> section on how those boundaries are defined.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The drag coefficient obtained in this case is higher than the drag coefficient for a cylinder at a Reynolds number of 1 as the size of the domain is not large enough relative to the diameter of the cylinder. The flow around the cylinder is then constrained by the lateral boundaries, and this incrases the drag coefficient.</p>
+<p>The boundary id of dealii rectangular mesh are numbered as such:  <span class="math notranslate nohighlight">\(x_{min}=0\)</span>, <span class="math notranslate nohighlight">\(x_{max}=1\)</span>, <span class="math notranslate nohighlight">\(y_{min}=2\)</span>, <span class="math notranslate nohighlight">\(y_{max}=3\)</span>, <span class="math notranslate nohighlight">\(z_{min}=4\)</span>, <span class="math notranslate nohighlight">\(z_{max}=5\)</span>.</p>
 </div>
+</section>
+<section id="initial-condition">
+<h3><span class="section-number">1.2.4.7. </span>Initial condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
+  set type = nodal
+  subsection uvwp
+    set Function expression = 0; 0; 0; 0
+  end
+end
+</pre></div>
+</div>
+<p>The initial condition for this case is simple to define. At the start of the simulation, we assume that the particle and the fluid are at rest. From there, we define a uniform velocity field of 0 everywhere. To do that, we used the <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">nodal</span></code> and then specified a function expression of 0 for all the velocity components.</p>
+</section>
+<section id="non-linear-solver-control">
+<h3><span class="section-number">1.2.4.8. </span>Non-Linear solver control<a class="headerlink" href="#non-linear-solver-control" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
+  set verbosity             = verbose
+  set tolerance             = 1e-4
+  set max iterations        = 10
+  set residual precision    = 5
+  set force rhs calculation = true
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> is set to 1e-4. This is small enough to ensure that the flow field is adequately resolved, since here we expect a velocity of the particle of the order of 10.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iterations</span></code> is set to 10. The objective here is to allow enough Newton non-linear steps to ensure the convergence to the tolerance. Also, we should limit the time spent on a single time step if the system is too stiff.</p></li>
+<li><dl class="simple">
+<dt>The <code class="docutils literal notranslate"><span class="pre">force</span> <span class="pre">rhs</span> <span class="pre">calculation</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>. This is the most important modification for resolved CFD-DEM simulation. By default, the non-linear solver will recalculate the RHS only after the update of the solution. But here, we need to evaluate it before every matrix resolution, and we cannot use the last RHS evaluation that was done after the last newton iteration. The particle position was updated between these two steps, changing the RHS evaluation. This means that for every non-linear step, we evaluate the RHS twice. The non-linear solver follows this sequence of steps for each newton iteration.</dt><dd><ul>
+<li><p>update the particles positions</p></li>
+<li><p>update the Jacobian matrix</p></li>
+<li><p>update the RHS</p></li>
+<li><p>solve the matrix system</p></li>
+<li><p>reevaluate the RHS to check the convergence.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="linear-solver-control">
+<h3><span class="section-number">1.2.4.9. </span>Linear solver control<a class="headerlink" href="#linear-solver-control" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
+  set method                                = gmres
+  set max iters                             = 1000
+  set relative residual                     = 1e-4
+  set minimum residual                      = 1e-11
+  set ilu preconditioner fill               = 0
+  set ilu preconditioner absolute tolerance = 1e-6
+  set verbosity                             = verbose
+  set max krylov vectors                    = 1000
+end
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">method</span></code> is set to <code class="docutils literal notranslate"><span class="pre">gmres</span></code>. This solver is less computationally expensive than the other option, and this case does not require any special preconditioner. This makes the <code class="docutils literal notranslate"><span class="pre">gmres</span></code> solver the best option available.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iters</span></code> is set to 1000. This is a lot more steps than how much it should take to solve the system.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">krylov</span> <span class="pre">vectors</span></code> is set to 1000. This is to ensure that we keep the full Arnoldi basis for each new iteration. From experience keeping a maximum of Krylov vector results in a faster resolution for this case than clearing the basis after a lower number of <code class="docutils literal notranslate"><span class="pre">gmres</span></code> iterations.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">relative</span> <span class="pre">residual</span></code> is set to 1e-4. This is small enough, so we don’t under-resolve our matrix and do extra non-linear steps because of it, and at the same, it doesn’t require too many <code class="docutils literal notranslate"><span class="pre">gmres</span></code> iterations.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">fill</span></code> is set to 0. This is the fastest option with the current simulation parameters. In this case, we are able to use this option without having to do too many <code class="docutils literal notranslate"><span class="pre">gmres</span></code> iterations. It requires less computational time to do a few more  <code class="docutils literal notranslate"><span class="pre">gmres</span></code> iterations than building the preconditioner and doing fewer <code class="docutils literal notranslate"><span class="pre">gmres</span></code> iterations.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">absolute</span> <span class="pre">tolerance</span></code> is set to 1e-6. This slightly speeds up the first few matrix resolutions.</p></li>
+</ul>
+</section>
+<section id="ib-particles">
+<h3><span class="section-number">1.2.4.10. </span>IB particles<a class="headerlink" href="#ib-particles" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection particles
+  set stencil order =2
+  set refine mesh inside radius factor = 0
+  set refine mesh outside radius factor = 2
+  set initial refinement =3
+  set integrate motion = true
+  set assemble Navier-Stokes inside particles = false
+  set length ratio = 2
+  set contact search radius factor = 1.5
+  set particle nonlinear tolerance = 1e-3
+  set DEM coupling frequency = 1000
+  set enable lubrication force                = true
+  set lubrication range max                   = 2
+  set lubrication range min                   = 0.1
+  set load particles from file = true
+  set particles file = particles.input
+  subsection gravity
+    set Function expression =0;0;-981
+  end
+end
+</pre></div>
+</div>
+<p>In this subsection, we define most of the parameters that are related to the particle.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">stencil</span> <span class="pre">order</span></code> is set to 2 since it improves the results in the force evaluation step and does not make the matrix resolution significantly harder.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">refine</span> <span class="pre">mesh</span> <span class="pre">inside</span> <span class="pre">radius</span> <span class="pre">factor</span></code> is set to 0. This creates a mesh refinement inside the particle that avoids having hanging nodes in the calculation and helps ensure a small enough mesh around the particle.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">refine</span> <span class="pre">mesh</span> <span class="pre">outside</span> <span class="pre">radius</span> <span class="pre">factor</span></code> is set to 2. This creates a mesh refinement around the particle that avoids having hanging nodes in the calculation and helps ensure a small enough mesh around the particle.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> is set to 3. Here we want to have the mesh as small as possible for the first time step around each of the particles. To achieve this, we refine every element with at least one vertex in the refinement zone around the particle 3 times before the simulation starts. This ensures that all the cells in the refinement zone around the particle are as small as possible.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion</span></code> is set to true because we are interested in the dynamic of the particle as it sediments in the rectangular box.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">assemble</span> <span class="pre">Navier-Stokes</span> <span class="pre">inside</span> <span class="pre">particles</span></code> is set to false because we are not interested in the flow inside of the particle.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">length</span> <span class="pre">ratio</span></code> has been set to 2. This is small enough so it does not impact too much the conditioning of the matrix while avoiding interpolation of the immersed boundary stencil in multiple elements.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">search</span> <span class="pre">radius</span> <span class="pre">factor</span></code> is set to 1.5. This parameter is smaller than the default one since the particle motion relative to their size is relatively slow. This enables the use of a smaller search radius which increases the DEM calculation speed.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">nonlinear</span> <span class="pre">tolerance</span></code> has been set to 1e-3. This is small enough to ensure that the particle dynamics are adequately resolved. We expect a velocity of the particle of the order of 10.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">DEM</span> <span class="pre">coupling</span> <span class="pre">frequency</span></code> is set to 1000. This is the number of DEM time steps performed per CFD time step. Here 1000 is enough to prevent instability due to particles’ contact.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">lubrication</span> <span class="pre">force</span></code> is set to true since the subgrid lubrication force model is required to capture the lubrication force between the particle when the gap between them is inferior to two times the mesh size.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">lubrication</span> <span class="pre">range</span> <span class="pre">max</span></code> is set to 2. The subgrid lubrication force model is enabled when the gap between the particle is smaller than two times the mesh size.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">lubrication</span> <span class="pre">range</span> <span class="pre">min</span></code> is set to 0.1. The subgrid lubrication force model minimal gap considered between the particle is 0.1 times the mesh size.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">particles</span> <span class="pre">from</span> <span class="pre">file</span></code> is set to true to enable the particle to be defined using an external file.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">particles</span> <span class="pre">file</span></code> is set to <code class="docutils literal notranslate"><span class="pre">particles.input</span></code>, which is the file where the particles are defined.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">gravity</span></code> <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> is set to 0;0;-981 according to the definition of the case. As we choose the long axis of the rectangular box along the Z, we define gravity in this direction.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of particles is not defined here since the particles are defined using a file. In this case the number of particles is defined by the number of particles defined in the file.</p>
+</div>
+</section>
+</section>
+<section id="particles-file">
+<h2><span class="section-number">1.2.5. </span>Particles file<a class="headerlink" href="#particles-file" title="Permalink to this headline">¶</a></h2>
+<p>The file from which the particles are defined have a header line that goes as followed:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>type shape_argument_0 shape_argument_1 shape_argument_2 p_x p_y p_z v_x v_y v_z omega_x omega_y omega_z orientation_x orientation_y orientation_z density inertia pressure_x pressure_y pressure_z youngs_modulus restitution_coefficient friction_coefficient poisson_ratio rolling_friction_coefficient.
+</pre></div>
+</div>
+<p>Each line corresponds to a particle and its properties. A space separates each property. For the details on the properties, see the section <a class="reference internal" href="../../../parameters/sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html"><span class="doc">Sharp-Immersed-Boundary-Solver</span></a>. Here the particles’ Young’s moduli are set to 100MPa, the restitution coefficients to 0.9, the Poisson ratios to 0.30, and the friction coefficients to zero.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>type shape_argument_0 shape_argument_1 shape_argument_2 p_x p_y p_z v_x v_y v_z omega_x omega_y omega_z orientation_x orientation_y orientation_z density inertia pressure_x pressure_y pressure_z youngs_modulus restitution_coefficient friction_coefficient poisson_ratio rolling_friction_coefficient.
+0.0 0.125 0.125 0.125 0.25 0.25 20.25 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0015 7.6698974609375e-08 0.0 0.0 0.0 1000000.0 0.9 0.0 0.3 0.0
+</pre></div>
+</div>
+</section>
+<section id="results">
+<h2><span class="section-number">1.2.6. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The results are shown in the animation below. We can see the complex motion of the particles and the way they interact with one another. This case demonstrates the stability of the solver for cases with a large number of particle contacts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The results shown in the animation were obtained with a finer mesh and with a finer time-step.</p>
+</div>
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/Js73OUr08rM" width="560"></iframe></section>
+<section id="reference">
+<h2><span class="section-number">1.2.7. </span>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://doi.org/10.1063/1.1512918">[1]</a> Ten Cate, A., Nieuwstad, C. H., Derksen, J. J., &amp; Van den Akker, H. E. A. (2002). Particle imaging velocimetry experiments and lattice-Boltzmann simulations on a single sphere settling under gravity. Physics of Fluids, 14(11), 4012-4025.`DOI &lt;<a class="reference external" href="https://doi.org/10.1063/1.1512918">https://doi.org/10.1063/1.1512918</a>&gt;`_</p>
 </section>
 </section>
 
@@ -506,23 +647,23 @@ end
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">
+          <a class="next-page" href="../incompressible-flow.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">2.2. </span>Non-Newtonian flow past a sphere</div>
+                <div class="title"><span class="section-number">2. </span>Incompressible Flow</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../incompressible-flow.html">
+          <a class="prev-page" href="../sedimentation-1-particle/sedimentation-1-particle.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">2. </span>Incompressible Flow</div>
+                <div class="title"><span class="section-number">1.1. </span>Sedimentation of one particle</div>
                 
               </div>
             </a>
@@ -532,7 +673,7 @@ end
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/examples/sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.rst.txt"
+            | <a class="muted-link" href="../../../_sources/examples/sharp-immersed-boundary-solver/sedimentation-64-particles/sedimentation-64-particles.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -552,11 +693,26 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">2.1. Flow around a cylinder using the sharp interface method</a><ul>
-<li><a class="reference internal" href="#features">2.1.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">2.1.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">2.1.3. Description of the case</a></li>
-<li><a class="reference internal" href="#results">2.1.4. Results</a></li>
+<li><a class="reference internal" href="#">1.2. Sedimentation of 64 particles</a><ul>
+<li><a class="reference internal" href="#features">1.2.1. Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">1.2.2. Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">1.2.3. Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">1.2.4. Parameter file</a><ul>
+<li><a class="reference internal" href="#simulation-and-io-control">1.2.4.1. Simulation and IO control</a></li>
+<li><a class="reference internal" href="#physical-properties">1.2.4.2. Physical properties</a></li>
+<li><a class="reference internal" href="#fem">1.2.4.3. FEM</a></li>
+<li><a class="reference internal" href="#mesh">1.2.4.4. Mesh</a></li>
+<li><a class="reference internal" href="#mesh-adaptation-control">1.2.4.5. Mesh adaptation control</a></li>
+<li><a class="reference internal" href="#boundary-conditions">1.2.4.6. Boundary conditions</a></li>
+<li><a class="reference internal" href="#initial-condition">1.2.4.7. Initial condition</a></li>
+<li><a class="reference internal" href="#non-linear-solver-control">1.2.4.8. Non-Linear solver control</a></li>
+<li><a class="reference internal" href="#linear-solver-control">1.2.4.9. Linear solver control</a></li>
+<li><a class="reference internal" href="#ib-particles">1.2.4.10. IB particles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#particles-file">1.2.5. Particles file</a></li>
+<li><a class="reference internal" href="#results">1.2.6. Results</a></li>
+<li><a class="reference internal" href="#reference">1.2.7. Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -575,5 +731,6 @@ end
     <script src="../../../_static/scripts/furo.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
