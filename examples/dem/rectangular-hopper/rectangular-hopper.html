@@ -370,7 +370,7 @@ The main example does not use periodic boundary conditions in the depth of the h
 <li><p>Floating walls</p></li>
 <li><p><a class="reference external" href="https://gmsh.info/">GMSH</a> grids</p></li>
 <li><p>Python post-processing script using <a class="reference external" href="https://docs.pyvista.org/">PyVista</a></p></li>
-<li><p>Periodic boundaries in DEM (for extensional version of the case only, see section 7.9)</p></li>
+<li><p>Periodic boundaries in DEM (see section <a class="reference internal" href="#ref-periodic-hopper"><span class="std std-ref">Case with periodic boundary conditions</span></a>)</p></li>
 </ul>
 </section>
 <section id="files-used-in-this-example">
@@ -576,7 +576,7 @@ The simulated mass discharging rate is 84.94 g/s.</p>
 </figure>
 </section>
 <section id="case-with-periodic-boundary-conditions">
-<h2><span class="section-number">10.9. </span>Case with periodic boundary conditions<a class="headerlink" href="#case-with-periodic-boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<span id="ref-periodic-hopper"></span><h2><span class="section-number">10.9. </span>Case with periodic boundary conditions<a class="headerlink" href="#case-with-periodic-boundary-conditions" title="Permalink to this headline">¶</a></h2>
 <p>Periodic boundary conditions feature was not implemented when this example was created. Since it is now, this example is now extended to show how to use it. The original case in Anand et al. <a class="reference external" href="https://doi.org/10.1016/j.ces.2008.08.015">[1]</a> did use periodic boundaries.
 The modifications on the parameters of the previous example is the mesh thickness and the number of particles and also the addition of the boundary condition section.</p>
 <section id="id7">
@@ -652,7 +652,7 @@ end
     set inserted number of particles at each time step = 2910
     set insertion frequency                            = 25000
     set insertion box minimum x                        = -0.1030
-    set insertion box minimum y                        Rectangular hopper at the end of the simulation.   = 0.10644
+    set insertion box minimum y                        = 0.10644
     set insertion box minimum z                        = .00224
     set insertion box maximum x                        = 0.1030
     set insertion box maximum y                        = 0.16020
@@ -667,7 +667,7 @@ end
 <section id="results-comparison">
 <h3><span class="section-number">10.9.5. </span>Results comparison<a class="headerlink" href="#results-comparison" title="Permalink to this headline">¶</a></h3>
 <p>Here is the comparison of the results from the original simulation with Lethe DEM, the simulation with periodic boundary conditions with Lethe and the results from Anand et al. paper.
-The simulated mass discharging rate is 84.94 g/s from the original simulation and 88.77 g/s with PBC. Also, the run time of the simulation goes from about 3 hours and 15 minutes to 30 minutes on 8 cores.</p>
+The simulated mass discharging rate is 85.09 g/s from the original simulation and 91.73 g/s with PBC. Also, the run time of the simulation goes from about 1 hours and 30 minutes to 10 minutes on 8 cores with an Intel i7-11700K.</p>
 <figure class="align-center" id="id16">
 <a class="reference internal image-reference" href="../../../_images/figure_hopper_comparison.png"><img alt="Comparison" src="../../../_images/figure_hopper_comparison.png" style="width: 600px;"/></a>
 <figcaption>
