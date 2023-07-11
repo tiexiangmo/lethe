@@ -502,117 +502,36 @@ template <int dim>
 inline bool
 DEMSolver<dim>::check_load_balance_with_disabled_contacts()
 {
-  bool load_balance_step = false;
-  if (simulation_control->get_step_number() %
-        parameters.model_parameters.dynamic_load_balance_check_frequency ==
-      0)
+  // Check if load balance step from load balance frequency
+  bool load_balance_step =
+    (simulation_control->get_step_number() %
+       parameters.model_parameters.load_balance_frequency ==
+     0);
+
+  if (load_balance_step || checkpoint_step)
     {
-      // Process to accumulate the load of each process regards the number
-      // of cells and particles with their selected weight and with a factor
-      // related to the mobility status of the cells
-      vector<double> process_to_load_weight(n_mpi_processes, 0.0);
-
-      // Get the particle weight
-      const unsigned int particle_weight =
-        parameters.model_parameters.load_balance_particle_weight;
-
-      for (const auto &cell : triangulation.active_cell_iterators())
+      // Only reset the cell weights if the simulation is not at the beginning
+      // since where are no mobility status yet (weight are the default ones)
+      if (simulation_control->get_step_number() > 1)
         {
-          if (cell->is_locally_owned())
-            {
-              // Apply a weight of 1000 to the cell (default value)
-              process_to_load_weight[this_mpi_process] += 1000;
+          triangulation.signals.weight.disconnect_all_slots();
 
-              // Get the mobility status of the cell & the number of
-              // particles
-              const unsigned int cell_mobility_status =
-                disable_contacts_object.check_cell_mobility(cell);
-              const unsigned int n_particles_in_cell =
-                particle_handler.n_particles_in_cell(cell);
+          // Constant cell weight (1000)
+          triangulation.signals.weight.connect(
+            [](const typename Triangulation<dim>::cell_iterator &,
+               const CellStatus) -> unsigned int { return 1000; });
 
-              // Apply a factor on the particle weight regards the
-              // mobility status. alpha = 1 by default for mobile cell, but
-              // is modified if cell is active or inactive
-              double alpha = 1.0;
-              if (cell_mobility_status ==
-                    disable_contacts_object.static_active ||
-                  cell_mobility_status ==
-                    disable_contacts_object.advected_active)
-                {
-                  alpha =
-                    parameters.model_parameters.active_load_balancing_factor;
-                }
-              else if (cell_mobility_status ==
-                         disable_contacts_object.inactive ||
-                       cell_mobility_status == disable_contacts_object.advected)
-                {
-                  alpha =
-                    parameters.model_parameters.inactive_load_balancing_factor;
-                }
-
-              // Add the particle weight time the number of particles in the
-              // cell to the processor load
-              process_to_load_weight[this_mpi_process] +=
-                alpha * n_particles_in_cell * particle_weight;
-            }
+          // Cell weight with mobility status (from user-defined factors)
+          triangulation.signals.weight.connect(
+            [&](const typename parallel::distributed::Triangulation<
+                  dim>::cell_iterator &cell,
+                const CellStatus       status) -> unsigned int {
+              return this->cell_weight_with_mobility_status(cell, status);
+            });
         }
 
-      // Exchange information
-      double maximum_load_on_proc = 0.0;
-      double minimum_load_on_proc = 0.0;
-      double total_load           = 0.0;
-
-      maximum_load_on_proc =
-        Utilities::MPI::max(*std::max_element(process_to_load_weight.begin(),
-                                              process_to_load_weight.end()),
-                            mpi_communicator);
-
-      // Find the minimum load on a process
-      // First it finds the minimum load on a process, but since values in
-      // the vector that are not on this process are 0.0, it looks for
-      // values > 1e-8. After that, it finds the minimum load of all the
-      // processors
-      minimum_load_on_proc =
-        Utilities::MPI::min(*std::min_element(process_to_load_weight.begin(),
-                                              process_to_load_weight.end(),
-                                              [](double a, double b) {
-                                                return (a > 1e-8) ?
-                                                         (b > 1e-8 ? a < b :
-                                                                     true) :
-                                                         false;
-                                              }),
-                            mpi_communicator);
-
-      // Get the total load
-      total_load =
-        Utilities::MPI::sum(std::accumulate(process_to_load_weight.begin(),
-                                            process_to_load_weight.end(),
-                                            0.0),
-                            mpi_communicator);
-
-      if ((maximum_load_on_proc - minimum_load_on_proc) >
-            parameters.model_parameters.load_balance_threshold *
-              (total_load / n_mpi_processes) ||
-          checkpoint_step)
-        {
-          load_balance();
-          load_balance_step = true;
-        }
+      load_balance();
     }
-
-  // Clear and connect a new cell weight function
-  triangulation.signals.weight.disconnect_all_slots();
-
-  triangulation.signals.weight.connect(
-    [](const typename Triangulation<dim>::cell_iterator &,
-       const CellStatus) -> unsigned int { return 1000; });
-
-  triangulation.signals.weight.connect(
-    [&](const typename parallel::distributed::Triangulation<dim>::cell_iterator
-          &              cell,
-        const CellStatus status) -> unsigned int {
-      return this->cell_weight_with_mobility_status(cell, status);
-    });
 
   return load_balance_step;
 }

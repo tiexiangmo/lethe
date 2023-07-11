@@ -613,10 +613,13 @@ namespace Parameters
               {
                 load_balance_method =
                   LoadBalanceMethod::dynamic_with_disabling_contacts;
-                load_balance_threshold =
-                  prm.get_double("load balance threshold");
-                dynamic_load_balance_check_frequency =
-                  prm.get_integer("dynamic load balance check frequency");
+                // load_balance_threshold =
+                //  prm.get_double("load balance threshold");
+
+                // dynamic_load_balance_check_frequency =
+                //  prm.get_integer("dynamic load balance check frequency");
+                load_balance_frequency =
+                  prm.get_integer("load balance frequency");
 
                 // Weights for load balancing of active and inactive cells
                 active_load_balancing_factor =
