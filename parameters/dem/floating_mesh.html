@@ -375,10 +375,14 @@
    set number of solids  = 1
      subsection  solid object 0
        subsection mesh
-           set type                = gmsh
-           set file name           = none
-           set simplex             = true
-           set initial refinement  = 0
+           set type                   = gmsh
+           set file name              = none
+           set simplex                = true
+           set initial refinement     = 0
+           set initial rotation axis  = 1, 0, 0
+           set initial rotation angle = 0
+           set initial translation    = 0, 0, 0
+
        end
 
        subsection translational velocity
@@ -403,7 +407,7 @@ end
 </div>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> parameter defines the total number of floating meshes we wish to use during the simulation.</p></li>
-<li><p>For each floating mesh, we need a separate subsection (for instance   <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">object</span> <span class="pre">0</span></code>) in which the information of the floating mesh (<code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code>) is defined.</p></li>
+<li><p>For each floating mesh, we need a separate subsection (for instance   <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">solid</span> <span class="pre">object</span> <span class="pre">0</span></code>) in which the information of the floating mesh (<code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code>, <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">translation</span></code>, <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">rotation</span> <span class="pre">axis</span></code>, <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">rotation</span> <span class="pre">angle</span></code>  ) is defined. Each component of the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">translation</span></code> and of the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">rotation</span> <span class="pre">axis</span></code> parameters represent the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">z</span></code> axis. The rotation is apply before the translation.</p></li>
 <li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">translational</span> <span class="pre">velocity</span></code>, we define the translational velocity of the floating mesh.</p></li>
 <li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">angular</span> <span class="pre">velocity</span></code>, we define the angular velocity of the floating mesh.</p></li>
 <li><p>In the subsection <code class="docutils literal notranslate"><span class="pre">center</span> <span class="pre">of</span> <span class="pre">rotation</span></code>, we define the center of rotation of the solid object (in the case of rotational motion).</p></li>
