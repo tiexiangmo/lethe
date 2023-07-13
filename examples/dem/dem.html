@@ -3,13 +3,14 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="1. Bouncing particle" href="bouncing-particle/bouncing-particle.html" /><link rel="prev" title="3.1. Tracer through CAD Junction in Simplex" href="../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Bouncing particle" href="bouncing-particle/bouncing-particle.html" /><link rel="prev" title="Tracer through CAD junction in simplex" href="../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Discrete Element Method - Lethe documentation</title>
+        <title>Discrete Element Method (DEM) - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     
     
@@ -225,87 +226,87 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">1. 2D Lid-driven cavity flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">2. 2D Flow around a cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">3. 2D Taylor-Couette flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-backward-facing-step/2d-backward-facing-step.html">4. 2D Flow past a backward-facing step</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">5. 2D Transient flow around an Ahmed body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-transient-flow-around-cylinder/2d-transient-flow-around-cylinder.html">6. 2D Transient flow around a cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-naca0012-low-reynolds/2d-naca0012-low-reynolds.html">7. 2D Flow around NACA0012 at low Reynolds number</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">8. 3D Flow around a sphere</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">9. 3D Flow over periodic hills</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">10. 2D Taylor-Couette flow using Nitsche immersed boundary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html">11. 3D Ribbon mixer using a single rotating reference frame</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/3d-nitsche-mixer-with-pbt-impeller/nitsche-mixer-with-pbt-impeller.html">12. 3D Mixer with pitched-blade turbine impeller using Nitsche immersed boundary</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../incompressible-flow/incompressible-flow.html">Incompressible flow</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">Lid-driven cavity flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">Flow around a cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">Taylor-Couette flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-backward-facing-step/2d-backward-facing-step.html">Flow past a backward-facing step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">Transient flow around an Ahmed body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-transient-flow-around-cylinder/2d-transient-flow-around-cylinder.html">Transient flow around a cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-naca0012-low-reynolds/2d-naca0012-low-reynolds.html">Flow around NACA0012 at low Reynolds number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">Taylor-Couette flow using Nitsche immersed boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">Flow around a sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html">Ribbon mixer using a single rotating reference frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../incompressible-flow/3d-nitsche-mixer-with-pbt-impeller/nitsche-mixer-with-pbt-impeller.html">Mixer with pitched-blade turbine impeller using Nitsche immersed boundary</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../multiphysics/vof.html">1. VOF</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/dam-break/dam-break.html">1.1. Dam-break</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability.html">1.2. Rayleigh-Taylor instability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/static-bubble/static-bubble.html">1.3. Static bubble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/rising-bubble/rising-bubble.html">1.4. Rising bubble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">1.5. Sloshing in a rectangular tank</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/3d-dam-break/3d-dam-break.html">1.6. 3D Dam Break With an Obstacle</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../multiphysics/multiphysics.html">Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../multiphysics/vof.html">VOF</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/dam-break/dam-break.html">Dam-break</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability.html">Rayleigh-Taylor instability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/static-bubble/static-bubble.html">Static bubble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/rising-bubble/rising-bubble.html">Rising bubble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">Sloshing in a rectangular tank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/3d-dam-break/3d-dam-break.html">3D Dam-break with an obstacle</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../multiphysics/heat-transfer.html">2. Heat transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">2.1. Rayleigh-Bénard Convection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/stefan-problem/stefan-problem.html">2.2. Stefan problem : melting of a solid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">2.3. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/melting-cavity/melting-cavity.html">2.4. Melting Cavity</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/laser-heating/laser-heating.html">2.5. Laser heating</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/laser-meltpool/laser-meltpool.html">2.6. Laser meltpool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">2.7. Concentric heat exchanger</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../multiphysics/heat-transfer.html">Heat transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">Rayleigh-Bénard convection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/stefan-problem/stefan-problem.html">Stefan problem: melting of a solid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming up a viscous fluid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/melting-cavity/melting-cavity.html">Melting cavity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/laser-heating/laser-heating.html">Laser heating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/laser-meltpool/laser-meltpool.html">Laser meltpool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">Concentric heat exchanger</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../multiphysics/tracer.html">3. Tracer</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">3.1. Tracer through CAD Junction in Simplex</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../multiphysics/tracer.html">Tracer</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">Tracer through CAD junction in simplex</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Discrete Element Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="bouncing-particle/bouncing-particle.html">1. Bouncing particle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="packing-in-circle/packing-in-circle.html">2. Packing in circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="packing-in-ball/packing-in-ball.html">3. Packing in ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="small-scale-rotating-drum/small-scale-rotating-drum.html">4. Small scale rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">5. Small scale rotating drum post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotating-drum/rotating-drum.html">6. Rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">7. Rotating drum with post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rotation-of-box/rotation-of-box.html">8. Rotation of box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="silo/silo.html">9. Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rectangular-hopper/rectangular-hopper.html">10. Rectangular hopper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="granular-dam-break/granular-dam-break.html">11. Granular dam-break</a></li>
-<li class="toctree-l3"><a class="reference internal" href="granular-mixer/granular-mixer.html">12. Granular mixer</a></li>
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Discrete Element Method (DEM)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="bouncing-particle/bouncing-particle.html">Bouncing particle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packing-in-circle/packing-in-circle.html">Packing in circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="packing-in-ball/packing-in-ball.html">Packing in ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="small-scale-rotating-drum/small-scale-rotating-drum.html">Small scale rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small scale rotating drum post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotating-drum/rotating-drum.html">Rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating drum with post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rotation-of-box/rotation-of-box.html">Rotation of box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="silo/silo.html">Silo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rectangular-hopper/rectangular-hopper.html">Rectangular hopper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="granular-dam-break/granular-dam-break.html">Granular dam-break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="granular-mixer/granular-mixer.html">Granular mixer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html">1. Cylindrical packed bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">2. Gas-solid fluidized bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html">3. Gas-solid spouted bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../unresolved-cfd-dem/boycott-effect/boycott-effect.html">4. Boycott Effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html">Cylindrical packed bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">Gas-solid fluidized bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html">Gas-solid spouted bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unresolved-cfd-dem/boycott-effect/boycott-effect.html">Boycott effect</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp Immersed Boundary Solver</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../sharp-immersed-boundary-solver/resolved-cfd-dem.html">1. Resolved CFD-DEM Examples</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/sedimentation-1-particle/sedimentation-1-particle.html">1.1. Sedimentation of one particle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/sedimentation-64-particles/sedimentation-64-particles.html">1.2. Sedimentation of 64 particles</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp immersed boundary solver</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../sharp-immersed-boundary-solver/resolved-cfd-dem.html">Resolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/sedimentation-1-particle/sedimentation-1-particle.html">Sedimentation of one particle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/sedimentation-64-particles/sedimentation-64-particles.html">Sedimentation of 64 particles</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../sharp-immersed-boundary-solver/incompressible-flow.html">2. Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">2.1. Flow around a cylinder using the sharp interface method</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">2.2. Non-Newtonian flow past a sphere</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">2.3. 3D Mixer with pitched-blade turbine impeller using Composite Sharp-immersed boundary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">2.4. 3D Mixer with pitched-blade turbine impeller using OpenCascade Sharp-immersed boundary</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../sharp-immersed-boundary-solver/incompressible-flow.html">Incompressible flow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">Flow around a cylinder using the sharp interface method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">Non-Newtonian flow past a sphere</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">3D Mixer with pitched-blade turbine impeller using Composite Sharp-immersed boundary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sharp-immersed-boundary-solver/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">3D Mixer with pitched-blade turbine impeller using OpenCascade Sharp-immersed boundary</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../rpt/rpt.html">Radioactive Particle Tracking (RPT)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../rpt/photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html">1. Photon count calculation in a cylindrical vessel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rpt/tuning-parameters-with-nomad/tuning-parameters-with-nomad.html">2. Tuning Count Calculation Model Parameters with NOMAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rpt/photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html">Photon count calculation in a cylindrical vessel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rpt/tuning-parameters-with-nomad/tuning-parameters-with-nomad.html">Tuning count calculation model parameters with NOMAD</a></li>
 </ul>
 </li>
 </ul>
@@ -358,26 +359,72 @@
           </label>
         </div>
         <article role="main">
-          <section id="discrete-element-method">
-<h1>Discrete Element Method<a class="headerlink" href="#discrete-element-method" title="Permalink to this headline">¶</a></h1>
+          <section id="discrete-element-method-dem">
+<h1>Discrete Element Method (DEM)<a class="headerlink" href="#discrete-element-method-dem" title="Permalink to this headline">¶</a></h1>
 <p>We organize the DEM examples from the simplest to the most complicated example:</p>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bouncing-particle/bouncing-particle.html">1. Bouncing particle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packing-in-circle/packing-in-circle.html">2. Packing in circle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packing-in-ball/packing-in-ball.html">3. Packing in ball</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-scale-rotating-drum/small-scale-rotating-drum.html">4. Small scale rotating drum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">5. Small scale rotating drum post-processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotating-drum/rotating-drum.html">6. Rotating drum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">7. Rotating drum with post-processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotation-of-box/rotation-of-box.html">8. Rotation of box</a></li>
-<li class="toctree-l1"><a class="reference internal" href="silo/silo.html">9. Silo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rectangular-hopper/rectangular-hopper.html">10. Rectangular hopper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="granular-dam-break/granular-dam-break.html">11. Granular dam-break</a></li>
-<li class="toctree-l1"><a class="reference internal" href="granular-mixer/granular-mixer.html">12. Granular mixer</a></li>
-</ul>
 </div>
-</section>
+<div class="graphviz"><img alt='digraph dem_diagram {
+  graph [bgcolor="transparent", align=true, ranksep=1.5];
+  node [fontname=Arial, fontsize=18, shape=box, fontcolor=royalblue, color=royalblue];
+  edge [color=royalblue];
+  rankdir="LR";
+  size = "9,9";
+
+  dem [label="Discrete Element \nMethod (DEM)", href="https://lethe-cfd.github.io/lethe/examples/dem/dem.html"];
+
+  dem_1 [label="Bouncing particle", href="https://lethe-cfd.github.io/lethe/examples/dem/bouncing-particle/bouncing-particle.html"];
+
+  dem_2 [label="Packing in circle", href="https://lethe-cfd.github.io/lethe/examples/dem/packing-in-circle/packing-in-circle.html"];
+
+  dem_3 [label="Packing in ball", href="https://lethe-cfd.github.io/lethe/examples/dem/packing-in-ball/packing-in-ball.html"];
+
+  dem_4 [label="Small scale rotating drum", href="https://lethe-cfd.github.io/lethe/examples/dem/small-scale-rotating-drum/small-scale-rotating-drum.html"];
+
+  dem_5 [label="Small scale rotating drum post-processing", href="https://lethe-cfd.github.io/lethe/examples/dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html"];
+
+  dem_6 [label="Rotating drum", href="https://lethe-cfd.github.io/lethe/examples/dem/rotating-drum/rotating-drum.html"];
+
+  dem_7 [label="Rotating drum with post-processing", href="https://lethe-cfd.github.io/lethe/examples/dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html"];
+
+  dem_8 [label="Rotation of box", href="https://lethe-cfd.github.io/lethe/examples/dem/rotation-of-box/rotation-of-box.html"];
+
+  dem_9 [label="Silo", href="https://lethe-cfd.github.io/lethe/examples/dem/silo/silo.html"];
+
+  dem_10 [label="Rectangular hopper", href="https://lethe-cfd.github.io/lethe/examples/dem/rectangular-hopper/rectangular-hopper.html"];
+
+  dem_11 [label="Granular dam-break", href="https://lethe-cfd.github.io/lethe/examples/dem/granular-dam-break/granular-dam-break.html"];
+
+  dem_12 [label="Granular mixer", href="https://lethe-cfd.github.io/lethe/examples/dem/granular-mixer/granular-mixer.html"];
+
+  dem -&gt; dem_1:w;
+  dem -&gt; dem_2:w;
+  dem -&gt; dem_3:w;
+  dem -&gt; dem_4:w;
+  dem -&gt; dem_5:w;
+  dem -&gt; dem_6:w;
+  dem -&gt; dem_7:w;
+  dem -&gt; dem_8:w;
+  dem -&gt; dem_9:w;
+  dem -&gt; dem_10:w;
+  dem -&gt; dem_11:w;
+  dem -&gt; dem_12:w;
+}' class="graphviz" src="../../_images/graphviz-11938ff81232af4a111f0a1665634ae7b31af80f.png" usemap="#dem_diagram"/></div>
+<map id="dem_diagram" name="dem_diagram">
+<area alt="" coords="5,393,216,457" href="https://lethe-cfd.github.io/lethe/examples/dem/dem.html" id="node1" shape="rect" title="Discrete Element \nMethod (DEM)"/>
+<area alt="" coords="491,5,693,53" href="https://lethe-cfd.github.io/lethe/examples/dem/bouncing-particle/bouncing-particle.html" id="node2" shape="rect" title="Bouncing particle"/>
+<area alt="" coords="495,77,689,125" href="https://lethe-cfd.github.io/lethe/examples/dem/packing-in-circle/packing-in-circle.html" id="node3" shape="rect" title="Packing in circle"/>
+<area alt="" coords="505,149,679,197" href="https://lethe-cfd.github.io/lethe/examples/dem/packing-in-ball/packing-in-ball.html" id="node4" shape="rect" title="Packing in ball"/>
+<area alt="" coords="447,221,737,269" href="https://lethe-cfd.github.io/lethe/examples/dem/small-scale-rotating-drum/small-scale-rotating-drum.html" id="node5" shape="rect" title="Small scale rotating drum"/>
+<area alt="" coords="360,293,824,341" href="https://lethe-cfd.github.io/lethe/examples/dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html" id="node6" shape="rect" title="Small scale rotating drum post-processing"/>
+<area alt="" coords="507,365,677,413" href="https://lethe-cfd.github.io/lethe/examples/dem/rotating-drum/rotating-drum.html" id="node7" shape="rect" title="Rotating drum"/>
+<area alt="" coords="395,437,789,485" href="https://lethe-cfd.github.io/lethe/examples/dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html" id="node8" shape="rect" title="Rotating drum with post-processing"/>
+<area alt="" coords="501,509,683,557" href="https://lethe-cfd.github.io/lethe/examples/dem/rotation-of-box/rotation-of-box.html" id="node9" shape="rect" title="Rotation of box"/>
+<area alt="" coords="556,581,628,629" href="https://lethe-cfd.github.io/lethe/examples/dem/silo/silo.html" id="node10" shape="rect" title="Silo"/>
+<area alt="" coords="477,653,707,701" href="https://lethe-cfd.github.io/lethe/examples/dem/rectangular-hopper/rectangular-hopper.html" id="node11" shape="rect" title="Rectangular hopper"/>
+<area alt="" coords="475,725,709,773" href="https://lethe-cfd.github.io/lethe/examples/dem/granular-dam-break/granular-dam-break.html" id="node12" shape="rect" title="Granular dam-break"/>
+<area alt="" coords="503,797,681,845" href="https://lethe-cfd.github.io/lethe/examples/dem/granular-mixer/granular-mixer.html" id="node13" shape="rect" title="Granular mixer"/>
+</map></section>
 
         </article>
       </div>
@@ -389,7 +436,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">1. </span>Bouncing particle</div>
+                <div class="title">Bouncing particle</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -400,7 +447,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">3.1. </span>Tracer through CAD Junction in Simplex</div>
+                <div class="title">Tracer through CAD junction in simplex</div>
                 
               </div>
             </a>

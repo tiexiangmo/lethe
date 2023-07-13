@@ -3,13 +3,14 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Multiphysics Examples" href="../../multiphysics/multiphysics.html" /><link rel="prev" title="11. 3D Ribbon mixer using a single rotating reference frame" href="../3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Multiphysics" href="../../multiphysics/multiphysics.html" /><link rel="prev" title="Ribbon mixer using a single rotating reference frame" href="../3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>12. 3D Mixer with pitched-blade turbine impeller using Nitsche immersed boundary - Lethe documentation</title>
+        <title>Mixer with pitched-blade turbine impeller using Nitsche immersed boundary - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=0af69da206d614734f649b27d4cdc2dd6c31f41d" />
     
     
@@ -225,87 +226,87 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../incompressible-flow.html">Incompressible Flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">1. 2D Lid-driven cavity flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html">2. 2D Flow around a cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">3. 2D Taylor-Couette flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-backward-facing-step/2d-backward-facing-step.html">4. 2D Flow past a backward-facing step</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">5. 2D Transient flow around an Ahmed body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-transient-flow-around-cylinder/2d-transient-flow-around-cylinder.html">6. 2D Transient flow around a cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-naca0012-low-reynolds/2d-naca0012-low-reynolds.html">7. 2D Flow around NACA0012 at low Reynolds number</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-flow-around-sphere/flow-around-sphere.html">8. 3D Flow around a sphere</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">9. 3D Flow over periodic hills</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">10. 2D Taylor-Couette flow using Nitsche immersed boundary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html">11. 3D Ribbon mixer using a single rotating reference frame</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">12. 3D Mixer with pitched-blade turbine impeller using Nitsche immersed boundary</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../incompressible-flow.html">Incompressible flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">Lid-driven cavity flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html">Flow around a cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">Taylor-Couette flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-backward-facing-step/2d-backward-facing-step.html">Flow past a backward-facing step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">Transient flow around an Ahmed body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-transient-flow-around-cylinder/2d-transient-flow-around-cylinder.html">Transient flow around a cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-naca0012-low-reynolds/2d-naca0012-low-reynolds.html">Flow around NACA0012 at low Reynolds number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">Taylor-Couette flow using Nitsche immersed boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-flow-around-sphere/flow-around-sphere.html">Flow around a sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">Flow over periodic hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html">Ribbon mixer using a single rotating reference frame</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Mixer with pitched-blade turbine impeller using Nitsche immersed boundary</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics Examples</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/vof.html">1. VOF</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/dam-break/dam-break.html">1.1. Dam-break</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability.html">1.2. Rayleigh-Taylor instability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/static-bubble/static-bubble.html">1.3. Static bubble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rising-bubble/rising-bubble.html">1.4. Rising bubble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">1.5. Sloshing in a rectangular tank</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/3d-dam-break/3d-dam-break.html">1.6. 3D Dam Break With an Obstacle</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/vof.html">VOF</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/dam-break/dam-break.html">Dam-break</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability.html">Rayleigh-Taylor instability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/static-bubble/static-bubble.html">Static bubble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rising-bubble/rising-bubble.html">Rising bubble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">Sloshing in a rectangular tank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/3d-dam-break/3d-dam-break.html">3D Dam-break with an obstacle</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/heat-transfer.html">2. Heat transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">2.1. Rayleigh-Bénard Convection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/stefan-problem/stefan-problem.html">2.2. Stefan problem : melting of a solid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">2.3. Warming Up a Viscous Fluid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/melting-cavity/melting-cavity.html">2.4. Melting Cavity</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-heating/laser-heating.html">2.5. Laser heating</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-meltpool/laser-meltpool.html">2.6. Laser meltpool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">2.7. Concentric heat exchanger</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/heat-transfer.html">Heat transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">Rayleigh-Bénard convection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/stefan-problem/stefan-problem.html">Stefan problem: melting of a solid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming up a viscous fluid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/melting-cavity/melting-cavity.html">Melting cavity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-heating/laser-heating.html">Laser heating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-meltpool/laser-meltpool.html">Laser meltpool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">Concentric heat exchanger</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/tracer.html">3. Tracer</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">3.1. Tracer through CAD Junction in Simplex</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/tracer.html">Tracer</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">Tracer through CAD junction in simplex</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/bouncing-particle/bouncing-particle.html">1. Bouncing particle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">2. Packing in circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">3. Packing in ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">4. Small scale rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">5. Small scale rotating drum post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">6. Rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">7. Rotating drum with post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">8. Rotation of box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">9. Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">10. Rectangular hopper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-dam-break/granular-dam-break.html">11. Granular dam-break</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-mixer/granular-mixer.html">12. Granular mixer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/bouncing-particle/bouncing-particle.html">Bouncing particle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small scale rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small scale rotating drum post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating drum with post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular hopper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-dam-break/granular-dam-break.html">Granular dam-break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-mixer/granular-mixer.html">Granular mixer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html">1. Cylindrical packed bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">2. Gas-solid fluidized bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html">3. Gas-solid spouted bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/boycott-effect/boycott-effect.html">4. Boycott Effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html">Cylindrical packed bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">Gas-solid fluidized bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html">Gas-solid spouted bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/boycott-effect/boycott-effect.html">Boycott effect</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp Immersed Boundary Solver</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/resolved-cfd-dem.html">1. Resolved CFD-DEM Examples</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-1-particle/sedimentation-1-particle.html">1.1. Sedimentation of one particle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-64-particles/sedimentation-64-particles.html">1.2. Sedimentation of 64 particles</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp immersed boundary solver</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/resolved-cfd-dem.html">Resolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-1-particle/sedimentation-1-particle.html">Sedimentation of one particle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-64-particles/sedimentation-64-particles.html">Sedimentation of 64 particles</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/incompressible-flow.html">2. Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">2.1. Flow around a cylinder using the sharp interface method</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">2.2. Non-Newtonian flow past a sphere</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">2.3. 3D Mixer with pitched-blade turbine impeller using Composite Sharp-immersed boundary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">2.4. 3D Mixer with pitched-blade turbine impeller using OpenCascade Sharp-immersed boundary</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/incompressible-flow.html">Incompressible flow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">Flow around a cylinder using the sharp interface method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">Non-Newtonian flow past a sphere</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">3D Mixer with pitched-blade turbine impeller using Composite Sharp-immersed boundary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">3D Mixer with pitched-blade turbine impeller using OpenCascade Sharp-immersed boundary</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../rpt/rpt.html">Radioactive Particle Tracking (RPT)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../rpt/photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html">1. Photon count calculation in a cylindrical vessel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rpt/tuning-parameters-with-nomad/tuning-parameters-with-nomad.html">2. Tuning Count Calculation Model Parameters with NOMAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rpt/photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html">Photon count calculation in a cylindrical vessel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rpt/tuning-parameters-with-nomad/tuning-parameters-with-nomad.html">Tuning count calculation model parameters with NOMAD</a></li>
 </ul>
 </li>
 </ul>
@@ -358,8 +359,8 @@
           </label>
         </div>
         <article role="main">
-          <section id="d-mixer-with-pitched-blade-turbine-impeller-using-nitsche-immersed-boundary">
-<h1><span class="section-number">12. </span>3D Mixer with pitched-blade turbine impeller using Nitsche immersed boundary<a class="headerlink" href="#d-mixer-with-pitched-blade-turbine-impeller-using-nitsche-immersed-boundary" title="Permalink to this headline">¶</a></h1>
+          <section id="mixer-with-pitched-blade-turbine-impeller-using-nitsche-immersed-boundary">
+<h1>Mixer with pitched-blade turbine impeller using Nitsche immersed boundary<a class="headerlink" href="#mixer-with-pitched-blade-turbine-impeller-using-nitsche-immersed-boundary" title="Permalink to this headline">¶</a></h1>
 <p>Simulation of mixing in stirred-tanks is one important industrial application which is often simulated with Lethe. Agitated vessels are widely applied in chemical engineering as product homogenizers, heat and mass transfer enhancers, and surface area maximizers in solid-fluid processes. Batch and Continuous Stirred Tank Reactors (CSTR), for example, are among the most often reactor models applied in chemical industries that can be simulated through computational fluid dynamics.</p>
 <p>This example illustrates how the transient flow in a stirred-tank can be simulated by Lethe using the Nitsche Immersed Boundary (NIB) formulation.</p>
 <div class="admonition seealso">
@@ -368,7 +369,7 @@
 </div>
 <p><span class="raw-html"><br/></span></p>
 <section id="features">
-<h2><span class="section-number">12.1. </span>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_33</span></code></p></li>
 <li><p>Transient problem</p></li>
@@ -378,7 +379,7 @@
 <p><span class="raw-html"><br/></span></p>
 </section>
 <section id="files-used-in-this-example">
-<h2><span class="section-number">12.2. </span>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<h2>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/3d-nitsche-mixer-with-pbt-impeller/mixer.prm</span></code></p></li>
 <li><p>Mesh file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/3d-nitsche-mixer-with-pbt-impeller/pbt.msh</span></code></p></li>
@@ -387,7 +388,7 @@
 <p><span class="raw-html"><br/></span></p>
 </section>
 <section id="description-of-the-case">
-<h2><span class="section-number">12.3. </span>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>We simulate the flow generated by a pitched blade turbine (PBT) in a stirred tank. The PBT is an axial impeller, which generates a flow pattern that amplifies axial circulation within the vessel (in opposition to radial impellers, e.g. Rushton turbines) <a class="reference external" href="https://onlinelibrary.wiley.com/doi/book/10.1002/0471451452">[1]</a>.</p>
 <p>The setup that we wish to simulate is schematized in the following figure:</p>
 <img alt="PBT and tank geometry" class="align-center" id="geometry" src="../../../_images/PBT-tank-3D.svg"/><p>The dimensions are listed in the following table:</p>
@@ -467,10 +468,10 @@
 <p><span class="raw-html"><br/></span></p>
 </section>
 <section id="parameter-file">
-<h2><span class="section-number">12.4. </span>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>Except for the Nitsche immersed boundary, all other sections of the parameter file in the present case have been explained in previous examples. However, the important sections are briefly explained for completeness.</p>
 <section id="simulation-control">
-<h3><span class="section-number">12.4.1. </span>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<h3>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/simulation_control.html"><span class="doc">Simulation Control</span></a> subsection defines the time integration and output results:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set method            = bdf2
@@ -496,7 +497,7 @@ end
 </ul>
 </section>
 <section id="physical-properties">
-<h3><span class="section-number">12.4.2. </span>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/physical_properties.html"><span class="doc">Physical Properties</span></a> subsection defines our fluid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   subsection fluid 0
@@ -508,7 +509,7 @@ end
 <p>The kinematic viscosity is set to <span class="math notranslate nohighlight">\(0.001\)</span>. This, combined with the angular velocity of <span class="math notranslate nohighlight">\(1~\text{Hz}\)</span> and the diameter of the impeller of <span class="math notranslate nohighlight">\(0.3~\text{m}\)</span>, will allow us to simulate the vessel at <span class="math notranslate nohighlight">\(Re=300\)</span>.</p>
 </section>
 <section id="mesh">
-<h3><span class="section-number">12.4.3. </span>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/mesh.html"><span class="doc">Mesh</span></a> subsection specifies the computational grid:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
     set type               = dealii
@@ -530,7 +531,7 @@ end
 </div>
 </section>
 <section id="boundary-conditions">
-<h3><span class="section-number">12.4.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<h3>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/boundary_conditions_cfd.html"><span class="doc">Boundary conditions - CFD</span></a> subsection establishes the constraints on different parts of the domain:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
   set number = 3
@@ -561,7 +562,7 @@ end
 </div>
 </section>
 <section id="nitsche-immersed-boundary-parameters">
-<h3><span class="section-number">12.4.5. </span>Nitsche immersed boundary parameters<a class="headerlink" href="#nitsche-immersed-boundary-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>Nitsche immersed boundary parameters<a class="headerlink" href="#nitsche-immersed-boundary-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../../../parameters/cfd/nitsche.html"><span class="doc">Nitsche Immersed Boundary</span></a> subsection is used to insert the immersed geometry and control its motion.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection nitsche
   set number of solids = 1
@@ -601,7 +602,7 @@ end
 </ul>
 </section>
 <section id="post-processing">
-<h3><span class="section-number">12.4.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
+<h3>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h3>
 <p>It is often desirable to obtain the time-averaged velocity field when simulating a transient flow. This is achieved through the <a class="reference internal" href="../../../parameters/cfd/post_processing.html"><span class="doc">Post-Processing</span></a> section. The averaging period is started after the flows start to stabilize and reach their pseudo steady-state. In this case, we assume it happens after <span class="math notranslate nohighlight">\(2~\text{sec}\)</span>. This choice is prone to error, which can be mitigated by increasing the duration of simulations and using a longer averaging interval.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection post-processing
   set calculate average velocities = true
@@ -611,7 +612,7 @@ end
 </div>
 </section>
 <section id="mesh-adaptation-control">
-<h3><span class="section-number">12.4.7. </span>Mesh adaptation control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h3>
+<h3>Mesh adaptation control<a class="headerlink" href="#mesh-adaptation-control" title="Permalink to this headline">¶</a></h3>
 <p>We use <a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html"><span class="doc">Mesh Adaptation Control</span></a> on the fluid velocity, so that cells are refined in cells where the fluid velocity changes the most.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
   set type                 = kelly
@@ -634,7 +635,7 @@ end
 <p>The <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> are chosen in consideration of the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span> <span class="pre">=</span> <span class="pre">3</span></code> of the fluid mesh: the cells cannot be coarsen (as <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> = <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code>), and can be refined up to two times.</p>
 </section>
 <section id="non-linear-solver-parameters">
-<h3><span class="section-number">12.4.8. </span>Non-linear solver parameters<a class="headerlink" href="#non-linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>Non-linear solver parameters<a class="headerlink" href="#non-linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Since this is a transient problem, it is not highly non-linear except for the first few iterations. Thus, we use standard <a class="reference internal" href="../../../parameters/cfd/non-linear_solver_control.html"><span class="doc">Non-linear Solver Control</span></a> parameters.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
   set tolerance = 1e-4
@@ -645,7 +646,7 @@ end
 <p>Because the assembly of the Nitsche restriction for the immersed boundary is relatively expensive, we reuse the Jacobian matrix as much as possible. This is accomplished by setting <code class="docutils literal notranslate"><span class="pre">solver</span> <span class="pre">=</span> <span class="pre">inexact_newton</span></code>.</p>
 </section>
 <section id="linear-solver-parameters">
-<h3><span class="section-number">12.4.9. </span>Linear solver parameters<a class="headerlink" href="#linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>Linear solver parameters<a class="headerlink" href="#linear-solver-parameters" title="Permalink to this headline">¶</a></h3>
 <p>Relatively standard parameters are used for the <a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html"><span class="doc">Linear Solver Control</span></a>. From our experience, the AMG preconditioner is more robust with the Nitsche immersed boundaries than the traditional ILU.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
   set method                                    = amg
@@ -662,7 +663,7 @@ end
 </section>
 </section>
 <section id="running-the-simulation">
-<h2><span class="section-number">12.5. </span>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. For this more complex example, it is highly advised to use <code class="docutils literal notranslate"><span class="pre">mpirun</span></code> to parallelize the computation, with <code class="docutils literal notranslate"><span class="pre">&lt;np&gt;</span></code> the number of processes, defined accordingly with your machine’s number of cpu. The simulation can be launched by typing, in a terminal opened in the example folder:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np &lt;np&gt; &lt;/path/to/the/build/applications/gls_nitsche_navier_stokes_33/gls_nitsche_navier_stokes_33 mixer.prm&gt;
 </pre></div>
@@ -679,7 +680,7 @@ end
 </div>
 <p><span class="raw-html"><br/></span></p>
 <section id="results">
-<h3><span class="section-number">12.5.1. </span>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
 <p>The following movie shows the evolution of the velocity magnitude as a function of time in a cut perpendicular to the radius of the vessel with and without the mesh :</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/rt6PAvgMkio" width="560"></iframe><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/jvaT76qBBTs" width="560"></iframe><p>Whereas the next one show the evolution of the axial velocity pattern in the same cut:</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/8b0ETD8EkQc" width="560"></iframe><p>Finally, the following animation illustrates the axial velocity pattern in an axial cut of the vessel:</p>
@@ -694,7 +695,7 @@ Multiple analyses can be done with this type of simulation. For example, one can
 </section>
 </section>
 <section id="possibilities-for-extension">
-<h2><span class="section-number">12.6. </span>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<h2>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Increase the Reynolds number:</strong> Using a finer grid, this example can be launched at even higher Reynolds numbers. In the latter case, the flow is significantly more unsteady.</p></li>
 <li><p><strong>Calculate the mixing time using the passive tracer physics:</strong> Using the passive tracer physics and the built-in post-processing tool, the mixing time in the vessel can be easily calculated.</p></li>
@@ -702,7 +703,7 @@ Multiple analyses can be done with this type of simulation. For example, one can
 <p><span class="raw-html"><br/></span></p>
 </section>
 <section id="references">
-<h2><span class="section-number">12.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/book/10.1002/0471451452">[1]</a> Paul, Edward L., Victor A. Atiemo-Obeng, and Suzanne M. Kresta, eds. Handbook of industrial mixing: science and practice. Vol. 1. John Wiley &amp; Sons, 2003.</p>
 </section>
 </section>
@@ -717,7 +718,7 @@ Multiple analyses can be done with this type of simulation. For example, one can
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Multiphysics Examples</div>
+                <div class="title">Multiphysics</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -728,7 +729,7 @@ Multiple analyses can be done with this type of simulation. For example, one can
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">11. </span>3D Ribbon mixer using a single rotating reference frame</div>
+                <div class="title">Ribbon mixer using a single rotating reference frame</div>
                 
               </div>
             </a>
@@ -758,28 +759,28 @@ Multiple analyses can be done with this type of simulation. For example, one can
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">12. 3D Mixer with pitched-blade turbine impeller using Nitsche immersed boundary</a><ul>
-<li><a class="reference internal" href="#features">12.1. Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">12.2. Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">12.3. Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">12.4. Parameter file</a><ul>
-<li><a class="reference internal" href="#simulation-control">12.4.1. Simulation control</a></li>
-<li><a class="reference internal" href="#physical-properties">12.4.2. Physical properties</a></li>
-<li><a class="reference internal" href="#mesh">12.4.3. Mesh</a></li>
-<li><a class="reference internal" href="#boundary-conditions">12.4.4. Boundary conditions</a></li>
-<li><a class="reference internal" href="#nitsche-immersed-boundary-parameters">12.4.5. Nitsche immersed boundary parameters</a></li>
-<li><a class="reference internal" href="#post-processing">12.4.6. Post-processing</a></li>
-<li><a class="reference internal" href="#mesh-adaptation-control">12.4.7. Mesh adaptation control</a></li>
-<li><a class="reference internal" href="#non-linear-solver-parameters">12.4.8. Non-linear solver parameters</a></li>
-<li><a class="reference internal" href="#linear-solver-parameters">12.4.9. Linear solver parameters</a></li>
+<li><a class="reference internal" href="#">Mixer with pitched-blade turbine impeller using Nitsche immersed boundary</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">Files used in this example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">Description of the case</a></li>
+<li><a class="reference internal" href="#parameter-file">Parameter file</a><ul>
+<li><a class="reference internal" href="#simulation-control">Simulation control</a></li>
+<li><a class="reference internal" href="#physical-properties">Physical properties</a></li>
+<li><a class="reference internal" href="#mesh">Mesh</a></li>
+<li><a class="reference internal" href="#boundary-conditions">Boundary conditions</a></li>
+<li><a class="reference internal" href="#nitsche-immersed-boundary-parameters">Nitsche immersed boundary parameters</a></li>
+<li><a class="reference internal" href="#post-processing">Post-processing</a></li>
+<li><a class="reference internal" href="#mesh-adaptation-control">Mesh adaptation control</a></li>
+<li><a class="reference internal" href="#non-linear-solver-parameters">Non-linear solver parameters</a></li>
+<li><a class="reference internal" href="#linear-solver-parameters">Linear solver parameters</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">12.5. Running the simulation</a><ul>
-<li><a class="reference internal" href="#results">12.5.1. Results</a></li>
+<li><a class="reference internal" href="#running-the-simulation">Running the simulation</a><ul>
+<li><a class="reference internal" href="#results">Results</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#possibilities-for-extension">12.6. Possibilities for extension</a></li>
-<li><a class="reference internal" href="#references">12.7. References</a></li>
+<li><a class="reference internal" href="#possibilities-for-extension">Possibilities for extension</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
