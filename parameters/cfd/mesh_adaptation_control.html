@@ -364,38 +364,41 @@
 <p>This subsection controls the mesh adaptation method, with default values given below.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
   # Type of mesh adaptation. Choices are  none, uniform or kelly.
-  set type                     = none
+  set type                              = none
 
   # Variable(s) for kelly estimation. Choices are velocity, pressure, phase or temperature.
   # For multi-variables refinement, separate the different variables with a comma
-  set variable                 = velocity
+  set variable                          = velocity
 
   # Frequency of the mesh refinement
-  set frequency                = 1
+  set frequency                         = 1
 
   # Minimum refinement level
-  set min refinement level     = 0
+  set min refinement level              = 0
 
   # Maximum refinement level
-  set max refinement level     = 10
+  set max refinement level              = 10
 
   # Fraction of coarsened elements
   # For multi-variables refinement, separate the different fractions with a comma
-  set fraction coarsening      = 0.05
+  set fraction coarsening               = 0.05
 
   # Fraction of refined elements
   # For multi-variables refinement, separate the different fractions with a comma
-  set fraction refinement      = 0.1
+  set fraction refinement               = 0.1
 
   # How the fraction of refinement/coarsening are interpreted
   # Choices are number or fraction
-  set fraction type            = number
+  set fraction type                     = number
 
   # Maximum number of elements
-  set max number elements      = 100000000
+  set max number elements               = 100000000
+
+  # Enable the control of the mesh refinement to target a specific number of elements equal to the maximum number of elements.
+  set enable mesh refinement controller = false
 
   # Number of initial (pre-solve) refinement steps
-  set initial refinement steps = 0
+  set initial refinement steps          = 0
 end
 </pre></div>
 </div>
@@ -477,10 +480,19 @@ end
 </dl>
 </li>
 <li><p>The maximum number of elements in the entire domain can be controlled with the <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">number</span> <span class="pre">elements</span></code> parameter.</p></li>
+<li><p>The boolean parameter <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">mesh</span> <span class="pre">refinement</span> <span class="pre">controller</span></code> activates a controller that overrides the value of the of <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">coarsening</span></code> parameter. If activated, the controller will try to maintain the total number of elements in the domain equal to the value of <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">number</span> <span class="pre">elements</span></code> parameter. The control is done using a PID controller.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> parameter is too high, the controller may not be able to maintain the number of elements constant. If <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">number</span></code>, the maximal <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> that is stable in 3D is 0.125. In 2D, it is 0.25.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When using the mesh refinement controller, try reducing the <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> parameter if elements alternate between being refined and coarsened.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">number</span> <span class="pre">elements</span></code> parameter puts a hard limit on the number of cells in the domain, even if the <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> is increased.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">refinement</span> <span class="pre">controller</span></code> is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">number</span> <span class="pre">elements</span></code> parameter puts a hard limit on the number of cells in the domain, even if the <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> is increased.</p>
 </div>
 <ul class="simple">
 <li><p>The number of initial (before solving) adaptive refinement steps is controlled by the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span> <span class="pre">steps</span></code> parameter. With an <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span> <span class="pre">steps</span></code> larger than 0, the triangulation is refined adaptively before the solver starts solving the problem. This enables the user to adapt the initial mesh to the initial condition. For example, if the simulation is a VOF simulation, it is ideal to have an initial mesh that captures the interface between the fluids accurately. This is achieved by refining the mesh using the dynamic mesh adaptation parameters and reapplying the initial condition after each adaptation. This process will be repeated <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span> <span class="pre">steps</span></code> times.</p></li>
