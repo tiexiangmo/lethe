@@ -173,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Conditions - Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="box_refinement.html">Box refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cahn_hilliard.html">Cahn-Hilliard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dimensionality.html">Dimensionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
@@ -425,7 +426,7 @@ end
 <span id="id1"></span><h2>Two phase simulations<a class="headerlink" href="#two-phase-simulations" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Two phase simulations require that <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">VOF</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection. By convention, air is usually the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code> and the other fluid of interest is the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
+<p>Two phase simulations require that either <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">VOF</span> <span class="pre">=</span> <span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">cahn</span> <span class="pre">hilliard</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection. By convention, air is usually the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code> and the other fluid of interest is the <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
 </div>
 <p>For two phases, the properties are defined for each fluid. Default values are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties

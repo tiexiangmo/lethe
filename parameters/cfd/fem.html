@@ -173,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Conditions - Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="box_refinement.html">Box refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cahn_hilliard.html">Cahn-Hilliard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dimensionality.html">Dimensionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Finite element interpolation (FEM)</a></li>
@@ -364,22 +365,26 @@
 <p>This subsection specifies the characteristics of the finite element method used in the simulations. The interpolation orders of velocity, pressure and other physics are specified. An additional option is also present to enable the use of high-order mapping throughout the entire mesh. At the moment, all variables are interpolated using Lagrange elements. On quad/hex meshes, <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classFE__Q.html">FE_Q</a> elements are used whereas on simplex meshes (triangles, tetrahedron), <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classFE__SimplexP.html">FE_P</a> elements are used.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
   # interpolation order pressure
-  set pressure order    = 1
+  set pressure order = 1
 
   # interpolation order velocity
-  set velocity order    = 1
+  set velocity order = 1
 
   # interpolation order temperature
-  set temperature order    = 1
+  set temperature order = 1
 
   # interpolation order tracer
-  set tracer order    = 1
+  set tracer order = 1
 
   # interpolation order vof
-  set VOF order  =1
+  set VOF order = 1
+
+  #interpolation order cahn hilliard
+  set phase ch order     = 1
+  set potential ch order = 1
 
   # Apply high order mapping everywhere
-  set qmapping all      = false
+  set qmapping all = false
 end
 </pre></div>
 </div>
@@ -389,6 +394,7 @@ end
 <li><p><code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">order</span></code> specifies the interpolation order for temperature for the heat transfer physics.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">order</span></code> specifies the interpolation order for the tracer physics.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VOF</span> <span class="pre">order</span></code> specifies the interpolation for the VOF phase indicator. It is not recommended to use higher order interpolation for the VOF method as this may conflict with the bounding and the sharpening mechanism used therein.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">ch</span> <span class="pre">order</span></code> and <code class="docutils literal notranslate"><span class="pre">potential</span> <span class="pre">ch</span> <span class="pre">order</span></code> specify the interpolation order for the phase order parameter and the chemical potential in the Cahn-Hilliard equations. The orders chosen should be equal. They are left as two separate parameters for debugging purposes.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">qmapping</span> <span class="pre">all</span></code> option enables the use of isoparametric elements everywhere in the domain. When this option is set to false, higher-order mapping is only used on the cells which have a boundary face. If the mesh you are using supports high-order manifolds everywhere, it is highly suggested to put <code class="docutils literal notranslate"><span class="pre">qmapping</span> <span class="pre">all=true</span></code>.</p></li>
 </ul>
 </section>

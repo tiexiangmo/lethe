@@ -173,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Conditions - Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="box_refinement.html">Box refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cahn_hilliard.html">Cahn-Hilliard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dimensionality.html">Dimensionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
@@ -363,50 +364,49 @@
 <h1>Post-Processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h1>
 <p>This subsection controls the post-processing other than the forces and torque on the boundary conditions. Default values are</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection post-processing
-
-  set verbosity                   = quiet
-  set output frequency            = 1
+  set verbosity        = quiet
+  set output frequency = 1
 
   #---------------------------------------------------
   # Fluid dynamic post-processing
   #---------------------------------------------------
   # Kinetic energy calculation
-  set calculate kinetic energy    = false
-  set kinetic energy name         = kinetic_energy
+  set calculate kinetic energy = false
+  set kinetic energy name      = kinetic_energy
 
   # Average velocities calculation
-  set calculate average velocities  = false
-  set initial time                  = 0.0
+  set calculate average velocities = false
+  set initial time                 = 0.0
 
   # Pressure drop calculation
-  set calculate pressure drop     = false
-  set pressure drop name          = pressure_drop
-  set inlet boundary id           = 0
-  set outlet boundary id          = 1
+  set calculate pressure drop = false
+  set pressure drop name      = pressure_drop
+  set inlet boundary id       = 0
+  set outlet boundary id      = 1
 
   # Flow rate at boundaries calculation
-  set calculate flow rate         = false
-  set flow rate name              = flow_rate
+  set calculate flow rate = false
+  set flow rate name      = flow_rate
 
   # Enstrophy calculation
-  set calculate enstrophy         = false
-  set enstrophy name              = enstrophy
+  set calculate enstrophy = false
+  set enstrophy name      = enstrophy
 
   # Others
-  set smoothed output fields    = false
+  set smoothed output fields = false
 
   #---------------------------------------------------
   # Physical properties post-processing
   #---------------------------------------------------
-  set calculate apparent viscosity  = false
-  set apparent viscosity name       = apparent_viscosity
+  set calculate apparent viscosity = false
+  set apparent viscosity name      = apparent_viscosity
 
   #---------------------------------------------------
   # Multiphysics post-processing
   #---------------------------------------------------
   # Tracer statistics
-  set calculate tracer statistics   = false
-  set tracer statistics name        = tracer_statistics
+  set calculate tracer statistics = false
+  set tracer statistics name      = tracer_statistics
 
   # Thermal postprocesses
   set postprocessed fluid              = both
@@ -416,9 +416,12 @@
   set heat flux name                   = heat_flux
 
   # VOF postprocessing
-  set calculate VOF barycenter         = false
-  set VOF barycenter name              = vof_barycenter_information
+  set calculate VOF barycenter = false
+  set VOF barycenter name      = vof_barycenter_information
 
+  # Cahn-Hilliard statistics
+  set calculate phase statistics = true
+  set phase statistics name      = phase_statistics
 end
 </pre></div>
 </div>
@@ -560,18 +563,17 @@ end
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\mathbf{v_b} = \frac{\int_{\Omega} \psi \mathbf{u} \mathrm{d}\Omega }{\int_{\Omega} \psi \mathrm{d}\Omega}\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(\psi\)</span> is the filtered phase indicator.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">phase</span> <span class="pre">statistics</span></code>: controls if calculation of phase statistics coming from the solution of the Cahn-Hilliard equations is enabled. Statistics include: minimum, maximum, average and standard-deviation of the phase order parameter.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">cahn</span> <span class="pre">hilliard</span> <span class="pre">=</span> <span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection of the <code class="docutils literal notranslate"><span class="pre">.prm</span></code>.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">statistics</span> <span class="pre">name</span></code>: output filename for phase statistics calculations.</p></li>
+</ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">statistics</span> <span class="pre">name</span></code>: output filename for temperature statistics calculations.</p>
-<blockquote>
-<div><div class="admonition-example-of-temperature-statistics-table admonition">
-<p class="admonition-title">Example of temperature statistics table:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> time  min    max    average std-dev
-0.0000 0.0000 3.9434  0.1515  0.6943
-0.2000 2.5183 4.9390  3.3917  0.7229
-</pre></div>
-</div>
-</div>
-</div></blockquote>
+</ul>
 </li>
 </ul>
 </section>

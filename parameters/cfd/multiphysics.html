@@ -173,6 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boundary_conditions_multiphysics.html">Boundary Conditions - Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="box_refinement.html">Box refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cahn_hilliard.html">Cahn-Hilliard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dimensionality.html">Dimensionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dynamic_flow_control.html">Dynamic flow control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="fem.html">Finite element interpolation (FEM)</a></li>
@@ -375,7 +376,11 @@
   set tracer                  = false
 
   # Multiphase flow
+  # Volume of Fluid method
   set VOF                     = false
+
+  # Cahn-Hilliard equations
+  set cahn hilliard           = false
 end
 </pre></div>
 </div>
@@ -412,6 +417,19 @@ end
 <li><p><code class="docutils literal notranslate"><span class="pre">VOF</span></code>: enables multiphase flow simulations, with two fluids separated by a free surface, using the Volume-of-Fluid method.</p>
 <p>See <a class="reference internal" href="volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a> for advanced VOF parameters, <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a> for the definition of the VOF conditions and <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/physical_properties.html#two-phase-simulations">Physical properties - two phase simulations</a> for the definition of the physical properties of both fluids.</p>
 </li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The VOF solver is used in the example <a class="reference internal" href="../../examples/multiphysics/dam-break/dam-break.html"><span class="doc">Dam-break</span></a>.</p>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span></code>: enables multiphase flow simulations using the Cahn-Hilliard equations, with two fluids separated by a diffuse interface.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The Cahn Hilliard solver will be illustrated in a soon-to-come example.</p>
+</div>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">average</span> <span class="pre">velocity</span> <span class="pre">field</span></code>:  controls if the advection of the subphysics is done using the average velocity field instead of the current velocity field. This is useful when the flow dynamics and the subphysics reach a pseudo-steady state at different time scales. To use this feature, the user should launch a simulation with the fluid mechanics solver and use the time averaging feature. Once the time average of the velocity field is sufficiently established, the simulation should be stopped and restarted without the fluid mechanics solver. The subphysics can then be solved using a larger time step.</p></li>
 </ul>
 <div class="admonition note">
@@ -421,10 +439,6 @@ end
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The subphysic must also be enabled (for example, <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code>)</p>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>The VOF solver is used in the example <a class="reference internal" href="../../examples/multiphysics/dam-break/dam-break.html"><span class="doc">Dam-break</span></a>.</p>
 </div>
 </section>
 
