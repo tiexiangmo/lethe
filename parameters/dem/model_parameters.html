@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -354,7 +354,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -362,28 +362,29 @@
         <article role="main">
           <section id="model-parameters">
 <h1>Model Parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h1>
-<p>In this subsection, DEM simulation parameters are defined. These parameters include <code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">detection</span> <span class="pre">method</span></code> and its subsequent information (<code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">contact</span> <span class="pre">search</span> <span class="pre">size</span> <span class="pre">coefficient</span></code> <strong>or</strong> <code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">detection</span> <span class="pre">frequency</span></code> for <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> <strong>or</strong> <code class="docutils literal notranslate"><span class="pre">constant</span></code> contact detection method), <code class="docutils literal notranslate"><span class="pre">repartition</span> <span class="pre">method</span></code> (<code class="docutils literal notranslate"><span class="pre">once</span></code>, <code class="docutils literal notranslate"><span class="pre">frequent</span></code> or <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>) for <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balancing</span></code> (in parallel simulations), <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">weight</span></code> which defines the particle weight compared to a default <code class="docutils literal notranslate"><span class="pre">cell</span> <span class="pre">weight</span></code> of 1000, <code class="docutils literal notranslate"><span class="pre">neighborhood</span> <span class="pre">threshold</span></code> (which defines the contact neighbor list size: <code class="docutils literal notranslate"><span class="pre">neighborhood</span> <span class="pre">threshold</span></code> * particle diameter), <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">particle</span> <span class="pre">contact</span> <span class="pre">force</span> <span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">wall</span> <span class="pre">contact</span> <span class="pre">force</span> <span class="pre">method</span></code> and <code class="docutils literal notranslate"><span class="pre">integration</span> <span class="pre">method</span></code>.</p>
+<p>In this subsection, contact detection, force models, time integration, load balancing and dynamic contact disabling parameters are defined.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
- # Contact detection method
- subsection contact detection
 
+ subsection contact detection
+   # Contact detection method
    # Choices are constant|dynamic
    set contact detection method                = dynamic
 
-   # Depending on the contact detection method, contact search size coefficient
-   # (safety factor multiplier for dynamic contact search) or contact detection frequency
-   # should be defined for dynamic and constant contact search methods, respectively.
-   set dynamic contact search size coefficient = 0.8
-   set frequency                               = 1
-
    # Particle-particle contact neighborhood size
-   set neighborhood threshold                  = 1
+   set neighborhood threshold                  = 1.3
+
+   set dynamic contact search size coefficient = 0.8
+   set frequency                               = 10
  end
 
- # Load balancing method and its subsequent information
  subsection load balancing
    # Choices are none|once|frequent|dynamic|dynamic_with_disabling_contacts
    set load balance method                     = none
+   set particle weight                         = 10000      # Every method, except none
+   set step                                    = 100000     # if method = once
+   set frequency                               = 100000     # if method = frequent
+   set dynamic check frequency                 = 10000      # if method = dynamic
+   set threshold                               = 0.5        # if method = dynamic
  end
 
  # Particle-particle contact force model
@@ -399,10 +400,9 @@
  set integration method                        = velocity_verlet
 
  # Rolling resistance method
- # choices are no_resistance|constant_resistance|viscous_resistance
+ # Choices are no_resistance|constant_resistance|viscous_resistance
  set rolling resistance torque method          = constant_resistance
 
- # Disabling particle contacts
  subsection dynamic disabling contacts
    set enable dynamic disabling contacts       = false
    set granular temperature threshold          = 1e-4
@@ -411,43 +411,90 @@
 end
 </pre></div>
 </div>
-<p>Particle-particle contact search is a costly operation in DEM simulations. If the contact detection is not carried out as optimally as possible, DEM simulations can be slowed down significantly. Lethe supports two mechanisms to detect the contact between particles.</p>
+<section id="contact-detection">
+<h2>Contact detection<a class="headerlink" href="#contact-detection" title="Permalink to this headline">¶</a></h2>
+<p>Particle-particle contact search is a costly operation in DEM simulations. Contact detection parameters must be optimized to ensure a fast and physically accurate DEM simulation.</p>
 <ul class="simple">
-<li><p>By setting <code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">detection</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">constant</span></code>. contact search will be carried out at constant frequency (every <code class="docutils literal notranslate"><span class="pre">frequency</span></code> iterations). Normally, the <code class="docutils literal notranslate"><span class="pre">frequency</span></code> should be a value between 5 and 50. The contact frequency should be chosen such that the particles do not travel more than half a cell between two contact detection. Small values of <code class="docutils literal notranslate"><span class="pre">frequency</span></code> lead to long simulation times, while large values of <code class="docutils literal notranslate"><span class="pre">frequency</span></code> may lead to late detection of collisions. Late detection of collisions can result in very large particles velocities (popcorn jump of particles in a simulation) or particles leaving the simulation domain.</p></li>
-<li><p>By setting <code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">detection</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">dynamic</span></code>, Lethe-DEM rebuilds the contact lists automatically. In this mode, Lethe-DEM stores the displacements of each particle in the simulation since the last contact detection. If the maximum displacement of a particle exceeds the smallest contact search criterion (explained in the following), then the iteration is a contact search iteration and the contact list is rebuilt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neighborhood</span> <span class="pre">threshold</span></code>  defines the spherical region around each particle which is used to generate the contact list. This parameter should generally be set between 1.3 and 1.5. It must be larger than 1 for contacts to be adequately taken into account.</p></li>
 </ul>
-<p>The smallest contact search criterion is the minimum of the smallest cell size in the triangulation or the radius of the spherical region in fine search (explained in the following), and it is defined as:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
+<p>Lethe defines two contact detection methods: <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> and <code class="docutils literal notranslate"><span class="pre">constant</span></code></p>
+<section id="contact-detection-method-dynamic">
+<h3><code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">detection</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">dynamic</span></code><a class="headerlink" href="#contact-detection-method-dynamic" title="Permalink to this headline">¶</a></h3>
+<p>Lethe rebuilds the contact lists automatically. In this mode, Lethe stores the displacements of each particle in the simulation since the last contact detection. If the maximum displacement of a particle exceeds the smallest contact search criterion, then the iteration is a contact search iteration and the contact list is rebuilt. The smallest contact search criterion is the minimum of the smallest cell size in the triangulation or the radius of the spherical region in fine search, and it is defined as:</p>
+<blockquote>
+<div><div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\phi=\min({d_c^{min}-r_p^{max},\epsilon(\alpha-1)r_p^{max}})\]</div></div>
+</div></blockquote>
 <p>where <span class="math notranslate nohighlight">\({\phi}\)</span>, <span class="math notranslate nohighlight">\({d_c^{min}}\)</span>, <span class="math notranslate nohighlight">\({r_p^{max}}\)</span>, <span class="math notranslate nohighlight">\({\epsilon}\)</span>, and <span class="math notranslate nohighlight">\({\alpha}\)</span> denote smallest contact search criterion, minimum cell size (in the triangulation), maximum particle radius (in polydisperse simulations), <code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">contact</span> <span class="pre">search</span> <span class="pre">size</span> <span class="pre">coefficient</span></code>, and <code class="docutils literal notranslate"><span class="pre">neighborhood</span> <span class="pre">threshold</span></code>.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">contact</span> <span class="pre">search</span> <span class="pre">size</span> <span class="pre">coefficient</span></code>, as illustrated in the equation above, is a safety factor to ensure the late detection of particles will not happen in the simulations with <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> contact search; and its value should be defined generally in the range of 0.5-1. 0.5 is a rather conservative value for <code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">contact</span> <span class="pre">search</span> <span class="pre">size</span> <span class="pre">coefficient</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">contact</span> <span class="pre">search</span> <span class="pre">size</span> <span class="pre">coefficient</span></code> is a safety factor to ensure the late detection of particles will not happen in the simulations with <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> contact search; and its value should be defined generally in the range of 0.5-1. 0.5 is a rather conservative value.</p></li>
 </ul>
-<p>To optimize the computational performance of Lethe-DEM, the contact search is performed in two steps (broad and fine contact searches). In broad contact search, neighbor particles in adjacent cells are stored in a list. Then this list of adjacent particles is refined once more in the fine search. More information about the contact search algorithm in Lethe-DEM can be found <a class="reference external" href="https://arxiv.org/abs/2106.09576">here</a> . In the fine search, the particles (from the output list of broad search) which are located in a spherical region around each particle are stored in another list and sent to force calculation class. The diameter of this spherical region <span class="math notranslate nohighlight">\({D}\)</span> around each particle is defined as:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[D={\alpha}d_p^{max}\]</div></div>
-<p>where <span class="math notranslate nohighlight">\({d_p^{max}}\)</span> denotes the maximum particle size in the simulation.</p>
+</section>
+<section id="contact-detection-method-constant">
+<h3><code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">detection</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">constant</span></code><a class="headerlink" href="#contact-detection-method-constant" title="Permalink to this headline">¶</a></h3>
+<p>Contact search will be carried out at constant frequency</p>
 <ul class="simple">
-<li><p>According to the definition of the spherical region in the fine search and contact force (equation above), the value of the <code class="docutils literal notranslate"><span class="pre">neighborhood</span> <span class="pre">threshold</span></code> <span class="math notranslate nohighlight">\({\alpha}\)</span> must be larger than 1. It is generally defined in the range of 1.3-1.5.</p></li>
-<li><p>Load-balancing updates the distribution of the subdomains between the processes in parallel simulation to achieve better computational performance (less simulation time). Three load-balancing methods are available in Lethe-DEM: <code class="docutils literal notranslate"><span class="pre">once</span></code>, <code class="docutils literal notranslate"><span class="pre">frequent</span></code>, or <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>. Read here for more information about different load-balancing methods and their performances in various types of DEM simulations. The total weight of each cell with particles in load-balancing is defined as:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code> is the frequency at which the contact list is renewed. It should be a value between 5 and 50 iterations. Small values of <code class="docutils literal notranslate"><span class="pre">frequency</span></code> lead to long simulation times, while large values of <code class="docutils literal notranslate"><span class="pre">frequency</span></code> may lead to late detection of collisions. Late detection of collisions can result in very large particles velocities (popcorn jump of particles in a simulation) or particles leaving the simulation domain.</p></li>
 </ul>
+</section>
+</section>
+<section id="contact-and-integration-methods">
+<h2>Contact and integration methods<a class="headerlink" href="#contact-and-integration-methods" title="Permalink to this headline">¶</a></h2>
+<p>All contact force models are described in the <a class="reference internal" href="../../theory/dem/dem.html"><span class="doc">Discret Element Method (DEM)</span></a> section of the theory guide.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">integration</span></code> controls the integration method  used. Lethe supports <code class="docutils literal notranslate"><span class="pre">euler</span></code> (1st order) and <code class="docutils literal notranslate"><span class="pre">velocity-verlet</span></code> (2nd order) time-integrators. The velocity-verlet should be used at all times.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">particle</span> <span class="pre">contact</span> <span class="pre">force</span> <span class="pre">method</span></code> control the particle-particle contact force model used. Four models are available in Lethe: <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_overlap</span></code>, <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_force</span></code>, <code class="docutils literal notranslate"><span class="pre">hertz</span></code>, and <code class="docutils literal notranslate"><span class="pre">linear</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">wall</span> <span class="pre">contact</span> <span class="pre">force</span> <span class="pre">method</span></code> controls the particle-wall contact force model used. Two models are available: <code class="docutils literal notranslate"><span class="pre">linear</span></code> and <code class="docutils literal notranslate"><span class="pre">non-linear</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rolling</span> <span class="pre">resistance</span> <span class="pre">method</span></code> controls the rolling resistance model used. Three rolling resistance models are available: <code class="docutils literal notranslate"><span class="pre">no_resistance</span></code>, <code class="docutils literal notranslate"><span class="pre">constant_resistance</span></code>, <code class="docutils literal notranslate"><span class="pre">viscous_resistance</span></code></p></li>
+</ul>
+</section>
+<section id="load-balancing">
+<h2>Load balancing<a class="headerlink" href="#load-balancing" title="Permalink to this headline">¶</a></h2>
+<p>Load-balancing updates the distribution of the subdomains between the processes in parallel simulation to achieve better computational performance (less simulation time). Three load-balancing methods are available in Lethe: <code class="docutils literal notranslate"><span class="pre">once</span></code>, <code class="docutils literal notranslate"><span class="pre">frequent</span></code>, or <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>.</p>
+<p>The total weight of each cell with particles in load-balancing is defined as:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[W=1000+W_pn_p\]</div></div>
 <p>where <span class="math notranslate nohighlight">\({W_p}\)</span> is the <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">weight</span></code> and <span class="math notranslate nohighlight">\({n_p}\)</span> is the number of particles in the cell. 1000 is the default weight assigned to one cell.</p>
-<p>Selecting <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">once</span></code>, requires defining the step at which the code calls load balancing (<code class="docutils literal notranslate"><span class="pre">step</span></code>). <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">frequent</span></code> requires defining <code class="docutils literal notranslate"><span class="pre">frequency</span></code>, and in <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">frequent</span></code>, we should define <code class="docutils literal notranslate"><span class="pre">threshold</span></code> and <code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">check</span> <span class="pre">frequency</span></code>. In <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> load balancing, the code checks the distribution of particles among the processors, every <code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">check</span> <span class="pre">frequency</span></code> steps, and if</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">weight</span></code> must be defined for every <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span></code>.</p></li>
+</ul>
+<section id="load-balance-method-once">
+<h3><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">once</span></code><a class="headerlink" href="#load-balance-method-once" title="Permalink to this headline">¶</a></h3>
+<p>Load balancing will be done only once.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code> the iteration number at which the load balancing will be carried out.</p></li>
+</ul>
+</section>
+<section id="load-balance-method-frequent">
+<h3><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">frequent</span></code><a class="headerlink" href="#load-balance-method-frequent" title="Permalink to this headline">¶</a></h3>
+<p>Load balancing will be done at a given frequency</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code> frequency (in iterations) of the load balancing.</p></li>
+</ul>
+</section>
+<section id="load-balance-method-dynamic">
+<h3><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">dynamic</span></code><a class="headerlink" href="#load-balance-method-dynamic" title="Permalink to this headline">¶</a></h3>
+<p>Load balancing will be done when the computational load amongst core is too uneven. If</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[L_{max}-L_{min}&gt;{\beta}\bar{L}\]</div></div>
-<p>it executes a load balancing. <span class="math notranslate nohighlight">\({L}\)</span> and <span class="math notranslate nohighlight">\({\beta}\)</span> denote computational load on a process and <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, respectively.</p>
+<p>load balancing will be executed. <span class="math notranslate nohighlight">\({L}\)</span> and <span class="math notranslate nohighlight">\({\beta}\)</span> denote computational load on a process and <code class="docutils literal notranslate"><span class="pre">threshold</span></code>, respectively.</p>
 <ul class="simple">
-<li><p>Four <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">particle</span> <span class="pre">contact</span> <span class="pre">models</span></code> are available in Lethe-DEM (<code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_overlap</span></code>, <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_force</span></code>, <code class="docutils literal notranslate"><span class="pre">hertz</span></code>, and <code class="docutils literal notranslate"><span class="pre">linear</span></code>). <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_overlap</span></code> and <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_force</span></code> are non-linear contact models in which the stiffness and damping forces in both normal and tangential directions are considered. The only difference between these models is in their limiting method of the tangential force during gross sliding (where the tangential force exceeds the coulomb’s limit). In <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_overlap</span></code> model, Lethe-DEM limits the tangential overlap and with limiting the overlap, the tangential force is limited; while in <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_force</span></code> model, the tangential force is limited directly without limiting the tangential overlap. <code class="docutils literal notranslate"><span class="pre">hertz</span></code> is another non-linear model in which the damping force is not considered in the tangential direction and the tangential force is limited in gross sliding. Lethe-DEM also has a <code class="docutils literal notranslate"><span class="pre">linear</span></code> contact model (the stiffness and damping forces are linear functions of overlap and relative velocity, respectively).</p></li>
-<li><p>Lethe-DEM has two <code class="docutils literal notranslate"><span class="pre">linear</span></code> and <code class="docutils literal notranslate"><span class="pre">non-linear</span></code> particle-wall models.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">euler</span></code> (1st order) and <code class="docutils literal notranslate"><span class="pre">velocity-verlet</span></code> (2nd order) are the available integration methods in Lethe-DEM.</p></li>
-<li><p>Three rolling resistance models are available in Lethe-DEM: <code class="docutils literal notranslate"><span class="pre">no_resistance</span></code>, <code class="docutils literal notranslate"><span class="pre">constant_resistance</span></code>, <code class="docutils literal notranslate"><span class="pre">viscous_resistance</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">disabling</span> <span class="pre">contacts</span></code> subsection controls the disabling contact mechanism for performance enhancement. This feature dynamically searches for cells with low particle motion (granular temperature), disabling the computation of contacts for particles within these cells.
-<code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">dynamic</span> <span class="pre">disabling</span> <span class="pre">contacts</span></code> enables the feature, <code class="docutils literal notranslate"><span class="pre">granular</span> <span class="pre">temperature</span> <span class="pre">threshold</span></code> is the threshold of the granular temperature below which the contacts are disabled, and <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">fraction</span> <span class="pre">threshold</span></code> is the minimum solid fraction of the cell in which the contacts may be disabled.
-Some parameters in the load balance section may be used to improve the performance of the dynamic disabling contacts feature using the dynamic load balancing.
-Note: The <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span></code> may be set to <code class="docutils literal notranslate"><span class="pre">dynamic_with_disabling_contacts</span></code> and factors of the weight of the cells by mobility status (only active and inactive, mobile factor is always 1) may be adjusted using the <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">active</span> <span class="pre">weight</span> <span class="pre">factor</span></code> and <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">inactive</span> <span class="pre">weight</span> <span class="pre">factor</span></code> parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dynamic</span> <span class="pre">check</span> <span class="pre">frequency</span></code> frequency (in iterations) at which the load check on all processes is performed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code> is the maximal load unbalance tolerated by the load balancing.</p></li>
 </ul>
+</section>
+</section>
+<section id="dynamic-disabling-contacts">
+<h2>Dynamic disabling contacts<a class="headerlink" href="#dynamic-disabling-contacts" title="Permalink to this headline">¶</a></h2>
+<p>The dynamic disabling controls the disabling contact mechanism for performance enhancement. This feature dynamically searches for cells with low particle motion (granular temperature), disabling the computation of contacts for particles within these cells.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">dynamic</span> <span class="pre">disabling</span> <span class="pre">contacts</span></code> enables the feature.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">granular</span> <span class="pre">temperature</span> <span class="pre">threshold</span></code> is the threshold of the granular temperature below which the contacts are disabled.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">fraction</span> <span class="pre">threshold</span></code> is the minimum solid fraction of the cell in which the contacts may be disabled.</p></li>
+</ul>
+<p>Some parameters in the load balance section may be used to improve the performance of the dynamic disabling contacts feature using the dynamic load balancing.
+Note: The <code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span></code> may be set to <code class="docutils literal notranslate"><span class="pre">dynamic_with_disabling_contacts</span></code> and factors of the weight of the cells by mobility status may be adjusted using the <code class="docutils literal notranslate"><span class="pre">active</span> <span class="pre">weight</span> <span class="pre">factor</span></code> and <code class="docutils literal notranslate"><span class="pre">inactive</span> <span class="pre">weight</span> <span class="pre">factor</span></code> parameters. There is factor only for active and inactive status, mobile factor is always 1.</p>
+</section>
 </section>
 
         </article>
@@ -489,8 +536,39 @@ Note: The <code class="docutils literal notranslate"><span class="pre">load</spa
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Model Parameters</a><ul>
+<li><a class="reference internal" href="#contact-detection">Contact detection</a><ul>
+<li><a class="reference internal" href="#contact-detection-method-dynamic"><code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">detection</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">dynamic</span></code></a></li>
+<li><a class="reference internal" href="#contact-detection-method-constant"><code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">detection</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">constant</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contact-and-integration-methods">Contact and integration methods</a></li>
+<li><a class="reference internal" href="#load-balancing">Load balancing</a><ul>
+<li><a class="reference internal" href="#load-balance-method-once"><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">once</span></code></a></li>
+<li><a class="reference internal" href="#load-balance-method-frequent"><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">frequent</span></code></a></li>
+<li><a class="reference internal" href="#load-balance-method-dynamic"><code class="docutils literal notranslate"><span class="pre">load</span> <span class="pre">balance</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">dynamic</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dynamic-disabling-contacts">Dynamic disabling contacts</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
