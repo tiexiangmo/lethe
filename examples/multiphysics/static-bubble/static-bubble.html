@@ -321,11 +321,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/rheology.html">Rheology and Non-Newtonian Fluids</a></li>
 </ul>
 </li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../theory/multiphysics/multiphysics.html">Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/multiphysics/vof.html">The Volume of Fluid (VOF) method</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../theory/dem/dem.html">Discrete Element Method (DEM)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM Coupling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../tools/updating-test-results.html">Updating Test Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tools/gmsh/gmsh.html">Introduction on How to Use GMSH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tools/automatic_launch/automatic_launch.html">How to Automatically Create and Launch Lethe Simulations</a></li>
@@ -385,40 +389,11 @@
 <a class="reference internal image-reference" href="../../../_images/static-bubble.png"><img alt="Schematic" class="align-center" src="../../../_images/static-bubble.png" style="width: 400px;"/></a>
 <section id="surface-tension-force">
 <span id="id1"></span><h3>Surface Tension Force<a class="headerlink" href="#surface-tension-force" title="Permalink to this headline">¶</a></h3>
-<p>As its name suggests, the surface tension <span class="math notranslate nohighlight">\(\bf{f_{\sigma}}\)</span> is a surface force. It is applied at the interface between two immiscible fluids and is given by:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[{\bf{f_{\sigma}}} = \sigma \kappa {\bf{n}}\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the surface tension coefficient, <span class="math notranslate nohighlight">\(\kappa\)</span> is the curvature and <span class="math notranslate nohighlight">\(\bf{n}\)</span> is the unit normal vector of the free surface. Here, <span class="math notranslate nohighlight">\({\bf{f_{\sigma}}}\)</span> is a force per unit of area. To account for its effect in the Navier-Stokes equations, the surface force is transformed in a volumetric surface force <span class="math notranslate nohighlight">\(\bf{F_{\sigma}}\)</span> using the continuous surface force (CSF) model [<a class="reference external" href="https://doi.org/10.1016/0021-9991(92)90240-Y">1</a>], that is:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[{\bf{F_{\sigma}}} = \bf{f_{\sigma}} \delta = \sigma \kappa {\bf{n}}\delta\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\delta\)</span> is a Dirac delta measure with support on the interface. A good approximation for the term <span class="math notranslate nohighlight">\({\bf{n}}\delta\)</span> is <span class="math notranslate nohighlight">\({\bf{n}}\delta = \nabla \phi\)</span>, where <span class="math notranslate nohighlight">\(\phi\)</span> is the phase fraction. Thus, the volumetric surface force is given by:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[{\bf{F_{\sigma}}} =  \sigma \kappa \nabla \phi\]</div></div>
-<p>where the curvature <span class="math notranslate nohighlight">\(\kappa\)</span> is computed according to:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\kappa = - \nabla \cdot \bf{n}\]</div></div>
-<p>and the unit normal vector of the free surface is obtained with:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\bf{n} = \frac{\nabla \phi}{|\nabla \phi|}\]</div></div>
-<p>When including the surface tension force in the resolution of the Navier-Stokes equations, the numerical computation of the curvature can give rise to parasitic flows near the interface between the two fluids. To avoid such spurious currents, the phase fraction gradient and curvature are filtered using projection steps, as presented in section <a class="reference internal" href="#normal-and-curvature-computations"><span class="std std-ref">Normal and Curvature Computations</span></a>.</p>
+<p>When including the surface tension force in the resolution of the Navier-Stokes equations, the numerical computation of the curvature can give rise to parasitic flows near the interface between the two fluids, as presented in the <a class="reference internal" href="../../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) method</span></a> theory guide.</p>
 <p>The static bubble case is a relevant case to study the spurious currents, since the analytical solution is zero for the velocity. Therefore, non-zero velocities in the computed velocity field are considered as spurious currents [<a class="reference external" href="https://doi.org/10.1002/fld.2643">2</a>]. The analytical pressure drop between the interior (<span class="math notranslate nohighlight">\(p_{int}\)</span>) and exterior (<span class="math notranslate nohighlight">\(p_{ext}\)</span>) of the bubble is given by the Young-Laplace relation:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\Delta p = p_{int} - p_{ext} = \sigma \kappa\]</div></div>
 <p>with the analytical curvature of the 2D bubble : <span class="math notranslate nohighlight">\(\kappa = 1/R\)</span>. This example is based on the static droplet case reported in [<a class="reference external" href="https://doi.org/10.1002/fld.2643">2</a>], where <span class="math notranslate nohighlight">\(\sigma = 1.0\)</span>, <span class="math notranslate nohighlight">\(R = 0.5\)</span> and <span class="math notranslate nohighlight">\(\kappa = 2.0\)</span>.</p>
-</section>
-<section id="normal-and-curvature-computations">
-<span id="id5"></span><h3>Normal and Curvature Computations<a class="headerlink" href="#normal-and-curvature-computations" title="Permalink to this headline">¶</a></h3>
-<p>The following equations are used to compute the filtered phase fraction gradient and filtered curvature. They correspond to the projection steps previously mentioned.</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\int_\Omega \left( {\bf{v}} \cdot {\bf{\psi}} + \eta_n \nabla {\bf{v}} \cdot \nabla {\bf{\psi}} \right) d\Omega = \int_\Omega \left( {\bf{v}} \cdot \nabla {\phi} \right) d\Omega\]</div></div>
-<p>where <span class="math notranslate nohighlight">\({\bf{v}}\)</span> is a vector test function, <span class="math notranslate nohighlight">\(\bf{\psi}\)</span> is the filtered phase fraction gradient, <span class="math notranslate nohighlight">\(\eta_n\)</span> is the phase fraction gradient filter value, and <span class="math notranslate nohighlight">\(\phi\)</span> is the phase fraction.</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\int_\Omega \left( v \kappa + \eta_\kappa \nabla v \cdot \nabla \kappa \right) d\Omega = \int_\Omega \left( \nabla v \cdot \frac{\bf{\psi}}{|\bf{\psi}|} \right) d\Omega\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\kappa\)</span> is the filtered curvature, and <span class="math notranslate nohighlight">\(\eta_\kappa\)</span> is the curvature filter value, and <span class="math notranslate nohighlight">\(v\)</span> is a test function.</p>
-<p>The phase fraction gradient filter <span class="math notranslate nohighlight">\(\eta_n\)</span> and the curvature filter value <span class="math notranslate nohighlight">\(\eta_\kappa\)</span> are respectively computed according to:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\eta_n = \alpha h^2\\\eta_\kappa = \beta h^2\end{aligned}\end{align} \]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are user-defined factors, and <span class="math notranslate nohighlight">\(h\)</span> is the cell size.</p>
 </section>
 </section>
 <section id="parameter-file">
@@ -463,7 +438,7 @@ end
 <section id="initial-conditions">
 <h3>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code> subsection, the initial velocity and initial position of the droplet are defined. The droplet is initially
-defined as a circle with a radius <span class="math notranslate nohighlight">\(R= 0.5\)</span> in the center of the defined computational domain at <span class="math notranslate nohighlight">\((x,y)=(0.0, 0.0)\)</span>. We enable the use of a projection step with diffusion in the subsection <code class="docutils literal notranslate"><span class="pre">projection</span> <span class="pre">step</span></code> to ensure that the initial phase distribution is sufficiently smooth and avoid a staircase representation of the interface. This projection step is implemented in the same way as described in section <a class="reference internal" href="#normal-and-curvature-computations"><span class="std std-ref">Normal and Curvature Computations</span></a>. We refer to the parameter guide <a class="reference internal" href="../../../parameters/cfd/initial_conditions.html"><span class="doc">Initial Conditions</span></a> for more details.</p>
+defined as a circle with a radius <span class="math notranslate nohighlight">\(R= 0.5\)</span> in the center of the defined computational domain at <span class="math notranslate nohighlight">\((x,y)=(0.0, 0.0)\)</span>. We enable the use of a projection step with diffusion in the subsection <code class="docutils literal notranslate"><span class="pre">projection</span> <span class="pre">step</span></code> to ensure that the initial phase distribution is sufficiently smooth and avoid a staircase representation of the interface. This projection step is implemented in the same way as described in section <a class="reference internal" href="../../../theory/multiphysics/vof.html#normal-and-curvature-computations"><span class="std std-ref">Normal and curvature computations</span></a>. We refer to the parameter guide <a class="reference internal" href="../../../parameters/cfd/initial_conditions.html"><span class="doc">Initial Conditions</span></a> for more details.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
   set type = nodal
   subsection uvwp
@@ -482,7 +457,7 @@ end
 </section>
 <section id="vof">
 <h3>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h3>
-<p>The surface tension force computation is enabled in the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection. The surface tension coefficient <span class="math notranslate nohighlight">\(\sigma\)</span> is set to <span class="math notranslate nohighlight">\(1.0\)</span> with the parameter <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">coefficient</span></code>. The value of the filter factors <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> described in section <a class="reference internal" href="#normal-and-curvature-computations"><span class="std std-ref">Normal and Curvature Computations</span></a> are controlled respectively by the parameters <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">fraction</span> <span class="pre">gradient</span> <span class="pre">filter</span> <span class="pre">factor</span></code> and <code class="docutils literal notranslate"><span class="pre">curvature</span> <span class="pre">filter</span> <span class="pre">factor</span></code>. Finally, the parameter <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span></code> set at <code class="docutils literal notranslate"><span class="pre">true</span></code> enables the output of the filtered phase fraction gradient and filtered curvature fields.</p>
+<p>The surface tension force computation is enabled in the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection. The surface tension coefficient <span class="math notranslate nohighlight">\(\sigma\)</span> is set to <span class="math notranslate nohighlight">\(1.0\)</span> with the parameter <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">coefficient</span></code>. The value of the filter factors <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> described in section <a class="reference internal" href="../../../theory/multiphysics/vof.html#normal-and-curvature-computations"><span class="std std-ref">Normal and curvature computations</span></a> are controlled respectively by the parameters <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">fraction</span> <span class="pre">gradient</span> <span class="pre">filter</span> <span class="pre">factor</span></code> and <code class="docutils literal notranslate"><span class="pre">curvature</span> <span class="pre">filter</span> <span class="pre">factor</span></code>. Finally, the parameter <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span></code> set at <code class="docutils literal notranslate"><span class="pre">true</span></code> enables the output of the filtered phase fraction gradient and filtered curvature fields.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection VOF
   subsection surface tension force
     set enable                                = true
@@ -561,7 +536,7 @@ run in parallel using mpirun. This simulation takes
 <img alt="../../../_images/L2Error.png" src="../../../_images/L2Error.png"/>
 <section id="mesh-convergence-study">
 <h3>Mesh Convergence Study<a class="headerlink" href="#mesh-convergence-study" title="Permalink to this headline">¶</a></h3>
-<p>While the filters presented in section <a class="reference internal" href="#normal-and-curvature-computations"><span class="std std-ref">Normal and Curvature Computations</span></a> allow to decrease the magnitude of the spurious currents, it can be seen from the previous results that they don’t completely disappear. It is, therefore, interesting to see if they vanish with a mesh refinement by performing a space convergence study on their magnitude.</p>
+<p>While the filters presented in section <a class="reference internal" href="../../../theory/multiphysics/vof.html#normal-and-curvature-computations"><span class="std std-ref">Normal and curvature computations</span></a> allow to decrease the magnitude of the spurious currents, it can be seen from the previous results that they don’t completely disappear. It is, therefore, interesting to see if they vanish with a mesh refinement by performing a space convergence study on their magnitude.</p>
 <p>Four levels of refinement are studied (6 to 9) by changing the parameter <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> in the <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection. The <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> norm of the error on the velocity at 3 seconds is selected as the verification metric. The following figure shows that the scheme reaches an order of accuracy of 2 in space.</p>
 <img alt="../../../_images/mesh-convergence-study-order.png" src="../../../_images/mesh-convergence-study-order.png"/>
 <p>Finally, the time evolution of the <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> norm of the error on the velocity magnitude for each refinement level can be plotted:</p>
@@ -631,7 +606,6 @@ run in parallel using mpirun. This simulation takes
 <li><a class="reference internal" href="#files-used-in-this-example">Files Used in This Example</a></li>
 <li><a class="reference internal" href="#description-of-the-case">Description of the Case</a><ul>
 <li><a class="reference internal" href="#surface-tension-force">Surface Tension Force</a></li>
-<li><a class="reference internal" href="#normal-and-curvature-computations">Normal and Curvature Computations</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#parameter-file">Parameter File</a><ul>

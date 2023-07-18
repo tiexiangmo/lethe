@@ -321,11 +321,15 @@
 <li class="toctree-l3"><a class="reference internal" href="../../theory/fluid_dynamics/rheology.html">Rheology and Non-Newtonian Fluids</a></li>
 </ul>
 </li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../theory/multiphysics/multiphysics.html">Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../theory/multiphysics/vof.html">The Volume of Fluid (VOF) method</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../theory/dem/dem.html">Discrete Element Method (DEM)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM Coupling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/updating-test-results.html">Updating Test Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/gmsh/gmsh.html">Introduction on How to Use GMSH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/automatic_launch/automatic_launch.html">How to Automatically Create and Launch Lethe Simulations</a></li>
@@ -430,7 +434,7 @@ end
 </pre></div>
 </div>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">interface</span> <span class="pre">sharpening</span></code>: defines parameters to counter numerical diffusion of the VOF method and to avoid the interface between the two fluids becoming more and more blurry after each time step.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">interface</span> <span class="pre">sharpening</span></code>: defines parameters to counter numerical diffusion of the VOF method and to avoid the interface between the two fluids becoming more and more blurry after each time step. The reader is refered to the Interface sharpening section of <a class="reference internal" href="../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) method</span></a> theory guide for additional details on this sharpening method.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: controls if interface sharpening is enabled.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code>: sets the frequency (in number of iterations) for the interface sharpening computation.</p></li>
@@ -468,15 +472,12 @@ number of iterations to reach the mass conservation tolerance.
 </div>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">phase</span> <span class="pre">filtration</span></code>: This subsection defines the filter applied to the phase fraction. This affects the definition of the interface.</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: defines the filter type, either <code class="docutils literal notranslate"><span class="pre">none</span></code> or <code class="docutils literal notranslate"><span class="pre">tanh</span></code></p>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: defines the filter type, either <code class="docutils literal notranslate"><span class="pre">none</span></code> or <code class="docutils literal notranslate"><span class="pre">tanh</span></code></p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">none</span></code>: the phase fraction is not filtered</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">tanh</span></code>: the following filter function is applied to the phase fraction <span class="math notranslate nohighlight">\(\phi\)</span> in order to get a better definition of the interface between the fluids</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">tanh</span></code>: the filter function described in the Interface filtration section of <a class="reference internal" href="../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) method</span></a> theory guide is applied.</p></li>
 </ul>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\phi' = 0.5 \tanh[\beta(\phi-0.5)] + 0.5\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\phi'\)</span> is the filtered phase fraction value.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: value of the <span class="math notranslate nohighlight">\(\beta\)</span> parameter of the <code class="docutils literal notranslate"><span class="pre">tanh</span></code> filter</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code>: enables the display of filtered phase fraction values. Choices are <code class="docutils literal notranslate"><span class="pre">quiet</span></code> (no output) and <code class="docutils literal notranslate"><span class="pre">verbose</span></code> (displays values)</p></li>
