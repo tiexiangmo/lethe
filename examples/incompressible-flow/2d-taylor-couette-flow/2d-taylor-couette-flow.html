@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Flow past a backward-facing step" href="../2d-backward-facing-step/2d-backward-facing-step.html" /><link rel="prev" title="Flow around a cylinder" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Flow past a Backward-Facing Step" href="../2d-backward-facing-step/2d-backward-facing-step.html" /><link rel="prev" title="Flow around a Cylinder" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Taylor-Couette flow - Lethe documentation</title>
+        <title>Taylor-Couette Flow - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -158,39 +158,39 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../installation/installation.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation/regular_installation.html">Regular installation on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation/regular_installation.html">Regular Installation on Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/windows_wsl.html">Windows with WSL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/apple_arm.html">Installation on Apple ARM (M1 or M2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/docker.html">Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder structure of Lethe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching your first simulation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../parameters/cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/analytical_solution.html">Analytical solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/analytical_solution.html">Analytical Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_cfd.html">Boundary Conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_multiphysics.html">Boundary Conditions - Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/box_refinement.html">Box refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/box_refinement.html">Box Refinement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/cahn_hilliard.html">Cahn-Hilliard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dimensionality.html">Dimensionality</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/fem.html">Finite element interpolation (FEM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/force_and_torque.html">Force and torque calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dynamic_flow_control.html">Dynamic Flow Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/fem.html">Finite Element Interpolation (FEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/force_and_torque.html">Force and Torque Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser heat source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser Heat Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html">Mesh Adaptation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/nitsche.html">Nitsche Immersed Boundary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/non-linear_solver_control.html">Non-linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/non-linear_solver_control.html">Non-linear Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/post_processing.html">Post-Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/post_processing.html">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/source_term.html">Source term</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/source_term.html">Source Term</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/stabilization.html">Stabilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/velocity_source.html">Velocity Source</a></li>
@@ -218,117 +218,117 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../parameters/sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp-Immersed-Boundary-Solver</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../parameters/rpt/rpt.html">Radioactive Particle Tracking (RPT)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/detector_parameters.html">Detector parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/detector_parameters.html">Detector Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/fem_reconstruction.html">FEM Reconstruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/parameter_tuning.html">Parameter tuning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/rpt_parameters.html">RPT parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/parameter_tuning.html">Parameter Tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/rpt_parameters.html">RPT Parameters</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../incompressible-flow.html">Incompressible flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">Lid-driven cavity flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html">Flow around a cylinder</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Taylor-Couette flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-backward-facing-step/2d-backward-facing-step.html">Flow past a backward-facing step</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">Transient flow around an Ahmed body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-transient-flow-around-cylinder/2d-transient-flow-around-cylinder.html">Transient flow around a cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-naca0012-low-reynolds/2d-naca0012-low-reynolds.html">Flow around NACA0012 at low Reynolds number</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">Taylor-Couette flow using Nitsche immersed boundary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-flow-around-sphere/flow-around-sphere.html">Flow around a sphere</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">Flow over periodic hills</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html">Ribbon mixer using a single rotating reference frame</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../3d-nitsche-mixer-with-pbt-impeller/nitsche-mixer-with-pbt-impeller.html">Mixer with pitched-blade turbine impeller using Nitsche immersed boundary</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../incompressible-flow.html">Incompressible Flow</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">Lid-Driven Cavity Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html">Flow around a Cylinder</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Taylor-Couette Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-backward-facing-step/2d-backward-facing-step.html">Flow past a Backward-Facing Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">Transient Flow around an Ahmed Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-transient-flow-around-cylinder/2d-transient-flow-around-cylinder.html">Transient Flow around a Cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-naca0012-low-reynolds/2d-naca0012-low-reynolds.html">Flow around NACA0012 at Low Reynolds Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">Taylor-Couette Flow Using Nitsche Immersed Boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-flow-around-sphere/flow-around-sphere.html">Flow around a Sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">Flow over Periodic Hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html">Ribbon Mixer Using a Single Rotating Reference Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d-nitsche-mixer-with-pbt-impeller/nitsche-mixer-with-pbt-impeller.html">Mixer with Pitched-Blade Turbine Impeller Using Nitsche Immersed Boundary</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/vof.html">VOF</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/dam-break/dam-break.html">Dam-break</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability.html">Rayleigh-Taylor instability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/static-bubble/static-bubble.html">Static bubble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rising-bubble/rising-bubble.html">Rising bubble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">Sloshing in a rectangular tank</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/3d-dam-break/3d-dam-break.html">3D Dam-break with an obstacle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/dam-break/dam-break.html">Dam-Break</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability.html">Rayleigh-Taylor Instability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/static-bubble/static-bubble.html">Static Bubble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rising-bubble/rising-bubble.html">Rising Bubble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">Sloshing in a Rectangular Tank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/3d-dam-break/3d-dam-break.html">3D Dam-Break with an Obstacle</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/heat-transfer.html">Heat transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">Rayleigh-Bénard convection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/stefan-problem/stefan-problem.html">Stefan problem: melting of a solid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming up a viscous fluid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/melting-cavity/melting-cavity.html">Melting cavity</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-heating/laser-heating.html">Laser heating</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-meltpool/laser-meltpool.html">Laser meltpool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">Concentric heat exchanger</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/heat-transfer.html">Heat Transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">Rayleigh-Bénard Convection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/stefan-problem/stefan-problem.html">Stefan Problem: Melting of a Solid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming up a Viscous Fluid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/melting-cavity/melting-cavity.html">Melting Cavity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-heating/laser-heating.html">Laser Heating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-meltpool/laser-meltpool.html">Laser Meltpool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">Concentric Heat Exchanger</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/tracer.html">Tracer</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">Tracer through CAD junction in simplex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">Tracer through CAD Junction in Simplex</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/bouncing-particle/bouncing-particle.html">Bouncing particle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small scale rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small scale rotating drum post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating drum with post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/bouncing-particle/bouncing-particle.html">Bouncing Particle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular hopper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-dam-break/granular-dam-break.html">Granular dam-break</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-mixer/granular-mixer.html">Granular mixer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-dam-break/granular-dam-break.html">Granular Dam-Break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-mixer/granular-mixer.html">Granular Mixer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html">Cylindrical packed bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">Gas-solid fluidized bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html">Gas-solid spouted bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/boycott-effect/boycott-effect.html">Boycott effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html">Cylindrical Packed Bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">Gas-Solid Fluidized Bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html">Gas-Solid Spouted Bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/boycott-effect/boycott-effect.html">Boycott Effect</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp immersed boundary solver</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp Immersed Boundary Solver</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/resolved-cfd-dem.html">Resolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-1-particle/sedimentation-1-particle.html">Sedimentation of one particle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-64-particles/sedimentation-64-particles.html">Sedimentation of 64 particles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-1-particle/sedimentation-1-particle.html">Sedimentation of One Particle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-64-particles/sedimentation-64-particles.html">Sedimentation of 64 Particles</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/incompressible-flow.html">Incompressible flow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">Flow around a cylinder using the sharp interface method</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">Non-Newtonian flow past a sphere</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">3D Mixer with pitched-blade turbine impeller using Composite Sharp-immersed boundary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">3D Mixer with pitched-blade turbine impeller using OpenCascade Sharp-immersed boundary</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">Flow around a Cylinder Using the Sharp Interface Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">Non-Newtonian Flow past a Sphere</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">3D Mixer with Pitched-Blade Turbine Impeller Using Composite Sharp-Immersed Boundary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">3D Mixer with Pitched-Blade Turbine Impeller Using OpenCascade Sharp-Immersed Boundary</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../rpt/rpt.html">Radioactive Particle Tracking (RPT)</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../rpt/photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html">Photon count calculation in a cylindrical vessel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rpt/tuning-parameters-with-nomad/tuning-parameters-with-nomad.html">Tuning count calculation model parameters with NOMAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rpt/photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html">Photon Count Calculation in a Cylindrical Vessel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rpt/tuning-parameters-with-nomad/tuning-parameters-with-nomad.html">Tuning Count Calculation Model Parameters with NOMAD</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../theory/theory.html">Theory</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../theory/fluid_dynamics/fluid_dynamics.html">Fluid dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/fem_formulation.html">Origin of the finite element formulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/stabilization.html">On the need for stabilization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/linear_solvers.html">Linear solvers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/rheology.html">Rheology and non-Newtonian fluids</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../theory/fluid_dynamics/fluid_dynamics.html">Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/navier-stokes.html">The Incompressible Navier-Stokes Equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/fem_formulation.html">Origin of the Finite Element Formulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/stabilization.html">On the Need for Stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/linear_solvers.html">Linear Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/rheology.html">Rheology and Non-Newtonian Fluids</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../theory/dem/dem.html">Discret Element Method (DEM)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM coupling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/dem/dem.html">Discrete Element Method (DEM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM Coupling</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tools/updating-test-results.html">Updating test results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tools/gmsh/gmsh.html">Introduction on how to use GMSH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tools/automatic_launch/automatic_launch.html">How to automatically create and launch Lethe simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/updating-test-results.html">Updating Test Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/gmsh/gmsh.html">Introduction on How to Use GMSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/automatic_launch/automatic_launch.html">How to Automatically Create and Launch Lethe Simulations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
@@ -361,8 +361,8 @@
         </div>
         <article role="main">
           <section id="taylor-couette-flow">
-<h1>Taylor-Couette flow<a class="headerlink" href="#taylor-couette-flow" title="Permalink to this headline">¶</a></h1>
-<p>This example showcases another classical fluid mechanics problem, the taylor-couette flow. This example introduces the usage of analytical solution and monitors the convergence of the CFD solver by using progressively refined meshes.</p>
+<h1>Taylor-Couette Flow<a class="headerlink" href="#taylor-couette-flow" title="Permalink to this headline">¶</a></h1>
+<p>This example showcases another classical fluid mechanics problem, the Taylor-Couette flow. This example introduces the usage of analytical solution and monitors the convergence of the CFD solver by using progressively refined meshes.</p>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -373,12 +373,15 @@
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-taylor-couette/taylor-couette.prm</span></code></p>
+<h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-taylor-couette/taylor-couette.prm</span></code></p></li>
+<li><p>Python script for postprocessing: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-taylor-couette/post_process_taylor_couette.py</span></code></p></li>
+</ul>
 </section>
 <section id="description-of-the-case">
-<h2>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>The Taylor-Couette flow is the name of a fluid flow in the gap between two long concentric cylinders with different rotational velocities. One or both of these cylinders may rotate along the axis, however generally it is assumed that the outer cylinder is fixed, and the inner cylinder rotates with a constant angular velocity. For the Taylor-Couette flow, an analytical solution of the Navier-Stokes equations can be found, although this solution is not stable for all ranges of operating conditions and becomes unstable at high Reynolds number.</p>
+<h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<p>Taylor-Couette flow is a fluid flow in the gap between two long concentric cylinders with different rotational velocities. One or both of these cylinders may rotate along the axis, however generally it is assumed that the outer cylinder is fixed, and the inner cylinder rotates with a constant angular velocity. For the Taylor-Couette flow, an analytical solution of the Navier-Stokes equations can be found, although this solution is not stable for all ranges of operating conditions and becomes unstable at high Reynolds number.</p>
 <p>We assume that the inner cylinder rotates at a constant angular velocity <span class="math notranslate nohighlight">\(\omega\)</span> in the anti-clockwise direction, while the outer cylinder is fixed. The following figure shows the geometry of this problem and the corresponding boundary conditions:</p>
 <a class="reference internal image-reference" href="../../../_images/geometry.svg" id="geometry"><img alt="The geometry and boundary conditions" class="align-center" height="10cm" id="geometry" src="../../../_images/geometry.svg"/></a>
 <p>The analytical solution of this problem can be found relatively easily in cylindrical coordinates (see for example the book by Bird, Stewart and Lightfoot [1]):</p>
@@ -390,7 +393,7 @@
 <p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the dynamic viscosity and <span class="math notranslate nohighlight">\(L\)</span> is the height of the cylinder. Since we simulate the problem in 2D, we assume that <span class="math notranslate nohighlight">\(L=1\)</span> without loss of generality.</p>
 </section>
 <section id="parameter-file">
-<h2>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <p>We first establish the mesh used for the simulation</p>
 <section id="mesh">
 <h3>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
@@ -403,11 +406,11 @@
 end
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> specifies the mesh format used. We use the <code class="docutils literal notranslate"><span class="pre">hyper_shell</span></code> mesh generated from the deal.II <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html">GridGenerator</a> . This GridGenerator generates the mesh of the interstice between two cocentric cylinder. The arguments of this grid type are the position of center of the cylinders (<code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">0</span></code>), the inner cylinder radius (<cite>0.25</cite>), the outer cylinder radius (<cite>1</cite>) and the number of subdivision in the azimuthal direction (<cite>4</cite>). All arguments are separated by <code class="docutils literal notranslate"><span class="pre">:</span></code>. We set <code class="docutils literal notranslate"><span class="pre">colorize=true</span></code> and this sets the boundary ID of the inner cylinder to <code class="docutils literal notranslate"><span class="pre">0</span></code> and of the outer cylinder to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> specifies the mesh format used. We use the <code class="docutils literal notranslate"><span class="pre">hyper_shell</span></code> mesh generated from the deal.II <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html">GridGenerator</a> . This GridGenerator generates the mesh of the interstice between two concentric cylinder. The arguments of this grid type are the position of center of the cylinders (<code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">0</span></code>), the inner cylinder radius (<cite>0.25</cite>), the outer cylinder radius (<cite>1</cite>) and the number of subdivision in the azimuthal direction (<cite>4</cite>). All arguments are separated by <code class="docutils literal notranslate"><span class="pre">:</span></code>. We set <code class="docutils literal notranslate"><span class="pre">colorize=true</span></code> and this sets the boundary ID of the inner cylinder to <code class="docutils literal notranslate"><span class="pre">0</span></code> and of the outer cylinder to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 <p>The last parameter specifies the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> of the grid. Most deal.II grid generators contain a minimal number of cells. The <em>hyper_shell</em> mesh is made of four cells. Indicating an <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement=3</span></code> implies that the initial mesh is refined 3 times. In 2D, each cell is divided by 4 per refinement. Consequently, the final grid is made of 256 cells.</p>
 </section>
 <section id="boundary-conditions">
-<h3>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
+<h3>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">boundary</span> <span class="pre">conditions</span></code> subsection establishes the constraints on different parts of the domain:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
   set number = 2
@@ -429,10 +432,10 @@ end
 end
 </pre></div>
 </div>
-<p>First, the <code class="docutils literal notranslate"><span class="pre">number</span></code> of boundary conditions to be applied must be specified. For each boundary condition, the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the boundary as well as its <code class="docutils literal notranslate"><span class="pre">type</span></code> must be specified. The outer cylinder (<code class="docutils literal notranslate"><span class="pre">1</span></code>) is static and, consequently, a <code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary condition is applied. The inner cylinder is rotating at a constant angular velocity (<span class="math notranslate nohighlight">\(\omega=1\)</span>). To impose this boundary condition, we use the <code class="docutils literal notranslate"><span class="pre">type=function</span></code> and prescribe a function for the components of the velocity (remembering that <span class="math notranslate nohighlight">\(\mathbf{u}=[u,v]^T\)</span>). By prescribing <span class="math notranslate nohighlight">\(\mathbf{u}=[-y,x]^T\)</span>, we prescribe the rotation of the inner cylinder at an angular velocity of 1 rad/s in the trigonometric direction.</p>
+<p>First, the <code class="docutils literal notranslate"><span class="pre">number</span></code> of boundary conditions to be applied must be specified. For each boundary condition, the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the boundary as well as its <code class="docutils literal notranslate"><span class="pre">type</span></code> must be specified. The outer cylinder (<code class="docutils literal notranslate"><span class="pre">1</span></code>) is static and, consequently, a <code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary condition is applied. The inner cylinder is rotating at a constant angular velocity (<span class="math notranslate nohighlight">\(\omega=1\)</span>). To impose this boundary condition, we use the <code class="docutils literal notranslate"><span class="pre">type=function</span></code> and prescribe a function for the components of the velocity (remembering that <span class="math notranslate nohighlight">\(\mathbf{u}=[u,v]^T\)</span>). By prescribing <span class="math notranslate nohighlight">\(\mathbf{u}=[-y,x]^T\)</span>, we prescribe the rotation of the inner cylinder at an angular velocity of <span class="math notranslate nohighlight">\(1 \ \text{rad/s}\)</span> in the trigonometric direction.</p>
 </section>
 <section id="physical-properties">
-<h3>Physical properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
+<h3>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>The analytical solution for the Taylor-Couette problem is only valid at low Reynolds number. We thus set the kinematic viscosity to 1.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   subsection fluid 0
@@ -443,21 +446,21 @@ end
 </div>
 </section>
 <section id="fem-interpolation">
-<h3>FEM interpolation<a class="headerlink" href="#fem-interpolation" title="Permalink to this headline">¶</a></h3>
-<p>Lethe supports the use of arbitrary interpolation order. The <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> norm of the error is <span class="math notranslate nohighlight">\(\mathcal{O}\left(h^{n+1} \right)\)</span> where <span class="math notranslate nohighlight">\(h\)</span> is a measure of the element size and <cite>n=1</cite> is the interpolation order of the velocity. However, since the torque applied on the inner cylinder depends on the deviatoric stress tensor, which depends on the velocity gradient, it’s error will be <span class="math notranslate nohighlight">\(\mathcal{O}(n)\)</span>. Taking this into account, we use second order polynomials in this example to obtain higher accuracy on the torque. We specify the interpolation order for both pressure and velocity using the <code class="docutils literal notranslate"><span class="pre">FEM</span></code> subsection:</p>
+<h3>FEM Interpolation<a class="headerlink" href="#fem-interpolation" title="Permalink to this headline">¶</a></h3>
+<p>Lethe supports the use of arbitrary interpolation order. The <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> norm of the error is <span class="math notranslate nohighlight">\(\mathcal{O}\left(h^{n+1} \right)\)</span> where <span class="math notranslate nohighlight">\(h\)</span> is a measure of the element size and <span class="math notranslate nohighlight">\(n\)</span> is the interpolation order of the velocity. However, since the torque applied on the inner cylinder depends on the deviatoric stress tensor, which depends on the velocity gradient, its error will be <span class="math notranslate nohighlight">\(\mathcal{O}(h^n)\)</span>. Taking this into account, we use second order polynomials in this example to obtain higher accuracy on the torque. We specify the interpolation order for both pressure and velocity using the <code class="docutils literal notranslate"><span class="pre">FEM</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection FEM
     set velocity order = 2
     set pressure order = 1
 end
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>With the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> solver, Q2-Q2 elements could also be used. However, we have not found that these lead to better results when the flows are at a low Reynolds number.</p>
 </div>
 </section>
 <section id="analytical-solution">
-<h3>Analytical solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">¶</a></h3>
+<h3>Analytical Solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">¶</a></h3>
 <p>To monitor the convergence of the CFD solver, we can provide Lethe with an expression for the analytical expression of the velocity field. Using this expression and the velocity field obtained from the solver, Lethe will calculate the <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> norm of the error. The <span class="math notranslate nohighlight">\(L^2\)</span> norm of the error is calculated as:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[L^2 = \int_\Omega (u-u_a)^2 \mathrm{d} \Omega\]</div></div>
@@ -473,23 +476,23 @@ end
 end
 </pre></div>
 </div>
-<p>To monitor the error in a simulation, we must set <code class="docutils literal notranslate"><span class="pre">enable=true</span></code>. We must convert the analytical solution from cylindrical coordinates to Cartesian and this is why the resulting <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> is slightly barbaric. Notably, this explains why we often see the occurrence of the term <code class="docutils literal notranslate"><span class="pre">sqrt(x^2+y^2)</span></code> which is in fact the radius <span class="math notranslate nohighlight">\(r=\sqrt{x^2+y^2}\)</span>.</p>
+<p>To monitor the error in a simulation, we must set <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">=</span> <span class="pre">true</span></code>. We must convert the analytical solution from cylindrical coordinates to Cartesian and this is why the resulting <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> is slightly barbaric. Notably, this explains why we often see the occurrence of the term <code class="docutils literal notranslate"><span class="pre">sqrt(x^2+y^2)</span></code> which is in fact the radius <span class="math notranslate nohighlight">\(r=\sqrt{x^2+y^2}\)</span>.</p>
 </section>
 <section id="simulation-control">
-<h3>Simulation control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> subsection controls the flow of the simulation. Two additional parameters are introduced in this example. By setting <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">mesh</span> <span class="pre">adapt=2</span></code> we configure to simulation to carry out to solve the fluid dynamics on the mesh and on two subsequently refined mesh. This approach is very interesting, because the solution on the coarse mesh also serves as the initial guest for the solution on the finer mesh. We set <code class="docutils literal notranslate"><span class="pre">subdivision=2</span></code> to allow the rendering of high-order elements in Paraview. This will be explained later in the example.</p>
+<h3>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> subsection controls the flow of the simulation. Two additional parameters are introduced in this example. By setting <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">mesh</span> <span class="pre">adapt</span> <span class="pre">=</span> <span class="pre">3</span></code> we configure the simulation to solve the fluid dynamics on the mesh and on two subsequently refined meshes. This approach is very interesting, because the solution on the coarse mesh also serves as the initial guest for the solution on the finer mesh. We set <code class="docutils literal notranslate"><span class="pre">subdivision</span> <span class="pre">=</span> <span class="pre">2</span></code> to allow the rendering of high-order elements in Paraview. This will be explained later in the example.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set method            = steady
   set output name       = couette
   set subdivision       = 2
-  set number mesh adapt = 2 # If steady, no mesh adaptation
+  set number mesh adapt = 3 # time-stepping method must be "steady"
 end
 </pre></div>
 </div>
 </section>
 <section id="mesh-adaptation">
-<h3>Mesh adaptation<a class="headerlink" href="#mesh-adaptation" title="Permalink to this headline">¶</a></h3>
-<p>Mesh adaptation is quite complex in Lethe. The mesh can be dynamically adapted using Kelly error estimates on the velocity, pressure or variables arising from other physics. Lethe also supports uniform mesh refinement. Since we wish to measure the convergence of the error with respect to an analytical solution, we specify a uniform mesh refinement by setting <code class="docutils literal notranslate"><span class="pre">type=uniform</span></code></p>
+<h3>Mesh Adaptation<a class="headerlink" href="#mesh-adaptation" title="Permalink to this headline">¶</a></h3>
+<p>Mesh adaptation is quite complex in Lethe. The mesh can be dynamically adapted using Kelly error estimates on the velocity, pressure or variables arising from other physics. Lethe also supports uniform mesh refinement. Since we wish to measure the convergence of the error with respect to an analytical solution, we specify a uniform mesh refinement by setting <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">uniform</span></code></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
   set type = uniform
 end
@@ -505,29 +508,29 @@ end
 end
 </pre></div>
 </div>
-<p>By setting <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torque</span> <span class="pre">=</span> <span class="pre">true</span></code>, the calculation of the torque resulting from the fluid dynamics physics on every boundary of the domain is automatically calculated. Setting <code class="docutils literal notranslate"><span class="pre">verbose=verbose</span></code> will print out the value of the torque calculated for each mesh.</p>
+<p>By setting <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torque</span> <span class="pre">=</span> <span class="pre">true</span></code>, the calculation of the torque resulting from the fluid dynamics physics on every boundary of the domain is automatically calculated. Setting <code class="docutils literal notranslate"><span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">verbose</span></code> will print out the value of the torque calculated for each mesh.</p>
 </section>
 <section id="rest-of-the-subsections">
-<h3>Rest of the subsections<a class="headerlink" href="#rest-of-the-subsections" title="Permalink to this headline">¶</a></h3>
-<p>The non-linear and linear solvers subsections do not contain any new information in this example.</p>
+<h3>Rest of the Subsections<a class="headerlink" href="#rest-of-the-subsections" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">non-linear</span> <span class="pre">solver</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span> <span class="pre">solver</span></code> subsections do not contain any new information in this example.</p>
 </section>
 </section>
 <section id="running-the-simulation">
-<h2>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> executable is within your path, the simulation can be launched by typing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_navier_stokes_2d taylor-couette.prm
 </pre></div>
 </div>
-<p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
+<p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
 </section>
-<section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<section id="results-and-discussion">
+<h2>Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Permalink to this headline">¶</a></h2>
 <p>Using Paraview, the steady-state velocity profile can be visualized:</p>
 <a class="reference internal image-reference" href="../../../_images/flow-patterns.png"><img alt="velocity distribution" class="align-center" src="../../../_images/flow-patterns.png" style="height: 10cm;"/></a>
-<p>As can be seen, each cell is curved because a Q2 isoparametric mapping was used (by setting <code class="docutils literal notranslate"><span class="pre">qmapping=true</span></code> in the FEM subsection). To visualize these high-order cells, we need to subdivide the regular cell to store additional information onto them. A good practice is to use as many subdivisions as the interpolation order of the scheme. Hence, we used <code class="docutils literal notranslate"><span class="pre">subdivision=2</span></code> in the simulation control subsection. Finally, by default, Paraview does not render high-order elements. To enable the rendering of high-order elements, the Nonlinear subdivision level slider must be increased above one. For more information on this topic, please consult the deal.II wiki page on <a class="reference external" href="https://github.com/dealii/dealii/wiki/Notes-on-visualizing-high-order-output">rendering high-order elements</a>.</p>
+<p>As it can be seen, each cell is curved because a Q2 isoparametric mapping was used (by setting <code class="docutils literal notranslate"><span class="pre">qmapping</span> <span class="pre">=</span> <span class="pre">true</span></code> in the FEM subsection). To visualize these high-order cells, we need to subdivide the regular cell to store additional information onto them. A good practice is to use as many subdivisions as the interpolation order of the scheme. Hence, we used <code class="docutils literal notranslate"><span class="pre">subdivision</span> <span class="pre">=</span> <span class="pre">2</span></code> in the simulation control subsection. Finally, by default, Paraview does not render high-order elements. To enable the rendering of high-order elements, the <em>Nonlinear Subdivision Level</em> slider must be increased above one. For more information on this topic, please consult the deal.II wiki page on <a class="reference external" href="https://github.com/dealii/dealii/wiki/Notes-on-visualizing-high-order-output">rendering high-order elements</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To showcase the curvature of the cells, we have illustrated the results on a mesh coarser that the initial mesh used in this simulation</p>
+<p>To showcase the curvature of the cells, we have illustrated the results on a mesh coarser that the initial mesh used in this simulation.</p>
 </div>
 <p>A python script provided in the example folder allows to compare the velocity profile along the radius with the analytical solution. Using this script, the following resuts are obtained for the initial mesh:</p>
 <a class="reference internal image-reference" href="../../../_images/lethe-analytical-taylor-couette-comparison.png"><img alt="Azimuthal velocity compared with the analytical solution" class="align-center" src="../../../_images/lethe-analytical-taylor-couette-comparison.png" style="height: 10cm;"/></a>
@@ -561,10 +564,10 @@ end
 16384 0.0000000000 0.0000000000 0.8377288180
 </pre></div>
 </div>
-<p>The analytical value of the torque is : <span class="math notranslate nohighlight">\(T_z=0.837758\)</span>. Two main conclusions can be drawn. First, the torque obtained from the simulation on both boundaries converges to the analytical solution (at a second-order rate). Secondly, the torque on the difference between the torque on the outer and the inner cylinder converges to zero. This is what we would expect due to Newton’s third law (action-reaction). However, it is only reached once the mesh is sufficiently fine and we note a significant (approx 2%) disagreement between the two torques for the coarsest mesh.</p>
+<p>The analytical value of the torque is : <span class="math notranslate nohighlight">\(T_z=0.837758\)</span>. Two main conclusions can be drawn. First, the torque obtained from the simulation on both boundaries converges to the analytical solution (at a second-order rate). Secondly, the torque on the difference between the torque on the outer and the inner cylinder converges to zero. This is what we would expect due to Newton’s third law (action-reaction). However, it is only reached once the mesh is sufficiently fine and we note a significant (<span class="math notranslate nohighlight">\(\approx 2\%\)</span>) disagreement between the two torques for the coarsest mesh.</p>
 </section>
 <section id="possibilities-for-extension">
-<h2>Possibilities for extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
+<h2>Possibilities for Extension<a class="headerlink" href="#possibilities-for-extension" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Calculate the order of convergence for the torque <span class="math notranslate nohighlight">\(T_z\)</span>.</p></li>
 <li><p>It could be very interesting to investigate this flow in 3D at a higher Reynolds number to see the apparition of the Taylor-Couette instability. This, however, would be a major undertaking.</p></li>
@@ -572,7 +575,7 @@ end
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>[1] Bird, R. B., Stewart, W. E., &amp; Lightfoot, E. N. (2006). Transport phenomena (Vol. 1). John Wiley &amp; Sons.</p>
+<p>[1] R. B. Bird, W. E. Stewart, and E. N. Lightfoot, <em>Transport Phenomena</em>, vol. 1. John Wiley &amp; Sons, 2006.</p>
 </section>
 </section>
 
@@ -586,7 +589,7 @@ end
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Flow past a backward-facing step</div>
+                <div class="title">Flow past a Backward-Facing Step</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -597,7 +600,7 @@ end
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Flow around a cylinder</div>
+                <div class="title">Flow around a Cylinder</div>
                 
               </div>
             </a>
@@ -627,25 +630,25 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Taylor-Couette flow</a><ul>
+<li><a class="reference internal" href="#">Taylor-Couette Flow</a><ul>
 <li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">Parameter file</a><ul>
+<li><a class="reference internal" href="#files-used-in-this-example">Files Used in This Example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">Description of the Case</a></li>
+<li><a class="reference internal" href="#parameter-file">Parameter File</a><ul>
 <li><a class="reference internal" href="#mesh">Mesh</a></li>
-<li><a class="reference internal" href="#boundary-conditions">Boundary conditions</a></li>
-<li><a class="reference internal" href="#physical-properties">Physical properties</a></li>
-<li><a class="reference internal" href="#fem-interpolation">FEM interpolation</a></li>
-<li><a class="reference internal" href="#analytical-solution">Analytical solution</a></li>
-<li><a class="reference internal" href="#simulation-control">Simulation control</a></li>
-<li><a class="reference internal" href="#mesh-adaptation">Mesh adaptation</a></li>
+<li><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a></li>
+<li><a class="reference internal" href="#physical-properties">Physical Properties</a></li>
+<li><a class="reference internal" href="#fem-interpolation">FEM Interpolation</a></li>
+<li><a class="reference internal" href="#analytical-solution">Analytical Solution</a></li>
+<li><a class="reference internal" href="#simulation-control">Simulation Control</a></li>
+<li><a class="reference internal" href="#mesh-adaptation">Mesh Adaptation</a></li>
 <li><a class="reference internal" href="#forces">Forces</a></li>
-<li><a class="reference internal" href="#rest-of-the-subsections">Rest of the subsections</a></li>
+<li><a class="reference internal" href="#rest-of-the-subsections">Rest of the Subsections</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">Running the simulation</a></li>
-<li><a class="reference internal" href="#results">Results</a></li>
-<li><a class="reference internal" href="#possibilities-for-extension">Possibilities for extension</a></li>
+<li><a class="reference internal" href="#running-the-simulation">Running the Simulation</a></li>
+<li><a class="reference internal" href="#results-and-discussion">Results and Discussion</a></li>
+<li><a class="reference internal" href="#possibilities-for-extension">Possibilities for Extension</a></li>
 <li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>

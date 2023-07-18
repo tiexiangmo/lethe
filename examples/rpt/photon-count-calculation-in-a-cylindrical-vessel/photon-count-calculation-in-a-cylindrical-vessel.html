@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Tuning count calculation model parameters with NOMAD" href="../tuning-parameters-with-nomad/tuning-parameters-with-nomad.html" /><link rel="prev" title="Radioactive Particle Tracking (RPT)" href="../rpt.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Tuning Count Calculation Model Parameters with NOMAD" href="../tuning-parameters-with-nomad/tuning-parameters-with-nomad.html" /><link rel="prev" title="Radioactive Particle Tracking (RPT)" href="../rpt.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Photon count calculation in a cylindrical vessel - Lethe documentation</title>
+        <title>Photon Count Calculation in a Cylindrical Vessel - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -158,39 +158,39 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../installation/installation.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation/regular_installation.html">Regular installation on Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation/regular_installation.html">Regular Installation on Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/windows_wsl.html">Windows with WSL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/apple_arm.html">Installation on Apple ARM (M1 or M2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/docker.html">Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder structure of Lethe</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching your first simulation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../parameters/cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/analytical_solution.html">Analytical solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_cfd.html">Boundary conditions - CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/analytical_solution.html">Analytical Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_cfd.html">Boundary Conditions - CFD</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/boundary_conditions_multiphysics.html">Boundary Conditions - Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/box_refinement.html">Box refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/box_refinement.html">Box Refinement</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/cahn_hilliard.html">Cahn-Hilliard</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dimensionality.html">Dimensionality</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dynamic_flow_control.html">Dynamic flow control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/fem.html">Finite element interpolation (FEM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/force_and_torque.html">Force and torque calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/dynamic_flow_control.html">Dynamic Flow Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/fem.html">Finite Element Interpolation (FEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/force_and_torque.html">Force and Torque Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser heat source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser Heat Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html">Mesh Adaptation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html">Mesh Adaptation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/nitsche.html">Nitsche Immersed Boundary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/non-linear_solver_control.html">Non-linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/non-linear_solver_control.html">Non-linear Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/post_processing.html">Post-Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/post_processing.html">Post-processing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/restart.html">Restart</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/source_term.html">Source term</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/source_term.html">Source Term</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/stabilization.html">Stabilization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/timer.html">Timer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/velocity_source.html">Velocity Source</a></li>
@@ -218,117 +218,117 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../parameters/sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp-Immersed-Boundary-Solver</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../parameters/rpt/rpt.html">Radioactive Particle Tracking (RPT)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/detector_parameters.html">Detector parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/detector_parameters.html">Detector Parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/fem_reconstruction.html">FEM Reconstruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/parameter_tuning.html">Parameter tuning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/rpt_parameters.html">RPT parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/parameter_tuning.html">Parameter Tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/rpt/rpt_parameters.html">RPT Parameters</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../examples.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../incompressible-flow/incompressible-flow.html">Incompressible flow</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">Lid-driven cavity flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">Flow around a cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">Taylor-Couette flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-backward-facing-step/2d-backward-facing-step.html">Flow past a backward-facing step</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">Transient flow around an Ahmed body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-transient-flow-around-cylinder/2d-transient-flow-around-cylinder.html">Transient flow around a cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-naca0012-low-reynolds/2d-naca0012-low-reynolds.html">Flow around NACA0012 at low Reynolds number</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">Taylor-Couette flow using Nitsche immersed boundary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">Flow around a sphere</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">Flow over periodic hills</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html">Ribbon mixer using a single rotating reference frame</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-nitsche-mixer-with-pbt-impeller/nitsche-mixer-with-pbt-impeller.html">Mixer with pitched-blade turbine impeller using Nitsche immersed boundary</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../incompressible-flow/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-lid%E2%80%90driven-cavity-flow/lid%E2%80%90driven-cavity-flow.html">Lid-Driven Cavity Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder.html">Flow around a Cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-taylor-couette-flow/2d-taylor-couette-flow.html">Taylor-Couette Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-backward-facing-step/2d-backward-facing-step.html">Flow past a Backward-Facing Step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">Transient Flow around an Ahmed Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-transient-flow-around-cylinder/2d-transient-flow-around-cylinder.html">Transient Flow around a Cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-naca0012-low-reynolds/2d-naca0012-low-reynolds.html">Flow around NACA0012 at Low Reynolds Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/2d-taylor-couette-flow-nitsche/2d-taylor-couette-flow-nitsche.html">Taylor-Couette Flow Using Nitsche Immersed Boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-flow-around-sphere/flow-around-sphere.html">Flow around a Sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-flow-over-periodic-hills/3d-flow-over-periodic-hills.html">Flow over Periodic Hills</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-mixer-using-single-rotating-frame/3d-mixer-using-single-rotating-frame.html">Ribbon Mixer Using a Single Rotating Reference Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../incompressible-flow/3d-nitsche-mixer-with-pbt-impeller/nitsche-mixer-with-pbt-impeller.html">Mixer with Pitched-Blade Turbine Impeller Using Nitsche Immersed Boundary</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../multiphysics/multiphysics.html">Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/vof.html">VOF</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/dam-break/dam-break.html">Dam-break</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability.html">Rayleigh-Taylor instability</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/static-bubble/static-bubble.html">Static bubble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rising-bubble/rising-bubble.html">Rising bubble</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">Sloshing in a rectangular tank</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/3d-dam-break/3d-dam-break.html">3D Dam-break with an obstacle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/dam-break/dam-break.html">Dam-Break</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability.html">Rayleigh-Taylor Instability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/static-bubble/static-bubble.html">Static Bubble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rising-bubble/rising-bubble.html">Rising Bubble</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">Sloshing in a Rectangular Tank</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/3d-dam-break/3d-dam-break.html">3D Dam-Break with an Obstacle</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/heat-transfer.html">Heat transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">Rayleigh-Bénard convection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/stefan-problem/stefan-problem.html">Stefan problem: melting of a solid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming up a viscous fluid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/melting-cavity/melting-cavity.html">Melting cavity</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-heating/laser-heating.html">Laser heating</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-meltpool/laser-meltpool.html">Laser meltpool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">Concentric heat exchanger</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/heat-transfer.html">Heat Transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/rayleigh-benard-convection/rayleigh-benard-convection.html">Rayleigh-Bénard Convection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/stefan-problem/stefan-problem.html">Stefan Problem: Melting of a Solid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming up a Viscous Fluid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/melting-cavity/melting-cavity.html">Melting Cavity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-heating/laser-heating.html">Laser Heating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/laser-meltpool/laser-meltpool.html">Laser Meltpool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">Concentric Heat Exchanger</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../multiphysics/tracer.html">Tracer</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">Tracer through CAD junction in simplex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.html">Tracer through CAD Junction in Simplex</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/bouncing-particle/bouncing-particle.html">Bouncing particle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in ball</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small scale rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small scale rotating drum post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating drum with post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/bouncing-particle/bouncing-particle.html">Bouncing Particle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular hopper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-dam-break/granular-dam-break.html">Granular dam-break</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-mixer/granular-mixer.html">Granular mixer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-dam-break/granular-dam-break.html">Granular Dam-Break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/granular-mixer/granular-mixer.html">Granular Mixer</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html">Cylindrical packed bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">Gas-solid fluidized bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html">Gas-solid spouted bed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/boycott-effect/boycott-effect.html">Boycott effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html">Cylindrical Packed Bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">Gas-Solid Fluidized Bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html">Gas-Solid Spouted Bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../unresolved-cfd-dem/boycott-effect/boycott-effect.html">Boycott Effect</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp immersed boundary solver</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sharp-immersed-boundary-solver.html">Sharp Immersed Boundary Solver</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/resolved-cfd-dem.html">Resolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-1-particle/sedimentation-1-particle.html">Sedimentation of one particle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-64-particles/sedimentation-64-particles.html">Sedimentation of 64 particles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-1-particle/sedimentation-1-particle.html">Sedimentation of One Particle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sedimentation-64-particles/sedimentation-64-particles.html">Sedimentation of 64 Particles</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/incompressible-flow.html">Incompressible flow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">Flow around a cylinder using the sharp interface method</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">Non-Newtonian flow past a sphere</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">3D Mixer with pitched-blade turbine impeller using Composite Sharp-immersed boundary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">3D Mixer with pitched-blade turbine impeller using OpenCascade Sharp-immersed boundary</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sharp-immersed-boundary-solver/incompressible-flow.html">Incompressible Flow</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html">Flow around a Cylinder Using the Sharp Interface Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">Non-Newtonian Flow past a Sphere</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">3D Mixer with Pitched-Blade Turbine Impeller Using Composite Sharp-Immersed Boundary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sharp-immersed-boundary-solver/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">3D Mixer with Pitched-Blade Turbine Impeller Using OpenCascade Sharp-Immersed Boundary</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../rpt.html">Radioactive Particle Tracking (RPT)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Photon count calculation in a cylindrical vessel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../tuning-parameters-with-nomad/tuning-parameters-with-nomad.html">Tuning count calculation model parameters with NOMAD</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Photon Count Calculation in a Cylindrical Vessel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tuning-parameters-with-nomad/tuning-parameters-with-nomad.html">Tuning Count Calculation Model Parameters with NOMAD</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../theory/theory.html">Theory</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../theory/fluid_dynamics/fluid_dynamics.html">Fluid dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/navier-stokes.html">The Incompressible Navier-Stokes equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/fem_formulation.html">Origin of the finite element formulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/stabilization.html">On the need for stabilization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/linear_solvers.html">Linear solvers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/rheology.html">Rheology and non-Newtonian fluids</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../theory/fluid_dynamics/fluid_dynamics.html">Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/navier-stokes.html">The Incompressible Navier-Stokes Equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/fem_formulation.html">Origin of the Finite Element Formulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/stabilization.html">On the Need for Stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/linear_solvers.html">Linear Solvers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../theory/fluid_dynamics/rheology.html">Rheology and Non-Newtonian Fluids</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../theory/dem/dem.html">Discret Element Method (DEM)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM coupling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/dem/dem.html">Discrete Element Method (DEM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM Coupling</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../tools/updating-test-results.html">Updating test results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tools/gmsh/gmsh.html">Introduction on how to use GMSH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tools/automatic_launch/automatic_launch.html">How to automatically create and launch Lethe simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/updating-test-results.html">Updating Test Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/gmsh/gmsh.html">Introduction on How to Use GMSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/automatic_launch/automatic_launch.html">How to Automatically Create and Launch Lethe Simulations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
@@ -361,7 +361,7 @@
         </div>
         <article role="main">
           <section id="photon-count-calculation-in-a-cylindrical-vessel">
-<h1>Photon count calculation in a cylindrical vessel<a class="headerlink" href="#photon-count-calculation-in-a-cylindrical-vessel" title="Permalink to this headline">¶</a></h1>
+<h1>Photon Count Calculation in a Cylindrical Vessel<a class="headerlink" href="#photon-count-calculation-in-a-cylindrical-vessel" title="Permalink to this headline">¶</a></h1>
 <p>In this example, using a Monte Carlo technique, we perform the calculation of photon counts of a single radioactive particle that emits <span class="math notranslate nohighlight">\(\gamma\)</span>-rays. The calculation is performed for a given set of positions inside a cylindrical vessel. The Monte Carlo method allows us to estimate the photon counts of a particle at a given position inside the vessel with respect to a given detector.</p>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
@@ -371,19 +371,19 @@
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/rpt-count-calculation.prm</span></code></p></li>
 <li><p>File containing detector positions: <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions.detector</span></code></p></li>
 <li><p>File containing particle positions for the first scenario:  <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions-horizontalx.particle</span></code></p></li>
 <li><p>File containing particle positions for the second scenario  <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions-horizontaly.particle</span></code></p></li>
 <li><p>File containing particle positions for the third scenario:  <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions-vertical.particle</span></code></p></li>
 <li><p>File containing particle positions for the fourth scenario:  <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions-diagonal.particle</span></code></p></li>
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/rpt-count-calculation.prm</span></code></p></li>
 <li><p>Python script for post-processing the data: <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/rpt_count-calculation_plot.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
-<h2>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>In this example, four different sets of particle positions are studied for a given detector position. The four different scenarios studied in this example are:</p>
 <ol class="arabic simple">
 <li><p>Horizontal translation of a particle along the x-axis</p></li>
@@ -438,14 +438,11 @@
 </ul>
 </section>
 <section id="parameter-file">
-<h2>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="rpt-parameters">
-<h3>RPT parameters<a class="headerlink" href="#rpt-parameters" title="Permalink to this headline">¶</a></h3>
-<p>In the subsection <code class="docutils literal notranslate"><span class="pre">rpt</span> <span class="pre">parameters</span></code>, we define the values of the set of parameters necessary for calculating the counts using the Monte Carlo method.  Among these parameters, we have the name of the file which contains a set of different positions of the particle inside the vessel (<code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">position</span> <span class="pre">file</span></code>), the number of Monte Carlo iterations (<code class="docutils literal notranslate"><span class="pre">monte</span> <span class="pre">carlo</span> <span class="pre">iteration</span></code>), the seed that is used to generate a random number (<code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code>) and other parameters that describe the studied <span class="math notranslate nohighlight">\(\gamma\)</span>-ray model. We also define the name of the file in which the counts for each position will be exported in with the parameter <code class="docutils literal notranslate"><span class="pre">counts</span> <span class="pre">file</span></code>. These common parameters used for the RPT simulation are described in the <a class="reference internal" href="../../../parameters/rpt/rpt_parameters.html"><span class="doc">RPT parameters</span></a> documentation page.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# RPT Monte Carlo technique
-#---------------------------------------------------
-subsection rpt parameters
+<h3>RPT Parameters<a class="headerlink" href="#rpt-parameters" title="Permalink to this headline">¶</a></h3>
+<p>In the subsection <code class="docutils literal notranslate"><span class="pre">rpt</span> <span class="pre">parameters</span></code>, we define the values of the set of parameters necessary for calculating the counts using the Monte Carlo method.  Among these parameters, we have the name of the file which contains a set of different positions of the particle inside the vessel (<code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">position</span> <span class="pre">file</span></code>), the number of Monte Carlo iterations (<code class="docutils literal notranslate"><span class="pre">monte</span> <span class="pre">carlo</span> <span class="pre">iteration</span></code>), the seed that is used to generate a random number (<code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code>) and other parameters that describe the studied <span class="math notranslate nohighlight">\(\gamma\)</span>-ray model. We also define the name of the file in which the counts for each position will be exported in with the parameter <code class="docutils literal notranslate"><span class="pre">counts</span> <span class="pre">file</span></code>. These common parameters used for the RPT simulation are described in the <a class="reference internal" href="../../../parameters/rpt/rpt_parameters.html"><span class="doc">RPT Parameters</span></a> documentation page.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection rpt parameters
   set particle positions file          = positions-horizontalx.particle
   set verbosity                        = verbose
   set export counts                    = true
@@ -463,12 +460,9 @@ end
 </div>
 </section>
 <section id="detector-parameters">
-<h3>Detector parameters<a class="headerlink" href="#detector-parameters" title="Permalink to this headline">¶</a></h3>
-<p>In the subsection <code class="docutils literal notranslate"><span class="pre">detector</span> <span class="pre">parameters</span></code>, we specify the file that contains two positions located on the axis of symmetry of the detector. The first point is on the surface facing the vessel (face of the detector), and the second point can be any point located inside the detector. In the current example, the center position of the face is <span class="math notranslate nohighlight">\((0.200, 0, 0.075)\)</span>, and the second point on the axis is <span class="math notranslate nohighlight">\((0.238, 0, 0.075)\)</span>. We also specify the radius (<code class="docutils literal notranslate"><span class="pre">radius</span></code>) and the length (<code class="docutils literal notranslate"><span class="pre">length</span></code>) of the detector. A detailed description of these parameters can be found in the <a class="reference internal" href="../../../parameters/rpt/detector_parameters.html"><span class="doc">Detector parameters</span></a> documentation page.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Detector parameters
-#---------------------------------------------------
-subsection detector parameters
+<h3>Detector Parameters<a class="headerlink" href="#detector-parameters" title="Permalink to this headline">¶</a></h3>
+<p>In the subsection <code class="docutils literal notranslate"><span class="pre">detector</span> <span class="pre">parameters</span></code>, we specify the file that contains two positions located on the axis of symmetry of the detector. The first point is on the surface facing the vessel (face of the detector), and the second point can be any point located inside the detector. In the current example, the center position of the face is <span class="math notranslate nohighlight">\((0.200, 0, 0.075)\)</span>, and the second point on the axis is <span class="math notranslate nohighlight">\((0.238, 0, 0.075)\)</span>. We also specify the radius (<code class="docutils literal notranslate"><span class="pre">radius</span></code>) and the length (<code class="docutils literal notranslate"><span class="pre">length</span></code>) of the detector. A detailed description of these parameters can be found in the <a class="reference internal" href="../../../parameters/rpt/detector_parameters.html"><span class="doc">Detector Parameters</span></a> documentation page.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection detector parameters
   set detector positions file         = positions.detector
   set radius                          = 0.0381
   set length                          = 0.0762
@@ -480,12 +474,12 @@ end
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The parameters <code class="docutils literal notranslate"><span class="pre">dead</span> <span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">activity</span></code> and <code class="docutils literal notranslate"><span class="pre">attenuation</span> <span class="pre">coefficient</span> <span class="pre">reactor</span></code> are obtained using the blackbox optimization software <a class="reference external" href="https://www.gerad.ca/en/software/nomad/">NOMAD</a> . The second example <a class="reference internal" href="../tuning-parameters-with-nomad/tuning-parameters-with-nomad.html"><span class="doc">Tuning count calculation model parameters with NOMAD</span></a> explains how we can obtain the values of these parameters using NOMAD.</p>
+<p>The parameters <code class="docutils literal notranslate"><span class="pre">dead</span> <span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">activity</span></code> and <code class="docutils literal notranslate"><span class="pre">attenuation</span> <span class="pre">coefficient</span> <span class="pre">reactor</span></code> are obtained using the blackbox optimization software <a class="reference external" href="https://www.gerad.ca/en/software/nomad/">NOMAD</a> . The second example <a class="reference internal" href="../tuning-parameters-with-nomad/tuning-parameters-with-nomad.html"><span class="doc">Tuning Count Calculation Model Parameters with NOMAD</span></a> explains how we can obtain the values of these parameters using NOMAD.</p>
 </div>
 </section>
 </section>
 <section id="running-the-simulation">
-<h2>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">rpt_3d</span></code> executable is within your path, the simulation can be launched by typing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rpt_3d rpt-count-calculation.prm
 </pre></div>
@@ -496,20 +490,20 @@ end
 <p>When running the code with different particle position files, don’t forget to change the name of the exporting <code class="docutils literal notranslate"><span class="pre">counts</span> <span class="pre">file</span></code> in <code class="docutils literal notranslate"><span class="pre">rpt-count-calculation.prm</span></code> so that the previous <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file isn’t overwritten.</p>
 </div>
 </section>
-<section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<section id="results-and-discussion">
+<h2>Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Permalink to this headline">¶</a></h2>
 <p>To visualize the data and obtain the figures shown below, a Python script (<code class="docutils literal notranslate"><span class="pre">rpt_count-calculation_plot.py</span></code>) is provided. When running the script, the name of the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file you wish to open and read must be specified as an argument.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You may use the <code class="docutils literal notranslate"><span class="pre">rpt_count-calculation_plot.py</span></code> script to plot any other set of data saved in a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file format.</p>
 </div>
 <section id="scenario-1-horizontal-translation-of-a-particle-along-the-x-axis">
-<h3>Scenario 1: horizontal translation of a particle along the x-axis<a class="headerlink" href="#scenario-1-horizontal-translation-of-a-particle-along-the-x-axis" title="Permalink to this headline">¶</a></h3>
+<h3>Scenario 1: Horizontal Translation of a Particle along the X-Axis<a class="headerlink" href="#scenario-1-horizontal-translation-of-a-particle-along-the-x-axis" title="Permalink to this headline">¶</a></h3>
 <img alt="Results for the horizontal translation of a particle along the x-axis (Scenario 1)" class="align-center" id="results-for-the-horizontal-translation-of-a-particle-along-the-x-axis" src="../../../_images/counts-along-x-axis.png"/>
 <p>In the figure shown above, as one would expect, as the particle approaches the detector, the photon count grows. Such evolution may be explained by the efficiency of the detector getting greater as the particle advances toward the detector’s exposed surface. Since the photon’s path length in the vessel decreases, <span class="math notranslate nohighlight">\(f_a(\alpha, \theta)\)</span> increases, and therefore the efficiency gets greater. In addition to that, as the particle approaches the detector, the solid angle gets greater, the product <span class="math notranslate nohighlight">\(\omega(\alpha) \omega(\theta)\)</span> increases, making the efficiency increase also.</p>
 </section>
 <section id="scenario-2-horizontal-translation-of-a-particle-along-the-y-axis">
-<h3>Scenario 2: horizontal translation of a particle along the y-axis<a class="headerlink" href="#scenario-2-horizontal-translation-of-a-particle-along-the-y-axis" title="Permalink to this headline">¶</a></h3>
+<h3>Scenario 2: Horizontal Translation of a Particle along the Y-Axis<a class="headerlink" href="#scenario-2-horizontal-translation-of-a-particle-along-the-y-axis" title="Permalink to this headline">¶</a></h3>
 <figure class="align-center" id="results-for-the-horizontal-translation-of-a-particle-along-the-y-axis-case-i">
 <img alt="Results for the horizontal translation of a particle along the y-axis results when reactor attenuation coefficient is set at 10 and detector attenuation coefficient is set at 21.477 (Scenario 2)" src="../../../_images/counts-along-y-axis-case1.png"/>
 <figcaption>
@@ -564,17 +558,17 @@ end
 <p>Coming back to the Case I figure, we can see that photon count follows a pattern similar to the one seen in Case IV. We may interpret from it that <span class="math notranslate nohighlight">\(f_d(\alpha, \theta)\)</span> varies very little as opposed to <span class="math notranslate nohighlight">\(f_a(\alpha, \theta)\)</span> that fluctuates greatly. The local minimal values, in this case, are at <span class="math notranslate nohighlight">\(y \approx -6\)</span> cm and <span class="math notranslate nohighlight">\(y \approx 6\)</span> cm, as opposed to <span class="math notranslate nohighlight">\(y \approx -4.6\)</span> cm and <span class="math notranslate nohighlight">\(y \approx -4.6\)</span> cm for the fourth case. This is due to the change in the value of <span class="math notranslate nohighlight">\(\mu_d\)</span>. <span class="math notranslate nohighlight">\(f_d(\alpha,\theta)\)</span> function of <span class="math notranslate nohighlight">\(y\)</span> increases at a slower rate, making the minimums further way from the center. To summarize, the fluctuations seen in the Case I figure is the result of the combined influence of the values of the attenuation coefficients, the variation of the path lengths of the photon in the vessel and the detector, and the evolution of the weighting factors.</p>
 </section>
 <section id="scenario-3-vertical-translation-of-a-particle-along-the-z-axis">
-<h3>Scenario 3: vertical translation of a particle along the z-axis<a class="headerlink" href="#scenario-3-vertical-translation-of-a-particle-along-the-z-axis" title="Permalink to this headline">¶</a></h3>
+<h3>Scenario 3: Vertical Translation of a Particle along the Z-Axis<a class="headerlink" href="#scenario-3-vertical-translation-of-a-particle-along-the-z-axis" title="Permalink to this headline">¶</a></h3>
 <img alt="Results for the vertical translation of a particle along the z-axis (Scenario 3)" class="align-center" id="results-for-the-vertical-translation-of-a-particle-along-the-z-axis" src="../../../_images/counts-along-z-axis.png"/>
 <p>Similar to the first scenario, as the particle approaches the detector, we notice an increase in photon count. The photon count reaches its maximal value at around <span class="math notranslate nohighlight">\(z = 7.1\)</span> cm, which is close to the center of the detector’s face.</p>
 </section>
 <section id="scenario-4-particle-going-across-the-vessel-on-a-diagonal-line">
-<h3>Scenario 4: particle going across the vessel on a diagonal Line<a class="headerlink" href="#scenario-4-particle-going-across-the-vessel-on-a-diagonal-line" title="Permalink to this headline">¶</a></h3>
+<h3>Scenario 4: Particle Going across the Vessel on a Diagonal Line<a class="headerlink" href="#scenario-4-particle-going-across-the-vessel-on-a-diagonal-line" title="Permalink to this headline">¶</a></h3>
 <img alt="Results for the particle going across the vessel on a diagonal line (Scenario 4)" class="align-center" id="results-for-the-particle-going-across-the-vessel-on-a-diagonal-line" src="../../../_images/counts-across-vessel-on-a-diagonal-line.png"/>
 <p>After analyzing the past three scenarios, we get much-expected results for this scenario. As seen in the first scenario, the photon count varies greatly with the <span class="math notranslate nohighlight">\(x\)</span> coordinate of the position vector of the particle. That is because the path of the photon inside the vessel gets longer when <span class="math notranslate nohighlight">\(x\)</span> gets smaller. In other words, the ray is more attenuated by the material inside the vessel before getting to the detector, therefore the photon count gets smaller. Consequently, even though the particle is further away from the detector if the <span class="math notranslate nohighlight">\(x\)</span> coordinate of the tracer’s position is closer to the detector’s exposed surface, the photon count could get greater and that’s what we see on the figure above for high <span class="math notranslate nohighlight">\(z\)</span> values.</p>
 </section>
 <section id="sensitivity-analysis-of-the-monte-carlo-method">
-<h3>Sensitivity analysis of the Monte Carlo method<a class="headerlink" href="#sensitivity-analysis-of-the-monte-carlo-method" title="Permalink to this headline">¶</a></h3>
+<h3>Sensitivity Analysis of the Monte Carlo Method<a class="headerlink" href="#sensitivity-analysis-of-the-monte-carlo-method" title="Permalink to this headline">¶</a></h3>
 <p>Looking back at the second scenario’s results (Case A), we notice that the counts are a little scattered. This is caused by the stochastic nature of the Monte Carlo method. Increasing the number of Monte Carlo iterations (<span class="math notranslate nohighlight">\(N\)</span>), generates much smoother results as seen in the Case C figure where we have multiplied <span class="math notranslate nohighlight">\(N\)</span> by a factor of <span class="math notranslate nohighlight">\(10\)</span>. By increasing <span class="math notranslate nohighlight">\(N\)</span>, we’re covering more of the solid angle, making the simulation more representative of the physical system. Therefore, we see a better continuity in the photon counts. In the Case B figure, <span class="math notranslate nohighlight">\(N\)</span> was divided by a factor of <span class="math notranslate nohighlight">\(10\)</span>. As expected, in this figure, we see much more scattering.</p>
 <div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
@@ -611,8 +605,8 @@ end
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>[1] Beam, G.B., Wielopolski, L., Gardner,  R.P., &amp; Verghese, K. (1978). Monte Carlo calculation of efficiencies of right-circular cylindrical NaI detectors for arbitrarily located point sources. <em>Nuclear Instruments and Methods</em>. 154(3), 501-508. <a class="reference external" href="https://doi.org/10.1016/0029-554X(78)90081-2">https://doi.org/10.1016/0029-554X(78)90081-2</a></p>
-<p>[2] Larachi, F., Kennedy, G., &amp; Chaouki, J. (1994). A γ-ray detection system for 3-D particle tracking in multiphase reactors. <em>Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment</em>. 338(2), 568-576. <a class="reference external" href="https://doi.org/10.1016/0168-9002(94)91343-9">https://doi.org/10.1016/0168-9002(94)91343-9</a></p>
+<p><a class="reference external" href="https://doi.org/10.1016/0029-554X(78)90081-2">[1]</a> G. B. Beam, L. Wielopolski, R. P. Gardner, and K. Verghese, “Monte Carlo calculation of efficiencies of right-circular cylindrical NaI detectors for arbitrarily located point sources,” <em>Nucl. Instrum. Methods</em>, vol. 154, no. 3, pp. 501–508, Sep. 1978, doi: 10.1016/0029-554X(78)90081-2.</p>
+<p><a class="reference external" href="https://doi.org/10.1016/0168-9002(94)91343-9">[2]</a> F. Larachi, G. Kennedy, and J. Chaouki, “A γ-ray detection system for 3-D particle tracking in multiphase reactors,” <em>Nucl. Instrum. Methods Phys. Res. Sect. Accel. Spectrometers Detect. Assoc. Equip.</em>, vol. 338, no. 2, pp. 568–576, Jan. 1994, doi: 10.1016/0168-9002(94)91343-9.</p>
 </section>
 </section>
 
@@ -626,7 +620,7 @@ end
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Tuning count calculation model parameters with NOMAD</div>
+                <div class="title">Tuning Count Calculation Model Parameters with NOMAD</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -667,22 +661,22 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Photon count calculation in a cylindrical vessel</a><ul>
+<li><a class="reference internal" href="#">Photon Count Calculation in a Cylindrical Vessel</a><ul>
 <li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">Parameter file</a><ul>
-<li><a class="reference internal" href="#rpt-parameters">RPT parameters</a></li>
-<li><a class="reference internal" href="#detector-parameters">Detector parameters</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">Files Used in This Example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">Description of the Case</a></li>
+<li><a class="reference internal" href="#parameter-file">Parameter File</a><ul>
+<li><a class="reference internal" href="#rpt-parameters">RPT Parameters</a></li>
+<li><a class="reference internal" href="#detector-parameters">Detector Parameters</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#running-the-simulation">Running the simulation</a></li>
-<li><a class="reference internal" href="#results">Results</a><ul>
-<li><a class="reference internal" href="#scenario-1-horizontal-translation-of-a-particle-along-the-x-axis">Scenario 1: horizontal translation of a particle along the x-axis</a></li>
-<li><a class="reference internal" href="#scenario-2-horizontal-translation-of-a-particle-along-the-y-axis">Scenario 2: horizontal translation of a particle along the y-axis</a></li>
-<li><a class="reference internal" href="#scenario-3-vertical-translation-of-a-particle-along-the-z-axis">Scenario 3: vertical translation of a particle along the z-axis</a></li>
-<li><a class="reference internal" href="#scenario-4-particle-going-across-the-vessel-on-a-diagonal-line">Scenario 4: particle going across the vessel on a diagonal Line</a></li>
-<li><a class="reference internal" href="#sensitivity-analysis-of-the-monte-carlo-method">Sensitivity analysis of the Monte Carlo method</a></li>
+<li><a class="reference internal" href="#running-the-simulation">Running the Simulation</a></li>
+<li><a class="reference internal" href="#results-and-discussion">Results and Discussion</a><ul>
+<li><a class="reference internal" href="#scenario-1-horizontal-translation-of-a-particle-along-the-x-axis">Scenario 1: Horizontal Translation of a Particle along the X-Axis</a></li>
+<li><a class="reference internal" href="#scenario-2-horizontal-translation-of-a-particle-along-the-y-axis">Scenario 2: Horizontal Translation of a Particle along the Y-Axis</a></li>
+<li><a class="reference internal" href="#scenario-3-vertical-translation-of-a-particle-along-the-z-axis">Scenario 3: Vertical Translation of a Particle along the Z-Axis</a></li>
+<li><a class="reference internal" href="#scenario-4-particle-going-across-the-vessel-on-a-diagonal-line">Scenario 4: Particle Going across the Vessel on a Diagonal Line</a></li>
+<li><a class="reference internal" href="#sensitivity-analysis-of-the-monte-carlo-method">Sensitivity Analysis of the Monte Carlo Method</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#references">References</a></li>
