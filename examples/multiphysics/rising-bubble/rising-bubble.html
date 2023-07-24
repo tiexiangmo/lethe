@@ -461,7 +461,6 @@ end
 
   subsection surface tension force
     set enable                                = true
-    set surface tension coefficient           = 24.5
     set phase fraction gradient filter factor = 4
     set curvature filter factor               = 1
     set output auxiliary fields               = true
@@ -497,7 +496,7 @@ end
 <h3>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>We define two fluids here simply by setting the number of fluids to be <span class="math notranslate nohighlight">\(2\)</span>.
 In <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code>, we set the density and the kinematic viscosity for the phase associated with a VOF indicator of 0.
-A similar procedure is done for the phase associated with a VOF indicator of 1 in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>:</p>
+A similar procedure is done for the phase associated with a VOF indicator of 1 in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>. Then a <code class="docutils literal notranslate"><span class="pre">fluid-fluid</span></code> type of material interaction is added to specify the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">model</span></code>. In this case, it is set to <code class="docutils literal notranslate"><span class="pre">constant</span></code> with the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">coefficient</span></code> <span class="math notranslate nohighlight">\(\sigma\)</span> set to <span class="math notranslate nohighlight">\(24.5\)</span>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids = 2
   subsection fluid 0
@@ -507,6 +506,16 @@ A similar procedure is done for the phase associated with a VOF indicator of 1 i
   subsection fluid 1
     set density             = 100
     set kinematic viscosity = 0.01
+  end
+  set number of material interactions = 1
+  subsection material interaction 0
+    set type = fluid-fluid
+    subsection fluid-fluid interaction
+      set first fluid id              = 0
+      set second fluid id             = 1
+      set surface tension model       = constant
+      set surface tension coefficient = 24.5
+    end
   end
 end
 </pre></div>

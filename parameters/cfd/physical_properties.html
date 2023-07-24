@@ -397,14 +397,39 @@
     set tracer diffusivity model   = constant
     set tracer diffusivity         = 0
   end
+
   set number of solids = 0
+
+  set number of material interactions = 1
+  subsection material interaction 0
+    set type = fluid-fluid
+    subsection fluid-fluid interaction
+      set first fluid id              = 0
+      set second fluid id             = 1
+
+      # Surface tension
+      set surface tension model       = constant
+      set surface tension coefficient = 0
+    end
+
+    # if fluid-solid interaction
+    subsection fluid-solid interaction
+      set fluid id                    = 0
+      set solid id                    = 0
+
+      # Surface tension
+      set surface tension model       = constant
+      set surface tension coefficient = 0
+    end
+  end
 end
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">fluids</span></code> parameter controls the number of fluids in the simulation. This parameter is set to <code class="docutils literal notranslate"><span class="pre">1</span></code> except in <a class="reference internal" href="#two-phase-simulations">Two Phase Simulations</a> .</p></li>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">fluids</span></code> parameter controls the number of fluids in the simulation. This parameter is set to <code class="docutils literal notranslate"><span class="pre">1</span></code> except in <a class="reference internal" href="#two-phase-simulations">Two Phase Simulations</a> .</p>
+<ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span></code> parameter sets the choice of rheological model. The choices are between <code class="docutils literal notranslate"><span class="pre">newtonian</span></code>, <code class="docutils literal notranslate"><span class="pre">power-law</span></code>, <code class="docutils literal notranslate"><span class="pre">carreau</span></code> and <code class="docutils literal notranslate"><span class="pre">phase_change</span></code>. For more details on the rheological models, see  <a class="reference internal" href="#id3">Rheological Models</a> .</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> parameter is the kinematic viscosity of the newtonain fluid in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span>. In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span>. This viscosity is only used when <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span> <span class="pre">=</span> <span class="pre">newtonian</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> parameter is the kinematic viscosity of the newtonian fluid in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span>. In SI, this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span>. This viscosity is only used when <code class="docutils literal notranslate"><span class="pre">rheological</span> <span class="pre">model</span> <span class="pre">=</span> <span class="pre">newtonian</span></code>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">model</span></code> specifies the model used to calculate the density. At the moment, a <code class="docutils literal notranslate"><span class="pre">constant</span></code> density and an <code class="docutils literal notranslate"><span class="pre">isothermal_ideal_gas</span></code> model are supported. For more details on the density models, see <a class="reference internal" href="#id4">Density Models</a>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter is the constant density of the fluid in units of <span class="math notranslate nohighlight">\(\text{Mass} \cdot \text{Length}^{-3}\)</span></p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">model</span></code> specifies the model used to calculate the specific heat. At the moment, only a constant specific heat is supported.</p></li>
@@ -412,15 +437,45 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal conductivity. At the moment, <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code> thermal conductivity are available. For more details on the thermal conductivity models, see <a class="reference internal" href="#id5">Thermal Conductivity Models</a>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">conductivity</span></code> parameter is the thermal conductivity coefficient of the fluid with units of <span class="math notranslate nohighlight">\(\text{Power} \cdot \text{Temperature}^{-1} \cdot \text{Length}^{-1}\)</span>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span> <span class="pre">model</span></code> specifies the model used to calculate the thermal expansion coefficient. At the moment, only a constant thermal expansion is supported.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span></code> parameter is the thermal expansion coefficient of the fluid with dimension of <span class="math notranslate nohighlight">\(\text{Temperature}^{-1}\)</span>. Thermal expansion coefficient is used to define the buoyancy-driven flow (natural convection) using the Boussinesq approximation. Using the Boussinesq approximation, the following source term is added to the Navier-Stokes equation.</p></li>
-</ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">thermal</span> <span class="pre">expansion</span></code> parameter is the thermal expansion coefficient of the fluid with dimension of <span class="math notranslate nohighlight">\(\text{Temperature}^{-1}\)</span>. It is used to define the buoyancy-driven flow (natural convection) using the Boussinesq approximation, which leads to the definition of the following source term that is added to the Navier-Stokes equation:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[{\bf{F_{B}}} = -\beta {\bf{g}} (T-T_0)\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(F_B\)</span> denotes the buoyant force source term, <span class="math notranslate nohighlight">\(\beta\)</span> is the thermal expansion coefficient, <span class="math notranslate nohighlight">\(T\)</span> is temperature, and <span class="math notranslate nohighlight">\(T_0\)</span> is the base temperature.</p>
-<ul class="simple">
+</li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">diffusivity</span> <span class="pre">model</span></code> specifies the model used to calculate the tracer diffusivity. At the moment, only a constant tracer diffusivity is supported.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">diffusivity</span></code> parameter is the diffusivity coefficient of the tracer in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span> . In SI this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span> .</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tracer</span> <span class="pre">diffusivity</span></code> parameter is the diffusivity coefficient of the tracer in units of <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span> . In SI, this is <span class="math notranslate nohighlight">\(\text{m}^{2} \cdot \text{s}^{-1}\)</span>.</p></li>
+</ul>
+</li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> parameter controls the number of solid regions. Solid regions are currently only implemented for <a class="reference internal" href="#conjugate-heat-transfer">Conjugate Heat Transfer</a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">material</span> <span class="pre">interactions</span></code> parameter controls the number of physical properties that are due to the interaction between two materials. At the moment, only the surface tension between two fluids is implemented in <a class="reference internal" href="#two-phase-simulations">Two Phase Simulations</a>.</p>
+<ul>
+<li><p>The material interaction <code class="docutils literal notranslate"><span class="pre">type</span></code> can either be <code class="docutils literal notranslate"><span class="pre">fluid-fluid</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">fluid-solid</span></code>.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">fluid-fluid</span></code> subsection we define the pair of fluids and their physical properties.</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">fluid</span> <span class="pre">id</span></code> is the id of the first fluid.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">second</span> <span class="pre">fluid</span> <span class="pre">id</span></code> is the id of the second fluid.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">second</span> <span class="pre">fluid</span> <span class="pre">id</span></code> should be greater than the <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">fluid</span> <span class="pre">id</span></code>.</p>
+</div>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">model</span></code> specifies the model used to calculate the surface tension coefficient of the fluid-fluid pair. At the moment, only the <code class="docutils literal notranslate"><span class="pre">constant</span></code> model is supported.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">coefficient</span></code> parameter is the constant surface tension coefficient of the two interacting fluids in units of <span class="math notranslate nohighlight">\(\text{Mass} \cdot \text{Time}^{-2}\)</span>. In SI, this is <span class="math notranslate nohighlight">\(\text{N} \cdot \text{m}^{-1}\)</span>. The surface tension coefficient is used to define the Weber number (<span class="math notranslate nohighlight">\(We\)</span>):</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[We = Re \cdot \frac{\mu_\text{ref} \; u_\text{ref}}{\sigma}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(Re\)</span> is the Reynolds number, <span class="math notranslate nohighlight">\(\mu_\text{ref}\)</span> and <span class="math notranslate nohighlight">\(u_\text{ref}\)</span> are some reference viscosity and velocity characterizing the flow problem, and <span class="math notranslate nohighlight">\(\sigma\)</span> is the surface tension coefficient.</p>
+</li>
+</ul>
+</li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">fluid-solid</span></code> subsection we define the fluid-solid pair and their physical properties.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">id</span></code> is the id of the fluid.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">id</span></code> is the id of the solid.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">model</span></code>  and <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">coefficient</span></code> are the same as described in the <code class="docutils literal notranslate"><span class="pre">fluid-fluid</span></code> subsection above.</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -463,7 +518,7 @@ end
 </section>
 <section id="conjugate-heat-transfer">
 <span id="id2"></span><h2>Conjugate Heat Transfer<a class="headerlink" href="#conjugate-heat-transfer" title="Permalink to this headline">¶</a></h2>
-<p>Conjugate heat transfer enables the addition of solid regions in which the fluid dynamics is not solved for. To enable the presence of a solid region, <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> must be put to 1. By default, the region with the <code class="docutils literal notranslate"><span class="pre">material_id=0</span></code> will be the fluid region whereas the region with <code class="docutils literal notranslate"><span class="pre">material_id=1</span></code> will be the solid region. The physcal properties of the solid region are set in an identical fashion as those of the fluid.</p>
+<p>Conjugate heat transfer enables the addition of solid regions in which the fluid dynamics is not solved for. To enable the presence of a solid region, <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> must be set to 1. By default, the region with the <code class="docutils literal notranslate"><span class="pre">material_id=0</span></code> will be the fluid region whereas the region with <code class="docutils literal notranslate"><span class="pre">material_id=1</span></code> will be the solid region. The physical properties of the solid region are set in an identical fashion as those of the fluid.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is an experimental feature. It has not been tested on a large range of application cases.</p>
