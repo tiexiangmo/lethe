@@ -20,6 +20,7 @@
 #include <core/bdf.h>
 #include <core/grids.h>
 #include <core/lethe_grid_tools.h>
+#include <core/mesh_controller.h>
 #include <core/sdirk.h>
 #include <core/solutions_output.h>
 #include <core/time_integration_utilities.h>
@@ -74,6 +75,7 @@ NavierStokesBase<dim, VectorType, DofsType>::NavierStokesBase(
   , velocity_fem_degree(p_nsparam.fem_parameters.velocity_order)
   , pressure_fem_degree(p_nsparam.fem_parameters.pressure_order)
   , number_quadrature_points(p_nsparam.fem_parameters.velocity_order + 1)
+  , mesh_controller(p_nsparam.mesh_adaptation.maximum_number_elements)
 {
   if (simulation_parameters.mesh.simplex)
     {
@@ -565,23 +567,34 @@ NavierStokesBase<dim, VectorType, DofsType>::iterate()
 {
   auto &present_solution = this->present_solution;
 
-  // If the fluid dynamics is not to be solved, but rather specified
-  // via an initial condition. Update condition and move on.
+  // If the fluid dynamics is not to be solved, but rather specified. Update
+  // condition and move on.
   if (!simulation_parameters.multiphysics.fluid_dynamics)
     {
-      // Solve and percolate the auxiliary physics that should be treated BEFORE
-      // the fluid dynamics
+      // Solve and percolate the auxiliary physics that should be treated
+      // BEFORE the fluid dynamics
       multiphysics->solve(false,
                           simulation_parameters.simulation_control.method);
       multiphysics->percolate_time_vectors(false);
 
-      this->simulation_parameters.initial_condition->uvwp.set_time(
-        this->simulation_control->get_current_time());
-      set_initial_condition_fd(
-        this->simulation_parameters.initial_condition->type);
+      if (simulation_parameters.multiphysics.use_time_average_velocity_field)
+        {
+          // We get the solution via the average solution
+          this->local_evaluation_point =
+            this->average_velocities->get_average_velocities();
+          present_solution = this->local_evaluation_point;
+        }
+      else
+        {
+          // We get the solution via an initial condition
+          this->simulation_parameters.initial_condition->uvwp.set_time(
+            this->simulation_control->get_current_time());
+          set_initial_condition_fd(
+            this->simulation_parameters.initial_condition->type);
+        }
 
-      // Solve and percolate the auxiliary physics that should be treated AFTER
-      // the fluid dynamics
+      // Solve and percolate the auxiliary physics that should be treated
+      // AFTER the fluid dynamics
       multiphysics->solve(true,
                           simulation_parameters.simulation_control.method);
       multiphysics->percolate_time_vectors(true);
@@ -899,12 +912,27 @@ NavierStokesBase<dim, VectorType, DofsType>::refine_mesh_kelly()
   std::vector<bool> global_refine_flags(dim * tria.n_active_cells(), false);
   std::vector<bool> global_coarsen_flags(dim * tria.n_active_cells(), false);
 
-  bool first_variable(true);
+  bool         first_variable(true);
+  const double coarsening_factor = mesh_controller.calculate_coarsening_factor(
+    this->triangulation->n_global_active_cells());
+
+  unsigned int maximal_number_of_elements =
+    this->simulation_parameters.mesh_adaptation.maximum_number_elements;
+  // Override the maximal number of elements if the controller is used. The
+  // controller will find a coarsening_factor that respects the user-defined
+  // maximal_number_of_elements.
+  if (this->simulation_parameters.mesh_adaptation.mesh_controller_is_enabled)
+    maximal_number_of_elements = INT_MAX;
 
   for (const std::pair<const Parameters::MeshAdaptation::Variable,
                        Parameters::MultipleAdaptationParameters> &ivar :
        this->simulation_parameters.mesh_adaptation.variables)
     {
+      double ivar_coarsening_factor = ivar.second.coarsening_fraction;
+      if (this->simulation_parameters.mesh_adaptation
+            .mesh_controller_is_enabled)
+        ivar_coarsening_factor = coarsening_factor;
+
       if (ivar.first == Parameters::MeshAdaptation::Variable::pressure)
         {
           KellyErrorEstimator<dim>::estimate(
@@ -941,8 +969,8 @@ NavierStokesBase<dim, VectorType, DofsType>::refine_mesh_kelly()
           tria,
           estimated_error_per_cell,
           ivar.second.refinement_fraction,
-          ivar.second.coarsening_fraction,
-          this->simulation_parameters.mesh_adaptation.maximum_number_elements);
+          ivar_coarsening_factor,
+          maximal_number_of_elements);
 
       else if (this->simulation_parameters.mesh_adaptation.fractionType ==
                Parameters::MeshAdaptation::FractionType::fraction)
@@ -950,7 +978,7 @@ NavierStokesBase<dim, VectorType, DofsType>::refine_mesh_kelly()
           refine_and_coarsen_fixed_fraction(tria,
                                             estimated_error_per_cell,
                                             ivar.second.refinement_fraction,
-                                            ivar.second.coarsening_fraction);
+                                            ivar_coarsening_factor);
 
       std::vector<bool> current_refine_flags;
       std::vector<bool> current_coarsen_flags;
@@ -1603,13 +1631,58 @@ NavierStokesBase<dim, VectorType, DofsType>::read_checkpoint()
       previous_solutions[i] = distributed_previous_solutions[i];
     }
 
+  if (simulation_parameters.post_processing.calculate_average_velocities)
+    {
+      this->average_velocities->calculate_average_velocities(
+        this->local_evaluation_point,
+        simulation_parameters.post_processing,
+        simulation_control->get_current_time(),
+        simulation_control->get_time_step());
+    }
+
   if (simulation_parameters.flow_control.enable_flow_control)
     {
       this->flow_control.read(prefix);
     }
 
-
   multiphysics->read_checkpoint();
+
+  // Deserialize all post-processing tables that are currently used
+  {
+    const Parameters::PostProcessing post_processing =
+      simulation_parameters.post_processing;
+    std::string prefix =
+      this->simulation_parameters.simulation_control.output_folder;
+    std::string suffix = ".checkpoint";
+    if (post_processing.calculate_enstrophy)
+      deserialize_table(
+        this->enstrophy_table,
+        prefix + simulation_parameters.post_processing.enstrophy_output_name +
+          suffix);
+    if (post_processing.calculate_kinetic_energy)
+      deserialize_table(
+        this->kinetic_energy_table,
+        prefix +
+          simulation_parameters.post_processing.kinetic_energy_output_name +
+          suffix);
+    if (post_processing.calculate_apparent_viscosity)
+      deserialize_table(
+        this->apparent_viscosity_table,
+        prefix +
+          simulation_parameters.post_processing.apparent_viscosity_output_name +
+          suffix);
+    if (post_processing.calculate_flow_rate)
+      deserialize_table(
+        this->flow_rate_table,
+        prefix + simulation_parameters.post_processing.flow_rate_output_name +
+          suffix);
+    if (post_processing.calculate_pressure_drop)
+      deserialize_table(
+        this->pressure_drop_table,
+        prefix +
+          simulation_parameters.post_processing.pressure_drop_output_name +
+          suffix);
+  }
 }
 
 template <int dim, typename VectorType, typename DofsType>
@@ -2119,6 +2192,43 @@ NavierStokesBase<dim, VectorType, DofsType>::write_checkpoint()
       std::string triangulationName = prefix + ".triangulation";
       tria->save(prefix + ".triangulation");
     }
+
+  // Serialize all post-processing tables that are currently used
+  {
+    const Parameters::PostProcessing post_processing =
+      simulation_parameters.post_processing;
+    std::string prefix =
+      this->simulation_parameters.simulation_control.output_folder;
+    std::string suffix = ".checkpoint";
+    if (post_processing.calculate_enstrophy)
+      serialize_table(
+        this->enstrophy_table,
+        prefix + simulation_parameters.post_processing.enstrophy_output_name +
+          suffix);
+    if (post_processing.calculate_kinetic_energy)
+      serialize_table(
+        this->kinetic_energy_table,
+        prefix +
+          simulation_parameters.post_processing.kinetic_energy_output_name +
+          suffix);
+    if (post_processing.calculate_apparent_viscosity)
+      serialize_table(
+        this->apparent_viscosity_table,
+        prefix +
+          simulation_parameters.post_processing.apparent_viscosity_output_name +
+          suffix);
+    if (post_processing.calculate_flow_rate)
+      serialize_table(
+        this->flow_rate_table,
+        prefix + simulation_parameters.post_processing.flow_rate_output_name +
+          suffix);
+    if (post_processing.calculate_pressure_drop)
+      serialize_table(
+        this->pressure_drop_table,
+        prefix +
+          simulation_parameters.post_processing.pressure_drop_output_name +
+          suffix);
+  }
 }
 
 template <int dim, typename VectorType, typename DofsType>

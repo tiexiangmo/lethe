@@ -1,29 +1,32 @@
-Source term
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===========
+Source Term
+===========
 
 If the problem being simulated has a source, it can be added in this section. The default parameters are:
 
 .. code-block:: text
 
-   subsection source term
+  subsection source term
+    set enable = false
 
-     set enable                = false
+    subsection xyz
+      # Default values in 2D
+      set Function expression = 0; 0; 0
+      # in 3D: set Function expression = 0; 0; 0; 0
+    end
 
-     subsection xyz
-       # Default values in 2D
-       set Function expression = 0; 0; 0
-       # in 3D: set Function expression = 0; 0; 0; 0
-     end
+    subsection heat transfer
+      set Function expression = 0
+    end
 
-     subsection heat transfer
-       set Function expression = 0
-     end
+    subsection tracer
+      set Function expression = 0
+    end
 
-     subsection tracer
-       set Function expression = 0
-     end
-
-   end
+    subsection cahn hilliard
+      set Function expression = 0; 0
+    end
+  end
 
 .. tip:: 
   ``Function expression``, used in this subsection (but also in :doc:`./initial_conditions`, :doc:`./analytical_solution`, namely), give access to several tools:
@@ -50,10 +53,12 @@ If the problem being simulated has a source, it can be added in this section. Th
 
 * ``subsection tracer``: defines the parameters for the a source term for a tracer. This source term is defined by a ``Function expression`` and can depend on both space (``x``, ``y`` and, if 3D, ``z``) and time (``t``). See :ref:`ex function`.
 
+* ``subsection cahn hilliard``: defines the parameters for a source term in the Cahn-Hilliard equations. This source term is defined by a ``Function expression`` and can depend on both space (``x``, ``y`` and, if 3D, ``z``) and time (``t``). Both the phase order parameter (first component) and chemical potential (second component) can have source terms, hence the two components. See :ref:`ex function`.
+
 
 .. _ex function:
 
-Examples of Function expression
+Examples of Function Expression
 --------------------------------
 
 CFD source term with ``Function constants``:

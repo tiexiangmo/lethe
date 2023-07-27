@@ -1,11 +1,11 @@
-
 ==================================
-Small scale rotating drum
+Small Scale Rotating Drum
 ==================================
 
 This example of Lethe-DEM simulates dry granular flow behaviour in a small scale rotating drum. The discrete element method (DEM) is responsible for describing the behaviour of particles.  More information regarding the DEM parameters are given in the Lethe-DEM documentation, i.e. `DEM parameters <../../../parameters/dem/dem.html>`_.
 
 
+----------------------------------
 Features
 ----------------------------------
 - Solvers: ``dem_3d``
@@ -14,23 +14,23 @@ Features
 - Load-balancing
 
 
-
-Files used in this example
+----------------------------
+Files Used in This Example
 ----------------------------
 
 - Parameters file for particle insertion: ``/examples/dem/3d-small-scale-rotating-drum/packing-rotating-drum.prm``
 - Parameters file for drum rotation: ``/examples/dem/3d-small-scale-rotating-drum/small-rotating-drum-dem.prm``
 
 
-
-Description of the case
+-----------------------
+Description of the Case
 -----------------------
 
 This example simulates a rolling regime in a small scale rotating drum. First, we use Lethe-DEM to fill the bed with 20000 particles. We enable check-pointing in order to write the DEM checkpoint files for the packing which then will be used as the starting point of the DEM simulation of the rotating drum. The solver ``dem_3d`` is used to simulate the behaviour of dry granular flow within the rotating drum.
 
 
-
-Parameter file
+--------------
+Parameter File
 --------------
 
 Mesh
@@ -73,7 +73,7 @@ An insertion box is defined inside the cylindrical domain, inserting 8000 partic
 
 Restart files are written once the packing ends. The restart files are used to start the DEM simulation with the imposed rotating boundary condition.
 
-Lagrangian physical properties
+Lagrangian Physical Properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The particles are mono-dispersed with a radius of 0.0015 m and a density of 2500 kg/m3, respectively. All other particles' physical parameters are taken arbitrary and should be changed based on the physical properties and the experimental values.
@@ -105,7 +105,7 @@ The particles are mono-dispersed with a radius of 0.0015 m and a density of 2500
     end
 
 
-Model parameters
+Model Parameters
 ~~~~~~~~~~~~~~~~~
 
 In this example, we use the ``dynamic`` load balancing method. This method checks frequently if load balancing should be applied based on a user inputted frequency. Load balancing is dynamically applied if a certain condition is applied. More details regarding load balancing are explained in the `Rotating Drum example <../rotating-drum/rotating-drum.html>`_. 
@@ -113,20 +113,24 @@ In this example, we use the ``dynamic`` load balancing method. This method check
 .. code-block:: text
 
     subsection model parameters
-      set contact detection method                = dynamic
-      set dynamic contact search size coefficient = 0.8
-      set neighborhood threshold                  = 1.3
-      set load balance method                     = dynamic
-      set load balance threshold                  = 0.5
-      set dynamic load balance check frequency    = 10000
-      set particle particle contact force method  = hertz_mindlin_limit_overlap
-      set particle wall contact force method      = nonlinear
-      set rolling resistance torque method        = constant_resistance
-      set integration method                      = velocity_verlet
+      subsection contact detection
+        set contact detection method                = dynamic
+        set dynamic contact search size coefficient = 0.8
+        set neighborhood threshold                  = 1.3
+      end
+      subsection load balancing
+        set load balance method                     = dynamic
+        set threshold                               = 0.5
+        set dynamic check frequency                 = 10000
+      end
+      set particle particle contact force method    = hertz_mindlin_limit_overlap
+      set particle wall contact force method        = nonlinear
+      set rolling resistance torque method          = constant_resistance
+      set integration method                        = velocity_verlet
     end
 
-Boundary condition
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DEM Boundary Conditions
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The rotation of the cylinder is applied using a rotational boundary condition with a value of 1 rad/s over the x axis. Based on `deal.II boundary colouring <https://www.dealii.org/current/doxygen/deal.II/namespaceGridGenerator.html>`_, the hull of the cylinder (rotating drum) has an id = 0.
 
@@ -145,7 +149,7 @@ The rotation of the cylinder is applied using a rotational boundary condition wi
     end
 
 
-Simulation control
+Simulation Control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The packing dem simulation was run for 2 seconds in real time.
@@ -172,7 +176,9 @@ The actual rotation of the drum is 3 seconds in real time. We set the time equal
       set output path      = ./output_dem/
     end
 
-Running the simulation
+
+-----------------------
+Running the Simulation
 -----------------------
 
 The simulation is launched in two steps: the first step packs the particle in the cylinder, while the second step rotates the drum and simulates the movement of the particles. 
@@ -186,6 +192,8 @@ The simulation is launched in two steps: the first step packs the particle in th
 .. note::
  This example needs a simulation time of approximately 60 minutes on 8 processors using an 12th Gen Intel(R) Core(TM) i9-12900K
 
+
+---------
 Results
 ---------
 
@@ -195,7 +203,9 @@ The following movie displays the rolling regime inside the rotating drum obtaine
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/F-uo2lzhObk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Possibilities for extension
+
+----------------------------
+Possibilities for Extension
 ----------------------------
 
 - Use two types of particles with different radius to prove the Brazil-Nut effect.

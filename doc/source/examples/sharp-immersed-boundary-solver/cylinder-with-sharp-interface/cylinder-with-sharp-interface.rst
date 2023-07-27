@@ -1,24 +1,33 @@
 ==============================================================================
-Flow around a cylinder using the sharp interface method
+Flow around a Cylinder Using the Sharp Interface Method
 ==============================================================================
+
+
+----------------------------------
 Features
 ----------------------------------
+
 - Solvers: ``gls_sharp_navier_stokes_2d`` (with Q1-Q1) 
 - Steady-state problem
 - Explains how to set sharp interface immersed boundary to represent a particle
 - Displays the use of non-uniform mesh adaptation 
 
-Files used in this example
+
+---------------------------
+Files Used in This Example
 ---------------------------
 
 - Parameter file: ``/examples/sharp-immersed-boundary-solver/cylinder-with-sharp-interface/cylinder-with-sharp-interface.prm``
 
 
-Description of the case
+-----------------------
+Description of the Case
 -----------------------
 
-In this example, we study the flow around a static cylinder in 2D using the sharp-interface method to represent the cylinder. The geometry of the flow takes the same basic case defined in 
- :doc:`../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder`. As such, we use the parameter file associated with :doc:`../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder` as the base for this example. The exact dimensions for this example can be found in the following figure. 
+Mesh
+~~~~
+
+In this example, we study the flow around a static cylinder in 2D using the sharp-interface method to represent the cylinder. The geometry of the flow takes the same basic case defined in :doc:`../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder`. As such, we use the parameter file associated with :doc:`../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder` as the base for this example. The exact dimensions for this example can be found in the following figure.
 
 .. image:: images/cylinder-case.png
     :alt: Simulation schematic
@@ -30,24 +39,20 @@ The mesh is defined using the following subsection.
 
 .. code-block:: text
 
-    #---------------------------------------------------
-    # Mesh
-    #---------------------------------------------------
     subsection mesh
         set type               = dealii
         set grid type          = subdivided_hyper_rectangle
         set grid arguments     = 2,1: 0,0 : 32 , 16  : true
         set initial refinement = 6
     end
-	
+
+Boundary Conditions
+~~~~~~~~~~~~~~~~~~~
+
 As for the :doc:`../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder`, we define the boundary conditions in order to have an inlet on the left, two slip boundary conditions at the top and bottom, and an outlet on the right of the domain.
 
 
 .. code-block:: text
-
-    # --------------------------------------------------
-    # Boundary Conditions
-    #---------------------------------------------------
 
     subsection boundary conditions
       set number = 3
@@ -74,49 +79,53 @@ As for the :doc:`../../incompressible-flow/2d-flow-around-cylinder/2d-flow-aroun
         set type = slip
       end
     end
-	
+
+Initial Conditions
+~~~~~~~~~~~~~~~~~~
+
 The initial condition has been modified compared to the initial solution proposed in :doc:`../../incompressible-flow/2d-flow-around-cylinder/2d-flow-around-cylinder`. We use the following initial condition to ensure that the particle's boundary condition is satisfied.
 
 .. code-block:: text
 
-    #---------------------------------------------------
-    # Initial condition
-    #---------------------------------------------------
     subsection initial conditions
       set type = nodal
       subsection uvwp
           set Function expression = 0; 0; 0
       end
     end
+
+IB Particles
+~~~~~~~~~~~~~
 	
 The only thing that is left to define is the immersed boundary.
 In this case, we want to define a circular boundary of radius 0.5 center at (8,8) that has no velocity. We use the sphere to model the cylinder in 2D.
 
 .. code-block:: text
 
-    # --------------------------------------------------
-    # IB particules
-    #---------------------------------------------------
     subsection particles
       set number of particles                     = 1
-      set stencil order                           = 2
-      set refine mesh inside radius factor        = 0.8
-      set refine mesh outside radius factor       = 1.2
-      set initial refinement                      = 0
-      set integrate motion                        = false
       set assemble Navier-Stokes inside particles = false
-      subsection particle info 0
+      subsection extrapolation function
+        set stencil order = 2
+      end
+      subsection local mesh refinement
+        set initial refinement                = 0
+        set refine mesh inside radius factor  = 0.8
+        set refine mesh outside radius factor = 1.2
+      end
+      subsection particle info 0    
+        set type             = sphere
+        set shape arguments  = 0.5
+        set integrate motion = false
         subsection position
           set Function expression = 8;8
         end
         subsection velocity
           set Function expression = 0;0
         end
-        set type            = sphere
-        set shape arguments = 0.5
       end
     end
-
+    
 * The ``number of particles`` is set to one as we only want one particle.
 
 * The ``stencil order`` is set to 2 as this is the highest order that is compatible with the FEM scheme and it does not lead to Runge instability. The highest order of stencil compatible with a FEM scheme is defined by the polynomial order of the scheme time the number of dimensions. In this case 2.
@@ -138,8 +147,10 @@ In this case, we want to define a circular boundary of radius 0.5 center at (8,8
 All the other parameters have been set to their default values since they do not play a role in this case.
 
 
+---------------
 Results
 ---------------
+
 The simulation of this case results in the following solution for the velocity and pressure field. 
 
 

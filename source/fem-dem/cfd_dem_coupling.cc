@@ -439,11 +439,22 @@ CFDDEMSolver<dim>::read_checkpoint()
   this->particle_handler.deserialize();
 }
 
+#if (DEAL_II_VERSION_MAJOR < 10 && DEAL_II_VERSION_MINOR < 6)
+template <int dim>
+unsigned int
+CFDDEMSolver<dim>::cell_weight(
+  const typename parallel::distributed::Triangulation<dim>::cell_iterator &cell,
+  const typename parallel::distributed::Triangulation<dim>::CellStatus status)
+  const
+#else
 template <int dim>
 unsigned int
 CFDDEMSolver<dim>::cell_weight(
   const typename parallel::distributed::Triangulation<dim>::cell_iterator &cell,
   const CellStatus status) const
+#endif
+
+
 {
   // Assign no weight to cells we do not own.
   if (!cell->is_locally_owned())
@@ -465,14 +476,25 @@ CFDDEMSolver<dim>::cell_weight(
   // should have the status CELL_PERSIST. However this function can also
   // be used to distribute load during refinement, therefore we consider
   // refined or coarsened cells as well.
+
+#if (DEAL_II_VERSION_MAJOR < 10 && DEAL_II_VERSION_MINOR < 6)
+  if (status == parallel::distributed::Triangulation<dim>::CELL_PERSIST ||
+      status == parallel::distributed::Triangulation<dim>::CELL_REFINE)
+#else
   if (status == CellStatus::cell_will_persist ||
       status == CellStatus::cell_will_be_refined)
+#endif
+
     {
       const unsigned int n_particles_in_cell =
         this->particle_handler.n_particles_in_cell(cell);
       return n_particles_in_cell * particle_weight;
     }
+#if (DEAL_II_VERSION_MAJOR < 10 && DEAL_II_VERSION_MINOR < 6)
+  else if (status == parallel::distributed::Triangulation<dim>::CELL_COARSEN)
+#else
   else if (status == CellStatus::children_will_be_coarsened)
+#endif
     {
       unsigned int n_particles_in_cell = 0;
 
@@ -535,15 +557,15 @@ CFDDEMSolver<dim>::load_balance()
   if (has_periodic_boundaries)
     {
       periodic_boundaries_object.map_periodic_cells(
-        *parallel_triangulation,
-        container_manager.periodic_boundaries_cells_information);
+        *parallel_triangulation, periodic_boundaries_cells_information);
 
       periodic_offset =
         periodic_boundaries_object.get_periodic_offset_distance();
     }
 
-  container_manager.update_cell_neighbors(*parallel_triangulation,
-                                          has_periodic_boundaries);
+  contact_manager.update_cell_neighbors(*parallel_triangulation,
+                                        periodic_boundaries_cells_information,
+                                        has_periodic_boundaries);
 
 
   boundary_cell_object.build(
@@ -672,8 +694,7 @@ CFDDEMSolver<dim>::initialize_dem_parameters()
         dem_parameters.boundary_conditions.periodic_direction);
 
       periodic_boundaries_object.map_periodic_cells(
-        *parallel_triangulation,
-        container_manager.periodic_boundaries_cells_information);
+        *parallel_triangulation, periodic_boundaries_cells_information);
 
       // Temporary offset calculation : works only for one set of periodic
       // boundary on an axis.
@@ -691,8 +712,10 @@ CFDDEMSolver<dim>::initialize_dem_parameters()
     }
 
   // Finding cell neighbors
-  container_manager.execute_cell_neighbors_search(*parallel_triangulation,
-                                                  has_periodic_boundaries);
+  contact_manager.execute_cell_neighbors_search(
+    *parallel_triangulation,
+    periodic_boundaries_cells_information,
+    has_periodic_boundaries);
 
   // Finding boundary cells with faces
   boundary_cell_object.build(
@@ -831,7 +854,7 @@ CFDDEMSolver<dim>::dem_iterator(unsigned int counter)
   // Particle-particle contact force
   particle_particle_contact_force_object
     ->calculate_particle_particle_contact_force(
-      container_manager, dem_time_step, torque, force, periodic_offset);
+      contact_manager, dem_time_step, torque, force, periodic_offset);
 
   // Particles-walls contact force:
   particle_wall_contact_force();
@@ -915,6 +938,11 @@ CFDDEMSolver<dim>::dem_contact_build(unsigned int counter)
       this->pcout << "DEM contact search at dem step " << counter << std::endl;
       contact_build_number++;
 
+      // Particles displacement if passing through a periodic boundary
+      if (has_periodic_boundaries)
+        periodic_boundaries_object.execute_particles_displacement(
+          this->particle_handler, periodic_boundaries_cells_information);
+
       this->particle_handler.sort_particles_into_subdomains_and_cells();
 
       if (has_disabled_contacts)
@@ -957,25 +985,27 @@ CFDDEMSolver<dim>::dem_contact_build(unsigned int counter)
       // contact pair candidates
       if (!contacts_are_disabled(counter))
         {
-          container_manager.execute_particle_particle_broad_search(
+          contact_manager.execute_particle_particle_broad_search(
             this->particle_handler, has_periodic_boundaries);
 
-          container_manager.execute_particle_wall_broad_search(
+          contact_manager.execute_particle_wall_broad_search(
             this->particle_handler,
             boundary_cell_object,
+            floating_mesh_info,
             dem_parameters.floating_walls,
             this->simulation_control->get_current_time());
         }
       else // disabling particle contacts are enabled & counter > 1
         {
-          container_manager.execute_particle_particle_broad_search(
+          contact_manager.execute_particle_particle_broad_search(
             this->particle_handler,
             disable_contacts_object,
             has_periodic_boundaries);
 
-          container_manager.execute_particle_wall_broad_search(
+          contact_manager.execute_particle_wall_broad_search(
             this->particle_handler,
             boundary_cell_object,
+            floating_mesh_info,
             dem_parameters.floating_walls,
             this->simulation_control->get_current_time(),
             disable_contacts_object);
@@ -984,23 +1014,24 @@ CFDDEMSolver<dim>::dem_contact_build(unsigned int counter)
       // Update contacts, remove replicates and add new contact pairs
       // to the contact containers when particles are exchanged between
       // processors
-      container_manager.update_contacts(has_periodic_boundaries);
+      contact_manager.update_contacts(has_periodic_boundaries);
 
       // Updates the iterators to particles in local-local contact
       // containers
-      container_manager.update_local_particles_in_cells(
-        this->particle_handler, has_periodic_boundaries);
+      contact_manager.update_local_particles_in_cells(this->particle_handler,
+                                                      load_balance_step,
+                                                      has_periodic_boundaries);
 
       // Execute fine search by updating particle-particle contact
       // containers regards the neighborhood threshold
-      container_manager.execute_particle_particle_fine_search(
+      contact_manager.execute_particle_particle_fine_search(
         neighborhood_threshold_squared,
         has_periodic_boundaries,
         periodic_offset);
 
       // Execute fine search by updating particle-wall contact containers
       // regards the neighborhood threshold
-      container_manager.execute_particle_wall_fine_search(
+      contact_manager.execute_particle_wall_fine_search(
         dem_parameters.floating_walls,
         this->simulation_control->get_current_time(),
         neighborhood_threshold_squared);
@@ -1052,16 +1083,15 @@ CFDDEMSolver<dim>::particle_wall_contact_force()
 {
   // Particle-wall contact force
   particle_wall_contact_force_object->calculate_particle_wall_contact_force(
-    container_manager.particle_wall_in_contact, dem_time_step, torque, force);
+    contact_manager.particle_wall_in_contact, dem_time_step, torque, force);
 
   if (this->cfd_dem_simulation_parameters.dem_parameters.forces_torques
         .calculate_force_torque)
     {
-      container_manager.forces_boundary_information[this->simulation_control
-                                                      ->get_step_number()] =
+      forces_boundary_information[this->simulation_control->get_step_number()] =
         particle_wall_contact_force_object->get_force();
-      container_manager.torques_boundary_information[this->simulation_control
-                                                       ->get_step_number()] =
+      torques_boundary_information[this->simulation_control
+                                     ->get_step_number()] =
         particle_wall_contact_force_object->get_torque();
     }
 
@@ -1069,7 +1099,7 @@ CFDDEMSolver<dim>::particle_wall_contact_force()
   if (dem_parameters.floating_walls.floating_walls_number > 0)
     {
       particle_wall_contact_force_object->calculate_particle_wall_contact_force(
-        container_manager.particle_floating_wall_in_contact,
+        contact_manager.particle_floating_wall_in_contact,
         dem_time_step,
         torque,
         force);
@@ -1077,7 +1107,7 @@ CFDDEMSolver<dim>::particle_wall_contact_force()
 
   particle_point_line_contact_force_object
     .calculate_particle_point_contact_force(
-      &container_manager.particle_points_in_contact,
+      &contact_manager.particle_points_in_contact,
       dem_parameters.lagrangian_physical_properties,
       force);
 
@@ -1085,7 +1115,7 @@ CFDDEMSolver<dim>::particle_wall_contact_force()
     {
       particle_point_line_contact_force_object
         .calculate_particle_line_contact_force(
-          &container_manager.particle_lines_in_contact,
+          &contact_manager.particle_lines_in_contact,
           dem_parameters.lagrangian_physical_properties,
           force);
     }
@@ -1265,53 +1295,22 @@ void
 CFDDEMSolver<dim>::print_particles_summary()
 {
   // Write particle Velocity
-  std::map<int, Particles::ParticleIterator<dim>> global_particles;
-  unsigned int current_id, current_id_max = 0;
-
-  // Mapping of all particles & find the max id on current processor
-  for (auto particle = this->particle_handler.begin();
-       particle != this->particle_handler.end();
-       ++particle)
+  for (auto &particle : this->particle_handler)
     {
-      current_id     = particle->get_id();
-      current_id_max = std::max(current_id, current_id_max);
+      auto particle_properties = particle.get_properties();
+      this->pcout << "Particle Summary" << std::endl;
 
-      global_particles.insert({current_id, particle});
-    }
+      std::stringstream ss;
 
-  // Find global max particle index
-  unsigned int id_max =
-    Utilities::MPI::max(current_id_max, this->mpi_communicator);
+      ss << std::setprecision(6) << "id: " << particle.get_id() << ",  "
+         << "x: " << particle.get_location()[0] << ",  "
+         << "y: " << particle.get_location()[1] << ",  "
+         << "z: " << particle.get_location()[2] << ",  "
+         << "v_x: " << particle_properties[DEM::PropertiesIndex::v_x] << ",  "
+         << "v_y: " << particle_properties[DEM::PropertiesIndex::v_y] << ",  "
+         << "vz: " << particle_properties[DEM::PropertiesIndex::v_z];
 
-  // Print particle info one by one in ascending order
-  for (unsigned int i = 0; i <= id_max; i++)
-    {
-      for (auto &iterator : global_particles)
-        {
-          unsigned int id = iterator.first;
-          if (id == i)
-            {
-              auto particle            = iterator.second;
-              auto particle_properties = particle->get_properties();
-
-              this->pcout << "Particle Summary" << std::endl;
-
-              std::stringstream ss;
-              ss << std::setprecision(6) << "id: " << id << ",  "
-                 << "x: " << particle->get_location()[0] << ",  "
-                 << "y: " << particle->get_location()[1] << ",  "
-                 << "z: " << particle->get_location()[2] << ",  "
-                 << "v_x: " << particle_properties[DEM::PropertiesIndex::v_x]
-                 << ",  "
-                 << "v_y: " << particle_properties[DEM::PropertiesIndex::v_y]
-                 << ",  "
-                 << "vz: " << particle_properties[DEM::PropertiesIndex::v_z];
-
-              announce_string(this->pcout, ss.str(), '-');
-            }
-        }
-      usleep(100);
-      MPI_Barrier(this->mpi_communicator);
+      announce_string(this->pcout, ss.str(), '-');
     }
 }
 
@@ -1355,9 +1354,9 @@ CFDDEMSolver<dim>::dem_setup_contact_parameters()
 
   triangulation_cell_diameter = 0.5 * GridTools::diameter(*this->triangulation);
 
-  //   Finding the smallest contact search frequency criterion between
-  //   (smallest cell size - largest particle radius) and (security factor *
-  //   (blab diamater - 1) *  largest particle radius). This value is used in
+  //   Finding the smallest contact search frequency criterion between (smallest
+  //   cell size - largest particle radius) and (security factor * (blab
+  //   diamater - 1) *  largest particle radius). This value is used in
   //   find_contact_detection_frequency function
   smallest_contact_search_criterion =
     std::min((GridTools::minimal_cell_diameter(*this->triangulation) -
@@ -1425,6 +1424,22 @@ CFDDEMSolver<dim>::manage_triangulation_connections()
   if (dem_parameters.model_parameters.load_balance_method !=
       Parameters::Lagrangian::ModelParameters::LoadBalanceMethod::none)
     {
+#if (DEAL_II_VERSION_MAJOR < 10 && DEAL_II_VERSION_MINOR < 6)
+      parallel_triangulation->signals.weight.connect(
+        [](const typename Triangulation<dim>::cell_iterator &,
+           const typename Triangulation<dim>::CellStatus) -> unsigned int {
+          return 1000;
+        });
+
+      parallel_triangulation->signals.weight.connect(
+        [&](const typename parallel::distributed::Triangulation<
+              dim>::cell_iterator &cell,
+            const typename parallel::distributed::Triangulation<dim>::CellStatus
+              status) -> unsigned int {
+          return this->cell_weight(cell, status);
+        });
+
+#else
       parallel_triangulation->signals.weight.connect(
         [](const typename Triangulation<dim>::cell_iterator &,
            const CellStatus) -> unsigned int { return 1000; });
@@ -1435,6 +1450,7 @@ CFDDEMSolver<dim>::manage_triangulation_connections()
             const CellStatus       status) -> unsigned int {
           return this->cell_weight(cell, status);
         });
+#endif
     }
 }
 
@@ -1473,8 +1489,8 @@ CFDDEMSolver<dim>::solve()
   // In the case the simulation is being restarted from a checkpoint file, the
   // checkpoint_step parameter is set to true. This allows to perform all
   // operations related to restarting a simulation. Once all operations have
-  // been performed, this checkpoint_step is reset to false. It is only set
-  // once and reset once since restarting only occurs once.
+  // been performed, this checkpoint_step is reset to false. It is only set once
+  // and reset once since restarting only occurs once.
   if (this->cfd_dem_simulation_parameters.cfd_parameters.restart_parameters
         .restart == true)
     checkpoint_step = true;

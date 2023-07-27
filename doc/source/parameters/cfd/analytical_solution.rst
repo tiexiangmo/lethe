@@ -1,6 +1,6 @@
-
-Analytical solution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================
+Analytical Solution
+===================
 
 If the problem being simulated has a known analytical solution, or an exact solution is imposed (manufactured solutions) it can be added in this section. The default parameters are:
 
@@ -23,6 +23,9 @@ If the problem being simulated has a known analytical solution, or an exact solu
     end
     subsection VOF
       set Function expression = 0
+    end
+    subsection cahn hilliard
+      set Function expression = 0; 0 # phase order parameter; chemical potential
     end
    end
 
@@ -56,6 +59,10 @@ If there is an analytical solution for a tracer, enter the ``tracer`` subsection
 If there is an analytical solution for the VOF physics, enter the ``VOF`` subsection.
 
 * The ``Function expression`` parameter sets the expression of the VOF indicator.
+
+If there is an analytical solution for the Cahn-Hilliard physics, enter the ``cahn hilliard`` subsection.
+
+* The ``Function expression`` parameter sets the expression of the phase order parameter and the chemical potential.
 
 .. note:: 
     The variables *x*, *y*, *z* (3D) and *t* (time-dependant) can be used in the function expressions.

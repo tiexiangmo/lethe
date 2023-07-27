@@ -297,6 +297,19 @@ namespace Parameters
     parse_parameters(ParameterHandler &prm, const Dimensionality dimensions);
   };
 
+  /**
+   * @brief SurfaceTensionParameters - Defines parameters for surface tension models
+   */
+  struct SurfaceTensionParameters
+  {
+    // Surface tension coefficient (sigma) in N/m
+    double surface_tension_coefficient;
+
+    void
+    declare_parameters(ParameterHandler &prm);
+    void
+    parse_parameters(ParameterHandler &prm);
+  };
 
   /**
    * @brief Material - Class that defines the physical property of a material.
@@ -376,7 +389,39 @@ namespace Parameters
     double k_A1;
   };
 
+  /**
+   * @brief MaterialInteractions - Class that defines physical properties due to interactions between two different materials (either fluid-fluid or fluid-solid).
+   */
+  class MaterialInteractions
+  {
+  public:
+    MaterialInteractions()
+    {}
 
+    enum class MaterialInteractionsType
+    {
+      fluid_fluid,
+      fluid_solid
+    } material_interaction_type;
+
+    // Surface tension models
+    enum class SurfaceTensionModel
+    {
+      constant
+    } surface_tension_model;
+    SurfaceTensionParameters surface_tension_parameters;
+
+    std::pair<std::pair<unsigned int, unsigned int>, unsigned int>
+      fluid_fluid_interaction_with_material_interaction_id;
+    std::pair<std::pair<unsigned int, unsigned int>, unsigned int>
+      fluid_solid_interaction_with_material_interaction_id;
+
+    void
+    declare_parameters(ParameterHandler &prm, unsigned int id);
+
+    void
+    parse_parameters(ParameterHandler &prm, const unsigned int id);
+  };
 
   /**
    * @brief PhysicalProperties - Define the possible physical properties.
@@ -400,6 +445,15 @@ namespace Parameters
     std::vector<Material>     solids;
     unsigned int              number_of_solids;
     static const unsigned int max_solids = 1;
+
+    // Fluid-fluid or fluid-solid interactions
+    std::vector<MaterialInteractions> material_interactions;
+    unsigned int                      number_of_material_interactions;
+    static const unsigned int         max_material_interactions = 3;
+    std::map<std::pair<unsigned int, unsigned int>, unsigned int>
+      fluid_fluid_interactions_with_material_interaction_ids;
+    std::map<std::pair<unsigned int, unsigned int>, unsigned int>
+      fluid_solid_interactions_with_material_interaction_ids;
 
     void
     declare_parameters(ParameterHandler &prm);
@@ -687,6 +741,12 @@ namespace Parameters
     // Enable smoothing postprocessed vectors and scalars
     bool smoothed_output_fields;
 
+    // Enable phase statistics
+    bool calculate_phase_statistics;
+
+    // Prefix for the phase output
+    std::string phase_output_name;
+
     static void
     declare_parameters(ParameterHandler &prm);
     void
@@ -923,15 +983,11 @@ namespace Parameters
     bool expand_particle_wall_contact_search;
 
     // Grid displacement at initiation
-    bool   translate;
-    double delta_x;
-    double delta_y;
-    double delta_z;
+    Tensor<1, 3> translation;
 
     // Grid rotation at initiation
-    bool   rotate;
-    int    axis;
-    double angle;
+    Tensor<1, 3> rotation_axis;
+    double       rotation_angle;
 
     static void
     declare_parameters(ParameterHandler &prm);
@@ -974,7 +1030,9 @@ namespace Parameters
       velocity,
       pressure,
       phase,
-      temperature
+      temperature,
+      phase_ch,
+      chemical_potential_ch
     } variable;
 
     // Map containing the refinement variables
@@ -1001,6 +1059,10 @@ namespace Parameters
 
     // Refinement after frequency iter
     unsigned int frequency;
+
+    // Enable the control of the mesh refinement to target a specific number of
+    // elements equal to the maximum number of elements.
+    bool mesh_controller_is_enabled;
 
     static void
     declare_parameters(ParameterHandler &prm);
@@ -1133,7 +1195,6 @@ namespace Parameters
     double      particle_nonlinear_tolerance;
     double      length_ratio;
     double      alpha;
-    bool        integrate_motion;
     bool        print_dem;
     std::string ib_particles_pvd_file;
   };

@@ -67,7 +67,7 @@ template <int dim>
 void
 ParticleWallBroadSearch<dim>::find_particle_floating_wall_contact_pairs(
   const std::unordered_map<
-    types::particle_index,
+    unsigned int,
     std::set<typename Triangulation<dim>::active_cell_iterator>>
     &                                    boundary_cells_for_floating_walls,
   const Particles::ParticleHandler<dim> &particle_handler,
@@ -175,7 +175,8 @@ ParticleWallBroadSearch<dim>::particle_floating_mesh_contact_search(
           // Get background cell
           auto background_cell = floating_mesh_iterator->first;
 
-          if (background_cell->is_locally_owned())
+          if (background_cell->is_locally_owned() ||
+              background_cell->is_ghost())
             {
               // Get cut cells (floating mesh cells)
               auto cut_cells = floating_mesh_iterator->second;
@@ -278,7 +279,7 @@ template <int dim>
 void
 ParticleWallBroadSearch<dim>::find_particle_floating_wall_contact_pairs(
   const std::unordered_map<
-    types::particle_index,
+    unsigned int,
     std::set<typename Triangulation<dim>::active_cell_iterator>>
     &                                    boundary_cells_for_floating_walls,
   const Particles::ParticleHandler<dim> &particle_handler,
@@ -382,7 +383,8 @@ ParticleWallBroadSearch<dim>::particle_floating_mesh_contact_search(
           // Get background cell
           auto background_cell = floating_mesh_iterator->first;
 
-          if (background_cell->is_locally_owned())
+          if (background_cell->is_locally_owned() ||
+              background_cell->is_ghost())
             {
               // Get cut cells (floating mesh cells)
               auto cut_cells = floating_mesh_iterator->second;

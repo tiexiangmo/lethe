@@ -1,54 +1,55 @@
-Post-Processing
----------------------
+===============
+Post-processing
+===============
+
 This subsection controls the post-processing other than the forces and torque on the boundary conditions. Default values are
 
 .. code-block:: text
 
   subsection post-processing
-    
-    set verbosity                   = quiet
-    set output frequency            = 1
+    set verbosity                        = quiet
+    set output frequency                 = 1
 
     #---------------------------------------------------
     # Fluid dynamic post-processing
     #---------------------------------------------------
     # Kinetic energy calculation
-    set calculate kinetic energy    = false
-    set kinetic energy name         = kinetic_energy
+    set calculate kinetic energy         = false
+    set kinetic energy name              = kinetic_energy
 
-    # Average velocities calculation    
-    set calculate average velocities  = false
-    set initial time                  = 0.0
+    # Average velocities calculation
+    set calculate average velocities     = false
+    set initial time                     = 0.0
 
     # Pressure drop calculation
-    set calculate pressure drop     = false
-    set pressure drop name          = pressure_drop
-    set inlet boundary id           = 0
-    set outlet boundary id          = 1
+    set calculate pressure drop          = false
+    set pressure drop name               = pressure_drop
+    set inlet boundary id                = 0
+    set outlet boundary id               = 1
 
     # Flow rate at boundaries calculation
-    set calculate flow rate         = false
-    set flow rate name              = flow_rate
+    set calculate flow rate              = false
+    set flow rate name                   = flow_rate
 
     # Enstrophy calculation
-    set calculate enstrophy         = false
-    set enstrophy name              = enstrophy
-  
+    set calculate enstrophy              = false
+    set enstrophy name                   = enstrophy
+
     # Others
-    set smoothed output fields    = false
+    set smoothed output fields           = false
 
     #---------------------------------------------------
     # Physical properties post-processing
     #---------------------------------------------------
-    set calculate apparent viscosity  = false
-    set apparent viscosity name       = apparent_viscosity
+    set calculate apparent viscosity     = false
+    set apparent viscosity name          = apparent_viscosity
 
     #---------------------------------------------------
     # Multiphysics post-processing
     #---------------------------------------------------
-    # Tracer statistics    
-    set calculate tracer statistics   = false
-    set tracer statistics name        = tracer_statistics
+    # Tracer statistics
+    set calculate tracer statistics      = false
+    set tracer statistics name           = tracer_statistics
 
     # Thermal postprocesses
     set postprocessed fluid              = both
@@ -61,8 +62,10 @@ This subsection controls the post-processing other than the forces and torque on
     set calculate VOF barycenter         = false
     set VOF barycenter name              = vof_barycenter_information
 
+    # Cahn-Hilliard statistics
+    set calculate phase statistics       = true
+    set phase statistics name            = phase_statistics
   end
- 
 
 * ``verbosity``: enables the display of the post-processing values in the terminal. This does not affect the printing of output files. Choices are: ``quiet`` (default, no output) or ``verbose`` (output at every iteration).
 
@@ -153,7 +156,7 @@ This subsection controls the post-processing other than the forces and torque on
   The output table is appended with one column per solid, named ``nitsche_solid_i`` where ``i`` is the index of the ``nitsche solid`` in the parameter file.
 
   .. warning ::
-      
+
       Do not forget to ``set enable heat boundary condition = true`` in the :doc:`nitsche` subsection of the ``.prm``.
 
 
@@ -178,17 +181,16 @@ This subsection controls the post-processing other than the forces and torque on
       \mathbf{v_b} = \frac{\int_{\Omega} \psi \mathbf{u} \mathrm{d}\Omega }{\int_{\Omega} \psi \mathrm{d}\Omega}
 
   where :math:`\psi` is the filtered phase indicator.
+  
+  * ``calculate phase statistics``: controls if calculation of phase statistics coming from the solution of the Cahn-Hilliard equations is enabled. Statistics include: minimum, maximum, average and standard-deviation of the phase order parameter.
+  
+    .. warning::
+
+        Do not forget to ``set cahn hilliard = true`` in the :doc:`multiphysics` subsection of the ``.prm``.
+
+    * ``phase statistics name``: output filename for phase statistics calculations.
 
 
-* ``temperature statistics name``: output filename for temperature statistics calculations.
-
-    .. admonition:: Example of temperature statistics table:
-
-        .. code-block:: text
-
-             time  min    max    average std-dev 
-            0.0000 0.0000 3.9434  0.1515  0.6943 
-            0.2000 2.5183 4.9390  3.3917  0.7229 
 
 
         

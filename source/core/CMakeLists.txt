@@ -10,6 +10,7 @@ add_library(lethe-core
   ib_stencil.cc
   lethe_grid_tools.cc
   manifolds.cc
+  mesh_controller.cc
   parameters.cc
   parameters_lagrangian.cc
   parameters_multiphysics.cc
@@ -24,6 +25,7 @@ add_library(lethe-core
   solid_objects_parameters.cc
   solutions_output.cc
   specific_heat_model.cc
+  surface_tension_model.cc
   thermal_conductivity_model.cc
   thermal_expansion_model.cc
   tracer_diffusivity_model.cc
@@ -35,13 +37,16 @@ add_library(lethe-core
   ../../include/core/dem_properties.h
   ../../include/core/density_model.h
   ../../include/core/dimensionality.h
+  ../../include/core/exceptions.h
   ../../include/core/grids.h
   ../../include/core/ib_particle.h
   ../../include/core/ib_stencil.h
   ../../include/core/inexact_newton_non_linear_solver.h
+  ../../include/core/interface_property_model.h
   ../../include/core/kinsol_newton_non_linear_solver.h
   ../../include/core/lethe_grid_tools.h
   ../../include/core/manifolds.h
+  ../../include/core/mesh_controller.h
   ../../include/core/multiphysics.h
   ../../include/core/newton_non_linear_solver.h
   ../../include/core/non_linear_solver.h
@@ -63,12 +68,12 @@ add_library(lethe-core
   ../../include/core/solid_objects_parameters.h
   ../../include/core/solutions_output.h
   ../../include/core/specific_heat_model.h
+  ../../include/core/surface_tension_model.h
   ../../include/core/tensors_and_points_dimension_manipulation.h
   ../../include/core/thermal_conductivity_model.h
   ../../include/core/thermal_expansion_model.h
   ../../include/core/time_integration_utilities.h
   ../../include/core/tracer_diffusivity_model.h
-  ../../include/core/exceptions.h
   ../../include/core/utilities.h)
 
 deal_ii_setup_target(lethe-core)
