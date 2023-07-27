@@ -322,7 +322,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../theory/multiphysics/multiphysics.html">Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../theory/multiphysics/vof.html">The Volume of Fluid (VOF) method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../theory/multiphysics/vof.html">The Volume of Fluid (VOF) Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../theory/dem/dem.html">Discrete Element Method (DEM)</a></li>
@@ -703,7 +703,7 @@ end
 <p>When defining the initial pressure condition in the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code> subsection (see <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a>), make sure to set it to <span class="math notranslate nohighlight">\(0\)</span>, as it represents the reference state for the calculated pressure. In solving the Navier-Stokes equations, the pressure is defined to within a constant. Therefore, it is more appropriate to interpret it as a differential pressure.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Currently, the <code class="docutils literal notranslate"><span class="pre">isothermal_ideal_gas</span></code> density model can only be used in conjunction with the incompressible Navier-Stokes equations. However, it is meant to be used with the isothermal formulation of compressible Navier-Stokes equations to account for weakly compressible flows. In a future update, these equations will be implemented.</p>
+<p>Currently, in two phase flow simulations, the <code class="docutils literal notranslate"><span class="pre">isothermal_ideal_gas</span></code> density model can only be used in conjunction with the incompressible Navier-Stokes equations. However, it is meant to be used with the isothermal formulation of compressible Navier-Stokes equations to account for weakly compressible flows. In a future update, this change will be implemented.</p>
 </div>
 </div>
 </section>

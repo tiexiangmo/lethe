@@ -322,7 +322,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../multiphysics/multiphysics.html">Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../multiphysics/vof.html">The Volume of Fluid (VOF) method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiphysics/vof.html">The Volume of Fluid (VOF) Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a></li>
@@ -367,9 +367,9 @@
           <section id="origin-of-the-finite-element-formulation">
 <h1>Origin of the Finite Element Formulation<a class="headerlink" href="#origin-of-the-finite-element-formulation" title="Permalink to this headline">¶</a></h1>
 <p>This section describes the FEM formulation used within Lethe. Starting from the strong form of the equations, we obtain the weak-form. We then briefly discuss the challenges associated with solving the Navier-Stokes equations before we introduce the two approaches that are available in Lethe to solve them.</p>
-<p>Starting from the incompressible Navier-Stokes equations:</p>
+<p>Starting from <a class="reference internal" href="navier-stokes.html"><span class="doc">The Incompressible Navier-Stokes</span></a> equations:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\partial_l u_l &amp;= 0\\\partial_t u_k + u_l \partial_l u_k &amp;= -\frac{1}{\rho} \partial_k p + \nu \partial_l \partial_l u_k + f_k\end{aligned}\end{align} \]</div></div>
+\[ \begin{align}\begin{aligned}\partial_l u_l &amp;= 0\\\partial_t u_k + u_l \partial_l u_k &amp;= -\frac{1}{\rho} \partial_k p^* + \nu \partial_l \partial_l u_k + f_k\end{aligned}\end{align} \]</div></div>
 <p>We consider a domain <span class="math notranslate nohighlight">\(\Omega\)</span> of contour <span class="math notranslate nohighlight">\(\Gamma\)</span>. Without loss of generality, we assume Dirichlet boundary conditions or zero stress  conditions
 on <span class="math notranslate nohighlight">\(\Gamma\)</span>. We multiply by two test functions <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}=v_k\)</span> for pressure and velocity respectively and integrate over the domain <span class="math notranslate nohighlight">\(\Omega\)</span>. The resulting set of equation is:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">

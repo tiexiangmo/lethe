@@ -322,7 +322,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../multiphysics/multiphysics.html">Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../multiphysics/vof.html">The Volume of Fluid (VOF) method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiphysics/vof.html">The Volume of Fluid (VOF) Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a></li>
@@ -369,11 +369,11 @@
 <p>Lethe was designed to solve the incompressible Navier-Stokes equations. For the physics in Lethe, we generally try to follow the convention of the <a class="reference external" href="https://en.wikipedia.org/wiki/Transport_Phenomena_(book)">BSL</a>. Assuming a constant density <span class="math notranslate nohighlight">\(\rho\)</span> and kinematic viscosity <span class="math notranslate nohighlight">\(\nu\)</span>, these equations take the following form:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\begin{split}\nabla \cdot \mathbf{u} &amp;= 0   \\
-\frac{\partial \mathbf{u}}{\partial t}  + \mathbf{u} \cdot \nabla \mathbf{u} &amp;= -\frac{1}{\rho} \nabla p  + \nu \nabla^2 \mathbf{u} +\mathbf{f}\end{split}\]</div></div>
+\frac{\partial \mathbf{u}}{\partial t}  + \mathbf{u} \cdot \nabla \mathbf{u} &amp;= -\frac{1}{\rho} \nabla p^*  + \nu \nabla^2 \mathbf{u} +\mathbf{f}\end{split}\]</div></div>
 <p>where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the velocity of the fluid. <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is a vector such that <span class="math notranslate nohighlight">\(\mathbf{u}=[u,v]^T\)</span> in 2D and <span class="math notranslate nohighlight">\(\mathbf{u}=[u,v,w]^T\)</span> in 3D;</p></li>
-<li><p><span class="math notranslate nohighlight">\(p\)</span> is the pressure;</p></li>
+<li><p><span class="math notranslate nohighlight">\(p^*\)</span> is the pressure;</p></li>
 <li><p><span class="math notranslate nohighlight">\(\nabla\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Del">del operator</a>;</p></li>
 <li><p><span class="math notranslate nohighlight">\(\rho\)</span> is the density of the fluid;</p></li>
 <li><p><span class="math notranslate nohighlight">\(\nu\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Viscosity">kinematic viscosity</a> of the fluid;</p></li>
@@ -381,8 +381,12 @@
 </ul>
 <p>In <a class="reference external" href="https://en.wikipedia.org/wiki/Einstein_notation">Einstein notation</a>, they can be written:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\partial_l u_l &amp;= 0\\\partial_t u_k + u_l \partial_l u_k &amp;= -\frac{1}{\rho} \partial_k p + \nu \partial_l \partial_l u_k + f_k\end{aligned}\end{align} \]</div></div>
-<p>In Lethe, instead of solving for pressure directly, we solve for a reduced pressure <span class="math notranslate nohighlight">\(p^*=\frac{p}{\rho}\)</span>. This has two advantages, first the scaling of the pressure is more adequate with respect to that of the velocity and, secondly, for single phase simulations, this means that we require a single physical property: the kinematic viscosity. Consequently, unless specified otherwise, you should assume that pressure actually refers to the reduced pressure <span class="math notranslate nohighlight">\(p^*\)</span>. Although it may seem confusing at first, this is standard in incompressible fluid dynamics.</p>
+\[ \begin{align}\begin{aligned}\partial_l u_l &amp;= 0\\\partial_t u_k + u_l \partial_l u_k &amp;= -\frac{1}{\rho} \partial_k p^* + \nu \partial_l \partial_l u_k + f_k\end{aligned}\end{align} \]</div></div>
+<p>In Lethe, instead of solving for pressure directly, we solve for a reduced pressure <span class="math notranslate nohighlight">\(p=\frac{p^*}{\rho}\)</span>. This has two advantages, first the scaling of the pressure is more adequate with respect to that of the velocity and, secondly, for single phase simulations, this means that we require a single physical property: the kinematic viscosity. Consequently, unless specified otherwise, you should assume that pressure actually refers to the reduced pressure <span class="math notranslate nohighlight">\(p\)</span>. Although it may seem confusing at first, this is standard in incompressible fluid dynamics.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The choice to use <span class="math notranslate nohighlight">\(p^*\)</span> for the pressure and <span class="math notranslate nohighlight">\(p\)</span> for the reduced pressure was made to lighten the writing throughout the documentation.</p>
+</div>
 <p>By default, Lethe does not use any units for Length (<span class="math notranslate nohighlight">\(L\)</span>), Time (<span class="math notranslate nohighlight">\(T\)</span>), Mass (<span class="math notranslate nohighlight">\(M\)</span>) and Temperature (<span class="math notranslate nohighlight">\(T\)</span>). Although this may seem confusing at first, this is relatively easy to work with. By default, most cases can be formulated using SI units (meters, seconds, kilograms and Celsius or Kelvin). However, in some cases, this may lead to a large imbalance in the scaling of different variables (e.g. the numerical value being 1000x that of the velocity). In these cases, the user must manually rescale the problem to a better balanced set of units (i.e. by using centimeter units instead of meters).</p>
 </section>
 

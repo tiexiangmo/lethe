@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Discrete Element Method (DEM)" href="../dem/dem.html" /><link rel="prev" title="Multiphysics" href="multiphysics.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>The Volume of Fluid (VOF) method - Lethe documentation</title>
+        <title>The Volume of Fluid (VOF) Method - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -322,7 +322,7 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="multiphysics.html">Multiphysics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">The Volume of Fluid (VOF) method</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">The Volume of Fluid (VOF) Method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a></li>
@@ -365,7 +365,7 @@
         </div>
         <article role="main">
           <section id="the-volume-of-fluid-vof-method">
-<h1>The Volume of Fluid (VOF) method<a class="headerlink" href="#the-volume-of-fluid-vof-method" title="Permalink to this headline">¶</a></h1>
+<h1>The Volume of Fluid (VOF) Method<a class="headerlink" href="#the-volume-of-fluid-vof-method" title="Permalink to this headline">¶</a></h1>
 <p>Numerous examples of flow encountered in engineering involve multiple fluids: sloshing of fuel in aircraft tanks, mixing of bread dough, and motion of droplets and bubbles to name a few. In these cases, the involved fluids can be immiscible, and we are interested in the evolution of the interfaces between those fluids.</p>
 <p>Let <span class="math notranslate nohighlight">\(\Omega = \Omega_0 \cup \Omega_1\)</span> be the domain formed by two fluids, namely fluid <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>, with <span class="math notranslate nohighlight">\(\Gamma\)</span> denoting their interface and <span class="math notranslate nohighlight">\(\partial \Omega\)</span>, the remaining boundaries, as illustrated in the figure below. In the VOF method [<a class="reference external" href="https://doi.org/10.1016/0021-9991(81)90145-5">1</a>], we define the scalar function <span class="math notranslate nohighlight">\(\phi\)</span> as a phase indicator such that:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
@@ -391,7 +391,7 @@
 \[\partial_i \phi n_i= 0 \quad \forall (x_i,t)\in \partial \Omega\times[0,T]\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(n_i\)</span> represent the outward pointing unit normal vector of <span class="math notranslate nohighlight">\(\partial \Omega\)</span>, i.e., <span class="math notranslate nohighlight">\(\vec{n}\)</span>.</p>
 <section id="finite-element-formulation">
-<h2>Finite element formulation<a class="headerlink" href="#finite-element-formulation" title="Permalink to this headline">¶</a></h2>
+<h2>Finite Element Formulation<a class="headerlink" href="#finite-element-formulation" title="Permalink to this headline">¶</a></h2>
 <p>To obtain the finite element formulation, we first need the weak formulation. Therefore, let <span class="math notranslate nohighlight">\(v\)</span> be an arbitrary scalar function on <span class="math notranslate nohighlight">\(\Omega\)</span>. To obtain the weak form, we multiply the strong problem by <span class="math notranslate nohighlight">\(v\)</span> and integrate over <span class="math notranslate nohighlight">\(\Omega\)</span>:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\int_\Omega v \left( \partial_t \phi + \phi\partial_i u_i + u_i\partial_i\phi\right) d \Omega = 0\]</div></div>
@@ -428,11 +428,11 @@
 <p>The DCDD scheme leads to a non-linear finite element formulation. Thus, the latter is resolved with the Newton-Raphson method.</p>
 </section>
 <section id="interface-diffusion-and-sharpening">
-<h2>Interface diffusion and sharpening<a class="headerlink" href="#interface-diffusion-and-sharpening" title="Permalink to this headline">¶</a></h2>
+<h2>Interface Diffusion and Sharpening<a class="headerlink" href="#interface-diffusion-and-sharpening" title="Permalink to this headline">¶</a></h2>
 <p>The VOF method tends to diffuse the interface, i.e., over time, the interface becomes blurry instead of a sharp definition, and the change from <span class="math notranslate nohighlight">\(\phi = 0\)</span> to <span class="math notranslate nohighlight">\(1\)</span> happens on a larger distance.</p>
 <p>Thus, we use sharpening methods to keep the change in <span class="math notranslate nohighlight">\(\phi\)</span> sharp at the interface. Two methods are currently available: interface sharpening and interface filtration.</p>
 <section id="interface-sharpening">
-<h3>Interface sharpening<a class="headerlink" href="#interface-sharpening" title="Permalink to this headline">¶</a></h3>
+<h3>Interface Sharpening<a class="headerlink" href="#interface-sharpening" title="Permalink to this headline">¶</a></h3>
 <p>The current interface sharpening method consists of two steps:</p>
 <ol class="arabic simple">
 <li><p>Phase fraction limiter</p></li>
@@ -453,7 +453,7 @@ c^{1-\alpha} \phi^{\alpha} &amp;  (0 \leq \phi &lt; c  ) \\
 a phase fraction threshold (generally <span class="math notranslate nohighlight">\(0.5\)</span>), and <span class="math notranslate nohighlight">\(\alpha\)</span> corresponds to the interface sharpness, which is a model parameter generally in the range of <span class="math notranslate nohighlight">\((1,2]\)</span>. This interface sharpening method was proposed by <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0045782500002000">Aliabadi and Tezduyar (2000)</a>.</p>
 </section>
 <section id="interface-filtration">
-<h3>Interface filtration<a class="headerlink" href="#interface-filtration" title="Permalink to this headline">¶</a></h3>
+<h3>Interface Filtration<a class="headerlink" href="#interface-filtration" title="Permalink to this headline">¶</a></h3>
 <p>In the interface filtration method, the following filter function is applied to the phase fraction <span class="math notranslate nohighlight">\(\phi\)</span> in order to get a better definition of the interface between the fluids:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\phi' = 0.5 \tanh[\beta(\phi-0.5)] + 0.5\]</div></div>
@@ -461,7 +461,7 @@ a phase fraction threshold (generally <span class="math notranslate nohighlight"
 </section>
 </section>
 <section id="surface-tension">
-<h2>Surface tension<a class="headerlink" href="#surface-tension" title="Permalink to this headline">¶</a></h2>
+<h2>Surface Tension<a class="headerlink" href="#surface-tension" title="Permalink to this headline">¶</a></h2>
 <p>When two immiscible fluids are in contact, surface tension tends to deform their interface (also called the free surface) into a shape that ensures a minimal energy state. An example would be the force that drives a droplet into its spherical shape [<a class="reference external" href="https://doi.org/10.1016/0021-9991(92)90240-Y">3</a>].</p>
 <p>Resolution of the interface motion via the advection equation allows to compute the surface tension term and add its effect to the Navier-Stokes momentum equations.</p>
 <p>As its name suggests, the surface tension <span class="math notranslate nohighlight">\(\bf{f_{\sigma}}\)</span> is a surface force. It is applied at the interface between two immiscible fluids and is given by:</p>
@@ -479,9 +479,9 @@ a phase fraction threshold (generally <span class="math notranslate nohighlight"
 <p>and the unit normal vector of the free surface, pointing from fluid 0 to 1, is obtained with:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\bf{n} = \frac{\nabla \phi}{|\nabla \phi|}\]</div></div>
-<p>When including the surface tension force in the resolution of the Navier-Stokes equations, the numerical computation of the curvature can give rise to parasitic flows near the interface between the two fluids. To avoid such spurious currents, the phase fraction gradient and curvature are filtered using projection steps [<a class="reference external" href="https://doi.org/10.1002/fld.2643">4</a>], as presented in section <a class="reference internal" href="#normal-and-curvature-computations"><span class="std std-ref">Normal and curvature computations</span></a>.</p>
+<p>When including the surface tension force in the resolution of the Navier-Stokes equations, the numerical computation of the curvature can give rise to parasitic flows near the interface between the two fluids. To avoid such spurious currents, the phase fraction gradient and curvature are filtered using projection steps [<a class="reference external" href="https://doi.org/10.1002/fld.2643">4</a>], as presented in section <a class="reference internal" href="#normal-and-curvature-computations"><span class="std std-ref">Normal and Curvature Computations</span></a>.</p>
 <section id="normal-and-curvature-computations">
-<span id="id6"></span><h3>Normal and curvature computations<a class="headerlink" href="#normal-and-curvature-computations" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>Normal and Curvature Computations<a class="headerlink" href="#normal-and-curvature-computations" title="Permalink to this headline">¶</a></h3>
 <p>The following equations are used to compute the filtered phase fraction gradient and filtered curvature. They correspond to the projection steps previously mentioned.</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\int_\Omega \left( {\bf{v}} \cdot {\bf{\psi}} + \eta_n \nabla {\bf{v}} \cdot \nabla {\bf{\psi}} \right) d\Omega = \int_\Omega \left( {\bf{v}} \cdot \nabla {\phi} \right) d\Omega\]</div></div>
@@ -555,16 +555,16 @@ a phase fraction threshold (generally <span class="math notranslate nohighlight"
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">The Volume of Fluid (VOF) method</a><ul>
-<li><a class="reference internal" href="#finite-element-formulation">Finite element formulation</a></li>
+<li><a class="reference internal" href="#">The Volume of Fluid (VOF) Method</a><ul>
+<li><a class="reference internal" href="#finite-element-formulation">Finite Element Formulation</a></li>
 <li><a class="reference internal" href="#stabilization">Stabilization</a></li>
-<li><a class="reference internal" href="#interface-diffusion-and-sharpening">Interface diffusion and sharpening</a><ul>
-<li><a class="reference internal" href="#interface-sharpening">Interface sharpening</a></li>
-<li><a class="reference internal" href="#interface-filtration">Interface filtration</a></li>
+<li><a class="reference internal" href="#interface-diffusion-and-sharpening">Interface Diffusion and Sharpening</a><ul>
+<li><a class="reference internal" href="#interface-sharpening">Interface Sharpening</a></li>
+<li><a class="reference internal" href="#interface-filtration">Interface Filtration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#surface-tension">Surface tension</a><ul>
-<li><a class="reference internal" href="#normal-and-curvature-computations">Normal and curvature computations</a></li>
+<li><a class="reference internal" href="#surface-tension">Surface Tension</a><ul>
+<li><a class="reference internal" href="#normal-and-curvature-computations">Normal and Curvature Computations</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#references">References</a></li>
