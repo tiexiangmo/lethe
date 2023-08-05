@@ -683,7 +683,7 @@ end
 <p>Lethe supports both <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">isothermal_ideal_gas</span></code> density models. Constant density assumes a constant density value. Isothermal ideal gas density assumes that the fluid’s density varies according the following state equation:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\rho = \rho_{ref} + \psi p = \rho_{ref} + \frac{1}{R T} \ p\]</div></div>
-<p>where <span class="math notranslate nohighlight">\(\rho_{ref}\)</span> is the density of the fluid at the reference state, <span class="math notranslate nohighlight">\(\psi = \frac{1}{R T}\)</span> is the compressibility factor derived from the ideal gas law with <span class="math notranslate nohighlight">\(R= \frac{R_u}{M}\)</span> the specific gas constant (universal gas constant (<span class="math notranslate nohighlight">\(R_u\)</span>) divided by the molar mass of the gas (<span class="math notranslate nohighlight">\(M\)</span>)) and <span class="math notranslate nohighlight">\(T\)</span> the temperature of the gas, finally, <span class="math notranslate nohighlight">\(p\)</span> is the differential pressure between the reference state and the current state.</p>
+<p>where <span class="math notranslate nohighlight">\(\rho_{ref}\)</span> is the density of the fluid at the reference state, <span class="math notranslate nohighlight">\(\psi = \frac{1}{R T}\)</span> is the compressibility factor derived from the ideal gas law with <span class="math notranslate nohighlight">\(R= \frac{R_u}{M}\)</span> the specific gas constant (universal gas constant (<span class="math notranslate nohighlight">\(R_u\)</span>) divided by the molar mass of the gas (<span class="math notranslate nohighlight">\(M\)</span>)) and <span class="math notranslate nohighlight">\(T\)</span> the temperature of the gas, finally, <span class="math notranslate nohighlight">\(p\)</span> is the differential pressure between the reference state and the current state. This model is used for weakly compressible flows when temperature fluctuations’ influence on density can be neglected.</p>
 <p>This model is parametrized using the <code class="docutils literal notranslate"><span class="pre">isothermal_ideal_gas</span></code> subsection:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids = 1
@@ -708,10 +708,6 @@ end
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>When defining the initial pressure condition in the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code> subsection (see <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a>), make sure to set it to <span class="math notranslate nohighlight">\(0\)</span>, as it represents the reference state for the calculated pressure. In solving the Navier-Stokes equations, the pressure is defined to within a constant. Therefore, it is more appropriate to interpret it as a differential pressure.</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Currently, the <code class="docutils literal notranslate"><span class="pre">isothermal_ideal_gas</span></code> density model can only be used in conjunction with the incompressible Navier-Stokes equations. However, it is meant to be used with the isothermal formulation of compressible Navier-Stokes equations to account for weakly compressible flows. In a future update, these equations will be implemented.</p>
-</div>
 </div>
 </section>
 <section id="thermal-conductivity-models">
