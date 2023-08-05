@@ -401,7 +401,7 @@
 
   set number of solids = 0
 
-  set number of material interactions = 1
+  set number of material interactions = 1 #by default it is set to 0
   subsection material interaction 0
     set type = fluid-fluid
     subsection fluid-fluid interaction
@@ -411,6 +411,10 @@
       # Surface tension
       set surface tension model       = constant
       set surface tension coefficient = 0
+
+      # Mobility Cahn-Hilliard
+      set cahn hilliard mobility model    = constant
+      set cahn hilliard mobility constant = 1
     end
 
     # if fluid-solid interaction
@@ -466,6 +470,8 @@ end
 \[We = Re \cdot \frac{\mu_\text{ref} \; u_\text{ref}}{\sigma}\]</div></div>
 <p>where <span class="math notranslate nohighlight">\(Re\)</span> is the Reynolds number, <span class="math notranslate nohighlight">\(\mu_\text{ref}\)</span> and <span class="math notranslate nohighlight">\(u_\text{ref}\)</span> are some reference viscosity and velocity characterizing the flow problem, and <span class="math notranslate nohighlight">\(\sigma\)</span> is the surface tension coefficient.</p>
 </li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span> <span class="pre">mobility</span> <span class="pre">model</span></code> specifies the model used to calculate the mobility used in the Cahn-Hilliard equations for the fluid-fluid pair. Two models are available: a <code class="docutils literal notranslate"><span class="pre">constant</span></code> mobility and a <code class="docutils literal notranslate"><span class="pre">quartic</span></code> mobility. The reader is refered to <a class="reference internal" href="cahn_hilliard.html"><span class="doc">Cahn-Hilliard</span></a> for more details.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span> <span class="pre">mobility</span> <span class="pre">coefficient</span></code> parameter is the constant mobility coefficient of the two interacting fluids used in the Cahn-Hilliard equations. Its units are <span class="math notranslate nohighlight">\(\text{Length}^{2} \cdot \text{Time}^{-1}\)</span>.</p></li>
 </ul>
 </li>
 <li><p>In the <code class="docutils literal notranslate"><span class="pre">fluid-solid</span></code> subsection we define the fluid-solid pair and their physical properties.</p>
@@ -704,7 +710,7 @@ end
 <p>When defining the initial pressure condition in the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code> subsection (see <a class="reference internal" href="initial_conditions.html"><span class="doc">Initial Conditions</span></a>), make sure to set it to <span class="math notranslate nohighlight">\(0\)</span>, as it represents the reference state for the calculated pressure. In solving the Navier-Stokes equations, the pressure is defined to within a constant. Therefore, it is more appropriate to interpret it as a differential pressure.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Currently, in two phase flow simulations, the <code class="docutils literal notranslate"><span class="pre">isothermal_ideal_gas</span></code> density model can only be used in conjunction with the incompressible Navier-Stokes equations. However, it is meant to be used with the isothermal formulation of compressible Navier-Stokes equations to account for weakly compressible flows. In a future update, this change will be implemented.</p>
+<p>Currently, the <code class="docutils literal notranslate"><span class="pre">isothermal_ideal_gas</span></code> density model can only be used in conjunction with the incompressible Navier-Stokes equations. However, it is meant to be used with the isothermal formulation of compressible Navier-Stokes equations to account for weakly compressible flows. In a future update, these equations will be implemented.</p>
 </div>
 </div>
 </section>
@@ -760,7 +766,18 @@ end
 <li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">liquid</span></code> is <span class="math notranslate nohighlight">\(C_{p,l}\)</span></p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">specific</span> <span class="pre">heat</span> <span class="pre">solid</span></code> is <span class="math notranslate nohighlight">\(C_{p,s}\)</span></p></li>
 </ul>
+</section>
+<section id="cahn-hilliard-mobility-model">
+<h2>Cahn-Hilliard Mobility Model<a class="headerlink" href="#cahn-hilliard-mobility-model" title="Permalink to this headline">¶</a></h2>
+<p>Lethe supports two types of mobility models for the Cahn-Hilliard equations. Setting <code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span> <span class="pre">mobility</span> <span class="pre">model</span> <span class="pre">=</span> <span class="pre">constant</span></code> sets a constant mobility. Setting a <code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span> <span class="pre">mobility</span> <span class="pre">model</span> <span class="pre">=</span> <span class="pre">quartic</span></code> sets a quartic model for mobility:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[M(\phi) = D(1-\phi^2)^2\]</div></div>
+<p>with <span class="math notranslate nohighlight">\(D\)</span> the value set for <code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span> <span class="pre">mobility</span> <span class="pre">constant</span></code>. A quartic mobility is required to recover a correct velocity according to Bretin <em>et al.</em> <a class="reference external" href="https://doi.org/10.48550/arXiv.2105.09627">[2]</a> Therefore, it is preferable to use it when solving the coupled Cahn-Hilliard and Navier-Stokes equations.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://doi.org/10.1016/j.compfluid.2018.03.037">[1]</a> B. Blais and F. Ilinca, “Development and validation of a stabilized immersed boundary CFD model for freezing and melting with natural convection,” <em>Comput. Fluids</em>, vol. 172, pp. 564–581, Aug. 2018, doi: 10.1016/j.compfluid.2018.03.037.</p>
+<p><a class="reference external" href="https://doi.org/10.48550/arXiv.2105.09627">[2]</a>  E. Bretin, R. Denis, S. Masnou, A. Sengers, and G. Terii, ‘A multiphase Cahn-Hilliard system with mobilities and the numerical simulation of dewetting’. arXiv, Apr. 18, 2023, doi: 10.1016/arXiv.2105.09627.</p>
 </section>
 </section>
 
@@ -827,6 +844,8 @@ end
 <li><a class="reference internal" href="#density-models">Density Models</a></li>
 <li><a class="reference internal" href="#thermal-conductivity-models">Thermal Conductivity Models</a></li>
 <li><a class="reference internal" href="#specific-heat-models">Specific Heat Models</a></li>
+<li><a class="reference internal" href="#cahn-hilliard-mobility-model">Cahn-Hilliard Mobility Model</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
