@@ -505,7 +505,7 @@ somefile.txt
 <div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/dealii<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>ghcr.io/lethe-cfd/lethe:master<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>gls_navier_stokes_2d<span class="w"> </span>examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm
+<span class="w">  </span>gls_navier_stokes<span class="w"> </span>examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm
 </pre></div>
 </div>
 <section id="usage">
@@ -523,22 +523,14 @@ Usage: &lt;program name&gt; [&lt;program arg&gt;, ...]
 Available programs:
 ===================
 
-▸ cfd_dem_coupling_2d
-▸ cfd_dem_coupling_3d
-▸ dem_2d
-▸ dem_3d
+▸ cfd_dem_coupling
+▸ dem
 ▸ dem_parameter_template
-▸ gd_navier_stokes_2d
-▸ gd_navier_stokes_3d
-▸ gls_navier_stokes_2d
-▸ gls_navier_stokes_3d
-▸ gls_nitsche_navier_stokes_22
-▸ gls_nitsche_navier_stokes_23
-▸ gls_nitsche_navier_stokes_33
-▸ gls_sharp_navier_stokes_2d
-▸ gls_sharp_navier_stokes_3d
-▸ gls_vans_2d
-▸ gls_vans_3d
+▸ gd_navier_stokes
+▸ gls_navier_stokes
+▸ nitsche_navier_stokes
+▸ gls_sharp_navier_stokes
+▸ gls_vans
 ▸ initial_conditions
 ▸ navier_stokes_parameter_template
 ▸ rpt_3d

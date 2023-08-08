@@ -372,7 +372,7 @@ now using immersed boundaries to represent the inner cylinder. This example demo
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_22</span></code> (with Q1-Q1, Q2-Q1 and Q2-Q2)</p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">nitsche_navier_stokes</span></code> (with Q1-Q1, Q2-Q1 and Q2-Q2)</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -571,12 +571,12 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">gls_nitsche_navier_stokes_22</span></code> executable is within your path, the simulation can be launched by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_nitsche_navier_stokes_22 uniform-nitsche-taylor-couette.prm
+<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">nitsche_navier_stokes</span></code> executable is within your path, the simulation can be launched by typing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nitsche_navier_stokes uniform-nitsche-taylor-couette.prm
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_nitsche_navier_stokes_22 adaptative-nitsche-taylor-couette.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nitsche_navier_stokes adaptative-nitsche-taylor-couette.prm
 </pre></div>
 </div>
 <p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>

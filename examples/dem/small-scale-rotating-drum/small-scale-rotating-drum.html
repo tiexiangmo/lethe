@@ -371,7 +371,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code></p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem</span></code></p></li>
 <li><p>Three-dimensional problem</p></li>
 <li><p>Rotational boundary</p></li>
 <li><p>Load-balancing</p></li>
@@ -386,7 +386,7 @@
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>This example simulates a rolling regime in a small scale rotating drum. First, we use Lethe-DEM to fill the bed with 20000 particles. We enable check-pointing in order to write the DEM checkpoint files for the packing which then will be used as the starting point of the DEM simulation of the rotating drum. The solver <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code> is used to simulate the behaviour of dry granular flow within the rotating drum.</p>
+<p>This example simulates a rolling regime in a small scale rotating drum. First, we use Lethe-DEM to fill the bed with 20000 particles. We enable check-pointing in order to write the DEM checkpoint files for the packing which then will be used as the starting point of the DEM simulation of the rotating drum. The solver <code class="docutils literal notranslate"><span class="pre">dem</span></code> is used to simulate the behaviour of dry granular flow within the rotating drum.</p>
 </section>
 <section id="parameter-file">
 <h2>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
@@ -518,8 +518,8 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is launched in two steps: the first step packs the particle in the cylinder, while the second step rotates the drum and simulates the movement of the particles.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d packing-rotating-drum.prm
-mpirun -np 8 dem_3d small-rotating-drum-dem.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem packing-rotating-drum.prm
+mpirun -np 8 dem small-rotating-drum-dem.prm
 </pre></div>
 </div>
 <div class="admonition note">

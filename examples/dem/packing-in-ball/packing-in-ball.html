@@ -371,7 +371,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code></p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem</span></code></p></li>
 <li><p>Three-dimensional problem</p></li>
 <li><p>Parallelism</p></li>
 </ul>
@@ -385,7 +385,7 @@
 <p>Packing in ball example is the three-dimensional version of the packing in circle example.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Two-dimensional DEM solver (dem_2d) is not an accurate model, since several phenomena including torque on particles are intrinsically three-dimensional. dem_2d solver may only be used for simple basic analyses before performing three-dimensional simulations with dem_3d solver becomes necessary.</p>
+<p>Two-dimensional DEM solver (dem) is not an accurate model, since several phenomena including torque on particles are intrinsically three-dimensional. dem solver may only be used for simple basic analyses before performing three-dimensional simulations with dem solver becomes necessary.</p>
 </div>
 </section>
 <section id="parameter-file">
@@ -480,11 +480,11 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>This simulation can be launched by:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dem_3d packing-in-ball.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dem packing-in-ball.prm
 </pre></div>
 </div>
 <p>We can also launch this simulation in parallel mode. For example, to launch the simulation on 8 processes:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d packing-in-ball.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem packing-in-ball.prm
 </pre></div>
 </div>
 <div class="admonition note">

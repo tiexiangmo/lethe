@@ -371,7 +371,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> (with Q2-Q1)</p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code> (with Q2-Q1)</p></li>
 <li><p>Transient problem</p></li>
 <li><p>Usage of Gnuplot and Python scripts for the data post-processing</p></li>
 </ul>
@@ -539,7 +539,7 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is launched in parallel using 10 CPUs, as explained in <a class="reference external" href="https://lethe-cfd.github.io/lethe/examples/incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">2D Transient flow around an Ahmed body</a> :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 10 gls_navier_stokes_2d cylinder.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 10 gls_navier_stokes cylinder.prm
 </pre></div>
 </div>
 <div class="admonition warning">

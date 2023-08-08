@@ -369,16 +369,16 @@
 <h1>Launching Your First Simulation<a class="headerlink" href="#launching-your-first-simulation" title="Permalink to this headline">¶</a></h1>
 <p>The objective of this section is to highlight the steps that are necessary to launch your first simulation after you have cloned and compiled Lethe.</p>
 <p>Launching an application requires an executable of the required solver, and a parameters file (with extension .prm). After building Lethe, the solver executable files can be found in : <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications</span></code> directory.</p>
-<p>For instance, <code class="docutils literal notranslate"><span class="pre">gd_navier_stokes_2d</span></code> executable is located in the <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications/gd_navier_stokes_2d</span></code> directory.</p>
+<p>For instance, <code class="docutils literal notranslate"><span class="pre">gd_navier_stokes</span></code> executable is located in the <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications/gd_navier_stokes</span></code> directory.</p>
 <p>The executable for the solvers can be used directly from the folder it is compiled to. This can be achieved by:</p>
 <ul class="simple">
-<li><p>Writing the absolute path of the solver (e.g. <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications/gd_navier_stokes_2d/gd_navier_stokes_2d</span></code>);</p></li>
+<li><p>Writing the absolute path of the solver (e.g. <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications/gd_navier_stokes/gd_navier_stokes</span></code>);</p></li>
 <li><p>Adding the lethe folder paths to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable;</p></li>
 <li><p>Specifying an installation folder when you compile Lethe to ensure that all the applications are grouped within a single folder;</p></li>
 <li><p>Locally copying the executable to the folder you are running your simulation from.</p></li>
 </ul>
 <p>All these workflows can achieve the same result.</p>
-<p>To launch a simulation, you must specify the solver executable and the parameter file in the following format: <code class="docutils literal notranslate"><span class="pre">solver</span> <span class="pre">parameter_file</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span> <span class="pre">poiseuille2d.prm</span></code></p>
+<p>To launch a simulation, you must specify the solver executable and the parameter file in the following format: <code class="docutils literal notranslate"><span class="pre">solver</span> <span class="pre">parameter_file</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span> <span class="pre">poiseuille2d.prm</span></code></p>
 <p>In what follows, we describe a simple procedure to launch your first simulation using Lethe.</p>
 <section id="step-1-copying-an-example">
 <h2>Step 1: Copying an Example<a class="headerlink" href="#step-1-copying-an-example" title="Permalink to this headline">¶</a></h2>
@@ -389,7 +389,7 @@
 </section>
 <section id="step-2-launching-the-example">
 <h2>Step 2: Launching the Example<a class="headerlink" href="#step-2-launching-the-example" title="Permalink to this headline">¶</a></h2>
-<p>The cavity example we are launching uses the <em>gls_navier_stokes_2d</em> solver. All of the solvers of Lethe can be found in the build folder where you have compiled Lethe or within the installation folder. Inside of your build folder, six sub folders should be found:</p>
+<p>The cavity example we are launching uses the <em>gls_navier_stokes</em> solver. All of the solvers of Lethe can be found in the build folder where you have compiled Lethe or within the installation folder. Inside of your build folder, six sub folders should be found:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">/applications</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/applications_tests</span></code></p></li>
@@ -398,8 +398,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">/source</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/tests</span></code></p></li>
 </ul>
-<p>Inside the <code class="docutils literal notranslate"><span class="pre">/applications</span></code> folder, there is one folder for each solver of Lethe. In the <code class="docutils literal notranslate"><span class="pre">/gls_navier_stokes_2d</span></code> folder, we find the executable file with the same name as the folder: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code>. This solver solves the 2D incompressible Navier-Stokes equations using a Galerkin Least-Square formulation.</p>
-<p>From the <code class="docutils literal notranslate"><span class="pre">/first_simulation</span></code> folder we have created, we can launch the simulation directly. If you have decided to copy the executable to the <code class="docutils literal notranslate"><span class="pre">first_simulation</span></code> folder, you can launch using the following command: <code class="docutils literal notranslate"><span class="pre">./gls_navier_stokes_2d</span> <span class="pre">cavity.prm</span></code>. You can also launch the simulation using the absolute path of the executable: <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications/gls_navier_stokes_2d/gls_navier_stokes_2d</span> <span class="pre">cavity.prm</span></code>.</p>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">/applications</span></code> folder, there is one folder for each solver of Lethe. In the <code class="docutils literal notranslate"><span class="pre">/gls_navier_stokes</span></code> folder, we find the executable file with the same name as the folder: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code>. This solver solves the 2D incompressible Navier-Stokes equations using a Galerkin Least-Square formulation.</p>
+<p>From the <code class="docutils literal notranslate"><span class="pre">/first_simulation</span></code> folder we have created, we can launch the simulation directly. If you have decided to copy the executable to the <code class="docutils literal notranslate"><span class="pre">first_simulation</span></code> folder, you can launch using the following command: <code class="docutils literal notranslate"><span class="pre">./gls_navier_stokes</span> <span class="pre">cavity.prm</span></code>. You can also launch the simulation using the absolute path of the executable: <code class="docutils literal notranslate"><span class="pre">$BUILD_FOLDER/applications/gls_navier_stokes/gls_navier_stokes</span> <span class="pre">cavity.prm</span></code>.</p>
 </section>
 <section id="step-3-post-processing-the-results">
 <h2>Step 3: Post-processing the Results<a class="headerlink" href="#step-3-post-processing-the-results" title="Permalink to this headline">¶</a></h2>

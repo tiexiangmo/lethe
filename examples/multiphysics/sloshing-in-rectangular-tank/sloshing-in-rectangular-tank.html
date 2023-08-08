@@ -371,7 +371,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code></p></li>
 <li><p>Volume of fluid (VOF)</p></li>
 <li><p>Unsteady problem handled by an adaptive BDF2 time-stepping scheme</p></li>
 <li><p>Usage of a python script for post-processing data</p></li>
@@ -500,8 +500,8 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>We can call the gls_navier_stokes_2d for each Reynolds number. For <span class="math notranslate nohighlight">\(Re=20\)</span>, this can be done by invoking the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 gls_navier_stokes_2d sloshing-in-rectangular-tank_Re0020.prm
+<p>We can call the gls_navier_stokes for each Reynolds number. For <span class="math notranslate nohighlight">\(Re=20\)</span>, this can be done by invoking the following command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 gls_navier_stokes sloshing-in-rectangular-tank_Re0020.prm
 </pre></div>
 </div>
 <p>to run the simulation using eight CPU cores. Feel free to use more.</p>

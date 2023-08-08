@@ -371,7 +371,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code></p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code></p></li>
 <li><p>Two phase flow handled by the Volume of fluids (VOF) approach with surface tension force</p></li>
 <li><p>Calculation of filtered phase fraction gradient and curvature fields</p></li>
 <li><p>Unsteady problem handled by a BDF1 time-stepping scheme</p></li>
@@ -525,8 +525,8 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Call the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes_2d</span> <span class="pre">static-bubble.prm</span></code></p>
+<p>Call the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code> by invoking:</p>
+<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">gls_navier_stokes</span> <span class="pre">static-bubble.prm</span></code></p>
 <p>to run the simulation using eight CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

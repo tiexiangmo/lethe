@@ -373,7 +373,7 @@ We will also demonstrate the tracer physics capabilities.</p>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code></p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code></p></li>
 <li><p>Transient problem</p></li>
 <li><p>Displays the use of the tracer physics</p></li>
 <li><p>Displays the use of a simplex mesh generated with a CAD platform</p></li>
@@ -420,7 +420,7 @@ Physical Surface(4) = {849, 851};
 </section>
 <section id="parameter-file">
 <h2>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>Using Lethe requires a solver executable, in this case <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code>, and a <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file. This second one can be setup in many ways, but for this specific case two aspects must be treated with more care: the enabling of simplex mode, and the setup of the tracer physics.</p>
+<p>Using Lethe requires a solver executable, in this case <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code>, and a <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file. This second one can be setup in many ways, but for this specific case two aspects must be treated with more care: the enabling of simplex mode, and the setup of the tracer physics.</p>
 <section id="enabling-the-simplex-mode">
 <h3>Enabling the Simplex Mode<a class="headerlink" href="#enabling-the-simplex-mode" title="Permalink to this headline">¶</a></h3>
 <section id="mesh">
@@ -556,9 +556,9 @@ end
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The case must be run with the solver and the parameter file.
 The simulation is launched in the same folder as the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file,
-using the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_3d</span></code> solver. It takes a long time since problem is
+using the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code> solver. It takes a long time since problem is
 transient and the time steps are short:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>../../exe/bin/gls_navier_stokes_3d<span class="w"> </span>tracer-through-cad-junction.prm
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>../../exe/bin/gls_navier_stokes<span class="w"> </span>tracer-through-cad-junction.prm
 </pre></div>
 </div>
 </section>

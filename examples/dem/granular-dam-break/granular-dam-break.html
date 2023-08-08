@@ -371,7 +371,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code></p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem</span></code></p></li>
 <li><p>Three-dimensional problem</p></li>
 <li><p>Moving floating mesh</p></li>
 <li><p>Load-balancing</p></li>
@@ -515,7 +515,7 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is launched using a single input file for the insertion of the particles, the opening of the sluice gate and the granular motion of the particles.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d granular-dam-break.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem granular-dam-break.prm
 </pre></div>
 </div>
 <div class="admonition note">

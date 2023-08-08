@@ -370,7 +370,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> (with Q1-Q1)</p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code> (with Q1-Q1)</p></li>
 <li><p>Steady and pseudo steady state solution</p></li>
 <li><p>Comparison with benchmark solutions</p></li>
 <li><p>Mesh refinement and error analysis</p></li>
@@ -561,11 +561,11 @@ end
 <section id="running-the-simulations">
 <h2>Running the Simulations<a class="headerlink" href="#running-the-simulations" title="Permalink to this headline">¶</a></h2>
 <p>The simulation can be executed using the following command (assuming that the solver’s location is in your PATH environment variable):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_navier_stokes_2d 2D-backward-facing-step-steady.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_navier_stokes 2D-backward-facing-step-steady.prm
 </pre></div>
 </div>
 <p>However, mpi can be used to lower calculation time by using several CPUs (especially useful for pseudo-steady simulations) :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np j gls_navier_stokes_2d 2D-backward-facing-step-steady.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np j gls_navier_stokes 2D-backward-facing-step-steady.prm
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">j</span></code> is the number of CPUs used for the computations.</p>

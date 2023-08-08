@@ -371,7 +371,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code> and <code class="docutils literal notranslate"><span class="pre">gls_vans_3d</span></code></p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem</span></code> and <code class="docutils literal notranslate"><span class="pre">gls_vans</span></code></p></li>
 <li><p>Three-dimensional problem</p></li>
 <li><p>Displays the selection of models and physical properties</p></li>
 </ul>
@@ -383,7 +383,7 @@
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>This example simulates air flow through a packing of particles. First, we use Lethe-DEM to fill the bed with particles. We enable check-pointing in order to write the DEM checkpoint files which will be used as the starting point of the CFD-DEM simulation. Then, we use the <code class="docutils literal notranslate"><span class="pre">gls_vans_3d</span></code> solver within Lethe to simulate air flow through the packed bed.</p>
+<p>This example simulates air flow through a packing of particles. First, we use Lethe-DEM to fill the bed with particles. We enable check-pointing in order to write the DEM checkpoint files which will be used as the starting point of the CFD-DEM simulation. Then, we use the <code class="docutils literal notranslate"><span class="pre">gls_vans</span></code> solver within Lethe to simulate air flow through the packed bed.</p>
 </section>
 <section id="dem-parameter-file">
 <h2>DEM Parameter File<a class="headerlink" href="#dem-parameter-file" title="Permalink to this headline">¶</a></h2>
@@ -518,12 +518,12 @@ end
 </section>
 <section id="running-the-dem-simulation">
 <h2>Running the DEM Simulation<a class="headerlink" href="#running-the-dem-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">dem_3d</span></code> executable is within your path, the simulation can be launched on a single processor by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dem_3d packing-in-circle.prm
+<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">dem</span></code> executable is within your path, the simulation can be launched on a single processor by typing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dem packing-in-circle.prm
 </pre></div>
 </div>
 <p>or in parallel (where 8 represents the number of processors)</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem_3d packing-in-circle.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem packing-in-circle.prm
 </pre></div>
 </div>
 <p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
@@ -667,8 +667,8 @@ end
 </section>
 <section id="running-the-vans-simulation">
 <h2>Running the VANS Simulation<a class="headerlink" href="#running-the-vans-simulation" title="Permalink to this headline">¶</a></h2>
-<p>The simulation is run using the <code class="docutils literal notranslate"><span class="pre">gls_vans_3d</span></code> application as per the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>path_to_vans_application/gls_vans_3d parameter_file.prm
+<p>The simulation is run using the <code class="docutils literal notranslate"><span class="pre">gls_vans</span></code> application as per the following command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>path_to_vans_application/gls_vans parameter_file.prm
 </pre></div>
 </div>
 </section>

@@ -370,7 +370,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes_2d</span></code> (with Q1-Q1)</p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code> (with Q1-Q1)</p></li>
 <li><p>Transient problem</p></li>
 <li><p>Boundary Layer Mesh - Transfinite Mesh</p></li>
 <li><p>Spectral analysis - Fourier transform</p></li>
@@ -536,11 +536,11 @@ end
 <section id="running-the-simulations">
 <h2>Running the Simulations<a class="headerlink" href="#running-the-simulations" title="Permalink to this headline">¶</a></h2>
 <p>The simulation can be launched using the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_navier_stokes_2d naca.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gls_navier_stokes naca.prm
 </pre></div>
 </div>
 <p>It can also run in parallel using:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np X gls_navier_stokes_2d naca.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np X gls_navier_stokes naca.prm
 </pre></div>
 </div>
 <p>with X the number of processors used to run it.</p>
