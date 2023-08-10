@@ -367,7 +367,7 @@
         <article role="main">
           <section id="dam-break">
 <h1>Dam-Break<a class="headerlink" href="#dam-break" title="Permalink to this headline">¶</a></h1>
-<p>This example simulates the dam break experiments of <a class="reference external" href="https://royalsocietypublishing.org/doi/abs/10.1098/rsta.1952.0006">Martin and Moyce (1952)</a>.</p>
+<p>This example simulates the dam break experiments of Martin and Moyce <a class="reference external" href="https://doi.org/10.1098/rsta.1952.0006">[1]</a>.</p>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -379,7 +379,10 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/dam-break/</span></code></p>
+<ul class="simple">
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/dam-break/</span></code></p></li>
+<li><p>Python script for postprocessing: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/dam-break/dam-break-2d.py</span></code></p></li>
+</ul>
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
@@ -388,8 +391,7 @@ a rectangular domain as shown in the figure below.
 At <span class="math notranslate nohighlight">\(t = 0\)</span> s, the dam is removed, and
 the liquid is released into the total simulation domain.</p>
 <p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
-<a class="reference internal image-reference" href="../../../_images/VOF-dam-break-configuration.png"><img alt="Schematic" class="align-center" src="../../../_images/VOF-dam-break-configuration.png" style="width: 400px;"/></a>
-<div class="admonition note">
+<img alt="Schematic" class="align-center" src="../../../_images/VOF-dam-break-initial-configuration.svg"/><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">slip</span></code>, and an external
 gravity field of <span class="math notranslate nohighlight">\(-1\)</span> is applied in the y direction.</p>
@@ -410,7 +412,7 @@ below a given threshold.</p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set method           = bdf1
-  set time end         = 4.1
+  set time end         = 4
   set time step        = 0.01
   set adapt            = true
   set max cfl          = 0.5
@@ -432,7 +434,7 @@ end
 </div>
 </section>
 <section id="interface-sharpening-parameters">
-<h3>Interface sharpening parameters<a class="headerlink" href="#interface-sharpening-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>Interface Sharpening Parameters<a class="headerlink" href="#interface-sharpening-parameters" title="Permalink to this headline">¶</a></h3>
 <section id="vof">
 <h4>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h4>
 <p>If the interface sharpening is not enabled in the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">VOF</span></a> subsection, the interface between phases will become blurry (due to diffusion). Futhermore, the phase filtration is enabled in this example. We refer the reader to the <a class="reference internal" href="../../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) Method</span></a> documentation for more explanation both methods.</p>
@@ -441,7 +443,7 @@ end
     set enable              = true
     set threshold           = 0.5
     set interface sharpness = 2
-    set frequency           = 10
+    set frequency           = 20
   end
 
   subsection phase filtration
@@ -455,7 +457,7 @@ end
 </section>
 </section>
 <section id="fluid-phase-parameters">
-<h3>Fluid phase parameters<a class="headerlink" href="#fluid-phase-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>Fluid Phase Parameters<a class="headerlink" href="#fluid-phase-parameters" title="Permalink to this headline">¶</a></h3>
 <section id="initial-conditions">
 <h4>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h4>
 <p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code>, the initial velocity and initial position
@@ -492,12 +494,12 @@ end
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids = 2
   subsection fluid 0
-    set density             = 0.02
-    set kinematic viscosity = 0.1
+    set density             = 1.2
+    set kinematic viscosity = 0.01516
   end
   subsection fluid 1
-    set density             = 0.9982
-    set kinematic viscosity = 0.01
+    set density             = 1000
+    set kinematic viscosity = 0.000001
   end
 end
 </pre></div>
@@ -557,7 +559,7 @@ run in parallel using mpirun</p>
 </section>
 <section id="results-and-discussion">
 <h2>Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Permalink to this headline">¶</a></h2>
-<p>The following image shows the screenshots of the simulation at <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1.1\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, and <span class="math notranslate nohighlight">\(4\)</span> seconds,
+<p>The following image shows the screenshots of the simulation at <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, and <span class="math notranslate nohighlight">\(4\)</span> seconds,
 of the phase results without and with phase filtering.
 The red area corresponds to the liquid phase and the blue area corresponds to the air phase.</p>
 <img alt="time-shots" class="align-center" src="../../../_images/time-series.png"/>
@@ -579,7 +581,7 @@ and refines the meshes on the interface.</p>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://doi.org/10.1098/rsta.1952.0006">[1]</a> Martin, J. C., Moyce, W. J., Martin, J. C., Moyce, W. J., Penney, W. G., Price, A. T., &amp; Thornhill, C. K. (1952). Part IV. An experimental study of the collapse of liquid columns on a rigid horizontal plane. Philosophical Transactions of the Royal Society of London. Series A, Mathematical and Physical Sciences, 244(882), 312-324.</p>
+<p><a class="reference external" href="https://doi.org/10.1098/rsta.1952.0006">[1]</a> J. C. Martin <em>et al.</em>, “Part IV. An experimental study of the collapse of liquid columns on a rigid horizontal plane,” Philos. <em>Trans. R. Soc. Lond. Ser. Math. Phys. Sci.</em>, vol. 244, no. 882, pp. 312–324, Mar. 1952, doi: 10.1098/rsta.1952.0006.</p>
 </section>
 </section>
 
@@ -641,11 +643,11 @@ and refines the meshes on the interface.</p>
 <li><a class="reference internal" href="#parameter-file">Parameter File</a><ul>
 <li><a class="reference internal" href="#simulation-control">Simulation Control</a></li>
 <li><a class="reference internal" href="#multiphysics">Multiphysics</a></li>
-<li><a class="reference internal" href="#interface-sharpening-parameters">Interface sharpening parameters</a><ul>
+<li><a class="reference internal" href="#interface-sharpening-parameters">Interface Sharpening Parameters</a><ul>
 <li><a class="reference internal" href="#vof">VOF</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#fluid-phase-parameters">Fluid phase parameters</a><ul>
+<li><a class="reference internal" href="#fluid-phase-parameters">Fluid Phase Parameters</a><ul>
 <li><a class="reference internal" href="#initial-conditions">Initial Conditions</a></li>
 <li><a class="reference internal" href="#source-term">Source Term</a></li>
 <li><a class="reference internal" href="#physical-properties">Physical Properties</a></li>
