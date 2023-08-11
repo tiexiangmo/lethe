@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Theory" href="../../../theory/theory.html" /><link rel="prev" title="Tuning Count Calculation Model Parameters with NOMAD" href="../tuning-parameters-with-nomad/tuning-parameters-with-nomad.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Particle FEM reconstruction - Lethe documentation</title>
+        <title>Particle FEM Reconstruction - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -308,7 +308,7 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../rpt.html">Radioactive Particle Tracking (RPT)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html">Photon Count Calculation in a Cylindrical Vessel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tuning-parameters-with-nomad/tuning-parameters-with-nomad.html">Tuning Count Calculation Model Parameters with NOMAD</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Particle FEM reconstruction</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Particle FEM Reconstruction</a></li>
 </ul>
 </li>
 </ul>
@@ -366,7 +366,7 @@
         </div>
         <article role="main">
           <section id="particle-fem-reconstruction">
-<h1>Particle FEM reconstruction<a class="headerlink" href="#particle-fem-reconstruction" title="Permalink to this headline">¶</a></h1>
+<h1>Particle FEM Reconstruction<a class="headerlink" href="#particle-fem-reconstruction" title="Permalink to this headline">¶</a></h1>
 <p>In this example, we use the inverse of Finite Element Method (FEM) to reconstruct positions from a radioactive particle tracking experiment.
 The calculation is performed for a given set of positions inside a square.</p>
 <section id="features">
@@ -378,7 +378,7 @@ The calculation is performed for a given set of positions inside a square.</p>
 </ul>
 </section>
 <section id="files-used-in-this-example">
-<h2>Files used in this example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/rpt/particle-fem-reconstruction/rpt-fem-reconstruction.prm</span></code></p></li>
 <li><p>File containing detectors positions: <code class="docutils literal notranslate"><span class="pre">examples/rpt/particle-fem-reconstruction/positions.detector</span></code></p></li>
@@ -387,7 +387,7 @@ The calculation is performed for a given set of positions inside a square.</p>
 </ul>
 </section>
 <section id="description-of-the-case">
-<h2>Description of the case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
+<h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>The purpose of the Finite Element Method based Position Reconstruction (FEM-PR) is to filter the noise resulting from the Monte Carlo model by using an
 orthogonal projection of the Monte Carlo model onto the domain. Then, the algorithm searches through the cells and it
 minimizes the least-squares error between the photon count obtained from the FEM interpolation and the experimental count for all the detectors in each cell.
@@ -409,15 +409,11 @@ least-squares cost-function defined as:</p>
 <a class="reference internal image-reference" href="../../../_images/syst-from-above.png" id="geometry-description"><img alt="The geometry" class="align-center" id="geometry-description" src="../../../_images/syst-from-above.png" style="width: 380px;"/></a>
 </section>
 <section id="parameter-file">
-<h2>Parameter file<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
+<h2>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="rpt-parameters">
-<h3>RPT parameters<a class="headerlink" href="#rpt-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>RPT Parameters<a class="headerlink" href="#rpt-parameters" title="Permalink to this headline">¶</a></h3>
 <p>As seen in the previous examples (<a class="reference internal" href="../photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html"><span class="doc">Photon Count Calculation in a Cylindrical Vessel</span></a> and <a class="reference internal" href="../tuning-parameters-with-nomad/tuning-parameters-with-nomad.html"><span class="doc">Tuning Count Calculation Model Parameters with NOMAD</span></a>), in the subsection <code class="docutils literal notranslate"><span class="pre">rpt</span> <span class="pre">parameters</span></code>, we define the values of the set of parameter necessary for calculating the counts using the Monte Carlo method. These common parameters used for the RPT simulation are described in the <a class="reference internal" href="../../../parameters/rpt/rpt_parameters.html"><span class="doc">RPT Parameters</span></a> documentation page.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># --------------------------------------------------
-# RPT Monte Carlo technique
-#---------------------------------------------------
-
-subsection rpt parameters
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection rpt parameters
     set verbosity                        = quiet
     set monte carlo iteration            = 10000
     set random number seed               = 0
@@ -432,13 +428,9 @@ end
 </div>
 </section>
 <section id="detector-parameters">
-<h3>Detector parameters<a class="headerlink" href="#detector-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>Detector Parameters<a class="headerlink" href="#detector-parameters" title="Permalink to this headline">¶</a></h3>
 <p>In the subsection <code class="docutils literal notranslate"><span class="pre">detector</span> <span class="pre">parameters</span></code>, we specify the file that contains the position of the detectors’ face center and the position of a point inside the detectors on their axis. The detector parameters are described in the <a class="reference internal" href="../../../parameters/rpt/detector_parameters.html"><span class="doc">Detector Parameters</span></a> documentation page.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# Detector parameters
-#---------------------------------------------------
-
-subsection detector parameters
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection detector parameters
   set detector positions file         = positions.detector
   set radius                          = 0.0381
   set length                          = 0.0762
@@ -450,13 +442,9 @@ end
 </div>
 </section>
 <section id="fem-reconstruction-parameters">
-<h3>FEM reconstruction parameters<a class="headerlink" href="#fem-reconstruction-parameters" title="Permalink to this headline">¶</a></h3>
+<h3>FEM Reconstruction Parameters<a class="headerlink" href="#fem-reconstruction-parameters" title="Permalink to this headline">¶</a></h3>
 <p>In the subsection <code class="docutils literal notranslate"><span class="pre">FEM</span> <span class="pre">reconstruction</span> <span class="pre">parameters</span></code>, we specify the file that contains the experimental counts and the export file for the reconstructed positions. Parameters used for the FEM reconstruction are described in the <a class="reference internal" href="../../../parameters/rpt/fem_reconstruction.html"><span class="doc">FEM Reconstruction</span></a> documentation page.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#---------------------------------------------------
-# FEM reconstruction parameters
-#---------------------------------------------------
-
-subsection fem reconstruction
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection fem reconstruction
   set mesh type                = dealii
   set z subdivisions           = 2
   set mesh refinement          = 2
@@ -468,10 +456,8 @@ subsection fem reconstruction
 end
 </pre></div>
 </div>
-</section>
-</section>
 <section id="running-the-simulation">
-<h2>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<h4>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h4>
 <p>Assuming that <code class="docutils literal notranslate"><span class="pre">rpt_l2_projection_3d</span></code> and <code class="docutils literal notranslate"><span class="pre">rpt_fem_reconstruction_3d</span></code> executables are within your path, you can start launching FEM-PR by typing :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rpt_l2_projection_3d rpt-fem-reconstruction.prm
 </pre></div>
@@ -482,13 +468,15 @@ end
 </div>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<h4>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h4>
 <p>With the figure shown below we assess the validity of the reconstruction algorithm with a reconstruction of a set of experimental points. It shows the real positions of the particle and the reconstructed positions.</p>
 <a class="reference internal image-reference" href="../../../_images/position_reconstruction_result.png" id="results-from-the-fem-reconstruction"><img alt="The geometryew" class="align-center" id="results-from-the-fem-reconstruction" src="../../../_images/position_reconstruction_result.png" style="width: 600px;"/></a>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://doi.org/10.1016/j.nima.2023.168504">[1]</a>  Mirakhori, G., Collard-Daigneault, A., Alphonius, A., Doucet, J., Blais, B., &amp; Chaouki, J. (2023a). An improved position reconstruction method for radioactive particle tracking. <em>Nuclear Instruments and Methods in Physics Research</em>. 168504.</p>
+<h4>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://doi.org/10.1016/j.nima.2023.168504">[1]</a>  G. Mirakhori, A. Collard-Daigneault, A. Alphonius, J. Doucet, B. Blais, and J. Chaouki, “An improved position reconstruction method for radioactive particle tracking,” <em>Nucl. Instrum. Methods Phys. Res. Sect. Accel. Spectrometers Detect. Assoc. Equip.</em>, vol. 1055, p. 168504, Oct. 2023, doi: 10.1016/j.nima.2023.168504.</p>
+</section>
+</section>
 </section>
 </section>
 
@@ -543,19 +531,21 @@ end
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Particle FEM reconstruction</a><ul>
+<li><a class="reference internal" href="#">Particle FEM Reconstruction</a><ul>
 <li><a class="reference internal" href="#features">Features</a></li>
-<li><a class="reference internal" href="#files-used-in-this-example">Files used in this example</a></li>
-<li><a class="reference internal" href="#description-of-the-case">Description of the case</a></li>
-<li><a class="reference internal" href="#parameter-file">Parameter file</a><ul>
-<li><a class="reference internal" href="#rpt-parameters">RPT parameters</a></li>
-<li><a class="reference internal" href="#detector-parameters">Detector parameters</a></li>
-<li><a class="reference internal" href="#fem-reconstruction-parameters">FEM reconstruction parameters</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#running-the-simulation">Running the simulation</a></li>
+<li><a class="reference internal" href="#files-used-in-this-example">Files Used in This Example</a></li>
+<li><a class="reference internal" href="#description-of-the-case">Description of the Case</a></li>
+<li><a class="reference internal" href="#parameter-file">Parameter File</a><ul>
+<li><a class="reference internal" href="#rpt-parameters">RPT Parameters</a></li>
+<li><a class="reference internal" href="#detector-parameters">Detector Parameters</a></li>
+<li><a class="reference internal" href="#fem-reconstruction-parameters">FEM Reconstruction Parameters</a><ul>
+<li><a class="reference internal" href="#running-the-simulation">Running the Simulation</a></li>
 <li><a class="reference internal" href="#results">Results</a></li>
 <li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
