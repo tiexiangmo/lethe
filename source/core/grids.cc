@@ -263,6 +263,205 @@ attach_grid_to_triangulation(
           grid.make_grid(triangulation);
         }
     }
+
+  // Radial injector grid
+  else if (mesh_parameters.type == Parameters::Mesh::Type::radial_injector)
+    {
+      const double c1_length = 0.2;
+      const double c2_length = 0.5;
+      const double c1_radius = 0.2;
+      const double s1_radius = 0.025 + c1_radius;
+      const double s2_radius = 0.025 + s1_radius;
+      const double s3_length = 0.25;
+      const double s4_length = 0.05;
+
+      const unsigned int c1_division = 5;
+      const unsigned int c2_division = 5;
+      const unsigned int s3_division = 5;
+      const unsigned int s4_division = 5;
+
+
+
+      // Create cylinders c1 and c2 then merge them
+      Triangulation<3> cylinder_1;
+      GridGenerator::subdivided_cylinder(cylinder_1,
+                                         c1_division,
+                                         c1_radius,
+                                         c1_length / 2.);
+      GridTools::shift(Tensor<1, 3>({c1_length / 2, 0., 0}), cylinder_1);
+
+      // Shift cylinder 1
+      Triangulation<3> cylinder_2;
+      GridGenerator::subdivided_cylinder(cylinder_2,
+                                         c2_division,
+                                         c1_radius,
+                                         c2_length / 2.);
+      GridTools::shift(Tensor<1, 3>({c1_length + c2_length / 2., 0., 0}),
+                       cylinder_2);
+
+      Triangulation<3> merged_cylinder;
+      GridGenerator::merge_triangulations(
+        cylinder_1, cylinder_2, merged_cylinder, 1e-12, true, true);
+      GridTools::rotate(Tensor<1, 3>({0., 1., 0.}), -M_PI / 2, merged_cylinder);
+      GridTools::rotate(Tensor<1, 3>({0., 0, 1.}), -M_PI / 4, merged_cylinder);
+
+
+
+      // Create cylinder shells and merge them
+      Triangulation<3> shell_1;
+      GridGenerator::cylinder_shell(
+        shell_1, c1_length, c1_radius, s1_radius, 4, c1_division);
+
+      Triangulation<3> shell_2;
+      GridGenerator::cylinder_shell(
+        shell_2, c1_length, s1_radius, s2_radius, 4, c1_division);
+
+      Triangulation<3> shell_3;
+      GridGenerator::cylinder_shell(
+        shell_3, s3_length, s1_radius, s2_radius, 4, s3_division);
+      GridTools::shift(Tensor<1, 3>({0, 0., c1_length}), shell_3);
+
+      Triangulation<3> shell_4;
+      GridGenerator::cylinder_shell(
+        shell_4, s4_length, s1_radius, s2_radius, 4, s4_division);
+      GridTools::shift(Tensor<1, 3>({0, 0., c1_length + s3_length}), shell_4);
+
+      Triangulation<3> s1_s2;
+      GridGenerator::merge_triangulations(
+        shell_1, shell_2, s1_s2, 1e-12, true, true);
+
+      Triangulation<3> s1_s2_s3;
+      GridGenerator::merge_triangulations(
+        shell_3, s1_s2, s1_s2_s3, 1e-12, true, true);
+
+      Triangulation<3> s1_s2_s3_s4;
+      GridGenerator::merge_triangulations(
+        shell_4, s1_s2_s3, s1_s2_s3_s4, 1e-12, true, true);
+
+      Triangulation<3> final_merge;
+      GridGenerator::merge_triangulations(
+        s1_s2_s3_s4, merged_cylinder, final_merge, 1e-12, true, false);
+
+
+      // Copy triangulation
+      if constexpr (dim == 3)
+        {
+          final_merge.set_manifold(0, CylindricalManifold<3>(2)); // axis z
+
+
+          Triangulation<3>::cell_iterator cell = final_merge.begin();
+
+          for (; cell != final_merge.end(); ++cell)
+            {
+              // if (cell->at_boundary())
+              {
+                for (const unsigned int f : GeometryInfo<3>::face_indices())
+                  {
+                    if (cell->face(f)->at_boundary())
+                      {
+                        Point<3>     center = cell->face(f)->center();
+                        const double radius = std::sqrt(center[0] * center[0] +
+                                                        center[1] * center[1]);
+                        const double z      = center[2];
+                        if (z > (c2_length + c1_length - 1e-6))
+                          {
+                            if (radius < (s1_radius - 1e-6))
+                              {
+                                cell->face(f)->set_boundary_id(1);
+                              }
+                          }
+                        for (unsigned int j = 0;
+                             j < GeometryInfo<3>::lines_per_face;
+                             ++j)
+                          {
+                            Point<3> center = cell->face(f)->line(j)->center();
+                            const double radius = std::sqrt(
+                              center[0] * center[0] + center[1] * center[1]);
+                            const double z = center[2];
+                            if (z <
+                                ((s3_length + s4_length + c1_length) - 1e-10))
+                              {
+                                if (z > ((s3_length + c1_length) - 1e-10))
+                                  {
+                                    if (radius > (s1_radius + 1e-3))
+                                      {
+                                        cell->face(f)->set_boundary_id(2);
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+            }
+          triangulation.copy_triangulation(final_merge);
+        }
+
+      // Manually set boundary conditions
+
+
+
+      // GridGenerator::subdivided_cylinder(cylinder_2,
+      //                                    c2_division,
+      //                                    c1_radius,
+      //                                    c2_length / 2.);
+      // Triangulation<3> shell_2;
+      // Triangulation<3> shell_3;
+
+
+
+      // Create bottom cylinder shell
+      //      Triangulation<3> cylinder_shell_bottom;
+      //      GridGenerator::cylinder_shell(cylinder_shell_bottom,
+      //                                    length * (1 - depth_ratio),
+      //                                    inner_radius,
+      //                                    outer_radius,
+      //                                    4,
+      //                                    half_n_bottom_cells);
+
+      // Create top cylinder shell
+      // Triangulation<3> cylinder_shell_top;
+      //      GridGenerator::cylinder_shell(cylinder_shell_top,
+      //                                    length * depth_ratio,
+      //                                    inner_radius,
+      //                                    outer_radius,
+      //                                    4,
+      //                                    half_n_top_cells);
+      // Shift top cylinder shell to fit on top of the
+      // first
+      //      GridTools::shift(Tensor<1, 3>({0., 0., length * (1 -
+      //      depth_ratio)}),
+      //                       cylinder_shell_top);
+      // Create full cylinder to fill bottom cylinder shell
+      //      double           full_cyl_half_length = (length * (1 -
+      //      depth_ratio)) / 2.;
+      //      GridGenerator::subdivided_cylinder(full_cylinder,
+      //                                         half_n_bottom_cells,
+      //                                         inner_radius,
+      //                                         full_cyl_half_length);
+      // Rotate cylinder such that x->z and z->-x
+      // GridTools::rotate(Tensor<1, 3>({0., 1., 0.}), -M_PI / 2,
+      // full_cylinder);
+      // Shift full cylinder so that the bottom part is at 0
+      //      GridTools::shift(Tensor<1, 3>({0., 0., full_cyl_half_length}),
+      //                       full_cylinder);
+      // Create temp triangulation to merge bottom cylinder
+      // shell and full cylinder
+
+      // GridTools::rotate(Tensor<1, 3>({0., 0., 1.}), -M_PI / 4,
+      // full_cylinder);
+
+
+      // Triangulation<3> temp;
+      // GridGenerator::merge_triangulations(
+      //   full_cylinder, cylinder_shell_bottom, temp, 1e-12, true, false);
+      //  Merge bottom part to top cylinder shell
+      //       GridGenerator::merge_triangulations(
+      //         temp, cylinder_shell_top, triangulation, 1e-12,
+      //         true, false);
+      //  Keep previously copied manifolds and set Cylindrical
+      //  manifold along z-axis
+    }
   else
     throw std::runtime_error(
       "Unsupported mesh type - mesh will not be created");

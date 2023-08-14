@@ -961,7 +961,8 @@ namespace Parameters
       gmsh,
       dealii,
       periodic_hills,
-      cylinder
+      cylinder,
+      radial_injector
     };
     Type type;
 
