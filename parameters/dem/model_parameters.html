@@ -380,7 +380,7 @@
     set neighborhood threshold                  = 1.3
 
     set dynamic contact search size coefficient = 0.8
-    set frequency                               = 10
+    set frequency                               = 1
   end
 
   subsection load balancing
@@ -436,7 +436,7 @@ end
 </section>
 <section id="contact-detection-method-constant">
 <h3><code class="docutils literal notranslate"><span class="pre">contact</span> <span class="pre">detection</span> <span class="pre">method</span> <span class="pre">=</span> <span class="pre">constant</span></code><a class="headerlink" href="#contact-detection-method-constant" title="Permalink to this headline">¶</a></h3>
-<p>Contact search will be carried out at constant frequency</p>
+<p>Contact search will be carried out at constant frequency. For most case (99%), <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> contact detection should be used instead of <code class="docutils literal notranslate"><span class="pre">constant</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code> is the frequency at which the contact list is renewed. It should be a value between 5 and 50 iterations. Small values of <code class="docutils literal notranslate"><span class="pre">frequency</span></code> lead to long simulation times, while large values of <code class="docutils literal notranslate"><span class="pre">frequency</span></code> may lead to late detection of collisions. Late detection of collisions can result in very large particles velocities (popcorn jump of particles in a simulation) or particles leaving the simulation domain.</p></li>
 </ul>
