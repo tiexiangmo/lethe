@@ -250,6 +250,8 @@
 <li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Rising Bubble</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">Sloshing in a Rectangular Tank</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../3d-dam-break/3d-dam-break.html">3D Dam-Break with an Obstacle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../water-injection-in-a-closed-cell/water-injection-in-a-closed-cell.html">Water Injection in a Closed Cell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../air-bubble-compression/air-bubble-compression.html">Air Bubble Compression</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../heat-transfer.html">Heat Transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -445,7 +447,7 @@ end
 <section id="vof">
 <h3>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection, three features are enabled : the <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, the <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code> and the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code>.</p>
-<p>The interface sharpening method and its parameters are explained in the <a class="reference internal" href="../dam-break/dam-break.html"><span class="doc">Dam-Break</span></a> example. The phase filtration filters the phase field used for the calculation of physical properties by stiffening the value of the phase fraction. We refer the reader to the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a> documentation for more explanation on the phase filtration. Finally, the surface tension force computation is explained in the <a class="reference internal" href="../static-bubble/static-bubble.html"><span class="doc">Static Bubble</span></a> example.</p>
+<p>The interface sharpening method and its parameters are explained in the <a class="reference internal" href="../dam-break/dam-break.html"><span class="doc">Dam-Break</span></a> example. The phase filtration filters the phase field used for the calculation of physical properties by stiffening the value of the phase fraction. We refer the reader to <a class="reference internal" href="../../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) Method</span></a> theory guide for more explanation on the phase filtration. Finally, the surface tension force computation is explained in the <a class="reference internal" href="../static-bubble/static-bubble.html"><span class="doc">Static Bubble</span></a> example.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection VOF
   subsection interface sharpening
     set enable              = true

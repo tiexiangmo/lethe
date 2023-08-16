@@ -250,6 +250,8 @@
 <li class="toctree-l4"><a class="reference internal" href="../rising-bubble/rising-bubble.html">Rising Bubble</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../sloshing-in-rectangular-tank/sloshing-in-rectangular-tank.html">Sloshing in a Rectangular Tank</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../3d-dam-break/3d-dam-break.html">3D Dam-Break with an Obstacle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../water-injection-in-a-closed-cell/water-injection-in-a-closed-cell.html">Water Injection in a Closed Cell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../air-bubble-compression/air-bubble-compression.html">Air Bubble Compression</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../heat-transfer.html">Heat Transfer</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -390,7 +392,7 @@
 <a class="reference internal image-reference" href="../../../_images/static-bubble.png"><img alt="Schematic" class="align-center" src="../../../_images/static-bubble.png" style="width: 400px;"/></a>
 <section id="surface-tension-force">
 <span id="id2"></span><h3>Surface Tension Force<a class="headerlink" href="#surface-tension-force" title="Permalink to this headline">¶</a></h3>
-<p>When including the surface tension force in the resolution of the Navier-Stokes equations, the numerical computation of the curvature can give rise to parasitic flows near the interface between the two fluids, as presented in the <a class="reference internal" href="../../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) Method</span></a> theory guide.</p>
+<p>When including the surface tension force in the resolution of the Navier-Stokes equations, the numerical computation of the curvature can give rise to parasitic flows near the interface between the two fluids, as presented in <a class="reference internal" href="../../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) Method</span></a> theory guide.</p>
 <p>The static bubble case is a relevant case to study the spurious currents, since the analytical solution is zero for the velocity. Therefore, non-zero velocities in the computed velocity field are considered as spurious currents <a class="reference external" href="https://doi.org/10.1002/fld.2643">[1]</a>. The analytical pressure drop between the interior (<span class="math notranslate nohighlight">\(p_{int}\)</span>) and exterior (<span class="math notranslate nohighlight">\(p_{ext}\)</span>) of the bubble is given by the Young-Laplace relation:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\Delta p = p_{int} - p_{ext} = \sigma \kappa\]</div></div>
