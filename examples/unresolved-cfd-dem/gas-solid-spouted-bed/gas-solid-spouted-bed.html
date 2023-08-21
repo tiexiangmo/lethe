@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Boycott Effect" href="../boycott-effect/boycott-effect.html" /><link rel="prev" title="Gas-Solid Fluidized Bed" href="../gas-solid-fluidized-bed/gas-solid-fluidized-bed.html" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Liquid-Solid Fluidized Bed" href="../liquid-solid-fluidized-bed/liquid-solid-fluidized-bed.html" /><link rel="prev" title="Gas-Solid Fluidized Bed" href="../gas-solid-fluidized-bed/gas-solid-fluidized-bed.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
         <title>Gas-Solid Spouted Bed - Lethe documentation</title>
@@ -289,6 +289,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../cylindrical-packed-bed/cylindrical-packed-bed.html">Cylindrical Packed Bed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">Gas-Solid Fluidized Bed</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Gas-Solid Spouted Bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../liquid-solid-fluidized-bed/liquid-solid-fluidized-bed.html">Liquid-Solid Fluidized Bed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../boycott-effect/boycott-effect.html">Boycott Effect</a></li>
 </ul>
 </li>
@@ -381,8 +382,10 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.prm</span></code>
-<code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-spouted-bed/dem-packing-in-spouted-bed.prm</span></code></p>
+<ul class="simple">
+<li><p>Parameter file for particle generation and packing: <code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-spouted-bed/dem-packing-in-spouted-bed.prm</span></code></p></li>
+<li><p>Parameter file for CFD-DEM simulation of the spouted bed: <code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.prm</span></code></p></li>
+</ul>
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
@@ -434,15 +437,19 @@ end
 <h3>Model Parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The section on model parameters is explained in the DEM examples. We show the chosen parameters for this section:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
-  set contact detection method                = dynamic
-  set dynamic contact search size coefficient = 0.9
-  set load balance method                     = dynamic
-  set load balance threshold                  = 0.5
-  set dynamic load balance check frequency    = 10000
-  set neighborhood threshold                  = 1.3
-  set particle particle contact force method  = hertz_mindlin_limit_overlap
-  set particle wall contact force method      = nonlinear
-  set integration method                      = velocity_verlet
+  subsection contact detection
+    set contact detection method                = dynamic
+    set dynamic contact search size coefficient = 0.9
+    set neighborhood threshold                  = 1.3
+  end
+  subsection load balancing
+    set load balance method     = dynamic
+    set threshold               = 0.5
+    set dynamic check frequency = 10000
+  end
+  set particle particle contact force method = hertz_mindlin_limit_overlap
+  set particle wall contact force method     = nonlinear
+  set integration method                     = velocity_verlet
 end
 </pre></div>
 </div>
@@ -532,7 +539,7 @@ end
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Running the packing should take approximatively 10-15 minutes on 8 cores.</p>
+<p>Running the packing should take approximately 10-15 minutes on 8 cores.</p>
 </div>
 <p>After the particles have been packed inside the square bed, it is now possible to simulate the fluidization of particles.</p>
 </section>
@@ -694,7 +701,7 @@ end
 end
 </pre></div>
 </div>
-<p>For more information about the non-linear solver, please refer to the <a class="reference external" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Section</a></p>
+<p>For more information about the linear solver, please refer to the <a class="reference external" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Section</a></p>
 </section>
 </section>
 <section id="running-the-cfd-dem-simulation">
@@ -716,12 +723,12 @@ The bubble formation as well as the spouting strength are highly dependent on th
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../boycott-effect/boycott-effect.html">
+          <a class="next-page" href="../liquid-solid-fluidized-bed/liquid-solid-fluidized-bed.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Boycott Effect</div>
+                <div class="title">Liquid-Solid Fluidized Bed</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>

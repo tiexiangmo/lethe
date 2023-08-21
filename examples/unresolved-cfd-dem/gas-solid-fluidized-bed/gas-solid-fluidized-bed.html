@@ -289,6 +289,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../cylindrical-packed-bed/cylindrical-packed-bed.html">Cylindrical Packed Bed</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Gas-Solid Fluidized Bed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../gas-solid-spouted-bed/gas-solid-spouted-bed.html">Gas-Solid Spouted Bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../liquid-solid-fluidized-bed/liquid-solid-fluidized-bed.html">Liquid-Solid Fluidized Bed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../boycott-effect/boycott-effect.html">Boycott Effect</a></li>
 </ul>
 </li>
@@ -381,8 +382,10 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.prm</span></code>
-<code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-fluidized-bed/dem-packing-in-fluidized-bed.prm</span></code></p>
+<ul class="simple">
+<li><p>Parameter file for particle generation and packing: <code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-fluidized-bed/dem-packing-in-fluidized-bed.prm</span></code></p></li>
+<li><p>Parameter file for CFD-DEM simulation of the gas-solid fluidized bed: <code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.prm</span></code></p></li>
+</ul>
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
@@ -420,7 +423,7 @@ end
 </section>
 <section id="restart">
 <h3>Restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code> solver requires reading several DEM files to start the simulation. For this, we have to write the DEM simulation information. This is done by enabling the check-pointing option in the restart subsection. We give the written files a prefix “dem” set in the “set filename” option. The DEM parameter file is initialized exactly as the cylindrical packed bed example. The difference is in the number of particles, their physical proprties, and the insertion box defined based on the new geometry. For more explanation about the individual subsections, refer to the <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> and the <a class="reference external" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">CFD-DEM parameters</a> .</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code> solver requires reading several DEM files to start the simulation. For this, we have to write the DEM simulation information. This is done by enabling the check-pointing option in the restart subsection. We give the written files a prefix “dem” set in the “set filename” option. The DEM parameter file is initialized exactly as the cylindrical packed bed example. The difference is in the number of particles, their physical properties, and the insertion box defined based on the new geometry. For more explanation about the individual subsections, refer to the <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> and the <a class="reference external" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">CFD-DEM parameters</a> .</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection restart
   set checkpoint = true
   set frequency  = 10000
@@ -434,11 +437,15 @@ end
 <h3>Model Parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The section on model parameters is explained in the DEM examples. We show the chosen parameters for this section:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection model parameters
-  set contact detection method               = dynamic
-  set load balance method                    = dynamic
-  set load balance threshold                 = 0.5
-  set dynamic load balance check frequency   = 10000
-  set neighborhood threshold                 = 1.3
+  subsection contact detection
+    set contact detection method = dynamic
+    set neighborhood threshold   = 1.3
+  end
+  subsection load balancing
+    set load balance method     = dynamic
+    set threshold               = 0.5
+    set dynamic check frequency = 10000
+  end
   set particle particle contact force method = hertz_mindlin_limit_overlap
   set particle wall contact force method     = nonlinear
   set integration method                     = velocity_verlet
@@ -532,7 +539,7 @@ end
 <p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Running the packing should take approximatively 20 minutes on 8 cores.</p>
+<p>Running the packing should take approximately 20 minutes on 8 cores.</p>
 </div>
 <p>After the particles have been packed inside the square bed, it is now possible to simulate the fluidization of particles.</p>
 </section>

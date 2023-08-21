@@ -289,6 +289,7 @@
 <li class="toctree-l3"><a class="reference internal" href="cylindrical-packed-bed/cylindrical-packed-bed.html">Cylindrical Packed Bed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gas-solid-fluidized-bed/gas-solid-fluidized-bed.html">Gas-Solid Fluidized Bed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gas-solid-spouted-bed/gas-solid-spouted-bed.html">Gas-Solid Spouted Bed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="liquid-solid-fluidized-bed/liquid-solid-fluidized-bed.html">Liquid-Solid Fluidized Bed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="boycott-effect/boycott-effect.html">Boycott Effect</a></li>
 </ul>
 </li>
@@ -369,7 +370,7 @@
         <article role="main">
           <section id="unresolved-cfd-dem">
 <h1>Unresolved CFD-DEM<a class="headerlink" href="#unresolved-cfd-dem" title="Permalink to this headline">¶</a></h1>
-<p>This section includes examples related to multiphase fluid-solid flows. We organize the examples from the single phase flow in porous media (Packed Bed Example) to multiphase flows (Fluidized Solid-Gas Beds). The packed bed example uses the gls_vans solver which solves the Volume Average Navier Stokes (VANS) equations. The fluidized bed, the spouted bed and the Boycott effect example use the cfd_dem_coupling solver which solves the VANS equations for the fluid phase coupled with the DEM equations for the solid phase.</p>
+<p>This section includes examples related to multiphase fluid-solid flows. We organize the examples from the single phase flow in porous media (packed bed example) to multiphase flows (solid-gas and solid-liquid fluidized beds). The packed bed example uses the <code class="docutils literal notranslate"><span class="pre">gls_vans</span></code> solver which solves the Volume Average Navier Stokes (VANS) equations. The fluidized bed, the spouted bed and the Boycott effect examples use the <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code> solver which solves the VANS equations for the fluid phase coupled with the DEM equations for the solid phase.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="graphviz"><img alt='digraph unresolved_cfd_dem_diagram {
@@ -387,19 +388,23 @@
 
   cfd_dem_3 [label="Gas-Solid Spouted Bed", href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html"];
 
-  cfd_dem_4 [label="Boycott Effect", href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/boycott-effect/boycott-effect.html"];
+  cfd_dem_4 [label="Liquid-Solid Fluidized Bed", href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/liquid-solid-fluidized-bed/liquid-solid-fluidized-bed.html"];
+
+  cfd_dem_5 [label="Boycott Effect", href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/boycott-effect/boycott-effect.html"];
 
   unresolved_cfd_dem -&gt; cfd_dem_1:w;
   unresolved_cfd_dem -&gt; cfd_dem_2:w;
   unresolved_cfd_dem -&gt; cfd_dem_3:w;
   unresolved_cfd_dem -&gt; cfd_dem_4:w;
-}' class="graphviz" src="../../_images/graphviz-fa1ea1829a9e2d6487b6c7ebc9413cd1cdead6b0.png" usemap="#unresolved_cfd_dem_diagram"/></div>
+  unresolved_cfd_dem -&gt; cfd_dem_5:w;
+}' class="graphviz" src="../../_images/graphviz-c866eddd34d7151059f53b2865ed2af3c6a26fa7.png" usemap="#unresolved_cfd_dem_diagram"/></div>
 <map id="unresolved_cfd_dem_diagram" name="unresolved_cfd_dem_diagram">
-<area alt="" coords="5,185,169,281" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/unresolved-cfd-dem.html" id="node1" shape="rect" title="Unresolved \nCFD-DEM"/>
-<area alt="" coords="320,5,616,101" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html" id="node2" shape="rect" title="Cylindrical Packed Bed"/>
-<area alt="" coords="313,125,623,221" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html" id="node3" shape="rect" title="Gas-Solid Fluidized Bed"/>
-<area alt="" coords="317,245,619,341" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html" id="node4" shape="rect" title="Gas-Solid Spouted Bed"/>
-<area alt="" coords="376,365,560,461" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/boycott-effect/boycott-effect.html" id="node5" shape="rect" title="Boycott Effect"/>
+<area alt="" coords="5,245,169,341" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/unresolved-cfd-dem.html" id="node1" shape="rect" title="Unresolved \nCFD-DEM"/>
+<area alt="" coords="331,5,627,101" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/cylindrical-packed-bed/cylindrical-packed-bed.html" id="node2" shape="rect" title="Cylindrical Packed Bed"/>
+<area alt="" coords="325,125,634,221" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/gas-solid-fluidized-bed/gas-solid-fluidized-bed.html" id="node3" shape="rect" title="Gas-Solid Fluidized Bed"/>
+<area alt="" coords="328,245,631,341" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/gas-solid-spouted-bed/gas-solid-spouted-bed.html" id="node4" shape="rect" title="Gas-Solid Spouted Bed"/>
+<area alt="" coords="313,365,645,461" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/liquid-solid-fluidized-bed/liquid-solid-fluidized-bed.html" id="node5" shape="rect" title="Liquid-Solid Fluidized Bed"/>
+<area alt="" coords="387,485,571,581" href="https://lethe-cfd.github.io/lethe/examples/unresolved-cfd-dem/boycott-effect/boycott-effect.html" id="node6" shape="rect" title="Boycott Effect"/>
 </map></section>
 
         </article>
