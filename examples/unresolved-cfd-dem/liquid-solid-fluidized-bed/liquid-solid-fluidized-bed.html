@@ -700,14 +700,16 @@ end
 <section id="linear-solver">
 <h3>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-  set method                                = gmres
-  set max iters                             = 5000
-  set relative residual                     = 1e-3
-  set minimum residual                      = 1e-11
-  set ilu preconditioner fill               = 1
-  set ilu preconditioner absolute tolerance = 1e-14
-  set ilu preconditioner relative tolerance = 1.00
-  set verbosity                             = verbose
+  subsection fluid dynamics
+    set method                                = gmres
+    set max iters                             = 5000
+    set relative residual                     = 1e-3
+    set minimum residual                      = 1e-11
+    set ilu preconditioner fill               = 1
+    set ilu preconditioner absolute tolerance = 1e-14
+    set ilu preconditioner relative tolerance = 1.00
+    set verbosity                             = verbose
+  end
 end
 </pre></div>
 </div>
