@@ -180,7 +180,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/force_and_torque.html">Force and Torque Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser Heat Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html">Mesh Adaptation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
@@ -530,28 +530,32 @@ end
 <h3>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h3>
 <p>For <span class="math notranslate nohighlight">\(Re &lt; 700\)</span>, standard parameters are suitable to achieve convergence.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-  set verbosity                             = verbose
-  set method                                = gmres
-  set max iters                             = 10000
-  set relative residual                     = 1e-4
-  set minimum residual                      = 1e-9
-  set ilu preconditioner fill               = 2
-  set ilu preconditioner absolute tolerance = 1e-12
-  set ilu preconditioner relative tolerance = 1.00
+  subsection fluid dynamics
+    set verbosity                             = verbose
+    set method                                = gmres
+    set max iters                             = 10000
+    set relative residual                     = 1e-4
+    set minimum residual                      = 1e-9
+    set ilu preconditioner fill               = 2
+    set ilu preconditioner absolute tolerance = 1e-12
+    set ilu preconditioner relative tolerance = 1.00
+  end
 end
 </pre></div>
 </div>
 <p>For <span class="math notranslate nohighlight">\(Re \geq 700\)</span>, however, it is often necessary to set <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">precondtionner</span> <span class="pre">fill</span> <span class="pre">=</span> <span class="pre">2</span></code> in order to save calculation time. Also, adjusting <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">krylov</span> <span class="pre">vectors</span> <span class="pre">=</span> <span class="pre">200</span></code> can help to reach convergence.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-  set verbosity                             = verbose
-  set method                                = gmres
-  set max iters                             = 10000
-  set relative residual                     = 1e-4
-  set minimum residual                      = 1e-9
-  set ilu preconditioner fill               = 2
-  set ilu preconditioner absolute tolerance = 1e-12
-  set ilu preconditioner relative tolerance = 1.00
-  set max krylov vectors                    = 200
+  subsection fluid dynamics
+    set verbosity                             = verbose
+    set method                                = gmres
+    set max iters                             = 10000
+    set relative residual                     = 1e-4
+    set minimum residual                      = 1e-9
+    set ilu preconditioner fill               = 2
+    set ilu preconditioner absolute tolerance = 1e-12
+    set ilu preconditioner relative tolerance = 1.00
+    set max krylov vectors                    = 200
+  end
 end
 </pre></div>
 </div>

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Mesh" href="mesh.html" /><link rel="prev" title="Laser Heat Source" href="laser_heat_source.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Linear Solver Control - Lethe documentation</title>
+        <title>Linear Solver - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -180,7 +180,7 @@
 <li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and Torque Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="laser_heat_source.html">Laser Heat Source</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Linear Solver Control</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Linear Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh_adaptation_control.html">Mesh Adaptation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
@@ -368,76 +368,78 @@
           </label>
         </div>
         <article role="main">
-          <section id="linear-solver-control">
-<h1>Linear Solver Control<a class="headerlink" href="#linear-solver-control" title="Permalink to this headline">¶</a></h1>
-<p>In this subsection, the control options of linear solvers are specified. These control options may include solution method, maximum number of iterations, tolerance, residual precision and preconditioner information. The default values for these parameters are given in the text box below.</p>
+          <section id="linear-solver">
+<h1>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h1>
+<p>In this subsection, the control options of the linear solvers are specified. The default values for the linear solver parameters are given in the text box below. Lethe supports different physics (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code>, <code class="docutils literal notranslate"><span class="pre">VOF</span></code>, <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span></code> and <code class="docutils literal notranslate"><span class="pre">tracer</span></code>) and it is possible to specify linear solver parameters for each of them. In the example below, only <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> is used but the same block can be used for other physics.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>For further understanding about the numerical method used and advanced parameters, the interested reader is referred to the Theory Documentation.</p>
+<p>For further understanding about the linear solvers used, the preconditioners supported and all parameters, see the <a class="reference internal" href="../../theory/fluid_dynamics/linear_solvers.html"><span class="doc">Linear Solvers</span></a> theory section.</p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-  # Iterative solver for the linear system of equations
-  set method                                    = gmres
+  subsection fluid dynamics
+    # Iterative solver for the linear system of equations
+    set method                                    = gmres
 
-  # State whether information from the linear solver should be printed
-  set verbosity                                 = verbose
+    # State whether information from the linear solver should be printed
+    set verbosity                                 = verbose
 
-  # Linear solver minimum residual
-  set minimum residual                          = 1e-12
+    # Linear solver minimum residual
+    set minimum residual                          = 1e-12
 
-  # Linear solver residual
-  set relative residual                         = 1e-3
+    # Linear solver residual
+    set relative residual                         = 1e-3
 
-  # Maximum solver iterations
-  set max iters                                 = 1000
+    # Maximum solver iterations
+    set max iters                                 = 1000
 
-  # Force the linear solver to continue even if it fails
-  set force linear solver continuation          = false
+    # Force the linear solver to continue even if it fails
+    set force linear solver continuation          = false
 
-  # Maximum number of krylov vectors for GMRES and AMG solvers
-  set max krylov vectors                        = 100
+    # Maximum number of krylov vectors for GMRES and AMG solvers
+    set max krylov vectors                        = 100
 
-  #-------------------------------------------------------------
-  # ILU preconditioner parameters for GMRES and BICGSTAB solvers
-  #-------------------------------------------------------------
-  # ILU preconditioner fill
-  set ilu preconditioner fill                   = 0
+    #-------------------------------------------------------------
+    # ILU preconditioner parameters for GMRES and BICGSTAB solvers
+    #-------------------------------------------------------------
+    # ILU preconditioner fill
+    set ilu preconditioner fill                   = 0
 
-  # ILU preconditioner tolerance
-  set ilu preconditioner absolute tolerance     = 1e-12
+    # ILU preconditioner tolerance
+    set ilu preconditioner absolute tolerance     = 1e-12
 
-  # ILU relative tolerance
-  set ilu preconditioner relative tolerance     = 1.00
+    # ILU relative tolerance
+    set ilu preconditioner relative tolerance     = 1.00
 
-  #---------------------------------------------------------
-  # ILU smoother/coarsener parameters for AMG preconditioner
-  #---------------------------------------------------------
-  # AMG preconditioner ILU smoother/coarsener fill
-  set amg preconditioner ilu fill               = 0
+    #---------------------------------------------------------
+    # ILU smoother/coarsener parameters for AMG preconditioner
+    #---------------------------------------------------------
+    # AMG preconditioner ILU smoother/coarsener fill
+    set amg preconditioner ilu fill               = 0
 
-  # AMG preconditioner ILU smoother/coarsener absolute tolerance
-  set amg preconditioner ilu absolute tolerance = 1e-12
+    # AMG preconditioner ILU smoother/coarsener absolute tolerance
+    set amg preconditioner ilu absolute tolerance = 1e-12
 
-  # AMG preconditioner ILU smoother/coarsener relative tolerance
-  set amg preconditioner ilu relative tolerance = 1.00
+    # AMG preconditioner ILU smoother/coarsener relative tolerance
+    set amg preconditioner ilu relative tolerance = 1.00
 
-  #---------------------------------------------------
-  # other AMG solver parameters
-  #---------------------------------------------------
-  # AMG aggregation threshold
-  set amg aggregation threshold                 = 1e-14
+    #---------------------------------------------------
+    # other AMG solver parameters
+    #---------------------------------------------------
+    # AMG aggregation threshold
+    set amg aggregation threshold                 = 1e-14
 
-  # AMG number of cycles
-  set amg n cycles                              = 1
+    # AMG number of cycles
+    set amg n cycles                              = 1
 
-  # AMG w cycling. If this is set to true, W cycling is used. Otherwise, V cycling is used.
-  set amg w cycles                              = false
+    # AMG w cycling. If this is set to true, W cycling is used. Otherwise, V cycling is used.
+    set amg w cycles                              = false
 
-  # AMG smoother sweeps
-  set amg smoother sweeps                       = 2
+    # AMG smoother sweeps
+    set amg smoother sweeps                       = 2
 
-  # amg smoother overlap
-  set amg smoother overlap                      = 1
+    # amg smoother overlap
+    set amg smoother overlap                      = 1
+  end
 end
 </pre></div>
 </div>

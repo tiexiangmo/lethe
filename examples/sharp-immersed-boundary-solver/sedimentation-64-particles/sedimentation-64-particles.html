@@ -180,7 +180,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/force_and_torque.html">Force and Torque Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser Heat Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html">Mesh Adaptation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
@@ -557,14 +557,16 @@ end
 <section id="linear-solver">
 <h3>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-  set method                                = gmres
-  set max iters                             = 1000
-  set relative residual                     = 1e-4
-  set minimum residual                      = 1e-11
-  set ilu preconditioner fill               = 0
-  set ilu preconditioner absolute tolerance = 1e-6
-  set verbosity                             = verbose
-  set max krylov vectors                    = 1000
+  subsection fluid dynamics
+    set method                                = gmres
+    set max iters                             = 1000
+    set relative residual                     = 1e-4
+    set minimum residual                      = 1e-11
+    set ilu preconditioner fill               = 0
+    set ilu preconditioner absolute tolerance = 1e-6
+    set verbosity                             = verbose
+    set max krylov vectors                    = 1000
+  end
 end
 </pre></div>
 </div>

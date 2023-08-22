@@ -180,7 +180,7 @@
 <li class="toctree-l3"><a class="reference internal" href="force_and_torque.html">Force and Torque Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="laser_heat_source.html">Laser Heat Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="linear_solver_control.html">Linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linear_solver_control.html">Linear Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mesh_adaptation_control.html">Mesh Adaptation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="multiphysics.html">Multiphysics</a></li>
@@ -467,7 +467,7 @@ number of iterations to reach the mass conservation tolerance.
 <p>As most of the other iterations converge in only one step (corresponding to a final threshold of <span class="math notranslate nohighlight">\(0.5\)</span>), increasing the sharpening search range through a higher <code class="docutils literal notranslate"><span class="pre">threshold</span> <span class="pre">max</span> <span class="pre">deviation</span></code> will relax the condition on the first iterations with a limited impact on the computational cost.</p>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code>: enables the display of the residual at each non-linear iteration, to monitor the progress of the linear iterations, similarly to the <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> option in <a class="reference internal" href="linear_solver_control.html"><span class="doc">Linear Solver Control</span></a>. Choices are: <code class="docutils literal notranslate"><span class="pre">quiet</span></code> (default, no output), <code class="docutils literal notranslate"><span class="pre">verbose</span></code> (indicates sharpening steps) and <code class="docutils literal notranslate"><span class="pre">extra</span> <span class="pre">verbose</span></code> (details of the linear iterations).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code>: enables the display of the residual at each non-linear iteration, to monitor the progress of the linear iterations, similarly to the <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> option in <a class="reference internal" href="linear_solver_control.html"><span class="doc">Linear Solver</span></a>. Choices are: <code class="docutils literal notranslate"><span class="pre">quiet</span></code> (default, no output), <code class="docutils literal notranslate"><span class="pre">verbose</span></code> (indicates sharpening steps) and <code class="docutils literal notranslate"><span class="pre">extra</span> <span class="pre">verbose</span></code> (details of the linear iterations).</p></li>
 </ul>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>

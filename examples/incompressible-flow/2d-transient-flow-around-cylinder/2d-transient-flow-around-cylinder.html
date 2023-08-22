@@ -180,7 +180,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/force_and_torque.html">Force and Torque Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/initial_conditions.html">Initial Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/laser_heat_source.html">Laser Heat Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html">Linear Solver</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh.html">Mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/mesh_adaptation_control.html">Mesh Adaptation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
@@ -500,13 +500,15 @@ end
 <h3>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h3>
 <p>For 2D problems, the AMG preconditioner is an adequate preconditioner. It is especially robust for the first few time-steps for which the velocity and pressure profile is not well-defined because the initial conditions are not mass conservative.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
-  set verbosity                                 = verbose
-  set method                                    = amg
-  set relative residual                         = 1e-4
-  set minimum residual                          = 1e-8
-  set amg preconditioner ilu fill               = 0
-  set amg preconditioner ilu absolute tolerance = 1e-12
-  set amg preconditioner ilu relative tolerance = 1.00
+  subsection fluid dynamics
+    set verbosity                                 = verbose
+    set method                                    = amg
+    set relative residual                         = 1e-4
+    set minimum residual                          = 1e-8
+    set amg preconditioner ilu fill               = 0
+    set amg preconditioner ilu absolute tolerance = 1e-12
+    set amg preconditioner ilu relative tolerance = 1.00
+  end
 end
 </pre></div>
 </div>
