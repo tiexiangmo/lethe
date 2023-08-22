@@ -463,7 +463,7 @@ end
 </section>
 <section id="physical-properties">
 <h3>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
-<p>This example showcases a shear-thinning flow, for which the viscosity decreases when the local shear rate increases. The Carreau model is being used. For more information on rheological models, see <a class="reference internal" href="../../../parameters/cfd/physical_properties.html"><span class="doc">Physical Properties</span></a></p>
+<p>This example showcases a shear-thinning flow, for which the kinematic viscosity decreases when the local shear rate increases. The Carreau model is being used. For more information on rheological models, see <a class="reference internal" href="../../../parameters/cfd/physical_properties.html"><span class="doc">Physical Properties</span></a></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids = 1
   subsection fluid 0
@@ -485,7 +485,7 @@ end
 <p>With <code class="docutils literal notranslate"><span class="pre">viscosity_inf</span> <span class="pre">=</span> <span class="pre">0</span></code> (3-parameter Carreau model), the <em>a priori</em> Reynolds number can be estimated using :</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[Re = \frac{u_{\infty}D(1+(\lambda(\frac{u_\infty}{D}))^2)^{\frac{1-n}{2}}}{\eta_0}\]</div></div>
-<p>We use an <em>a priori</em> Reynolds number, since it is not possible, <em>a priori</em>, to know the effective viscosity of the flow. For the given parameters, the <em>a priori</em> Reynolds number is <span class="math notranslate nohighlight">\(50\)</span>.</p>
+<p>We use an <em>a priori</em> Reynolds number, since it is not possible, <em>a priori</em>, to know the effective kinematic viscosity of the flow. For the given parameters, the <em>a priori</em> Reynolds number is <span class="math notranslate nohighlight">\(50\)</span>.</p>
 </section>
 <section id="initial-conditions">
 <h3>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
@@ -498,10 +498,10 @@ end
       set iterations = 2
       set alpha      = 0.5
     end
-    subsection viscosity
-      set initial viscosity = 1.0
-      set iterations        = 2
-      set alpha             = 0.5
+    subsection kinematic viscosity
+      set initial kinematic viscosity = 1.0
+      set iterations                  = 2
+      set alpha                       = 0.5
     end
   end
 end
@@ -510,8 +510,8 @@ end
 <p>The first initial condition simulation solves for <code class="docutils literal notranslate"><span class="pre">n=1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_0</span> <span class="pre">=</span> <span class="pre">1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_inf</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">lambda=10</span></code> and <code class="docutils literal notranslate"><span class="pre">a=2</span></code>. The subsequent initial simulations are:</p>
 <ul class="simple">
 <li><p>(Second <code class="docutils literal notranslate"><span class="pre">n</span></code> iteration) <code class="docutils literal notranslate"><span class="pre">n=0.75</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_0</span> <span class="pre">=</span> <span class="pre">1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_inf</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">lambda=10</span></code> and <code class="docutils literal notranslate"><span class="pre">a=2</span></code> ;</p></li>
-<li><p>(First <code class="docutils literal notranslate"><span class="pre">viscosity</span></code> iteration) <code class="docutils literal notranslate"><span class="pre">n=0.5</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_0</span> <span class="pre">=</span> <span class="pre">1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_inf</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">lambda=10</span></code> and <code class="docutils literal notranslate"><span class="pre">a=2</span></code> ;</p></li>
-<li><p>(Second <code class="docutils literal notranslate"><span class="pre">viscosity</span></code> iteration) <code class="docutils literal notranslate"><span class="pre">n=0.5</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_0</span> <span class="pre">=</span> <span class="pre">0.531702</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_inf</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">lambda=10</span></code> and <code class="docutils literal notranslate"><span class="pre">a=2</span></code></p></li>
+<li><p>(First <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> iteration) <code class="docutils literal notranslate"><span class="pre">n=0.5</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_0</span> <span class="pre">=</span> <span class="pre">1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_inf</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">lambda=10</span></code> and <code class="docutils literal notranslate"><span class="pre">a=2</span></code> ;</p></li>
+<li><p>(Second <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> iteration) <code class="docutils literal notranslate"><span class="pre">n=0.5</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_0</span> <span class="pre">=</span> <span class="pre">0.531702</span></code>, <code class="docutils literal notranslate"><span class="pre">viscosity_inf</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">lambda=10</span></code> and <code class="docutils literal notranslate"><span class="pre">a=2</span></code></p></li>
 </ul>
 <p>and the first simulation uses the parameters in the <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">physical</span> <span class="pre">properties</span></code>. For more information on ramping initial conditions, see <a class="reference internal" href="../../../parameters/cfd/initial_conditions.html"><span class="doc">Initial Conditions</span></a>.</p>
 </section>
@@ -578,10 +578,10 @@ end
 <p>Using Paraview, the steady-state velocity profile and the pressure profile can be visualized by operating a <em>slice</em> along the xy-plane (z-normal) that cuts in the middle of the sphere (See <a class="reference external" href="https://forgeanalytics.io/blog/creating-slices-in-paraview/">documentation</a>).</p>
 <img alt="../../../_images/velocity1.png" class="align-center" src="../../../_images/velocity1.png"/>
 <img alt="../../../_images/pressure1.png" class="align-center" src="../../../_images/pressure1.png"/>
-<p>We can also see the viscosity profile throughout the domain, that is a function of the shear rate magnitude profile. Close to the particle, the shear rate is high which decreases the viscosity.</p>
+<p>We can also see the kinematic viscosity profile throughout the domain, that is a function of the shear rate magnitude profile. Close to the particle, the shear rate is high which decreases the kinematic viscosity.</p>
 <img alt="../../../_images/viscosity.png" class="align-center" src="../../../_images/viscosity.png"/>
 <img alt="../../../_images/shear-rate.png" class="align-center" src="../../../_images/shear-rate.png"/>
-<p>We can notice that the viscosity rapidly reaches a plateau at <span class="math notranslate nohighlight">\(\eta=0.063\)</span>. Given the parameters in the <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">physical</span> <span class="pre">properties</span></code>, the viscosity behavior should be given  by:</p>
+<p>We can notice that the kinematic viscosity rapidly reaches a plateau at <span class="math notranslate nohighlight">\(\eta=0.063\)</span>. Given the parameters in the <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">physical</span> <span class="pre">properties</span></code>, the kinematic viscosity behavior should be given  by:</p>
 <img alt="../../../_images/carreau.png" class="align-center" src="../../../_images/carreau.png"/>
 <p>We get the following torques and forces applied on the particle for each of the mesh refinements. The drag force applied on the particle in the effective force in the same direction fo the flow, which is in the math:<cite>x</cite> direction in this case.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>particle_ID    T_x       T_y       T_z      f_x       f_y       f_z      f_xv     f_yv     f_zv     f_xp     f_yp      f_zp

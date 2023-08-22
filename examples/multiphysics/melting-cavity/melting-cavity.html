@@ -411,7 +411,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">noslip</span></code>, and an external
-gravity field of <span class="math notranslate nohighlight">\(-0.00516\)</span> is applied in the <span class="math notranslate nohighlight">\(y\)</span> direction. For the heat transfer boundary conditions the temperatures of the left (<span class="math notranslate nohighlight">\(T_l = 108 ^{\circ} C\)</span>) and the right (<span class="math notranslate nohighlight">\(T_l = 104.9 ^{\circ} C\)</span>) walls are defined.</p>
+gravity field of <span class="math notranslate nohighlight">\(-0.00516\)</span> is applied in the <span class="math notranslate nohighlight">\(y\)</span> direction. For the heat transfer boundary conditions the temperatures of the left (<span class="math notranslate nohighlight">\(T_l = 108 \, ^{\circ} \text{C}\)</span>) and the right (<span class="math notranslate nohighlight">\(T_l = 104.9 \, ^{\circ} \text{C}\)</span>) walls are defined.</p>
 </div>
 </section>
 <section id="parameter-file">
@@ -457,7 +457,7 @@ end
 </section>
 <section id="initial-conditions">
 <h3>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial temperature in the simulation domain are defined. The initial velocity is equal to zero as the block is in the solid phase at <span class="math notranslate nohighlight">\(t = 0\)</span> s. The initial temperature is chosen slightly (0.1 <span class="math notranslate nohighlight">\(^{\circ} C\)</span>) smaller than the melting point temperature.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">condition</span></code>, the initial velocity and initial temperature in the simulation domain are defined. The initial velocity is equal to zero as the block is in the solid phase at <span class="math notranslate nohighlight">\(t = 0\)</span> s. The initial temperature is chosen slightly (<span class="math notranslate nohighlight">\(0.1 \, ^{\circ} \text{C}\)</span>) smaller than the melting point temperature.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
   set type = nodal
   subsection uvwp
@@ -484,7 +484,7 @@ end
 </section>
 <section id="physical-properties">
 <h3>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
-<p>The solid block melts into liquid in this example, hence in the <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection, we define the phase change parameters. Similar to gravitational acceleration, the latent enthalphy of phase change is selected to satisfy the value of Stefan number. A <span class="math notranslate nohighlight">\(\Delta T = 0.1 ^{\circ} C\)</span> is selected between the solidus and liquidus temperatures. For more information about the phase change model in Lethe, visit the <a class="reference internal" href="../stefan-problem/stefan-problem.html"><span class="doc">Stefan problem</span></a> example. The viscosity of the solid phase is chosen <span class="math notranslate nohighlight">\(\approx 10000\)</span> times larger than the viscosity of the liquid phase.</p>
+<p>The solid block melts into liquid in this example, hence in the <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection, we define the phase change parameters. Similar to gravitational acceleration, the latent enthalphy of phase change is selected to satisfy the value of Stefan number. A <span class="math notranslate nohighlight">\(\Delta T = 0.1 \, ^{\circ} \text{C}\)</span> is selected between the solidus and liquidus temperatures. For more information about the phase change model in Lethe, visit the <a class="reference internal" href="../stefan-problem/stefan-problem.html"><span class="doc">Stefan problem</span></a> example. The kinematic viscosity of the solid phase is chosen <span class="math notranslate nohighlight">\(\approx 10000\)</span> times larger than the kinematic viscosity of the liquid phase.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids = 1
   subsection fluid 0
@@ -515,10 +515,10 @@ end
       # Specific heat of the solid phase
       set specific heat solid = 200
 
-      # viscosity of the liquid phase
+      # Kinematic viscosity of the liquid phase
       set viscosity liquid = 0.00000075
 
-      # viscosity of the solid phase
+      # Kinematic viscosity of the solid phase
       set viscosity solid = 0.008
     end
   end
