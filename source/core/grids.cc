@@ -267,13 +267,13 @@ attach_grid_to_triangulation(
   // Radial injector grid
   else if (mesh_parameters.type == Parameters::Mesh::Type::radial_injector)
     {
-      const double c1_length = 0.2;
-      const double c2_length = 0.5;
-      const double c1_radius = 0.2;
-      const double s1_radius = 0.025 + c1_radius;
-      const double s2_radius = 0.025 + s1_radius;
-      const double s3_length = 0.25;
-      const double s4_length = 0.05;
+      const double c1_length = 0.05172;
+      const double c2_length = 0.09+0.0337;
+      const double c1_radius = 0.131525;
+      const double s1_radius = 0.00635 + c1_radius;
+      const double s2_radius = 0.00635 + s1_radius;
+      const double s3_length = 0.0822;
+      const double s4_length = 0.0337;
 
       const unsigned int c1_division = 5;
       const unsigned int c2_division = 5;
@@ -328,15 +328,15 @@ attach_grid_to_triangulation(
 
       Triangulation<3> s1_s2;
       GridGenerator::merge_triangulations(
-        shell_1, shell_2, s1_s2, 1e-12, true, true);
+        shell_1, shell_2, s1_s2, 1e-12, true, false);
 
       Triangulation<3> s1_s2_s3;
       GridGenerator::merge_triangulations(
-        shell_3, s1_s2, s1_s2_s3, 1e-12, true, true);
+        shell_3, s1_s2, s1_s2_s3, 1e-12, true, false);
 
       Triangulation<3> s1_s2_s3_s4;
       GridGenerator::merge_triangulations(
-        shell_4, s1_s2_s3, s1_s2_s3_s4, 1e-12, true, true);
+        shell_4, s1_s2_s3, s1_s2_s3_s4, 1e-12, true, false);
 
       Triangulation<3> final_merge;
       GridGenerator::merge_triangulations(
@@ -363,11 +363,17 @@ attach_grid_to_triangulation(
                         const double radius = std::sqrt(center[0] * center[0] +
                                                         center[1] * center[1]);
                         const double z      = center[2];
-                        if (z > (c2_length + c1_length - 1e-6))
+                        if (z > (c2_length + c1_length - 1e-3))
                           {
-                            if (radius < (s1_radius - 1e-6))
+                            if (radius < (c1_radius-1e-3))
                               {
+                                std::cout << "radius: " << radius << " center radius: " << c1_radius << std::endl;
                                 cell->face(f)->set_boundary_id(1);
+                              }
+                              else
+                              {
+                                cell->face(f)->set_boundary_id(0);
+                                std::cout << "radius: " << radius << " center radius: " << c1_radius << std::endl;
                               }
                           }
                         for (unsigned int j = 0;
