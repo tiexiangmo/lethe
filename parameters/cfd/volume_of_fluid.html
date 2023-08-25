@@ -378,6 +378,10 @@
 </div>
 <p>The default values of the VOF parameters are given in the text box below.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection VOF
+
+  set viscous dissipative fluid = fluid 1
+  set diffusivity               = 0
+
   subsection interface sharpening
     set enable                  = false
     set frequency               = 10
@@ -408,15 +412,8 @@
     set output auxiliary fields               = false
     set phase fraction gradient filter factor = 4
     set curvature filter factor               = 1
-
-    subsection marangoni effect
-      set enable                   = false
-      set surface tension gradient = 0.0
-    end
+    set enable marangoni effect               = false
   end
-
-  set viscous dissipative fluid = fluid 1
-  set diffusivity               = 0
 
   subsection peeling wetting
     set enable peeling = false
@@ -436,6 +433,18 @@
 end
 </pre></div>
 </div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">viscous</span> <span class="pre">dissipative</span> <span class="pre">fluid</span></code>: defines fluid(s) to which viscous dissipation is applied.</p>
+<p>Choices are: <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">both</span></code>, with the fluid IDs defined in Physical properties - <a class="reference internal" href="physical_properties.html#two-phase-simulations"><span class="std std-ref">Two Phase Simulations</span></a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Applying viscous dissipation in one of the fluids instead of both is particularly useful when one of the fluids is air. For numerical stability, the <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> of the air is usually increased. However, we do not want to have viscous dissipation in the air, because it would result in an unrealistic increase in its temperature. This parameter is used only if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">viscous</span> <span class="pre">dissipation</span> <span class="pre">=</span> <span class="pre">true</span></code> in <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>.</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diffusivity</span></code>: value of the diffusivity (diffusion coefficient) in the transport equation of the phase fraction. Default value is <code class="docutils literal notranslate"><span class="pre">0</span></code> to have pure advection. Increase <code class="docutils literal notranslate"><span class="pre">diffusivity</span></code> to <a class="reference internal" href="#improve-wetting"><span class="std std-ref">Improving the Wetting Mechanism</span></a>.</p></li>
+</ul>
+<section id="interface-sharpening">
+<h2>Interface Sharpening<a class="headerlink" href="#interface-sharpening" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">interface</span> <span class="pre">sharpening</span></code>: defines parameters to counter numerical diffusion of the VOF method and to avoid the interface between the two fluids becoming more and more blurry after each time step. The reader is refered to the Interface sharpening section of <a class="reference internal" href="../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) Method</span></a> theory guide for additional details on this sharpening method.</p>
 <ul>
@@ -474,8 +483,12 @@ number of iterations to reach the mass conservation tolerance.
 <p>The <a class="reference internal" href="../../examples/multiphysics/dam-break/dam-break.html"><span class="doc">Dam-Break</span></a> example discussed the interface sharperning mechanism.</p>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">phase</span> <span class="pre">filtration</span></code>: This subsection defines the filter applied to the phase fraction. This affects the definition of the interface.</p>
+</ul>
+</section>
+<section id="phase-filtration">
+<h2>Phase Filtration<a class="headerlink" href="#phase-filtration" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">phase</span> <span class="pre">filtration</span></code>: This subsection defines the filter applied to the phase fraction. This affects the definition of the interface.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: defines the filter type, either <code class="docutils literal notranslate"><span class="pre">none</span></code> or <code class="docutils literal notranslate"><span class="pre">tanh</span></code></p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">none</span></code>: the phase fraction is not filtered</p></li>
@@ -485,7 +498,10 @@ number of iterations to reach the mass conservation tolerance.
 <li><p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: value of the <span class="math notranslate nohighlight">\(\beta\)</span> parameter of the <code class="docutils literal notranslate"><span class="pre">tanh</span></code> filter</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code>: enables the display of filtered phase fraction values. Choices are <code class="docutils literal notranslate"><span class="pre">quiet</span></code> (no output) and <code class="docutils literal notranslate"><span class="pre">verbose</span></code> (displays values)</p></li>
 </ul>
-</li>
+</section>
+<section id="surface-tension-force">
+<h2>Surface Tension Force<a class="headerlink" href="#surface-tension-force" title="Permalink to this headline">¶</a></h2>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code>: Surface tension is the tendency of a liquid to maintain the minimum possible surface area. This subsection defines parameters to ensure an accurate interface between the two phases, used when at least one phase is liquid.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: controls if <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> is considered.</p>
@@ -512,7 +528,7 @@ number of iterations to reach the mass conservation tolerance.
 <p>Use the procedure suggested in: <a class="reference internal" href="#choosing-values-for-the-surface-tension-force-filters"><span class="std std-ref">Choosing Values for the Surface Tension Force Filters</span></a>.</p>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">marangoni</span> <span class="pre">effect</span></code>: Marangoni effect is a thermocapillary effect, considered in simulations if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">enable</span> <span class="pre">=</span> <span class="pre">true</span></code> and if the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">gradient</span></code> is not zero <span class="math notranslate nohighlight">\(\left(\frac{\partial \sigma}{\partial T} \neq 0\right)\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">marangoni</span> <span class="pre">effect</span></code>: Marangoni effect is a thermocapillary effect. It is considered in simulations if this parameter is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>. Additionally, the <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code> auxiliary physics must be enabled (see: <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>) and a non constant <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">model</span></code> with its parameters must be specified in the <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection (see: <a class="reference internal" href="physical_properties.html"><span class="doc">Physical Properties</span></a>).</p></li>
 </ul>
 </li>
 </ul>
@@ -520,15 +536,20 @@ number of iterations to reach the mass conservation tolerance.
 <p class="admonition-title">See also</p>
 <p>The surface tension force is used in the <a class="reference internal" href="../../examples/multiphysics/rising-bubble/rising-bubble.html"><span class="doc">Rising Bubble</span></a> example.</p>
 </div>
+<section id="choosing-values-for-the-surface-tension-force-filters">
+<span id="id2"></span><h3>Choosing Values for the Surface Tension Force Filters<a class="headerlink" href="#choosing-values-for-the-surface-tension-force-filters" title="Permalink to this headline">¶</a></h3>
+<p>The following procedure is recommended to choose proper values for the <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">fraction</span> <span class="pre">gradient</span> <span class="pre">filter</span> <span class="pre">factor</span></code> and <code class="docutils literal notranslate"><span class="pre">curvature</span> <span class="pre">filter</span> <span class="pre">factor</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span> <span class="pre">=</span> <span class="pre">true</span></code> to write filtered phase fraction gradient and filtered curvature fields.</p></li>
+<li><p>Choose a value close to 1, for example, <span class="math notranslate nohighlight">\(\alpha = 4\)</span> and <span class="math notranslate nohighlight">\(\beta = 1\)</span>.</p></li>
+<li><p>Run the simulation and check whether the filtered phase fraction gradient field is smooth and without oscillation.</p></li>
+<li><p>If the filtered phase fraction gradient and filtered curvature fields show oscillations, increase the value <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> to larger values, and repeat this process until reaching smooth filtered phase fraction gradient and filtered curvature fields without oscillations.</p></li>
+</ol>
+</section>
+</section>
+<section id="peeling-and-wetting">
+<h2>Peeling and Wetting<a class="headerlink" href="#peeling-and-wetting" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">viscous</span> <span class="pre">dissipative</span> <span class="pre">fluid</span></code>: defines fluid(s) to which viscous dissipation is applied.</p>
-<p>Choices are: <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">both</span></code>, with the fluid IDs defined in Physical properties - <a class="reference internal" href="physical_properties.html#two-phase-simulations"><span class="std std-ref">Two Phase Simulations</span></a>.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Applying viscous dissipation in one of the fluids instead of both is particularly useful when one of the fluids is air. For numerical stability, the <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> of the air is usually increased. However, we do not want to have viscous dissipation in the air, because it would result in an unrealistic increase in its temperature. This parameter is used only if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">viscous</span> <span class="pre">dissipation</span> <span class="pre">=</span> <span class="pre">true</span></code> in <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>.</p>
-</div>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">diffusivity</span></code>: value of the diffusivity (diffusion coefficient) in the transport equation of the phase fraction. Default value is <code class="docutils literal notranslate"><span class="pre">0</span></code> to have pure advection. Increase <code class="docutils literal notranslate"><span class="pre">diffusivity</span></code> to <a class="reference internal" href="#improve-wetting"><span class="std std-ref">Improving the Wetting Mechanism</span></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">peeling</span> <span class="pre">wetting</span></code>: Peeling and wetting mechanisms are very important to consider when there are solid boundaries in the domain, like a wall. If the fluid is already on the wall and its velocity drives it away from it, the fluid should be able to detach from the wall, meaning to <cite>peel</cite> from it. If the fluid is not already on the wall and its velocity drives it toward it, the fluid should be able to attach to the wall, meaning to <cite>wet</cite> it. This subsection defines the parameters for peeling and wetting mechanisms at the VOF boundaries, as defined in <a class="reference internal" href="boundary_conditions_multiphysics.html"><span class="doc">Boundary Conditions - Multiphysics</span></a>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -576,6 +597,29 @@ number of iterations to reach the mass conservation tolerance.
 </li>
 </ul>
 </li>
+</ul>
+<section id="improving-the-wetting-mechanism">
+<span id="improve-wetting"></span><h3>Improving the Wetting Mechanism<a class="headerlink" href="#improving-the-wetting-mechanism" title="Permalink to this headline">¶</a></h3>
+<p>In the framework of incompressible fluids, a layer of the lowest density fluid (e.g. air) can form between the highest density fluid (e.g. water) and the boundary, preventing its wetting. Two strategies can be used to improve the wetting mechanism:</p>
+<ol class="arabic simple">
+<li><p>Increase the <code class="docutils literal notranslate"><span class="pre">diffusivity</span></code> to the transport equation (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">diffusivity</span> <span class="pre">=</span> <span class="pre">1e-2</span></code>), so that the higher density fluid spreads even more to the boundary location.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is strongly advised to sharpen the interface more often (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">2</span></code> or even <code class="docutils literal notranslate"><span class="pre">1</span></code>) to limit interface blurriness due the added diffusivity. As peeling-wetting is handled after the transport equation is solved, but before interface sharpening, sharpening will not prevent the wetting from occurring.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Remove the conservation condition on the lowest density fluid (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">conservative</span> <span class="pre">fluid</span> <span class="pre">=</span> <span class="pre">fluid</span> <span class="pre">1</span></code>). The mass conservation equation in the cells of interest is replaced by a zero-pressure condition, to allow the fluid to get out of the domain.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This can give more precise results as the interface remains sharp, but the time step (in <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>) must be low enough to prevent numerical instabilities.</p>
+</div>
+</section>
+</section>
+<section id="mass-conservation">
+<span id="id4"></span><h2>Mass Conservation<a class="headerlink" href="#mass-conservation" title="Permalink to this headline">¶</a></h2>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mass</span> <span class="pre">conservation</span></code>: By default, mass conservation (continuity) equations are solved on the whole domain, i.e. on both fluids (<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">conservative</span> <span class="pre">fluid</span> <span class="pre">=</span> <span class="pre">both</span></code>). However, replacing the mass conservation by a zero-pressure condition on one of the fluid (typically, the air), so that it can get in and out of the domain, can be useful to <a class="reference internal" href="#improve-wetting"><span class="std std-ref">Improving the Wetting Mechanism</span></a>. This subsection defines parameters that can be used to solve mass conservation in one fluid instead of both, and to monitor the surface/volume (2D/3D) occupied by the other fluid of interest.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">conservative</span> <span class="pre">fluid</span></code>: defines fluid(s) for which conservation is solved.</p>
@@ -612,33 +656,6 @@ number of iterations to reach the mass conservation tolerance.
 </ul>
 </li>
 </ul>
-<section id="improving-the-wetting-mechanism">
-<span id="improve-wetting"></span><h2>Improving the Wetting Mechanism<a class="headerlink" href="#improving-the-wetting-mechanism" title="Permalink to this headline">¶</a></h2>
-<p>In the framework of incompressible fluids, a layer of the lowest density fluid (e.g. air) can form between the highest density fluid (e.g. water) and the boundary, preventing its wetting. Two strategies can be used to improve the wetting mechanism:</p>
-<ol class="arabic simple">
-<li><p>Increase the <code class="docutils literal notranslate"><span class="pre">diffusivity</span></code> to the transport equation (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">diffusivity</span> <span class="pre">=</span> <span class="pre">1e-2</span></code>), so that the higher density fluid spreads even more to the boundary location.</p></li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>It is strongly advised to sharpen the interface more often (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">2</span></code> or even <code class="docutils literal notranslate"><span class="pre">1</span></code>) to limit interface blurriness due the added diffusivity. As peeling-wetting is handled after the transport equation is solved, but before interface sharpening, sharpening will not prevent the wetting from occurring.</p>
-</div>
-<ol class="arabic simple" start="2">
-<li><p>Remove the conservation condition on the lowest density fluid (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">conservative</span> <span class="pre">fluid</span> <span class="pre">=</span> <span class="pre">fluid</span> <span class="pre">1</span></code>). The mass conservation equation in the cells of interest is replaced by a zero-pressure condition, to allow the fluid to get out of the domain.</p></li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>This can give more precise results as the interface remains sharp, but the time step (in <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>) must be low enough to prevent numerical instabilities.</p>
-</div>
-</section>
-<section id="choosing-values-for-the-surface-tension-force-filters">
-<span id="id3"></span><h2>Choosing Values for the Surface Tension Force Filters<a class="headerlink" href="#choosing-values-for-the-surface-tension-force-filters" title="Permalink to this headline">¶</a></h2>
-<p>The following procedure is recommended to choose proper values for the <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">fraction</span> <span class="pre">gradient</span> <span class="pre">filter</span> <span class="pre">factor</span></code> and <code class="docutils literal notranslate"><span class="pre">curvature</span> <span class="pre">filter</span> <span class="pre">factor</span></code>:</p>
-<ol class="arabic simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">output</span> <span class="pre">auxiliary</span> <span class="pre">fields</span> <span class="pre">=</span> <span class="pre">true</span></code> to write filtered phase fraction gradient and filtered curvature fields.</p></li>
-<li><p>Choose a value close to 1, for example, <span class="math notranslate nohighlight">\(\alpha = 4\)</span> and <span class="math notranslate nohighlight">\(\beta = 1\)</span>.</p></li>
-<li><p>Run the simulation and check whether the filtered phase fraction gradient field is smooth and without oscillation.</p></li>
-<li><p>If the filtered phase fraction gradient and filtered curvature fields show oscillations, increase the value <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> to larger values, and repeat this process until reaching smooth filtered phase fraction gradient and filtered curvature fields without oscillations.</p></li>
-</ol>
 </section>
 </section>
 
@@ -694,8 +711,17 @@ number of iterations to reach the mass conservation tolerance.
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Volume of Fluid (Multiphase Flow)</a><ul>
-<li><a class="reference internal" href="#improving-the-wetting-mechanism">Improving the Wetting Mechanism</a></li>
+<li><a class="reference internal" href="#interface-sharpening">Interface Sharpening</a></li>
+<li><a class="reference internal" href="#phase-filtration">Phase Filtration</a></li>
+<li><a class="reference internal" href="#surface-tension-force">Surface Tension Force</a><ul>
 <li><a class="reference internal" href="#choosing-values-for-the-surface-tension-force-filters">Choosing Values for the Surface Tension Force Filters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#peeling-and-wetting">Peeling and Wetting</a><ul>
+<li><a class="reference internal" href="#improving-the-wetting-mechanism">Improving the Wetting Mechanism</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mass-conservation">Mass Conservation</a></li>
 </ul>
 </li>
 </ul>
