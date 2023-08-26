@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -362,7 +362,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -370,24 +370,21 @@
         <article role="main">
           <section id="insertion-info">
 <h1>Insertion Info<a class="headerlink" href="#insertion-info" title="Permalink to this headline">¶</a></h1>
-<p>In Lethe, particles are inserted using the Insertion class. We need an insertion box (which is defined by its minimum and maximum values in <cite>x</cite>, <cite>y</cite>, and <cite>z</cite> directions), <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code>, the inserted number of particles at each insertion step, and other parameters to specify the relative positions of the particles during insertion.</p>
-<p>Particle insertion information is defined in this section. This information includes <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">method</span></code>, <code class="docutils literal notranslate"><span class="pre">inserted</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">insertion</span> <span class="pre">step</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code>, dimensions of the insertion box, approximate initial distance between particles at insertion steps, and information about the randomness of initial positions of particles. If the insertion method is <code class="docutils literal notranslate"><span class="pre">uniform</span></code>, the particles are uniformly (without randomness in initial location) inserted. On the other hand, in <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion, the initial locations of particles are chosen randomly. Using <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion, insertion <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code> are also required in the parameter handler file.</p>
+<p>In this subsection, insertion methods which are <code class="docutils literal notranslate"><span class="pre">uniform</span></code>, <code class="docutils literal notranslate"><span class="pre">non_unifom</span></code>, <code class="docutils literal notranslate"><span class="pre">plane</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code> are defined.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Insertion in Lethe-DEM starts inserting particles from type 0 and proceeds to the next type when all the particles from the previous type are inserted.</p>
+<p>Insertion in Lethe starts inserting particles from type 0 and proceeds to the next type when all the particles from the previous type are inserted.</p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
-  # Insertion method
-  # Choices are uniform|non_uniform
+  # Choices are uniform|non_uniform|plane|list
   set insertion method                               = non_uniform
 
-  # Number of inserted particles at each insertion step. This value may change automatically if the insertion box is not adequately large to handle all the inserted particles
-  set inserted number of particles at each time step = 100
-
-  # Insertion frequency
+  # Every method
   set insertion frequency                            = 20000
 
-  # Insertion box dimensions (xmin, xmax, ymin, ymax, zmin, zmax)
+  # If method = uniform or non_unifom
+  set inserted number of particles at each time step = 100
+
   set insertion box minimum x                        = -0.05
   set insertion box minimum y                        = -0.05
   set insertion box minimum z                        = -0.03
@@ -395,12 +392,10 @@
   set insertion box maximum y                        = 0.05
   set insertion box maximum z                        = 0.07
 
-  # Directions of insertion (0: x, 1: y, 2: z)
   set insertion first direction                      = 0
   set insertion second direction                     = 1
   set insertion third direction                      = 2
 
-  # Initial conditions at insertion
   set velocity x                                     = 0.0
   set velocity y                                     = 0.0
   set velocity z                                     = 0.0
@@ -408,37 +403,39 @@
   set omega y                                        = 0.0
   set omega z                                        = 0.0
 
-  # insertion distance threshold controls the distance between the center of inserted particles (the distance is: [distance threshold] * [diameter of particles]). The distance is modified by a random number if non_uniform insertion is chosen
   set insertion distance threshold                   = 2
 
-  # Random number range and seed for non_uniform insertion
+  # If method = plane
+  set insertion method                               = plane
+  set insertion plane point                          = 0, 0, 0
+  set insertion plane normal vector                  = 1, 0, 0
+
+  # If method = non_uniform or plane
   set insertion random number range                  = 0.75
   set insertion random number seed                   = 19
+
+  # If method = list
+  set list x                                         = 0.
+  set list y                                         = 0.
+  set list z                                         = 0.
+
 end
 </pre></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">method</span></code> parameter chooses the type of insertion. Acceptable choices are <code class="docutils literal notranslate"><span class="pre">uniform</span></code>, <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code>, <code class="docutils literal notranslate"><span class="pre">plane</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span></code>. Different insertion method can share the same parameter.</p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">method</span></code> parameter chooses the type of insertion. Acceptable choices are <code class="docutils literal notranslate"><span class="pre">uniform</span></code> and <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> parameter defines the frequency of insertion. For example, if the <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> is set equal to 10000, the iterations 1, 10001, 20001, … will be defined as insertion steps.  The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> should be selected adequately depending on the insertion method. For <code class="docutils literal notranslate"><span class="pre">uniform</span></code> and <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> it should be large, so that the inserted particles at the previous insertion step have enough time to leave the insertion box for the next time step, otherwise large overlap may occur which leads to a large velocity of particles. For the <code class="docutils literal notranslate"><span class="pre">plane</span></code> method, it should be small so that particles are being inserted as soon as a cell is empty.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code> parameters determine the random added values to the positions of particles during a <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> and <code class="docutils literal notranslate"><span class="pre">plane</span></code> insertion. <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> defines the maximum value for the random displacement. <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code> is the seed for the random number generator.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">uniform</span></code> insertion, the insertion locations of the particles inside the insertion box are tidy. In <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion, however, the insertion locations of particles are randomly selected.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code> are only being use by <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> and <code class="docutils literal notranslate"><span class="pre">plane</span></code> insertion methods.</p>
 </div>
+<section id="uniform-and-non-uniform">
+<h2>Uniform and Non-uniform<a class="headerlink" href="#uniform-and-non-uniform" title="Permalink to this headline">¶</a></h2>
+<p>Uniform and Non-uniform insertion methods are really similar in their functioning. Both methods use an insertion box where particles will be insert. In <code class="docutils literal notranslate"><span class="pre">uniform</span></code> insertion, the insertion locations of the particles inside the insertion box are tidy. In <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion however, the insertion locations of particles are randomly selected.</p>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">inserted</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">time</span> <span class="pre">step</span></code> defines the desired number of particles to be inserted at each insertion step.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If the insertion box is not adequately large to insert <code class="docutils literal notranslate"><span class="pre">inserted</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">time</span> <span class="pre">step</span></code> particles with the defined arrangement (initial distance between the inserted particles), Lethe prints a warning and inserts the maximum number of particles that fit inside the insertion box at each insertion step.</p>
-</div>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> parameter defines the frequency of insertion. For example, if the <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> is set equal to 10000, the iterations 0, 10000, 20000, … will be defined as insertion steps.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> should be selected adequately large, so that the inserted particles at the previous insertion step have enough time to leave the insertion box, and the insertion box becomes empty for the next insertion. If <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">frequency</span></code> does not meet this criterion, particles may have large overlaps during the insertion steps which leads to a large velocity of particles. Some particles may leave the simulation domain in this case.</p>
-</div>
-<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">inserted</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">time</span> <span class="pre">step</span></code> defines the desired number of particles to be inserted at each insertion step. If the insertion box is not adequately large to insert <code class="docutils literal notranslate"><span class="pre">inserted</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">time</span> <span class="pre">step</span></code> particles with the defined arrangement (initial distance between the inserted particles), Lethe prints a warning and inserts the maximum number of particles that fit inside the insertion box at each insertion step.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">minimum</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">minimum</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">minimum</span> <span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">maximum</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">maximum</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">box</span> <span class="pre">maximum</span> <span class="pre">z</span></code> parameters define the insertion box dimensions.</p></li>
 </ul>
 <div class="admonition note">
@@ -455,8 +452,7 @@ end
 <p>Since the <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">info</span></code> subsection is valid for all particle types, by using <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">y</span></code>, or <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">z</span></code>, the given condition is applied to all particles, indistinctively.</p>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code> parameter determines the initial distance between the particles in the insertion. As a result, it must be larger than 1 to avoid any initial collision between the inserted particles.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code> parameters determine the random added values to the positions of particles during a <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion. <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> defines the maximum value for the random displacement in the <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion locations. <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code> is the seed for the random number generator.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code> parameter determines the initial distance between the particles in the insertion box. As a result, it must be larger than 1 to avoid any initial collision between the inserted particles.</p></li>
 </ul>
 <p>The distance between the inserted particles is equal to:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
@@ -469,6 +465,27 @@ end
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code> should also be compatible with the <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code>; especially if the <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code> is large, a large value should be defined for <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code>. Generally, we recommend users to use a value in the range of 1.3-2 (depending on the value of <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code>) for the <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code>.</p>
 </div>
+</section>
+<section id="plane">
+<h2>Plane<a class="headerlink" href="#plane" title="Permalink to this headline">¶</a></h2>
+<p>The Plane insertion method inserts particles at the centroid of insertion cells. These cells are defined as intersected by a mathematical plane. This plane is define by an <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">plane</span> <span class="pre">point</span></code> and an <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">plane</span> <span class="pre">normal</span> <span class="pre">vector</span></code>. A cell is considered as intersected by the plane if at least one of its vertex is on each side of the plane of if at least one of its vertex is directly on the plane (the normal distance between the vertex and the plane is zero). At each insertion step, a particle will be inserted in a insertion cell if that cell is empty (no particle is present inside it). This guarantee the absence of big overlap with the particles already inserted. This method of inserting is useful when dealing with a domain dense with particles.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">insert</span> <span class="pre">plane</span> <span class="pre">point</span></code> defines the point coordinates for the plane. Each component of this parameter represent the x, y and z directions, respectively.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">plane</span> <span class="pre">normal</span> <span class="pre">vector</span></code> define the normal vector component for the plane. of the  Each component of the parameter represent the x, y and z directions, respectively.</p></li>
+</ul>
+</section>
+<section id="list">
+<h2>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<p>The List insertion method insert particles at precis coordinates. This method is preferred for small number of particles.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">z</span></code> define the coordinates of every particles in the x, y and z directions, respectively. For example, if you want to insert particles at two locations, <code class="docutils literal notranslate"><span class="pre">(0.,0.,0.)</span> <span class="pre">and</span> <span class="pre">(1.,2.,3.)</span></code> , the list parameters should look like this :</p></li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>set list x = 0., 1.
+set list y = 0., 2.
+set list z = 0., 3.
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -510,8 +527,29 @@ end
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Insertion Info</a><ul>
+<li><a class="reference internal" href="#uniform-and-non-uniform">Uniform and Non-uniform</a></li>
+<li><a class="reference internal" href="#plane">Plane</a></li>
+<li><a class="reference internal" href="#list">List</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
