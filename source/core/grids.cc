@@ -267,7 +267,7 @@ attach_grid_to_triangulation(
   // Radial injector grid
   else if (mesh_parameters.type == Parameters::Mesh::Type::radial_injector)
     {
-      const double c1_length = 0.05172;
+      const double c1_length = 0.01;//#5172;
       const double c2_length = 0.09+0.0337;
       const double c1_radius = 0.131525;
       const double s1_radius = 0.00635 + c1_radius;
