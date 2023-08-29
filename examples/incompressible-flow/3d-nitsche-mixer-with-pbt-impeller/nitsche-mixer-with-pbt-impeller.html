@@ -652,12 +652,13 @@ end
 </section>
 <section id="linear-solver">
 <h3>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h3>
-<p>Relatively standard parameters are used for the <a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html"><span class="doc">Linear Solver</span></a>. From our experience, the AMG preconditioner is more robust with the Nitsche immersed boundaries than the traditional ILU.</p>
+<p>Relatively standard parameters are used for the <a class="reference internal" href="../../../parameters/cfd/linear_solver_control.html"><span class="doc">Linear Solver</span></a>. From our experience, the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner is more robust with the Nitsche immersed boundaries than the traditional ILU.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
   subsection fluid dynamics
-    set method                                    = amg
+    set method                                    = gmres
     set max iters                                 = 200
     set minimum residual                          = 1e-7
+    set preconditioner                            = amg
     set amg preconditioner ilu absolute tolerance = 1e-8
     set amg preconditioner ilu relative tolerance = 2.00
     set amg aggregation threshold                 = 1e-10

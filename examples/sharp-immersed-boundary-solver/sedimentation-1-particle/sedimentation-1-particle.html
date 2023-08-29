@@ -591,6 +591,7 @@ end
     set max iters                             = 1000
     set relative residual                     = 1e-4
     set minimum residual                      = 1e-11
+    set preconditioner                        = ilu
     set ilu preconditioner fill               = 0
     set ilu preconditioner absolute tolerance = 1e-20
     set ilu preconditioner relative tolerance = 1.00
@@ -601,7 +602,7 @@ end
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">method</span></code> is set to <code class="docutils literal notranslate"><span class="pre">gmres</span></code>. This solver is less computationally expensive than the other option, and this case does not require any special preconditioner. This makes the <code class="docutils literal notranslate"><span class="pre">gmres</span></code> solver the best option available.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">method</span></code> is set to <code class="docutils literal notranslate"><span class="pre">gmres</span></code>. This solver is less computationally expensive than the other option, and this case does not require any special preconditioner. This makes the <code class="docutils literal notranslate"><span class="pre">gmres</span></code> solver with <code class="docutils literal notranslate"><span class="pre">ilu</span></code> preconditioner the best option available.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iters</span></code> is set to 1000. This is a lot more steps than how much it should take to solve the system.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">krylov</span> <span class="pre">vectors</span></code> is set to 1000. This is to ensure that we keep the full Arnoldi basis for each new iteration. From experience keeping a maximum of Krylov vector results in a faster resolution for this case than clearing the basis after a certain number of <code class="docutils literal notranslate"><span class="pre">gmres</span></code> iterations.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">relative</span> <span class="pre">residual</span></code> is set to 1e-4. This is small enough, so we don’t under-resolve our matrix and do extra non-linear steps because of it, and at the same, it doesn’t require too many <code class="docutils literal notranslate"><span class="pre">gmres</span></code> iterations.</p></li>
