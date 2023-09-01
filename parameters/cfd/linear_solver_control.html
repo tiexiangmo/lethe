@@ -477,18 +477,11 @@ end
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Be aware that the setup of the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner is very expensive and does not scale linearly with the size of the matrix. As such, it is generally preferable to minimize the number of assembly of such preconditioner. This can be achieved by using the <code class="docutils literal notranslate"><span class="pre">inexact</span> <span class="pre">newton</span></code> (see <a class="reference internal" href="non-linear_solver_control.html"><span class="doc">Non-linear Solver</span></a>).</p>
-<p>The use of <code class="docutils literal notranslate"><span class="pre">direct</span></code> solver should be avoided for 3D problems.</p>
+<p>The use of <code class="docutils literal notranslate"><span class="pre">direct</span></code> solver should be in general avoided as it is not efficient for large problems. It can be, however, used for debugging purposes or the development of new features.</p>
 </div>
 </dd>
 </dl>
 </li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Currently, the <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes</span></code> and <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes</span></code> solvers make it almost impossible to reach convergence with the <code class="docutils literal notranslate"><span class="pre">amg</span></code> linear solver. It is recommended to use <code class="docutils literal notranslate"><span class="pre">gmres</span></code> instead, even for fine meshes.</p>
-</div>
-<ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">verbosity</span></code> option enables the display of the residual at each non-linear iteration, to monitor the progress of the linear iterations.</p></li>
 </ul>
 <div class="admonition-example-of-a-set-verbosity-verbose-output admonition">
@@ -543,6 +536,16 @@ end
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">preconditioner</span></code> sets the type of preconditioning used for the linear solver. It can be either <code class="docutils literal notranslate"><span class="pre">ilu</span></code> for an Incomplete LU decomposition or <code class="docutils literal notranslate"><span class="pre">amg</span></code> for an Algebraic Multigrid.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Currently, the <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes</span></code> and <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes</span></code> solvers make it almost impossible to reach convergence with the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner. Therefore, it is recommended to use <code class="docutils literal notranslate"><span class="pre">ilu</span></code> instead, even for fine meshes. In addition, the <code class="docutils literal notranslate"><span class="pre">VOF</span></code>, <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span></code> and <code class="docutils literal notranslate"><span class="pre">tracer</span></code> physics only support <code class="docutils literal notranslate"><span class="pre">ilu</span></code>.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Be aware that the setup of the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner is very expensive and does not scale linearly with the size of the matrix. As such, it is generally preferable to minimize the number of assembly of such preconditioner. This can be achieved by using the <code class="docutils literal notranslate"><span class="pre">inexact</span> <span class="pre">newton</span></code> for the nonlinear solver (see <a class="reference internal" href="non-linear_solver_control.html"><span class="doc">Non-linear Solver</span></a>).</p>
+</div>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">fill</span></code>, <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">absolute</span> <span class="pre">tolerance</span></code> and <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">relative</span> <span class="pre">tolerance</span></code> are parameters that control the <code class="docutils literal notranslate"><span class="pre">ilu</span></code> preconditioner. Conversely, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">preconditioner</span> <span class="pre">ilu</span> <span class="pre">fill</span></code>, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">preconditioner</span> <span class="pre">ilu</span> <span class="pre">absolute</span> <span class="pre">tolerance</span></code> and <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">preconditioner</span> <span class="pre">ilu</span> <span class="pre">relative</span> <span class="pre">tolerance</span></code> control the ILU coarsener and smoother used by the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner.</p></li>
 </ul>
 <div class="admonition tip">
