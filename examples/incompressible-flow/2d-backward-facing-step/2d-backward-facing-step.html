@@ -519,9 +519,11 @@ end
 <h3>Non-linear Solver<a class="headerlink" href="#non-linear-solver" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">newton</span></code> non-linear solver is used with a medium <code class="docutils literal notranslate"><span class="pre">tolerance</span></code>, since convergence can be hard to obtain for high Reynolds number.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set verbosity      = verbose
-  set tolerance      = 1e-6
-  set max iterations = 10
+  subsection fluid dynamics
+    set verbosity      = verbose
+    set tolerance      = 1e-6
+    set max iterations = 10
+  end
 end
 </pre></div>
 </div>

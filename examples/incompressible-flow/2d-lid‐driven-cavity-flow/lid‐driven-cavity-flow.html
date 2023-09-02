@@ -485,8 +485,10 @@ end
 <h3>Non-linear Solver<a class="headerlink" href="#non-linear-solver" title="Permalink to this headline">¶</a></h3>
 <p>Lethe is an implicit CFD solver. Consequently, each time-step requires the solution of a non-linear system of equations. By default, Lethe uses a Newton solver for which a <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> must be specified:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set tolerance = 1e-8
-  set verbosity = verbose
+  subsection fluid dynamics
+    set tolerance = 1e-8
+    set verbosity = verbose
+  end
 end
 </pre></div>
 </div>

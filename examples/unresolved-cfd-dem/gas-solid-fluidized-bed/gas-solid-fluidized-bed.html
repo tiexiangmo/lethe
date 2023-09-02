@@ -665,11 +665,13 @@ end
 <h3>Non-linear Solver<a class="headerlink" href="#non-linear-solver" title="Permalink to this headline">¶</a></h3>
 <p>We use the inexact Newton non-linear solver to minimize the number of time the matrix of the system is assembled. This is used to increase the speed of the simulation, since the matrix assembly requires significant computations.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set solver           = inexact_newton
-  set tolerance        = 1e-7
-  set max iterations   = 20
-  set matrix tolerance = 0.2
-  set verbosity        = verbose
+  subsection fluid dynamics
+    set solver           = inexact_newton
+    set tolerance        = 1e-7
+    set max iterations   = 20
+    set matrix tolerance = 0.2
+    set verbosity        = verbose
+  end
 end
 </pre></div>
 </div>

@@ -530,11 +530,13 @@ end
 <section id="non-linear-solver">
 <h3>Non-linear Solver<a class="headerlink" href="#non-linear-solver" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set verbosity             = verbose
-  set tolerance             = 1e-4
-  set max iterations        = 10
-  set residual precision    = 5
-  set force rhs calculation = true
+  subsection fluid dynamics
+    set verbosity             = verbose
+    set tolerance             = 1e-4
+    set max iterations        = 10
+    set residual precision    = 5
+    set force rhs calculation = true
+  end
 end
 </pre></div>
 </div>

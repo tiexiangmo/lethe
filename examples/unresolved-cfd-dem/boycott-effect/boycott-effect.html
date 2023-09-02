@@ -632,11 +632,13 @@ end
 <section id="non-linear-solver">
 <h3>Non-linear Solver<a class="headerlink" href="#non-linear-solver" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set solver           = inexact_newton
-  set tolerance        = 1e-8
-  set max iterations   = 10
-  set verbosity        = verbose
-  set matrix tolerance = 0.75
+  subsection fluid dynamics
+    set solver           = inexact_newton
+    set tolerance        = 1e-8
+    set max iterations   = 10
+    set verbosity        = verbose
+    set matrix tolerance = 0.75
+  end
 end
 </pre></div>
 </div>

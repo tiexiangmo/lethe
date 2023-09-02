@@ -643,8 +643,10 @@ end
 <h3>Non-linear Solver<a class="headerlink" href="#non-linear-solver" title="Permalink to this headline">¶</a></h3>
 <p>Since this is a transient problem, it is not highly non-linear except for the first few iterations. Thus, we use standard <a class="reference internal" href="../../../parameters/cfd/non-linear_solver_control.html"><span class="doc">Non-linear Solver</span></a> parameters.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set tolerance = 1e-4
-  set solver    = inexact_newton
+  subsection fluid dynamics
+    set tolerance = 1e-4
+    set solver    = inexact_newton
+  end
 end
 </pre></div>
 </div>

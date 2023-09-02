@@ -522,10 +522,12 @@ end
 <h3>Non-linear Solver<a class="headerlink" href="#non-linear-solver" title="Permalink to this headline">¶</a></h3>
 <p>The non-linear solver control section allows us to choose a method suitable for the problem that we are solving:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set solver         = inexact_newton
-  set tolerance      = 1e-5
-  set max iterations = 10
-  set verbosity      = verbose
+  subsection fluid dynamics
+    set solver         = inexact_newton
+    set tolerance      = 1e-5
+    set max iterations = 10
+    set verbosity      = verbose
+  end
 end
 </pre></div>
 </div>

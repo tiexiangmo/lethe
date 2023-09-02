@@ -506,10 +506,12 @@ end
 <h3>Non-linear Solver<a class="headerlink" href="#non-linear-solver" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">inexact_newton</span></code> non-linear solver is used with a high <code class="docutils literal notranslate"><span class="pre">tolerance</span></code>, since convergence can be hard to obtain for high Reynolds numbers. This solver was chosen to reduce the cost of the simulation since it reuses the Jacobian matrix between iterations.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection non-linear solver
-  set solver         = inexact_newton
-  set verbosity      = verbose
-  set tolerance      = 1e-3
-  set max iterations = 10
+  subsection fluid dynamics
+    set solver         = inexact_newton
+    set verbosity      = verbose
+    set tolerance      = 1e-3
+    set max iterations = 10
+  end
 end
 </pre></div>
 </div>
