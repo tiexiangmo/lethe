@@ -381,6 +381,7 @@
 
   set viscous dissipative fluid = fluid 1
   set diffusivity               = 0
+  set compressible              = false
 
   subsection interface sharpening
     set enable                  = false
@@ -442,6 +443,7 @@ end
 </div>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">diffusivity</span></code>: value of the diffusivity (diffusion coefficient) in the transport equation of the phase fraction. Default value is <code class="docutils literal notranslate"><span class="pre">0</span></code> to have pure advection. Increase <code class="docutils literal notranslate"><span class="pre">diffusivity</span></code> to <a class="reference internal" href="#improve-wetting"><span class="std std-ref">Improving the Wetting Mechanism</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compressible</span></code>: enables interface compression (<span class="math notranslate nohighlight">\(\phi \nabla \cdot \mathbf{u}\)</span>) in the VOF equation.  This term should be kept to its default value of <code class="docutils literal notranslate"><span class="pre">false</span></code> except when compressible equations of state are used.</p></li>
 </ul>
 <section id="interface-sharpening">
 <h2>Interface Sharpening<a class="headerlink" href="#interface-sharpening" title="Permalink to this headline">¶</a></h2>

@@ -455,7 +455,7 @@
 <section id="simulation-control">
 <h3>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
 <p>Time integration is handled by a 1st order backward differentiation scheme (<cite>bdf1</cite>), for a <span class="math notranslate nohighlight">\(6 \ \text{s}\)</span> simulation time with an initial time step of <span class="math notranslate nohighlight">\(0.001 \ \text{s}\)</span>. Time-step adaptation is enabled using <code class="docutils literal notranslate"><span class="pre">adapt=true</span></code>
-and the max CFL is <span class="math notranslate nohighlight">\(0.5\)</span>.</p>
+and the max CFL is <span class="math notranslate nohighlight">\(0.8\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This example uses an adaptive time-stepping method, where the time-steps are modified during the simulation to keep the maximum value of the CFL condition below the given threshold (0.5).</p>
@@ -465,7 +465,7 @@ and the max CFL is <span class="math notranslate nohighlight">\(0.5\)</span>.</p
   set time end                     = 6
   set time step                    = 0.001
   set adapt                        = true
-  set max cfl                      = 0.5
+  set max cfl                      = 0.8
   set output name                  = 3d-dam-break
   set output frequency             = 5
   set output path                  = ./output/
@@ -509,7 +509,7 @@ end
 </section>
 <section id="initial-conditions">
 <h3>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code> subsection, we need to define the interface between the two fluids. We define this interface by using a function expression in the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection of <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code>.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code> subsection, we need to define the interface between the two fluids. We define this interface by using a function expression in the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection of <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code>. A projection step is applied to ensure a smooth definition of the initial condition.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
   set type = nodal
   subsection uvwp
@@ -518,6 +518,10 @@ end
 
   subsection VOF
     set Function expression = if (x&gt;1.992 &amp; z&lt;0.55 &amp; y&gt;=-0.5, 1, 0)
+    subsection projection step
+      set enable           = true
+      set diffusion factor = 1
+    end
   end
 end
 </pre></div>
