@@ -373,7 +373,6 @@
 <p>This subsection contains the parameters related to the sharp immersed boundary solver using a <strong>sharp interface immersed boundary</strong> (IB) <strong>method</strong>. This part of the parameter file concerns the usage of the <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes</span></code>. This solver can simulate the flow around static or moving objects (with a predetermined trajectory). It can also simulate the coupled flow around spherical particles (Resolved CFD-DEM). Using this solver eliminates the need to define a conformal mesh for the fluid between the particles.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  subsection particles
     set assemble Navier-Stokes inside particles = false
-    set levels not precalculated                = 0
     set number of particles                     = 1
 
     subsection extrapolation function
@@ -425,10 +424,11 @@
     end
 
     subsection particle info 0
-      set type              = sphere
-      set shape arguments   = 1
-      set integrate motion  = false
-      set pressure location = 0; 0; 0
+      set type                       = sphere
+      set shape arguments            = 1
+      set integrate motion           = false
+      set pressure location          = 0; 0; 0
+      set mesh-based precalculations = true
 
       subsection position
         set Function expression = 0; 0; 0
@@ -459,7 +459,6 @@ end
 </div>
 <ul>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span></code> is the number of particles simulated by the sharp-edge IB.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">levels</span> <span class="pre">not</span> <span class="pre">precalculated</span></code> parameter controls the number of layers of the hierarchical grid used by Lethe that are ignored by precalculations. It allows to reduce the memory footprint at the cost of an increased computing time. At the moment, this is used only for RBF shapes. The value should be increased when the RBF contains a lot of nodes and/or the grid is extremely fine.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">assemble</span> <span class="pre">Navier-Stokes</span> <span class="pre">inside</span> <span class="pre">particles</span></code> parameter determines if the Navier-Stokes equations are solved inside the particles or not. If the Navier-Stokes equations are not solved (the parameter is false), the solver will solve a Poisson equation for each variable in the problem. This eliminates the need to define a reference value for the pressure.</p></li>
 <li><dl>
 <dt>The <code class="docutils literal notranslate"><span class="pre">extrapolation</span> <span class="pre">function</span></code> subsection contains the parameters associated with the extrapolation function used to impose the sharp immersed boundary condition.</dt><dd><ul class="simple">
@@ -637,6 +636,7 @@ operations
 </dl>
 </li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion</span></code> parameter controls if the dynamics equations of the particles are calculated. If this parameter is set to false, the particles position, velocity, and angular velocity are defined directly by the functions. If <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion=true</span></code> the position and the velocity will be defined by the integration of the particle dynamic.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">mesh-based</span> <span class="pre">precalculations</span></code> parameter controls if the mesh-based precalculations are applied. These precalculations are critical for good performance in medium to high detailed RBFs (and its composites), but can introduce deformations. These deformations appear when some RBF nodes are located outside of the background mesh.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">location</span></code> parameter is used to define the X, Y, and Z coordinate offsets of the pressure reference point relative to the center of the particle. These parameters are used when the <code class="docutils literal notranslate"><span class="pre">assemble</span> <span class="pre">Navier-Stokes</span> <span class="pre">inside</span> <span class="pre">particles</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to define the pressure reference point.</p></li>
 <li><p>The subsection <code class="docutils literal notranslate"><span class="pre">position</span></code> defines the initial value of the particle position if the parameter <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion=true</span></code>. Otherwise, it defines the particle’s position at all points in time. This position is expressed as a function that can evolve in time. Each component of the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> corresponds to the value of coordinates X, Y, and Z.</p></li>
 <li><p>The subsection <code class="docutils literal notranslate"><span class="pre">velocity</span></code> defines the initial value of the particle velocity if the parameter <code class="docutils literal notranslate"><span class="pre">integrate</span> <span class="pre">motion=true</span></code>. Otherwise, it defines the particle’s velocity at all points in time. This velocity is expressed as a function that can evolve in time. Each component of the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> corresponds to the value of its component in the X, Y, and Z directions.</p></li>
