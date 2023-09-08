@@ -337,6 +337,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tools/updating-test-results.html">Updating Test Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tools/gmsh/gmsh.html">Introduction on How to Use GMSH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tools/automatic_launch/automatic_launch.html">How to Automatically Create and Launch Lethe Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/postprocessing/postprocessing.html">Post-processing Lethe with PyVista</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
@@ -732,8 +733,15 @@ end
 <p>We briefly comment on some results that can be extracted from this example.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>This example includes a post-processing file written in Python and using <a class="reference external" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">lethe_pyvista_tools</a>. module.</p>
+<p>This example includes a post-processing file written in Python that uses the <a class="reference external" href="../../../tools/postprocessing/postprocessing.html">lethe_pyvista_tools</a>. module.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>To use the code, run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">lsfb_postprocessing.py</span> <span class="pre">$PATH_TO_YOUR_CASE_FOLDER</span></code>. The code will generate several graphics showing the pressure profile within the bed, which are going to be stored in <code class="docutils literal notranslate"><span class="pre">$PATH_TO_YOUR_CASE_FOLDER/P_x</span></code>. It will also generate a <code class="docutils literal notranslate"><span class="pre">deltaP_t.csv</span></code> file with the total pressure difference for each time-step. Additionally, it generates a void fraction as a function of time graphic (<code class="docutils literal notranslate"><span class="pre">eps_t.png</span></code>).</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You need to ensure that the <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools</span></code> is working on your machine. Click <a class="reference external" href="../../../tools/postprocessing/postprocessing.html">here</a> for details.</p>
 </div>
 <section id="side-view">
 <h3>Side View<a class="headerlink" href="#side-view" title="Permalink to this headline">¶</a></h3>
