@@ -417,12 +417,6 @@
     set enable marangoni effect               = false
   end
 
-  subsection peeling wetting
-    set enable peeling = false
-    set enable wetting = false
-    set verbosity      = quiet
-  end
-
   subsection mass conservation
     set conservative fluid = both
     set monitoring         = false
@@ -443,7 +437,7 @@ end
 <p>Applying viscous dissipation in one of the fluids instead of both is particularly useful when one of the fluids is air. For numerical stability, the <code class="docutils literal notranslate"><span class="pre">kinematic</span> <span class="pre">viscosity</span></code> of the air is usually increased. However, we do not want to have viscous dissipation in the air, because it would result in an unrealistic increase in its temperature. This parameter is used only if <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">heat</span> <span class="pre">transfer</span> <span class="pre">=</span> <span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">viscous</span> <span class="pre">dissipation</span> <span class="pre">=</span> <span class="pre">true</span></code> in <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a>.</p>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">diffusivity</span></code>: value of the diffusivity (diffusion coefficient) in the transport equation of the phase fraction. Default value is <code class="docutils literal notranslate"><span class="pre">0</span></code> to have pure advection. Increase <code class="docutils literal notranslate"><span class="pre">diffusivity</span></code> to <a class="reference internal" href="#improve-wetting"><span class="std std-ref">Improving the Wetting Mechanism</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diffusivity</span></code>: value of the diffusivity (diffusion coefficient) in the transport equation of the phase fraction. Default value is <code class="docutils literal notranslate"><span class="pre">0</span></code> to have pure advection.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">compressible</span></code>: enables interface compression (<span class="math notranslate nohighlight">\(\phi \nabla \cdot \mathbf{u}\)</span>) in the VOF equation.  This term should be kept to its default value of <code class="docutils literal notranslate"><span class="pre">false</span></code> except when compressible equations of state are used.</p></li>
 </ul>
 <section id="interface-sharpening">
@@ -550,80 +544,10 @@ number of iterations to reach the mass conservation tolerance.
 </ol>
 </section>
 </section>
-<section id="peeling-and-wetting">
-<h2>Peeling and Wetting<a class="headerlink" href="#peeling-and-wetting" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">peeling</span> <span class="pre">wetting</span></code>: Peeling and wetting mechanisms are very important to consider when there are solid boundaries in the domain, like a wall. If the fluid is already on the wall and its velocity drives it away from it, the fluid should be able to detach from the wall, meaning to <cite>peel</cite> from it. If the fluid is not already on the wall and its velocity drives it toward it, the fluid should be able to attach to the wall, meaning to <cite>wet</cite> it. This subsection defines the parameters for peeling and wetting mechanisms at the VOF boundaries, as defined in <a class="reference internal" href="boundary_conditions_multiphysics.html"><span class="doc">Boundary Conditions - Multiphysics</span></a>.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>This peeling/wetting mechanism implementation is a heuristic. It has been developed to meet the need of specific projects and gave satisfactory results as is, but it has not been broadly tested nor demonstrated, so its results should be considered with caution. Do not hesitate to write to the team through the <a class="reference external" href="https://github.com/lethe-cfd/lethe">Lethe GitHub page</a> would you need assistance.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>As peeling/wetting mechanisms result in fluid generation and loss, it is highly advised to monitor the mass conservation of the fluid of interest (<code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mass</span> <span class="pre">conservation</span></code>) and to change the type of sharpening threshold to adaptative (<code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">sharpening</span></code>).</p>
-</div>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">peeling</span></code>: controls if peeling mechanism is enabled. Peeling occurs in a cell where the following conditions are met:</p>
-<ul class="simple">
-<li><p>the cell is in the domain of the higher density fluid,</p></li>
-<li><p>the cell pressure value is below the average pressure of the <code class="docutils literal notranslate"><span class="pre">monitored</span> <span class="pre">fluid</span></code> (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> by default, see <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mass</span> <span class="pre">conservation</span></code>), and</p></li>
-<li><p>the pressure gradient is negative for more than half of the quadrature points.</p></li>
-</ul>
-<p>The cell is then filled with the lower density fluid by changing its phase value progressively.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Even if <code class="docutils literal notranslate"><span class="pre">monitoring</span></code> is not enabled, the <code class="docutils literal notranslate"><span class="pre">monitored</span> <span class="pre">fluid</span></code> (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> by default) will be considered the fluid of interest for the average pressure calculation in the peeling/wetting mechanism.</p>
-</div>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">wetting</span></code>: controls if the wetting mechanism is enabled. Wetting occurs in a cell where those conditions are met:</p>
-<ul class="simple">
-<li><p>the cell is in the domain of the lower density fluid,</p></li>
-<li><p>the cell pressure value is above the average pressure of the <code class="docutils literal notranslate"><span class="pre">monitored</span> <span class="pre">fluid</span></code> (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> by default, see <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mass</span> <span class="pre">conservation</span></code>), and</p></li>
-<li><p>the pressure gradient is positive for more than half of the quadrature points.</p></li>
-</ul>
-<p>The cell is then filled with the higher density fluid by changing its phase value progressively.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Using <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">enable</span> <span class="pre">wetting</span> <span class="pre">=</span> <span class="pre">false</span></code> and relying on the <code class="docutils literal notranslate"><span class="pre">diffusivity</span></code> to wet the boundaries (see <a class="reference internal" href="#improve-wetting"><span class="std std-ref">Improving the Wetting Mechanism</span></a>) can give better results when the densities of the two fluids are of a very different order of magnitude.</p>
-<p>Typically, when one fluid is more than a hundred times denser than the other, the wetting mechanism can result in the denser fluid crawling on the wall in a non-physical way. Again, this is still a heuristic, so do not hesitate to write to the team through the <a class="reference external" href="https://github.com/lethe-cfd/lethe">Lethe GitHub page</a> would you need assistance.</p>
-</div>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">verbosity</span></code>: enables the display of the number of peeled and wet cells at each time-step. Choices are: <code class="docutils literal notranslate"><span class="pre">quiet</span></code> (default, no output) and <code class="docutils literal notranslate"><span class="pre">verbose</span></code>.</p>
-<div class="admonition-example-of-a-set-verbosity-verbose-output admonition">
-<p class="admonition-title">Example of a <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">verbose</span></code> output:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Peeling/wetting correction at step 2
-  -number of wet cells: 24
-  -number of peeled cells: 1
-</pre></div>
-</div>
-</div>
-</li>
-</ul>
-</li>
-</ul>
-<section id="improving-the-wetting-mechanism">
-<span id="improve-wetting"></span><h3>Improving the Wetting Mechanism<a class="headerlink" href="#improving-the-wetting-mechanism" title="Permalink to this headline">¶</a></h3>
-<p>In the framework of incompressible fluids, a layer of the lowest density fluid (e.g. air) can form between the highest density fluid (e.g. water) and the boundary, preventing its wetting. Two strategies can be used to improve the wetting mechanism:</p>
-<ol class="arabic simple">
-<li><p>Increase the <code class="docutils literal notranslate"><span class="pre">diffusivity</span></code> to the transport equation (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">diffusivity</span> <span class="pre">=</span> <span class="pre">1e-2</span></code>), so that the higher density fluid spreads even more to the boundary location.</p></li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>It is strongly advised to sharpen the interface more often (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">2</span></code> or even <code class="docutils literal notranslate"><span class="pre">1</span></code>) to limit interface blurriness due the added diffusivity. As peeling-wetting is handled after the transport equation is solved, but before interface sharpening, sharpening will not prevent the wetting from occurring.</p>
-</div>
-<ol class="arabic simple" start="2">
-<li><p>Remove the conservation condition on the lowest density fluid (e.g. <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">conservative</span> <span class="pre">fluid</span> <span class="pre">=</span> <span class="pre">fluid</span> <span class="pre">1</span></code>). The mass conservation equation in the cells of interest is replaced by a zero-pressure condition, to allow the fluid to get out of the domain.</p></li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>This can give more precise results as the interface remains sharp, but the time step (in <a class="reference internal" href="simulation_control.html"><span class="doc">Simulation Control</span></a>) must be low enough to prevent numerical instabilities.</p>
-</div>
-</section>
-</section>
 <section id="mass-conservation">
-<span id="id4"></span><h2>Mass Conservation<a class="headerlink" href="#mass-conservation" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Mass Conservation<a class="headerlink" href="#mass-conservation" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mass</span> <span class="pre">conservation</span></code>: By default, mass conservation (continuity) equations are solved on the whole domain, i.e. on both fluids (<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">conservative</span> <span class="pre">fluid</span> <span class="pre">=</span> <span class="pre">both</span></code>). However, replacing the mass conservation by a zero-pressure condition on one of the fluid (typically, the air), so that it can get in and out of the domain, can be useful to <a class="reference internal" href="#improve-wetting"><span class="std std-ref">Improving the Wetting Mechanism</span></a>. This subsection defines parameters that can be used to solve mass conservation in one fluid instead of both, and to monitor the surface/volume (2D/3D) occupied by the other fluid of interest.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mass</span> <span class="pre">conservation</span></code>: By default, mass conservation (continuity) equations are solved on the whole domain, i.e. on both fluids (<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">conservative</span> <span class="pre">fluid</span> <span class="pre">=</span> <span class="pre">both</span></code>).  This subsection defines parameters that can be used to solve mass conservation in one fluid instead of both, and to monitor the surface/volume (2D/3D) occupied by the other fluid of interest.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">conservative</span> <span class="pre">fluid</span></code>: defines fluid(s) for which conservation is solved.</p>
 <p>Choices are: <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">both</span></code> (default), with the fluid IDs defined in <a class="reference internal" href="physical_properties.html#two-phase-simulations"><span class="std std-ref">Physical properties - Two Phase Simulations</span></a>.</p>
@@ -718,10 +642,6 @@ number of iterations to reach the mass conservation tolerance.
 <li><a class="reference internal" href="#phase-filtration">Phase Filtration</a></li>
 <li><a class="reference internal" href="#surface-tension-force">Surface Tension Force</a><ul>
 <li><a class="reference internal" href="#choosing-values-for-the-surface-tension-force-filters">Choosing Values for the Surface Tension Force Filters</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#peeling-and-wetting">Peeling and Wetting</a><ul>
-<li><a class="reference internal" href="#improving-the-wetting-mechanism">Improving the Wetting Mechanism</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#mass-conservation">Mass Conservation</a></li>

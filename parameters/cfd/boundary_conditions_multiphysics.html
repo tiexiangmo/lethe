@@ -449,19 +449,15 @@ end
 </section>
 <section id="vof">
 <h2>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h2>
-<p>For VOF boundary conditions (multiphase flow), the possible <code class="docutils literal notranslate"><span class="pre">types</span></code> are <code class="docutils literal notranslate"><span class="pre">none</span></code> (default), <code class="docutils literal notranslate"><span class="pre">peeling/wetting</span></code>, and <code class="docutils literal notranslate"><span class="pre">dirichlet</span></code>, as shown below.</p>
+<p>For VOF boundary conditions (multiphase flow), the possible <code class="docutils literal notranslate"><span class="pre">types</span></code> are <code class="docutils literal notranslate"><span class="pre">none</span></code> (default) and <code class="docutils literal notranslate"><span class="pre">dirichlet</span></code>, as shown below.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions VOF
-  set number = 3
+  set number = 2
   subsection bc 0
     set id   = 0
     set type = none
   end
   subsection bc 1
     set id   = 1
-    set type = peeling/wetting
-  end
-  subsection bc 2
-    set id   = 2
     set type = dirichlet
     subsection dirichlet
       set Function expression = 0
@@ -485,7 +481,6 @@ end
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">type</span></code>: This is the type of boundary condition being imposed. At the moment, choices are:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">none</span></code> for which nothing happens.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">peeling/wetting</span></code> for the fluid can attach to (<cite>wet</cite>) or detach from (<cite>peel</cite>) the boundary. The parameters for peeling/wetting are defined in the <a class="reference internal" href="volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a> subsection of the parameter file.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dirichlet</span></code> for inlet and outlet boundary conditions, to specify which fluid should be at the selected boundary.</p></li>
 </ul>
 </dd>
