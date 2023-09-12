@@ -419,6 +419,13 @@
   set list x                                         = 0.
   set list y                                         = 0.
   set list z                                         = 0.
+  set list velocity x                                = 0.
+  set list velocity y                                = 0.
+  set list velocity z                                = 0.
+  set list omega x                                   = 0.
+  set list omega y                                   = 0.
+  set list omega z                                   = 0.
+  set list diameters                                 = 0.
 
 end
 </pre></div>
@@ -477,7 +484,7 @@ end
 </section>
 <section id="list">
 <h2>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
-<p>The List insertion method insert particles at precis coordinates. This method is preferred for small number of particles.</p>
+<p>The List insertion method insert particles at precis coordinates with specific velocities (translational and angular) and diameters.  This method is preferred for small number of particles.</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">z</span></code> define the coordinates of every particles in the x, y and z directions, respectively. For example, if you want to insert particles at two locations, <code class="docutils literal notranslate"><span class="pre">(0.,0.,0.)</span> <span class="pre">and</span> <span class="pre">(1.,2.,3.)</span></code> , the list parameters should look like this :</p></li>
 </ul>
@@ -486,6 +493,9 @@ set list y = 0., 2.
 set list z = 0., 3.
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">velocity</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">velocity</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">velocity</span> <span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">omega</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">omega</span> <span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">omega</span> <span class="pre">z</span></code> and <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">diameters</span></code> define the initial translational velocities, the initial angular velocities and diameters of each particles respectively following the same logic as the insertion coordinates.</p></li>
+</ul>
 </section>
 </section>
 
