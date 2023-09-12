@@ -418,7 +418,6 @@
   end
 
   subsection mass conservation
-    set conservative fluid = both
     set monitoring         = false
     set monitored fluid    = fluid 1
 
@@ -547,11 +546,8 @@ number of iterations to reach the mass conservation tolerance.
 <section id="mass-conservation">
 <span id="id3"></span><h2>Mass Conservation<a class="headerlink" href="#mass-conservation" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mass</span> <span class="pre">conservation</span></code>: By default, mass conservation (continuity) equations are solved on the whole domain, i.e. on both fluids (<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">conservative</span> <span class="pre">fluid</span> <span class="pre">=</span> <span class="pre">both</span></code>).  This subsection defines parameters that can be used to solve mass conservation in one fluid instead of both, and to monitor the surface/volume (2D/3D) occupied by the other fluid of interest.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mass</span> <span class="pre">conservation</span></code>: By default, mass conservation (continuity) equations are solved on the whole domain, i.e. on both fluids. This subsection defines parameters that are used to solve mass conservation in both fluids, and to monitor the surface/volume (2D/3D) occupied by the fluid of interest (<code class="docutils literal notranslate"><span class="pre">monitored</span> <span class="pre">fluid</span></code>).</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">conservative</span> <span class="pre">fluid</span></code>: defines fluid(s) for which conservation is solved.</p>
-<p>Choices are: <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">both</span></code> (default), with the fluid IDs defined in <a class="reference internal" href="physical_properties.html#two-phase-simulations"><span class="std std-ref">Physical properties - Two Phase Simulations</span></a>.</p>
-</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">monitoring</span></code>: controls if conservation is monitored at each iteration, through the volume (3D) or surface (2D) computation of the fluid given as <code class="docutils literal notranslate"><span class="pre">monitored</span> <span class="pre">fluid</span></code> (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> (default) or <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>). Results are outputted in a data table (<cite>VOF_monitoring_fluid_0.dat</cite> or <cite>VOF_monitoring_fluid_1.dat</cite>).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
