@@ -232,7 +232,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../2d-flow-around-cylinder/2d-flow-around-cylinder.html">Flow around a Cylinder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../2d-taylor-couette-flow/2d-taylor-couette-flow.html">Taylor-Couette Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../2d-backward-facing-step/2d-backward-facing-step.html">Flow past a Backward-Facing Step</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">Transient Flow around an Ahmed Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2d-transient-flow-around-ahmed-body/2d-transient-flow-around-ahmed-body.html">Transient Flow around an Ahmed Body</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../2d-transient-flow-around-cylinder/2d-transient-flow-around-cylinder.html">Transient Flow around a Cylinder</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../2d-naca0012-low-reynolds/2d-naca0012-low-reynolds.html">Flow around NACA0012 at Low Reynolds Number</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Taylor-Couette Flow Using Nitsche Immersed Boundary</a></li>
@@ -430,11 +430,11 @@ end
 <p>The <code class="docutils literal notranslate"><span class="pre">Nitsche</span></code> subsection specifies the solid geometry embedded in the fluid domain. The Nitsche Immersed Boundary (IB) uses particles located at the
 Gauss quadrature points of the immersed mesh to represent the immersed body. For a thorough explanation of this, we refer the reader to <a class="reference external" href="https://www.dealii.org/developer/doxygen/deal.II/step_70">step-70</a> of deal.II.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection nitsche
-  set beta             = 10
   set verbosity        = verbose
   set number of solids = 1
 
   subsection nitsche solid 0
+    set beta             = 10
     subsection mesh
       set type               = dealii
       set grid type          = hyper_ball
@@ -449,10 +449,7 @@ Gauss quadrature points of the immersed mesh to represent the immersed body. For
 end
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">beta</span></code> coefficient is a parameter used to enforce the Nitsche IB. It’s value is generally between 1 and 100, according to the size of the mesh.
-A value of 10 is reasonable. Then, we specify the <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> geometries that with be represented with Nitsche IB.
-For each Nitsche IB, a mesh representing the immersed solid has to be specified. Additionally, the solid velocity of the Nitsche IB is specified using the <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">velocity</span></code>
-subsection. Finally, the motion of the particle is disabled. This means that even if the immersed particles have a non-zero velocity, they will not physically move in the fluid domain. In this case, this is because our problem has rotation symmetry and we will be seeking steady-state solutions. We note that in this problem, the Nitsche solid grid has the same dimension as the background grid. This is necessary for 2D simulations. Additionally, the Nitsche solid grid is well-refined to ensure that at approximately each fluid cell contains one particle of the immersed body. Finally, we enable the calculation of the torque on the Nitsche IB by setting <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torque</span> <span class="pre">on</span> <span class="pre">solid</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p>
+<p>First, we set the <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">solids</span></code> to specify the amount of geometries that will be represented with Nitsche IB. For each Nitsche IB solid,  we need to specify a <code class="docutils literal notranslate"><span class="pre">beta</span></code>  coefficient, a mesh and a solid velocity. The <code class="docutils literal notranslate"><span class="pre">beta</span></code> coefficient is a parameter used to enforce the Nitsche IB. Its value is generally between 1 and 100 (10 being a reasonable value). The restriction automatically scales with the mesh size. In the case of the mesh, we note that in this problem, the Nitsche solid grid has the same dimension as the background grid. This is necessary for 2D simulations. Also, the Nitsche solid grid is well-refined to ensure that at approximately each fluid cell contains one particle of the immersed body.  The solid velocity of the Nitsche IB is specified using the <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">velocity</span></code> subsection. By default, the motion of the particle is disabled. This means that even if the immersed particles have a non-zero velocity, they will not physically move in the fluid domain. In this case, this is useful because our problem has rotation symmetry and we will be seeking steady-state solutions.  Finally, we enable the calculation of the torque on the Nitsche IB by setting <code class="docutils literal notranslate"><span class="pre">calculate</span> <span class="pre">torque</span> <span class="pre">on</span> <span class="pre">solid</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p>
 <p>The following figure illustrates the background mesh as well as the particles used to represent the IB on top of it:</p>
 <a class="reference internal image-reference" href="../../../_images/taylor-couette-with-nitsche-mesh.png" id="nitsche-particles"><img alt="The background mesh and the embedded particles" class="align-center" id="nitsche-particles" src="../../../_images/taylor-couette-with-nitsche-mesh.png" style="height: 10cm;"/></a>
 </section>
