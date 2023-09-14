@@ -123,18 +123,15 @@ Linux distribution (Option #1)
 
 3. |linux_shell| Add PPA to your system:
 
-First, you will need a special add the `Personal Package Archive (PPA) backport <https://launchpad
-.net/~ginggs/+archive/ubuntu/deal.ii-9.4.0-backports>`_ to your system:
+First, you will need a special add the `Personal Package Archive (PPA) backport <https://launchpad.net/~ginggs/+archive/ubuntu/deal.ii-testing>`_ to your system:
 
 .. code-block:: text
   :class: copy-button
 
+  sudo apt-get update && apt-get install -y software-properties-common
   sudo add-apt-repository ppa:ginggs/deal.ii-9.4.0-backports
   sudo apt update
-
-
-.. note::
-  The latest deal.ii version available in this procedure is 9.4.0. For newer versions, follow :ref:`Option #2`.
+  sudo apt install build-essential cmake ninja-build gdb clang-format git-core
 
 Then, run:
 
@@ -144,6 +141,8 @@ Then, run:
   sudo apt-get install libdeal.ii-dev
 
 Deal.II is installed! Now, you can skip right away to :ref:`Step #2`.
+
+For troubleshooting of this step, visit `deal.II's official repository <https://github.com/dealii/dealii/wiki/Windows>`_
 
 
 .. _Option #2:
@@ -296,7 +295,7 @@ After installation is complete, the folder structure will be:
   :class: copy-button
 
   cd lethe
-  git clone https://github.com/lethe-cfd/lethe git
+  git clone https://github.com/lethe-cfd/lethe.git git
 
 3. |linux_shell| Build lethe:
 
