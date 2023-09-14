@@ -282,6 +282,7 @@
 <li class="toctree-l3"><a class="reference internal" href="silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
 <li class="toctree-l3"><a class="reference internal" href="granular-dam-break/granular-dam-break.html">Granular Dam-Break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bunny-drill/bunny-drill.html">Bunny Drill</a></li>
 <li class="toctree-l3"><a class="reference internal" href="granular-mixer/granular-mixer.html">Granular Mixer</a></li>
 </ul>
 </li>
@@ -405,7 +406,11 @@
 
   dem_11 [label="Granular Dam-Break", href="https://lethe-cfd.github.io/lethe/examples/dem/granular-dam-break/granular-dam-break.html"];
 
-  dem_12 [label="Granular Mixer", href="https://lethe-cfd.github.io/lethe/examples/dem/granular-mixer/granular-mixer.html"];
+  dem_12 [label="Bunny Drill", href="https://lethe-cfd.github.io/lethe/examples/dem/bunny-drill/bunny-drill.html"];
+
+  dem_13 [label="Granular Mixer", href="https://lethe-cfd.github.io/lethe/examples/dem/granular-mixer/granular-mixer.html"];
+
+
 
   dem -&gt; dem_1:w;
   dem -&gt; dem_2:w;
@@ -419,21 +424,23 @@
   dem -&gt; dem_10:w;
   dem -&gt; dem_11:w;
   dem -&gt; dem_12:w;
-}' class="graphviz" src="../../_images/graphviz-187377b98e6f4d4209e96bf3c7830d55bd5ea415.png" usemap="#dem_diagram"/></div>
+  dem -&gt; dem_13:w;
+}' class="graphviz" src="../../_images/graphviz-5cdf8613f5213840e5d862a8e0e66d29d4ad9c56.png" usemap="#dem_diagram"/></div>
 <map id="dem_diagram" name="dem_diagram">
-<area alt="" coords="5,393,216,457" href="https://lethe-cfd.github.io/lethe/examples/dem/dem.html" id="node1" shape="rect" title="Discrete Element \nMethod (DEM)"/>
-<area alt="" coords="499,5,705,53" href="https://lethe-cfd.github.io/lethe/examples/dem/bouncing-particle/bouncing-particle.html" id="node2" shape="rect" title="Bouncing Particle"/>
-<area alt="" coords="503,77,701,125" href="https://lethe-cfd.github.io/lethe/examples/dem/packing-in-circle/packing-in-circle.html" id="node3" shape="rect" title="Packing in Circle"/>
-<area alt="" coords="513,149,691,197" href="https://lethe-cfd.github.io/lethe/examples/dem/packing-in-ball/packing-in-ball.html" id="node4" shape="rect" title="Packing in Ball"/>
-<area alt="" coords="449,221,755,269" href="https://lethe-cfd.github.io/lethe/examples/dem/small-scale-rotating-drum/small-scale-rotating-drum.html" id="node5" shape="rect" title="Small Scale Rotating Drum"/>
-<area alt="" coords="360,293,844,341" href="https://lethe-cfd.github.io/lethe/examples/dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html" id="node6" shape="rect" title="Small Scale Rotating Drum Post-processing"/>
-<area alt="" coords="515,365,689,413" href="https://lethe-cfd.github.io/lethe/examples/dem/rotating-drum/rotating-drum.html" id="node7" shape="rect" title="Rotating Drum"/>
-<area alt="" coords="401,437,803,485" href="https://lethe-cfd.github.io/lethe/examples/dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html" id="node8" shape="rect" title="Rotating Drum with Post-processing"/>
-<area alt="" coords="509,509,695,557" href="https://lethe-cfd.github.io/lethe/examples/dem/rotation-of-box/rotation-of-box.html" id="node9" shape="rect" title="Rotation of Box"/>
-<area alt="" coords="566,581,638,629" href="https://lethe-cfd.github.io/lethe/examples/dem/silo/silo.html" id="node10" shape="rect" title="Silo"/>
-<area alt="" coords="485,653,719,701" href="https://lethe-cfd.github.io/lethe/examples/dem/rectangular-hopper/rectangular-hopper.html" id="node11" shape="rect" title="Rectangular Hopper"/>
-<area alt="" coords="481,725,723,773" href="https://lethe-cfd.github.io/lethe/examples/dem/granular-dam-break/granular-dam-break.html" id="node12" shape="rect" title="Granular Dam-Break"/>
-<area alt="" coords="513,797,691,845" href="https://lethe-cfd.github.io/lethe/examples/dem/granular-mixer/granular-mixer.html" id="node13" shape="rect" title="Granular Mixer"/>
+<area alt="" coords="5,402,202,462" href="https://lethe-cfd.github.io/lethe/examples/dem/dem.html" id="node1" shape="rect" title="Discrete Element \nMethod (DEM)"/>
+<area alt="" coords="467,5,660,50" href="https://lethe-cfd.github.io/lethe/examples/dem/bouncing-particle/bouncing-particle.html" id="node2" shape="rect" title="Bouncing Particle"/>
+<area alt="" coords="471,72,657,117" href="https://lethe-cfd.github.io/lethe/examples/dem/packing-in-circle/packing-in-circle.html" id="node3" shape="rect" title="Packing in Circle"/>
+<area alt="" coords="481,140,647,185" href="https://lethe-cfd.github.io/lethe/examples/dem/packing-in-ball/packing-in-ball.html" id="node4" shape="rect" title="Packing in Ball"/>
+<area alt="" coords="420,207,707,252" href="https://lethe-cfd.github.io/lethe/examples/dem/small-scale-rotating-drum/small-scale-rotating-drum.html" id="node5" shape="rect" title="Small Scale Rotating Drum"/>
+<area alt="" coords="337,275,790,320" href="https://lethe-cfd.github.io/lethe/examples/dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html" id="node6" shape="rect" title="Small Scale Rotating Drum Post-processing"/>
+<area alt="" coords="482,342,646,387" href="https://lethe-cfd.github.io/lethe/examples/dem/rotating-drum/rotating-drum.html" id="node7" shape="rect" title="Rotating Drum"/>
+<area alt="" coords="376,410,752,454" href="https://lethe-cfd.github.io/lethe/examples/dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html" id="node8" shape="rect" title="Rotating Drum with Post-processing"/>
+<area alt="" coords="477,477,650,522" href="https://lethe-cfd.github.io/lethe/examples/dem/rotation-of-box/rotation-of-box.html" id="node9" shape="rect" title="Rotation of Box"/>
+<area alt="" coords="530,544,597,589" href="https://lethe-cfd.github.io/lethe/examples/dem/silo/silo.html" id="node10" shape="rect" title="Silo"/>
+<area alt="" coords="454,612,673,657" href="https://lethe-cfd.github.io/lethe/examples/dem/rectangular-hopper/rectangular-hopper.html" id="node11" shape="rect" title="Rectangular Hopper"/>
+<area alt="" coords="451,679,677,724" href="https://lethe-cfd.github.io/lethe/examples/dem/granular-dam-break/granular-dam-break.html" id="node12" shape="rect" title="Granular Dam-Break"/>
+<area alt="" coords="500,747,627,792" href="https://lethe-cfd.github.io/lethe/examples/dem/bunny-drill/bunny-drill.html" id="node13" shape="rect" title="Bunny Drill"/>
+<area alt="" coords="480,814,647,859" href="https://lethe-cfd.github.io/lethe/examples/dem/granular-mixer/granular-mixer.html" id="node14" shape="rect" title="Granular Mixer"/>
 </map></section>
 
         </article>
