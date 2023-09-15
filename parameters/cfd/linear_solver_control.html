@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -364,7 +364,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -372,7 +372,7 @@
         <article role="main">
           <section id="linear-solver">
 <h1>Linear Solver<a class="headerlink" href="#linear-solver" title="Permalink to this headline">¶</a></h1>
-<p>In this subsection, the control options of the linear solvers are specified. The default values for the linear solver parameters are given in the text box below. Lethe supports different physics (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code>, <code class="docutils literal notranslate"><span class="pre">VOF</span></code>, <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span></code> and <code class="docutils literal notranslate"><span class="pre">tracer</span></code>) and it is possible to specify linear solver parameters for each of them. In the example below, only <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> is used but the same block can be used for other physics.</p>
+<p>In this subsection, the control options of the linear solvers are specified. The default values for the linear solver parameters are given in the text box below. Lethe supports different physics (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code>, <code class="docutils literal notranslate"><span class="pre">VOF</span></code>, <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">cahn</span> <span class="pre">hilliard</span></code> and <code class="docutils literal notranslate"><span class="pre">tracer</span></code>) and it is possible to specify linear solver parameters for each of them. In the example below, only <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> is used, however, the same block can be used for other physics.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>For further understanding about the linear solvers used, the preconditioners supported and all parameters, see the <a class="reference internal" href="../../theory/fluid_dynamics/linear_solvers.html"><span class="doc">Linear Solvers</span></a> theory section.</p>
@@ -380,70 +380,28 @@
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection linear solver
   subsection fluid dynamics
     # Iterative solver for the linear system of equations
-    set method                                    = gmres
+    set method                           = gmres
 
     # State whether information from the linear solver should be printed
-    set verbosity                                 = verbose
+    set verbosity                        = verbose
 
     # Linear solver minimum residual
-    set minimum residual                          = 1e-12
+    set minimum residual                 = 1e-12
 
     # Linear solver residual
-    set relative residual                         = 1e-3
+    set relative residual                = 1e-3
 
     # Maximum solver iterations
-    set max iters                                 = 1000
+    set max iters                        = 1000
 
     # Force the linear solver to continue even if it fails
-    set force linear solver continuation          = false
+    set force linear solver continuation = false
 
     # Maximum number of krylov vectors for GMRES solver
-    set max krylov vectors                        = 100
+    set max krylov vectors               = 100
 
     # Set type of preconditioner for the iterative solver
-    set preconditioner                            = ilu
-
-    #------------------------------------------------------------------
-    # Parameters for GMRES and BICGSTAB solvers with ILU preconditioner
-    #------------------------------------------------------------------
-    # ILU preconditioner fill
-    set ilu preconditioner fill                   = 0
-
-    # ILU preconditioner tolerance
-    set ilu preconditioner absolute tolerance     = 1e-12
-
-    # ILU relative tolerance
-    set ilu preconditioner relative tolerance     = 1.00
-
-    #---------------------------------------------------------------------------
-    # ILU smoother/coarsener parameters for GMRES solver with AMG preconditioner
-    #---------------------------------------------------------------------------
-    # AMG preconditioner ILU smoother/coarsener fill
-    set amg preconditioner ilu fill               = 0
-
-    # AMG preconditioner ILU smoother/coarsener absolute tolerance
-    set amg preconditioner ilu absolute tolerance = 1e-12
-
-    # AMG preconditioner ILU smoother/coarsener relative tolerance
-    set amg preconditioner ilu relative tolerance = 1.00
-
-    #----------------------------------------------------------
-    # Other parameters for GMRES solver with AMG preconditioner
-    #----------------------------------------------------------
-    # AMG aggregation threshold
-    set amg aggregation threshold                 = 1e-14
-
-    # AMG number of cycles
-    set amg n cycles                              = 1
-
-    # AMG w cycling. If this is set to true, W cycling is used. Otherwise, V cycling is used.
-    set amg w cycles                              = false
-
-    # AMG smoother sweeps
-    set amg smoother sweeps                       = 2
-
-    # AMG smoother overlap
-    set amg smoother overlap                      = 1
+    set preconditioner                   = ilu
   end
 end
 </pre></div>
@@ -547,9 +505,19 @@ end
 <p class="admonition-title">Caution</p>
 <p>Be aware that the setup of the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner is very expensive and does not scale linearly with the size of the matrix. As such, it is generally preferable to minimize the number of assembly of such preconditioner. This can be achieved by using the <code class="docutils literal notranslate"><span class="pre">inexact</span> <span class="pre">newton</span></code> for the nonlinear solver (see <a class="reference internal" href="non-linear_solver_control.html"><span class="doc">Non-linear Solver</span></a>).</p>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">fill</span></code>, <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">absolute</span> <span class="pre">tolerance</span></code> and <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">relative</span> <span class="pre">tolerance</span></code> are parameters that control the <code class="docutils literal notranslate"><span class="pre">ilu</span></code> preconditioner. Conversely, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">preconditioner</span> <span class="pre">ilu</span> <span class="pre">fill</span></code>, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">preconditioner</span> <span class="pre">ilu</span> <span class="pre">absolute</span> <span class="pre">tolerance</span></code> and <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">preconditioner</span> <span class="pre">ilu</span> <span class="pre">relative</span> <span class="pre">tolerance</span></code> control the ILU coarsener and smoother used by the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner.</p></li>
-</ul>
+<p>In addition to the method parameters, one can also set specific parameters for each of the preconditioners by adding specific lines inside of the specific physics subsection:</p>
+<section id="ilu-preconditioner">
+<h2>ILU preconditioner<a class="headerlink" href="#ilu-preconditioner" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># ILU preconditioner fill
+set ilu preconditioner fill               = 0
+
+# ILU preconditioner tolerance
+set ilu preconditioner absolute tolerance = 1e-12
+
+# ILU relative tolerance
+set ilu preconditioner relative tolerance = 1.00
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The default values for these parameters are good starting values.</p>
@@ -560,13 +528,39 @@ end
 </div>
 <p>and it does not disappear when increasing <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">iters</span></code>, increasing the <code class="docutils literal notranslate"><span class="pre">ilu</span> <span class="pre">preconditioner</span> <span class="pre">fill</span></code> in the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file will make the computation slightly faster.</p>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">aggregation</span> <span class="pre">threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">n</span> <span class="pre">cycles</span></code>, <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">w</span> <span class="pre">cycles</span></code> (if this is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, W cycling is used, if <code class="docutils literal notranslate"><span class="pre">false</span></code>, V cycling is used), <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">smoother</span> <span class="pre">sweeps</span></code>, and <code class="docutils literal notranslate"><span class="pre">amg</span> <span class="pre">smoother</span> <span class="pre">overlap</span></code> are parameters used for the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner only.</p></li>
-</ul>
+</section>
+<section id="amg-preconditioner">
+<h2>AMG preconditioner<a class="headerlink" href="#amg-preconditioner" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># AMG preconditioner ILU smoother/coarsener fill
+set amg preconditioner ilu fill               = 0
+
+# AMG preconditioner ILU smoother/coarsener absolute tolerance
+set amg preconditioner ilu absolute tolerance = 1e-12
+
+# AMG preconditioner ILU smoother/coarsener relative tolerance
+set amg preconditioner ilu relative tolerance = 1.00
+
+# AMG aggregation threshold
+set amg aggregation threshold                 = 1e-14
+
+# AMG number of cycles
+set amg n cycles                              = 1
+
+# AMG w cycling. If this is set to true, W cycling is used. Otherwise, V cycling is used.
+set amg w cycles                              = false
+
+# AMG smoother sweeps
+set amg smoother sweeps                       = 2
+
+# AMG smoother overlap
+set amg smoother overlap                      = 1
+</pre></div>
+</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>For more information about the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner parameters, the reader is referred to the deal.II documentation for the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classTrilinosWrappers_1_1PreconditionAMG.html">AMG preconditioner</a> and its <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/structTrilinosWrappers_1_1PreconditionAMG_1_1AdditionalData.html">Additional Data</a></p>
+<p>For more information about the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner parameters, the reader is referred to the deal.II documentation for the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classTrilinosWrappers_1_1PreconditionAMG.html">AMG preconditioner</a> and its <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/structTrilinosWrappers_1_1PreconditionAMG_1_1AdditionalData.html">Additional Data</a>.</p>
 </div>
+</section>
 </section>
 
         </article>
@@ -608,8 +602,28 @@ end
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Linear Solver</a><ul>
+<li><a class="reference internal" href="#ilu-preconditioner">ILU preconditioner</a></li>
+<li><a class="reference internal" href="#amg-preconditioner">AMG preconditioner</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
