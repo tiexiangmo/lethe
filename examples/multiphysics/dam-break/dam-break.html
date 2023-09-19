@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -377,7 +378,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code>  (with Q1-Q1)</p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code>  (with Q1-Q1)</p></li>
 <li><p>Two phase flow handled by the Volume of fluids (VOF) approach with interface sharpening</p></li>
 <li><p>Unsteady problem handled by an adaptive BDF1 time-stepping scheme</p></li>
 <li><p>The use of a python script for post-processing data</p></li>
@@ -553,8 +554,8 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Call the gls_navier_stokes by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">2</span> <span class="pre">gls_navier_stokes</span> <span class="pre">dam-break-Martin-and-Moyce.prm</span></code></p>
+<p>Call the lethe-fluid by invoking:</p>
+<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">2</span> <span class="pre">lethe-fluid</span> <span class="pre">dam-break-Martin-and-Moyce.prm</span></code></p>
 <p>to run the simulation using two CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>

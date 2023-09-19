@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -511,39 +512,9 @@ somefile.txt
 <div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/dealii<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>ghcr.io/lethe-cfd/lethe:master<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>gls_navier_stokes<span class="w"> </span>examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm
+<span class="w">  </span>lethe-fluid<span class="w"> </span>examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm
 </pre></div>
 </div>
-<section id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>██╗     ███████╗████████╗██╗  ██╗███████╗
-██║     ██╔════╝╚══██╔══╝██║  ██║██╔════╝
-██║     █████╗     ██║   ███████║█████╗
-██║     ██╔══╝     ██║   ██╔══██║██╔══╝
-███████╗███████╗   ██║   ██║  ██║███████╗
-╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝
-
-
-Usage: &lt;program name&gt; [&lt;program arg&gt;, ...]
-
-Available programs:
-===================
-
-▸ cfd_dem_coupling
-▸ dem
-▸ dem_parameter_template
-▸ gd_navier_stokes
-▸ gls_navier_stokes
-▸ nitsche_navier_stokes
-▸ gls_sharp_navier_stokes
-▸ gls_vans
-▸ initial_conditions
-▸ navier_stokes_parameter_template
-▸ rpt_3d
-▸ rpt_cell_reconstruction_3d
-</pre></div>
-</div>
-</section>
 </section>
 </section>
 
@@ -607,10 +578,7 @@ Available programs:
 <li><a class="reference internal" href="#final-notes">Final Notes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#no-compilation-required-using-the-provided-lethe-docker-image">No Compilation Required: Using the Provided Lethe Docker Image</a><ul>
-<li><a class="reference internal" href="#usage">Usage</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#no-compilation-required-using-the-provided-lethe-docker-image">No Compilation Required: Using the Provided Lethe Docker Image</a></li>
 </ul>
 </li>
 </ul>

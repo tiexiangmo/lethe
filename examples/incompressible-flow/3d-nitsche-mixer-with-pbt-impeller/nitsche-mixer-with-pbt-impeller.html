@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -382,7 +383,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">nitsche_navier_stokes</span></code></p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">lethe-fluid-nitsche</span></code></p></li>
 <li><p>Transient problem</p></li>
 <li><p>Rotating complex solid modeled with Nitsche immersed boundary</p></li>
 <li><p>Calculation of the average velocity</p></li>
@@ -677,7 +678,7 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. For this more complex example, it is highly advised to use <code class="docutils literal notranslate"><span class="pre">mpirun</span></code> to parallelize the computation, with <code class="docutils literal notranslate"><span class="pre">&lt;np&gt;</span></code> the number of processes, defined accordingly with your machine’s number of cpu. The simulation can be launched by typing, in a terminal opened in the example folder:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np &lt;np&gt; &lt;/path/to/the/build/applications/nitsche_navier_stokes/nitsche_navier_stokes mixer.prm&gt;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np &lt;np&gt; &lt;/path/to/the/build/applications/lethe-fluid-nitsche/lethe-fluid-nitsche mixer.prm&gt;
 </pre></div>
 </div>
 <p>Lethe generates a larger number of files when the Nitsche immersed boundary is used:</p>

@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -373,7 +374,7 @@
         <article role="main">
           <section id="fem-reconstruction">
 <h1>FEM Reconstruction<a class="headerlink" href="#fem-reconstruction" title="Permalink to this headline">¶</a></h1>
-<p>In this subsection, the parameters used for <code class="docutils literal notranslate"><span class="pre">rpt_l2_projection_3d</span></code> and <code class="docutils literal notranslate"><span class="pre">rpt_fem_reconstruction_3d</span></code> applications are defined.
+<p>In this subsection, the parameters used for <code class="docutils literal notranslate"><span class="pre">lethe-rpt-l2-projection-3d</span></code> and <code class="docutils literal notranslate"><span class="pre">lethe-rpt-fem-reconstruction-3d</span></code> applications are defined.
 Here are the default values:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection fem reconstruction
   set mesh type                           = dealii
@@ -393,7 +394,7 @@ Here are the default values:</p>
 end
 </pre></div>
 </div>
-<p>For both <code class="docutils literal notranslate"><span class="pre">rpt_l2_projection_3d</span></code> and <code class="docutils literal notranslate"><span class="pre">rpt_fem_reconstruction_3d</span></code> applications, we have to define the mesh:</p>
+<p>For both <code class="docutils literal notranslate"><span class="pre">lethe-rpt-l2-projection-3d</span></code> and <code class="docutils literal notranslate"><span class="pre">lethe-rpt-fem-reconstruction-3d</span></code> applications, we have to define the mesh:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">type</span></code>: Type of mesh used. Choosing the <code class="docutils literal notranslate"><span class="pre">dealii</span></code> option will generate a <code class="docutils literal notranslate"><span class="pre">subdivided_cylinder</span></code> grid, for that reason the number of subdivision in the z direction must be specified with the <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">subdivisions</span></code> parameter. For the <code class="docutils literal notranslate"><span class="pre">gmsh</span></code> option, only meshes for a cylindrical geometry with tetrahedral elements are accepted at the moment. Furthermore, the z-axis should be the axis of symmetry of the cylinder.</dt><dd><p>Options: <code class="docutils literal notranslate"><span class="pre">dealii</span></code> or <code class="docutils literal notranslate"><span class="pre">gmsh</span></code></p>
@@ -416,10 +417,10 @@ end
 </dl>
 </li>
 </ul>
-<p>For the <code class="docutils literal notranslate"><span class="pre">rpt_fem_reconstruction_3d</span></code> application only, we have to define the following parameters:</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">lethe-rpt-fem-reconstruction-3d</span></code> application only, we have to define the following parameters:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">projection</span> <span class="pre">before</span> <span class="pre">reconstruction</span></code>: Enable to run the <code class="docutils literal notranslate"><span class="pre">rpt_l2_projection_3d</span></code> application before the reconstruction.</dt><dd><p>Options : <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<dt><code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">projection</span> <span class="pre">before</span> <span class="pre">reconstruction</span></code>: Enable to run the <code class="docutils literal notranslate"><span class="pre">lethe-rpt-l2-projection-3d</span></code> application before the reconstruction.</dt><dd><p>Options : <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
 </dl>
 </li>

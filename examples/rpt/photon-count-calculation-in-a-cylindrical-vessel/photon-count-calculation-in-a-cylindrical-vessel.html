@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -377,7 +378,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">rpt_3d</span></code></p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code></p></li>
 <li><p>Displays the use of the Monte Carlo method in the calculation of photon count</p></li>
 </ul>
 </section>
@@ -491,8 +492,8 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">rpt_3d</span></code> executable is within your path, the simulation can be launched by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rpt_3d rpt-count-calculation.prm
+<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> executable is within your path, the simulation can be launched by typing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-3d rpt-count-calculation.prm
 </pre></div>
 </div>
 <p>Lethe will generate a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file with the name specified next to the <code class="docutils literal notranslate"><span class="pre">counts</span> <span class="pre">file</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">rpt-count-calculation.prm</span></code>. The generated <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file will contain the <span class="math notranslate nohighlight">\((x,y,z)\)</span> coordinates of the particle with its respective photon count measured by a given detector. Each detector is identified by its id number (<code class="docutils literal notranslate"><span class="pre">detector_id</span></code>). In this example, as we have only one detector, all values in the <code class="docutils literal notranslate"><span class="pre">detector_id</span></code> column should be <span class="math notranslate nohighlight">\(0\)</span>.</p>

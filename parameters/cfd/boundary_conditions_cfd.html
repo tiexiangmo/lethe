@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -457,7 +458,7 @@ end
 </ul>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>While using <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes</span></code> and <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes</span></code> solvers, it is wise to assign a weak type of boundary (<code class="docutils literal notranslate"><span class="pre">outlet</span></code>, <code class="docutils literal notranslate"><span class="pre">partial</span> <span class="pre">slip</span></code>, or <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">weak</span></code>) to at least one boundary. The presence of particle(s) has a non-null contribution to the divergence of the problem, making it much harder for the linear solver to converge unless it is given some flexibility through of boundaries.</p>
+<p>While using the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-sharp</span></code> solver, it is wise to assign a weak type of boundary (<code class="docutils literal notranslate"><span class="pre">outlet</span></code>, <code class="docutils literal notranslate"><span class="pre">partial</span> <span class="pre">slip</span></code>, or <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">weak</span></code>) to at least one boundary. The presence of particle(s) has a non-null contribution to the divergence of the problem, making it much harder for the linear solver to converge unless it is given some flexibility through of boundaries.</p>
 </div>
 </section>
 

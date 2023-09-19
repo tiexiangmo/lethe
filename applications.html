@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Referencing Lethe" href="referencing.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Folder Structure of Lethe" href="structure.html" /><link rel="prev" title="Running Lethe on Digital Research Alliance of Canada Clusters" href="installation/digital_alliance.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Contributing - Lethe documentation</title>
+        <title>Applications Overview - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -165,7 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications Overview</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -345,7 +345,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencing.html">Referencing Lethe</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
 
 </div>
@@ -366,281 +366,64 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Check the <a class="reference external" href="https://github.com/lethe-cfd/lethe-utils">utils</a> repository for additional cases, scripts, geo files and meshes.</p>
-</div>
-<section id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
-<section id="pull-requests">
-<h2>Pull Requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
-<section id="title">
-<h3>Title<a class="headerlink" href="#title" title="Permalink to this headline">¶</a></h3>
-<p>Each pull request should only either fix an issue, add a single feature or restructure the code for one aspect, plus a test, if needed, to certify it. If there are many aspects to change, it is better to create multiples branches and create multiple pull requests. The title should start with an action verb and only contain one idea.</p>
-</section>
-<section id="format">
-<h3>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
-<p>Lethe uses clang-format to have a uniform indentation across all source files. You should always run the indentation script in the contrib folder before creating a PR: <code class="docutils literal notranslate"><span class="pre">contrib/utilities/indent-all</span></code>. If there are compatibility issues, you can run before that script either <code class="docutils literal notranslate"><span class="pre">./contrib/utilities/download_clang_format</span></code> or  <code class="docutils literal notranslate"><span class="pre">./contrib/utilities/compile_clang_format</span></code>. For parameter files, there is a specific script that can be run as follows:  <code class="docutils literal notranslate"><span class="pre">prmindent</span> <span class="pre">-i</span> <span class="pre">name_of_file.prm</span></code>.</p>
-</section>
-<section id="review-process">
-<h3>Review Process<a class="headerlink" href="#review-process" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>At least 2 reviewers for minor changes, like a bug fix or a small feature</p></li>
-<li><p>At least 3 reviewers for bigger changes like bigger features and architectural reconfiguration.</p></li>
-<li><p>The reviewer should be notified before opening the pull request. The reviewers should be selected from already existing contributor to the code. (See section: InsightsContributors).</p></li>
-</ul>
-</section>
-<section id="reviewers-responsibility">
-<h3>Reviewers Responsibility<a class="headerlink" href="#reviewers-responsibility" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Give a review of the code implementation and general functionality of the code.</p></li>
-<li><p>Give a review on the code description and comments.</p></li>
-<li><p>Verify that the pull request meets the requirement described above regarding testing and the format of the pull request.</p></li>
-<li><p>Give the review in a timely manner.</p></li>
-</ul>
-</section>
-</section>
-<section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<section id="build">
-<h3>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h3>
-<section id="setup">
-<h4>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h4>
-<p>To build the doc on your personal machine, you’ll need the following requirements:</p>
-<ul class="simple">
-<li><p>Python v3.x</p></li>
-<li><p>make</p></li>
-<li><p>Sphinx v4.x</p></li>
-</ul>
-<p>To install required system packages:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>build-essential
-</pre></div>
-</div>
-<p>To install Sphinx globally:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s1">'sphinx==4.*'</span>
-</pre></div>
-</div>
-<p>To install additional packages:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-copybutton
-</pre></div>
-</div>
-<p>and:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>graphviz
-</pre></div>
-</div>
-<p>Then, install the Sphinx requirements:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>doc/requirements.txt
-</pre></div>
-</div>
-</section>
-<section id="build-html">
-<h4>Build HTML<a class="headerlink" href="#build-html" title="Permalink to this headline">¶</a></h4>
-<p>To build standalone HTML files like the CI would, enter the following commands:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>doc
-make<span class="w"> </span>html
-</pre></div>
-</div>
-<p>The generated files should be in the <code class="docutils literal notranslate"><span class="pre">build/html</span></code> directory. Open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in a browser to view the rendered documents.</p>
-</section>
-</section>
-<section id="general-rules-and-format">
-<h3>General Rules and Format<a class="headerlink" href="#general-rules-and-format" title="Permalink to this headline">¶</a></h3>
-<p>Throughout the documentation, you may notice that the different pages follow a certain format to ensure uniformity and help users to navigate more fluidly. Here are the different elements that must be considered when contributing to the documentation of Lethe:</p>
-<ul>
-<li><p>Titles and subtitles must be capitalized following the <a class="reference external" href="https://www.chicagomanualofstyle.org/book/ed17/frontmatter/toc.html">Chicago Manual of Style</a>:</p>
-<ul class="simple">
-<li><p>First and last words of the title/subtitle must be capitalized.</p></li>
-<li><p>Capitalize:</p>
-<ul>
-<li><p>adjectives (e.g., Small, Large)</p></li>
-<li><p>adverbs (e.g., Warmly, Rapidly)</p></li>
-<li><p>nouns (e.g., Ball, Cylinder)</p></li>
-<li><p>pronouns (e.g., They, She, He)</p></li>
-<li><p>subordinating conjunction when fewer than 5 letters (e.g., When, Once)</p></li>
-<li><p>verbs (e.g., Melt, Create)</p></li>
-</ul>
-</li>
-<li><p><strong>Do not</strong> capitalize:</p>
-<ul>
-<li><p>articles (e.g., a, an, the)</p></li>
-<li><p>coordinating conjunctions (e.g., and, but, for)</p></li>
-<li><p>prepositions (e.g., at, by, to)</p></li>
-<li><p>second word after a hyphenated prefix (e.g., Mid-, Non-) in compound modifiers (e.g., Mid-year, Non-linear)</p></li>
-<li><p>words with less than four letters</p></li>
-</ul>
-</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you are unsure of the capitalization of your title or subtitle, you can use <a class="reference external" href="https://capitalizemytitle.com/style/Chicago/">online tools</a> to help you out.</p>
-</div>
-</li>
-<li><p>Examples generally contain the following subsections in the listed order:</p>
-<ul>
-<li><p><strong>Features</strong> lists features of the example.</p></li>
-<li><p><strong>Files Used in This Examples</strong> lists files used in the example in alphabetical order.</p></li>
-<li><p><strong>Description of the Case</strong> describes the system studied in the example.</p></li>
-<li><p><strong>Parameter File</strong> describes the different parameter subsections involved in the example. Each subsection of interest of the parameter file begins with its name as a sub-heading.</p></li>
-<li><p><strong>Running the Simulation</strong> displays the command used to run the example and gives an scale of the running duration.</p></li>
-<li><p><strong>Results</strong> or <strong>Results and Discussion</strong> displays results of the simulation and comments on them.</p></li>
-<li><p><strong>Possibility for Extension</strong> lists different interesting ways to extend the example.</p></li>
-<li><p><strong>References</strong> lists references used in the example in IEEE referencing style format.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>More information on the IEEE referencing style can be found in the <a class="reference external" href="https://ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE-Reference-Guide.pdf">IEEE Reference Guide</a>.</p>
-<p>Here is an example of how references should appear in:</p>
-<ul>
-<li><p>In-text citation:</p>
-<p>The <em>Lethe: An open-source parallel high-order adaptative CFD solver for incompressible flows</em> article by Blais <em>et al.</em> <a class="reference external" href="https://doi.org/10.1016/j.softx.2020.100579">[1]</a> is used as an example.</p>
-</li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">References</span></code> list:</p>
-<p><a class="reference external" href="https://doi.org/10.1016/j.softx.2020.100579">[1]</a> B. Blais <em>et al.</em>, “Lethe: An open-source parallel high-order adaptative CFD solver for incompressible flows,” <em>SoftwareX</em>, vol. 12, p. 100579, Jul. 2020, doi: 10.1016/j.softx.2020.100579.</p>
-<p>Following the format:</p>
-<div class="docutils container">
-<p>[#] A. A. Author, “Name of the paper,” <em>Abbreviated Title of the Journal</em>, vol. x, no. x, pp. xxx-xxx, Abbreviated month, year, doi: xxx.</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>When citing, the “<em>et al.</em>” notation is used in:</p>
-<ul class="simple">
-<li><p>In-text citation if there are three or more authors for a given reference.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">References</span></code> list if there are more than six authors for a given reference.</p></li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These subheadings can take the singular or plural form depending on the example. Feel free to adapt them and add more layers to structure your own examples.</p>
-</div>
-</li>
-</ul>
-</section>
-<section id="equations">
-<h3>Equations<a class="headerlink" href="#equations" title="Permalink to this headline">¶</a></h3>
-<p>Sphinx can render equations using the MathJax backend.</p>
-<section id="examples">
-<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
-    i^2=-1
-</pre></div>
-</div>
-<p>gives:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[i^2=-1\]</div></div>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
-    df=\frac{\partial f}{\partial t}
-</pre></div>
-</div>
-<p>gives:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[df=\frac{\partial f}{\partial t}\]</div></div>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
-    \rho\left[\frac{\partial \bar{u}}{\partial t} + \bar{u}\cdot\bar{\nabla} \bar{u} \right] = - \bar{\nabla} \bar{p} + \mu \bar{\nabla}^2 \bar{u} + \rho \bar{g}
-</pre></div>
-</div>
-<p>gives:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\rho\left[\frac{\partial \bar{u}}{\partial t} + \bar{u}\cdot\bar{\nabla} \bar{u} \right] = - \bar{\nabla} \bar{p} + \mu \bar{\nabla}^2 \bar{u} + \rho \bar{g}\]</div></div>
-</section>
-</section>
-<section id="code">
-<h3>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
-<p>Python syntax highlight:</p>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python
-    your code
-</pre></div>
-</div>
-<p>C++ syntax highlight:</p>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> cpp
-    your code
-</pre></div>
-</div>
-<p>The code block in text mode is commonly used in the examples to show sections of a parameter file:</p>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> text
-    your code
-</pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Keep in mind the proper indentation of the sections of the parameter file. We recommend the use of the <code class="docutils literal notranslate"><span class="pre">prmindent</span></code> script located in the <code class="docutils literal notranslate"><span class="pre">contrib/utilities</span></code> folder before copying sections of a parameter file to the documentation. Do NOT use tabs in these blocks of code, as they will not be recognized, leading to the wrong indentation.</p>
-</div>
-<section id="id3">
-<h4>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python
-    for i in range(5):
-    print(i)
-</pre></div>
-</div>
-<p>gives:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> cpp
-    for (int i = 0 ; i&lt;5 ; i++) {
-        std::cout &lt;&lt; i &lt;&lt; std::endl;
-    }
-</pre></div>
-</div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="tables">
-<h3>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
-    <span class="nc">:header-rows:</span> 1
-
-    <span class="m">*</span> - My
-        <span class="m">-</span> Beautiful
-        <span class="m">-</span> Table
-    <span class="m">*</span> - tables
-        <span class="m">-</span> are
-        <span class="m">-</span> rendered
-    <span class="m">*</span> - with
-        <span class="m">-</span> automatic
-        <span class="m">-</span> strip
-</pre></div>
-</div>
-<p>Gives:</p>
-<div class="table-wrapper"><table class="docutils align-center">
+          <section id="applications-overview">
+<h1>Applications Overview<a class="headerlink" href="#applications-overview" title="Permalink to this headline">¶</a></h1>
+<p>Lethe has several applications that can be used depending on the problem that wants to be solved. Once Lethe is compiled, all the executables to these applications become available. In the following table a brief description of each application is provided:</p>
+<div class="table-wrapper"><table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 33%"/>
-<col style="width: 33%"/>
-<col style="width: 33%"/>
+<col style="width: 40%"/>
+<col style="width: 60%"/>
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>My</p></th>
-<th class="head"><p>Beautiful</p></th>
-<th class="head"><p>Table</p></th>
+<tr class="row-odd"><th class="head"><p>Application</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>tables</p></td>
-<td><p>are</p></td>
-<td><p>rendered</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code></p></td>
+<td><p>This application solves the Navier-Stokes equations in a monolithic way. <strong>This is the most robust fluid dynamics solver in Lethe</strong>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>with</p></td>
-<td><p>automatic</p></td>
-<td><p>strip</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-fluid-block</span></code></p></td>
+<td><p>This application solves the Navier-Stokes equations in a monolithic way using block preconditioner.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-fluid-matrix-free</span></code></p></td>
+<td><p>This application solves the Navier-Stokes equations in a monolithic way and using a matrix-free approach.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-fluid-nitsche</span></code></p></td>
+<td><p>This application solves the Navier-Stokes equations by imposing immersed boundary conditions without discretizing the boundaries using the Nitsche method.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-fluid-particles</span></code></p></td>
+<td><p>This application allows to run unresolved Computational Fluid Dynamics-Discrete Element Method simulations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-fluid-sharp</span></code></p></td>
+<td><p>This application solves the Navier-Stokes equations by imposing immersed boundary conditions without discretizing the boundaries using the sharp-edge method.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-fluid-vans</span></code></p></td>
+<td><p>This application solves the Volume-Averaged Navier-Stokes equations in a monolithic way.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code></p></td>
+<td><p>This application uses the Discrete Element Method to simulate particles.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code></p></td>
+<td><p>This application solves the Beam Monte-Carlo model for the interaction between gamma ray emitting particles and detectors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-rpt-cell-reconstruction-3d</span></code></p></td>
+<td><p>This application reconstructs the position of particles using a cellular decomposition approach.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-rpt-fem-reconstruction-3d</span></code></p></td>
+<td><p>This application allows to reconstruct positions from ray tracing experimental measurements obtained by Radioactive Particle Tracking.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lethe-rpt-l2-projection-3d</span></code></p></td>
+<td><p>This application calculates a volumetric projection of the Beam model on a finite element mesh using an L2 projection.</p></td>
 </tr>
 </tbody>
 </table></div>
-</section>
-</section>
 </section>
 
         </article>
@@ -648,15 +431,23 @@ make<span class="w"> </span>html
       <footer>
         
         <div class="related-pages">
-          
-          <a class="prev-page" href="referencing.html">
+          <a class="next-page" href="structure.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Folder Structure of Lethe</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="installation/digital_alliance.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Referencing Lethe</div>
+                <div class="title">Running Lethe on Digital Research Alliance of Canada Clusters</div>
                 
               </div>
             </a>
@@ -666,7 +457,7 @@ make<span class="w"> </span>html
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="_sources/contributing.rst.txt"
+            | <a class="muted-link" href="_sources/applications.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -674,51 +465,8 @@ make<span class="w"> </span>html
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Contributing</a><ul>
-<li><a class="reference internal" href="#pull-requests">Pull Requests</a><ul>
-<li><a class="reference internal" href="#title">Title</a></li>
-<li><a class="reference internal" href="#format">Format</a></li>
-<li><a class="reference internal" href="#review-process">Review Process</a></li>
-<li><a class="reference internal" href="#reviewers-responsibility">Reviewers Responsibility</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#documentation">Documentation</a><ul>
-<li><a class="reference internal" href="#build">Build</a><ul>
-<li><a class="reference internal" href="#setup">Setup</a></li>
-<li><a class="reference internal" href="#build-html">Build HTML</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#general-rules-and-format">General Rules and Format</a></li>
-<li><a class="reference internal" href="#equations">Equations</a><ul>
-<li><a class="reference internal" href="#examples">Examples</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#code">Code</a><ul>
-<li><a class="reference internal" href="#id3">Examples</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#tables">Tables</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
@@ -730,6 +478,5 @@ make<span class="w"> </span>html
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>

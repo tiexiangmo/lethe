@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -386,7 +387,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code> (with Q1-Q1)</p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> (with Q1-Q1)</p></li>
 <li><p>Steady-state problem</p></li>
 <li><p>Displays the use of a single rotating frame (<code class="docutils literal notranslate"><span class="pre">srf</span></code>) when modeling a complex rotating geometry</p></li>
 <li><p>Calculation of the power number (<span class="math notranslate nohighlight">\(N_p\)</span>) using a python script</p></li>
@@ -615,8 +616,8 @@ Using Gmsh, with the <code class="docutils literal notranslate"><span class="pre
 </section>
 <section id="simulating-for-a-specific-flow-condition-re-1">
 <h3>Simulating for a Specific Flow Condition <span class="math notranslate nohighlight">\((Re=1)\)</span><a class="headerlink" href="#simulating-for-a-specific-flow-condition-re-1" title="Permalink to this headline">¶</a></h3>
-<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">gls_navier_stokes</span></code> executable is within your path, the simulation can be launched by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np $number_of_CPUs gls_navier_stokes ribbon-gls-Re1.prm
+<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> executable is within your path, the simulation can be launched by typing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np $number_of_CPUs lethe-fluid ribbon-gls-Re1.prm
 </pre></div>
 </div>
 </section>

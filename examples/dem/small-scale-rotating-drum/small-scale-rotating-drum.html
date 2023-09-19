@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -377,7 +378,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem</span></code></p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code></p></li>
 <li><p>Three-dimensional problem</p></li>
 <li><p>Rotational boundary</p></li>
 <li><p>Load-balancing</p></li>
@@ -392,7 +393,7 @@
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>This example simulates a rolling regime in a small scale rotating drum. First, we use Lethe-DEM to fill the bed with 20000 particles. We enable check-pointing in order to write the DEM checkpoint files for the packing which then will be used as the starting point of the DEM simulation of the rotating drum. The solver <code class="docutils literal notranslate"><span class="pre">dem</span></code> is used to simulate the behaviour of dry granular flow within the rotating drum.</p>
+<p>This example simulates a rolling regime in a small scale rotating drum. First, we use Lethe-DEM to fill the bed with 20000 particles. We enable check-pointing in order to write the DEM checkpoint files for the packing which then will be used as the starting point of the DEM simulation of the rotating drum. The solver <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code> is used to simulate the behaviour of dry granular flow within the rotating drum.</p>
 </section>
 <section id="parameter-file">
 <h2>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
@@ -499,7 +500,7 @@ end
 </section>
 <section id="simulation-control">
 <h3>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
-<p>The packing dem simulation was run for 2 seconds in real time.</p>
+<p>The packing <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code> simulation was run for 2 seconds in real time.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set time step        = 5e-6
   set time end         = 2
@@ -509,7 +510,7 @@ end
 end
 </pre></div>
 </div>
-<p>The actual rotation of the drum is 3 seconds in real time. We set the time equal to 5 seconds as the simulation is restarted after the packing dem simulation.</p>
+<p>The actual rotation of the drum is 3 seconds in real time. We set the time equal to 5 seconds as the simulation is restarted after the packing <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code> simulation.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set time step        = 5e-6
   set time end         = 5
@@ -524,8 +525,8 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is launched in two steps: the first step packs the particle in the cylinder, while the second step rotates the drum and simulates the movement of the particles.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem packing-rotating-drum.prm
-mpirun -np 8 dem small-rotating-drum-dem.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-particles packing-rotating-drum.prm
+mpirun -np 8 lethe-particles small-rotating-drum-dem.prm
 </pre></div>
 </div>
 <div class="admonition note">

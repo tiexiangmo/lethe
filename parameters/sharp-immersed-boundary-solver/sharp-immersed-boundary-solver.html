@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -373,7 +374,7 @@
         <article role="main">
           <section id="sharp-immersed-boundary-solver">
 <h1>Sharp-Immersed-Boundary-Solver<a class="headerlink" href="#sharp-immersed-boundary-solver" title="Permalink to this headline">¶</a></h1>
-<p>This subsection contains the parameters related to the sharp immersed boundary solver using a <strong>sharp interface immersed boundary</strong> (IB) <strong>method</strong>. This part of the parameter file concerns the usage of the <code class="docutils literal notranslate"><span class="pre">gls_sharp_navier_stokes</span></code>. This solver can simulate the flow around static or moving objects (with a predetermined trajectory). It can also simulate the coupled flow around spherical particles (Resolved CFD-DEM). Using this solver eliminates the need to define a conformal mesh for the fluid between the particles.</p>
+<p>This subsection contains the parameters related to the sharp immersed boundary solver using a <strong>sharp interface immersed boundary</strong> (IB) <strong>method</strong>. This part of the parameter file concerns the usage of the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-sharp</span></code>. This solver can simulate the flow around static or moving objects (with a predetermined trajectory). It can also simulate the coupled flow around spherical particles (Resolved CFD-DEM). Using this solver eliminates the need to define a conformal mesh for the fluid between the particles.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  subsection particles
     set assemble Navier-Stokes inside particles = false
     set number of particles                     = 1

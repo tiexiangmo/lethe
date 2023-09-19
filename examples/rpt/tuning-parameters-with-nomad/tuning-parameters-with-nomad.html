@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -382,7 +383,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">rpt_3d</span></code></p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code></p></li>
 <li><p>Displays the use of NOMAD to calibrate the parameters of the Beam model</p></li>
 </ul>
 </section>
@@ -523,11 +524,11 @@ DISPLAY_STATS BBE ( SOL ) OBJ                         # Display the number of ev
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Assuming that <code class="docutils literal notranslate"><span class="pre">rpt_3d</span></code> and <code class="docutils literal notranslate"><span class="pre">nomad</span></code> executables are within your path, you may run NOMAD by typing :</p>
+<p>Assuming that <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> and <code class="docutils literal notranslate"><span class="pre">nomad</span></code> executables are within your path, you may run NOMAD by typing :</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nomad param-nomad.txt
 </pre></div>
 </div>
-<p>NOMAD will then execute the Python script (<code class="docutils literal notranslate"><span class="pre">rpt_lethe_nomad.py</span></code>) which is specified in the <code class="docutils literal notranslate"><span class="pre">param-nomad.txt</span></code> file. The Python script <code class="docutils literal notranslate"><span class="pre">rpt_nomad_lethe.py</span></code> proceeds the values of parameters to tune given by NOMAD, modifies the parameter file for Lethe, and runs the <code class="docutils literal notranslate"><span class="pre">rpt_3d</span></code> application. <code class="docutils literal notranslate"><span class="pre">rpt_3d</span></code> of Lethe executes the Monte Carlo ray model and calculates a cost function which is caught by NOMAD through the terminal. NOMAD executes its MADS algorithm and generates a new set of parameters until a terminating criterion is reached.</p>
+<p>NOMAD will then execute the Python script (<code class="docutils literal notranslate"><span class="pre">rpt_lethe_nomad.py</span></code>) which is specified in the <code class="docutils literal notranslate"><span class="pre">param-nomad.txt</span></code> file. The Python script <code class="docutils literal notranslate"><span class="pre">rpt_nomad_lethe.py</span></code> proceeds the values of parameters to tune given by NOMAD, modifies the parameter file for Lethe, and runs the <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> application. <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> of Lethe executes the Monte Carlo ray model and calculates a cost function which is caught by NOMAD through the terminal. NOMAD executes its MADS algorithm and generates a new set of parameters until a terminating criterion is reached.</p>
 </section>
 <section id="results-and-discussion">
 <h2>Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Permalink to this headline">¶</a></h2>
@@ -548,8 +549,8 @@ Total number of evaluations: 459
 <p class="admonition-title">Tip</p>
 <p>Changing the initial values of the optimization problem to ones that are closer to the solution seen above can reduce the computation time.</p>
 </div>
-<p>We may now verify if these values correspond to the physical system. To do so, as it was done in the previous example (<a class="reference internal" href="../photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html"><span class="doc">Photon Count Calculation in a Cylindrical Vessel</span></a>), we calculate the counts for the set of particle positions that the corresponding experimental counts are known. Assuming that the <code class="docutils literal notranslate"><span class="pre">rpt_3d</span></code> executable is within your path, the simulation can be launched by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rpt_3d rpt-count-calculation.prm
+<p>We may now verify if these values correspond to the physical system. To do so, as it was done in the previous example (<a class="reference internal" href="../photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html"><span class="doc">Photon Count Calculation in a Cylindrical Vessel</span></a>), we calculate the counts for the set of particle positions that the corresponding experimental counts are known. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> executable is within your path, the simulation can be launched by typing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-3d rpt-count-calculation.prm
 </pre></div>
 </div>
 <div class="admonition attention">

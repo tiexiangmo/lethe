@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -377,7 +378,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem</span></code> and <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code></p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code> and <code class="docutils literal notranslate"><span class="pre">lethe-fluid-particles</span></code></p></li>
 <li><p>Three-dimensional problem</p></li>
 <li><p>Displays the selection of models and physical properties</p></li>
 <li><p>Simulates a solid-liquid sedimentation</p></li>
@@ -392,7 +393,7 @@
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>This example simulates the sedimentation of a group of particles in a viscous fluid. Two cases were simulated. In the first case, the channel is placed vertically. In the second case, the channel is inclined at <span class="math notranslate nohighlight">\(20^{\circ}\)</span> with respect to the gravity. First, we use Lethe-DEM to insert the particles. We enable check-pointing in order to write the DEM checkpoint files which will be used as the starting point of the CFD-DEM simulation. Then, we use the <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code> solver within Lethe to simulate the sedimentation of particles by initially reading the checkpoint files from the DEM simulation.</p>
+<p>This example simulates the sedimentation of a group of particles in a viscous fluid. Two cases were simulated. In the first case, the channel is placed vertically. In the second case, the channel is inclined at <span class="math notranslate nohighlight">\(20^{\circ}\)</span> with respect to the gravity. First, we use <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code> to insert the particles. We enable check-pointing in order to write the DEM checkpoint files which will be used as the starting point of the CFD-DEM simulation. Then, we use the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-particles</span></code> solver within Lethe to simulate the sedimentation of particles by initially reading the checkpoint files from the DEM simulation.</p>
 </section>
 <section id="dem-parameter-file">
 <h2>DEM Parameter File<a class="headerlink" href="#dem-parameter-file" title="Permalink to this headline">¶</a></h2>
@@ -504,12 +505,12 @@ end
 </section>
 <section id="running-the-dem-simulation">
 <h2>Running the DEM Simulation<a class="headerlink" href="#running-the-dem-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">dem</span></code> executable is within your path, the simulation can be launched on a single processor by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dem particle-generator.prm
+<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code> executable is within your path, the simulation can be launched on a single processor by typing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-particles particle-generator.prm
 </pre></div>
 </div>
 <p>or in parallel (where 8 represents the number of processors)</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem particle-generator.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-particles particle-generator.prm
 </pre></div>
 </div>
 <p>The figure below shoes the particles inserted at the top of the channel at the end of the DEM simulation.</p>
@@ -670,8 +671,8 @@ end
 </section>
 <section id="running-the-cfd-dem-simulation">
 <h2>Running the CFD-DEM Simulation<a class="headerlink" href="#running-the-cfd-dem-simulation" title="Permalink to this headline">¶</a></h2>
-<p>The simulation is run using the <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code> application as per the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>path_to_cfd_dem_application/cfd_dem_coupling boycott-effect.prm
+<p>The simulation is run using the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-particles</span></code> application as per the following command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>path_to_cfd_dem_application/lethe-fluid-particles boycott-effect.prm
 </pre></div>
 </div>
 </section>

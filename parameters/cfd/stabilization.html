@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
@@ -389,7 +390,7 @@ end
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stabilization=pspg-supg</span></code> assembles a PSPG/SUPG stabilization for the Navier-Stokes equations. This stabilization should only be used with the monolithic GLS solver.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stabilization=gls</span></code> assembles a full GLS stabilization for the Navier-Stokes equations. This stabilization is similar to the <code class="docutils literal notranslate"><span class="pre">pspg-supg</span></code>, but adds the term <span class="math notranslate nohighlight">\(\nu \nabla^2 \mathbf{v}\)</span> to the test function. This stabilization should only be used with the monolithic GLS solver.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">stabilization=grad_div</span></code> assembles a grad-div penalization term in the momentum equation to ensure mass conservation. This is not a stabilization method per-say and should not be used with elements that are not LBB stable. This stabilization should only be used with the grad-div Navier-Stokes solver (<code class="docutils literal notranslate"><span class="pre">gd_navier_stokes</span></code> and <code class="docutils literal notranslate"><span class="pre">gd_navier_stokes</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stabilization=grad_div</span></code> assembles a grad-div penalization term in the momentum equation to ensure mass conservation. This is not a stabilization method per-say and should not be used with elements that are not LBB stable. This stabilization should only be used with the grad-div Navier-Stokes solver (<code class="docutils literal notranslate"><span class="pre">lethe-fluid-block</span></code>).</p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">scaling</span> <span class="pre">factor</span></code> parameter is used as a multiplier for the pressure in the momentum equation; the inverse of the factor is applied to the pressure after solving. It helps the convergence of the linear solver  by decreasing the condition number for cases where pressure and velocity have very different scales.</p>
 </section>

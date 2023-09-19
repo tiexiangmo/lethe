@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -377,7 +378,7 @@
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">dem</span></code> and <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code></p></li>
+<li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code> and <code class="docutils literal notranslate"><span class="pre">lethe-fluid-particles</span></code></p></li>
 <li><p>Three-dimensional problem</p></li>
 <li><p>Displays the selection of models and physical properties</p></li>
 <li><p>Simulates a solid-liquid fluidized bed</p></li>
@@ -406,7 +407,7 @@
 </section>
 <section id="dem-parameter-file">
 <h2>DEM Parameter File<a class="headerlink" href="#dem-parameter-file" title="Permalink to this headline">¶</a></h2>
-<p>As in the other examples of this documentation, we use Lethe-DEM to fill the bed with particles. We enable check-pointing in order to write the DEM checkpoint files which will be used as the starting point of the CFD-DEM simulation. Then, we use the <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code> solver within Lethe to simulate the fluidization of the particles by initially reading the checkpoint files from the DEM simulation.</p>
+<p>As in the other examples of this documentation, we use Lethe-DEM to fill the bed with particles. We enable check-pointing in order to write the DEM checkpoint files which will be used as the starting point of the CFD-DEM simulation. Then, we use the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-particles</span></code> solver within Lethe to simulate the fluidization of the particles by initially reading the checkpoint files from the DEM simulation.</p>
 <p>All parameter subsections are described in the <a class="reference external" href="../../../parameters/parameters.html">Parameters section</a> of the documentation.</p>
 <p>To set-up the cylinder fluidized bed case, we first fill the bed with particles.</p>
 <p>We first introduce the different sections of the parameter file <code class="docutils literal notranslate"><span class="pre">dem-packing-in-lsfb.prm</span></code> needed to run this simulation.</p>
@@ -480,7 +481,7 @@ end
 </section>
 <section id="restart">
 <h3>Restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code> solver requires reading several DEM files to start the simulation. For this, we have to write the DEM simulation information. This is done by enabling the check-pointing option in the restart subsection. We give the written files a prefix “dem” set in the <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">filename</span></code> option. The DEM parameter file is initialized exactly as the cylindrical packed bed example. The difference is in the number of particles, their physical properties, and the insertion box defined based on the new geometry. For more explanation about the individual subsections, refer to the <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> and the <a class="reference external" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">CFD-DEM parameters</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">lethe-fluid-particles</span></code> solver requires reading several DEM files to start the simulation. For this, we have to write the DEM simulation information. This is done by enabling the check-pointing option in the restart subsection. We give the written files a prefix “dem” set in the <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">filename</span></code> option. The DEM parameter file is initialized exactly as the cylindrical packed bed example. The difference is in the number of particles, their physical properties, and the insertion box defined based on the new geometry. For more explanation about the individual subsections, refer to the <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> and the <a class="reference external" href="../../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">CFD-DEM parameters</a>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection restart
   set checkpoint = true
   set frequency  = 20000
@@ -566,12 +567,12 @@ end
 </section>
 <section id="running-the-dem-simulation">
 <h2>Running the DEM Simulation<a class="headerlink" href="#running-the-dem-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">dem</span></code> executable is within your path, the simulation can be launched on a single processor by typing:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>dem dem-packing-in-fluidized-bed.prm
+<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code> executable is within your path, the simulation can be launched on a single processor by typing:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-particles dem-packing-in-fluidized-bed.prm
 </pre></div>
 </div>
 <p>or in parallel (where <span class="math notranslate nohighlight">\(8\)</span> represents the number of processors)</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 dem dem-packing-in-fluidized-bed.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-particles dem-packing-in-fluidized-bed.prm
 </pre></div>
 </div>
 <p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
@@ -723,8 +724,8 @@ end
 </section>
 <section id="running-the-cfd-dem-simulation">
 <h2>Running the CFD-DEM Simulation<a class="headerlink" href="#running-the-cfd-dem-simulation" title="Permalink to this headline">¶</a></h2>
-<p>The simulation is run (on <span class="math notranslate nohighlight">\(8 \: \text{cores}\)</span>) using the <code class="docutils literal notranslate"><span class="pre">cfd_dem_coupling</span></code> application as follows:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>  mpirun -np 8 cfd_dem_coupling liquid-solid-fluidized-bed.prm
+<p>The simulation is run (on <span class="math notranslate nohighlight">\(8 \: \text{cores}\)</span>) using the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-particles</span></code> application as follows:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>  mpirun -np 8 lethe-fluid-particles liquid-solid-fluidized-bed.prm
 </pre></div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(20\)</span>-second simulations with alumina took approximately <span class="math notranslate nohighlight">\(24 \: \text{hours}\)</span> and <span class="math notranslate nohighlight">\(30 \: \text{minutes}\)</span> on <span class="math notranslate nohighlight">\(16 \: \text{cores}\)</span> and <span class="math notranslate nohighlight">\(8 \: \text{hours}\)</span> and <span class="math notranslate nohighlight">\(44 \: \text{minutes}\)</span> on <span class="math notranslate nohighlight">\(32 \: \text{cores}\)</span>.</p>

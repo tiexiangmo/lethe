@@ -165,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../installation/digital_alliance.html">Running Lethe on Digital Research Alliance of Canada Clusters</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../first_simulation.html">Launching Your First Simulation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -378,8 +379,8 @@ The calculation is performed for a given set of positions inside a square.</p>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">rpt_l2_projection_3d</span></code></p></li>
-<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">rpt_fem_reconstruction_3d</span></code></p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">lethe-rpt-l2-projection-3d</span></code></p></li>
+<li><p>Solver: <code class="docutils literal notranslate"><span class="pre">lethe-rpt-fem-reconstruction-3d</span></code></p></li>
 <li><p>Displays the use of the inverse FEM in reconstruction of the radioactive particle positions</p></li>
 </ul>
 </section>
@@ -464,12 +465,12 @@ end
 </div>
 <section id="running-the-simulation">
 <h4>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h4>
-<p>Assuming that <code class="docutils literal notranslate"><span class="pre">rpt_l2_projection_3d</span></code> and <code class="docutils literal notranslate"><span class="pre">rpt_fem_reconstruction_3d</span></code> executables are within your path, you can start launching FEM-PR by typing :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rpt_l2_projection_3d rpt-fem-reconstruction.prm
+<p>Assuming that <code class="docutils literal notranslate"><span class="pre">lethe-rpt-l2-projection-3d</span></code> and <code class="docutils literal notranslate"><span class="pre">lethe-rpt-fem-reconstruction-3d</span></code> executables are within your path, you can start launching FEM-PR by typing :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-l2-projection-3d rpt-fem-reconstruction.prm
 </pre></div>
 </div>
 <p>This step uses the L2 projection technique to smooth the noise of the Monte Carlo method and calculates the photon counts at the nodes. After this part is done, the program generates the file of nodal counts from each detector as such : <code class="docutils literal notranslate"><span class="pre">temp_nodal_counts_detector00.counts</span></code>. The next step is to launch the position reconstruction as follows:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rpt_fem_reconstruction_3d rpt-fem-reconstruction.prm
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-fem-reconstruction-3d rpt-fem-reconstruction.prm
 </pre></div>
 </div>
 </section>
