@@ -551,7 +551,7 @@ end
 </section>
 <section id="vof">
 <h3>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection, we enable <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> to reconstruct the interface and keep it sharp during the simulation. Note that here we use the <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">adaptive</span></code> methods for interface sharpening. The <code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">conservation</span></code> results show that choosing a <code class="docutils literal notranslate"><span class="pre">constant</span></code> method does not affect the mass conservation significantly. Hence, the results of both methods are almost identical. For the <code class="docutils literal notranslate"><span class="pre">constant</span></code> refinement we use</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection, we enable <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> to reconstruct the interface and keep it sharp during the simulation. Note that here we use the <code class="docutils literal notranslate"><span class="pre">constant</span></code> and <code class="docutils literal notranslate"><span class="pre">adaptive</span></code> methods for interface sharpening. The <code class="docutils literal notranslate"><span class="pre">mass</span> <span class="pre">conservation</span></code> results show that choosing a <code class="docutils literal notranslate"><span class="pre">constant</span></code> method does not affect the mass conservation significantly. Hence, the results of both methods are almost identical. For the <code class="docutils literal notranslate"><span class="pre">constant</span></code> sharpening we use</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection VOF
   subsection interface sharpening
     set enable              = true
@@ -576,14 +576,14 @@ end
 end
 </pre></div>
 </div>
-<p>and for the <code class="docutils literal notranslate"><span class="pre">adaptive</span></code> refinement</p>
+<p>and for the <code class="docutils literal notranslate"><span class="pre">adaptive</span></code> sharpening</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection VOF
   subsection interface sharpening
     set enable                  = true
     set threshold               = 0.5
     set interface sharpness     = 1.5
     set frequency               = 25
-    set type                    = adaptative
+    set type                    = adaptive
     set threshold max deviation = 0.2
     set max iterations          = 50
   end
