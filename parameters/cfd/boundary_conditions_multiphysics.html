@@ -497,9 +497,9 @@ end
 </section>
 <section id="cahn-hilliard">
 <h2>Cahn-Hilliard<a class="headerlink" href="#cahn-hilliard" title="Permalink to this headline">¶</a></h2>
-<p>For Cahn-Hilliard boundary conditions, the possible <code class="docutils literal notranslate"><span class="pre">types</span></code> are <code class="docutils literal notranslate"><span class="pre">noflux</span></code> (default), <code class="docutils literal notranslate"><span class="pre">dirichlet</span></code> and <code class="docutils literal notranslate"><span class="pre">angle_of_contact</span></code>. The default parameters for <code class="docutils literal notranslate"><span class="pre">dirichlet</span></code> and <code class="docutils literal notranslate"><span class="pre">angle_of_contact</span></code> are shown:</p>
+<p>For Cahn-Hilliard boundary conditions, the available <code class="docutils literal notranslate"><span class="pre">types</span></code> are <code class="docutils literal notranslate"><span class="pre">noflux</span></code> (default), <code class="docutils literal notranslate"><span class="pre">dirichlet</span></code>, <code class="docutils literal notranslate"><span class="pre">angle_of_contact</span></code>, and <code class="docutils literal notranslate"><span class="pre">free_angle</span></code>. The parameters for each type of Cahn-Hilliard boundary conditions are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions cahn hilliard
-set number                  = 2
+set number                  = 3
 set time dependent          = false
     subsection bc 0
         set id              = 0
@@ -507,23 +507,29 @@ set time dependent          = false
         subsection phi
             set Function expression = 0
         end
+     end
      subsection bc 1
         set id              = 1
         set type            = angle_of_contact
         set angle value     = 90 # The angle is given in degrees (°)
+     end
+     subsection bc 2
+        set id              = 2
+        set type            = free_angle
      end
 end
 </pre></div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">number</span></code>: This is the number of boundary conditions of the problem.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">dependent</span></code> specifies if a  boundary condition is time dependent (<code class="docutils literal notranslate"><span class="pre">true</span></code>) or steady (<code class="docutils literal notranslate"><span class="pre">false`</span></code>). By default, this parameter is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is there to improve the computational efficiency for transient cases in which the boundary conditions do not change.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">dependent</span></code> specifies if a boundary condition is time dependent (<code class="docutils literal notranslate"><span class="pre">true</span></code>) or not (<code class="docutils literal notranslate"><span class="pre">false</span></code>). By default, this parameter is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. It is used to improve the computational efficiency of transient cases in which the boundary conditions do not change.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> is the number associated with the boundary condition. By default, Lethe assumes that the id is equivalent to the number of the bc.</p></li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">type</span></code>: This is the type of boundary condition being imposed. At the moment, choices are:</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">noflux</span></code> (default) so that no phase leave the simulation domain.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dirichlet</span></code> to impose a given phase order parameter function on the boundary. This function can depend on position (<span class="math notranslate nohighlight">\(x,y,z\)</span>) and on time (<span class="math notranslate nohighlight">\(t\)</span>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">angle_of_contact</span></code> to impose a given angle of contact <code class="docutils literal notranslate"><span class="pre">angle</span> <span class="pre">value</span></code> between the two phases at the boundary. It refers to the inner angle of contact, in degrees (°).</p></li>
+<dt><code class="docutils literal notranslate"><span class="pre">type</span></code>: Type of boundary condition being imposed. At the moment, the choices are:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">noflux</span></code> (default): no phase leaves the simulation domain.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dirichlet</span></code>: Imposes a given phase order parameter function on the boundary. This function can depend on position (<span class="math notranslate nohighlight">\(x,y,z\)</span>) and on time (<span class="math notranslate nohighlight">\(t\)</span>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">angle_of_contact</span></code>: Imposes a given angle of contact <code class="docutils literal notranslate"><span class="pre">angle</span> <span class="pre">value</span></code> between the two phases at the boundary. It refers to the inner angle of contact, in degrees (°).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">free_angle</span></code>: Leaves the angle as a free variable to be solved.</p></li>
 </ul>
 </dd>
 </dl>

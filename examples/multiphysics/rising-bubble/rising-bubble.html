@@ -567,8 +567,9 @@ end
 <h3>Post-processing: Fluid Barycenter Position and Velocity<a class="headerlink" href="#post-processing-fluid-barycenter-position-and-velocity" title="Permalink to this headline">¶</a></h3>
 <p>To compare our simulation results to the literature, we extract the position and the velocity of the barycenter of the bubble. This generates a <code class="docutils literal notranslate"><span class="pre">vof_barycenter_information.dat</span></code> file which contains the position and the velocity of the barycenter of the bubble.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection post-processing
-  set verbosity                = quiet
-  set calculate VOF barycenter = true
+  set verbosity            = quiet
+  set calculate barycenter = true
+  set barycenter name      = vof_barycenter_information
 end
 </pre></div>
 </div>
