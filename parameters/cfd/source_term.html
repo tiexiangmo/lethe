@@ -376,8 +376,6 @@
 <h1>Source Term<a class="headerlink" href="#source-term" title="Permalink to this headline">¶</a></h1>
 <p>If the problem being simulated has a source, it can be added in this section. The default parameters are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection source term
-  set enable = false
-
   subsection xyz
     # Default values in 2D
     set Function expression = 0; 0; 0
@@ -410,7 +408,6 @@ end
 <p>Check the <a class="reference internal" href="#ex-function"><span class="std std-ref">Examples of Function Expression</span></a> for further help.</p>
 </div>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: controls if the problem has a source term and enables its calculation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">xyz</span></code>: defines the parameters for a Navier-Stokes source term. This source term is defined by a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> and can depend on both space and time.</p>
 <ul class="simple">
 <li><p>In 2D, the first two terms are the source terms for  the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> component of the momentum equation. The third term is the mass source term.</p></li>
