@@ -374,7 +374,7 @@
         <article role="main">
           <section id="sloshing-in-a-rectangular-tank">
 <h1>Sloshing in a Rectangular Tank<a class="headerlink" href="#sloshing-in-a-rectangular-tank" title="Permalink to this headline">¶</a></h1>
-<p>This example simulates the damping of a small amplitude wave for Reynolds number of (2, 20, 200 and 2000). The problem is inspired by the test case of Carrica <em>et al.</em> <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.1279">[1]</a></p>
+<p>This example simulates the damping of a small amplitude wave for Reynolds number of (<span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(20\)</span>, <span class="math notranslate nohighlight">\(200\)</span> and <span class="math notranslate nohighlight">\(2000\)</span>). The problem is inspired by the test case of Carrica <em>et al.</em> <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.1279">[1]</a></p>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -390,16 +390,19 @@
 <li><p>Analytical data for <span class="math notranslate nohighlight">\(Re=2\)</span>: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_0002/analytical_solution_Re2.csv</span></code></p></li>
 <li><p>Analytical data for <span class="math notranslate nohighlight">\(Re=20\)</span>: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_0020/analytical_solution_Re20.csv</span></code></p></li>
 <li><p>Analytical data for <span class="math notranslate nohighlight">\(Re=200\)</span>: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_0200/analytical_solution_Re200.csv</span></code></p></li>
-<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=2\)</span>:<code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_0002/sloshing-in-rectangular-tank_Re0002.prm</span></code></p></li>
-<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=20\)</span>:<code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_0020/sloshing-in-rectangular-tank_Re0020.prm</span></code></p></li>
-<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=200\)</span>:<code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_0200/sloshing-in-rectangular-tank_Re0200.prm</span></code></p></li>
-<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=2000\)</span>:<code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_2000/sloshing-in-rectangular-tank_Re2000.prm</span></code></p></li>
-<li><p>Python script for postprocessing: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_postprocessing.py</span></code></p></li>
+<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=2\)</span>: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_0002/sloshing-in-rectangular-tank_Re0002.prm</span></code></p></li>
+<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=20\)</span>: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_0020/sloshing-in-rectangular-tank_Re0020.prm</span></code></p></li>
+<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=200\)</span>: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_0200/sloshing-in-rectangular-tank_Re0200.prm</span></code></p></li>
+<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=2000\)</span>: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_2000/sloshing-in-rectangular-tank_Re2000.prm</span></code></p></li>
+<li><p>Postprocessing python script: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/sloshing-in-rectangular-tank/sloshing_postprocessing.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>Predicting the dynamics of free surface waves is essential for many industrial applications (e.g. transport of liquified natural gas). Yet, simulating their dynamics is difficult, especially for high Reynolds number values . Indeed, in this case, the amplitude of the waves dampen very slowly. This leads to an oscillatory wave problem which is highly sensitive to the time integration scheme and the coupling between the VOF solver and the Navier-Stokes solver.</p>
+<p>Predicting the dynamics of free surface waves is essential for many industrial applications (e.g. transport of liquified natural gas).
+Yet, simulating their dynamics is difficult, especially for high Reynolds number values.
+Indeed, in this case, the amplitude of the waves dampen very slowly.
+This leads to an oscillatory wave problem which is highly sensitive to the time integration scheme and the coupling between the VOF solver and the Navier-Stokes solver.</p>
 <p>In this problem, we simulate the damping of a small amplitude wave in a rectangular cavity defined from  <span class="math notranslate nohighlight">\((-1,-1)\)</span> to <span class="math notranslate nohighlight">\((1,0.1)\)</span>. The initial height of the wave <span class="math notranslate nohighlight">\(\xi (x)\)</span> is given by:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\xi = 1+0.01 \ sin(\pi(x+0.5))\]</div></div>
@@ -417,13 +420,13 @@
 </tr>
 </tbody>
 </table></div>
-<p>Four values of the Reynolds number are investigated: 2, 20, 200 and 2000.</p>
+<p>Four values of the Reynolds number are investigated: <span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(20\)</span>, <span class="math notranslate nohighlight">\(200\)</span> and <span class="math notranslate nohighlight">\(2000\)</span>.</p>
 </section>
 <section id="parameter-file">
 <h2>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="simulation-control">
 <h3>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
-<p>The results for this problem are highly sensitive to the accuracy of the time-stepping scheme. For this reason, we use a 2nd order backward differentiation scheme (<code class="docutils literal notranslate"><span class="pre">bdf2</span></code>) with a variable time step. The <code class="docutils literal notranslate"><span class="pre">adaptive</span> <span class="pre">time</span> <span class="pre">step</span> <span class="pre">scaling</span></code> is set to 1.025 to ensure that the time-step does not rise too quickly during wave oscillations.</p>
+<p>The results for this problem are highly sensitive to the accuracy of the time-stepping scheme. For this reason, we use a 2nd order backward differentiation scheme (<code class="docutils literal notranslate"><span class="pre">bdf2</span></code>) with a variable time step. The <code class="docutils literal notranslate"><span class="pre">adaptive</span> <span class="pre">time</span> <span class="pre">step</span> <span class="pre">scaling</span></code> is set to <span class="math notranslate nohighlight">\(1.025\)</span> to ensure that the time-step does not rise too quickly during wave oscillations.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set method                       = bdf2
   set time end                     = 50
@@ -455,7 +458,6 @@ end
   subsection uvwp
     set Function expression = 0; 0; 0
   end
-
   subsection VOF
     set Function expression =  if (y&lt;=(0.01*sin(3.1416*(x+0.5))), min(0.5-(y-0.01*sin(3.1416*(x+0.5)))/0.0025,1), max(0.5-(y-0.01*sin(3.1416*(x+0.5)))/0.0025,0))
   end
@@ -507,22 +509,22 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>We can call the lethe-fluid for each Reynolds number. For <span class="math notranslate nohighlight">\(Re=20\)</span>, this can be done by invoking the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-fluid sloshing-in-rectangular-tank_Re0020.prm
+<p>We can call <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> for each Reynolds number. For <span class="math notranslate nohighlight">\(Re=20\)</span>, this can be done by invoking the following command:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-fluid sloshing-in-rectangular-tank_Re0020.prm
 </pre></div>
 </div>
 <p>to run the simulation using eight CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Make sure to compile lethe in <cite>Release</cite> mode and
+<p>Make sure to compile Lethe in <cite>Release</cite> mode and
 run in parallel using mpirun. This simulation takes
-<span class="math notranslate nohighlight">\(\approx\)</span> 8 minutes (Re=2) to 6 hours (Re=2000) on 8 processes.</p>
+<span class="math notranslate nohighlight">\(\sim \, 8\)</span> minutes (<span class="math notranslate nohighlight">\(Re=2\)</span>) to <span class="math notranslate nohighlight">\(6\)</span> hours (<span class="math notranslate nohighlight">\(Re=2000\)</span>) on <span class="math notranslate nohighlight">\(8\)</span> processes.</p>
 </div>
 </section>
 <section id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>We compare the relative height of the free surface at <span class="math notranslate nohighlight">\(x=0\)</span> with an analytical solution proposed by Wu <em>et al.</em> <a class="reference external" href="https://link.springer.com/article/10.1023/A:1017558826258">[2]</a> For the Reynolds number of 2, 20 and 200, data were directly extracted from Carrica <em>et al.</em> <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.1279">[1]</a>, whereas for the Reynolds of 2000, the simplified analytical expression of Wu <em>et al.</em> <a class="reference external" href="https://link.springer.com/article/10.1023/A:1017558826258">[2]</a> is used. The results for Reynolds number of 2, 20, 200 and 2000 can be post-processed by invoking the following command from the folder of the Reynolds number of interest (Re=20 in the example below):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 ../sloshing_postprocessing.py . sloshing-in-rectangular-tank_Re0020.prm
+<p>We compare the relative height of the free surface at <span class="math notranslate nohighlight">\(x=0\)</span> with an analytical solution proposed by Wu <em>et al.</em> <a class="reference external" href="https://link.springer.com/article/10.1023/A:1017558826258">[2]</a> For the Reynolds number of <span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(20\)</span> and <span class="math notranslate nohighlight">\(200\)</span>, data were directly extracted from Carrica <em>et al.</em> <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/fld.1279">[1]</a>, whereas for the Reynolds of <span class="math notranslate nohighlight">\(2000\)</span>, the simplified analytical expression of Wu <em>et al.</em> <a class="reference external" href="https://link.springer.com/article/10.1023/A:1017558826258">[2]</a> is used. The results for Reynolds number of <span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(20\)</span>, <span class="math notranslate nohighlight">\(200\)</span> and <span class="math notranslate nohighlight">\(2000\)</span> can be post-processed by invoking the following command from the folder of the Reynolds number of interest (<span class="math notranslate nohighlight">\(Re=20\)</span> in the example below):</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>python3 ../sloshing_postprocessing.py . sloshing-in-rectangular-tank_Re0020.prm
 </pre></div>
 </div>
 <div class="admonition important">
@@ -530,10 +532,10 @@ run in parallel using mpirun. This simulation takes
 <p>You need to ensure that the <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools</span></code> is working on your machine. Click <a class="reference external" href="../../../tools/postprocessing/postprocessing.html">here</a> for details.</p>
 </div>
 <p>The following table presents a comparison between the analytical results and the simulation results for all Reynolds numbers mentioned above. A very good agreement is obtained for each of them, demonstrating the accuracy of the VOF solver.</p>
-<div class="table-wrapper"><table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-center">
 <colgroup>
-<col style="width: 14%"/>
-<col style="width: 86%"/>
+<col style="width: 11%"/>
+<col style="width: 89%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Re</p></th>
@@ -541,20 +543,20 @@ run in parallel using mpirun. This simulation takes
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>2</p></td>
-<td><img alt="../../../_images/Re2.png" src="../../../_images/Re2.png"/>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+<td><img alt="../../../_images/Re2.png" class="align-center" src="../../../_images/Re2.png"/>
 </td>
 </tr>
-<tr class="row-odd"><td><p>20</p></td>
-<td><img alt="../../../_images/Re20.png" src="../../../_images/Re20.png"/>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(20\)</span></p></td>
+<td><img alt="../../../_images/Re20.png" class="align-center" src="../../../_images/Re20.png"/>
 </td>
 </tr>
-<tr class="row-even"><td><p>200</p></td>
-<td><img alt="../../../_images/Re200.png" src="../../../_images/Re200.png"/>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(200\)</span></p></td>
+<td><img alt="../../../_images/Re200.png" class="align-center" src="../../../_images/Re200.png"/>
 </td>
 </tr>
-<tr class="row-odd"><td><p>2000</p></td>
-<td><img alt="../../../_images/Re2000.png" src="../../../_images/Re2000.png"/>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(2000\)</span></p></td>
+<td><img alt="../../../_images/Re2000.png" class="align-center" src="../../../_images/Re2000.png"/>
 </td>
 </tr>
 </tbody>

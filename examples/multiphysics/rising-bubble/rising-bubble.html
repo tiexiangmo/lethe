@@ -389,30 +389,30 @@
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rising-bubble/rising_bubble.prm</span></code></p></li>
-<li><p>Python file to generate plot: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rising-bubble/rising_bubble.py</span></code></p></li>
+<li><p>Postprocessing python script: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rising-bubble/rising_bubble.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
-<p>A circular bubble with density of 100 and kinematic viscosity of 0.01 (all the units in this example are dimensionless) is defined at an initial location (0.5, 0.5) in a rectangular column filled with a denser fluid (with a density of 1000 and kinematic viscosity of 0.01). At <span class="math notranslate nohighlight">\(t = 0\)</span> the bubble is released to rise inside the denser fluid column. The corresponding parameter file is
+<p>A circular bubble with density of <span class="math notranslate nohighlight">\(100\)</span> and kinematic viscosity of <span class="math notranslate nohighlight">\(0.01\)</span> (all the units in this example are dimensionless) is defined at an initial location <span class="math notranslate nohighlight">\((0.5, 0.5)\)</span> in a rectangular column filled with a denser fluid (with a density of <span class="math notranslate nohighlight">\(1000\)</span> and kinematic viscosity of <span class="math notranslate nohighlight">\(0.01\)</span>). At <span class="math notranslate nohighlight">\(t = 0\)</span> the bubble is released to rise inside the denser fluid column. The corresponding parameter file is
 <code class="docutils literal notranslate"><span class="pre">rising-bubble.prm</span></code>.</p>
 <p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
 <a class="reference internal image-reference" href="../../../_images/bubble-initial-configuration.png"><img alt="Schematic" class="align-center" src="../../../_images/bubble-initial-configuration.png" style="width: 400px;"/></a>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>On the upper and bottom walls <code class="docutils literal notranslate"><span class="pre">slip</span></code> boundary conditions are applied, and on side walls the boundary conditions are <code class="docutils literal notranslate"><span class="pre">noslip</span></code>.
-An external gravity field of <span class="math notranslate nohighlight">\(-0.98\)</span> is applied in the y direction.</p>
+An external gravity field of <span class="math notranslate nohighlight">\(-0.98\)</span> is applied in the <span class="math notranslate nohighlight">\(y\)</span> direction.</p>
 </div>
 </section>
 <section id="parameter-file">
 <h2>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="simulation-control">
 <h3>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
-<p>Time integration is handled by a 1st order backward differentiation scheme <cite>(bdf1)</cite>, for a <span class="math notranslate nohighlight">\(3~\text{s}\)</span> simulation time with an initial time step of <span class="math notranslate nohighlight">\(0.001~\text{s}\)</span>.</p>
+<p>Time integration is handled by a 1st order backward differentiation scheme (<code class="docutils literal notranslate"><span class="pre">bdf1</span></code>), for a <span class="math notranslate nohighlight">\(3~\text{s}\)</span> simulation time with an initial time step of <span class="math notranslate nohighlight">\(0.001~\text{s}\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This example uses an adaptive time-stepping method, where the
-time-step is modified during the simulation to keep the maximum value of the CFL condition below a given threshold. Using <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">20</span></code> ensures that the results are written every 20 iterations. Consequently, the time increment between each vtu file is not constant.</p>
+time-step is modified during the simulation to keep the maximum value of the CFL condition below a given threshold. Using <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">frequency</span> <span class="pre">=</span> <span class="pre">20</span></code> ensures that the results are written every <span class="math notranslate nohighlight">\(20\)</span> iterations. Consequently, the time increment between each vtu file is not constant.</p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set method           = bdf1
@@ -429,8 +429,8 @@ end
 </section>
 <section id="multiphysics">
 <h3>Multiphysics<a class="headerlink" href="#multiphysics" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on <cite>(true)</cite>
-and off <cite>(false)</cite> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> is chosen. The <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code>, <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, and <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> are enabled in the VOF subsection.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on (<code class="docutils literal notranslate"><span class="pre">true</span></code>)
+and off (<code class="docutils literal notranslate"><span class="pre">false</span></code>) the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> is chosen. The <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code>, <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, and <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">force</span></code> are enabled in the VOF subsection.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection multiphysics
   set VOF = true
 end
@@ -503,8 +503,8 @@ end
 <section id="physical-properties">
 <h3>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>We define two fluids here simply by setting the number of fluids to be <span class="math notranslate nohighlight">\(2\)</span>.
-In <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code>, we set the density and the kinematic viscosity for the phase associated with a VOF indicator of 0.
-A similar procedure is done for the phase associated with a VOF indicator of 1 in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>. Then a <code class="docutils literal notranslate"><span class="pre">fluid-fluid</span></code> type of material interaction is added to specify the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">model</span></code>. In this case, it is set to <code class="docutils literal notranslate"><span class="pre">constant</span></code> with the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">coefficient</span></code> <span class="math notranslate nohighlight">\(\sigma\)</span> set to <span class="math notranslate nohighlight">\(24.5\)</span>.</p>
+In <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">0</span></code>, we set the density and the kinematic viscosity for the phase associated with a VOF indicator of <span class="math notranslate nohighlight">\(0\)</span>.
+A similar procedure is done for the phase associated with a VOF indicator of <span class="math notranslate nohighlight">\(1\)</span> in <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">fluid</span> <span class="pre">1</span></code>. Then a <code class="docutils literal notranslate"><span class="pre">fluid-fluid</span></code> type of <code class="docutils literal notranslate"><span class="pre">material</span> <span class="pre">interaction</span></code> is added to specify the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">model</span></code>. In this case, it is set to <code class="docutils literal notranslate"><span class="pre">constant</span></code> with the <code class="docutils literal notranslate"><span class="pre">surface</span> <span class="pre">tension</span> <span class="pre">coefficient</span></code> <span class="math notranslate nohighlight">\(\sigma\)</span> set to <span class="math notranslate nohighlight">\(24.5\)</span>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids = 2
   subsection fluid 0
@@ -547,7 +547,7 @@ end
 <section id="mesh-adaptation">
 <h3>Mesh Adaptation<a class="headerlink" href="#mesh-adaptation" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">adaptation</span> <span class="pre">subsection</span></code>, adaptive mesh refinement is
-defined for <code class="docutils literal notranslate"><span class="pre">phase</span></code>. <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> are 6 and 9, respectively. Since the bubble rises and changes its location, we choose a rather large <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> (0.99) and moderate <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">coarsening</span></code> (0.01).
+defined for <code class="docutils literal notranslate"><span class="pre">phase</span></code>. <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">refinement</span> <span class="pre">level</span></code> are <span class="math notranslate nohighlight">\(6\)</span> and <span class="math notranslate nohighlight">\(9\)</span>, respectively. Since the bubble rises and changes its location, we choose a rather large <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">refinement</span></code> (<span class="math notranslate nohighlight">\(0.99\)</span>) and moderate <code class="docutils literal notranslate"><span class="pre">fraction</span> <span class="pre">coarsening</span></code> (<span class="math notranslate nohighlight">\(0.01\)</span>).
 To capture the bubble adequately, we set <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span> <span class="pre">steps</span> <span class="pre">=</span> <span class="pre">5</span></code> so that the initial mesh is adapted to ensure that the initial condition is imposed for the VOF phase with maximal accuracy.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
   set type                     = kelly
@@ -577,22 +577,28 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Call the lethe-fluid by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">lethe-fluid</span> <span class="pre">rising-bubble.prm</span></code></p>
+<p>Call <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> by invoking:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-fluid rising-bubble.prm
+</pre></div>
+</div>
 <p>to run the simulation using eight CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure to compile lethe in <cite>Release</cite> mode and
 run in parallel using mpirun. This simulation takes
-<span class="math notranslate nohighlight">\(\approx\)</span> 10 mins on 8 processes.</p>
+<span class="math notranslate nohighlight">\(\sim \,7\)</span> minutes on <span class="math notranslate nohighlight">\(8\)</span> processes.</p>
 </div>
 </section>
 <section id="results-and-discussion">
 <h2>Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Permalink to this headline">¶</a></h2>
-<p>The following image shows the shape and dimensions of the bubble after 3 seconds of simulation, and compares it with results of <a class="reference external" href="https://doi.org/10.1002/fld.2643">[1]</a>, <a class="reference external" href="https://doi.org/10.1002/fld.1934">[2]</a>.</p>
+<p>The following image shows the shape and dimensions of the bubble after <span class="math notranslate nohighlight">\(3\)</span> seconds of simulation, and compares it with results of <a class="reference external" href="https://doi.org/10.1002/fld.2643">[1]</a>.</p>
 <a class="reference internal image-reference" href="../../../_images/bubble.png"><img alt="bubble" class="align-center" src="../../../_images/bubble.png" style="width: 400px;"/></a>
-<p>A python post-processing code <cite>(rising-bubble.py)</cite> is added to the example folder to post-process the data files generated by the barycenter post-processing.
-Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">./rising-bubble.py</span> <span class="pre">output</span></code> to execute this post-processing code, where <code class="docutils literal notranslate"><span class="pre">output</span></code> is the directory that
+<p>A python post-processing code (<code class="docutils literal notranslate"><span class="pre">rising-bubble.py</span></code>) is added to the example folder to post-process the data files generated by the barycenter post-processing.
+Run</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>python3 ./rising-bubble.py output
+</pre></div>
+</div>
+<p>to execute this post-processing code, where <code class="docutils literal notranslate"><span class="pre">output</span></code> is the directory that
 contains the simulation results. The results for the barycenter position and velocity of the bubble are compared with the simulations of Zahedi <em>et al.</em> <a class="reference external" href="https://doi.org/10.1002/fld.2643">[1]</a> and Hysing <em>et al.</em> <a class="reference external" href="https://doi.org/10.1002/fld.1934">[2]</a>. The following images show the results of these comparisons. The agreement between the two simulations is remarkable considering the coarse mesh used within this example.</p>
 <a class="reference internal image-reference" href="../../../_images/ymean-t.png"><img alt="ymean_t" class="align-center" src="../../../_images/ymean-t.png" style="width: 500px;"/></a>
 <a class="reference internal image-reference" href="../../../_images/bubble-rise-velocity.png"><img alt="bubble_rise_velocity" class="align-center" src="../../../_images/bubble-rise-velocity.png" style="width: 500px;"/></a>

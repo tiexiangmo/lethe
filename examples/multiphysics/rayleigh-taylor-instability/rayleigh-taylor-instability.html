@@ -381,22 +381,34 @@
 <li><p>Solver: <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code></p></li>
 <li><p>Mesh adaptation using phase fraction</p></li>
 <li><p>Periodic boundary condition</p></li>
-<li><p>Unsteady problem handled by an adaptive BDF1 time-stepping scheme</p></li>
+<li><p>Unsteady problem handled by an adaptive BDF2 time-stepping scheme</p></li>
 <li><p>Monitoring mass conservation</p></li>
 <li><p>Interface sharpening</p></li>
 </ul>
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability-constant-sharpening.prm</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability-adaptive-sharpening.prm</span></code></p>
+<ul class="simple">
+<li><p>Parameter file for adaptive sharpening: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability-adaptive-sharpening.prm</span></code></p></li>
+<li><p>Parameter file for constant sharpening: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rayleigh-taylor-instability/rayleigh-taylor-instability-constant-sharpening.prm</span></code></p></li>
+<li><p>Postprocessing python script: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/rayleigh-taylor-instability/rayleigh-taylor_postprocess.py</span></code></p></li>
+</ul>
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>In this example, we simulate the Rayleigh-Taylor instability benchmark. In this benchmark, a dense fluid, as shown in the following figure, is located on top of a fluid with a smaller density.</p>
-<a class="reference internal image-reference" href="../../../_images/geometry2.png"><img alt="Schematic" class="align-center" src="../../../_images/geometry2.png" style="width: 200px;"/></a>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 100%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="../../../_images/rayleigh-taylor-instability-initial-state.svg"><img alt="Schematic" class="align-center" src="../../../_images/rayleigh-taylor-instability-initial-state.svg" width="350"/></a>
+</td>
+</tr>
+</tbody>
+</table></div>
 <dl>
-<dt>The density ratio and viscosity ratio of the heavy and light fluids are</dt><dd><div class="math-wrapper"><div class="math notranslate nohighlight">
+<dt>The density ratio and viscosity ratio of the heavy (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code>) and light (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>) fluids are</dt><dd><div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\rho_r = \frac{\rho_h}{\rho_l} = 3\]</div></div>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[\mu_r = \frac{\mu_h}{\mu_l} = 3\]</div></div>
@@ -407,20 +419,20 @@
 \[At = \frac{\rho_r - 1}{\rho_r + 1} = 0.5\]</div></div>
 </dd>
 </dl>
-<p>A perturbed interface defined as <span class="math notranslate nohighlight">\(2H + 0.1 H \cos{(2 \pi x / H)}\)</span> separates the fluids. At the top and bottom boundaries, a no-slip boundary condition is applied, while on the left and right walls, a periodic boundary condition is used. The temporal evolution of the interface is visually compared with the simulations of Garoosi and Hooman <a class="reference external" href="https://doi.org/10.1016/j.ijmecsci.2021.106956">[2]</a> at dimensionless times (<span class="math notranslate nohighlight">\(t^* = t \sqrt{\bf{g} / H}\)</span>) of 1.5, 2.5, 3.5, 4.0 and 4.5. The temporal evolution of the spike and the bubble positions are then compared to the results of He <em>et al.</em> <a class="reference external" href="https://doi.org/10.1006/jcph.1999.6257">[1]</a> The term “spike” refers to the lowest point of fluid 1 and the term “bubble” refers to the highest point of fluid 0.</p>
+<p>A perturbed interface defined as <span class="math notranslate nohighlight">\(y = 2H + 0.1 H \cos{(2 \pi x / H)}\)</span> separates the fluids. At the top and bottom boundaries, a <code class="docutils literal notranslate"><span class="pre">no-slip</span></code> boundary condition is applied, while on the left and right walls, a <code class="docutils literal notranslate"><span class="pre">periodic</span></code> boundary condition is used. The temporal evolution of the interface is visually compared with the simulations of Garoosi and Hooman <a class="reference external" href="https://doi.org/10.1016/j.ijmecsci.2021.106956">[2]</a> at dimensionless times (<span class="math notranslate nohighlight">\(t^* = t \sqrt{\mathbf{g} / H}\)</span>) of <span class="math notranslate nohighlight">\(1.5\)</span>, <span class="math notranslate nohighlight">\(2.5\)</span>, <span class="math notranslate nohighlight">\(3.5\)</span>, <span class="math notranslate nohighlight">\(4.0\)</span> and <span class="math notranslate nohighlight">\(4.5\)</span>. The temporal evolution of the spike and the bubble positions are then compared to the results of He <em>et al.</em> <a class="reference external" href="https://doi.org/10.1006/jcph.1999.6257">[1]</a> The term “spike” refers to the lowest point of <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> and the term “bubble” refers to the highest point of <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">0</span></code>.</p>
 </section>
 <section id="parameter-file">
 <h2>Parameter File<a class="headerlink" href="#parameter-file" title="Permalink to this headline">¶</a></h2>
 <section id="simulation-control">
 <h3>Simulation Control<a class="headerlink" href="#simulation-control" title="Permalink to this headline">¶</a></h3>
-<p>Time integration is handled by a 1st order backward differentiation scheme
-(<cite>bdf1</cite>), for a <span class="math notranslate nohighlight">\(0.75\)</span> s simulation time with an initial
-time step of <span class="math notranslate nohighlight">\(0.0002\)</span> seconds. Time-step adaptation is enabled using <code class="docutils literal notranslate"><span class="pre">adapt=true</span></code>
-and the max CFL is <span class="math notranslate nohighlight">\(0.9\)</span>.</p>
+<p>Time integration is handled by a 2nd order backward differentiation scheme
+(<code class="docutils literal notranslate"><span class="pre">bdf2</span></code>), for a <span class="math notranslate nohighlight">\(0.75\, \text{s}\)</span> simulation time with an initial
+time step of <span class="math notranslate nohighlight">\(0.0002\)</span> seconds. Time-step adaptation is enabled using <code class="docutils literal notranslate"><span class="pre">adapt</span> <span class="pre">=</span> <span class="pre">true</span></code>
+and the max CFL is <span class="math notranslate nohighlight">\(0.8\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This example uses an adaptive time-stepping method, where the
-time-step is modified during the simulation to keep the maximum value of the CFL condition below a given threshold (0.9 here). Using <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">control</span> <span class="pre">=</span> <span class="pre">time</span></code>, and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">time</span> <span class="pre">=</span> <span class="pre">0.005</span></code> the simulation results are written every 0.005 s.</p>
+time-step is modified during the simulation to keep the maximum value of the CFL condition below a given threshold (<span class="math notranslate nohighlight">\(0.9\)</span> here). Using <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">control</span> <span class="pre">=</span> <span class="pre">time</span></code>, and <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">time</span> <span class="pre">=</span> <span class="pre">0.005</span></code> the simulation results are written every <span class="math notranslate nohighlight">\(0.005\, \text{s}\)</span>.</p>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection simulation control
   set method           = bdf2
@@ -438,7 +450,7 @@ end
 </section>
 <section id="multiphysics">
 <h3>Multiphysics<a class="headerlink" href="#multiphysics" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on <code class="docutils literal notranslate"><span class="pre">true</span></code> and off <code class="docutils literal notranslate"><span class="pre">false</span></code> the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> and <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> are chosen (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> is true by default).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on (<code class="docutils literal notranslate"><span class="pre">true</span></code>) and off (<code class="docutils literal notranslate"><span class="pre">false</span></code>) the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">VOF</span></code> and <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> are chosen (<code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> by default).</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection multiphysics
   set VOF = true
 end
@@ -459,7 +471,7 @@ end
 </section>
 <section id="physical-properties">
 <h3>Physical Properties<a class="headerlink" href="#physical-properties" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection defines the physical properties of the fluid. In this example, we need two fluids with densities of 100 and 300 and with an equal kinematic viscosity (0.00153).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">physical</span> <span class="pre">properties</span></code> subsection defines the physical properties of the fluid. In this example, we need two fluids with densities of <span class="math notranslate nohighlight">\(100\)</span> and <span class="math notranslate nohighlight">\(300\)</span> and with an equal kinematic viscosity (<span class="math notranslate nohighlight">\(0.00153\)</span>).</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection physical properties
   set number of fluids = 2
   subsection fluid 0
@@ -476,16 +488,14 @@ end
 </section>
 <section id="initial-conditions">
 <h3>Initial Conditions<a class="headerlink" href="#initial-conditions" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code> subsection, we need to define the interface between the heavy and light fluids. We define this interface by using a function expression in the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection of the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code>. The interface between the two fluids is made smoother with the <a class="reference external" href="https://lethe-cfd.github.io/lethe/parameters/cfd/initial_conditions.html">projection step</a> parameter.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code> subsection, we need to define the interface between the heavy and light fluids. We define this interface by using a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code> in the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection of the <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">conditions</span></code>. The interface between the two fluids is made smoother with the <a class="reference internal" href="../../../parameters/cfd/initial_conditions.html"><span class="doc">projection step</span></a> parameter.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection initial conditions
   set type = nodal
   subsection uvwp
     set Function expression = 0; 0; 0
   end
-
   subsection VOF
     set Function expression = if (y&gt;(0.5 + 0.1 * 0.25 * cos(2 *3.1415 * x / 0.25)) , 1, 0)
-
     subsection projection step
       set enable           = true
       set diffusion factor = 1
@@ -498,7 +508,7 @@ end
 </section>
 <section id="mesh">
 <h3>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection we configure the simulation domain. The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> of the mesh is equal to 5, but we use mesh adaptation to coarsen the mesh in cells far from the interface to improve the computation performance.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">mesh</span></code> subsection we configure the simulation domain. The <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span></code> of the mesh is equal to <span class="math notranslate nohighlight">\(5\)</span>, but we use mesh adaptation to coarsen the mesh in cells far from the interface to improve the computation performance.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
   set type               = dealii
   set grid type          = subdivided_hyper_rectangle
@@ -510,7 +520,7 @@ end
 </section>
 <section id="mesh-adaptation">
 <h3>Mesh Adaptation<a class="headerlink" href="#mesh-adaptation" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">adaptation</span></code> section controls the dynamic mesh adaptation. Here, we choose <code class="docutils literal notranslate"><span class="pre">phase</span></code> as the <code class="docutils literal notranslate"><span class="pre">refinement</span> <span class="pre">variable</span></code> and 5 as the <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code>.
+<p>The <code class="docutils literal notranslate"><span class="pre">mesh</span> <span class="pre">adaptation</span></code> section controls the dynamic mesh adaptation. Here, we choose <code class="docutils literal notranslate"><span class="pre">phase</span></code> as the <code class="docutils literal notranslate"><span class="pre">refinement</span> <span class="pre">variable</span></code> and <span class="math notranslate nohighlight">\(5\)</span> as the <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">refinement</span> <span class="pre">level</span></code>.
 We set <code class="docutils literal notranslate"><span class="pre">initial</span> <span class="pre">refinement</span> <span class="pre">steps</span> <span class="pre">=</span> <span class="pre">4</span></code> to adapt the mesh to the initial value of the VOF field.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh adaptation
   set type                     = kelly
@@ -528,7 +538,7 @@ end
 </section>
 <section id="boundary-conditions">
 <h3>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h3>
-<p>The boundary conditions applied on the left and right boundaries are <code class="docutils literal notranslate"><span class="pre">periodic</span></code>, while a <code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary condition is used for the top and bottom walls. In the definition of a <code class="docutils literal notranslate"><span class="pre">periodic</span></code> boundary, we need to specify the <code class="docutils literal notranslate"><span class="pre">periodic_id</span></code> and the <code class="docutils literal notranslate"><span class="pre">periodic_direction</span></code> (in this example, 0 which shows the x direction).</p>
+<p>The boundary conditions applied on the left and right boundaries are <code class="docutils literal notranslate"><span class="pre">periodic</span></code>, while a <code class="docutils literal notranslate"><span class="pre">noslip</span></code> boundary condition is used for the top and bottom walls. In the definition of a <code class="docutils literal notranslate"><span class="pre">periodic</span></code> boundary, we need to specify the <code class="docutils literal notranslate"><span class="pre">periodic_id</span></code> and the <code class="docutils literal notranslate"><span class="pre">periodic_direction</span></code> (in this example, <span class="math notranslate nohighlight">\(0\)</span> which indicates the <span class="math notranslate nohighlight">\(x\)</span> direction).</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection boundary conditions
   set number = 3
   subsection bc 0
@@ -560,18 +570,15 @@ end
     set frequency           = 25
     set type                = constant
   end
-
   subsection mass conservation
     set monitoring      = true
     set monitored fluid = fluid 1
-    set tolerance       = 1e-2
     set verbosity       = extra verbose
   end
-
   subsection phase filtration
-    set type  = tanh
-    set verbosity = verbose
-    set beta = 10
+    set type      = tanh
+    set verbosity = quiet
+    set beta      = 10
   end
 end
 </pre></div>
@@ -587,14 +594,12 @@ end
     set threshold max deviation = 0.2
     set max iterations          = 50
   end
-
   subsection mass conservation
     set monitoring      = true
     set monitored fluid = fluid 1
     set tolerance       = 1e-2
     set verbosity       = extra verbose
   end
-
   subsection phase filtration
     set type  = tanh
     set verbosity = verbose
@@ -603,36 +608,81 @@ end
 end
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code> is enabled in this example. We refer the reader to the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a>
-documentation for more explanation on the phase filtration.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code> is enabled in this example.
+We refer the reader to the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a> documentation for more explanation on the phase filtration.</p>
 </section>
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Call the lethe-fluid by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">lethe-fluid</span> <span class="pre">rayleigh-taylor-instability-adaptive-sharpening.prm</span></code></p>
+<p>Call <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> by invoking:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-fluid rayleigh-taylor-instability-adaptive-sharpening.prm
+</pre></div>
+</div>
 <p>to run the simulations using eight CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Make sure to compile lethe in <cite>Release</cite> mode and
-run in parallel using mpirun. This simulation takes
-<span class="math notranslate nohighlight">\(\approx\)</span> 10 minutes on 8 processes.</p>
+run in parallel using mpirun. On <span class="math notranslate nohighlight">\(8\)</span> processes, this simulation takes
+<span class="math notranslate nohighlight">\(\sim\)</span> <span class="math notranslate nohighlight">\(2\)</span> minutes for the <code class="docutils literal notranslate"><span class="pre">adaptive</span></code> sharpening and <span class="math notranslate nohighlight">\(\sim\)</span> <span class="math notranslate nohighlight">\(4\)</span> minutes for <code class="docutils literal notranslate"><span class="pre">constant</span></code> sharpening.</p>
 </div>
 </section>
 <section id="results-and-discussion">
 <h2>Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Permalink to this headline">¶</a></h2>
-<p>In the following picture, the boundary between the two fluids is compared with (right) and without (left) <code class="docutils literal notranslate"><span class="pre">projection</span> <span class="pre">step</span></code> :</p>
-<a class="reference internal image-reference" href="../../../_images/smoothedInitialCondition.png"><img alt="Schematic" class="align-center" src="../../../_images/smoothedInitialCondition.png" style="width: 800px;"/></a>
+<p>In the following picture, the boundary between the two fluids is compared with (right) and without (left) <code class="docutils literal notranslate"><span class="pre">projection</span> <span class="pre">step</span></code>:</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 100%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="../../../_images/smoothedInitialCondition.png"><img alt="Schematic" class="align-center" src="../../../_images/smoothedInitialCondition.png" style="width: 800px;"/></a>
+</td>
+</tr>
+</tbody>
+</table></div>
 <p>The following animation shows the results of this simulation:</p>
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/hZwbFob_Jj4" width="560"></iframe><p>In the following figure, we compare the simulation results with that of Garoosi and Hooman (2022) <a class="reference external" href="https://doi.org/10.1016/j.ijmecsci.2021.106956">[2]</a>.</p>
 <a class="reference internal image-reference" href="../../../_images/comparison.png"><img alt="Schematic" class="align-center" src="../../../_images/comparison.png" style="width: 400px;"/></a>
-<p>In the figure below, we compare the position of the spike and the bubble with the results of He <em>et al.</em> <a class="reference external" href="https://doi.org/10.1006/jcph.1999.6257">[1]</a> It can be seen that as <span class="math notranslate nohighlight">\(t^*\)</span> increases, there is a growing difference between the spike position of the current simulation and that of He <em>et al.</em> <a class="reference external" href="https://doi.org/10.1006/jcph.1999.6257">[1]</a>  Nevertheless, the bubble position follows the same evolution as the reference.</p>
-<a class="reference internal image-reference" href="../../../_images/spike_and_bubble_evolution_He_et_al_comparison.png"><img alt="Comparison of the spike and bubble positions with He et al (1999) values." class="align-center" src="../../../_images/spike_and_bubble_evolution_He_et_al_comparison.png" style="width: 800px;"/></a>
+<p>By invoking the <code class="docutils literal notranslate"><span class="pre">rayleigh-taylor_postprocess.py</span></code> postprocessing script found within the example folder with</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>python3 rayleigh-taylor_postprocess.py ./output/adaptive/
+</pre></div>
+</div>
+<p>we compare the position of the spike and the bubble with the results of He <em>et al.</em> <a class="reference external" href="https://doi.org/10.1006/jcph.1999.6257">[1]</a></p>
+<p>In the figure below, it can be seen that as <span class="math notranslate nohighlight">\(t^*\)</span> increases, there is a growing difference between the spike position of the current simulation and that of He <em>et al.</em> <a class="reference external" href="https://doi.org/10.1006/jcph.1999.6257">[1]</a>  Nevertheless, the bubble position follows the same evolution as the reference.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 100%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="../../../_images/spike_and_bubble_evolution_He_et_al_comparison.png"><img alt="Comparison of the spike and bubble positions with He et al (1999) values." class="align-center" src="../../../_images/spike_and_bubble_evolution_He_et_al_comparison.png" style="width: 800px;"/></a>
+</td>
+</tr>
+</tbody>
+</table></div>
 <p>With higher levels of refinement, we can see better correspondence between the values. However, there is still a gap between the spike positions for larger values of <span class="math notranslate nohighlight">\(t^*\)</span>.</p>
-<a class="reference internal image-reference" href="../../../_images/spike_and_bubble_evolution_ref_max_10_ref_min_8.png"><img alt="He et al comparison for a max refinement of 10 and a min refinement of 8. We see a better correspondence in the positions of the spike and the bubble. However, for large values of t*, there is still gap between the positions." class="align-center" src="../../../_images/spike_and_bubble_evolution_ref_max_10_ref_min_8.png" style="width: 800px;"/></a>
-<p>The following figures shows the mass of fluid 1 throughout the simulation with a constant (top) and adaptive (bottom) interface sharpening.</p>
-<a class="reference internal image-reference" href="../../../_images/constant_mass.png"><img alt="Schematic" class="align-center" src="../../../_images/constant_mass.png" style="width: 400px;"/></a>
-<a class="reference internal image-reference" href="../../../_images/adaptive_mass.png"><img alt="Schematic" class="align-center" src="../../../_images/adaptive_mass.png" style="width: 400px;"/></a>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 100%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="../../../_images/spike_and_bubble_evolution_ref_max_10_ref_min_8.png"><img alt="He et al comparison for a max refinement of 10 and a min refinement of 8. We see a better correspondence in the positions of the spike and the bubble. However, for large values of t*, there is still gap between the positions." class="align-center" src="../../../_images/spike_and_bubble_evolution_ref_max_10_ref_min_8.png" style="width: 800px;"/></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>The following figures show the mass of <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code> throughout the simulation with a constant (left) and adaptive (right) interface sharpening.</p>
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="../../../_images/constant_mass.png"><img alt="Schematic" class="align-center" src="../../../_images/constant_mass.png" style="width: 400px;"/></a>
+</td>
+<td><a class="reference internal image-reference" href="../../../_images/adaptive_mass.png"><img alt="Schematic" class="align-center" src="../../../_images/adaptive_mass.png" style="width: 400px;"/></a>
+</td>
+</tr>
+</tbody>
+</table></div>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>

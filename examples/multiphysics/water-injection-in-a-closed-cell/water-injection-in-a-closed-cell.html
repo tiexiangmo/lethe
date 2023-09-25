@@ -390,7 +390,7 @@ The problem is inspired by the test case of Caltagirone <em>et al.</em> <a class
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/water-injection-in-a-closed-cell/water-injection-in-a-closed-cell.prm</span></code></p></li>
-<li><p>Python script for postprocessing: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/air-bubble-compression/air-bubble-compression-postprocessing.py</span></code></p></li>
+<li><p>Postprocessing python script: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/air-bubble-compression/air-bubble-compression-postprocessing.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -426,7 +426,7 @@ The initial time step is set to <span class="math notranslate nohighlight">\(0.0
   set time end         = 0.49
   set time step        = 0.005
   set adapt            = true
-  set max cfl          = 0.5
+  set max cfl          = 0.75
   set output name      = water-injection-in-a-closed-cell
   set output frequency = 5
   set output path      = ./output/
@@ -445,18 +445,19 @@ end
 </section>
 <section id="vof">
 <h3>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h3>
-<p>In the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection, the <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> and the <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code> features are enabled.
-The interface sharpening method and its parameters are explained in the <a class="reference internal" href="../dam-break/dam-break.html"><span class="doc">Dam-Break</span></a> example.
-The phase filtration filters the phase field used for the calculation of physical properties by stiffening the value of the phase fraction.
-We refer the reader to <a class="reference internal" href="../../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) Method</span></a> theory guide for further explanation on the phase filtration.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> subsection, the <code class="docutils literal notranslate"><span class="pre">compressible</span></code>, the <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code>, and the <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code> features are enabled.
+The enabled <code class="docutils literal notranslate"><span class="pre">compressible</span></code> parameter allows interface compression by adding the term <span class="math notranslate nohighlight">\(\phi (\nabla \cdot \mathbf{u})\)</span> to the VOF equation.
+The <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> method and its parameters are explained in the <a class="reference internal" href="../dam-break/dam-break.html"><span class="doc">Dam-Break</span></a> example.
+The <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code> filters the phase field used for the calculation of physical properties by stiffening the value of the phase fraction.
+We refer the reader to <a class="reference internal" href="../../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) Method</span></a> theory guide for further explanation on the <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection VOF
+  set compressible = true
   subsection interface sharpening
     set enable              = true
     set threshold           = 0.5
-    set interface sharpness = 2
-    set frequency           = 50
+    set interface sharpness = 1.8
+    set frequency           = 25
   end
-
   subsection phase filtration
     set type      = tanh
     set beta      = 10
@@ -583,14 +584,14 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>We can call the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> by invoking the following command:</p>
+<p>We can call <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> by invoking the following command:</p>
 <div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-fluid water-injection-in-a-closed-cell.prm
 </pre></div>
 </div>
 <p>to run the simulation using eight CPU cores.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Make sure to compile lethe in <cite>Release</cite> mode and run in parallel using mpirun. This simulation takes approximately one minute on 8 processes.</p>
+<p>Make sure to compile lethe in <cite>Release</cite> mode and run in parallel using mpirun. This simulation takes approximately half a minute on 8 processes.</p>
 </div>
 </section>
 <section id="results">

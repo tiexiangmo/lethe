@@ -388,7 +388,7 @@
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/dam-break/</span></code></p></li>
-<li><p>Python script for postprocessing: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/dam-break/dam-break-2d.py</span></code></p></li>
+<li><p>Postprocessing python script: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/dam-break/dam-break-2d.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -398,10 +398,20 @@ a rectangular domain as shown in the figure below.
 At <span class="math notranslate nohighlight">\(t = 0\)</span> s, the dam is removed, and
 the liquid is released into the total simulation domain.</p>
 <p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
-<img alt="Schematic" class="align-center" src="../../../_images/VOF-dam-break-initial-configuration.svg"/><div class="admonition note">
+<div class="table-wrapper"><table class="docutils align-default">
+<colgroup>
+<col style="width: 100%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><a class="reference internal image-reference" href="../../../_images/dam-break-initial-configuration.svg"><img alt="Schematic" class="align-center" src="../../../_images/dam-break-initial-configuration.svg" width="800"/></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All the four boundary conditions are <code class="docutils literal notranslate"><span class="pre">slip</span></code>, and an external
-gravity field of <span class="math notranslate nohighlight">\(-1\)</span> is applied in the y direction.</p>
+gravity field of <span class="math notranslate nohighlight">\(-1\)</span> is applied in the <span class="math notranslate nohighlight">\(y\)</span> direction.</p>
 </div>
 </section>
 <section id="parameter-file">
@@ -444,18 +454,16 @@ end
 <h3>Interface Sharpening Parameters<a class="headerlink" href="#interface-sharpening-parameters" title="Permalink to this headline">¶</a></h3>
 <section id="vof">
 <h4>VOF<a class="headerlink" href="#vof" title="Permalink to this headline">¶</a></h4>
-<p>If the interface sharpening is not enabled in the <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">VOF</span></a> subsection, the interface between phases will become blurry (due to diffusion). Futhermore, the phase filtration is enabled in this example. We refer the reader to the <a class="reference internal" href="../../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) Method</span></a> documentation for more explanation both methods.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">interface</span> <span class="pre">sharpening</span></code> is not enabled in <a class="reference internal" href="../../../parameters/cfd/volume_of_fluid.html"><span class="doc">VOF</span></a> subsection, the interface between phases will become blurry (due to diffusion). Furthermore, the <code class="docutils literal notranslate"><span class="pre">phase</span> <span class="pre">filtration</span></code> is enabled in this example. We refer the reader to the <a class="reference internal" href="../../../theory/multiphysics/vof.html"><span class="doc">The Volume of Fluid (VOF) Method</span></a> documentation for more explanation on both methods.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection VOF
   subsection interface sharpening
     set enable              = true
     set threshold           = 0.5
-    set interface sharpness = 2
+    set interface sharpness = 1.5
     set frequency           = 20
   end
-
   subsection phase filtration
     set type            = tanh
-    set verbosity       = quiet
     set beta            = 10
   end
 end
@@ -554,14 +562,16 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Call the lethe-fluid by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">2</span> <span class="pre">lethe-fluid</span> <span class="pre">dam-break-Martin-and-Moyce.prm</span></code></p>
-<p>to run the simulation using two CPU cores. Feel free to use more.</p>
+<p>Call <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> by invoking:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 6 lethe-fluid dam-break-Martin-and-Moyce.prm
+</pre></div>
+</div>
+<p>to run the simulation using six CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The code will compute <span class="math notranslate nohighlight">\(35,000+\)</span> dofs for <span class="math notranslate nohighlight">\(600+\)</span> time
-iterations. Make sure to compile lethe in <cite>Release</cite> mode and
-run in parallel using mpirun</p>
+<p>The code will compute <span class="math notranslate nohighlight">\(35,000+\)</span> dofs for <span class="math notranslate nohighlight">\(600+\)</span> time iterations.
+Make sure to compile Lethe in <cite>Release</cite> mode and run in parallel using mpirun.
+This simulation takes <span class="math notranslate nohighlight">\(\sim \, 3\)</span> minutes on <span class="math notranslate nohighlight">\(6\)</span> processes.</p>
 </div>
 </section>
 <section id="results-and-discussion">
@@ -572,13 +582,14 @@ The red area corresponds to the liquid phase and the blue area corresponds to th
 <img alt="time-shots" class="align-center" src="../../../_images/time-series.png"/>
 <p>A python post-processing code <cite>(dam-break-2d.py)</cite>
 is added to the example folder to post-process the results.
-Run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">./dam-break-2d.py</span> <span class="pre">./output</span></code> to execute this
-post-processing code, where <code class="docutils literal notranslate"><span class="pre">./output</span></code> is the directory that
-contains the simulation results. In post-processing, the maximum
-dimensionless lateral position of the liquid phase is tracked
-through time and compared with the experiments of Martin and Moyce
-(1952) <a class="reference external" href="https://doi.org/10.1098/rsta.1952.0006">[1]</a>. The following figure shows the result of
-the post-processing, with a good agreement between the simulation and the experiment:</p>
+Run</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>python3 ./dam-break-2d.py ./output
+</pre></div>
+</div>
+<p>to execute this post-processing code, where <code class="docutils literal notranslate"><span class="pre">./output</span></code> is the directory that contains the simulation results.
+In post-processing, the maximum dimensionless lateral position of the liquid phase is tracked
+through time and compared with the experiments of Martin and Moyce (1952) <a class="reference external" href="https://doi.org/10.1098/rsta.1952.0006">[1]</a>.
+The following figure shows the result of the post-processing, with a good agreement between the simulation and the experiment:</p>
 <img alt="xmax_t" class="align-center" src="../../../_images/xmax-t.png"/>
 <p>As mentioned previously, this simulation uses adaptive mesh
 refinement. The following image shows the mesh and the position of
