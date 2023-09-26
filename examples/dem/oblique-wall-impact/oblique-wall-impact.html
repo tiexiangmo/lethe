@@ -385,9 +385,9 @@
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/oblique_wall_collilsion_template.prm</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/oblique_wall_collision_case_generator.py</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/oblique_wall_collision_post-processing.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/oblique_wall_impact_template.prm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/ooblique_wall_impact_case_generator.py</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/oblique_wall_impact_post-processing.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -471,10 +471,10 @@ end
 <section id="generating-the-parameter-files">
 <h2>Generating the parameter files<a class="headerlink" href="#generating-the-parameter-files" title="Permalink to this headline">¶</a></h2>
 <p>Using the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">oblique_wall_collision_case_generator</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">oblique_wall_impact_case_generator</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p>Generates 34 file with the prefix <code class="docutils literal notranslate"><span class="pre">run_oblique_collision</span></code> and the <code class="docutils literal notranslate"><span class="pre">{angle}.prm</span></code> as a suffix.</p>
+<p>Generates 34 file with the prefix <code class="docutils literal notranslate"><span class="pre">run_oblique_impact_</span></code> and the <code class="docutils literal notranslate"><span class="pre">{angle}.prm</span></code> as a suffix.</p>
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
@@ -486,8 +486,8 @@ end
 </section>
 <section id="post-processing">
 <h2>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
-<p>A Python post-processing code called <code class="docutils literal notranslate"><span class="pre">blique_wall_collision_post-processing.py</span></code> is provided with this example. It is used to compare the rebound angle, the angular velocity and the tangential coefficient of restituion of the particles. Use the following line in your command line to run the post-processing code :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 bouncing_particle_post_processing.py
+<p>A Python post-processing code called <code class="docutils literal notranslate"><span class="pre">oblique_wall_impact_post-processing.py</span></code> is provided with this example. It is used to compare the rebound angle, the angular velocity and the tangential coefficient of restituion of the particles. Use the following line in your command line to run the post-processing code :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 oblique_wall_impact_post-processing.py
 </pre></div>
 </div>
 <div class="admonition important">
