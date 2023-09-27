@@ -411,8 +411,8 @@ end
 <ul>
 <li><dl>
 <dt>The <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter enables to choose an iterative solver for the linear system of equations. Lethe currently supports the following core solution strategies:</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">gmres</span></code> (default parameter value), a GMRES iterative solver with ILU preconditioning or AMG preconditioning with an ILU coarsener and smoother.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">bicgstab</span></code>, a BICGSTAB iterative solver with ILU preconditioning.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gmres</span></code> (default parameter value), a preconditioned GMRES iterative solver.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bicgstab</span></code>, a preconditioned BICGSTAB iterative solver.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">direct</span></code>, a direct solver using <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classTrilinosWrappers_1_1SolverDirect.html">TrilinosWrappers::SolverDirect</a>.</p></li>
 </ul>
 <div class="admonition hint">
@@ -497,7 +497,7 @@ end
 <p>Consider using <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">max</span> <span class="pre">krylov</span> <span class="pre">vectors</span> <span class="pre">=</span> <span class="pre">200</span></code> for complex simulations with convergence issues.</p>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">preconditioner</span></code> sets the type of preconditioning used for the linear solver. It can be either <code class="docutils literal notranslate"><span class="pre">ilu</span></code> for an Incomplete LU decomposition or <code class="docutils literal notranslate"><span class="pre">amg</span></code> for an Algebraic Multigrid.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">preconditioner</span></code> sets the type of preconditioning used for the linear solver. It can be either <code class="docutils literal notranslate"><span class="pre">ilu</span></code> for an Incomplete LU decomposition, <code class="docutils literal notranslate"><span class="pre">amg</span></code> for an Algebraic Multigrid, <code class="docutils literal notranslate"><span class="pre">lsmg</span></code> for a Local Smoothing Multigrid, or <code class="docutils literal notranslate"><span class="pre">gcmg</span></code> for a Global Coarsening Multigrid. The latter two are only available for the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-matrix-free</span></code> application.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -533,13 +533,13 @@ set ilu preconditioner relative tolerance = 1.00
 </section>
 <section id="amg-preconditioner">
 <h2>AMG preconditioner<a class="headerlink" href="#amg-preconditioner" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># AMG preconditioner ILU smoother/coarsener fill
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># AMG preconditioner ILU smoother fill
 set amg preconditioner ilu fill               = 0
 
-# AMG preconditioner ILU smoother/coarsener absolute tolerance
+# AMG preconditioner ILU smoother absolute tolerance
 set amg preconditioner ilu absolute tolerance = 1e-12
 
-# AMG preconditioner ILU smoother/coarsener relative tolerance
+# AMG preconditioner ILU smoother relative tolerance
 set amg preconditioner ilu relative tolerance = 1.00
 
 # AMG aggregation threshold
@@ -561,6 +561,47 @@ set amg smoother overlap                      = 1
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>For more information about the <code class="docutils literal notranslate"><span class="pre">amg</span></code> preconditioner parameters, the reader is referred to the deal.II documentation for the <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/classTrilinosWrappers_1_1PreconditionAMG.html">AMG preconditioner</a> and its <a class="reference external" href="https://www.dealii.org/current/doxygen/deal.II/structTrilinosWrappers_1_1PreconditionAMG_1_1AdditionalData.html">Additional Data</a>.</p>
+</div>
+</section>
+<section id="lsmg-and-gcmg-preconditioners">
+<h2>LSMG and GCMG preconditioners<a class="headerlink" href="#lsmg-and-gcmg-preconditioners" title="Permalink to this headline">¶</a></h2>
+<p>Different parameters for the main components of the two geometric multigrid algorithms can be specified. The parameters can be general or can belong to either the smoother, the coarse-grid solver or the coarse-grid solver preconditioner.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># General MG parameters
+set mg verbosity       = quiet
+set mg min level       = -1
+set mg level min cells = -1
+
+# Relaxation smoother parameters
+set mg smoother iterations = 10
+set mg smoother relaxation = 0.5
+
+# Coarse-grid solver parameters
+set mg coarse grid max iterations     = 2000
+set mg coarse grid tolerance          = 1e-14
+set mg coarse grid reduce             = 1e-4
+set mg coarse grid max krylov vectors = 30
+
+# Coarse-grid AMG preconditioner parameters
+set amg preconditioner ilu fill               = 0
+set amg preconditioner ilu absolute tolerance = 1e-12
+set amg preconditioner ilu relative tolerance = 1.00
+set amg aggregation threshold                 = 1e-14
+set amg n cycles                              = 1
+set amg w cycles                              = false
+set amg smoother sweeps                       = 2
+set amg smoother overlap                      = 1
+set amg preconditioner ilu fill               = 0
+set amg preconditioner ilu absolute tolerance = 1e-12
+set amg preconditioner ilu relative tolerance = 1.00
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The default algorithms build and use ALL the multigrid levels. There are two ways to change the number of levels, either by setting the <code class="docutils literal notranslate"><span class="pre">mg</span> <span class="pre">min</span> <span class="pre">level</span></code> parameter OR the <code class="docutils literal notranslate"><span class="pre">mg</span> <span class="pre">level</span> <span class="pre">min</span> <span class="pre">cells</span></code> parameter. For LSMG the coarsest mesh should cover the whole domain, i.e., no hanging nodes are allowed.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Currently, these preconditioners can only be used within the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-matrix-free</span></code> application.</p>
 </div>
 </section>
 </section>
@@ -619,6 +660,7 @@ set amg smoother overlap                      = 1
 <li><a class="reference internal" href="#">Linear Solver</a><ul>
 <li><a class="reference internal" href="#ilu-preconditioner">ILU preconditioner</a></li>
 <li><a class="reference internal" href="#amg-preconditioner">AMG preconditioner</a></li>
+<li><a class="reference internal" href="#lsmg-and-gcmg-preconditioners">LSMG and GCMG preconditioners</a></li>
 </ul>
 </li>
 </ul>
