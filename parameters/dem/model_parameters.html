@@ -400,8 +400,12 @@
   end
 
   # Particle-particle contact force model
-  # Choices are linear|hertz_mindlin_limit_overlap|hertz_mindlin_limit_force|hertz
+  # Choices are linear|hertz_mindlin_limit_overlap|hertz_mindlin_limit_force|hertz|hertz_JKR
   set particle particle contact force method = hertz_mindlin_limit_overlap
+
+  # Particle-wall contact force model
+  # Choices are linear|nonlinear|JKR
+  set particle wall contact force method = nonlinear
 
   # Integration method
   # Choices are euler|velocity_verlet
@@ -450,8 +454,8 @@ end
 <p>All contact force models are described in the <a class="reference internal" href="../../theory/dem/dem.html"><span class="doc">Discrete Element Method (DEM)</span></a> section of the theory guide.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">integration</span></code> controls the integration method  used. Lethe supports <code class="docutils literal notranslate"><span class="pre">euler</span></code> (1st order) and <code class="docutils literal notranslate"><span class="pre">velocity-verlet</span></code> (2nd order) time-integrators. The velocity-verlet should be used at all times.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">particle</span> <span class="pre">contact</span> <span class="pre">force</span> <span class="pre">method</span></code> control the particle-particle contact force model used. Four models are available in Lethe: <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_overlap</span></code>, <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_force</span></code>, <code class="docutils literal notranslate"><span class="pre">hertz</span></code>, and <code class="docutils literal notranslate"><span class="pre">linear</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">wall</span> <span class="pre">contact</span> <span class="pre">force</span> <span class="pre">method</span></code> controls the particle-wall contact force model used. Two models are available: <code class="docutils literal notranslate"><span class="pre">linear</span></code> and <code class="docutils literal notranslate"><span class="pre">non-linear</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">particle</span> <span class="pre">contact</span> <span class="pre">force</span> <span class="pre">method</span></code> controls the particle-particle contact force model. Five models are available in Lethe: <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_overlap</span></code>, <code class="docutils literal notranslate"><span class="pre">hertz_mindlin_limit_force</span></code>, <code class="docutils literal notranslate"><span class="pre">hertz</span></code>, <code class="docutils literal notranslate"><span class="pre">hertz_JKR</span></code> and <code class="docutils literal notranslate"><span class="pre">linear</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">wall</span> <span class="pre">contact</span> <span class="pre">force</span> <span class="pre">method</span></code> controls the particle-wall contact force model used. Three models are available: <code class="docutils literal notranslate"><span class="pre">linear</span></code>, <code class="docutils literal notranslate"><span class="pre">non-linear</span></code> and <code class="docutils literal notranslate"><span class="pre">JKR</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rolling</span> <span class="pre">resistance</span> <span class="pre">method</span></code> controls the rolling resistance model used. Three rolling resistance models are available: <code class="docutils literal notranslate"><span class="pre">no_resistance</span></code>, <code class="docutils literal notranslate"><span class="pre">constant_resistance</span></code>, <code class="docutils literal notranslate"><span class="pre">viscous_resistance</span></code></p></li>
 </ul>
 </section>
