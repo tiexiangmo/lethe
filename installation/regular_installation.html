@@ -383,43 +383,54 @@
 <p>Distributions compatibility: Ubuntu 18.04 LTS, Ubuntu 20.04 LTS, Ubuntu 22.04 LTS, Centos 7 and Manjaro</p>
 </div>
 <ul class="simple">
-<li><dl class="simple">
-<dt>Dependencies: deal.II library (<a class="reference external" href="https://www.dealii.org/">deal.II website</a>) and its dependencies (MPI, numdiff, p4est, trilinos and METIS)</dt><dd><ul>
-<li><p>Lethe requires a modern version of the deal.II library. At the time of this writing, <code class="docutils literal notranslate"><span class="pre">deal.II</span> <span class="pre">9.4</span></code> and <code class="docutils literal notranslate"><span class="pre">deal.II</span> <span class="pre">10.0pre</span></code> (the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch version) are supported.</p></li>
-<li><p>The compatibility with these two branches is ensured by Continuous Integration (CI) using Github Actions.</p></li>
-<li><p>A <a class="reference external" href="https://github.com/lethe-cfd/dealii">dealii fork</a> is maintained by Lethe team. This fork does not include any modification to deal.II library, but it is the latest version with which Lethe was tested. We work hard to ensure compatibility with the latest deal.II version and we do not modify the library except through pull requests on the official deal.II repository.</p></li>
-</ul>
-</dd>
-</dl>
-</li>
+<li><p>Dependencies: deal.II library (<a class="reference external" href="https://www.dealii.org/">deal.II website</a>) and its dependencies (MPI, numdiff, p4est, trilinos and METIS)
+* Lethe requires a modern version of the deal.II library. At the time of this writing, <code class="docutils literal notranslate"><span class="pre">deal.II</span> <span class="pre">9.5</span></code> and <code class="docutils literal notranslate"><span class="pre">deal.II</span> <span class="pre">9.6pre</span></code> (the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch version) are supported.
+* The compatibility with these two branches is ensured by Continuous Integration (CI) using Github Actions.
+* A <a class="reference external" href="https://github.com/lethe-cfd/dealii">dealii fork</a> is maintained by Lethe team. This fork does not include any modification to deal.II library, but it is the latest version with which Lethe was tested. We work hard to ensure compatibility with the latest deal.II version and we do not modify the library except through pull requests on the official deal.II repository.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Lethe cannot be installed if deal.II has not been configured with p4est, trilinos and METIS. Although Lethe can be run in serial and parallel mode (through MPI), it uses p4est, METIS and trilinos for mesh decomposition and the linear solvers respectively.</p>
 </div>
 <ul class="simple">
-<li><dl class="simple">
-<dt>Lethe installation steps:</dt><dd><ol class="arabic simple">
-<li><p>Installation of deal.II dependencies (MPI, numdiff, p4est, trilinos and METIS)</p></li>
-<li><p>Installation of the deal.II library</p></li>
-<li><p>Installation of Lethe</p></li>
-</ol>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Methods to install deal.II and its dependencies:</dt><dd><ol class="arabic simple">
-<li><p>through candi shell script (<a class="reference external" href="https://github.com/dealii/candi">candi github page</a>): <strong>this is by far the easiest way to proceed</strong>, since it requires much less manual intervention. Even if you do not want to use candi to install deal.II, you can use it for the dependencies.</p></li>
+<li><p>Lethe installation steps:
+1. Installation of deal.II dependencies (MPI, numdiff, p4est, trilinos and METIS)
+2. Installation of the deal.II library
+3. Installation of Lethe</p></li>
+<li><p>Methods to install deal.II and its dependencies:
+1. Through Advanced Packaging Tool (apt): <strong>this is by far the easiest way to proceed</strong>, since it requires much less manual intervention.</p>
+<ol class="arabic simple" start="2">
+<li><p>through candi shell script (<a class="reference external" href="https://github.com/dealii/candi">candi github page</a>). Even if you do not want to use candi to install deal.II, you can use it for the dependencies.</p></li>
 <li><p>manually</p></li>
 </ol>
-</dd>
-</dl>
 </li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>On a single core computer with 8GB of RAM, count up to 8 hours for a first installation, and 3 hours for a deal.II update. On a machine with 16 cores and 32GB of RAM, this process will take less than an hour or so. The installation of deal.II and its dependencies (especially trilinos), can be extremely RAM consuming. Installation on a machine with less than 8GB of RAM is difficult at best, impossible at worst.</p>
 </div>
+<section id="installing-deal-ii-using-apt-step-1">
+<h2>Installing deal.II using apt (Step #1)<a class="headerlink" href="#installing-deal-ii-using-apt-step-1" title="Permalink to this headline">¶</a></h2>
+<p>This is done following <a class="reference external" href="https://www.dealii.org/download.html#:~:text=page%20for%20details.-,Linux%20distributions,-Arch%20Linux">this procedure</a>.</p>
+<p>In case you are using Ubuntu, you will need to <a class="reference external" href="https://launchpad.net/~ginggs/+archive/ubuntu/deal.ii-9.5.1-backports">update the backports</a>:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo add-apt-repository ppa:ginggs/deal.ii-9.5.1-backports
+sudo apt update
+</pre></div>
+</div>
+<p>To install deal.II, run:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libdeal.ii-dev
+</pre></div>
+</div>
+<p>To verify if the correct version of deal.II is installed, run:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>apt show libdeal.ii-dev
+</pre></div>
+</div>
+<p>This should output several information about the installed version. Everything worked as expected if <code class="docutils literal notranslate"><span class="pre">deal.ii-9.5.1</span></code> is output</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the installed version is other than <code class="docutils literal notranslate"><span class="pre">deal.ii-9.5.1</span></code>, follow <a class="reference external" href="https://github.com/dealii/dealii/wiki/Getting-deal.II">this link</a>.</p>
+</div>
+</section>
 <section id="installing-deal-ii-using-candi-step-1">
 <h2>Installing deal.II using Candi (Step #1)<a class="headerlink" href="#installing-deal-ii-using-candi-step-1" title="Permalink to this headline">¶</a></h2>
 <p>To install the dependencies (MPI, p4est, trilinos and METIS) all together using candi, the <a class="reference external" href="https://github.com/dealii/candi.git">procedure</a> on the candi repository can be followed.</p>
@@ -541,6 +552,14 @@ cd build
 </section>
 <section id="updating-deal-ii">
 <span id="update-dealii"></span><h2>Updating deal.II<a class="headerlink" href="#updating-deal-ii" title="Permalink to this headline">¶</a></h2>
+<section id="through-apt">
+<h3>Through apt<a class="headerlink" href="#through-apt" title="Permalink to this headline">¶</a></h3>
+<p>As all other <code class="docutils literal notranslate"><span class="pre">apt</span></code> packages, run:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt upgrade -y
+</pre></div>
+</div>
+</section>
 <section id="through-the-git-repository">
 <h3>Through the Git Repository<a class="headerlink" href="#through-the-git-repository" title="Permalink to this headline">¶</a></h3>
 <p>The deal.II version supported by Lethe is updated and tested every week or so, see the repository <a class="reference external" href="https://github.com/lethe-cfd/dealii">here</a>. If Lethe was installed with this forked version of deal.II, updating your deal.II installation is as simple as pulling the repository and recompiling the deal.II library. If your deal.II was installed manually using the deal.II master repository, the same process can be used.</p>
@@ -617,6 +636,7 @@ STABLE_BUILD=true
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Regular Installation on Linux</a><ul>
+<li><a class="reference internal" href="#installing-deal-ii-using-apt-step-1">Installing deal.II using apt (Step #1)</a></li>
 <li><a class="reference internal" href="#installing-deal-ii-using-candi-step-1">Installing deal.II using Candi (Step #1)</a></li>
 <li><a class="reference internal" href="#installing-deal-ii-manually-step-1">Installing deal.II Manually (Step #1)</a><ul>
 <li><a class="reference internal" href="#mpi">MPI</a></li>
@@ -630,6 +650,7 @@ STABLE_BUILD=true
 <li><a class="reference internal" href="#installing-lethe-step-2">Installing Lethe (Step #2)</a></li>
 <li><a class="reference internal" href="#testing-your-installation-step-3">Testing Your Installation (Step #3)</a></li>
 <li><a class="reference internal" href="#updating-deal-ii">Updating deal.II</a><ul>
+<li><a class="reference internal" href="#through-apt">Through apt</a></li>
 <li><a class="reference internal" href="#through-the-git-repository">Through the Git Repository</a></li>
 <li><a class="reference internal" href="#with-candi">With Candi</a></li>
 </ul>
