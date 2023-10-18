@@ -35,14 +35,11 @@ using namespace dealii;
  * @param triangulation The triangulation to which a grid is attached
  *
  * @param mesh_parameters The mesh parameters used to decide what type of mesh or primitive is  used
- *
- * @param boundary_conditions The information about the boundary conditions id. This is used to set-up the periodicity of the domain
  */
 template <int dim, int spacedim = dim>
 void
-attach_grid_to_triangulation(
-  parallel::DistributedTriangulationBase<dim, spacedim> &triangulation,
-  const Parameters::Mesh                                &mesh_parameters);
+attach_grid_to_triangulation(Triangulation<dim, spacedim> &triangulation,
+                             const Parameters::Mesh       &mesh_parameters);
 
 
 /**
