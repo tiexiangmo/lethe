@@ -566,7 +566,7 @@ set amg smoother overlap                      = 1
 </section>
 <section id="lsmg-and-gcmg-preconditioners">
 <h2>LSMG and GCMG preconditioners<a class="headerlink" href="#lsmg-and-gcmg-preconditioners" title="Permalink to this headline">¶</a></h2>
-<p>Different parameters for the main components of the two geometric multigrid algorithms can be specified. The parameters can be general or can belong to either the smoother, the coarse-grid solver or the coarse-grid solver preconditioner.</p>
+<p>Different parameters for the main components of the two geometric multigrid algorithms can be specified. The parameters can be general or can belong to either the smoother, the coarse-grid solver or the coarse-grid solver preconditioner. For the latter, one can choose between <code class="docutils literal notranslate"><span class="pre">amg</span></code> or <code class="docutils literal notranslate"><span class="pre">ilu</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># General MG parameters
 set mg verbosity       = quiet
 set mg min level       = -1
@@ -581,6 +581,7 @@ set mg coarse grid max iterations     = 2000
 set mg coarse grid tolerance          = 1e-14
 set mg coarse grid reduce             = 1e-4
 set mg coarse grid max krylov vectors = 30
+set mg coarse grid preconditioner     = amg
 
 # Coarse-grid AMG preconditioner parameters
 set amg preconditioner ilu fill               = 0
@@ -594,11 +595,16 @@ set amg smoother overlap                      = 1
 set amg preconditioner ilu fill               = 0
 set amg preconditioner ilu absolute tolerance = 1e-12
 set amg preconditioner ilu relative tolerance = 1.00
+
+# Coarse-grid ILU preconditioner parameters
+set ilu preconditioner fill               = 1
+set ilu preconditioner absolute tolerance = 1e-12
+set ilu preconditioner relative tolerance = 1
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The default algorithms build and use ALL the multigrid levels. There are two ways to change the number of levels, either by setting the <code class="docutils literal notranslate"><span class="pre">mg</span> <span class="pre">min</span> <span class="pre">level</span></code> parameter OR the <code class="docutils literal notranslate"><span class="pre">mg</span> <span class="pre">level</span> <span class="pre">min</span> <span class="pre">cells</span></code> parameter. For LSMG the coarsest mesh should cover the whole domain, i.e., no hanging nodes are allowed.</p>
+<p>The default algorithms build and use ALL the multigrid levels. There are two ways to change the number of levels, either by setting the <code class="docutils literal notranslate"><span class="pre">mg</span> <span class="pre">min</span> <span class="pre">level</span></code> parameter OR the <code class="docutils literal notranslate"><span class="pre">mg</span> <span class="pre">level</span> <span class="pre">min</span> <span class="pre">cells</span></code> parameter. For <code class="docutils literal notranslate"><span class="pre">lsmg</span></code> the coarsest mesh should cover the whole domain, i.e., no hanging nodes are allowed.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
