@@ -617,6 +617,10 @@ set ilu preconditioner relative tolerance = 1
 <p class="admonition-title">Tip</p>
 <p>The default algorithms build and use ALL the multigrid levels. There are two ways to change the number of levels, either by setting the <code class="docutils literal notranslate"><span class="pre">mg</span> <span class="pre">min</span> <span class="pre">level</span></code> parameter OR the <code class="docutils literal notranslate"><span class="pre">mg</span> <span class="pre">level</span> <span class="pre">min</span> <span class="pre">cells</span></code> parameter. For <code class="docutils literal notranslate"><span class="pre">lsmg</span></code> the coarsest mesh should cover the whole domain, i.e., no hanging nodes are allowed.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">mg</span> <span class="pre">verbosity</span></code> is set to <code class="docutils literal notranslate"><span class="pre">verbose</span></code>, the information about the levels (cells and degrees of freedom) and the number of iterations of the coarse grid solver are displayed. If this parameter is set to <code class="docutils literal notranslate"><span class="pre">extra</span> <span class="pre">verbose</span></code>, apart from all the previous information, an additional table with the time it took to set up the different components of the multigrid preconditioners is also displayed.</p>
+</div>
 </section>
 </section>
 
