@@ -341,7 +341,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../tools/updating-test-results.html">Updating Test Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tools/gmsh/gmsh.html">Introduction on How to Use GMSH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../tools/automatic_launch/automatic_launch.html">How to Automatically Create and Launch Lethe Simulations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../tools/postprocessing/postprocessing.html">Post-processing Lethe with PyVista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/postprocessing/postprocessing_paraview.html">Remote Data Visualization on ParaView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/postprocessing/postprocessing_pyvista.html">Post-processing Lethe with PyVista</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
@@ -474,7 +475,9 @@ end
     subsection bc 0
         set id = 0
         set type              = temperature
-          set value             = 100
+        subsection value
+          set Function expression = 100
+        end
     end
 
     subsection bc 1
@@ -490,7 +493,9 @@ end
     subsection bc 3
         set id = 3
         set type              = temperature
-          set value             = 0
+        subsection value
+          set Function expression = 0
+        end
     end
 
     subsection bc 4

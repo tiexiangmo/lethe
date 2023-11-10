@@ -341,7 +341,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tools/updating-test-results.html">Updating Test Results</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/gmsh/gmsh.html">Introduction on How to Use GMSH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tools/automatic_launch/automatic_launch.html">How to Automatically Create and Launch Lethe Simulations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tools/postprocessing/postprocessing.html">Post-processing Lethe with PyVista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/postprocessing/postprocessing_paraview.html">Remote Data Visualization on ParaView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/postprocessing/postprocessing_pyvista.html">Post-processing Lethe with PyVista</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
@@ -442,7 +443,7 @@ end
 <p>Likewise, if <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">=</span> <span class="pre">2</span></code> and there is no <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">bc</span> <span class="pre">0</span></code> explicitly stated, the boundary is still created, with <code class="docutils literal notranslate"><span class="pre">none</span></code> by default.</p>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">dependent</span></code> specifies if a  boundary condition is time dependent (<code class="docutils literal notranslate"><span class="pre">true</span></code>) or steady (<code class="docutils literal notranslate"><span class="pre">false`</span></code>). By default, this parameter is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is there to improve the computational efficiency for transient cases in which the boundary conditions do not change.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span> <span class="pre">dependent</span></code> specifies if a boundary condition is time-dependent (<code class="docutils literal notranslate"><span class="pre">true</span></code>) or steady (<code class="docutils literal notranslate"><span class="pre">false</span></code>). By default, this parameter is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is here to improve the computational efficiency for transient cases in which the boundary conditions do not change.</p></li>
 <li><dl class="simple">
 <dt>Each fluid dynamics boundary condition is stored in a <code class="docutils literal notranslate"><span class="pre">bc</span> <span class="pre">#</span></code> subsection :</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>  is the number associated with the boundary condition. By default, Lethe assumes that the id is equivalent to the number <code class="docutils literal notranslate"><span class="pre">#</span></code> of the bc.</p></li>

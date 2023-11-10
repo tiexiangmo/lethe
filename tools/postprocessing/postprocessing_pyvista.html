@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Sharp-Immersed-Boundary" href="../sharp-immersed-boundary/sharp-immersed-boundary.html" /><link rel="prev" title="CFD-DEM" href="cfd-dem.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Publications" href="../../publications.html" /><link rel="prev" title="Remote Data Visualization on ParaView" href="postprocessing_paraview.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Void Fraction - Lethe documentation</title>
+        <title>Post-processing Lethe with PyVista - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -136,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -168,62 +168,62 @@
 <li class="toctree-l1"><a class="reference internal" href="../../applications.html">Applications Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../structure.html">Folder Structure of Lethe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../first_simulation.html">Launching Your First Simulation</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../parameters.html">Parameters Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="../cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/ale.html">Arbitrary Lagrangian-Eulerian</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/analytical_solution.html">Analytical Solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/boundary_conditions_cfd.html">Boundary Conditions - CFD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/boundary_conditions_multiphysics.html">Boundary Conditions - Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/box_refinement.html">Box Refinement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/cahn_hilliard.html">Cahn-Hilliard</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/dimensionality.html">Dimensionality</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/dynamic_flow_control.html">Dynamic Flow Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/fem.html">Finite Element Interpolation (FEM)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/force_and_torque.html">Force and Torque Calculation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/initial_conditions.html">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/laser_heat_source.html">Laser Heat Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/linear_solver_control.html">Linear Solver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/mesh_adaptation_control.html">Mesh Adaptation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/multiphysics.html">Multiphysics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/nitsche.html">Nitsche Immersed Boundary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/non-linear_solver_control.html">Non-linear Solver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/physical_properties.html">Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/post_processing.html">Post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/restart.html">Restart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/source_term.html">Source Term</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/stabilization.html">Stabilization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/timer.html">Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/velocity_source.html">Velocity Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cfd/volume_of_fluid.html">Volume of Fluid (Multiphase Flow)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../parameters/parameters.html">Parameters Guide</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/cfd/cfd.html">General, CFD and Multiphysics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/ale.html">Arbitrary Lagrangian-Eulerian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/analytical_solution.html">Analytical Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/boundary_conditions_cfd.html">Boundary Conditions - CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/boundary_conditions_multiphysics.html">Boundary Conditions - Multiphysics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/box_refinement.html">Box Refinement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/cahn_hilliard.html">Cahn-Hilliard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/dimensionality.html">Dimensionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/dynamic_flow_control.html">Dynamic Flow Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/fem.html">Finite Element Interpolation (FEM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/force_and_torque.html">Force and Torque Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/initial_conditions.html">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/laser_heat_source.html">Laser Heat Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/linear_solver_control.html">Linear Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/mesh_adaptation_control.html">Mesh Adaptation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/multiphysics.html">Multiphysics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/nitsche.html">Nitsche Immersed Boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/non-linear_solver_control.html">Non-linear Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/physical_properties.html">Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/post_processing.html">Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/restart.html">Restart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/source_term.html">Source Term</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/stabilization.html">Stabilization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/timer.html">Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/velocity_source.html">Velocity Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/cfd/volume_of_fluid.html">Volume of Fluid (Multiphase Flow)</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../dem/boundary_conditions.html">Boundary Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/floating_mesh.html">Floating Mesh (Solid Objects)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/floating_wall.html">Floating Wall</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/insertion_info.html">Insertion Info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/mesh.html">Mesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/model_parameters.html">Model Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/post-processing.html">Post-processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/simulation_control.html">Simulation Control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/test.html">Test</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dem/timer.html">Timer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/dem/dem.html">Discrete Element Method (DEM)</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/boundary_conditions.html">Boundary Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/floating_mesh.html">Floating Mesh (Solid Objects)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/floating_wall.html">Floating Wall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/insertion_info.html">Insertion Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/lagrangian_physical_properties.html">Lagrangian Physical Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/mesh.html">Mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/model_parameters.html">Model Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/post-processing.html">Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/simulation_control.html">Simulation Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/test.html">Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/dem/timer.html">Timer</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cfd-dem.html">CFD-DEM</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Void Fraction</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/unresolved-cfd-dem/unresolved-cfd-dem.html">Unresolved CFD-DEM</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/unresolved-cfd-dem/cfd-dem.html">CFD-DEM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/unresolved-cfd-dem/void-fraction.html">Void Fraction</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../sharp-immersed-boundary/sharp-immersed-boundary.html">Sharp-Immersed-Boundary</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../rpt/rpt.html">Radioactive Particle Tracking (RPT)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../rpt/detector_parameters.html">Detector Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rpt/fem_reconstruction.html">FEM Reconstruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rpt/parameter_tuning.html">Parameter Tuning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rpt/rpt_parameters.html">RPT Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../parameters/sharp-immersed-boundary/sharp-immersed-boundary.html">Sharp-Immersed-Boundary</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../parameters/rpt/rpt.html">Radioactive Particle Tracking (RPT)</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/rpt/detector_parameters.html">Detector Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/rpt/fem_reconstruction.html">FEM Reconstruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/rpt/parameter_tuning.html">Parameter Tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parameters/rpt/rpt_parameters.html">RPT Parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -337,12 +337,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../theory/unresolved_cfd-dem/unresolved_cfd-dem.html">Unresolved CFD-DEM Coupling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/tools.html">Tools</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tools/updating-test-results.html">Updating Test Results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tools/gmsh/gmsh.html">Introduction on How to Use GMSH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tools/automatic_launch/automatic_launch.html">How to Automatically Create and Launch Lethe Simulations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tools/postprocessing/postprocessing_paraview.html">Remote Data Visualization on ParaView</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tools/postprocessing/postprocessing_pyvista.html">Post-processing Lethe with PyVista</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../tools.html">Tools</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../updating-test-results.html">Updating Test Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gmsh/gmsh.html">Introduction on How to Use GMSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../automatic_launch/automatic_launch.html">How to Automatically Create and Launch Lethe Simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocessing_paraview.html">Remote Data Visualization on ParaView</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Post-processing Lethe with PyVista</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
@@ -368,54 +368,64 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="void-fraction">
-<h1>Void Fraction<a class="headerlink" href="#void-fraction" title="Permalink to this headline">¶</a></h1>
-<p>In this subsection, all parameters required for the calculation of the void fraction are introduced.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection void fraction
-  set mode                       = pcm
-  set read dem                   = true
-  set dem file name              = dem
-  set l2 smoothing factor        = 0
-  set l2 lower bound             = 0
-  set l2 upper bound             = 1
-  set bound void fraction        = false
-  set particle refinement factor = 0
-end
+          <section id="post-processing-lethe-with-pyvista">
+<h1>Post-processing Lethe with PyVista<a class="headerlink" href="#post-processing-lethe-with-pyvista" title="Permalink to this headline">¶</a></h1>
+<p>Lethe has a <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">post-processing module</a> written in Python based on Lethe users specific needs. <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a> was conceived to optimize the reading and post-treatment of Lethe data using Python.</p>
+<p>The module is powered by <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, a powerful 3D plotting and mesh analysis tool. It is a <em>pythonic</em> interface to deal with Visualization Toolkit (VTK) data. The module also uses the powerful <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a> Python library to increase post-processing speed by running tasks in multiple processors.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a> to work, along with <a class="reference external" href="https://www.python.org/downloads/">Python 3</a>, the following libraries are needed: <a class="reference external" href="https://docs.python.org/3/library/os.html">os</a>, <a class="reference external" href="https://numpy.org/">NumPy</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://tqdm.github.io/">tqdm</a>, <a class="reference external" href="https://matplotlib.org/stable/index.html">matplotlib</a>, <a class="reference external" href="https://scipy.org/">SciPy</a>, and <a class="reference external" href="https://scikit-learn.org/stable/index.html">scikit-learn</a>. If any of the modules are missing, use <a class="reference external" href="https://pypi.org/project/pip/">pip</a> to install it by running <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">$NAME_OF_THE_MODULE</span></code> on the terminal. Alternatively, use the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file and install them all at once running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code> located at <code class="docutils literal notranslate"><span class="pre">contrib/postprocessing/</span></code>.</p>
+</div>
+<section id="importing-lethe-pyvista-tools">
+<h2>Importing lethe_pyvista_tools<a class="headerlink" href="#importing-lethe-pyvista-tools" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways to have access to <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools</span></code>: you can install the module and have it on your machine just like <code class="docutils literal notranslate"><span class="pre">os</span></code>, <code class="docutils literal notranslate"><span class="pre">sys</span></code>, or other PyPi modules; or, you can use it without installing. Here, we explain how to do both.</p>
+<section id="installing">
+<h3>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h3>
+<p>Installing <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools</span></code> is very simple. In the <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">contrib/postprocessing</a> of your Lethe version you will find all source files, including <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. Those two files take care of configuring your installation and assuring that everything is set correctly. To install it, navigate to <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">contrib/postprocessing</a> on your terminal and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">mode</span></code> parameter allows the user to choose the method for void fraction calculation. Currently, there are two methods implemented. The first one is to calculate the void fraction from <cite>function</cite>. In this case, an additional subsection is required to insert the function such as:</p></li>
-</ul>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># in the void fraction subsection
-subsection function
-set Function expression = 0.5 + 0.25*sin(pi*x)*sin(pi*y)
-end
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>If the <code class="docutils literal notranslate"><span class="pre">mode</span></code> chosen is <code class="docutils literal notranslate"><span class="pre">pcm</span></code>, then the void fraction is calculated using the Particle Centered Method. If it is set to <code class="docutils literal notranslate"><span class="pre">qcm</span></code>, then the void fraction is calculated using the Quadrature Centered Method. If it is set to <code class="docutils literal notranslate"><span class="pre">spm</span></code>, then the void fraction is calculated using the satellite point method (divided approach). In these methods, the remaining parameters are required:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># in the void fraction subsection
-set qcm sphere diameter          = 0
-set qcm sphere equal cell volume = false
-set particle refinement factor   = 0
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not have <code class="docutils literal notranslate"><span class="pre">pip</span></code> on your machine, run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-pip</span></code>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Uninstalling <code class="docutils literal notranslate"><span class="pre">lethe_pyvista_tools</span></code> is exactly like doing so with any other library: <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">uninstall</span> <span class="pre">lethe_pyvista_tools</span></code> or <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">uninstall</span> <span class="pre">lethe_pyvista_tools</span></code>.</p>
+</div>
+</section>
+<section id="importing-without-installing">
+<h3>Importing without installing<a class="headerlink" href="#importing-without-installing" title="Permalink to this headline">¶</a></h3>
+<p>In this case, we use the <a class="reference external" href="https://docs.python.org/3/library/sys.html">sys</a> module to import it directly from Lethe’s directory into a python session:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">path_to_module</span> <span class="o">=</span> <span class="s1">'$LETHE_PATH/contrib/postprocessing/'</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path_to_module</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">lethe_pyvista_tools</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">read</span> <span class="pre">dem</span></code> allows us to read an already existing dem simulation result which can be obtained from checkpointing the Lethe-DEM simulation. This is important as the gls_vans solver requires reading an initial dem triangulation and particle information to simulate flows in the presence of particles.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">dem_file_name</span></code> parameter specifies the prefix of the dem files that must be read.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">smoothing</span> <span class="pre">factor</span></code> is a smoothing length used for smoothing the L2 projection of the void fraction to avoid sharp discontinuities which can lead to instabilities in the simulation.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">lower</span> <span class="pre">bound</span></code> and <code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">upper</span> <span class="pre">bound</span></code> are the minimum and maximum values around which the void fraction is bounded. This is important especially for upper bounds as the void fraction can sometimes slightly exceed a value of 1 when projected.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">bound</span> <span class="pre">void</span> <span class="pre">fraction</span></code> parameter determines whether or not to bound the void fraction between the lower and upper bounds specified in the previous two parameters. As the void fraction is calculated and then projected using L2 projection, it can sometimes exceeds the maximum value of 1. In order to prevent this, we use an active set method to bound the void fraction.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">qcm</span> <span class="pre">sphere</span> <span class="pre">diameter</span></code> allows us to fix the diameter of all reference spheres in the simulation to a given value. If this option is used (a value other than 0 is specified), it overrides the default calculation of the size of the sphere and sets its diameter to the value specified.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">qcm</span> <span class="pre">sphere</span> <span class="pre">equal</span> <span class="pre">cell</span> <span class="pre">volume</span></code> determines whether or not we want to use a reference sphere with the same volume as the element in which it is located. If it is disabled, then each sphere will have a radius equal to the size of the element in which it is located. This parameter is important only when the <code class="docutils literal notranslate"><span class="pre">qcm</span> <span class="pre">sphere</span> <span class="pre">diameter</span></code> is not used or is set to 0.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">particle</span> <span class="pre">refinement</span> <span class="pre">factor</span></code> is only required for the <code class="docutils literal notranslate"><span class="pre">spm</span></code>. It allows to determine the number of pseudo-particles that we want to divide our particle into. By default, it is set to 0 refinements, and results in no refinement of the original meshed particle (division into 7 particles in 3D). Every additional refinement results in a <span class="math notranslate nohighlight">\(2^{dim}\)</span> times more particles. The figure below shows how the number of pseudo-particles change with every refinement. Every cell in the particle mesh represents a pseudo-particle in the satellite point method.</p></li>
-</ul>
-<img alt="../../_images/refinement1.png" src="../../_images/refinement1.png"/>
+<p>where <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.path:~:text=in%20version%203.10.-,sys.path%C2%B6,-A%20list%20of">sys.path</a> is a list of strings that specifies the search path for modules. Another option is to simply copy the <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools.py</a> file to the same folder as the Python post-processing script, and import it as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lethe_pyvista_tools</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>One third and very convenient way to always import the module without copying it or even adding the <code class="docutils literal notranslate"><span class="pre">sys.path.append(path_to_module)</span></code> is permanently adding the path to the module (i.e., <code class="docutils literal notranslate"><span class="pre">/contrib/postprocessing/</span></code>) to your <a class="reference external" href="https://docs.python.org/3/library/sys_path_init.html#:~:text=The%20PYTHONPATH%20environment%20variable%20is,all%20installed%20Python%20versions%2Fenvironments.">PYTHONPATH</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> means that we want to import all members of lethe_pyvista_tools.</p>
+</section>
+<section id="using-lethe-pyvista-tools">
+<h3>Using lethe_pyvista_tools<a class="headerlink" href="#using-lethe-pyvista-tools" title="Permalink to this headline">¶</a></h3>
+<p>To get quick-started, follow the hand-on <a class="reference external" href="../../examples/dem/small-scale-rotating-drum-post-processing">Small Scale Rotating Drum Post-processing example</a>. It has a detailed explanation on how to use the module. You can also start with a “raw” template file, check <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing/example.py">this example file</a>.</p>
+</section>
+</section>
 </section>
 
         </article>
@@ -423,23 +433,23 @@ set particle refinement factor   = 0
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../sharp-immersed-boundary/sharp-immersed-boundary.html">
+          <a class="next-page" href="../../publications.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Sharp-Immersed-Boundary</div>
+                <div class="title">Publications</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="cfd-dem.html">
+          <a class="prev-page" href="postprocessing_paraview.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">CFD-DEM</div>
+                <div class="title">Remote Data Visualization on ParaView</div>
                 
               </div>
             </a>
@@ -449,7 +459,7 @@ set particle refinement factor   = 0
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../_sources/parameters/unresolved-cfd-dem/void-fraction.rst.txt"
+            | <a class="muted-link" href="../../_sources/tools/postprocessing/postprocessing_pyvista.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -457,8 +467,32 @@ set particle refinement factor   = 0
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Post-processing Lethe with PyVista</a><ul>
+<li><a class="reference internal" href="#importing-lethe-pyvista-tools">Importing lethe_pyvista_tools</a><ul>
+<li><a class="reference internal" href="#installing">Installing</a></li>
+<li><a class="reference internal" href="#importing-without-installing">Importing without installing</a></li>
+<li><a class="reference internal" href="#using-lethe-pyvista-tools">Using lethe_pyvista_tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -470,6 +504,5 @@ set particle refinement factor   = 0
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
