@@ -415,7 +415,7 @@ end
 <h3>Packing information<a class="headerlink" href="#packing-information" title="Permalink to this headline">¶</a></h3>
 <p>An insertion box is defined inside the cylindrical domain, inserting 8000 particles every 0.5 seconds while the cylinder is at rest. It is important to note the size of the insertion box to make sure it is completely inside our geometry. Otherwise, particles will be lost during the insertion stage.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
-  set insertion method                               = non_uniform
+  set insertion method                               = volume
   set inserted number of particles at each time step = 8000
   set insertion frequency                            = 100000
   set insertion box minimum x                        = -0.05

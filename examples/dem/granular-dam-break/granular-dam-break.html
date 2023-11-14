@@ -466,7 +466,7 @@ end
 <h3>Particle Insertion<a class="headerlink" href="#particle-insertion" title="Permalink to this headline">¶</a></h3>
 <p>An insertion box is defined inside the rectangular box. 60 000 particles are inserted behind the sluice gate which is located at <span class="math notranslate nohighlight">\(x=0.6\)</span>. It is important to note the size of the insertion box to make sure it is completely inside our geometry. Otherwise, particles will be lost during the insertion stage.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection insertion info
-  set insertion method                               = non_uniform
+  set insertion method                               = volume
   set inserted number of particles at each time step = 60000
   set insertion frequency                            = 10000
   set insertion box minimum x                        = 0.0025
