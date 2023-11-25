@@ -59,7 +59,8 @@ namespace Parameters
       enum class size_distribution_type
       {
         uniform,
-        normal
+        normal,
+        log_normal
       } size_distribution_type;
 
       // Number of particle types

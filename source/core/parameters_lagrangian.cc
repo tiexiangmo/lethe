@@ -11,9 +11,9 @@ namespace Parameters
     {
       prm.declare_entry("size distribution type",
                         "uniform",
-                        Patterns::Selection("uniform|normal"),
+                        Patterns::Selection("uniform|normal|log-normal"),
                         "Particle size distribution"
-                        "Choices are <uniform|normall>.");
+                        "Choices are <uniform|normal|log_normal>.");
       prm.declare_entry("diameter",
                         "0.001",
                         Patterns::Double(),
@@ -24,6 +24,14 @@ namespace Parameters
                         "Average particle diameter");
       prm.declare_entry("standard deviation",
                         "0",
+                        Patterns::Double(),
+                        "Particle size standard deviation");
+      prm.declare_entry("log mean diameter",
+                        "0.001",
+                        Patterns::Double(),
+                        "Average particle diameter");
+      prm.declare_entry("log standard deviation",
+                        "1.",
                         Patterns::Double(),
                         "Particle size standard deviation");
       prm.declare_entry("number of particles",
@@ -80,6 +88,14 @@ namespace Parameters
             prm.get_double("average diameter");
           particle_size_std.at(particle_type) =
             prm.get_double("standard deviation");
+        }
+      else if (size_distribution_type_str == "log-normal")
+        {
+          size_distribution_type = size_distribution_type::log_normal;
+          particle_average_diameter.at(particle_type) =
+            prm.get_double("log mean diameter");
+          particle_size_std.at(particle_type) =
+            prm.get_double("log standard deviation");
         }
       else
         {

@@ -41,3 +41,31 @@ UniformDistribution::particle_size_sampling(const unsigned int particle_number,
   for (unsigned int n = 0; n < particle_number; ++n)
     this->particle_sizes.push_back(this->diameter_values.at(particle_type));
 }
+
+LogNormalDistribution::LogNormalDistribution(
+  const std::unordered_map<unsigned int, double> d_averages,
+  const std::unordered_map<unsigned int, double> d_standard_deviations)
+{
+  diameter_log_averages   = d_averages;
+  log_standard_deviations = d_standard_deviations;
+}
+
+void
+LogNormalDistribution::particle_size_sampling(
+  const unsigned int particle_number,
+  const unsigned int particle_type)
+{
+  this->particle_sizes.clear();
+  this->particle_sizes.reserve(particle_number);
+
+  std::cout << __LINE__ << std::endl;
+
+  std::random_device            rd{};
+  std::mt19937                  gen{rd()};
+  std::lognormal_distribution<> distribution{
+    std::log(diameter_log_averages.at(particle_type)),
+    std::log(log_standard_deviations.at(particle_type))};
+
+  for (unsigned int n = 0; n < particle_number; ++n)
+    this->particle_sizes.push_back(distribution(gen));
+}

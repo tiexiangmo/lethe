@@ -42,6 +42,15 @@ Insertion<dim>::Insertion(const DEMSolverParameters<dim> &dem_parameters)
         dem_parameters.lagrangian_physical_properties.particle_average_diameter,
         dem_parameters.lagrangian_physical_properties.particle_size_std);
     }
+  else if (dem_parameters.lagrangian_physical_properties
+             .size_distribution_type ==
+           Parameters::Lagrangian::LagrangianPhysicalProperties::
+             size_distribution_type::log_normal)
+    {
+      distribution_object = std::make_shared<LogNormalDistribution>(
+        dem_parameters.lagrangian_physical_properties.particle_average_diameter,
+        dem_parameters.lagrangian_physical_properties.particle_size_std);
+    }
 }
 
 // Prints the insertion information

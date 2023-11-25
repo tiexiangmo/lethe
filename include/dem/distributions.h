@@ -100,4 +100,38 @@ private:
   std::unordered_map<unsigned int, double> diameter_values;
 };
 
+
+
+class LogNormalDistribution : public Distribution
+{
+public:
+  /**
+   * The constructor stores the parameters necessary to define the normal
+   * distribution
+   *
+   * @param d_log_mean Log-mean diameters for each type of particle.
+   * @param d_log_standard_deviations Standard deviation of the diameter for each type of particle.
+   */
+  LogNormalDistribution(
+    const std::unordered_map<unsigned int, double> d_averages,
+    const std::unordered_map<unsigned int, double> d_standard_deviations);
+
+  /**
+   * Carries out the size sampling of each particle inserted at a insertion
+   * time step.
+   *
+   * @param particle_number Number of particle inserted at a given insertion time step.
+   * @param particle_type The type of particle being inserted.
+   */
+  void
+  particle_size_sampling(const unsigned int particle_number,
+                         const unsigned int particle_type) override;
+
+private:
+  // Average diameters for each particle type.
+  std::unordered_map<unsigned int, double> diameter_log_averages;
+  // Standard deviation of the diameter for each particle type.
+  std::unordered_map<unsigned int, double> log_standard_deviations;
+};
+
 #endif /* distributions_h */
