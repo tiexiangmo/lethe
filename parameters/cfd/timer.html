@@ -404,7 +404,7 @@ end
 <li><p><code class="docutils literal notranslate"><span class="pre">assemble_rhs</span></code> refers to the assembly of the right-hand side of the equation, that is the residual of the equation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">assemble_system</span></code> refers to the time spent assembling the matrix associated with the equation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">output</span></code> refers to the output of the <code class="docutils literal notranslate"><span class="pre">.vtu</span></code>, <code class="docutils literal notranslate"><span class="pre">.pvtu</span></code> and <code class="docutils literal notranslate"><span class="pre">.pvd</span></code> files.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setup_ILU```or</span> <span class="pre">``setup_AMG</span></code> describe the time spent to set-up the preconditioner.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setup_ILU</span></code> or <code class="docutils literal notranslate"><span class="pre">setup_AMG</span></code> describe the time spent to set-up the preconditioner.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">solve_linear_system</span></code> refers to the time spent solving the linear system of equations, without the time required to assemble the preconditioner.</p></li>
 </ul>
 <p>Depending on the type of simulation, there may be other categories that appear in the timer. This is useful to monitor the functions responsible for taking up most of the simulation time.</p>
