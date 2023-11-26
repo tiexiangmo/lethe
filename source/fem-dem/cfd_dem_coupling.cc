@@ -1315,9 +1315,38 @@ CFDDEMSolver<dim>::dem_setup_contact_parameters()
     this->cfd_dem_simulation_parameters.dem_parameters.restart;
 
 
-  maximum_particle_diameter =
-    find_maximum_particle_size(dem_parameters.lagrangian_physical_properties,
-                               standard_deviation_multiplier);
+  if (dem_parameters.lagrangian_physical_properties.size_distribution_type ==
+        Parameters::Lagrangian::LagrangianPhysicalProperties::
+          size_distribution_type::uniform ||
+      dem_parameters.lagrangian_physical_properties.size_distribution_type ==
+        Parameters::Lagrangian::LagrangianPhysicalProperties::
+          size_distribution_type::normal)
+    {
+      maximum_particle_diameter =
+        find_maximum_particle_size_for_normal_distribution(
+          dem_parameters.lagrangian_physical_properties,
+          standard_deviation_multiplier);
+    }
+  else if (dem_parameters.lagrangian_physical_properties
+             .size_distribution_type ==
+           Parameters::Lagrangian::LagrangianPhysicalProperties::
+             size_distribution_type::log_normal)
+    {
+      maximum_particle_diameter =
+        find_maximum_particle_size_for_lognormal_distribution(
+          dem_parameters.lagrangian_physical_properties,
+          standard_deviation_multiplier);
+    }
+  else if (dem_parameters.lagrangian_physical_properties
+             .size_distribution_type ==
+           Parameters::Lagrangian::LagrangianPhysicalProperties::
+             size_distribution_type::histogram)
+    {
+      maximum_particle_diameter =
+        find_maximum_particle_size_for_histogram_distribution(
+          dem_parameters.lagrangian_physical_properties);
+    }
+
   neighborhood_threshold_squared =
     std::pow(dem_parameters.model_parameters.neighborhood_threshold *
                maximum_particle_diameter,

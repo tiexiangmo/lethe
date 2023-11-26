@@ -110,8 +110,8 @@ public:
    * The constructor stores the parameters necessary to define the normal
    * distribution
    *
-   * @param d_log_mean Log-mean diameters for each type of particle.
-   * @param d_log_standard_deviations Standard deviation of the diameter for each type of particle.
+   * @param d_averages Average diameters for each type of particle.
+   * @param d_standard_deviations Standard deviation of the diameter for each type of particle.
    */
   LogNormalDistribution(
     const std::unordered_map<unsigned int, double> &d_averages,
@@ -140,16 +140,17 @@ class HistogramDistribution : public Distribution
 {
 public:
   /**
-   * The constructor stores the parameters necessary to define the normal
-   * distribution
    *
-   * @param d_log_mean Log-mean diameters for each type of particle.
-   * @param d_log_standard_deviations Standard deviation of the diameter for each type of particle.
+   *
+   * @param d_list
+   * @param d_probabilities
+   * @param number_of_particle_types
    */
   HistogramDistribution(
     const std::unordered_map<unsigned int, std::vector<double>> &d_list,
     const std::unordered_map<unsigned int, std::vector<double>>
-      &d_probabilities);
+                       &d_probabilities,
+    const unsigned int &number_of_particle_types);
 
   /**
    * Carries out the size sampling of each particle inserted at a insertion

@@ -206,9 +206,39 @@ DEMSolver<dim>::DEMSolver(DEMSolverParameters<dim> dem_parameters)
   // Calling input_parameter_inspection to evaluate input parameters in the
   // parameter handler file, finding maximum particle diameter used in
   // polydisperse systems
-  maximum_particle_diameter =
-    find_maximum_particle_size(parameters.lagrangian_physical_properties,
-                               standard_deviation_multiplier);
+  if (dem_parameters.lagrangian_physical_properties.size_distribution_type ==
+        Parameters::Lagrangian::LagrangianPhysicalProperties::
+          size_distribution_type::uniform ||
+      dem_parameters.lagrangian_physical_properties.size_distribution_type ==
+        Parameters::Lagrangian::LagrangianPhysicalProperties::
+          size_distribution_type::normal)
+    {
+      maximum_particle_diameter =
+        find_maximum_particle_size_for_normal_distribution(
+          parameters.lagrangian_physical_properties,
+          standard_deviation_multiplier);
+    }
+  else if (dem_parameters.lagrangian_physical_properties
+             .size_distribution_type ==
+           Parameters::Lagrangian::LagrangianPhysicalProperties::
+             size_distribution_type::log_normal)
+    {
+      maximum_particle_diameter =
+        find_maximum_particle_size_for_lognormal_distribution(
+          parameters.lagrangian_physical_properties,
+          standard_deviation_multiplier);
+    }
+  else if (dem_parameters.lagrangian_physical_properties
+             .size_distribution_type ==
+           Parameters::Lagrangian::LagrangianPhysicalProperties::
+             size_distribution_type::histogram)
+    {
+      maximum_particle_diameter =
+        find_maximum_particle_size_for_histogram_distribution(
+          parameters.lagrangian_physical_properties);
+    }
+
+
   neighborhood_threshold_squared =
     std::pow(parameters.model_parameters.neighborhood_threshold *
                maximum_particle_diameter,

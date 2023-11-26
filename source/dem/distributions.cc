@@ -76,25 +76,28 @@ LogNormalDistribution::particle_size_sampling(
 
 // Histogram
 HistogramDistribution::HistogramDistribution(
+
   const std::unordered_map<unsigned int, std::vector<double>> &d_list,
-  const std::unordered_map<unsigned int, std::vector<double>> &d_probabilities)
+  const std::unordered_map<unsigned int, std::vector<double>> &d_probabilities,
+  const unsigned int &number_of_particle_types)
 {
   diameter_list = d_list;
 
-  for (const auto &it : d_probabilities)
+  std::vector<double> cumulative_probability_vector;
+  for (unsigned int i = 0; i < number_of_particle_types; i++)
     {
-      std::vector<double> cummulative_probability_vector;
-      cummulative_probability_vector.reserve(it.second.size());
+      cumulative_probability_vector.clear();
+      cumulative_probability_vector.reserve(d_probabilities.at(i).size());
 
       double cumulative_value;
-      for (const auto &prob : it.second)
+      for (auto it = d_probabilities.at(i).begin();
+           it != d_probabilities.at(i).end();
+           ++it)
         {
-          cumulative_value += prob;
-          cummulative_probability_vector.push_back(cumulative_value);
+          cumulative_value += *it;
+          cumulative_probability_vector.push_back(cumulative_value);
         }
-
-      diameter_cumulative_probability.insert(
-        {it.first, cummulative_probability_vector});
+      diameter_cumulative_probability.emplace(i, cumulative_probability_vector);
     }
 }
 
@@ -113,20 +116,18 @@ HistogramDistribution::particle_size_sampling(
 
   for (unsigned int i = 0; i < particle_number; ++i)
     {
-      std::cout << __LINE__ << std::endl;
-
       // Search to find the appropriate diameter index
       auto it = std::upper_bound(
         diameter_cumulative_probability.at(particle_type).begin(),
         diameter_cumulative_probability.at(particle_type).end(),
         dis(gen));
 
+
       unsigned int index =
         std::distance(diameter_cumulative_probability.at(particle_type).begin(),
                       it);
-      std::cout << diameter_cumulative_probability.at(particle_type).at(index)
-                << std::endl;
-      this->particle_sizes.push_back(
-        diameter_cumulative_probability.at(particle_type).at(index));
+
+
+      this->particle_sizes.push_back(diameter_list.at(particle_type).at(index));
     }
 }

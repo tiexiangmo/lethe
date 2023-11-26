@@ -40,9 +40,20 @@
  */
 
 double
-find_maximum_particle_size(
+find_maximum_particle_size_for_normal_distribution(
   const Parameters::Lagrangian::LagrangianPhysicalProperties
               &lagrangian_physical_properties,
   const double standard_deviation_multiplier);
+
+double
+find_maximum_particle_size_for_lognormal_distribution(
+  const Parameters::Lagrangian::LagrangianPhysicalProperties
+              &lagrangian_physical_properties,
+  const double standard_deviation_multiplier);
+
+double
+find_maximum_particle_size_for_histogram_distribution(
+  const Parameters::Lagrangian::LagrangianPhysicalProperties
+    &lagrangian_physical_properties);
 
 #endif

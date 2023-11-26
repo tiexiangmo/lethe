@@ -65,7 +65,7 @@ VolumeInsertion<dim>::insert(
       const auto global_bounding_boxes =
         Utilities::MPI::all_gather(communicator, my_bounding_box);
 
-      // Distbuting particles between processors
+      // Distributing particles between processors
       this->inserted_this_step_this_proc =
         floor(this->inserted_this_step / n_mpi_process);
       if (this_mpi_process == (n_mpi_process - 1))
