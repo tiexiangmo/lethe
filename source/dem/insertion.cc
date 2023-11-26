@@ -51,6 +51,16 @@ Insertion<dim>::Insertion(const DEMSolverParameters<dim> &dem_parameters)
         dem_parameters.lagrangian_physical_properties.particle_average_diameter,
         dem_parameters.lagrangian_physical_properties.particle_size_std);
     }
+  else if (dem_parameters.lagrangian_physical_properties
+             .size_distribution_type ==
+           Parameters::Lagrangian::LagrangianPhysicalProperties::
+             size_distribution_type::histogram)
+    {
+      distribution_object = std::make_shared<HistogramDistribution>(
+        dem_parameters.lagrangian_physical_properties.particle_list_diameter,
+        dem_parameters.lagrangian_physical_properties
+          .particle_list_probability);
+    }
 }
 
 // Prints the insertion information
@@ -87,6 +97,7 @@ Insertion<dim>::assign_particle_properties(
   // TODO: MAYBE CHANGE THE INPUT TO PHYSICAL PROPERTIES DIRECTLY
   auto physical_properties = dem_parameters.lagrangian_physical_properties;
 
+  std::cout << inserted_this_step_this_proc << std::endl;
   this->distribution_object->particle_size_sampling(
     inserted_this_step_this_proc, current_inserting_particle_type);
 

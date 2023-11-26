@@ -14,6 +14,7 @@
  * ---------------------------------------------------------------------
  *
  */
+#include <algorithm>
 #include <cmath>
 #include <fstream>
 #include <iostream>
@@ -37,8 +38,8 @@ public:
    * @param particle_type The type of particle being inserted.
    */
   virtual void
-  particle_size_sampling(const unsigned int particle_number,
-                         const unsigned int particle_type) = 0;
+  particle_size_sampling(const unsigned int &particle_number,
+                         const unsigned int &particle_type) = 0;
 };
 
 class NormalDistribution : public Distribution
@@ -52,8 +53,8 @@ public:
    * @param d_standard_deviations Standard deviation of the diameter for each type of particle.
    */
   NormalDistribution(
-    const std::unordered_map<unsigned int, double> d_averages,
-    const std::unordered_map<unsigned int, double> d_standard_deviations);
+    const std::unordered_map<unsigned int, double> &d_averages,
+    const std::unordered_map<unsigned int, double> &d_standard_deviations);
 
   /**
    * Carries out the size sampling of each particle inserted at a insertion
@@ -63,8 +64,8 @@ public:
    * @param particle_type The type of particle being inserted.
    */
   void
-  particle_size_sampling(const unsigned int particle_number,
-                         const unsigned int particle_type) override;
+  particle_size_sampling(const unsigned int &particle_number,
+                         const unsigned int &particle_type) override;
 
 private:
   // Average diameters for each particle type.
@@ -82,7 +83,7 @@ public:
    *
    * @param d_values Diameter values for each particle type.
    */
-  UniformDistribution(const std::unordered_map<unsigned int, double> d_values);
+  UniformDistribution(const std::unordered_map<unsigned int, double> &d_values);
 
   /**
    * Carries out the size sampling of every particles inserted at a insertion
@@ -92,8 +93,8 @@ public:
    * @param particle_type The type of particle being inserted.
    */
   void
-  particle_size_sampling(const unsigned int particle_number,
-                         const unsigned int particle_type) override;
+  particle_size_sampling(const unsigned int &particle_number,
+                         const unsigned int &particle_type) override;
 
 private:
   // Diameter values for each particle type.
@@ -113,8 +114,8 @@ public:
    * @param d_log_standard_deviations Standard deviation of the diameter for each type of particle.
    */
   LogNormalDistribution(
-    const std::unordered_map<unsigned int, double> d_averages,
-    const std::unordered_map<unsigned int, double> d_standard_deviations);
+    const std::unordered_map<unsigned int, double> &d_averages,
+    const std::unordered_map<unsigned int, double> &d_standard_deviations);
 
   /**
    * Carries out the size sampling of each particle inserted at a insertion
@@ -124,14 +125,49 @@ public:
    * @param particle_type The type of particle being inserted.
    */
   void
-  particle_size_sampling(const unsigned int particle_number,
-                         const unsigned int particle_type) override;
+  particle_size_sampling(const unsigned int &particle_number,
+                         const unsigned int &particle_type) override;
 
 private:
   // Average diameters for each particle type.
-  std::unordered_map<unsigned int, double> diameter_log_averages;
+  std::unordered_map<unsigned int, double> diameter_averages;
   // Standard deviation of the diameter for each particle type.
-  std::unordered_map<unsigned int, double> log_standard_deviations;
+  std::unordered_map<unsigned int, double> standard_deviations;
+};
+
+
+class HistogramDistribution : public Distribution
+{
+public:
+  /**
+   * The constructor stores the parameters necessary to define the normal
+   * distribution
+   *
+   * @param d_log_mean Log-mean diameters for each type of particle.
+   * @param d_log_standard_deviations Standard deviation of the diameter for each type of particle.
+   */
+  HistogramDistribution(
+    const std::unordered_map<unsigned int, std::vector<double>> &d_list,
+    const std::unordered_map<unsigned int, std::vector<double>>
+      &d_probabilities);
+
+  /**
+   * Carries out the size sampling of each particle inserted at a insertion
+   * time step.
+   *
+   * @param particle_number Number of particle inserted at a given insertion time step.
+   * @param particle_type The type of particle being inserted.
+   */
+  void
+  particle_size_sampling(const unsigned int &particle_number,
+                         const unsigned int &particle_type) override;
+
+private:
+  // List of diameters for each particle type.
+  std::unordered_map<unsigned int, std::vector<double>> diameter_list;
+  // Cumulative probability of each diameter for each particle type.
+  std::unordered_map<unsigned int, std::vector<double>>
+    diameter_cumulative_probability;
 };
 
 #endif /* distributions_h */

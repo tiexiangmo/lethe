@@ -60,7 +60,8 @@ namespace Parameters
       {
         uniform,
         normal,
-        log_normal
+        log_normal,
+        histogram
       } size_distribution_type;
 
       // Number of particle types
@@ -71,6 +72,14 @@ namespace Parameters
 
       // Size standard deviation of each particle type
       std::unordered_map<unsigned int, double> particle_size_std;
+
+      // List of diameters for each particle types
+      std::unordered_map<unsigned int, std::vector<double>>
+        particle_list_diameter;
+
+      // Probability of each diameter for each particle types
+      std::unordered_map<unsigned int, std::vector<double>>
+        particle_list_probability;
 
       // Number of each particle type
       std::unordered_map<unsigned int, int> number;
@@ -103,7 +112,7 @@ namespace Parameters
       // Poisson's ratio of wall
       double poisson_ratio_wall;
 
-      // Coefficient of restituion of wall
+      // Coefficient of restitution of wall
       double restitution_coefficient_wall;
 
       // Friction coefficient of wall
@@ -132,6 +141,10 @@ namespace Parameters
       initialize_containers(
         std::unordered_map<unsigned int, double> &particle_average_diameter,
         std::unordered_map<unsigned int, double> &particle_size_std,
+        std::unordered_map<unsigned int, std::vector<double>>
+          &particle_list_diameter,
+        std::unordered_map<unsigned int, std::vector<double>>
+                                                 &particle_list_probability,
         std::unordered_map<unsigned int, int>    &number,
         std::unordered_map<unsigned int, double> &density_particle,
         std::unordered_map<unsigned int, double> &youngs_modulus_particle,
@@ -468,4 +481,4 @@ namespace Parameters
   } // namespace Lagrangian
 } // namespace Parameters
 
-#endif /* PARAMETERS_H_ */
+#endif /* lethe_parameters_lagrangian_h */

@@ -60,6 +60,27 @@ input_parameter_inspection(const DEMSolverParameters<dim> &dem_parameters,
         }
     }
 
+  // Histogram distribution checks
+  if (dem_parameters.lagrangian_physical_properties.size_distribution_type ==
+      Parameters::Lagrangian::LagrangianPhysicalProperties::
+        size_distribution_type::histogram)
+    {
+      for (unsigned int i = 0; i < physical_properties.particle_type_number;
+           ++i)
+        {
+          if (parameters.lagrangian_physical_properties.particle_list_diameter
+                .at(i)
+                .size() != parameters.lagrangian_physical_properties
+                             .particle_list_probability.at(i)
+                             .size())
+            throw std::runtime_error(
+              "Invalid histogram inputs. The number of diameters values and probabilities "
+              "are not equal for the particle type " +
+              to_string(i) +
+              ". Each diameter value should have one probability associated with it.");
+        }
+    }
+
   // Insertion parameters check
   const double insertion_distance_per_particle =
     0.5 * (parameters.insertion_info.distance_threshold - 1);
