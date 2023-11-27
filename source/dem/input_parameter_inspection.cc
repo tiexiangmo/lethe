@@ -12,18 +12,56 @@ input_parameter_inspection(const DEMSolverParameters<dim> &dem_parameters,
   // Getting the input parameters as local variable
   auto   parameters          = dem_parameters;
   auto   physical_properties = dem_parameters.lagrangian_physical_properties;
-  double rayleigh_time_step  = 0;
+  double rayleigh_time_step  = 10. / 0.;
 
-  for (unsigned int i = 0; i < physical_properties.particle_type_number; ++i)
+  if (dem_parameters.lagrangian_physical_properties.size_distribution_type ==
+        Parameters::Lagrangian::LagrangianPhysicalProperties::
+          size_distribution_type::uniform ||
+      dem_parameters.lagrangian_physical_properties.size_distribution_type ==
+        Parameters::Lagrangian::LagrangianPhysicalProperties::
+          size_distribution_type::normal ||
+      dem_parameters.lagrangian_physical_properties.size_distribution_type ==
+        Parameters::Lagrangian::LagrangianPhysicalProperties::
+          size_distribution_type::log_normal)
     {
-      double shear_modulus =
-        physical_properties.youngs_modulus_particle[i] /
-        (2.0 * (1.0 + physical_properties.poisson_ratio_particle[i]));
-      rayleigh_time_step = std::max(
-        M_PI_2 * physical_properties.particle_average_diameter[i] *
-          sqrt(physical_properties.density_particle[i] / shear_modulus) /
-          (0.1631 * physical_properties.poisson_ratio_particle[i] + 0.8766),
-        rayleigh_time_step);
+      for (unsigned int i = 0; i < physical_properties.particle_type_number;
+           ++i)
+        {
+          double shear_modulus =
+            physical_properties.youngs_modulus_particle[i] /
+            (2.0 * (1.0 + physical_properties.poisson_ratio_particle[i]));
+          rayleigh_time_step = std::min(
+            M_PI_2 * physical_properties.particle_average_diameter[i] *
+              sqrt(physical_properties.density_particle[i] / shear_modulus) /
+              (0.1631 * physical_properties.poisson_ratio_particle[i] + 0.8766),
+            rayleigh_time_step);
+        }
+    }
+  else if (dem_parameters.lagrangian_physical_properties
+             .size_distribution_type ==
+           Parameters::Lagrangian::LagrangianPhysicalProperties::
+             size_distribution_type::histogram)
+    {
+      for (unsigned int i = 0; i < physical_properties.particle_type_number;
+           ++i)
+        {
+          std::vector<double> diameters_list =
+            physical_properties.particle_list_diameter.at(i);
+          for (unsigned int j = 0; j < diameters_list.size(); j++)
+            {
+              double shear_modulus =
+                physical_properties.youngs_modulus_particle[i] /
+                (2.0 * (1.0 + physical_properties.poisson_ratio_particle[i]));
+              rayleigh_time_step =
+                std::min(M_PI_2 * diameters_list.at(j) *
+                           sqrt(physical_properties.density_particle[i] /
+                                shear_modulus) /
+                           (0.1631 *
+                              physical_properties.poisson_ratio_particle[i] +
+                            0.8766),
+                         rayleigh_time_step);
+            }
+        }
     }
 
   const double time_step_rayleigh_ratio =

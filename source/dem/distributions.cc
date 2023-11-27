@@ -122,11 +122,9 @@ HistogramDistribution::particle_size_sampling(
         diameter_cumulative_probability.at(particle_type).end(),
         dis(gen));
 
-
       unsigned int index =
         std::distance(diameter_cumulative_probability.at(particle_type).begin(),
                       it);
-
 
       this->particle_sizes.push_back(diameter_list.at(particle_type).at(index));
     }
