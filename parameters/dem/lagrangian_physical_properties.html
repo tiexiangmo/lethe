@@ -399,6 +399,9 @@
     # Particle diameter
     set diameter                          = 0.005
 
+    # Standard deviation
+    set standard deviation                = 0.0
+
     # Number of particles in type 0
     set number of particles               = 132300
 
@@ -461,8 +464,8 @@ end
 <p>For each particle type, two <code class="docutils literal notranslate"><span class="pre">size</span> <span class="pre">distribution</span> <span class="pre">type``s</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">defined:</span> <span class="pre">``uniform</span></code> and <code class="docutils literal notranslate"><span class="pre">normal</span></code>. In <code class="docutils literal notranslate"><span class="pre">uniform</span></code> size distribution, the diameter of the particles is constant, while in <code class="docutils literal notranslate"><span class="pre">normal</span></code> size distribution, the particle diameters are sampled from a normal distribution with an average of <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">diameter</span></code> and standard deviation of <code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">deviation</span></code>.</p>
 </div>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">diameter</span></code> parameter defines the diameter of the particles in a <code class="docutils literal notranslate"><span class="pre">uniform</span></code> distribution.</p></li>
-<li><p>For a <code class="docutils literal notranslate"><span class="pre">normal</span></code> distribution, we need to define <code class="docutils literal notranslate"><span class="pre">average</span> <span class="pre">diameter</span></code> and <code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">deviation</span></code> parameters.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">diameter</span></code> parameter defines the diameter of the particles in a <code class="docutils literal notranslate"><span class="pre">uniform</span></code> distribution. In the case of a <code class="docutils literal notranslate"><span class="pre">normal</span></code> distribution, this parameter indicates the average diameter.</p></li>
+<li><p>For a <code class="docutils literal notranslate"><span class="pre">normal</span></code> distribution, the <code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">deviation</span></code> parameter should be defined to indicate the standard deviation on the particle size distribution.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span></code> parameter defines the number of particles for each type.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">particles</span></code> defines the density of particles for each type.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> defines the Young’s modulus for particles in each type.</p></li>
