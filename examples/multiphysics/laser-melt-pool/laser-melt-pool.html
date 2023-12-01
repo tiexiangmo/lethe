@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Concentric Heat Exchanger" href="../concentric-heat-exchanger/concentric-heat-exchanger.html" /><link rel="prev" title="Laser Heating" href="../laser-heating/laser-heating.html" />
 
     <meta name="generator" content="sphinx-4.3.1, furo 2021.11.23"/>
-        <title>Laser Meltpool - Lethe documentation</title>
+        <title>Laser Melt Pool - Lethe documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=7f0192ddeb2adecfbaa87ffbcf67d16358b30bc1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
@@ -263,7 +263,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming up a Viscous Fluid</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../melting-cavity/melting-cavity.html">Melting Cavity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../laser-heating/laser-heating.html">Laser Heating</a></li>
-<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Laser Meltpool</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Laser Melt Pool</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../concentric-heat-exchanger/concentric-heat-exchanger.html">Concentric Heat Exchanger</a></li>
 </ul>
 </li>
@@ -375,8 +375,8 @@
           </label>
         </div>
         <article role="main">
-          <section id="laser-meltpool">
-<h1>Laser Meltpool<a class="headerlink" href="#laser-meltpool" title="Permalink to this headline">¶</a></h1>
+          <section id="laser-melt-pool">
+<h1>Laser Melt Pool<a class="headerlink" href="#laser-melt-pool" title="Permalink to this headline">¶</a></h1>
 <p>This example simulates a two-dimensional melt pool with a laser <a class="reference external" href="https://doi.org/10.1016/j.powtec.2022.117533">[1]</a>.</p>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
@@ -392,12 +392,12 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/laser-meltpool/laser-meltpool.prm</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/laser-melt-pool/laser-melt-pool.prm</span></code></p>
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
 <p>A Ti-6Al-4 V powder bed (assumed as a solid block in this example) melts using a laser beam that is emitted perpendicular to the top surface of the block. The laser beam speed is 0.5 m/s. Due to the laser heat source, the solid block melts in the direction of the laser. The corresponding parameter file is
-<code class="docutils literal notranslate"><span class="pre">laser-meltpool.prm</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">laser-melt-pool.prm</span></code>.</p>
 <p>The following schematic describes the geometry and dimensions of the simulation in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane:</p>
 <a class="reference internal image-reference" href="../../../_images/laser-phasechange.png"><img alt="Schematic" class="align-center" src="../../../_images/laser-phasechange.png" style="width: 400px;"/></a>
 </section>
@@ -412,7 +412,7 @@ time step of <span class="math notranslate nohighlight">\(5.0 \times 10^{-6}\)</
   set method           = bdf2
   set time end         = 0.005
   set time step        = 0.000005
-  set output name      = laser-meltpool
+  set output name      = laser-melt-pool
   set output frequency = 1
   set output path      = ./output/
 end
@@ -501,8 +501,7 @@ end
 </section>
 <section id="multiphysics">
 <h3>Multiphysics<a class="headerlink" href="#multiphysics" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on (<code class="docutils literal notranslate"><span class="pre">true</span></code>)
-and off (<code class="docutils literal notranslate"><span class="pre">false</span></code>) the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code>, and <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> are enabled.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">multiphysics</span></code> subsection enables to turn on (<code class="docutils literal notranslate"><span class="pre">true</span></code>) and off (<code class="docutils literal notranslate"><span class="pre">false</span></code>) the physics of interest. Here <code class="docutils literal notranslate"><span class="pre">heat</span> <span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">buoyancy</span> <span class="pre">force</span></code>, and <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">dynamics</span></code> are enabled.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection multiphysics
   set heat transfer  = true
   set buoyancy force = true
@@ -523,6 +522,7 @@ end
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection laser parameters
   set enable               = true
+  set type                 = exponential_decay
   set concentration factor = 2
   set power                = 100
   set absorptivity         = 0.6
@@ -607,7 +607,9 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Call the lethe-fluid by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">12</span> <span class="pre">lethe-fluid</span> <span class="pre">laser-meltpool.prm</span></code></p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 12 lethe-fluid laser-melt-pool.prm
+</pre></div>
+</div>
 <p>to run the simulation using twelve CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -619,7 +621,7 @@ run in parallel using mpirun. This simulation takes
 <section id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The following animation shows the temperature distribution in the simulations domain, as well the melted zone (using white contour lines at the liquidus and solidus temperatures).</p>
-<a class="reference internal image-reference" href="../../../_images/laser-meltpool.gif"><img alt="temperature" class="align-center" src="../../../_images/laser-meltpool.gif" style="width: 600px;"/></a>
+<a class="reference internal image-reference" href="../../../_images/laser-melt-pool.gif"><img alt="temperature" class="align-center" src="../../../_images/laser-melt-pool.gif" style="width: 600px;"/></a>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
@@ -659,7 +661,7 @@ run in parallel using mpirun. This simulation takes
               Copyright &#169; 2021, Lethe |
           Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
           <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
-            | <a class="muted-link" href="../../../_sources/examples/multiphysics/laser-meltpool/laser-meltpool.rst.txt"
+            | <a class="muted-link" href="../../../_sources/examples/multiphysics/laser-melt-pool/laser-melt-pool.rst.txt"
                rel="nofollow">
               Show Source
             </a>
@@ -679,7 +681,7 @@ run in parallel using mpirun. This simulation takes
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Laser Meltpool</a><ul>
+<li><a class="reference internal" href="#">Laser Melt Pool</a><ul>
 <li><a class="reference internal" href="#features">Features</a></li>
 <li><a class="reference internal" href="#files-used-in-this-example">Files Used in This Example</a></li>
 <li><a class="reference internal" href="#description-of-the-case">Description of the Case</a></li>

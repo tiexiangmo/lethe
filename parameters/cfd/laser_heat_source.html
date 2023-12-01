@@ -263,7 +263,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/warming-up-a-viscous-fluid/warming-up-a-viscous-fluid.html">Warming up a Viscous Fluid</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/melting-cavity/melting-cavity.html">Melting Cavity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/laser-heating/laser-heating.html">Laser Heating</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/laser-meltpool/laser-meltpool.html">Laser Meltpool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/laser-melt-pool/laser-melt-pool.html">Laser Melt Pool</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../examples/multiphysics/concentric-heat-exchanger/concentric-heat-exchanger.html">Concentric Heat Exchanger</a></li>
 </ul>
 </li>
@@ -380,10 +380,11 @@
 <p>If a laser heat source is present in a simulation, it can be added in this section. The default parameters are:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection laser parameters
   set enable               = false
+  set type                 = exponential_decay
   set concentration factor = 2.0
-  set power                = 100.0
+  set power                = 0.0
   set absorptivity         = 0.5
-  set penetration depth    = 0.0
+  set penetration depth    = 1.0
   set beam radius          = 0.0
   set start time           = 0.0
   set end time             = 1.0
@@ -402,44 +403,68 @@
 end
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span></code> parameter is set to true if the problem has a laser heat source term and enables its calculation.</p></li>
-<li><p>Laser <code class="docutils literal notranslate"><span class="pre">concentration</span> <span class="pre">factor</span></code> parameter indicates the definition of the beam radius. In almost all the articles, it is assumed equal to 2.0.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">power</span></code> parameter sets the power of the laser [<span class="math notranslate nohighlight">\(ML^2T^{-3}\)</span>].</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">absorptivity</span></code> parameter is defined as the fraction of the amount of incident radiation that is absorbed by the surface, and it is measured using diffuse reﬂectance spectroscopy (DRS). Generally, a constant value in the range of 0.3-0.8 (for welding processes with titanium) ise used in the literature. However, recent studies show that it varies with powder particle size distribution and the angle of incidence that changes due to the dynamic melt pool surface <a class="reference external" href="https://doi.org/10.1016/j.optlastec.2018.08.012">[1]</a>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">penetration</span> <span class="pre">depth</span></code> parameter determines the penetration depth of the laser in the simulation domain in the direction of emission.</p></li>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">enable</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the problem has a laser heat source term and enables its calculation.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">exponential_decay</span></code> (default) if we assume that the laser behaves as a volumetric source.  If the laser is assumed to be a surface flux, the <code class="docutils literal notranslate"><span class="pre">type</span></code> can be set at <code class="docutils literal notranslate"><span class="pre">heat_flux_vof_interface</span></code> and used in conjunction with the <a class="reference internal" href="volume_of_fluid.html"><span class="doc">VOF auxiliary physic</span></a>. The different models are detailed <a class="reference internal" href="#lasertypes"><span class="std std-ref">below</span></a>.</p></li>
+<li><p>Laser <code class="docutils literal notranslate"><span class="pre">concentration</span> <span class="pre">factor</span></code> parameter indicates the definition of the beam radius. In almost all the articles, it is assumed equal to <span class="math notranslate nohighlight">\(2.0\)</span>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">power</span></code> parameter sets the power of the laser <span class="math notranslate nohighlight">\([ML^2T^{-3}]\)</span>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">absorptivity</span></code> parameter is defined as the fraction of incident radiation that is absorbed by the surface, and it is measured using diffuse reﬂectance spectroscopy (DRS). Generally, a constant value in the range of <span class="math notranslate nohighlight">\(0.3\)</span>-<span class="math notranslate nohighlight">\(0.8\)</span> (for welding processes with titanium) is used in the literature. However, recent studies show that it varies with powder particle size distribution and the angle of incidence that changes due to the dynamic melt pool surface <a class="reference external" href="https://doi.org/10.1016/j.optlastec.2018.08.012">[1]</a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">penetration</span> <span class="pre">depth</span></code> parameter determines the penetration depth of the laser in the simulation domain in the direction of emission.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">penetration</span> <span class="pre">depth</span></code> value should be greater than <span class="math notranslate nohighlight">\(0\)</span> and it is only taken into account if the laser <code class="docutils literal notranslate"><span class="pre">type</span></code> is set to <code class="docutils literal notranslate"><span class="pre">exponential_decay</span></code>.</p>
+</div>
+</li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">radius</span></code> parameter defines the radius of the laser beam.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">time</span></code> parameters define the operation time window of the laser.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">orientation</span></code> parameter shows the orientation and direction of the laser beam. For instance, if a laser beam is emitted perpendicular to a plane in x-y coordinates, the orientation of the laser beam will be in the z-direction. Negative (-) or positive (+) defines the direction of the laser beam. For instance if the laser beam is emitted in the negative z direction, the value of <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">orientation</span></code> will be <code class="docutils literal notranslate"><span class="pre">z-</span></code>.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">orientation</span></code> parameter shows the orientation and direction of the laser beam. For instance, if a laser beam is emitted perpendicular to a plane in <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> coordinates, the orientation of the laser beam will be in the z-direction. Negative (-) or positive (+) defines the direction of the laser beam. For instance if the laser beam is emitted in the negative <span class="math notranslate nohighlight">\(z\)</span> direction, the value of <code class="docutils literal notranslate"><span class="pre">beam</span> <span class="pre">orientation</span></code> will be <code class="docutils literal notranslate"><span class="pre">z-</span></code>.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
 <p>In two-dimensional simulations, the laser beam orientation cannot be in the z-direction.</p>
 </div>
-<ul>
+</li>
 <li><p>In the <code class="docutils literal notranslate"><span class="pre">path</span></code> subsection, the laser scanning path is defined using a <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">expression</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">free</span> <span class="pre">surface</span> <span class="pre">radiation</span></code>: In additive manufacturing simulations, radiation at the interface between the air and the metal is a significant cooling mechanism. When this interface (i.e., free surface) is resolved by the <a class="reference internal" href="volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a> solver, the <code class="docutils literal notranslate"><span class="pre">free</span> <span class="pre">surface</span> <span class="pre">radiation</span></code> subsection defines the parameters to impose this radiation cooling following the Stefan-Boltzmann law of radiation: <span class="math notranslate nohighlight">\(\epsilon \sigma (T^4 - T_{inf}^4)\)</span>.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">free</span> <span class="pre">surface</span> <span class="pre">radiation</span></code>: In additive manufacturing simulations, radiation at the interface between the air and the metal is a significant cooling mechanism. When this interface (i.e., free surface) is resolved by the <a class="reference internal" href="volume_of_fluid.html"><span class="doc">Volume of Fluid (Multiphase Flow)</span></a> solver, the <code class="docutils literal notranslate"><span class="pre">free</span> <span class="pre">surface</span> <span class="pre">radiation</span></code> subsection defines the parameters to impose this radiation cooling following the Stefan-Boltzmann law of radiation:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[q_\text{rad} = \epsilon \sigma (T^4 - T_\text{inf}^4)\]</div></div>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: controls if the radiation cooling is enabled. The radiation sink is apply in the heat transfer solver in the cells where the phase fraction gradient norm <span class="math notranslate nohighlight">\(|\nabla \alpha|\)</span> is non-null.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: controls if the radiation cooling is enabled. The radiation sink is modulated by the filtered phase fraction gradient norm, <span class="math notranslate nohighlight">\(|\nabla \phi'|\)</span>, in such way that the flux is applied at the interface between the fluids.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>To apply this radiation cooling, the <code class="docutils literal notranslate"><span class="pre">VOF</span></code> parameter must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in the <a class="reference internal" href="multiphysics.html"><span class="doc">Multiphysics</span></a> subsection.</p>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">emissivity</span></code>, <code class="docutils literal notranslate"><span class="pre">Tinf</span></code>, and <code class="docutils literal notranslate"><span class="pre">Stefan-Boltzmann</span> <span class="pre">constant</span></code> are respectively the emissivity <span class="math notranslate nohighlight">\(\epsilon\)</span> of the surface, the environment temperature <span class="math notranslate nohighlight">\(T_{inf}\)</span>, and the Stefan-Boltzmann constant <span class="math notranslate nohighlight">\(\sigma\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">emissivity</span></code>, <code class="docutils literal notranslate"><span class="pre">Tinf</span></code>, and <code class="docutils literal notranslate"><span class="pre">Stefan-Boltzmann</span> <span class="pre">constant</span></code> are respectively the emissivity <span class="math notranslate nohighlight">\(\epsilon\)</span> of the surface, the environment temperature <span class="math notranslate nohighlight">\(T_\text{inf}\)</span>, and the Stefan-Boltzmann constant <span class="math notranslate nohighlight">\(\sigma\)</span>.</p></li>
 </ul>
 </li>
 </ul>
-<p>The exponential decaying model <a class="reference external" href="https://doi.org/10.1016/j.matdes.2018.01.022">[2]</a> is used to simulate the laser heat source. In the exponential decaying model, the laser heat flux is calculated using the following equation:</p>
-<blockquote>
-<div><div class="math-wrapper"><div class="math notranslate nohighlight">
-\[q(x,y,z) = \frac{\eta \alpha P}{\pi r^2 \mu} \exp{(-\eta \frac{r^2}{R^2})} \exp{(- \frac{|z|}{\mu})}\]</div></div>
-</div></blockquote>
-<p>where <span class="math notranslate nohighlight">\(\eta\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, :math:<cite>z</cite> denote concentration factor, absorptivity, laser power, beam radius, penetration depth, radial distance from the laser focal point, and axial distance from the laser focal point, respectively.</p>
+<section id="laser-types">
+<span id="lasertypes"></span><h2>Laser types<a class="headerlink" href="#laser-types" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>When the <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">exponential_decay</span></code>, the exponential model from Zhang <em>et al.</em> <a class="reference external" href="https://doi.org/10.1016/j.matdes.2018.01.022">[2]</a> is used to simulate the laser heat source:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[q(x,y,z) = \frac{\eta \alpha P}{\pi r^2 \mu} \exp{\left(-\eta \frac{r^2}{R^2}\right)} \exp{\left(- \frac{|z|}{\mu}\right)}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\eta\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> denote the concentration factor, absorptivity, laser power, beam radius, penetration depth, radial distance from the laser focal point, and axial distance from the laser focal point, respectively.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">exponential_decay</span></code> is used in conjunction with the <a class="reference internal" href="volume_of_fluid.html"><span class="doc">VOF auxiliary physic</span></a> the equation takes the following form:</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[q(x,y,z) = \frac{\phi' \eta \alpha P}{\pi r^2 \mu} \exp{\left(-\eta \frac{r^2}{R^2}\right)} \exp{\left(- \frac{|z|}{\mu}\right)}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(\phi'\)</span> is the filtered phase fraction.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>In this case, the heat affects the fluid initialized as <code class="docutils literal notranslate"><span class="pre">fluid</span> <span class="pre">1</span></code>.</p>
+</div>
+</li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">type</span></code> is set to <code class="docutils literal notranslate"><span class="pre">heat_flux_vof_interface</span></code>, it <strong>must be used in conjunction with the</strong> <a class="reference internal" href="volume_of_fluid.html"><span class="doc">VOF auxiliary physic</span></a>. This model is used to apply the heat flux, given by the expression below, only at the interface.</p>
+<div class="math-wrapper"><div class="math notranslate nohighlight">
+\[q(x,y,z) = \frac{|\nabla \phi'| \eta \alpha P}{\pi r^2} \exp{\left(-\eta \frac{r^2}{R^2}\right)}\]</div></div>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is the radial distance from the laser’s axis and <span class="math notranslate nohighlight">\(|\nabla \phi'|\)</span> is the <span class="math notranslate nohighlight">\(L^2\)</span> norm of the filtered phase fraction gradient.</p>
+</li>
+</ul>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://doi.org/10.1016/j.optlastec.2018.08.012">[1]</a> Z. Zhang <em>et al.</em>, “3-Dimensional heat transfer modeling for laser powder-bed fusion additive manufacturing with volumetric heat sources based on varied thermal conductivity and absorptivity,” <em>Opt. Laser Technol.</em>, vol. 109, pp. 297–312, Jan. 2019, doi: 10.1016/j.optlastec.2018.08.012.</p>
 <p><a class="reference external" href="https://doi.org/10.1016/j.matdes.2018.01.022">[2]</a>   S. Liu, H. Zhu, G. Peng, J. Yin, and X. Zeng, “Microstructure prediction of selective laser melting AlSi10Mg using finite element analysis,” <em>Mater. Des.</em>, vol. 142, pp. 319–328, Mar. 2018, doi: 10.1016/j.matdes.2018.01.022.</p>
+</section>
 </section>
 </section>
 
@@ -495,7 +520,10 @@ end
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Laser Heat Source</a><ul>
+<li><a class="reference internal" href="#laser-types">Laser types</a><ul>
 <li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
