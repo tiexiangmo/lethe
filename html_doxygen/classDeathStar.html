@@ -87,7 +87,7 @@ Inheritance diagram for DeathStar&lt; dim &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a17ba698b7ef3003b9a5b6034ec0173ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDeathStar.html#a17ba698b7ef3003b9a5b6034ec0173ef">DeathStar</a> (double <a class="el" href="classDeathStar.html#a7e33c323beb0f2380dbd45d360de8065">radius</a>, double <a class="el" href="classDeathStar.html#a871728bde6ff92de7ae7240cb11ea772">hole_radius</a>, double <a class="el" href="classDeathStar.html#ab5ee866340ad03baff8f4ec808faad4a">spheres_distance</a>, const Point&lt; dim &gt; &amp;<a class="el" href="classShape.html#ac35254a566e6850f6f9b8606aa25ddc4">position</a>, const Tensor&lt; 1, 3 &gt; &amp;<a class="el" href="classShape.html#a2ca8b6d6616659ad6ea4727762ab0d9f">orientation</a>)</td></tr>
-<tr class="memdesc:a17ba698b7ef3003b9a5b6034ec0173ef"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThe.html">The</a> Death Star is the result of a boolean substraction of one sphere from another.  <a href="classDeathStar.html#a17ba698b7ef3003b9a5b6034ec0173ef">More...</a><br /></td></tr>
+<tr class="memdesc:a17ba698b7ef3003b9a5b6034ec0173ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Death Star is the result of a boolean substraction of one sphere from another.  <a href="classDeathStar.html#a17ba698b7ef3003b9a5b6034ec0173ef">More...</a><br /></td></tr>
 <tr class="separator:a17ba698b7ef3003b9a5b6034ec0173ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab13ff0151b122bdc3cf718c5431c9efd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDeathStar.html#ab13ff0151b122bdc3cf718c5431c9efd">value</a> (const Point&lt; dim &gt; &amp;evaluation_point, const unsigned int component=0) const override</td></tr>
 <tr class="memdesc:ab13ff0151b122bdc3cf718c5431c9efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the evaluation of the signed distance function of this solid at the given point evaluation point.  <a href="classDeathStar.html#ab13ff0151b122bdc3cf718c5431c9efd">More...</a><br /></td></tr>
@@ -132,13 +132,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab7b25213b03319f8fda0634db5606099 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the cache of the shape.  <a href="classShape.html#ab7b25213b03319f8fda0634db5606099">More...</a><br /></td></tr>
 <tr class="separator:ab7b25213b03319f8fda0634db5606099 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a38773f106f96ad0dcda809c8238f0866">align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most value functions assume that the particle's position is at the origin and that the shape is aligned with one of the main axes. <a class="el" href="classThis.html">This</a> function returns a point that is rotated and translated, in accordance with the current shape position and orientation, so that subsequent calculations for the value function are made more easily; it abstracts a step that is required in the value function for most shapes.  <a href="classShape.html#a38773f106f96ad0dcda809c8238f0866">More...</a><br /></td></tr>
+<tr class="memdesc:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most value functions assume that the particle's position is at the origin and that the shape is aligned with one of the main axes. This function returns a point that is rotated and translated, in accordance with the current shape position and orientation, so that subsequent calculations for the value function are made more easily; it abstracts a step that is required in the value function for most shapes.  <a href="classShape.html#a38773f106f96ad0dcda809c8238f0866">More...</a><br /></td></tr>
 <tr class="separator:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a5523265f632187cdaf131f44ec19f09a">reverse_align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThis.html">This</a> function applies the inverse operation of align_and_center.  <a href="classShape.html#a5523265f632187cdaf131f44ec19f09a">More...</a><br /></td></tr>
+<tr class="memdesc:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the inverse operation of align_and_center.  <a href="classShape.html#a5523265f632187cdaf131f44ec19f09a">More...</a><br /></td></tr>
 <tr class="separator:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">point_to_string</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThis.html">This</a> function returns a point in a string of text. <a class="el" href="classThis.html">This</a> is used in the cache of the shape.  <a href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">More...</a><br /></td></tr>
+<tr class="memdesc:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns a point in a string of text. This is used in the cache of the shape.  <a href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">More...</a><br /></td></tr>
 <tr class="separator:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc115201008418068265ed7fd5f092ae inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#acc115201008418068265ed7fd5f092ae">set_part_of_a_composite</a> (const bool <a class="el" href="classShape.html#aa03400a77cb8749bc2eb71265f550b38">part_of_a_composite</a>)</td></tr>
 <tr class="memdesc:acc115201008418068265ed7fd5f092ae inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines if this shape is part of a composite. If true, cache management is deactivated and delegated to the upper level shape, to avoid cache duplication.  <a href="classShape.html#acc115201008418068265ed7fd5f092ae">More...</a><br /></td></tr>
@@ -262,14 +262,14 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classThe.html">The</a> Death Star is the result of a boolean substraction of one sphere from another. </p>
+<p>The Death Star is the result of a boolean substraction of one sphere from another. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">radius</td><td><a class="el" href="classThe.html">The</a> main sphere radius </td></tr>
-    <tr><td class="paramname">hole_radius</td><td><a class="el" href="classThe.html">The</a> removed sphere radius </td></tr>
-    <tr><td class="paramname">spheres_distance</td><td><a class="el" href="classThe.html">The</a> distance between the centers of the sphere </td></tr>
-    <tr><td class="paramname">position</td><td><a class="el" href="classThe.html">The</a> main sphere's center </td></tr>
-    <tr><td class="paramname">orientation</td><td><a class="el" href="classThe.html">The</a> orientation from the main sphere's center to the removed sphere's center </td></tr>
+    <tr><td class="paramname">radius</td><td>The main sphere radius </td></tr>
+    <tr><td class="paramname">hole_radius</td><td>The removed sphere radius </td></tr>
+    <tr><td class="paramname">spheres_distance</td><td>The distance between the centers of the sphere </td></tr>
+    <tr><td class="paramname">position</td><td>The main sphere's center </td></tr>
+    <tr><td class="paramname">orientation</td><td>The orientation from the main sphere's center to the removed sphere's center </td></tr>
   </table>
   </dd>
 </dl>
@@ -306,7 +306,7 @@ template&lt;int dim&gt; </div>
 <p>Return the volume displaced by the solid. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fluid_density</td><td><a class="el" href="classThe.html">The</a> density of the fluid that is displaced </td></tr>
+    <tr><td class="paramname">fluid_density</td><td>The density of the fluid that is displaced </td></tr>
   </table>
   </dd>
 </dl>
@@ -385,8 +385,8 @@ template&lt;int dim&gt; </div>
 <p>Return the evaluation of the signed distance function of this solid at the given point evaluation point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the function will be evaluated </td></tr>
-    <tr><td class="paramname">component</td><td><a class="el" href="classThis.html">This</a> parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the function will be evaluated </td></tr>
+    <tr><td class="paramname">component</td><td>This parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
   </table>
   </dd>
 </dl>

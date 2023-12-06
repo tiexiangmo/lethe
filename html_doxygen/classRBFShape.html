@@ -74,13 +74,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>RBF Shapes express the signed distance function as a linear combination of Radial Basis Functions (RBF), which have a defined support radius and basis function. A collection of nodes and weights compose the object. Outside of the domain covered by the nodes, the distance is computed by using the distance to a bounding box instead.  
+ <a href="classRBFShape.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="shape_8h_source.html">shape.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for RBFShape&lt; dim &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classRBFShape__inherit__graph.png" border="0" usemap="#aRBFShape_3_01dim_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="aRBFShape_3_01dim_01_4_inherit__map" id="aRBFShape_3_01dim_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="21,169,164,196"/>
+<area shape="rect" title="RBF Shapes express the signed distance function as a linear combination of Radial Basis Functions (RB..." alt="" coords="21,169,164,196"/>
 <area shape="rect" href="classShape.html" title="A base class used to represent geometrical entities. Its main uses are to return signed distance and ..." alt="" coords="34,95,151,121"/>
 <area shape="rect" title=" " alt="" coords="5,5,180,47"/>
 </map>
@@ -109,7 +112,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="classRBFShape.html#a2060a8058a7a5a439d772319f39ec66baef23ef1d426ae1a73a7eed399cef707d">COS</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a2060a8058a7a5a439d772319f39ec66b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class defining types of <a class="el" href="classRBF.html">RBF</a> kernel functions that could be used in the class.  <a href="classRBFShape.html#a2060a8058a7a5a439d772319f39ec66b">More...</a><br /></td></tr>
+<tr class="memdesc:a2060a8058a7a5a439d772319f39ec66b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class defining types of RBF kernel functions that could be used in the class.  <a href="classRBFShape.html#a2060a8058a7a5a439d772319f39ec66b">More...</a><br /></td></tr>
 <tr class="separator:a2060a8058a7a5a439d772319f39ec66b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classShape"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classShape')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classShape.html">Shape&lt; dim &gt;</a></td></tr>
 <tr class="memitem:a3e44e2b1f6fca48f7b7b2151977b3abd inherit pub_types_classShape"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a3e44e2b1f6fca48f7b7b2151977b3abd">ShapeType</a> : int { <br />
@@ -137,16 +140,16 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abe061b2790df3406bcffacfebd60282b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#abe061b2790df3406bcffacfebd60282b">RBFShape</a> (const std::string shape_arguments_str, const Point&lt; dim &gt; &amp;<a class="el" href="classShape.html#ac35254a566e6850f6f9b8606aa25ddc4">position</a>, const Tensor&lt; 1, 3 &gt; &amp;<a class="el" href="classShape.html#a2ca8b6d6616659ad6ea4727762ab0d9f">orientation</a>)</td></tr>
-<tr class="memdesc:abe061b2790df3406bcffacfebd60282b"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <a class="el" href="classRBFShape.html">RBFShape</a> represents a physical object by describing its signed distance field with a linear combination of radial basis functions. Each radial basis function has a location and properties that are used in the sum.  <a href="classRBFShape.html#abe061b2790df3406bcffacfebd60282b">More...</a><br /></td></tr>
+<tr class="memdesc:abe061b2790df3406bcffacfebd60282b"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <a class="el" href="classRBFShape.html" title="RBF Shapes express the signed distance function as a linear combination of Radial Basis Functions (RB...">RBFShape</a> represents a physical object by describing its signed distance field with a linear combination of radial basis functions. Each radial basis function has a location and properties that are used in the sum.  <a href="classRBFShape.html#abe061b2790df3406bcffacfebd60282b">More...</a><br /></td></tr>
 <tr class="separator:abe061b2790df3406bcffacfebd60282b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c31b8da4338b3f09c7fc78d1e35faa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a3c31b8da4338b3f09c7fc78d1e35faa1">load_data_from_file</a> ()</td></tr>
-<tr class="memdesc:a3c31b8da4338b3f09c7fc78d1e35faa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load <a class="el" href="classRBF.html">RBF</a> data from file. To be called at initialization, after repartitioning or when shape has moved. <a class="el" href="classThis.html">This</a> function is used only for <a class="el" href="classRBF.html">RBF</a> shapes and its composites at the moment.  <a href="classRBFShape.html#a3c31b8da4338b3f09c7fc78d1e35faa1">More...</a><br /></td></tr>
+<tr class="memdesc:a3c31b8da4338b3f09c7fc78d1e35faa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load RBF data from file. To be called at initialization, after repartitioning or when shape has moved. This function is used only for RBF shapes and its composites at the moment.  <a href="classRBFShape.html#a3c31b8da4338b3f09c7fc78d1e35faa1">More...</a><br /></td></tr>
 <tr class="separator:a3c31b8da4338b3f09c7fc78d1e35faa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02d165a5215eb4e8f45bbd82515551e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a02d165a5215eb4e8f45bbd82515551e1">remove_superfluous_data</a> (DoFHandler&lt; dim &gt; &amp;<a class="el" href="classRBFShape.html#a85c623f365defe6bb9bcf2b62547d7ea">dof_handler</a>, const bool mesh_based_precalculations)</td></tr>
-<tr class="memdesc:a02d165a5215eb4e8f45bbd82515551e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove data that affects only artificial cells (not locally owned and not ghost). <a class="el" href="classThe.html">The</a> data is removed if it would never be accessed by the local process.  <a href="classRBFShape.html#a02d165a5215eb4e8f45bbd82515551e1">More...</a><br /></td></tr>
+<tr class="memdesc:a02d165a5215eb4e8f45bbd82515551e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove data that affects only artificial cells (not locally owned and not ghost). The data is removed if it would never be accessed by the local process.  <a href="classRBFShape.html#a02d165a5215eb4e8f45bbd82515551e1">More...</a><br /></td></tr>
 <tr class="separator:a02d165a5215eb4e8f45bbd82515551e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91e5a0e7c2983d873e32e65abd3a53bb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a91e5a0e7c2983d873e32e65abd3a53bb">value</a> (const Point&lt; dim &gt; &amp;evaluation_point, const unsigned int component=0) const override</td></tr>
-<tr class="memdesc:a91e5a0e7c2983d873e32e65abd3a53bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the evaluation of the signed distance function of this solid at the given point evaluation point. <a class="el" href="classThe.html">The</a> computation and addition of the bounding box distance are necessary since the <a class="el" href="classRBF.html">RBF</a> nodes may not cover the whole simulation domain. In that case, it is assumed that the distance from the <a class="el" href="classRBF.html">RBF</a> object is approximately the same as the distance from the corresponding bounding box.  <a href="classRBFShape.html#a91e5a0e7c2983d873e32e65abd3a53bb">More...</a><br /></td></tr>
+<tr class="memdesc:a91e5a0e7c2983d873e32e65abd3a53bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the evaluation of the signed distance function of this solid at the given point evaluation point. The computation and addition of the bounding box distance are necessary since the RBF nodes may not cover the whole simulation domain. In that case, it is assumed that the distance from the RBF object is approximately the same as the distance from the corresponding bounding box.  <a href="classRBFShape.html#a91e5a0e7c2983d873e32e65abd3a53bb">More...</a><br /></td></tr>
 <tr class="separator:a91e5a0e7c2983d873e32e65abd3a53bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bb5e038767577ace42bbb92fffe8d0f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a3bb5e038767577ace42bbb92fffe8d0f">value_with_cell_guess</a> (const Point&lt; dim &gt; &amp;evaluation_point, const typename DoFHandler&lt; dim &gt;::active_cell_iterator, const unsigned int) override</td></tr>
 <tr class="memdesc:a3bb5e038767577ace42bbb92fffe8d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the evaluation of the signed distance function of this solid at the given point evaluation point with a guess for the cell containing the evaluation point.  <a href="classRBFShape.html#a3bb5e038767577ace42bbb92fffe8d0f">More...</a><br /></td></tr>
@@ -155,7 +158,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a47fa6d39fce5339f7388386cd09c9e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the analytical gradient of the distance.  <a href="classRBFShape.html#a47fa6d39fce5339f7388386cd09c9e7b">More...</a><br /></td></tr>
 <tr class="separator:a47fa6d39fce5339f7388386cd09c9e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38814664cb045b891218f3551fd74607"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a38814664cb045b891218f3551fd74607">gradient</a> (const Point&lt; dim &gt; &amp;evaluation_point, const unsigned int component=0) const override</td></tr>
-<tr class="memdesc:a38814664cb045b891218f3551fd74607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the analytical gradient of the distance for the current <a class="el" href="classRBF.html">RBF</a>.  <a href="classRBFShape.html#a38814664cb045b891218f3551fd74607">More...</a><br /></td></tr>
+<tr class="memdesc:a38814664cb045b891218f3551fd74607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the analytical gradient of the distance for the current RBF.  <a href="classRBFShape.html#a38814664cb045b891218f3551fd74607">More...</a><br /></td></tr>
 <tr class="separator:a38814664cb045b891218f3551fd74607"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3beeb836a75275e7c82406d9e425a2a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classShape.html">Shape</a>&lt; dim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#af3beeb836a75275e7c82406d9e425a2a">static_copy</a> () const override</td></tr>
 <tr class="memdesc:af3beeb836a75275e7c82406d9e425a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to a copy of the <a class="el" href="classShape.html" title="A base class used to represent geometrical entities. Its main uses are to return signed distance and ...">Shape</a>.  <a href="classRBFShape.html#af3beeb836a75275e7c82406d9e425a2a">More...</a><br /></td></tr>
@@ -164,7 +167,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2be32db34ed155f81ca2c8f03534d6c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the volume displaced by the solid.  <a href="classRBFShape.html#a2be32db34ed155f81ca2c8f03534d6c9">More...</a><br /></td></tr>
 <tr class="separator:a2be32db34ed155f81ca2c8f03534d6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a786fc190bff11ee476260842837cdfae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a786fc190bff11ee476260842837cdfae">initialize_bounding_box</a> ()</td></tr>
-<tr class="memdesc:a786fc190bff11ee476260842837cdfae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the bounding box around the nodes which enables distance calculation even if the <a class="el" href="classRBF.html">RBF</a> nodes don't cover the whole domain.  <a href="classRBFShape.html#a786fc190bff11ee476260842837cdfae">More...</a><br /></td></tr>
+<tr class="memdesc:a786fc190bff11ee476260842837cdfae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the bounding box around the nodes which enables distance calculation even if the RBF nodes don't cover the whole domain.  <a href="classRBFShape.html#a786fc190bff11ee476260842837cdfae">More...</a><br /></td></tr>
 <tr class="separator:a786fc190bff11ee476260842837cdfae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a305b2054093e3c64cfe8eba5841cf3cf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a305b2054093e3c64cfe8eba5841cf3cf">evaluate_basis_function</a> (const <a class="el" href="classRBFShape.html#a2060a8058a7a5a439d772319f39ec66b">RBFBasisFunction</a> basis_function, const double distance) const</td></tr>
 <tr class="memdesc:a305b2054093e3c64cfe8eba5841cf3cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the basis function for a given distance. Inspired by Optimad Bitpit. <a href="https://github.com/optimad/bitpit">https://github.com/optimad/bitpit</a>.  <a href="classRBFShape.html#a305b2054093e3c64cfe8eba5841cf3cf">More...</a><br /></td></tr>
@@ -173,13 +176,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8992761fa880440ad3840732d1adbe5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the derivative of the basis function for a given distance. Inspired by Optimad Bitpit. <a href="https://github.com/optimad/bitpit">https://github.com/optimad/bitpit</a>.  <a href="classRBFShape.html#a8992761fa880440ad3840732d1adbe5b">More...</a><br /></td></tr>
 <tr class="separator:a8992761fa880440ad3840732d1adbe5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a265207fb3c1de21098397846811795a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a265207fb3c1de21098397846811795a1">determine_likely_nodes_for_one_cell</a> (const typename DoFHandler&lt; dim &gt;::cell_iterator &amp;cell, const Point&lt; dim &gt; support_point)</td></tr>
-<tr class="memdesc:a265207fb3c1de21098397846811795a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establishes which nodes bring a non null contribution to the <a class="el" href="classRBF.html">RBF</a>.  <a href="classRBFShape.html#a265207fb3c1de21098397846811795a1">More...</a><br /></td></tr>
+<tr class="memdesc:a265207fb3c1de21098397846811795a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establishes which nodes bring a non null contribution to the RBF.  <a href="classRBFShape.html#a265207fb3c1de21098397846811795a1">More...</a><br /></td></tr>
 <tr class="separator:a265207fb3c1de21098397846811795a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adba88b6f906dc8ec58d9689e418f978d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#adba88b6f906dc8ec58d9689e418f978d">update_precalculations</a> (DoFHandler&lt; dim &gt; &amp;updated_dof_handler, const bool mesh_based_precalculations)</td></tr>
 <tr class="memdesc:adba88b6f906dc8ec58d9689e418f978d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the proper dof handler, then computes/updates the map of cells and their likely non-null nodes.  <a href="classRBFShape.html#adba88b6f906dc8ec58d9689e418f978d">More...</a><br /></td></tr>
 <tr class="separator:adba88b6f906dc8ec58d9689e418f978d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37e04469a136df013e5c01044e2a4e73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a37e04469a136df013e5c01044e2a4e73">rotate_nodes</a> ()</td></tr>
-<tr class="memdesc:a37e04469a136df013e5c01044e2a4e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate <a class="el" href="classRBF.html">RBF</a> nodes in the global reference frame (the reference frame of the triangulation).  <a href="classRBFShape.html#a37e04469a136df013e5c01044e2a4e73">More...</a><br /></td></tr>
+<tr class="memdesc:a37e04469a136df013e5c01044e2a4e73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate RBF nodes in the global reference frame (the reference frame of the triangulation).  <a href="classRBFShape.html#a37e04469a136df013e5c01044e2a4e73">More...</a><br /></td></tr>
 <tr class="separator:a37e04469a136df013e5c01044e2a4e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4f98e19cc9b04913df4704f64c8c040"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#ac4f98e19cc9b04913df4704f64c8c040">wendlandc2</a> (const double distance) const</td></tr>
 <tr class="memdesc:ac4f98e19cc9b04913df4704f64c8c040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compact Wendland C2 function defined from 0 to 1.  <a href="classRBFShape.html#ac4f98e19cc9b04913df4704f64c8c040">More...</a><br /></td></tr>
@@ -296,13 +299,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab7b25213b03319f8fda0634db5606099 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the cache of the shape.  <a href="classShape.html#ab7b25213b03319f8fda0634db5606099">More...</a><br /></td></tr>
 <tr class="separator:ab7b25213b03319f8fda0634db5606099 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a38773f106f96ad0dcda809c8238f0866">align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most value functions assume that the particle's position is at the origin and that the shape is aligned with one of the main axes. <a class="el" href="classThis.html">This</a> function returns a point that is rotated and translated, in accordance with the current shape position and orientation, so that subsequent calculations for the value function are made more easily; it abstracts a step that is required in the value function for most shapes.  <a href="classShape.html#a38773f106f96ad0dcda809c8238f0866">More...</a><br /></td></tr>
+<tr class="memdesc:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most value functions assume that the particle's position is at the origin and that the shape is aligned with one of the main axes. This function returns a point that is rotated and translated, in accordance with the current shape position and orientation, so that subsequent calculations for the value function are made more easily; it abstracts a step that is required in the value function for most shapes.  <a href="classShape.html#a38773f106f96ad0dcda809c8238f0866">More...</a><br /></td></tr>
 <tr class="separator:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a5523265f632187cdaf131f44ec19f09a">reverse_align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThis.html">This</a> function applies the inverse operation of align_and_center.  <a href="classShape.html#a5523265f632187cdaf131f44ec19f09a">More...</a><br /></td></tr>
+<tr class="memdesc:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the inverse operation of align_and_center.  <a href="classShape.html#a5523265f632187cdaf131f44ec19f09a">More...</a><br /></td></tr>
 <tr class="separator:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">point_to_string</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThis.html">This</a> function returns a point in a string of text. <a class="el" href="classThis.html">This</a> is used in the cache of the shape.  <a href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">More...</a><br /></td></tr>
+<tr class="memdesc:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns a point in a string of text. This is used in the cache of the shape.  <a href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">More...</a><br /></td></tr>
 <tr class="separator:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc115201008418068265ed7fd5f092ae inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#acc115201008418068265ed7fd5f092ae">set_part_of_a_composite</a> (const bool <a class="el" href="classShape.html#aa03400a77cb8749bc2eb71265f550b38">part_of_a_composite</a>)</td></tr>
 <tr class="memdesc:acc115201008418068265ed7fd5f092ae inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines if this shape is part of a composite. If true, cache management is deactivated and delegated to the upper level shape, to avoid cache duplication.  <a href="classShape.html#acc115201008418068265ed7fd5f092ae">More...</a><br /></td></tr>
@@ -370,7 +373,18 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a6be6b189b76d906b833a6056381ac97d inherit pro_attribs_classShape"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a6be6b189b76d906b833a6056381ac97d">layer_thickening</a></td></tr>
 <tr class="separator:a6be6b189b76d906b833a6056381ac97d inherit pro_attribs_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;int dim&gt;<br />
+class RBFShape&lt; dim &gt;</h3>
+
+<p>RBF Shapes express the signed distance function as a linear combination of Radial Basis Functions (RBF), which have a defined support radius and basis function. A collection of nodes and weights compose the object. Outside of the domain covered by the nodes, the distance is computed by using the distance to a bounding box instead. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">dim</td><td>Dimension of the shape </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a2060a8058a7a5a439d772319f39ec66b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2060a8058a7a5a439d772319f39ec66b">&#9670;&nbsp;</a></span>RBFBasisFunction</h2>
 
@@ -393,7 +407,7 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Enum class defining types of <a class="el" href="classRBF.html">RBF</a> kernel functions that could be used in the class. </p>
+<p>Enum class defining types of RBF kernel functions that could be used in the class. </p>
 <p>Class taken from Optimad Bitpit. <a href="https://github.com/optimad/bitpit">https://github.com/optimad/bitpit</a> </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2060a8058a7a5a439d772319f39ec66ba72baef04098f035e8a320b03ad197818"></a>CUSTOM&#160;</td><td class="fielddoc"></td></tr>
@@ -450,11 +464,11 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>An <a class="el" href="classRBFShape.html">RBFShape</a> represents a physical object by describing its signed distance field with a linear combination of radial basis functions. Each radial basis function has a location and properties that are used in the sum. </p>
+<p>An <a class="el" href="classRBFShape.html" title="RBF Shapes express the signed distance function as a linear combination of Radial Basis Functions (RB...">RBFShape</a> represents a physical object by describing its signed distance field with a linear combination of radial basis functions. Each radial basis function has a location and properties that are used in the sum. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">shape_arguments_str</td><td>the name of the file used to load the data </td></tr>
-    <tr><td class="paramname">position</td><td>the location of the <a class="el" href="classRBF.html">RBF</a> shape </td></tr>
+    <tr><td class="paramname">position</td><td>the location of the RBF shape </td></tr>
     <tr><td class="paramname">orientation</td><td>the orientation of the shape with respect to each main axis </td></tr>
   </table>
   </dd>
@@ -1139,7 +1153,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Establishes which nodes bring a non null contribution to the <a class="el" href="classRBF.html">RBF</a>. </p>
+<p>Establishes which nodes bring a non null contribution to the RBF. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cell</td><td>the cell for which the likely nodes are to be found </td></tr>
@@ -1179,7 +1193,7 @@ template&lt;int dim&gt; </div>
 <p>Return the volume displaced by the solid. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fluid_density</td><td><a class="el" href="classThe.html">The</a> density of the fluid that is displaced </td></tr>
+    <tr><td class="paramname">fluid_density</td><td>The density of the fluid that is displaced </td></tr>
   </table>
   </dd>
 </dl>
@@ -1534,11 +1548,11 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Return the analytical gradient of the distance for the current <a class="el" href="classRBF.html">RBF</a>. </p>
+<p>Return the analytical gradient of the distance for the current RBF. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the function will be evaluated </td></tr>
-    <tr><td class="paramname">component</td><td><a class="el" href="classThis.html">This</a> parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the function will be evaluated </td></tr>
+    <tr><td class="paramname">component</td><td>This parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1590,9 +1604,9 @@ template&lt;int dim&gt; </div>
 <p>Return the analytical gradient of the distance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the function will be evaluated </td></tr>
-    <tr><td class="paramname">cell</td><td><a class="el" href="classThe.html">The</a> cell that is likely to contain the evaluation point </td></tr>
-    <tr><td class="paramname">component</td><td><a class="el" href="classThis.html">This</a> parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the function will be evaluated </td></tr>
+    <tr><td class="paramname">cell</td><td>The cell that is likely to contain the evaluation point </td></tr>
+    <tr><td class="paramname">component</td><td>This parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1618,8 +1632,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes the bounding box around the nodes which enables distance calculation even if the <a class="el" href="classRBF.html">RBF</a> nodes don't cover the whole domain. </p>
-<p>A bounding box is constructed around the collection of nodes defining the <a class="el" href="classRBF.html">RBF</a>. It solves an issue where the collection of nodes is located only around the object itself, which would result in an undefined distance when the value is evaluated outside of all support radii. <a class="el" href="classThe.html">The</a> hyper rectangle shape doesn't have this limitation, as its distance can be evaluated anywhere. <a class="el" href="classThe.html">The</a> distance computed by an <a class="el" href="classRBF.html">RBF</a> object will therefore use an approximated distance when the evaluation point is too far. </p>
+<p>Initializes the bounding box around the nodes which enables distance calculation even if the RBF nodes don't cover the whole domain. </p>
+<p>A bounding box is constructed around the collection of nodes defining the RBF. It solves an issue where the collection of nodes is located only around the object itself, which would result in an undefined distance when the value is evaluated outside of all support radii. The hyper rectangle shape doesn't have this limitation, as its distance can be evaluated anywhere. The distance computed by an RBF object will therefore use an approximated distance when the evaluation point is too far. </p>
 
 </div>
 </div>
@@ -1712,7 +1726,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Load <a class="el" href="classRBF.html">RBF</a> data from file. To be called at initialization, after repartitioning or when shape has moved. <a class="el" href="classThis.html">This</a> function is used only for <a class="el" href="classRBF.html">RBF</a> shapes and its composites at the moment. </p>
+<p>Load RBF data from file. To be called at initialization, after repartitioning or when shape has moved. This function is used only for RBF shapes and its composites at the moment. </p>
 
 </div>
 </div>
@@ -1744,11 +1758,11 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Remove data that affects only artificial cells (not locally owned and not ghost). <a class="el" href="classThe.html">The</a> data is removed if it would never be accessed by the local process. </p>
+<p>Remove data that affects only artificial cells (not locally owned and not ghost). The data is removed if it would never be accessed by the local process. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dof_handler</td><td>the reference to the new dof_handler </td></tr>
-    <tr><td class="paramname">mesh_based_precalculations</td><td>mesh-based precalculations that can lead to slight shape misrepresentation (if <a class="el" href="classRBF.html">RBF</a> typed) </td></tr>
+    <tr><td class="paramname">mesh_based_precalculations</td><td>mesh-based precalculations that can lead to slight shape misrepresentation (if RBF typed) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1772,7 +1786,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Rotate <a class="el" href="classRBF.html">RBF</a> nodes in the global reference frame (the reference frame of the triangulation). </p>
+<p>Rotate RBF nodes in the global reference frame (the reference frame of the triangulation). </p>
 
 </div>
 </div>
@@ -1867,7 +1881,7 @@ template&lt;int dim&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dof_handler</td><td>the reference to the new dof_handler </td></tr>
-    <tr><td class="paramname">mesh_based_precalculations</td><td>mesh-based precalculations that can lead to slight shape misrepresentation (if <a class="el" href="classRBF.html">RBF</a> typed) </td></tr>
+    <tr><td class="paramname">mesh_based_precalculations</td><td>mesh-based precalculations that can lead to slight shape misrepresentation (if RBF typed) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1910,11 +1924,11 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Return the evaluation of the signed distance function of this solid at the given point evaluation point. <a class="el" href="classThe.html">The</a> computation and addition of the bounding box distance are necessary since the <a class="el" href="classRBF.html">RBF</a> nodes may not cover the whole simulation domain. In that case, it is assumed that the distance from the <a class="el" href="classRBF.html">RBF</a> object is approximately the same as the distance from the corresponding bounding box. </p>
+<p>Return the evaluation of the signed distance function of this solid at the given point evaluation point. The computation and addition of the bounding box distance are necessary since the RBF nodes may not cover the whole simulation domain. In that case, it is assumed that the distance from the RBF object is approximately the same as the distance from the corresponding bounding box. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the function will be evaluated </td></tr>
-    <tr><td class="paramname">component</td><td><a class="el" href="classThis.html">This</a> parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the function will be evaluated </td></tr>
+    <tr><td class="paramname">component</td><td>This parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1968,9 +1982,9 @@ template&lt;int dim&gt; </div>
 <p>Return the evaluation of the signed distance function of this solid at the given point evaluation point with a guess for the cell containing the evaluation point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the function will be evaluated </td></tr>
-    <tr><td class="paramname">cell</td><td><a class="el" href="classThe.html">The</a> cell that is likely to contain the evaluation point </td></tr>
-    <tr><td class="paramname">component</td><td><a class="el" href="classThis.html">This</a> parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the function will be evaluated </td></tr>
+    <tr><td class="paramname">cell</td><td>The cell that is likely to contain the evaluation point </td></tr>
+    <tr><td class="paramname">component</td><td>This parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
   </table>
   </dd>
 </dl>

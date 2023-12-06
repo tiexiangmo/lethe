@@ -172,7 +172,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa1c6b6666b773be05fe6027c5dcbe353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference to the DOFHandler of the physics in the multiphysics interface.  <a href="classMultiphysicsInterface.html#aa1c6b6666b773be05fe6027c5dcbe353">More...</a><br /></td></tr>
 <tr class="separator:aa1c6b6666b773be05fe6027c5dcbe353"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55ff9a6ec97cd2d80d3ae6c1a195aa77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiphysicsInterface.html#a55ff9a6ec97cd2d80d3ae6c1a195aa77">set_solid</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, dim &gt;&gt;&gt; *solids_input)</td></tr>
-<tr class="memdesc:a55ff9a6ec97cd2d80d3ae6c1a195aa77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference to the vector of the <a class="el" href="classSolidBase.html">SolidBase</a> object. <a class="el" href="classThis.html">This</a> allows the use of the solid base object in multiple physics at the same time.  <a href="classMultiphysicsInterface.html#a55ff9a6ec97cd2d80d3ae6c1a195aa77">More...</a><br /></td></tr>
+<tr class="memdesc:a55ff9a6ec97cd2d80d3ae6c1a195aa77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference to the vector of the <a class="el" href="classSolidBase.html">SolidBase</a> object. This allows the use of the solid base object in multiple physics at the same time.  <a href="classMultiphysicsInterface.html#a55ff9a6ec97cd2d80d3ae6c1a195aa77">More...</a><br /></td></tr>
 <tr class="separator:a55ff9a6ec97cd2d80d3ae6c1a195aa77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a687798d1c1b0fd792bc0f9aaafa44c8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMultiphysicsInterface.html#a687798d1c1b0fd792bc0f9aaafa44c8c">set_solution</a> (const <a class="el" href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2">PhysicsID</a> physics_id, TrilinosWrappers::MPI::Vector *solution_vector)</td></tr>
 <tr class="memdesc:a687798d1c1b0fd792bc0f9aaafa44c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the reference to the solution of the physics in the multiphysics interface.  <a href="classMultiphysicsInterface.html#a687798d1c1b0fd792bc0f9aaafa44c8c">More...</a><br /></td></tr>
@@ -410,8 +410,8 @@ template&lt;int dim&gt; </div>
 <p>Mesh refinement according to an auxiliary physic parameter. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ivar</td><td><a class="el" href="classThe.html">The</a> current element of the map simulation_parameters.mesh_adaptation.variables</td></tr>
-    <tr><td class="paramname">estimated_error_per_cell</td><td><a class="el" href="classThe.html">The</a> deal.II vector of estimated_error_per_cell </td></tr>
+    <tr><td class="paramname">ivar</td><td>The current element of the map simulation_parameters.mesh_adaptation.variables</td></tr>
+    <tr><td class="paramname">estimated_error_per_cell</td><td>The deal.II vector of estimated_error_per_cell </td></tr>
   </table>
   </dd>
 </dl>
@@ -533,7 +533,7 @@ template&lt;int dim&gt; </div>
 <p>Request the previous solutions of a given block physics. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the solution being requested </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the solution being requested </td></tr>
   </table>
   </dd>
 </dl>
@@ -569,7 +569,7 @@ template&lt;int dim&gt; </div>
 <p>Request the present block solution of a given physics. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the solution being requested </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the solution being requested </td></tr>
   </table>
   </dd>
 </dl>
@@ -605,7 +605,7 @@ template&lt;int dim&gt; </div>
 <p>Request the present block average solution of a given physics. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the solution being requested </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the solution being requested </td></tr>
   </table>
   </dd>
 </dl>
@@ -683,7 +683,7 @@ template&lt;int dim&gt; </div>
 <p>Request a DOF handler for a given physics ID. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler being requested </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler being requested </td></tr>
   </table>
   </dd>
 </dl>
@@ -719,7 +719,7 @@ template&lt;int dim&gt; </div>
 <p>Request the present filtered solution of a given physics (used in VOF physics for STF calculation) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the solution being requested </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the solution being requested </td></tr>
   </table>
   </dd>
 </dl>
@@ -755,7 +755,7 @@ template&lt;int dim&gt; </div>
 <p>Request the previous solutions of a given physics. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the solution being requested </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the solution being requested </td></tr>
   </table>
   </dd>
 </dl>
@@ -833,7 +833,7 @@ template&lt;int dim&gt; </div>
 <p>Request the reynolds_stress solution of a given physics. WIP for an upcoming PR, not yet implemented in the solver. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the solution being requested </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the solution being requested </td></tr>
   </table>
   </dd>
 </dl>
@@ -900,7 +900,7 @@ template&lt;int dim&gt; </div>
 <p>Request the present solution of a given physics. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the solution being requested </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the solution being requested </td></tr>
   </table>
   </dd>
 </dl>
@@ -936,7 +936,7 @@ template&lt;int dim&gt; </div>
 <p>Request the time-average solution of a given physics. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the solution being requested </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the solution being requested </td></tr>
   </table>
   </dd>
 </dl>
@@ -1163,8 +1163,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the pointer to the vector of previous solutions of the block physics in the multiphysics interface. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler</td></tr>
-    <tr><td class="paramname">previous_solutions_vector</td><td><a class="el" href="classThe.html">The</a> pointer to the vector of previous solutions </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler</td></tr>
+    <tr><td class="paramname">previous_solutions_vector</td><td>The pointer to the vector of previous solutions </td></tr>
   </table>
   </dd>
 </dl>
@@ -1210,8 +1210,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the reference to the solution of the physics in the multiphysics interface. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler being requested</td></tr>
-    <tr><td class="paramname">solution_vector</td><td><a class="el" href="classThe.html">The</a> reference to the solution vector of the physics </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler being requested</td></tr>
+    <tr><td class="paramname">solution_vector</td><td>The reference to the solution vector of the physics </td></tr>
   </table>
   </dd>
 </dl>
@@ -1257,8 +1257,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the reference to the time-average solution of the physics in the multiphysics interface. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler being requested</td></tr>
-    <tr><td class="paramname">solution_vector</td><td><a class="el" href="classThe.html">The</a> reference to the solution vector of the physics </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler being requested</td></tr>
+    <tr><td class="paramname">solution_vector</td><td>The reference to the solution vector of the physics </td></tr>
   </table>
   </dd>
 </dl>
@@ -1304,8 +1304,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the reference to the DOFHandler of the physics in the multiphysics interface. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler being requested</td></tr>
-    <tr><td class="paramname">dof_handler</td><td><a class="el" href="classThe.html">The</a> dof handler for which the reference is stored </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler being requested</td></tr>
+    <tr><td class="paramname">dof_handler</td><td>The dof handler for which the reference is stored </td></tr>
   </table>
   </dd>
 </dl>
@@ -1351,8 +1351,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the reference to the filtered solution of the physics in the multiphysics interface (used in VOF physics for STF calculation) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler being requested</td></tr>
-    <tr><td class="paramname">filtered_solution_vector</td><td><a class="el" href="classThe.html">The</a> reference to the filtered solution vector of the physics; this was specifically implemented for VOF </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler being requested</td></tr>
+    <tr><td class="paramname">filtered_solution_vector</td><td>The reference to the filtered solution vector of the physics; this was specifically implemented for VOF </td></tr>
   </table>
   </dd>
 </dl>
@@ -1427,8 +1427,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the pointer to the vector of previous solutions of the block physics in the multiphysics interface. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler</td></tr>
-    <tr><td class="paramname">previous_solutions_vector</td><td><a class="el" href="classThe.html">The</a> pointer to the vector of previous block solutions </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler</td></tr>
+    <tr><td class="paramname">previous_solutions_vector</td><td>The pointer to the vector of previous block solutions </td></tr>
   </table>
   </dd>
 </dl>
@@ -1474,8 +1474,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the pointer to the vector of previous solutions of the physics in the multiphysics interface. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler</td></tr>
-    <tr><td class="paramname">previous_solutions_vector</td><td><a class="el" href="classThe.html">The</a> pointer to the vector of previous solutions </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler</td></tr>
+    <tr><td class="paramname">previous_solutions_vector</td><td>The pointer to the vector of previous solutions </td></tr>
   </table>
   </dd>
 </dl>
@@ -1521,8 +1521,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the reference to the Reynolds stress of the physics in the multiphysics interface. WIP for an upcoming PR, not yet implemented in the solver. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler being requested</td></tr>
-    <tr><td class="paramname">solution_vector</td><td><a class="el" href="classThe.html">The</a> reference to the solution vector of the physics </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler being requested</td></tr>
+    <tr><td class="paramname">solution_vector</td><td>The reference to the solution vector of the physics </td></tr>
   </table>
   </dd>
 </dl>
@@ -1555,10 +1555,10 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the reference to the vector of the <a class="el" href="classSolidBase.html">SolidBase</a> object. <a class="el" href="classThis.html">This</a> allows the use of the solid base object in multiple physics at the same time. </p>
+<p>Sets the reference to the vector of the <a class="el" href="classSolidBase.html">SolidBase</a> object. This allows the use of the solid base object in multiple physics at the same time. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">solids_input</td><td><a class="el" href="classThe.html">The</a> reference to the vector of solidBase object </td></tr>
+    <tr><td class="paramname">solids_input</td><td>The reference to the vector of solidBase object </td></tr>
   </table>
   </dd>
 </dl>
@@ -1604,8 +1604,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the reference to the solution of the physics in the multiphysics interface. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler being requested</td></tr>
-    <tr><td class="paramname">solution_vector</td><td><a class="el" href="classThe.html">The</a> reference to the solution vector of the physics </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler being requested</td></tr>
+    <tr><td class="paramname">solution_vector</td><td>The reference to the solution vector of the physics </td></tr>
   </table>
   </dd>
 </dl>
@@ -1651,8 +1651,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the reference to the time-average solution of the physics in the multiphysics interface. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">physics_id</td><td><a class="el" href="classThe.html">The</a> physics of the DOF handler being requested</td></tr>
-    <tr><td class="paramname">solution_vector</td><td><a class="el" href="classThe.html">The</a> reference to the solution vector of the physics </td></tr>
+    <tr><td class="paramname">physics_id</td><td>The physics of the DOF handler being requested</td></tr>
+    <tr><td class="paramname">solution_vector</td><td>The reference to the solution vector of the physics </td></tr>
   </table>
   </dd>
 </dl>

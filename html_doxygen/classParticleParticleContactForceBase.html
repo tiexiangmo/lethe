@@ -93,7 +93,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;int dim&gt;<br />
 class ParticleParticleContactForceBase&lt; dim &gt;</h3>
 
-<p>Base class for the particle-particle contact force models <a class="el" href="classThis.html">This</a> class does not implement any of the models, but ensures that an interface without template specialization is available. All of the actual implementation of the models are carried out in the <a class="el" href="classParticleParticleContactForce.html" title="Class that carries out the calculation of particle-particle contact force including non-linear and li...">ParticleParticleContactForce</a> class which is templated by the contact model type. </p>
+<p>Base class for the particle-particle contact force models This class does not implement any of the models, but ensures that an interface without template specialization is available. All of the actual implementation of the models are carried out in the <a class="el" href="classParticleParticleContactForce.html" title="Class that carries out the calculation of particle-particle contact force including non-linear and li...">ParticleParticleContactForce</a> class which is templated by the contact model type. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae597a46af1e3152a647002ebaf14bb53"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae597a46af1e3152a647002ebaf14bb53">&#9670;&nbsp;</a></span>calculate_IB_particle_particle_contact_force()</h2>
@@ -214,10 +214,10 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Carries out the calculation of the contact force for IB particles. <a class="el" href="classThis.html">This</a> function is used in fem-dem/ib_particles_dem.</p>
+<p>Carries out the calculation of the contact force for IB particles. This function is used in fem-dem/ib_particles_dem.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">normal_overlap</td><td>Contact normal overlap. <a class="el" href="classThis.html">This</a> is already calculated and will be used here to calculate contact force. </td></tr>
+    <tr><td class="paramname">normal_overlap</td><td>Contact normal overlap. This is already calculated and will be used here to calculate contact force. </td></tr>
     <tr><td class="paramname">contact_info</td><td>Contact history including tangential overlap and relative velocity. </td></tr>
     <tr><td class="paramname">normal_force</td><td>Contact normal force. </td></tr>
     <tr><td class="paramname">tangential_force</td><td>Contact tangential force. </td></tr>
@@ -297,8 +297,8 @@ template&lt;int dim&gt; </div>
 <p>Carries out the calculation of the contact force using the contact pair information obtained in the fine search and physical properties of particles</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">local_adjacent_particles</td><td>Required information for calculation of the local-local particle-particle contact forces. <a class="el" href="classThe.html">The</a> information was obtained in the fine search </td></tr>
-    <tr><td class="paramname">ghost_adjacent_particles</td><td>Required information for calculation of the local-ghost particle-particle contact forces. <a class="el" href="classThe.html">The</a> information was obtained in the fine search </td></tr>
+    <tr><td class="paramname">local_adjacent_particles</td><td>Required information for calculation of the local-local particle-particle contact forces. The information was obtained in the fine search </td></tr>
+    <tr><td class="paramname">ghost_adjacent_particles</td><td>Required information for calculation of the local-ghost particle-particle contact forces. The information was obtained in the fine search </td></tr>
     <tr><td class="paramname">dt</td><td><a class="el" href="namespaceDEM.html">DEM</a> time step </td></tr>
     <tr><td class="paramname">torque</td><td>An unordered_map of torque of particles </td></tr>
     <tr><td class="paramname">force</td><td>Force acting on particles </td></tr>

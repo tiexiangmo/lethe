@@ -150,11 +150,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8819b8d37da17f777876c7bb3404f0ad"><td class="memItemLeft" align="right" valign="top">Vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bdf_8h.html#a8819b8d37da17f777876c7bb3404f0ad">bdf_coefficients</a> (unsigned int order, const std::vector&lt; double &gt; time_steps)</td></tr>
-<tr class="memdesc:a8819b8d37da17f777876c7bb3404f0ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the coefficients required for BDF integration of order n. <a class="el" href="classThe.html">The</a> coefficients are determined through a recursion algorithm. <a class="el" href="classThe.html">The</a> algorithm is taken from : Hay, Alexander, et al. "hp-Adaptive time
+<tr class="memdesc:a8819b8d37da17f777876c7bb3404f0ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the coefficients required for BDF integration of order n. The coefficients are determined through a recursion algorithm. The algorithm is taken from : Hay, Alexander, et al. "hp-Adaptive time
 integration based on the BDF for viscous flows." Journal of Computational Physics 291 (2015): 151-176.  <a href="bdf_8h.html#a8819b8d37da17f777876c7bb3404f0ad">More...</a><br /></td></tr>
 <tr class="separator:a8819b8d37da17f777876c7bb3404f0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73dd486d8835174570f0d79591a4cb70"><td class="memItemLeft" align="right" valign="top">Vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bdf_8h.html#a73dd486d8835174570f0d79591a4cb70">bdf_coefficients</a> (const <a class="el" href="structParameters_1_1SimulationControl.html#a75b33ae454da14bc72dbe078c121d7e9">Parameters::SimulationControl::TimeSteppingMethod</a> method, const std::vector&lt; double &gt; time_steps)</td></tr>
-<tr class="memdesc:a73dd486d8835174570f0d79591a4cb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the coefficients required for BDF integration of order n. <a class="el" href="classThe.html">The</a> coefficients are determined through a recursion algorithm. <a class="el" href="classThe.html">The</a> algorithm is taken from : Hay, Alexander, et al. "hp-Adaptive time
+<tr class="memdesc:a73dd486d8835174570f0d79591a4cb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the coefficients required for BDF integration of order n. The coefficients are determined through a recursion algorithm. The algorithm is taken from : Hay, Alexander, et al. "hp-Adaptive time
 integration based on the BDF for viscous flows." Journal of Computational Physics 291 (2015): 151-176.  <a href="bdf_8h.html#a73dd486d8835174570f0d79591a4cb70">More...</a><br /></td></tr>
 <tr class="separator:a73dd486d8835174570f0d79591a4cb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a031702a84563b27e14b0d85d361ab08f"><td class="memItemLeft" align="right" valign="top">Vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bdf_8h.html#a031702a84563b27e14b0d85d361ab08f">delta</a> (const unsigned int order, const unsigned int n, const unsigned int j, const Vector&lt; double &gt; times)</td></tr>
@@ -198,12 +198,12 @@ integration based on the BDF for viscous flows." Journal of Computational Physic
       </table>
 </div><div class="memdoc">
 
-<p>Calculate the coefficients required for BDF integration of order n. <a class="el" href="classThe.html">The</a> coefficients are determined through a recursion algorithm. <a class="el" href="classThe.html">The</a> algorithm is taken from : Hay, Alexander, et al. "hp-Adaptive time
+<p>Calculate the coefficients required for BDF integration of order n. The coefficients are determined through a recursion algorithm. The algorithm is taken from : Hay, Alexander, et al. "hp-Adaptive time
 integration based on the BDF for viscous flows." Journal of Computational Physics 291 (2015): 151-176. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">method</td><td><a class="el" href="classThe.html">The</a> time stepping method</td></tr>
-    <tr><td class="paramname">time_steps</td><td>a vector containing all the time steps. <a class="el" href="classThe.html">The</a> time steps should be in reverse order. For example, if the method is a BDF2, it uses three values for the time : (t) (t-dt_1) and (t-dt_2). Thus the time step vector should contain dt_1 and dt_2. </td></tr>
+    <tr><td class="paramname">method</td><td>The time stepping method</td></tr>
+    <tr><td class="paramname">time_steps</td><td>a vector containing all the time steps. The time steps should be in reverse order. For example, if the method is a BDF2, it uses three values for the time : (t) (t-dt_1) and (t-dt_2). Thus the time step vector should contain dt_1 and dt_2. </td></tr>
   </table>
   </dd>
 </dl>
@@ -236,12 +236,12 @@ integration based on the BDF for viscous flows." Journal of Computational Physic
       </table>
 </div><div class="memdoc">
 
-<p>Calculate the coefficients required for BDF integration of order n. <a class="el" href="classThe.html">The</a> coefficients are determined through a recursion algorithm. <a class="el" href="classThe.html">The</a> algorithm is taken from : Hay, Alexander, et al. "hp-Adaptive time
+<p>Calculate the coefficients required for BDF integration of order n. The coefficients are determined through a recursion algorithm. The algorithm is taken from : Hay, Alexander, et al. "hp-Adaptive time
 integration based on the BDF for viscous flows." Journal of Computational Physics 291 (2015): 151-176. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">order</td><td><a class="el" href="classThe.html">The</a> order of the BDF method. <a class="el" href="classThe.html">The</a> BDF method of order n requires n+1 arrays</td></tr>
-    <tr><td class="paramname">time_steps</td><td>a vector containing all the time steps. <a class="el" href="classThe.html">The</a> time steps should be in reverse order. For example, if the method is a BDF2, it uses three values for the time : (t) (t-dt_1) and (t-dt_2). Thus the time step vector should contain dt_1 and dt_2. </td></tr>
+    <tr><td class="paramname">order</td><td>The order of the BDF method. The BDF method of order n requires n+1 arrays</td></tr>
+    <tr><td class="paramname">time_steps</td><td>a vector containing all the time steps. The time steps should be in reverse order. For example, if the method is a BDF2, it uses three values for the time : (t) (t-dt_1) and (t-dt_2). Thus the time step vector should contain dt_1 and dt_2. </td></tr>
   </table>
   </dd>
 </dl>
@@ -299,16 +299,16 @@ template&lt;typename DataType &gt; </div>
 <p>Extrapolates vector of solution to time_vector[0] using previous solution times and previous solution. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname"><a class="el" href="classThe.html">The</a></td><td>type of the variable being extrapolated (e.g. double, Tensor&lt;1,dim&gt;) </td></tr>
+    <tr><td class="paramname">The</td><td>type of the variable being extrapolated (e.g. double, Tensor&lt;1,dim&gt;) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">time_vector</td><td><a class="el" href="classThe.html">The</a> vector of times. <a class="el" href="classThe.html">The</a> solution will be extrapolated to time 0. It should be of size number_of_previous_solutions+1 </td></tr>
-    <tr><td class="paramname">solution_vector</td><td><a class="el" href="classThe.html">The</a> vector of solutions. <a class="el" href="classThe.html">The</a> solution will be extrapolated to index 0. It should be at least of size number_of_previous_solutions </td></tr>
-    <tr><td class="paramname">number_of_previous_solutions</td><td><a class="el" href="classThe.html">The</a> number of previous solutions to use to extrapolate </td></tr>
-    <tr><td class="paramname">extrapolated_solution</td><td><a class="el" href="classThe.html">The</a> vector of extrapolated solutions </td></tr>
+    <tr><td class="paramname">time_vector</td><td>The vector of times. The solution will be extrapolated to time 0. It should be of size number_of_previous_solutions+1 </td></tr>
+    <tr><td class="paramname">solution_vector</td><td>The vector of solutions. The solution will be extrapolated to index 0. It should be at least of size number_of_previous_solutions </td></tr>
+    <tr><td class="paramname">number_of_previous_solutions</td><td>The number of previous solutions to use to extrapolate </td></tr>
+    <tr><td class="paramname">extrapolated_solution</td><td>The vector of extrapolated solutions </td></tr>
   </table>
   </dd>
 </dl>

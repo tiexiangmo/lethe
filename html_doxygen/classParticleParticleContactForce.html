@@ -161,9 +161,9 @@ class ParticleParticleContactForce&lt; dim, force_model, rolling_friction_model 
 <p>Class that carries out the calculation of particle-particle contact force including non-linear and linear contact models. Instead of using a inheritance hiearchy to distinguish between the contact model, the class is templated with the type of force model and rolling friction model. Consequently, the code for each combination of force model is generated at compile time. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">dim</td><td><a class="el" href="classThe.html">The</a> dimension of the problem </td></tr>
-    <tr><td class="paramname">force_model</td><td><a class="el" href="classThe.html">The</a> particle-particle contact force model </td></tr>
-    <tr><td class="paramname">rolling_friction_model</td><td><a class="el" href="classThe.html">The</a> rolling resistance model used </td></tr>
+    <tr><td class="paramname">dim</td><td>The dimension of the problem </td></tr>
+    <tr><td class="paramname">force_model</td><td>The particle-particle contact force model </td></tr>
+    <tr><td class="paramname">rolling_friction_model</td><td>The rolling resistance model used </td></tr>
   </table>
   </dd>
 </dl>
@@ -370,7 +370,7 @@ template&lt;int dim, Parameters::Lagrangian::ParticleParticleContactForceModel f
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Carries out applying the calculated force and torque on the local-ghost particle pair in contact, for both non-linear and linear contact force calculations. <a class="el" href="classThe.html">The</a> contact force is only applied on the local particles</p>
+<p>Carries out applying the calculated force and torque on the local-ghost particle pair in contact, for both non-linear and linear contact force calculations. The contact force is only applied on the local particles</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">normal_force</td><td>normal_force Contact normal force </td></tr>
@@ -970,10 +970,10 @@ template&lt;int dim, Parameters::Lagrangian::ParticleParticleContactForceModel f
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Carries out the calculation of the contact force for IB particles. <a class="el" href="classThis.html">This</a> function is used in fem-dem/ib_particles_dem.</p>
+<p>Carries out the calculation of the contact force for IB particles. This function is used in fem-dem/ib_particles_dem.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">normal_overlap</td><td>Contact normal overlap. <a class="el" href="classThis.html">This</a> is already calculated and will be used here to calculate contact force. </td></tr>
+    <tr><td class="paramname">normal_overlap</td><td>Contact normal overlap. This is already calculated and will be used here to calculate contact force. </td></tr>
     <tr><td class="paramname">contact_info</td><td>Contact history including tangential overlap and relative velocity. </td></tr>
     <tr><td class="paramname">normal_force</td><td>Contact normal force. </td></tr>
     <tr><td class="paramname">tangential_force</td><td>Contact tangential force. </td></tr>
@@ -1311,7 +1311,7 @@ template&lt;int dim, Parameters::Lagrangian::ParticleParticleContactForceModel f
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">contact_info</td><td>Contact information of a particle pair in neighborhood </td></tr>
-    <tr><td class="paramname">normal_unit_vector</td><td>Normal vector of the contact. <a class="el" href="classThis.html">This</a> vector is particle_two_location - particle_one_location. </td></tr>
+    <tr><td class="paramname">normal_unit_vector</td><td>Normal vector of the contact. This vector is particle_two_location - particle_one_location. </td></tr>
     <tr><td class="paramname">particle_one_properties</td><td>Properties of particle one in contact </td></tr>
     <tr><td class="paramname">particle_two_properties</td><td>Properties of particle two in contact </td></tr>
     <tr><td class="paramname">particle_one_location</td><td>Location of particle one in contact </td></tr>

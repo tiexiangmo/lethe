@@ -152,7 +152,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual class that serves as an interface for all of the assemblers for the Cahn-Hilliard equation.  <a href="classCahnHilliardAssemblerBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerCore.html">CahnHilliardAssemblerCore&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the core of the Cahn-Hilliard equation. <a class="el" href="classThis.html">This</a> class assembles the weak form of: dPhi/dt + u * gradPhi = div(M(Phi)*grad eta) eta - f(Phi) + epsilon^2 * div(grad Phi) = 0.  <a href="classCahnHilliardAssemblerCore.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the core of the Cahn-Hilliard equation with the following weak form: dPhi/dt + u * gradPhi = div(M(Phi)*grad eta) eta - f(Phi) + epsilon^2 * div(grad Phi) = 0.  <a href="classCahnHilliardAssemblerCore.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerAngleOfContact.html">CahnHilliardAssemblerAngleOfContact&lt; dim &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the boundary condition on the angle of contact in the Cahn-Hilliard equations.  <a href="classCahnHilliardAssemblerAngleOfContact.html#details">More...</a><br /></td></tr>
@@ -161,7 +161,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the boundary condition that allows a free angle of contact, thus adding a degree of freedom to the problem.  <a href="classCahnHilliardAssemblerFreeAngle.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerBDF.html">CahnHilliardAssemblerBDF&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the transient time arising from BDF time integration for the Cahn-Hilliard equations. For example, if a BDF1 scheme is chosen, the following is assembled $$\frac{\mathbf{T}^{t+\Delta t}-\mathbf{T}^{t}{\Delta t}.  <a href="classCahnHilliardAssemblerBDF.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the transient time arising from BDF time integration for the Cahn-Hilliard equations. For example, if a BDF1 scheme is chosen, the following is assembled <img class="formulaInl" alt="$\frac{\mathbf{T}^{t+\Delta t}-\mathbf{T}^{t}}{\Delta t}$" src="form_2.png"/>.  <a href="classCahnHilliardAssemblerBDF.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

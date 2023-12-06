@@ -219,7 +219,7 @@ template&lt;int dim&gt; </div>
 <p>Finds the neighbors lists of all the active cells in the input triangulation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">triangulation</td><td><a class="el" href="classThe.html">The</a> triangulation to access the information of the cells </td></tr>
+    <tr><td class="paramname">triangulation</td><td>The triangulation to access the information of the cells </td></tr>
     <tr><td class="paramname">periodic_boundaries_cells_information</td><td>Information of periodic cells used if periodic boundaries are used </td></tr>
     <tr><td class="paramname">has_periodic_boundaries</td><td>A boolean to allow periodic container manipulations </td></tr>
     <tr><td class="paramname">has_floating_mesh</td><td>A boolean to allow dealing with floating mesh neighbors </td></tr>
@@ -259,7 +259,7 @@ template&lt;int dim&gt; </div>
 <p>Execute the particle-particle broad search which finds the local and ghost particle-particle contact pairs candidates. These contact pairs will be used in the fine search to investigate if they are in contact or not. to investigate if they are in contact or not.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">particle_handler</td><td><a class="el" href="classThe.html">The</a> particle handler of particles in the broad search </td></tr>
+    <tr><td class="paramname">particle_handler</td><td>The particle handler of particles in the broad search </td></tr>
     <tr><td class="paramname">has_periodic_boundaries</td><td>A boolean to allow periodic container manipulations </td></tr>
   </table>
   </dd>
@@ -300,10 +300,10 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Execute the particle-particle broad search which finds the local and ghost particle-particle contact pairs candidates. These contact pairs will be used in the fine search to investigate if they are in contact or not. <a class="el" href="classThis.html">This</a> version of the function is used when disabling particle contacts regards mobility is enable.</p>
+<p>Execute the particle-particle broad search which finds the local and ghost particle-particle contact pairs candidates. These contact pairs will be used in the fine search to investigate if they are in contact or not. This version of the function is used when disabling particle contacts regards mobility is enable.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">particle_handler</td><td><a class="el" href="classThe.html">The</a> particle handler of particles in the broad search </td></tr>
+    <tr><td class="paramname">particle_handler</td><td>The particle handler of particles in the broad search </td></tr>
     <tr><td class="paramname">disable_particle_contact_object</td><td>An object that handle all </td></tr>
     <tr><td class="paramname">has_periodic_boundaries</td><td>A boolean to allow periodic container manipulations </td></tr>
   </table>
@@ -412,7 +412,7 @@ template&lt;int dim&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">particle_handler</td><td>Particle handler of particles located in boundary cells </td></tr>
-    <tr><td class="paramname">boundary_cells_object</td><td>Information of the boundary cells and faces. <a class="el" href="classThis.html">This</a> is the output of the <a class="el" href="classBoundaryCellsInformation.html">BoundaryCellsInformation</a> class<ul>
+    <tr><td class="paramname">boundary_cells_object</td><td>Information of the boundary cells and faces. This is the output of the <a class="el" href="classBoundaryCellsInformation.html">BoundaryCellsInformation</a> class<ul>
 <li></li>
 </ul>
 </td></tr>
@@ -487,7 +487,7 @@ template&lt;int dim&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">particle_handler</td><td>Particle handler of particles located in boundary cells </td></tr>
-    <tr><td class="paramname">boundary_cells_information</td><td>Information of the boundary cells and faces. <a class="el" href="classThis.html">This</a> is the output of the FindBoundaryCellsInformation class </td></tr>
+    <tr><td class="paramname">boundary_cells_information</td><td>Information of the boundary cells and faces. This is the output of the FindBoundaryCellsInformation class </td></tr>
     <tr><td class="paramname">floating_mesh_info</td><td>Container of all of floating meshes </td></tr>
     <tr><td class="paramname">floating_wall</td><td>Properties of the floating walls specified in the parameter handler file </td></tr>
     <tr><td class="paramname">simulation_time</td><td>Simulation time </td></tr>
@@ -600,7 +600,7 @@ template&lt;int dim&gt; </div>
 <p>Update the neighbors lists of all the active cells in the input triangulation while clearing containers before the update.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">triangulation</td><td><a class="el" href="classThe.html">The</a> triangulation to access the information of the cells </td></tr>
+    <tr><td class="paramname">triangulation</td><td>The triangulation to access the information of the cells </td></tr>
     <tr><td class="paramname">periodic_boundaries_cells_information</td><td>Information of periodic cells used if periodic boundaries are used </td></tr>
     <tr><td class="paramname">has_periodic_boundaries</td><td>A boolean to allow periodic container manipulations </td></tr>
     <tr><td class="paramname">has_floating_mesh</td><td>A boolean to allow dealing with floating mesh neighbors </td></tr>
@@ -670,7 +670,7 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Updates the iterators to particles in local-local contact containers. <a class="el" href="classThis.html">This</a> is essential since sort_particles_into_subdomains_and_cells() and exchange_ghost_particles() functions change the iterator to particles everytime they are called.</p>
+<p>Updates the iterators to particles in local-local contact containers. This is essential since sort_particles_into_subdomains_and_cells() and exchange_ghost_particles() functions change the iterator to particles everytime they are called.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">dim</td><td>Dimensionality of the geometry which contains the particles </td></tr>
@@ -679,7 +679,7 @@ template&lt;int dim&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">particle_handler</td><td><a class="el" href="classThe.html">The</a> particle handler of particles </td></tr>
+    <tr><td class="paramname">particle_handler</td><td>The particle handler of particles </td></tr>
     <tr><td class="paramname">clear_contact_structures</td><td>A boolean to clear contact structures </td></tr>
     <tr><td class="paramname">has_periodic_boundaries</td><td>A boolean to allow periodic container manipulations </td></tr>
   </table>

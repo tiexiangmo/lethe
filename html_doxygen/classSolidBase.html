@@ -117,10 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af5eaf06fd116ba6d89bf04661e6e1289"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates particle positions in solid_particle_handler by integrating velocity using an explicit Runge-Kutta 4 method.  <a href="classSolidBase.html#af5eaf06fd116ba6d89bf04661e6e1289">More...</a><br /></td></tr>
 <tr class="separator:af5eaf06fd116ba6d89bf04661e6e1289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c767cc5b7c391f820dfe881eec58e28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a4c767cc5b7c391f820dfe881eec58e28">move_solid_triangulation</a> (double time_step, double initial_time)</td></tr>
-<tr class="memdesc:a4c767cc5b7c391f820dfe881eec58e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the vertices of the solid triangulation. <a class="el" href="classThis.html">This</a> function uses an Runge-Kutta 4 explicit time integrator to displace the vertices of the solid triangulation and stores the displacement in an array in order to allow correct checkpointing of the triangulation. See <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods</a> for more details.  <a href="classSolidBase.html#a4c767cc5b7c391f820dfe881eec58e28">More...</a><br /></td></tr>
+<tr class="memdesc:a4c767cc5b7c391f820dfe881eec58e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the vertices of the solid triangulation. This function uses an Runge-Kutta 4 explicit time integrator to displace the vertices of the solid triangulation and stores the displacement in an array in order to allow correct checkpointing of the triangulation. See <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods</a> for more details.  <a href="classSolidBase.html#a4c767cc5b7c391f820dfe881eec58e28">More...</a><br /></td></tr>
 <tr class="separator:a4c767cc5b7c391f820dfe881eec58e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ebae14d0b18ffddedab124a4619e172"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a9ebae14d0b18ffddedab124a4619e172">move_solid_triangulation_with_displacement</a> ()</td></tr>
-<tr class="memdesc:a9ebae14d0b18ffddedab124a4619e172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the dofs of the solid_triangulation by using the displacement vector. <a class="el" href="classThis.html">This</a> is only use to move the solid triangulation at the correct location when the simulation is restarted.  <a href="classSolidBase.html#a9ebae14d0b18ffddedab124a4619e172">More...</a><br /></td></tr>
+<tr class="memdesc:a9ebae14d0b18ffddedab124a4619e172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the dofs of the solid_triangulation by using the displacement vector. This is only use to move the solid triangulation at the correct location when the simulation is restarted.  <a href="classSolidBase.html#a9ebae14d0b18ffddedab124a4619e172">More...</a><br /></td></tr>
 <tr class="separator:a9ebae14d0b18ffddedab124a4619e172"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6a7c8178927f2581d5530856a1d0c0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#af6a7c8178927f2581d5530856a1d0c0b">print_particle_positions</a> ()</td></tr>
 <tr class="memdesc:af6a7c8178927f2581d5530856a1d0c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints the positions of the particles  <a href="classSolidBase.html#af6a7c8178927f2581d5530856a1d0c0b">More...</a><br /></td></tr>
@@ -428,8 +428,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>Updates particle positions in solid_particle_handler by integrating velocity using an explicit Runge-Kutta 4 method. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">time_step</td><td><a class="el" href="classThe.html">The</a> time_step value for this iteration</td></tr>
-    <tr><td class="paramname">initial_time</td><td><a class="el" href="classThe.html">The</a> initial time (time t) of the timestep. <a class="el" href="classThis.html">This</a> is used to set the time of the velocity function. </td></tr>
+    <tr><td class="paramname">time_step</td><td>The time_step value for this iteration</td></tr>
+    <tr><td class="paramname">initial_time</td><td>The initial time (time t) of the timestep. This is used to set the time of the velocity function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -508,11 +508,11 @@ template&lt;int dim, int spacedim = dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Moves the vertices of the solid triangulation. <a class="el" href="classThis.html">This</a> function uses an Runge-Kutta 4 explicit time integrator to displace the vertices of the solid triangulation and stores the displacement in an array in order to allow correct checkpointing of the triangulation. See <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods</a> for more details. </p>
+<p>Moves the vertices of the solid triangulation. This function uses an Runge-Kutta 4 explicit time integrator to displace the vertices of the solid triangulation and stores the displacement in an array in order to allow correct checkpointing of the triangulation. See <a href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods</a> for more details. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">time_step</td><td><a class="el" href="classThe.html">The</a> time_step value for this iteration</td></tr>
-    <tr><td class="paramname">initial_time</td><td><a class="el" href="classThe.html">The</a> initial time (time t) of the timestep. <a class="el" href="classThis.html">This</a> is used to set the time of the velocity function. </td></tr>
+    <tr><td class="paramname">time_step</td><td>The time_step value for this iteration</td></tr>
+    <tr><td class="paramname">initial_time</td><td>The initial time (time t) of the timestep. This is used to set the time of the velocity function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -536,7 +536,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Moves the dofs of the solid_triangulation by using the displacement vector. <a class="el" href="classThis.html">This</a> is only use to move the solid triangulation at the correct location when the simulation is restarted. </p>
+<p>Moves the dofs of the solid_triangulation by using the displacement vector. This is only use to move the solid triangulation at the correct location when the simulation is restarted. </p>
 
 </div>
 </div>
@@ -614,8 +614,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>Rotates the grid by a given angle around an axis. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">angle</td><td><a class="el" href="classThe.html">The</a> angle (in rad) with which the grid is rotated</td></tr>
-    <tr><td class="paramname">axis</td><td><a class="el" href="classThe.html">The</a> axis over which the grid is rotated. </td></tr>
+    <tr><td class="paramname">angle</td><td>The angle (in rad) with which the grid is rotated</td></tr>
+    <tr><td class="paramname">axis</td><td>The axis over which the grid is rotated. </td></tr>
   </table>
   </dd>
 </dl>
@@ -728,7 +728,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>Translate the grid. In spacedim=2, the third component is ignore. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">translate</td><td><a class="el" href="classThe.html">The</a> vector with which the solid is translated. </td></tr>
+    <tr><td class="paramname">translate</td><td>The vector with which the solid is translated. </td></tr>
   </table>
   </dd>
 </dl>

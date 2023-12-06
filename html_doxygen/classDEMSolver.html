@@ -143,7 +143,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a809fe7e2c0bbe42e97a5a0d0b6225499"><td class="mdescLeft">&#160;</td><td class="mdescRight">post_process_results <a class="el" href="classCalculates.html">Calculates</a> average velocity and other post-processed quantities that need to be outputted to files  <a href="classDEMSolver.html#a809fe7e2c0bbe42e97a5a0d0b6225499">More...</a><br /></td></tr>
 <tr class="separator:a809fe7e2c0bbe42e97a5a0d0b6225499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af20b64f0bf9369e3dfcc95ded99f5cac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDEMSolver.html#af20b64f0bf9369e3dfcc95ded99f5cac">report_statistics</a> ()</td></tr>
-<tr class="memdesc:af20b64f0bf9369e3dfcc95ded99f5cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">reports_statistics <a class="el" href="classCalculates.html">Calculates</a> statistics on the particles and report them to the terminal. <a class="el" href="classThis.html">This</a> function is notably used to calculate min/max/avg/total values of the linear kinetic energy, angular kinetic energy, linear velocity, angular velocity  <a href="classDEMSolver.html#af20b64f0bf9369e3dfcc95ded99f5cac">More...</a><br /></td></tr>
+<tr class="memdesc:af20b64f0bf9369e3dfcc95ded99f5cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">reports_statistics <a class="el" href="classCalculates.html">Calculates</a> statistics on the particles and report them to the terminal. This function is notably used to calculate min/max/avg/total values of the linear kinetic energy, angular kinetic energy, linear velocity, angular velocity  <a href="classDEMSolver.html#af20b64f0bf9369e3dfcc95ded99f5cac">More...</a><br /></td></tr>
 <tr class="separator:af20b64f0bf9369e3dfcc95ded99f5cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -269,7 +269,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;int dim&gt;<br />
 class DEMSolver&lt; dim &gt;</h3>
 
-<p><a class="el" href="classThe.html">The</a> <a class="el" href="namespaceDEM.html">DEM</a> class which initializes all the required parameters and iterates over the <a class="el" href="namespaceDEM.html">DEM</a> iterator </p>
+<p>The <a class="el" href="namespaceDEM.html">DEM</a> class which initializes all the required parameters and iterates over the <a class="el" href="namespaceDEM.html">DEM</a> iterator </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a724a72cac7cb3d5d9be8ea571dead9ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a724a72cac7cb3d5d9be8ea571dead9ac">&#9670;&nbsp;</a></span>FuncPtrType</h2>
@@ -352,7 +352,7 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p><a class="el" href="classThe.html">The</a> <a class="el" href="classDEMSolver.html#abd498600735e4834d03cdad3ea0fbae7">cell_weight()</a> function indicates to the triangulation how much computational work is expected to happen on this cell, and consequently how the domain needs to be partitioned so that every MPI rank receives a roughly equal amount of work (potentially not an equal number of cells). While the function is called from the outside, it is connected to the corresponding signal from inside this class, therefore it can be private. <a class="el" href="classThis.html">This</a> function is the key component that allow us to dynamically balance the computational load. <a class="el" href="classThe.html">The</a> function attributes a weight to every cell that represents the computational work on this cell. Here the majority of work is expected to happen on the particles, therefore the return value of this function (representing "work for this cell") is calculated based on the number of particles in the current cell. <a class="el" href="classThe.html">The</a> function is connected to the <a class="el" href="classDEMSolver.html#abd498600735e4834d03cdad3ea0fbae7">cell_weight()</a> signal inside the triangulation, and will be called once per cell, whenever the triangulation repartitions the domain between ranks (the connection is created inside the particles_generation() function of this class). </p>
+<p>The <a class="el" href="classDEMSolver.html#abd498600735e4834d03cdad3ea0fbae7">cell_weight()</a> function indicates to the triangulation how much computational work is expected to happen on this cell, and consequently how the domain needs to be partitioned so that every MPI rank receives a roughly equal amount of work (potentially not an equal number of cells). While the function is called from the outside, it is connected to the corresponding signal from inside this class, therefore it can be private. This function is the key component that allow us to dynamically balance the computational load. The function attributes a weight to every cell that represents the computational work on this cell. Here the majority of work is expected to happen on the particles, therefore the return value of this function (representing "work for this cell") is calculated based on the number of particles in the current cell. The function is connected to the <a class="el" href="classDEMSolver.html#abd498600735e4834d03cdad3ea0fbae7">cell_weight()</a> signal inside the triangulation, and will be called once per cell, whenever the triangulation repartitions the domain between ranks (the connection is created inside the particles_generation() function of this class). </p>
 
 </div>
 </div>
@@ -391,13 +391,13 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Similar to the <a class="el" href="classDEMSolver.html#abd498600735e4834d03cdad3ea0fbae7">cell_weight()</a> function, this function is used when the cell weight is adapted to the mobility status. For instance, if the cell is inactive, its computational load will be significantly lower than if it is a mobile cell since there is no force calculation and no velocity integration for the particles that lie within it. <a class="el" href="classThe.html">The</a> weight of the cells must thus be adapted to the status of the cell.</p>
+<p>Similar to the <a class="el" href="classDEMSolver.html#abd498600735e4834d03cdad3ea0fbae7">cell_weight()</a> function, this function is used when the cell weight is adapted to the mobility status. For instance, if the cell is inactive, its computational load will be significantly lower than if it is a mobile cell since there is no force calculation and no velocity integration for the particles that lie within it. The weight of the cells must thus be adapted to the status of the cell.</p>
 <p>cell load = cell weight + load balancing factor * n particles * particle weight</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cell</td><td><a class="el" href="classThe.html">The</a> cell for which the load is calculated</td></tr>
-    <tr><td class="paramname">status</td><td><a class="el" href="classThe.html">The</a> status of the cell used to inform functions in derived classes how the cell with the given cell iterator is going to change</td></tr>
-    <tr><td class="paramname">mobility_status</td><td><a class="el" href="classThe.html">The</a> mobility status of the cell </td></tr>
+    <tr><td class="paramname">cell</td><td>The cell for which the load is calculated</td></tr>
+    <tr><td class="paramname">status</td><td>The status of the cell used to inform functions in derived classes how the cell with the given cell iterator is going to change</td></tr>
+    <tr><td class="paramname">mobility_status</td><td>The mobility status of the cell </td></tr>
   </table>
   </dd>
 </dl>
@@ -799,7 +799,7 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>reports_statistics <a class="el" href="classCalculates.html">Calculates</a> statistics on the particles and report them to the terminal. <a class="el" href="classThis.html">This</a> function is notably used to calculate min/max/avg/total values of the linear kinetic energy, angular kinetic energy, linear velocity, angular velocity </p>
+<p>reports_statistics <a class="el" href="classCalculates.html">Calculates</a> statistics on the particles and report them to the terminal. This function is notably used to calculate min/max/avg/total values of the linear kinetic energy, angular kinetic energy, linear velocity, angular velocity </p>
 
 </div>
 </div>

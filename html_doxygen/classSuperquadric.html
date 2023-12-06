@@ -72,13 +72,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Class that defines superquadric shapes. Their signed distance function is: <img class="formulaInl" alt="$ \left|\frac{x}{a}\right|^r + \left|\frac{y}{b}\right|^s + \left|\frac{z}{c}\right|^t - 1 = 0 $" src="form_0.png"/>.  
+ <a href="classSuperquadric.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="shape_8h_source.html">shape.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Superquadric&lt; dim &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSuperquadric__inherit__graph.png" border="0" usemap="#aSuperquadric_3_01dim_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="aSuperquadric_3_01dim_01_4_inherit__map" id="aSuperquadric_3_01dim_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="11,169,174,196"/>
+<area shape="rect" title="Class that defines superquadric shapes. Their signed distance function is: ." alt="" coords="11,169,174,196"/>
 <area shape="rect" href="classShape.html" title="A base class used to represent geometrical entities. Its main uses are to return signed distance and ..." alt="" coords="34,95,151,121"/>
 <area shape="rect" title=" " alt="" coords="5,5,180,47"/>
 </map>
@@ -144,13 +147,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab7b25213b03319f8fda0634db5606099 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the cache of the shape.  <a href="classShape.html#ab7b25213b03319f8fda0634db5606099">More...</a><br /></td></tr>
 <tr class="separator:ab7b25213b03319f8fda0634db5606099 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a38773f106f96ad0dcda809c8238f0866">align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most value functions assume that the particle's position is at the origin and that the shape is aligned with one of the main axes. <a class="el" href="classThis.html">This</a> function returns a point that is rotated and translated, in accordance with the current shape position and orientation, so that subsequent calculations for the value function are made more easily; it abstracts a step that is required in the value function for most shapes.  <a href="classShape.html#a38773f106f96ad0dcda809c8238f0866">More...</a><br /></td></tr>
+<tr class="memdesc:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most value functions assume that the particle's position is at the origin and that the shape is aligned with one of the main axes. This function returns a point that is rotated and translated, in accordance with the current shape position and orientation, so that subsequent calculations for the value function are made more easily; it abstracts a step that is required in the value function for most shapes.  <a href="classShape.html#a38773f106f96ad0dcda809c8238f0866">More...</a><br /></td></tr>
 <tr class="separator:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a5523265f632187cdaf131f44ec19f09a">reverse_align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThis.html">This</a> function applies the inverse operation of align_and_center.  <a href="classShape.html#a5523265f632187cdaf131f44ec19f09a">More...</a><br /></td></tr>
+<tr class="memdesc:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the inverse operation of align_and_center.  <a href="classShape.html#a5523265f632187cdaf131f44ec19f09a">More...</a><br /></td></tr>
 <tr class="separator:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">point_to_string</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThis.html">This</a> function returns a point in a string of text. <a class="el" href="classThis.html">This</a> is used in the cache of the shape.  <a href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">More...</a><br /></td></tr>
+<tr class="memdesc:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns a point in a string of text. This is used in the cache of the shape.  <a href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">More...</a><br /></td></tr>
 <tr class="separator:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc115201008418068265ed7fd5f092ae inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#acc115201008418068265ed7fd5f092ae">set_part_of_a_composite</a> (const bool <a class="el" href="classShape.html#aa03400a77cb8749bc2eb71265f550b38">part_of_a_composite</a>)</td></tr>
 <tr class="memdesc:acc115201008418068265ed7fd5f092ae inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines if this shape is part of a composite. If true, cache management is deactivated and delegated to the upper level shape, to avoid cache duplication.  <a href="classShape.html#acc115201008418068265ed7fd5f092ae">More...</a><br /></td></tr>
@@ -215,7 +218,18 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a6be6b189b76d906b833a6056381ac97d inherit pro_attribs_classShape"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a6be6b189b76d906b833a6056381ac97d">layer_thickening</a></td></tr>
 <tr class="separator:a6be6b189b76d906b833a6056381ac97d inherit pro_attribs_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;int dim&gt;<br />
+class Superquadric&lt; dim &gt;</h3>
+
+<p>Class that defines superquadric shapes. Their signed distance function is: <img class="formulaInl" alt="$ \left|\frac{x}{a}\right|^r + \left|\frac{y}{b}\right|^s + \left|\frac{z}{c}\right|^t - 1 = 0 $" src="form_0.png"/>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">dim</td><td>Dimension of the shape </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8dbeda02755251660381a8ed0d870d24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8dbeda02755251660381a8ed0d870d24">&#9670;&nbsp;</a></span>Superquadric()</h2>
 
@@ -273,11 +287,11 @@ template&lt;int dim&gt; </div>
 <p>Constructor for a superquadric shape. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">half_lengths</td><td><a class="el" href="classThe.html">The</a> half-lengths of each direction </td></tr>
-    <tr><td class="paramname">exponents</td><td><a class="el" href="classThe.html">The</a> blockiness in each direction </td></tr>
-    <tr><td class="paramname">epsilon</td><td><a class="el" href="classThe.html">The</a> tolerance for surface representation </td></tr>
-    <tr><td class="paramname">position</td><td><a class="el" href="classThe.html">The</a> superquadric center </td></tr>
-    <tr><td class="paramname">orientation</td><td><a class="el" href="classThe.html">The</a> superquadric orientation </td></tr>
+    <tr><td class="paramname">half_lengths</td><td>The half-lengths of each direction </td></tr>
+    <tr><td class="paramname">exponents</td><td>The blockiness in each direction </td></tr>
+    <tr><td class="paramname">epsilon</td><td>The tolerance for surface representation </td></tr>
+    <tr><td class="paramname">position</td><td>The superquadric center </td></tr>
+    <tr><td class="paramname">orientation</td><td>The superquadric orientation </td></tr>
   </table>
   </dd>
 </dl>
@@ -370,8 +384,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the closest_point parameter to be the point on the surface of the shape which has the minimal distance from the given point p. Since this function is at the core of the calculations for superquadrics, it is redefined here. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td><a class="el" href="classThe.html">The</a> point at which the evaluation is performed </td></tr>
-    <tr><td class="paramname">closest_point</td><td><a class="el" href="classThe.html">The</a> reference to the closest point. <a class="el" href="classThis.html">This</a> point will be modified by the function. </td></tr>
+    <tr><td class="paramname">p</td><td>The point at which the evaluation is performed </td></tr>
+    <tr><td class="paramname">closest_point</td><td>The reference to the closest point. This point will be modified by the function. </td></tr>
     <tr><td class="paramname">cell_guess</td><td>A guess of the cell containing the evaluation point, which is useful to reduce computation time </td></tr>
   </table>
   </dd>
@@ -420,8 +434,8 @@ template&lt;int dim&gt; </div>
 <p>Return the analytical gradient of the distance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the function will be evaluated </td></tr>
-    <tr><td class="paramname">component</td><td><a class="el" href="classThis.html">This</a> parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the function will be evaluated </td></tr>
+    <tr><td class="paramname">component</td><td>This parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
   </table>
   </dd>
 </dl>
@@ -473,8 +487,8 @@ template&lt;int dim&gt; </div>
 <p>Return the gradient of the distance function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the function will be evaluated </td></tr>
-    <tr><td class="paramname">cell</td><td><a class="el" href="classThe.html">The</a> cell that is likely to contain the evaluation point </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the function will be evaluated </td></tr>
+    <tr><td class="paramname">cell</td><td>The cell that is likely to contain the evaluation point </td></tr>
     <tr><td class="paramname">component</td><td>Not applicable </td></tr>
   </table>
   </dd>
@@ -662,8 +676,8 @@ template&lt;int dim&gt; </div>
 <p>Return the evaluation of the signed distance function of this solid at the given point evaluation point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the function will be evaluated </td></tr>
-    <tr><td class="paramname">component</td><td><a class="el" href="classThis.html">This</a> parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the function will be evaluated </td></tr>
+    <tr><td class="paramname">component</td><td>This parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
   </table>
   </dd>
 </dl>
@@ -717,9 +731,9 @@ template&lt;int dim&gt; </div>
 <p>Return the evaluation of the signed distance function of this solid at the given point evaluation point with a guess for the cell containing the evaluation point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the function will be evaluated </td></tr>
-    <tr><td class="paramname">cell</td><td><a class="el" href="classThe.html">The</a> cell that is likely to contain the evaluation point </td></tr>
-    <tr><td class="paramname">component</td><td><a class="el" href="classThis.html">This</a> parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the function will be evaluated </td></tr>
+    <tr><td class="paramname">cell</td><td>The cell that is likely to contain the evaluation point </td></tr>
+    <tr><td class="paramname">component</td><td>This parameter is not used, but it is necessary because Shapes inherit from the Function class of deal.II. </td></tr>
   </table>
   </dd>
 </dl>

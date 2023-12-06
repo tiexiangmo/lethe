@@ -154,7 +154,7 @@ class PlaneInsertion&lt; dim &gt;</h3>
 
 <p><a class="el" href="classInsertion.html">Insertion</a> of particles using cells cut by a plane</p>
 <dl class="section note"><dt>Note</dt><dd></dd></dl>
-<p>Particle insertion using cells cut by a plane. Locally owned cells that are cut by the plane are flagged. From those flagged cells, we insert a particle at their centroids if they are individually empty (contain no particle). <a class="el" href="classThis.html">This</a> way, no significant overlap is occurring on the insertion of new particle which can occur with other insertion method. </p>
+<p>Particle insertion using cells cut by a plane. Locally owned cells that are cut by the plane are flagged. From those flagged cells, we insert a particle at their centroids if they are individually empty (contain no particle). This way, no significant overlap is occurring on the insertion of new particle which can occur with other insertion method. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aba2f56937218aac88cf7376317047ea3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba2f56937218aac88cf7376317047ea3">&#9670;&nbsp;</a></span>PlaneInsertion()</h2>
@@ -189,7 +189,7 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="classThe.html">The</a> plane insertion class insert particles using a plane define by a point an a normal vector. <a class="el" href="classThis.html">This</a> method of insertion can be useful when dealing with a domain close to be fully filled with particle. In this situation, other insertion method have a high risk to create a big overlap between particles on insertion. <a class="el" href="classThe.html">The</a> plane insertion method mitigate this risk by insertion at the center of empty cells.</p>
+<p>The plane insertion class insert particles using a plane define by a point an a normal vector. This method of insertion can be useful when dealing with a domain close to be fully filled with particle. In this situation, other insertion method have a high risk to create a big overlap between particles on insertion. The plane insertion method mitigate this risk by insertion at the center of empty cells.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dem_parameters</td><td><a class="el" href="namespaceDEM.html">DEM</a> parameters declared in the .prm file </td></tr>
@@ -327,7 +327,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Carries out the insertion of particles. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">particle_handler</td><td><a class="el" href="classThe.html">The</a> particle handler of particles which are being inserted. </td></tr>
+    <tr><td class="paramname">particle_handler</td><td>The particle handler of particles which are being inserted. </td></tr>
     <tr><td class="paramname">triangulation</td><td>Triangulation to access the cells in which the particles are inserted. </td></tr>
     <tr><td class="paramname">dem_parameters</td><td><a class="el" href="namespaceDEM.html">DEM</a> parameters declared in the .prm file. </td></tr>
   </table>

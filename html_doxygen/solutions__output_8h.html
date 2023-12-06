@@ -120,11 +120,11 @@ Include dependency graph for solutions_output.h:</div>
 Functions</h2></td></tr>
 <tr class="memitem:aaa3a49d95b67c63daf29210e4eb2acce"><td class="memTemplParams" colspan="2">template&lt;int dim, int spacedim = dim&gt; </td></tr>
 <tr class="memitem:aaa3a49d95b67c63daf29210e4eb2acce"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="solutions__output_8h.html#aaa3a49d95b67c63daf29210e4eb2acce">write_vtu_and_pvd</a> (<a class="el" href="classPVDHandler.html">PVDHandler</a> &amp;pvd_handler, const DataOutInterface&lt; dim, spacedim &gt; &amp;data_out, const std::string folder, const std::string file_prefix, const double time, const unsigned int iter, const unsigned int group_files, const MPI_Comm &amp;mpi_communicator, const unsigned int digits=4)</td></tr>
-<tr class="memdesc:aaa3a49d95b67c63daf29210e4eb2acce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output the data out to "group_files" vtu files, with a pvtu file and a pvd to store the timing <a class="el" href="classThis.html">This</a> function outputs the data out to "group_files" vtu file that are orchestrated by a .pvtu file. An additional pvd file takes care of storing the time associated with each .pvtu file.  <a href="solutions__output_8h.html#aaa3a49d95b67c63daf29210e4eb2acce">More...</a><br /></td></tr>
+<tr class="memdesc:aaa3a49d95b67c63daf29210e4eb2acce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output the data out to "group_files" vtu files, with a pvtu file and a pvd to store the timing This function outputs the data out to "group_files" vtu file that are orchestrated by a .pvtu file. An additional pvd file takes care of storing the time associated with each .pvtu file.  <a href="solutions__output_8h.html#aaa3a49d95b67c63daf29210e4eb2acce">More...</a><br /></td></tr>
 <tr class="separator:aaa3a49d95b67c63daf29210e4eb2acce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae5e90863534ed99f2a1f9c25b90cb86"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
 <tr class="memitem:aae5e90863534ed99f2a1f9c25b90cb86"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="solutions__output_8h.html#aae5e90863534ed99f2a1f9c25b90cb86">write_boundaries_vtu</a> (const DataOutFaces&lt; dim &gt; &amp;data_out, const std::string folder, const double time, const unsigned int iter, const MPI_Comm &amp;mpi_communicator, const std::string file_prefix=std::string(&quot;boundaries&quot;), const unsigned int digits=4)</td></tr>
-<tr class="memdesc:aae5e90863534ed99f2a1f9c25b90cb86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output the Data Out Faces to a single vtu file <a class="el" href="classThis.html">This</a> function outputs the DataOutFaces to a vtu file.  <a href="solutions__output_8h.html#aae5e90863534ed99f2a1f9c25b90cb86">More...</a><br /></td></tr>
+<tr class="memdesc:aae5e90863534ed99f2a1f9c25b90cb86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output the Data Out Faces to a single vtu file This function outputs the DataOutFaces to a vtu file.  <a href="solutions__output_8h.html#aae5e90863534ed99f2a1f9c25b90cb86">More...</a><br /></td></tr>
 <tr class="separator:aae5e90863534ed99f2a1f9c25b90cb86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -186,13 +186,13 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Output the Data Out Faces to a single vtu file <a class="el" href="classThis.html">This</a> function outputs the DataOutFaces to a vtu file. </p>
+<p>Output the Data Out Faces to a single vtu file This function outputs the DataOutFaces to a vtu file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data_out</td><td>the DataOutFaces class to which the data has been attached</td></tr>
     <tr><td class="paramname">time</td><td>the time associated with the file</td></tr>
     <tr><td class="paramname">iter</td><td>the iteration number associated with the file</td></tr>
-    <tr><td class="paramname">mpi_communicator</td><td><a class="el" href="classThe.html">The</a> mpi communicator</td></tr>
+    <tr><td class="paramname">mpi_communicator</td><td>The mpi communicator</td></tr>
     <tr><td class="paramname">digits</td><td>An optional parameter that specifies the amount of digit used to store iteration number in the file name </td></tr>
   </table>
   </dd>
@@ -270,7 +270,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Output the data out to "group_files" vtu files, with a pvtu file and a pvd to store the timing <a class="el" href="classThis.html">This</a> function outputs the data out to "group_files" vtu file that are orchestrated by a .pvtu file. An additional pvd file takes care of storing the time associated with each .pvtu file. </p>
+<p>Output the data out to "group_files" vtu files, with a pvtu file and a pvd to store the timing This function outputs the data out to "group_files" vtu file that are orchestrated by a .pvtu file. An additional pvd file takes care of storing the time associated with each .pvtu file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pvd_handler</td><td>a <a class="el" href="classPVDHandler.html" title="The PVDHandler class manages the storage of the information required to write pvd file....">PVDHandler</a> to store the information about the file name and time associated with it</td></tr>
@@ -280,7 +280,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
     <tr><td class="paramname">time</td><td>the time associated with the file</td></tr>
     <tr><td class="paramname">iter</td><td>the iteration number associated with the file</td></tr>
     <tr><td class="paramname">group_files</td><td>the number of vtu files that will be generated.</td></tr>
-    <tr><td class="paramname">mpi_communicator</td><td><a class="el" href="classThe.html">The</a> mpi communicator</td></tr>
+    <tr><td class="paramname">mpi_communicator</td><td>The mpi communicator</td></tr>
     <tr><td class="paramname">digits</td><td>An optional parameter that specifies the amount of digit used to store iteration number in the file name </td></tr>
   </table>
   </dd>

@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classThe.html">The</a> <a class="el" href="classSimulationControl.html" title="The SimulationControl class is responsible for the control of steady-state and transient simulations ...">SimulationControl</a> class is responsible for the control of steady-state and transient simulations carried out with Lethe. <a class="el" href="classThis.html">This</a> base class is a pure virtual class and cannot be instantiated. However, it stores the core variables which are necessary for its serialization (write and read)  
+<p>The <a class="el" href="classSimulationControl.html" title="The SimulationControl class is responsible for the control of steady-state and transient simulations ...">SimulationControl</a> class is responsible for the control of steady-state and transient simulations carried out with Lethe. This base class is a pure virtual class and cannot be instantiated. However, it stores the core variables which are necessary for its serialization (write and read)  
  <a href="classSimulationControl.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="simulation__control_8h_source.html">simulation_control.h</a>&gt;</code></p>
@@ -94,13 +94,13 @@ Inheritance diagram for SimulationControl:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a754e6fb2ea3eab2af63d0f7ef4f52685"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulationControl.html#a754e6fb2ea3eab2af63d0f7ef4f52685">SimulationControl</a> (const <a class="el" href="structParameters_1_1SimulationControl.html">Parameters::SimulationControl</a> param)</td></tr>
-<tr class="memdesc:a754e6fb2ea3eab2af63d0f7ef4f52685"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThe.html">The</a> simulation control class is constructed by a simple parameter structure from which it draws it's arguments. <a class="el" href="classThis.html">This</a> structure is not kept internally. <a class="el" href="classThis.html">This</a> means that require information is copied from the struct to the class.  <a href="classSimulationControl.html#a754e6fb2ea3eab2af63d0f7ef4f52685">More...</a><br /></td></tr>
+<tr class="memdesc:a754e6fb2ea3eab2af63d0f7ef4f52685"><td class="mdescLeft">&#160;</td><td class="mdescRight">The simulation control class is constructed by a simple parameter structure from which it draws it's arguments. This structure is not kept internally. This means that require information is copied from the struct to the class.  <a href="classSimulationControl.html#a754e6fb2ea3eab2af63d0f7ef4f52685">More...</a><br /></td></tr>
 <tr class="separator:a754e6fb2ea3eab2af63d0f7ef4f52685"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67aa726e7105dd0af92f47dac688e001"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulationControl.html#a67aa726e7105dd0af92f47dac688e001">integrate</a> ()=0</td></tr>
-<tr class="memdesc:a67aa726e7105dd0af92f47dac688e001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function to control the progression of the simulation. As long as integrate returns true, a simulation should proceed. <a class="el" href="classThe.html">The</a> criteria used to stop/continue the simulation in iterate is a property of each individual time stepping control. For example, steady-state simulation will proceed until the number of required mesh adaptation has been performed.  <a href="classSimulationControl.html#a67aa726e7105dd0af92f47dac688e001">More...</a><br /></td></tr>
+<tr class="memdesc:a67aa726e7105dd0af92f47dac688e001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function to control the progression of the simulation. As long as integrate returns true, a simulation should proceed. The criteria used to stop/continue the simulation in iterate is a property of each individual time stepping control. For example, steady-state simulation will proceed until the number of required mesh adaptation has been performed.  <a href="classSimulationControl.html#a67aa726e7105dd0af92f47dac688e001">More...</a><br /></td></tr>
 <tr class="separator:a67aa726e7105dd0af92f47dac688e001"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace7a05ca520659fb2178d26a536b07f4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulationControl.html#ace7a05ca520659fb2178d26a536b07f4">is_at_end</a> ()=0</td></tr>
-<tr class="memdesc:ace7a05ca520659fb2178d26a536b07f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establishes if a simulation has reached it's end or not. <a class="el" href="classThe.html">The</a> concrete implementation of the class decides what is the stopping criteria (iteration number, time_end reached, etc.)  <a href="classSimulationControl.html#ace7a05ca520659fb2178d26a536b07f4">More...</a><br /></td></tr>
+<tr class="memdesc:ace7a05ca520659fb2178d26a536b07f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establishes if a simulation has reached it's end or not. The concrete implementation of the class decides what is the stopping criteria (iteration number, time_end reached, etc.)  <a href="classSimulationControl.html#ace7a05ca520659fb2178d26a536b07f4">More...</a><br /></td></tr>
 <tr class="separator:ace7a05ca520659fb2178d26a536b07f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42cbd4f9cfd5ce83560d7179ed269b59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulationControl.html#a42cbd4f9cfd5ce83560d7179ed269b59">add_time_step</a> (double p_timestep)</td></tr>
 <tr class="memdesc:a42cbd4f9cfd5ce83560d7179ed269b59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a time step and stores the previous one in a list.  <a href="classSimulationControl.html#a42cbd4f9cfd5ce83560d7179ed269b59">More...</a><br /></td></tr>
@@ -112,7 +112,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa84426cbfcb0ba22e12e6f79e6c3ccc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establish if the simulation is a steady-state simulation or no.  <a href="classSimulationControl.html#aa84426cbfcb0ba22e12e6f79e6c3ccc4">More...</a><br /></td></tr>
 <tr class="separator:aa84426cbfcb0ba22e12e6f79e6c3ccc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a096e10bf3a464ae70f3e77c33e7f027d"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulationControl.html#a096e10bf3a464ae70f3e77c33e7f027d">calculate_time_step</a> ()</td></tr>
-<tr class="memdesc:a096e10bf3a464ae70f3e77c33e7f027d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the next value of the time step. <a class="el" href="classThe.html">The</a> base function returns the value of the time step, but derived class may implement adaptative time stepping.  <a href="classSimulationControl.html#a096e10bf3a464ae70f3e77c33e7f027d">More...</a><br /></td></tr>
+<tr class="memdesc:a096e10bf3a464ae70f3e77c33e7f027d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the next value of the time step. The base function returns the value of the time step, but derived class may implement adaptative time stepping.  <a href="classSimulationControl.html#a096e10bf3a464ae70f3e77c33e7f027d">More...</a><br /></td></tr>
 <tr class="separator:a096e10bf3a464ae70f3e77c33e7f027d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad36188d4b8b60828b33284ca0858211"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulationControl.html#aad36188d4b8b60828b33284ca0858211">print_progression</a> (const ConditionalOStream &amp;pcout)=0</td></tr>
 <tr class="memdesc:aad36188d4b8b60828b33284ca0858211"><td class="mdescLeft">&#160;</td><td class="mdescRight">print_progress Function that prints the current progress status of the simulation  <a href="classSimulationControl.html#aad36188d4b8b60828b33284ca0858211">More...</a><br /></td></tr>
@@ -243,7 +243,7 @@ Static Protected Attributes</h2></td></tr>
 <tr class="separator:ad8d8dd2869b00c75cc6a3deda208c789"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classThe.html">The</a> <a class="el" href="classSimulationControl.html" title="The SimulationControl class is responsible for the control of steady-state and transient simulations ...">SimulationControl</a> class is responsible for the control of steady-state and transient simulations carried out with Lethe. <a class="el" href="classThis.html">This</a> base class is a pure virtual class and cannot be instantiated. However, it stores the core variables which are necessary for its serialization (write and read) </p>
+<div class="textblock"><p>The <a class="el" href="classSimulationControl.html" title="The SimulationControl class is responsible for the control of steady-state and transient simulations ...">SimulationControl</a> class is responsible for the control of steady-state and transient simulations carried out with Lethe. This base class is a pure virtual class and cannot be instantiated. However, it stores the core variables which are necessary for its serialization (write and read) </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a754e6fb2ea3eab2af63d0f7ef4f52685"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a754e6fb2ea3eab2af63d0f7ef4f52685">&#9670;&nbsp;</a></span>SimulationControl()</h2>
@@ -261,7 +261,7 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classThe.html">The</a> simulation control class is constructed by a simple parameter structure from which it draws it's arguments. <a class="el" href="classThis.html">This</a> structure is not kept internally. <a class="el" href="classThis.html">This</a> means that require information is copied from the struct to the class. </p>
+<p>The simulation control class is constructed by a simple parameter structure from which it draws it's arguments. This structure is not kept internally. This means that require information is copied from the struct to the class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">param</td><td>Structure of the parameters for the simulation control </td></tr>
@@ -321,7 +321,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCalculates.html">Calculates</a> the next value of the time step. <a class="el" href="classThe.html">The</a> base function returns the value of the time step, but derived class may implement adaptative time stepping. </p>
+<p><a class="el" href="classCalculates.html">Calculates</a> the next value of the time step. The base function returns the value of the time step, but derived class may implement adaptative time stepping. </p>
 
 <p>Reimplemented in <a class="el" href="classSimulationControlAdjointSteady.html#a1837e442cab0f9d356ad8392909a79b0">SimulationControlAdjointSteady</a>, <a class="el" href="classSimulationControlTransientDynamicOutput.html#ace74ebd300068f76ec4a4515ba619082">SimulationControlTransientDynamicOutput</a>, and <a class="el" href="classSimulationControlTransient.html#a4722accbc323a28da53627b8f2da6155">SimulationControlTransient</a>.</p>
 
@@ -727,7 +727,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Pure virtual function to control the progression of the simulation. As long as integrate returns true, a simulation should proceed. <a class="el" href="classThe.html">The</a> criteria used to stop/continue the simulation in iterate is a property of each individual time stepping control. For example, steady-state simulation will proceed until the number of required mesh adaptation has been performed. </p>
+<p>Pure virtual function to control the progression of the simulation. As long as integrate returns true, a simulation should proceed. The criteria used to stop/continue the simulation in iterate is a property of each individual time stepping control. For example, steady-state simulation will proceed until the number of required mesh adaptation has been performed. </p>
 
 <p>Implemented in <a class="el" href="classSimulationControlSteady.html#a5b748bcdb7bc0229de544d7c8495e577">SimulationControlSteady</a>, and <a class="el" href="classSimulationControlTransient.html#a49829dcb567680d5bcc2e4c80fe8ff60">SimulationControlTransient</a>.</p>
 
@@ -756,7 +756,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Establishes if a simulation has reached it's end or not. <a class="el" href="classThe.html">The</a> concrete implementation of the class decides what is the stopping criteria (iteration number, time_end reached, etc.) </p>
+<p>Establishes if a simulation has reached it's end or not. The concrete implementation of the class decides what is the stopping criteria (iteration number, time_end reached, etc.) </p>
 
 <p>Implemented in <a class="el" href="classSimulationControlAdjointSteady.html#ad5659b47f827251a6d7c6260d7d35b77">SimulationControlAdjointSteady</a>, <a class="el" href="classSimulationControlSteady.html#aff3d065baf7eca7166d318585b82077f">SimulationControlSteady</a>, and <a class="el" href="classSimulationControlTransient.html#a0b52cb9e60c10e21c4729838f61f8fe1">SimulationControlTransient</a>.</p>
 
@@ -1119,7 +1119,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Manually force the value of the time step for the present iteration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">new_time_step</td><td><a class="el" href="classThe.html">The</a> new value of the time step. <a class="el" href="classThis.html">This</a> time step is appended to the time step history </td></tr>
+    <tr><td class="paramname">new_time_step</td><td>The new value of the time step. This time step is appended to the time step history </td></tr>
   </table>
   </dd>
 </dl>
@@ -1153,7 +1153,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Suggest the value of the time step for the next iteration. Note that for adaptative simulations this time step may be altered. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">new_time_step</td><td><a class="el" href="classThe.html">The</a> new value of the time step. <a class="el" href="classThis.html">This</a> time step is not added to the time step vector </td></tr>
+    <tr><td class="paramname">new_time_step</td><td>The new value of the time step. This time step is not added to the time step vector </td></tr>
   </table>
   </dd>
 </dl>

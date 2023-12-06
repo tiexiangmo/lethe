@@ -80,7 +80,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a54a435b9367e277de807f74661f84872"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoundaryCellsInformation.html#a54a435b9367e277de807f74661f84872">BoundaryCellsInformation</a> ()</td></tr>
 <tr class="separator:a54a435b9367e277de807f74661f84872"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a532ac1be691e42d5e003e06b3c3c4a7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoundaryCellsInformation.html#a532ac1be691e42d5e003e06b3c3c4a7c">build</a> (const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const <a class="el" href="classParameters_1_1Lagrangian_1_1FloatingWalls.html">Parameters::Lagrangian::FloatingWalls</a>&lt; dim &gt; &amp;floating_wall_properties, const std::vector&lt; unsigned int &gt; &amp;outlet_boundaries, const bool &amp;check_diamond_cells, const bool &amp;expand_particle_wall_contact_search, const ConditionalOStream &amp;pcout)</td></tr>
-<tr class="memdesc:a532ac1be691e42d5e003e06b3c3c4a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classThe.html">The</a> build function builds all the boundary cell information structure that finds which cell has a boundary face, boundary line or a boundary point. Additionally, it identifies which cells are located in the vicinity (controlled by the max cell diameter of floating walls.  <a href="classBoundaryCellsInformation.html#a532ac1be691e42d5e003e06b3c3c4a7c">More...</a><br /></td></tr>
+<tr class="memdesc:a532ac1be691e42d5e003e06b3c3c4a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The build function builds all the boundary cell information structure that finds which cell has a boundary face, boundary line or a boundary point. Additionally, it identifies which cells are located in the vicinity (controlled by the max cell diameter of floating walls.  <a href="classBoundaryCellsInformation.html#a532ac1be691e42d5e003e06b3c3c4a7c">More...</a><br /></td></tr>
 <tr class="separator:a532ac1be691e42d5e003e06b3c3c4a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ecae648fb75f5cc23a3d4b0458acceb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoundaryCellsInformation.html#a3ecae648fb75f5cc23a3d4b0458acceb">build</a> (const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const std::vector&lt; unsigned int &gt; &amp;outlet_boundaries, const bool &amp;check_diamond_cells, const ConditionalOStream &amp;pcout)</td></tr>
 <tr class="separator:a3ecae648fb75f5cc23a3d4b0458acceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,7 +210,7 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Carries out adding new elements with the boundary cells (cells with boundary faces) and information (point and normal vector) of their neighbor boundary cells to the boundary_cells_information. By adding these elements, the broad and fine searches will search for potential contacts of the particles in each boundary cell with the boundary neighbors of these cells. <a class="el" href="classThis.html">This</a> function is used to solve the problem of late contact detection in triangulations with curved boundaries.</p>
+<p>Carries out adding new elements with the boundary cells (cells with boundary faces) and information (point and normal vector) of their neighbor boundary cells to the boundary_cells_information. By adding these elements, the broad and fine searches will search for potential contacts of the particles in each boundary cell with the boundary neighbors of these cells. This function is used to solve the problem of late contact detection in triangulations with curved boundaries.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">boundary_cells_information</td><td>A container that contains the information of all the boundary cells with boundary faces </td></tr>
@@ -334,7 +334,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classThe.html">The</a> build function builds all the boundary cell information structure that finds which cell has a boundary face, boundary line or a boundary point. Additionally, it identifies which cells are located in the vicinity (controlled by the max cell diameter of floating walls. </p>
+<p>The build function builds all the boundary cell information structure that finds which cell has a boundary face, boundary line or a boundary point. Additionally, it identifies which cells are located in the vicinity (controlled by the max cell diameter of floating walls. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">triangulation</td><td>Triangulation to access the information of the cells </td></tr>

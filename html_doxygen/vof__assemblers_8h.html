@@ -151,10 +151,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual class that serves as an interface for all of the assemblers for the VOF solver.  <a href="classVOFAssemblerBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVOFAssemblerCore.html">VOFAssemblerCore&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the core of the VOF solver. <a class="el" href="classThis.html">This</a> class assembles the weak form of: $$\mathbf{u} \cdot T \cdot \nabla T =0 $$ with an SUPG stabilization.  <a href="classVOFAssemblerCore.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the core of the VOF solver. According to the following weak form: <img class="formulaInl" alt="$\mathbf{u} \cdot T \cdot \nabla T =0 $" src="form_17.png"/> with an SUPG stabilization.  <a href="classVOFAssemblerCore.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVOFAssemblerBDF.html">VOFAssemblerBDF&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the transient time arising from BDF time integration for the VOF equations. For example, if a BDF1 scheme is chosen, the following is assembled $$\frac{\mathbf{T}^{t+\Delta t}-\mathbf{T}^{t}{\Delta t}.  <a href="classVOFAssemblerBDF.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the transient time arising from BDF time integration for the VOF equations. For example, if a BDF1 scheme is chosen, the following is assembled <img class="formulaInl" alt="$\frac{\mathbf{T}^{t+\Delta t}-\mathbf{T}^{t}}{\Delta t}$" src="form_2.png"/>.  <a href="classVOFAssemblerBDF.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

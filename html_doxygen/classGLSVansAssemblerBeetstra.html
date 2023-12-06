@@ -105,7 +105,7 @@ class GLSVansAssemblerBeetstra&lt; dim &gt;</h3>
 
 <p>Class that assembles the drag force using Beetstra model for the VANS equations where the normalized drag force = 10 * (1 - cell_void_fraction) / (pow(cell_void_fraction, 2)) + pow(cell_void_fraction, 2) * (1 + 1.5 * pow((1 - cell_void_fraction), 0.5)) + 0.413 * re / (24 * pow(cell_void_fraction, 2)) * ((1 / cell_void_fraction) + 3 * (1 - cell_void_fraction) * cell_void_fraction. </p>
 <ul>
-<li>8.4 * pow(re, -0.343)) / (1 + pow(10, 3 * (1 - cell_void_fraction)) pow(re, -(1 + 4 * (1 - cell_void_fraction)) * 0.5)); the drag coefficient = normalized_drag_force * 24 / Re_p <a class="el" href="classThe.html">The</a> reference for this formulation of the Beestra model is given in the article *Complete liquid-solid momentum coupling for unresolved CFD-DEM simulations: <a href="https://www.sciencedirect.com/science/article/pii/S0301932220305346">https://www.sciencedirect.com/science/article/pii/S0301932220305346</a> <dl class="tparams"><dt>Template Parameters</dt><dd>
+<li>8.4 * pow(re, -0.343)) / (1 + pow(10, 3 * (1 - cell_void_fraction)) pow(re, -(1 + 4 * (1 - cell_void_fraction)) * 0.5)); the drag coefficient = normalized_drag_force * 24 / Re_p The reference for this formulation of the Beestra model is given in the article *Complete liquid-solid momentum coupling for unresolved CFD-DEM simulations: <a href="https://www.sciencedirect.com/science/article/pii/S0301932220305346">https://www.sciencedirect.com/science/article/pii/S0301932220305346</a> <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">dim</td><td>An integer that denotes the number of spatial dimensions </td></tr>
   </table>

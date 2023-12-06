@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classHeatTransferScratchData.html" title="HeatTransferScratchData class stores the information required by the assembly procedure for a heat tr...">HeatTransferScratchData</a> class stores the information required by the assembly procedure for a heat transfer advection-diffusion equation. Consequently, this class calculates the heat transfer (values, gradients, laplacians) and the shape function (values, gradients, laplacians) at all the gauss points for all degrees of freedom and stores it into arrays. Additionnaly, the user can request that this class gathers additional fields for physics which are coupled to the heat transfer equation, such as the velocity which is required. <a class="el" href="classThis.html">This</a> class serves as a seperation between the evaluation at the gauss point of the variables of interest and their use in the assembly, which is carried out by the assembler methods. For more information on this design, the reader can consult deal.II step-9 "https://www.dealii.org/current/doxygen/deal.II/step_9.html". In this latter example, the scratch is a struct instead of a templated class because of the simplicity of step-9.  
+<p>Class that stores the information required by the assembly procedure for a heat transfer advection-diffusion equation. Consequently, this class calculates the heat transfer (values, gradients, laplacians) and the shape function (values, gradients, laplacians) at all the gauss points for all degrees of freedom and stores it into arrays. Additionnaly, the user can request that this class gathers additional fields for physics which are coupled to the heat transfer equation, such as the velocity which is required. This class serves as a seperation between the evaluation at the gauss point of the variables of interest and their use in the assembly, which is carried out by the assembler methods. For more information on this design, the reader can consult deal.II step-9 "https://www.dealii.org/current/doxygen/deal.II/step_9.html". In this latter example, the scratch is a struct instead of a templated class because of the simplicity of step-9.  
  <a href="classHeatTransferScratchData.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="heat__transfer__scratch__data_8h_source.html">heat_transfer_scratch_data.h</a>&gt;</code></p>
@@ -80,10 +80,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aad9246a24b21b3c7343b9405bdf07f06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeatTransferScratchData.html#aad9246a24b21b3c7343b9405bdf07f06">HeatTransferScratchData</a> (const <a class="el" href="classPhysicalPropertiesManager.html">PhysicalPropertiesManager</a> <a class="el" href="classHeatTransferScratchData.html#a709a386e8ac3eec733c96d2367d874da">properties_manager</a>, const FiniteElement&lt; dim &gt; &amp;fe_ht, const Quadrature&lt; dim &gt; &amp;quadrature, const Mapping&lt; dim &gt; &amp;mapping, const FiniteElement&lt; dim &gt; &amp;fe_fd, const Quadrature&lt; dim - 1 &gt; &amp;face_quadrature)</td></tr>
-<tr class="memdesc:aad9246a24b21b3c7343b9405bdf07f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <a class="el" href="classThe.html">The</a> constructor creates the fe_values that will be used to fill the member variables of the scratch. It also allocated the necessary memory for all member variables. However, it does not do any evalution, since this needs to be done at the cell level.  <a href="classHeatTransferScratchData.html#aad9246a24b21b3c7343b9405bdf07f06">More...</a><br /></td></tr>
+<tr class="memdesc:aad9246a24b21b3c7343b9405bdf07f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. The constructor creates the fe_values that will be used to fill the member variables of the scratch. It also allocated the necessary memory for all member variables. However, it does not do any evalution, since this needs to be done at the cell level.  <a href="classHeatTransferScratchData.html#aad9246a24b21b3c7343b9405bdf07f06">More...</a><br /></td></tr>
 <tr class="separator:aad9246a24b21b3c7343b9405bdf07f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa4b7b3a2d5fd1212e99d3080365841e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeatTransferScratchData.html#aaa4b7b3a2d5fd1212e99d3080365841e">HeatTransferScratchData</a> (const <a class="el" href="classHeatTransferScratchData.html">HeatTransferScratchData</a>&lt; dim &gt; &amp;sd)</td></tr>
-<tr class="memdesc:aaa4b7b3a2d5fd1212e99d3080365841e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy Constructor. Same as the main constructor. <a class="el" href="classThis.html">This</a> constructor only uses the other scratch to build the FeValues, it does not copy the content of the other scratch into itself since, by definition of the WorkStream mechanism, it is assumed that the content of the scratch will be reset on a cell basis.  <a href="classHeatTransferScratchData.html#aaa4b7b3a2d5fd1212e99d3080365841e">More...</a><br /></td></tr>
+<tr class="memdesc:aaa4b7b3a2d5fd1212e99d3080365841e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy Constructor. Same as the main constructor. This constructor only uses the other scratch to build the FeValues, it does not copy the content of the other scratch into itself since, by definition of the WorkStream mechanism, it is assumed that the content of the scratch will be reset on a cell basis.  <a href="classHeatTransferScratchData.html#aaa4b7b3a2d5fd1212e99d3080365841e">More...</a><br /></td></tr>
 <tr class="separator:aaa4b7b3a2d5fd1212e99d3080365841e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35ee2179eeec026f57bfa6df7004fa1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeatTransferScratchData.html#a35ee2179eeec026f57bfa6df7004fa1c">allocate</a> ()</td></tr>
 <tr class="memdesc:a35ee2179eeec026f57bfa6df7004fa1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates the memory for the scratch.  <a href="classHeatTransferScratchData.html#a35ee2179eeec026f57bfa6df7004fa1c">More...</a><br /></td></tr>
@@ -104,14 +104,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2c781cb05c5ab4a9eb23a6319e08b880"><td class="mdescLeft">&#160;</td><td class="mdescRight">enable_vof Enables the collection of the VOF data by the scratch.  <a href="classHeatTransferScratchData.html#a2c781cb05c5ab4a9eb23a6319e08b880">More...</a><br /></td></tr>
 <tr class="separator:a2c781cb05c5ab4a9eb23a6319e08b880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72ae582753ae643bf5cef800a5a5b9c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeatTransferScratchData.html#a72ae582753ae643bf5cef800a5a5b9c9">enable_vof</a> (const FiniteElement&lt; dim &gt; &amp;fe, const Quadrature&lt; dim &gt; &amp;quadrature, const Mapping&lt; dim &gt; &amp;mapping, const std::shared_ptr&lt; <a class="el" href="classVolumeOfFluidFilterBase.html">VolumeOfFluidFilterBase</a> &gt; &amp;<a class="el" href="classHeatTransferScratchData.html#a6ecc16e967846cda511ed109414a4ad9">filter</a>)</td></tr>
-<tr class="memdesc:a72ae582753ae643bf5cef800a5a5b9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">enable_vof Enables the collection of the VOF data by the scratch - function overload used in the copy constructor of <a class="el" href="classHeatTransferScratchData.html" title="HeatTransferScratchData class stores the information required by the assembly procedure for a heat tr...">HeatTransferScratchData</a>  <a href="classHeatTransferScratchData.html#a72ae582753ae643bf5cef800a5a5b9c9">More...</a><br /></td></tr>
+<tr class="memdesc:a72ae582753ae643bf5cef800a5a5b9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">enable_vof Enables the collection of the VOF data by the scratch - function overload used in the copy constructor of <a class="el" href="classHeatTransferScratchData.html" title="Class that stores the information required by the assembly procedure for a heat transfer advection-di...">HeatTransferScratchData</a>  <a href="classHeatTransferScratchData.html#a72ae582753ae643bf5cef800a5a5b9c9">More...</a><br /></td></tr>
 <tr class="separator:a72ae582753ae643bf5cef800a5a5b9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad75b096501fe6ee0f3aec67a9b31ee27"><td class="memTemplParams" colspan="2">template&lt;typename VectorType &gt; </td></tr>
 <tr class="memitem:ad75b096501fe6ee0f3aec67a9b31ee27"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classHeatTransferScratchData.html#ad75b096501fe6ee0f3aec67a9b31ee27">reinit_vof</a> (const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, const VectorType &amp;current_filtered_solution)</td></tr>
 <tr class="memdesc:ad75b096501fe6ee0f3aec67a9b31ee27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinitialize the content of the scratch for VOF.  <a href="classHeatTransferScratchData.html#ad75b096501fe6ee0f3aec67a9b31ee27">More...</a><br /></td></tr>
 <tr class="separator:ad75b096501fe6ee0f3aec67a9b31ee27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3734c97bfddf5bab0a5f9a68c8f52a2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHeatTransferScratchData.html#a3734c97bfddf5bab0a5f9a68c8f52a2c">calculate_physical_properties</a> ()</td></tr>
-<tr class="memdesc:a3734c97bfddf5bab0a5f9a68c8f52a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the physical properties. <a class="el" href="classThis.html">This</a> method calculates the physical properties that may be required by the heat transfer problem. Namely the density, specific heat, thermal conductivity and viscosity (for viscous dissipation).  <a href="classHeatTransferScratchData.html#a3734c97bfddf5bab0a5f9a68c8f52a2c">More...</a><br /></td></tr>
+<tr class="memdesc:a3734c97bfddf5bab0a5f9a68c8f52a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the physical properties. This method calculates the physical properties that may be required by the heat transfer problem. Namely the density, specific heat, thermal conductivity and viscosity (for viscous dissipation).  <a href="classHeatTransferScratchData.html#a3734c97bfddf5bab0a5f9a68c8f52a2c">More...</a><br /></td></tr>
 <tr class="separator:a3734c97bfddf5bab0a5f9a68c8f52a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -231,7 +231,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;int dim&gt;<br />
 class HeatTransferScratchData&lt; dim &gt;</h3>
 
-<p><a class="el" href="classHeatTransferScratchData.html" title="HeatTransferScratchData class stores the information required by the assembly procedure for a heat tr...">HeatTransferScratchData</a> class stores the information required by the assembly procedure for a heat transfer advection-diffusion equation. Consequently, this class calculates the heat transfer (values, gradients, laplacians) and the shape function (values, gradients, laplacians) at all the gauss points for all degrees of freedom and stores it into arrays. Additionnaly, the user can request that this class gathers additional fields for physics which are coupled to the heat transfer equation, such as the velocity which is required. <a class="el" href="classThis.html">This</a> class serves as a seperation between the evaluation at the gauss point of the variables of interest and their use in the assembly, which is carried out by the assembler methods. For more information on this design, the reader can consult deal.II step-9 "https://www.dealii.org/current/doxygen/deal.II/step_9.html". In this latter example, the scratch is a struct instead of a templated class because of the simplicity of step-9. </p>
+<p>Class that stores the information required by the assembly procedure for a heat transfer advection-diffusion equation. Consequently, this class calculates the heat transfer (values, gradients, laplacians) and the shape function (values, gradients, laplacians) at all the gauss points for all degrees of freedom and stores it into arrays. Additionnaly, the user can request that this class gathers additional fields for physics which are coupled to the heat transfer equation, such as the velocity which is required. This class serves as a seperation between the evaluation at the gauss point of the variables of interest and their use in the assembly, which is carried out by the assembler methods. For more information on this design, the reader can consult deal.II step-9 "https://www.dealii.org/current/doxygen/deal.II/step_9.html". In this latter example, the scratch is a struct instead of a templated class because of the simplicity of step-9. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">dim</td><td>An integer that denotes the dimension of the space in which the flow is solved </td></tr>
@@ -299,15 +299,15 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor. <a class="el" href="classThe.html">The</a> constructor creates the fe_values that will be used to fill the member variables of the scratch. It also allocated the necessary memory for all member variables. However, it does not do any evalution, since this needs to be done at the cell level. </p>
+<p>Constructor. The constructor creates the fe_values that will be used to fill the member variables of the scratch. It also allocated the necessary memory for all member variables. However, it does not do any evalution, since this needs to be done at the cell level. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">properties_manager</td><td><a class="el" href="classThe.html">The</a> physical properties Manager (see <a class="el" href="physical__properties__manager_8h.html">physical_properties_manager.h</a>)</td></tr>
-    <tr><td class="paramname">fe_ht</td><td><a class="el" href="classThe.html">The</a> FESystem used to solve the Heat Transfer equations</td></tr>
-    <tr><td class="paramname">quadrature</td><td><a class="el" href="classThe.html">The</a> quadrature to use for the assembly</td></tr>
-    <tr><td class="paramname">mapping</td><td><a class="el" href="classThe.html">The</a> mapping of the domain in which the Navier-Stokes equations are solved</td></tr>
-    <tr><td class="paramname">fe_fd</td><td><a class="el" href="classThe.html">The</a> FESystem used to solve the Fluid Dynamics equations</td></tr>
-    <tr><td class="paramname">face_quadrature_formula</td><td><a class="el" href="classThe.html">The</a> face quadrature formula </td></tr>
+    <tr><td class="paramname">properties_manager</td><td>The physical properties Manager (see <a class="el" href="physical__properties__manager_8h.html">physical_properties_manager.h</a>)</td></tr>
+    <tr><td class="paramname">fe_ht</td><td>The FESystem used to solve the Heat Transfer equations</td></tr>
+    <tr><td class="paramname">quadrature</td><td>The quadrature to use for the assembly</td></tr>
+    <tr><td class="paramname">mapping</td><td>The mapping of the domain in which the Navier-Stokes equations are solved</td></tr>
+    <tr><td class="paramname">fe_fd</td><td>The FESystem used to solve the Fluid Dynamics equations</td></tr>
+    <tr><td class="paramname">face_quadrature_formula</td><td>The face quadrature formula </td></tr>
   </table>
   </dd>
 </dl>
@@ -340,10 +340,10 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copy Constructor. Same as the main constructor. <a class="el" href="classThis.html">This</a> constructor only uses the other scratch to build the FeValues, it does not copy the content of the other scratch into itself since, by definition of the WorkStream mechanism, it is assumed that the content of the scratch will be reset on a cell basis. </p>
+<p>Copy Constructor. Same as the main constructor. This constructor only uses the other scratch to build the FeValues, it does not copy the content of the other scratch into itself since, by definition of the WorkStream mechanism, it is assumed that the content of the scratch will be reset on a cell basis. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sd</td><td><a class="el" href="classThe.html">The</a> scratch data </td></tr>
+    <tr><td class="paramname">sd</td><td>The scratch data </td></tr>
   </table>
   </dd>
 </dl>
@@ -369,7 +369,7 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>Allocates the memory for the scratch. </p>
-<p><a class="el" href="classThis.html">This</a> method allocates the necessary memory for all members of the scratch </p>
+<p>This method allocates the necessary memory for all members of the scratch </p>
 
 </div>
 </div>
@@ -390,7 +390,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCalculates.html">Calculates</a> the physical properties. <a class="el" href="classThis.html">This</a> method calculates the physical properties that may be required by the heat transfer problem. Namely the density, specific heat, thermal conductivity and viscosity (for viscous dissipation). </p>
+<p><a class="el" href="classCalculates.html">Calculates</a> the physical properties. This method calculates the physical properties that may be required by the heat transfer problem. Namely the density, specific heat, thermal conductivity and viscosity (for viscous dissipation). </p>
 
 </div>
 </div>
@@ -440,7 +440,7 @@ template&lt;int dim&gt; </div>
     <tr><td class="paramname">fe</td><td>FiniteElement associated with the VOF.</td></tr>
     <tr><td class="paramname">quadrature</td><td>Quadrature rule of the Navier-Stokes problem assembly.</td></tr>
     <tr><td class="paramname">mapping</td><td>Mapping used for the Navier-Stokes problem assembly</td></tr>
-    <tr><td class="paramname">phase_filter_parameters</td><td><a class="el" href="namespaceParameters.html" title="Dimensionality - This is used to rescale physical properties for cases where the main dimensions of t...">Parameters</a> for phase fraction filtering. </td></tr>
+    <tr><td class="paramname">phase_filter_parameters</td><td><a class="el" href="namespaceParameters.html">Parameters</a> for phase fraction filtering. </td></tr>
   </table>
   </dd>
 </dl>
@@ -487,7 +487,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>enable_vof Enables the collection of the VOF data by the scratch - function overload used in the copy constructor of <a class="el" href="classHeatTransferScratchData.html" title="HeatTransferScratchData class stores the information required by the assembly procedure for a heat tr...">HeatTransferScratchData</a> </p>
+<p>enable_vof Enables the collection of the VOF data by the scratch - function overload used in the copy constructor of <a class="el" href="classHeatTransferScratchData.html" title="Class that stores the information required by the assembly procedure for a heat transfer advection-di...">HeatTransferScratchData</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fe</td><td>FiniteElement associated with the VOF.</td></tr>
@@ -554,16 +554,16 @@ template&lt;typename VectorType &gt; </div>
 <p>Using the FeValues and the content of the solutions, previous solutions , fills all of the class member of the scratch</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">VectorType</td><td><a class="el" href="classThe.html">The</a> Vector type used for the solvers</td></tr>
+    <tr><td class="paramname">VectorType</td><td>The Vector type used for the solvers</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cell</td><td><a class="el" href="classThe.html">The</a> cell over which the assembly is being carried. <a class="el" href="classThis.html">This</a> cell must be compatible with the fe which is used to fill the FeValues</td></tr>
-    <tr><td class="paramname">current_solution</td><td><a class="el" href="classThe.html">The</a> present value of the solution for the Heat Transfer</td></tr>
-    <tr><td class="paramname">previous_solutions</td><td><a class="el" href="classThe.html">The</a> solutions at the previous time steps</td></tr>
-    <tr><td class="paramname">source_function</td><td><a class="el" href="classThe.html">The</a> function describing the Heat Transfer source term </td></tr>
+    <tr><td class="paramname">cell</td><td>The cell over which the assembly is being carried. This cell must be compatible with the fe which is used to fill the FeValues</td></tr>
+    <tr><td class="paramname">current_solution</td><td>The present value of the solution for the Heat Transfer</td></tr>
+    <tr><td class="paramname">previous_solutions</td><td>The solutions at the previous time steps</td></tr>
+    <tr><td class="paramname">source_function</td><td>The function describing the Heat Transfer source term </td></tr>
   </table>
   </dd>
 </dl>
@@ -617,15 +617,15 @@ template&lt;typename VectorType &gt; </div>
 <p>Reinitialize the velocity, calculated by the fluid dynamics while also taking into account ALE. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">VectorType</td><td><a class="el" href="classThe.html">The</a> Vector type used for the solvers</td></tr>
+    <tr><td class="paramname">VectorType</td><td>The Vector type used for the solvers</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cell</td><td><a class="el" href="classThe.html">The</a> cell for which the velocity is reinitialized <a class="el" href="classThis.html">This</a> cell must be compatible with the Fluid Dynamics FE</td></tr>
-    <tr><td class="paramname">current_solution</td><td><a class="el" href="classThe.html">The</a> present value of the solution for [u,p]</td></tr>
-    <tr><td class="paramname">ale</td><td><a class="el" href="classThe.html">The</a> ALE parameters which include the ALE function </td></tr>
+    <tr><td class="paramname">cell</td><td>The cell for which the velocity is reinitialized This cell must be compatible with the Fluid Dynamics FE</td></tr>
+    <tr><td class="paramname">current_solution</td><td>The present value of the solution for [u,p]</td></tr>
+    <tr><td class="paramname">ale</td><td>The ALE parameters which include the ALE function </td></tr>
   </table>
   </dd>
 </dl>
@@ -663,13 +663,13 @@ template&lt;typename VectorType &gt; </div>
 <p>Reinitialize the velocity gradient, calculated by the Fluid Dynamics. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">VectorType</td><td><a class="el" href="classThe.html">The</a> Vector type used for the solvers</td></tr>
+    <tr><td class="paramname">VectorType</td><td>The Vector type used for the solvers</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">current_solution</td><td><a class="el" href="classThe.html">The</a> present value of the solution for [u,p] </td></tr>
+    <tr><td class="paramname">current_solution</td><td>The present value of the solution for [u,p] </td></tr>
   </table>
   </dd>
 </dl>
@@ -717,14 +717,14 @@ template&lt;typename VectorType &gt; </div>
 <p>Reinitialize the content of the scratch for VOF. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">VectorType</td><td><a class="el" href="classThe.html">The</a> Vector type used for the solvers</td></tr>
+    <tr><td class="paramname">VectorType</td><td>The Vector type used for the solvers</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cell</td><td><a class="el" href="classThe.html">The</a> cell over which the assembly is being carried. <a class="el" href="classThis.html">This</a> cell must be compatible with the VOF FE and not the Fluid Dynamics FE</td></tr>
-    <tr><td class="paramname">current_solution</td><td><a class="el" href="classThe.html">The</a> present solution for the phase value</td></tr>
+    <tr><td class="paramname">cell</td><td>The cell over which the assembly is being carried. This cell must be compatible with the VOF FE and not the Fluid Dynamics FE</td></tr>
+    <tr><td class="paramname">current_solution</td><td>The present solution for the phase value</td></tr>
   </table>
   </dd>
 </dl>

@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classPhysicalPropertyModel.html" title="PhysicalPropertyModel. Abstract class that defines the interface for a physical property model Physic...">PhysicalPropertyModel</a>. Abstract class that defines the interface for a physical property model Physical property model provides an abstract interface to calculate the value of a physical property or a vector of physical property value for given field value. By default, the interface does not require that all (or any) fields be specified. <a class="el" href="classThis.html">This</a> is why a map is used to pass the dependent variable. To allow for the calculation of the appropriate jacobian matrix (when that is necessary) the interface also provides a jacobian function, which must provide the derivative with respect to the field specified as an argument.  
+<p>Abstract class that defines the interface for a physical property model Physical property model provides an abstract interface to calculate the value of a physical property or a vector of physical property value for given field value. By default, the interface does not require that all (or any) fields be specified. This is why a map is used to pass the dependent variable. To allow for the calculation of the appropriate jacobian matrix (when that is necessary) the interface also provides a jacobian function, which must provide the derivative with respect to the field specified as an argument.  
  <a href="classPhysicalPropertyModel.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="physical__property__model_8h_source.html">physical_property_model.h</a>&gt;</code></p>
@@ -81,13 +81,13 @@ Inheritance diagram for PhysicalPropertyModel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPhysicalPropertyModel__inherit__graph.png" border="0" usemap="#aPhysicalPropertyModel_inherit__map" alt="Inheritance graph"/></div>
 <map name="aPhysicalPropertyModel_inherit__map" id="aPhysicalPropertyModel_inherit__map">
-<area shape="rect" title="PhysicalPropertyModel. Abstract class that defines the interface for a physical property model Physic..." alt="" coords="5,385,176,412"/>
-<area shape="rect" href="classDensityModel.html" title="DensityModel. Abstract class that allows to calculate the density." alt="" coords="267,56,379,83"/>
-<area shape="rect" href="classRheologicalModel.html" title="RheologicalModel. Abstract class that allows to calculate the non&#45;newtonian viscosity on each quadrat..." alt="" coords="254,208,393,235"/>
-<area shape="rect" href="classSpecificHeatModel.html" title="SpecificHeatModel. Abstract class that allows to calculate the specific heat on each quadrature point..." alt="" coords="252,360,395,387"/>
-<area shape="rect" href="classThermalConductivityModel.html" title="ThermalConductivityModel. Abstract class that allows to calculate the thermal conductivity on each qu..." alt="" coords="224,436,423,463"/>
-<area shape="rect" href="classThermalExpansionModel.html" title="ThermalExpansionModel. Abstract class that allows to calculate the thermal expansion coefficient (wit..." alt="" coords="232,579,415,605"/>
-<area shape="rect" href="classTracerDiffusivityModel.html" title="DensityModel. Abstract class that allows to calculate the density." alt="" coords="239,655,407,681"/>
+<area shape="rect" title="Abstract class that defines the interface for a physical property model Physical property model provi..." alt="" coords="5,385,176,412"/>
+<area shape="rect" href="classDensityModel.html" title="Abstract class that allows to calculate the density." alt="" coords="267,56,379,83"/>
+<area shape="rect" href="classRheologicalModel.html" title="Abstract class that allows to calculate the non&#45;newtonian viscosity on each quadrature point and the ..." alt="" coords="254,208,393,235"/>
+<area shape="rect" href="classSpecificHeatModel.html" title="Abstract class that allows to calculate the specific heat on each quadrature point using the temperat..." alt="" coords="252,360,395,387"/>
+<area shape="rect" href="classThermalConductivityModel.html" title="Abstract class that allows to calculate the thermal conductivity on each quadrature point using the t..." alt="" coords="224,436,423,463"/>
+<area shape="rect" href="classThermalExpansionModel.html" title="Abstract class that allows to calculate the thermal expansion coefficient (with unit of inverse tempe..." alt="" coords="232,579,415,605"/>
+<area shape="rect" href="classTracerDiffusivityModel.html" title="Abstract class that allows to calculates the tracer diffusivity." alt="" coords="239,655,407,681"/>
 <area shape="rect" href="classDensityConstant.html" title="Constant density." alt="" coords="521,5,651,32"/>
 <area shape="rect" href="classDensityIsothermalIdealGas.html" title="Isothermal ideal gas density." alt="" coords="487,56,685,83"/>
 <area shape="rect" href="classCarreau.html" title=" " alt="" coords="549,107,623,133"/>
@@ -95,12 +95,12 @@ Inheritance diagram for PhysicalPropertyModel:</div>
 <area shape="rect" href="classPhaseChangeRheology.html" title=" " alt="" coords="501,208,671,235"/>
 <area shape="rect" href="classPowerLaw.html" title=" " alt="" coords="542,259,630,285"/>
 <area shape="rect" href="classConstantSpecificHeat.html" title="Constant specific heat. Returns a constant specific heat for a fluid." alt="" coords="505,309,667,336"/>
-<area shape="rect" href="classPhaseChangeSpecificHeat.html" title="PhaseChangeSpecificHeat. This models takes into account the phase change of a material by considering..." alt="" coords="491,360,681,387"/>
+<area shape="rect" href="classPhaseChangeSpecificHeat.html" title="This model takes into account the phase change of a material by considering the latent heat into the ..." alt="" coords="491,360,681,387"/>
 <area shape="rect" href="classConstantThermalConductivity.html" title="Constant thermal conductivity." alt="" coords="478,411,694,437"/>
-<area shape="rect" href="classThermalConductivityLinear.html" title="ThermalConductivityLinear Implements a linear temperature&#45;dependant thermal conductivity of the form ..." alt="" coords="487,461,685,488"/>
-<area shape="rect" href="classThermalConductivityPhaseChange.html" title="ThermalConductivityPhaseChange Implements a phase&#45;dependant thermal conductivity." alt="" coords="487,513,685,554"/>
+<area shape="rect" href="classThermalConductivityLinear.html" title="Implements a linear temperature&#45;dependant thermal conductivity of the form k = A + BT." alt="" coords="487,461,685,488"/>
+<area shape="rect" href="classThermalConductivityPhaseChange.html" title="Implements a phase&#45;dependant thermal conductivity." alt="" coords="487,513,685,554"/>
 <area shape="rect" href="classConstantThermalExpansion.html" title="Constant thermal expansion coefficient." alt="" coords="485,579,687,605"/>
-<area shape="rect" href="classThermalExpansionPhaseChange.html" title="ThermalExpansionPhaseChange Implements a phase&#45;dependant thermal expansion coefficient." alt="" coords="471,629,701,656"/>
+<area shape="rect" href="classThermalExpansionPhaseChange.html" title="Implements a phase&#45;dependant thermal expansion coefficient." alt="" coords="471,629,701,656"/>
 <area shape="rect" href="classConstantTracerDiffusivity.html" title="Constant tracer diffusivity." alt="" coords="493,680,679,707"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -108,10 +108,10 @@ Inheritance diagram for PhysicalPropertyModel:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a790b73800189af9ff8d80f1e6f8c9306"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicalPropertyModel.html#a790b73800189af9ff8d80f1e6f8c9306">PhysicalPropertyModel</a> ()</td></tr>
-<tr class="memdesc:a790b73800189af9ff8d80f1e6f8c9306"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classPhysicalPropertyModel.html" title="PhysicalPropertyModel. Abstract class that defines the interface for a physical property model Physic...">PhysicalPropertyModel</a> Default constructor. Set the model_depends_on to false for all variables.  <a href="classPhysicalPropertyModel.html#a790b73800189af9ff8d80f1e6f8c9306">More...</a><br /></td></tr>
+<tr class="memdesc:a790b73800189af9ff8d80f1e6f8c9306"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classPhysicalPropertyModel.html" title="Abstract class that defines the interface for a physical property model Physical property model provi...">PhysicalPropertyModel</a> Default constructor. Set the model_depends_on to false for all variables.  <a href="classPhysicalPropertyModel.html#a790b73800189af9ff8d80f1e6f8c9306">More...</a><br /></td></tr>
 <tr class="separator:a790b73800189af9ff8d80f1e6f8c9306"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8211e3c849e87d2efa5c732e8a4678b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicalPropertyModel.html#af8211e3c849e87d2efa5c732e8a4678b">depends_on</a> (const <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a> &amp;id)</td></tr>
-<tr class="memdesc:af8211e3c849e87d2efa5c732e8a4678b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <a class="el" href="classPhysicalPropertyModel.html" title="PhysicalPropertyModel. Abstract class that defines the interface for a physical property model Physic...">PhysicalPropertyModel</a> depends on a field, false if not.  <a href="classPhysicalPropertyModel.html#af8211e3c849e87d2efa5c732e8a4678b">More...</a><br /></td></tr>
+<tr class="memdesc:af8211e3c849e87d2efa5c732e8a4678b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the <a class="el" href="classPhysicalPropertyModel.html" title="Abstract class that defines the interface for a physical property model Physical property model provi...">PhysicalPropertyModel</a> depends on a field, false if not.  <a href="classPhysicalPropertyModel.html#af8211e3c849e87d2efa5c732e8a4678b">More...</a><br /></td></tr>
 <tr class="separator:af8211e3c849e87d2efa5c732e8a4678b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23d2b90f4f05ee9de4be96f6f9989a37"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicalPropertyModel.html#a23d2b90f4f05ee9de4be96f6f9989a37">value</a> (const std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, double &gt; &amp;fields_value)=0</td></tr>
 <tr class="memdesc:a23d2b90f4f05ee9de4be96f6f9989a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">value <a class="el" href="classCalculates.html">Calculates</a> the value of a physical property.  <a href="classPhysicalPropertyModel.html#a23d2b90f4f05ee9de4be96f6f9989a37">More...</a><br /></td></tr>
@@ -126,10 +126,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae71d2dd28b12d69622987bced8c0c661"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector_jacobian Calculate the derivative of the property with respect to a field  <a href="classPhysicalPropertyModel.html#ae71d2dd28b12d69622987bced8c0c661">More...</a><br /></td></tr>
 <tr class="separator:ae71d2dd28b12d69622987bced8c0c661"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6be82a7f56166add6af232ac511194d4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicalPropertyModel.html#a6be82a7f56166add6af232ac511194d4">numerical_jacobian</a> (const std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, double &gt; &amp;field_values, const <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a> id)</td></tr>
-<tr class="memdesc:a6be82a7f56166add6af232ac511194d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">numerical_jacobian <a class="el" href="classCalculates.html">Calculates</a> the jacobian through a forward finite difference (Euler) approximation. <a class="el" href="classThis.html">This</a> approach, although not preferable, is meant as a fall-back when calculating the jacobian manually is too difficult.  <a href="classPhysicalPropertyModel.html#a6be82a7f56166add6af232ac511194d4">More...</a><br /></td></tr>
+<tr class="memdesc:a6be82a7f56166add6af232ac511194d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">numerical_jacobian <a class="el" href="classCalculates.html">Calculates</a> the jacobian through a forward finite difference (Euler) approximation. This approach, although not preferable, is meant as a fall-back when calculating the jacobian manually is too difficult.  <a href="classPhysicalPropertyModel.html#a6be82a7f56166add6af232ac511194d4">More...</a><br /></td></tr>
 <tr class="separator:a6be82a7f56166add6af232ac511194d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa00493b8b62339bafc115cd298e01868"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicalPropertyModel.html#aa00493b8b62339bafc115cd298e01868">vector_numerical_jacobian</a> (const std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, std::vector&lt; double &gt;&gt; &amp;field_vectors, const <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a> id, std::vector&lt; double &gt; &amp;jacobian_vector)</td></tr>
-<tr class="memdesc:aa00493b8b62339bafc115cd298e01868"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector_numerical_jacobian <a class="el" href="classCalculates.html">Calculates</a> the vector of jacobian through forward finite difference (Euler) approximation. <a class="el" href="classThis.html">This</a> approach, although not preferable, is meant as a fall-back when calculating the jacobian manually is too difficult.  <a href="classPhysicalPropertyModel.html#aa00493b8b62339bafc115cd298e01868">More...</a><br /></td></tr>
+<tr class="memdesc:aa00493b8b62339bafc115cd298e01868"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector_numerical_jacobian <a class="el" href="classCalculates.html">Calculates</a> the vector of jacobian through forward finite difference (Euler) approximation. This approach, although not preferable, is meant as a fall-back when calculating the jacobian manually is too difficult.  <a href="classPhysicalPropertyModel.html#aa00493b8b62339bafc115cd298e01868">More...</a><br /></td></tr>
 <tr class="separator:aa00493b8b62339bafc115cd298e01868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -138,7 +138,7 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ad805b20920189b0c308b0a4730217b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classPhysicalPropertyModel.html" title="PhysicalPropertyModel. Abstract class that defines the interface for a physical property model Physic...">PhysicalPropertyModel</a>. Abstract class that defines the interface for a physical property model Physical property model provides an abstract interface to calculate the value of a physical property or a vector of physical property value for given field value. By default, the interface does not require that all (or any) fields be specified. <a class="el" href="classThis.html">This</a> is why a map is used to pass the dependent variable. To allow for the calculation of the appropriate jacobian matrix (when that is necessary) the interface also provides a jacobian function, which must provide the derivative with respect to the field specified as an argument. </p>
+<div class="textblock"><p>Abstract class that defines the interface for a physical property model Physical property model provides an abstract interface to calculate the value of a physical property or a vector of physical property value for given field value. By default, the interface does not require that all (or any) fields be specified. This is why a map is used to pass the dependent variable. To allow for the calculation of the appropriate jacobian matrix (when that is necessary) the interface also provides a jacobian function, which must provide the derivative with respect to the field specified as an argument. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a790b73800189af9ff8d80f1e6f8c9306"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a790b73800189af9ff8d80f1e6f8c9306">&#9670;&nbsp;</a></span>PhysicalPropertyModel()</h2>
@@ -163,7 +163,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classPhysicalPropertyModel.html" title="PhysicalPropertyModel. Abstract class that defines the interface for a physical property model Physic...">PhysicalPropertyModel</a> Default constructor. Set the model_depends_on to false for all variables. </p>
+<p><a class="el" href="classPhysicalPropertyModel.html" title="Abstract class that defines the interface for a physical property model Physical property model provi...">PhysicalPropertyModel</a> Default constructor. Set the model_depends_on to false for all variables. </p>
 
 </div>
 </div>
@@ -192,7 +192,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns true if the <a class="el" href="classPhysicalPropertyModel.html" title="PhysicalPropertyModel. Abstract class that defines the interface for a physical property model Physic...">PhysicalPropertyModel</a> depends on a field, false if not. </p>
+<p>Returns true if the <a class="el" href="classPhysicalPropertyModel.html" title="Abstract class that defines the interface for a physical property model Physical property model provi...">PhysicalPropertyModel</a> depends on a field, false if not. </p>
 
 </div>
 </div>
@@ -278,10 +278,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>numerical_jacobian <a class="el" href="classCalculates.html">Calculates</a> the jacobian through a forward finite difference (Euler) approximation. <a class="el" href="classThis.html">This</a> approach, although not preferable, is meant as a fall-back when calculating the jacobian manually is too difficult. </p>
+<p>numerical_jacobian <a class="el" href="classCalculates.html">Calculates</a> the jacobian through a forward finite difference (Euler) approximation. This approach, although not preferable, is meant as a fall-back when calculating the jacobian manually is too difficult. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fields_values</td><td><a class="el" href="classThe.html">The</a> values of the various fields </td></tr>
+    <tr><td class="paramname">fields_values</td><td>The values of the various fields </td></tr>
     <tr><td class="paramname">id</td><td>Field id of the field with respect to which the jacobian should be calculated </td></tr>
   </table>
   </dd>
@@ -421,7 +421,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>vector_numerical_jacobian <a class="el" href="classCalculates.html">Calculates</a> the vector of jacobian through forward finite difference (Euler) approximation. <a class="el" href="classThis.html">This</a> approach, although not preferable, is meant as a fall-back when calculating the jacobian manually is too difficult. </p>
+<p>vector_numerical_jacobian <a class="el" href="classCalculates.html">Calculates</a> the vector of jacobian through forward finite difference (Euler) approximation. This approach, although not preferable, is meant as a fall-back when calculating the jacobian manually is too difficult. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">field_vectors</td><td></td></tr>

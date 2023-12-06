@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Class that assembles the core of the Navier-Stokes equation using a Rheological model to predict non <a class="el" href="classNewtonian.html">Newtonian</a> behaviors.  
+<p>Class that assembles the core of the Navier-Stokes equation using a Rheological model to predict non-Newtonian behaviors.  
  <a href="classGLSNavierStokesVOFAssemblerNonNewtonianCore.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="navier__stokes__vof__assemblers_8h_source.html">navier_stokes_vof_assemblers.h</a>&gt;</code></p>
@@ -81,7 +81,7 @@ Inheritance diagram for GLSNavierStokesVOFAssemblerNonNewtonianCore&lt; dim &gt;
 <div class="dyncontent">
 <div class="center"><img src="classGLSNavierStokesVOFAssemblerNonNewtonianCore__inherit__graph.png" border="0" usemap="#aGLSNavierStokesVOFAssemblerNonNewtonianCore_3_01dim_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="aGLSNavierStokesVOFAssemblerNonNewtonianCore_3_01dim_01_4_inherit__map" id="aGLSNavierStokesVOFAssemblerNonNewtonianCore_3_01dim_01_4_inherit__map">
-<area shape="rect" title="Class that assembles the core of the Navier&#45;Stokes equation using a Rheological model to predict non ..." alt="" coords="5,95,232,136"/>
+<area shape="rect" title="Class that assembles the core of the Navier&#45;Stokes equation using a Rheological model to predict non&#45;..." alt="" coords="5,95,232,136"/>
 <area shape="rect" href="classNavierStokesAssemblerBase.html" title="A pure virtual class that serves as an interface for all of the assemblers for the Navier&#45;Stokes Equa..." alt="" coords="14,5,223,47"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -113,7 +113,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;int dim&gt;<br />
 class GLSNavierStokesVOFAssemblerNonNewtonianCore&lt; dim &gt;</h3>
 
-<p>Class that assembles the core of the Navier-Stokes equation using a Rheological model to predict non <a class="el" href="classNewtonian.html">Newtonian</a> behaviors. </p>
+<p>Class that assembles the core of the Navier-Stokes equation using a Rheological model to predict non-Newtonian behaviors. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">dim</td><td>An integer that denotes the number of spatial dimensions </td></tr>
@@ -309,9 +309,9 @@ template&lt;int dim&gt; </div>
 <p><a class="el" href="classCalculates.html">Calculates</a> an approximation of the gradient of the viscosity. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">velocity_gradient</td><td><a class="el" href="classThe.html">The</a> velocity gradient tensor on the quadrature point </td></tr>
-    <tr><td class="paramname">velocity_hessians</td><td><a class="el" href="classThe.html">The</a> velocity hessian tensor on the quadrture point </td></tr>
-    <tr><td class="paramname">non_newtonian_viscosity</td><td><a class="el" href="classThe.html">The</a> viscosity at which the gradient is calculated </td></tr>
+    <tr><td class="paramname">velocity_gradient</td><td>The velocity gradient tensor on the quadrature point </td></tr>
+    <tr><td class="paramname">velocity_hessians</td><td>The velocity hessian tensor on the quadrture point </td></tr>
+    <tr><td class="paramname">non_newtonian_viscosity</td><td>The viscosity at which the gradient is calculated </td></tr>
     <tr><td class="paramname">d_gamma_dot</td><td>Th difference in the shear rate magnitude to approximate the viscosity variation with a slight change in the shear_rate magnitude </td></tr>
   </table>
   </dd>

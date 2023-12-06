@@ -134,7 +134,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6f8122e0e1a3746c7cffd6951654c910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates precalculations if needed, then computes and removes superfluous data.  <a href="classIBParticle.html#a6f8122e0e1a3746c7cffd6951654c910">More...</a><br /></td></tr>
 <tr class="separator:a6f8122e0e1a3746c7cffd6951654c910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ea032dbbcaad3e5b10f5eebfc8efcbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIBParticle.html#a2ea032dbbcaad3e5b10f5eebfc8efcbf">load_data_from_file</a> ()</td></tr>
-<tr class="memdesc:a2ea032dbbcaad3e5b10f5eebfc8efcbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads data from the files for file-based Shapes (<a class="el" href="classRBF.html">RBF</a> at the moment)  <a href="classIBParticle.html#a2ea032dbbcaad3e5b10f5eebfc8efcbf">More...</a><br /></td></tr>
+<tr class="memdesc:a2ea032dbbcaad3e5b10f5eebfc8efcbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads data from the files for file-based Shapes (RBF at the moment)  <a href="classIBParticle.html#a2ea032dbbcaad3e5b10f5eebfc8efcbf">More...</a><br /></td></tr>
 <tr class="separator:a2ea032dbbcaad3e5b10f5eebfc8efcbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -326,8 +326,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the closest_point parameter to be the point on the surface of the shape which has the minimal distance from the given point p. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td><a class="el" href="classThe.html">The</a> point at which the evaluation is performed </td></tr>
-    <tr><td class="paramname">closest_point</td><td><a class="el" href="classThe.html">The</a> reference to the closest point. <a class="el" href="classThis.html">This</a> point will be modified by the function. </td></tr>
+    <tr><td class="paramname">p</td><td>The point at which the evaluation is performed </td></tr>
+    <tr><td class="paramname">closest_point</td><td>The reference to the closest point. This point will be modified by the function. </td></tr>
     <tr><td class="paramname">cell_guess</td><td>A guess of the cell containing the evaluation point, which is useful to reduce computation time </td></tr>
   </table>
   </dd>
@@ -403,7 +403,7 @@ template&lt;int dim&gt; </div>
 <p>Returns the evaluation of the signed distance function of this shape Most levelset functions come from Inigo Quilez: iquilezles.org/articles/distfunctions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td><a class="el" href="classThe.html">The</a> point at which the evaluation is performed </td></tr>
+    <tr><td class="paramname">p</td><td>The point at which the evaluation is performed </td></tr>
     <tr><td class="paramname">cell_guess</td><td>A guess of the cell containing the evaluation point, which is useful to reduce computation time </td></tr>
   </table>
   </dd>
@@ -555,8 +555,8 @@ template&lt;int dim&gt; </div>
 <p>Sets up a shape in accordance with the given type and file name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">type</td><td><a class="el" href="classThe.html">The</a> type of shape to be initialized: sphere, cone, ellipsoid, rectangle, death star, cut hollow sphere, torus, or rbf </td></tr>
-    <tr><td class="paramname">raw_arguments</td><td><a class="el" href="classThe.html">The</a> untreated arguments of the shape </td></tr>
+    <tr><td class="paramname">type</td><td>The type of shape to be initialized: sphere, cone, ellipsoid, rectangle, death star, cut hollow sphere, torus, or rbf </td></tr>
+    <tr><td class="paramname">raw_arguments</td><td>The untreated arguments of the shape </td></tr>
   </table>
   </dd>
 </dl>
@@ -594,8 +594,8 @@ template&lt;int dim&gt; </div>
 <p>Sets up a shape in accordance with the given type and arguments. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">type</td><td><a class="el" href="classThe.html">The</a> type of shape to be initialized: sphere, cone, ellipsoid, rectangle, death star, cut hollow sphere, torus, or rbf </td></tr>
-    <tr><td class="paramname">shape_arguments</td><td><a class="el" href="classThe.html">The</a> dimensions to be used for shape initialization </td></tr>
+    <tr><td class="paramname">type</td><td>The type of shape to be initialized: sphere, cone, ellipsoid, rectangle, death star, cut hollow sphere, torus, or rbf </td></tr>
+    <tr><td class="paramname">shape_arguments</td><td>The dimensions to be used for shape initialization </td></tr>
   </table>
   </dd>
 </dl>
@@ -694,9 +694,9 @@ template&lt;int dim&gt; </div>
 <p>Returns true if the given point is inside the crown for which the limits are defined by inner and outer radius factors. An effective radius is used for non spherical shapes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">evaluation_point</td><td><a class="el" href="classThe.html">The</a> point at which the evaluation is performed </td></tr>
-    <tr><td class="paramname">outer_radius</td><td><a class="el" href="classThe.html">The</a> factor to be multiplied by the effective radius to check if the evaluation point is inside the outer limits </td></tr>
-    <tr><td class="paramname">inside_radius</td><td><a class="el" href="classThe.html">The</a> factor to be multiplied by the effective radius to check if the evaluation point is outside the inner limits </td></tr>
+    <tr><td class="paramname">evaluation_point</td><td>The point at which the evaluation is performed </td></tr>
+    <tr><td class="paramname">outer_radius</td><td>The factor to be multiplied by the effective radius to check if the evaluation point is inside the outer limits </td></tr>
+    <tr><td class="paramname">inside_radius</td><td>The factor to be multiplied by the effective radius to check if the evaluation point is outside the inner limits </td></tr>
     <tr><td class="paramname">absolute_distance</td><td>Whether the distance is defined as absolute or relative to radius </td></tr>
     <tr><td class="paramname">cell_guess</td><td>A guess of the cell containing the evaluation point, which is useful to reduce computation time </td></tr>
   </table>
@@ -722,7 +722,7 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Loads data from the files for file-based Shapes (<a class="el" href="classRBF.html">RBF</a> at the moment) </p>
+<p>Loads data from the files for file-based Shapes (RBF at the moment) </p>
 
 </div>
 </div>
@@ -758,7 +758,7 @@ template&lt;int dim&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">updated_dof_handler</td><td>the reference to the new dof_handler </td></tr>
-    <tr><td class="paramname">mesh_based_precalculations</td><td>mesh-based precalculations that can lead to slight shape misrepresentation (if type=<a class="el" href="classRBF.html">RBF</a>) </td></tr>
+    <tr><td class="paramname">mesh_based_precalculations</td><td>mesh-based precalculations that can lead to slight shape misrepresentation (if type=RBF) </td></tr>
   </table>
   </dd>
 </dl>
@@ -822,7 +822,7 @@ template&lt;int dim&gt; </div>
 <p>Sets the orientation of the particle and dependent members to the argument. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">orientation</td><td><a class="el" href="classThe.html">The</a> new orientation to set the particle at </td></tr>
+    <tr><td class="paramname">orientation</td><td>The new orientation to set the particle at </td></tr>
   </table>
   </dd>
 </dl>
@@ -868,8 +868,8 @@ template&lt;int dim&gt; </div>
 <p>Sets the position of the particle and dependent members to the argument for one component. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">position_component</td><td><a class="el" href="classThe.html">The</a> component of the new position to set the particle at </td></tr>
-    <tr><td class="paramname">component</td><td><a class="el" href="classThe.html">The</a> component index for which the position will be updated </td></tr>
+    <tr><td class="paramname">position_component</td><td>The component of the new position to set the particle at </td></tr>
+    <tr><td class="paramname">component</td><td>The component index for which the position will be updated </td></tr>
   </table>
   </dd>
 </dl>
@@ -905,7 +905,7 @@ template&lt;int dim&gt; </div>
 <p>Sets the position of the particle and dependent members to the argument. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">position</td><td><a class="el" href="classThe.html">The</a> new position to set the particle at </td></tr>
+    <tr><td class="paramname">position</td><td>The new position to set the particle at </td></tr>
   </table>
   </dd>
 </dl>
@@ -944,7 +944,7 @@ template&lt;int dim&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">updated_dof_handler</td><td>the reference to the new dof_handler </td></tr>
-    <tr><td class="paramname">mesh_based_precalculations</td><td>mesh-based precalculations that can lead to slight shape misrepresentation (if type=<a class="el" href="classRBF.html">RBF</a>) </td></tr>
+    <tr><td class="paramname">mesh_based_precalculations</td><td>mesh-based precalculations that can lead to slight shape misrepresentation (if type=RBF) </td></tr>
   </table>
   </dd>
 </dl>
