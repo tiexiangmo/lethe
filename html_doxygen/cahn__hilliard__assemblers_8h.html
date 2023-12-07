@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -139,8 +146,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="cahn__hilliard__assemblers_8h__dep__incl.png" border="0" usemap="#a_2home_2runner_2work_2lethe_2lethe_2include_2solvers_2cahn__hilliard__assemblers_8hdep" alt=""/></div>
 <map name="a_2home_2runner_2work_2lethe_2lethe_2include_2solvers_2cahn__hilliard__assemblers_8hdep" id="a_2home_2runner_2work_2lethe_2lethe_2include_2solvers_2cahn__hilliard__assemblers_8hdep">
-<area shape="rect" title=" " alt="" coords="5,5,208,61"/>
-<area shape="rect" href="cahn__hilliard_8h.html" title=" " alt="" coords="15,109,198,165"/>
+<area shape="rect" title=" " alt="" coords="125,5,327,61"/>
+<area shape="rect" href="cahn__hilliard_8h.html" title=" " alt="" coords="135,109,317,165"/>
+<area shape="rect" href="cahn__hilliard_8cc.html" title=" " alt="" coords="5,213,188,269"/>
+<area shape="rect" href="cahn__hilliard__assemblers_8cc.html" title=" " alt="" coords="341,109,551,165"/>
+<area shape="rect" href="multiphysics__interface_8cc.html" title=" " alt="" coords="213,213,405,269"/>
 </map>
 </div>
 </div>
@@ -161,7 +171,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the boundary condition that allows a free angle of contact, thus adding a degree of freedom to the problem.  <a href="classCahnHilliardAssemblerFreeAngle.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerBDF.html">CahnHilliardAssemblerBDF&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the transient time arising from BDF time integration for the Cahn-Hilliard equations. For example, if a BDF1 scheme is chosen, the following is assembled <img class="formulaInl" alt="$\frac{\mathbf{T}^{t+\Delta t}-\mathbf{T}^{t}}{\Delta t}$" src="form_2.png"/>.  <a href="classCahnHilliardAssemblerBDF.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the transient time arising from BDF time integration for the Cahn-Hilliard equations. For example, if a BDF1 scheme is chosen, the following is assembled \(\frac{\mathbf{T}^{t+\Delta t}-\mathbf{T}^{t}}{\Delta t}\).  <a href="classCahnHilliardAssemblerBDF.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

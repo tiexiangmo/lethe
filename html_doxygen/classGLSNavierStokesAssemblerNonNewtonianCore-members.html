@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -70,8 +77,8 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html">GLSNavierStokesAssemblerNonNewtonianCore&lt; dim &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html#a0302d47519da676362ac445573f01fbf">assemble_matrix</a>(NavierStokesScratchData&lt; dim &gt; &amp;scratch_data, StabilizedMethodsTensorCopyData&lt; dim &gt; &amp;copy_data) override</td><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html">GLSNavierStokesAssemblerNonNewtonianCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html#ae894884f43e3d02317e98be5162f7ee1">assemble_rhs</a>(NavierStokesScratchData&lt; dim &gt; &amp;scratch_data, StabilizedMethodsTensorCopyData&lt; dim &gt; &amp;copy_data) override</td><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html">GLSNavierStokesAssemblerNonNewtonianCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html#ae7426c85c79f18027319548ae34fb064">assemble_matrix</a>(NavierStokesScratchData&lt; dim &gt; &amp;scratch_data, StabilizedMethodsTensorCopyData&lt; dim &gt; &amp;copy_data) override</td><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html">GLSNavierStokesAssemblerNonNewtonianCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html#a598116d07092f9b213f83fdc106dcd89">assemble_rhs</a>(NavierStokesScratchData&lt; dim &gt; &amp;scratch_data, StabilizedMethodsTensorCopyData&lt; dim &gt; &amp;copy_data) override</td><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html">GLSNavierStokesAssemblerNonNewtonianCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html#a83494c65ed286f453dc7fe2bf2e3100e">get_kinematic_viscosity_gradient</a>(const Tensor&lt; 2, dim &gt; &amp;velocity_gradient, const Tensor&lt; 3, dim &gt; &amp;velocity_hessians, const double shear_rate_magnitude, const double grad_kinematic_viscosity_shear_rate) const</td><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html">GLSNavierStokesAssemblerNonNewtonianCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html#ad7ff969306b97b1087e6c69a1597e9fd">GLSNavierStokesAssemblerNonNewtonianCore</a>(std::shared_ptr&lt; SimulationControl &gt; simulation_control)</td><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html">GLSNavierStokesAssemblerNonNewtonianCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html#a57c6f468c840f0dd5e874d64db381cdc">simulation_control</a></td><td class="entry"><a class="el" href="classGLSNavierStokesAssemblerNonNewtonianCore.html">GLSNavierStokesAssemblerNonNewtonianCore&lt; dim &gt;</a></td><td class="entry"></td></tr>

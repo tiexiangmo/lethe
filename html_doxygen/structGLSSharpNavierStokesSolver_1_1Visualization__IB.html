@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -98,12 +105,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a3d5e9cbd8ef3bb6aab9335a076ba8759"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; DataOutBase::Patch&lt; 0, dim &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGLSSharpNavierStokesSolver_1_1Visualization__IB.html#a3d5e9cbd8ef3bb6aab9335a076ba8759">get_patches</a> () const override</td></tr>
-<tr class="separator:a3d5e9cbd8ef3bb6aab9335a076ba8759"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7307da33bcc0abb00cddce5f484542a6"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGLSSharpNavierStokesSolver_1_1Visualization__IB.html#a7307da33bcc0abb00cddce5f484542a6">get_dataset_names</a> () const override</td></tr>
-<tr class="separator:a7307da33bcc0abb00cddce5f484542a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5cf10380ddd74924d03c1c14a2b5e65"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::tuple&lt; unsigned int, unsigned int, std::string, DataComponentInterpretation::DataComponentInterpretation &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGLSSharpNavierStokesSolver_1_1Visualization__IB.html#ab5cf10380ddd74924d03c1c14a2b5e65">get_nonscalar_data_ranges</a> () const override</td></tr>
-<tr class="separator:ab5cf10380ddd74924d03c1c14a2b5e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68acd2026861a9bf803a5ad149a1d97c"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; DataOutBase::Patch&lt; 0, dim &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGLSSharpNavierStokesSolver_1_1Visualization__IB.html#a68acd2026861a9bf803a5ad149a1d97c">get_patches</a> () const override</td></tr>
+<tr class="separator:a68acd2026861a9bf803a5ad149a1d97c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a176a4b8ab8bff95f5c6d790822883c4e"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGLSSharpNavierStokesSolver_1_1Visualization__IB.html#a176a4b8ab8bff95f5c6d790822883c4e">get_dataset_names</a> () const override</td></tr>
+<tr class="separator:a176a4b8ab8bff95f5c6d790822883c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc069746fae24753df8a54739a11fc02"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::tuple&lt; unsigned int, unsigned int, std::string, DataComponentInterpretation::DataComponentInterpretation &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGLSSharpNavierStokesSolver_1_1Visualization__IB.html#adc069746fae24753df8a54739a11fc02">get_nonscalar_data_ranges</a> () const override</td></tr>
+<tr class="separator:adc069746fae24753df8a54739a11fc02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -121,6 +128,8 @@ Private Attributes</h2></td></tr>
 struct GLSSharpNavierStokesSolver&lt; dim &gt;::Visualization_IB</h3>
 
 <p>Defines a struct with methods that allow the generation of a visualisation of the IB_particles. This is equivalent to the corresponding class in the <a class="el" href="namespaceDEM.html">DEM</a> solver. </p>
+
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00497">497</a> of file <a class="el" href="gls__sharp__navier__stokes_8h_source.html">gls_sharp_navier_stokes.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a86643f715ee5ebc4fb319d049119aae5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a86643f715ee5ebc4fb319d049119aae5">&#9670;&nbsp;</a></span>~Visualization_IB()</h2>
@@ -131,13 +140,12 @@ struct GLSSharpNavierStokesSolver&lt; dim &gt;::Visualization_IB</h3>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classGLSSharpNavierStokesSolver.html">GLSSharpNavierStokesSolver</a>&lt; dim &gt;::Visualization_IB::~Visualization_IB </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="classGLSSharpNavierStokesSolver.html">GLSSharpNavierStokesSolver</a>&lt; dim &gt;::Visualization_IB::~Visualization_IB</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8cc_source.html#l02572">2572</a> of file <a class="el" href="gls__sharp__navier__stokes_8cc_source.html">gls_sharp_navier_stokes.cc</a>.</p>
 
 </div>
 </div>
@@ -166,11 +174,16 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+<p>A list of field names for all data components stored in patches.</p>
+
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8cc_source.html#l02487">2487</a> of file <a class="el" href="gls__sharp__navier__stokes_8cc_source.html">gls_sharp_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00543">GLSSharpNavierStokesSolver&lt; dim &gt;::Visualization_IB::dataset_names</a>, <a class="el" href="dem__properties_8cc_source.html#l00053">DEM::get_number_properties()</a>, <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00627">GLSSharpNavierStokesSolver&lt; dim &gt;::particles</a>, <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00538">GLSSharpNavierStokesSolver&lt; dim &gt;::Visualization_IB::patches</a>, <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00560">GLSSharpNavierStokesSolver&lt; dim &gt;::Visualization_IB::properties_to_write</a>, and <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00554">GLSSharpNavierStokesSolver&lt; dim &gt;::Visualization_IB::vector_datasets</a>.</p>
 
 </div>
 </div>
-<a id="a7307da33bcc0abb00cddce5f484542a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7307da33bcc0abb00cddce5f484542a6">&#9670;&nbsp;</a></span>get_dataset_names()</h2>
+<a id="a176a4b8ab8bff95f5c6d790822883c4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a176a4b8ab8bff95f5c6d790822883c4e">&#9670;&nbsp;</a></span>get_dataset_names()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,10 +194,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt;std::string&gt; <a class="el" href="classGLSSharpNavierStokesSolver.html">GLSSharpNavierStokesSolver</a>&lt; dim &gt;::Visualization_IB::get_dataset_names </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">std::vector&lt; std::string &gt; <a class="el" href="classGLSSharpNavierStokesSolver.html">GLSSharpNavierStokesSolver</a>&lt; dim &gt;::Visualization_IB::get_dataset_names</td>
         </tr>
       </table>
   </td>
@@ -195,10 +205,12 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Implementation of the corresponding function of the base class. </p>
 
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8cc_source.html#l02554">2554</a> of file <a class="el" href="gls__sharp__navier__stokes_8cc_source.html">gls_sharp_navier_stokes.cc</a>.</p>
+
 </div>
 </div>
-<a id="ab5cf10380ddd74924d03c1c14a2b5e65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5cf10380ddd74924d03c1c14a2b5e65">&#9670;&nbsp;</a></span>get_nonscalar_data_ranges()</h2>
+<a id="adc069746fae24753df8a54739a11fc02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc069746fae24753df8a54739a11fc02">&#9670;&nbsp;</a></span>get_nonscalar_data_ranges()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,10 +221,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt; std::tuple&lt;unsigned int, unsigned int, std::string, DataComponentInterpretation::DataComponentInterpretation&gt; &gt; <a class="el" href="classGLSSharpNavierStokesSolver.html">GLSSharpNavierStokesSolver</a>&lt; dim &gt;::Visualization_IB::get_nonscalar_data_ranges </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">std::vector&lt; std::tuple&lt; unsigned int, unsigned int, std::string, DataComponentInterpretation::DataComponentInterpretation &gt; &gt; <a class="el" href="classGLSSharpNavierStokesSolver.html">GLSSharpNavierStokesSolver</a>&lt; dim &gt;::Visualization_IB::get_nonscalar_data_ranges</td>
         </tr>
       </table>
   </td>
@@ -222,10 +231,12 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8cc_source.html#l02565">2565</a> of file <a class="el" href="gls__sharp__navier__stokes_8cc_source.html">gls_sharp_navier_stokes.cc</a>.</p>
+
 </div>
 </div>
-<a id="a3d5e9cbd8ef3bb6aab9335a076ba8759"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d5e9cbd8ef3bb6aab9335a076ba8759">&#9670;&nbsp;</a></span>get_patches()</h2>
+<a id="a68acd2026861a9bf803a5ad149a1d97c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68acd2026861a9bf803a5ad149a1d97c">&#9670;&nbsp;</a></span>get_patches()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,10 +247,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const std::vector&lt;DataOutBase::Patch&lt;0, dim&gt; &gt;&amp; <a class="el" href="classGLSSharpNavierStokesSolver.html">GLSSharpNavierStokesSolver</a>&lt; dim &gt;::Visualization_IB::get_patches </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">const std::vector&lt; DataOutBase::Patch&lt; 0, dim &gt; &gt; &amp; <a class="el" href="classGLSSharpNavierStokesSolver.html">GLSSharpNavierStokesSolver</a>&lt; dim &gt;::Visualization_IB::get_patches</td>
         </tr>
       </table>
   </td>
@@ -249,6 +257,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Implementation of the corresponding function of the base class. </p>
+
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8cc_source.html#l02547">2547</a> of file <a class="el" href="gls__sharp__navier__stokes_8cc_source.html">gls_sharp_navier_stokes.cc</a>.</p>
 
 </div>
 </div>
@@ -276,6 +286,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>A list of field names for all data components stored in patches. </p>
 
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00543">543</a> of file <a class="el" href="gls__sharp__navier__stokes_8h_source.html">gls_sharp_navier_stokes.h</a>.</p>
+
 </div>
 </div>
 <a id="af801e2b54db8b3b690f9ebc5c20495c4"></a>
@@ -300,6 +312,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Output information that is filled by <a class="el" href="structGLSSharpNavierStokesSolver_1_1Visualization__IB.html#ac0d073b35c8b81eaa6ec4ad51ba6dd14">build_patches()</a> and written by the write function of the base class. </p>
+
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00538">538</a> of file <a class="el" href="gls__sharp__navier__stokes_8h_source.html">gls_sharp_navier_stokes.h</a>.</p>
 
 </div>
 </div>
@@ -326,6 +340,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Particle properties that are written in output files </p>
 
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00560">560</a> of file <a class="el" href="gls__sharp__navier__stokes_8h_source.html">gls_sharp_navier_stokes.h</a>.</p>
+
 </div>
 </div>
 <a id="a2adc3b3406801354ba67c14bc21befc4"></a>
@@ -351,10 +367,13 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Store which of the data fields are vectors. </p>
 
+<p class="definition">Definition at line <a class="el" href="gls__sharp__navier__stokes_8h_source.html#l00554">554</a> of file <a class="el" href="gls__sharp__navier__stokes_8h_source.html">gls_sharp_navier_stokes.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/fem-dem/<a class="el" href="gls__sharp__navier__stokes_8h_source.html">gls_sharp_navier_stokes.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/fem-dem/<a class="el" href="gls__sharp__navier__stokes_8cc_source.html">gls_sharp_navier_stokes.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

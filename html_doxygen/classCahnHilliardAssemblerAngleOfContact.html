@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -90,12 +97,12 @@ Inheritance diagram for CahnHilliardAssemblerAngleOfContact&lt; dim &gt;:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a94facdfb26cbd0f7c56d2bb56979aafe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerAngleOfContact.html#a94facdfb26cbd0f7c56d2bb56979aafe">CahnHilliardAssemblerAngleOfContact</a> (std::shared_ptr&lt; <a class="el" href="classSimulationControl.html">SimulationControl</a> &gt; <a class="el" href="classCahnHilliardAssemblerBase.html#a964229755d03f0276ea8e22946291179">simulation_control</a>, const <a class="el" href="classBoundaryConditions_1_1CahnHilliardBoundaryConditions.html">BoundaryConditions::CahnHilliardBoundaryConditions</a>&lt; dim &gt; &amp;p_boundary_conditions_cahn_hilliard)</td></tr>
 <tr class="separator:a94facdfb26cbd0f7c56d2bb56979aafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46c767a5c7946ddaa80f83860898765e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerAngleOfContact.html#a46c767a5c7946ddaa80f83860898765e">assemble_matrix</a> (<a class="el" href="classCahnHilliardScratchData.html">CahnHilliardScratchData</a>&lt; dim &gt; &amp;scratch_data, <a class="el" href="classStabilizedMethodsCopyData.html">StabilizedMethodsCopyData</a> &amp;copy_data) override</td></tr>
-<tr class="memdesc:a46c767a5c7946ddaa80f83860898765e"><td class="mdescLeft">&#160;</td><td class="mdescRight">assemble_matrix Assembles the matrix  <a href="classCahnHilliardAssemblerAngleOfContact.html#a46c767a5c7946ddaa80f83860898765e">More...</a><br /></td></tr>
-<tr class="separator:a46c767a5c7946ddaa80f83860898765e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a017c876529f0dc8950146026c0bb363a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerAngleOfContact.html#a017c876529f0dc8950146026c0bb363a">assemble_rhs</a> (<a class="el" href="classCahnHilliardScratchData.html">CahnHilliardScratchData</a>&lt; dim &gt; &amp;scratch_data, <a class="el" href="classStabilizedMethodsCopyData.html">StabilizedMethodsCopyData</a> &amp;copy_data) override</td></tr>
-<tr class="memdesc:a017c876529f0dc8950146026c0bb363a"><td class="mdescLeft">&#160;</td><td class="mdescRight">assemble_rhs Assembles the rhs  <a href="classCahnHilliardAssemblerAngleOfContact.html#a017c876529f0dc8950146026c0bb363a">More...</a><br /></td></tr>
-<tr class="separator:a017c876529f0dc8950146026c0bb363a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2525b14e7508e07ec38fb722bb83505"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerAngleOfContact.html#aa2525b14e7508e07ec38fb722bb83505">assemble_matrix</a> (<a class="el" href="classCahnHilliardScratchData.html">CahnHilliardScratchData</a>&lt; dim &gt; &amp;scratch_data, <a class="el" href="classStabilizedMethodsCopyData.html">StabilizedMethodsCopyData</a> &amp;copy_data) override</td></tr>
+<tr class="memdesc:aa2525b14e7508e07ec38fb722bb83505"><td class="mdescLeft">&#160;</td><td class="mdescRight">assemble_matrix Assembles the matrix  <a href="classCahnHilliardAssemblerAngleOfContact.html#aa2525b14e7508e07ec38fb722bb83505">More...</a><br /></td></tr>
+<tr class="separator:aa2525b14e7508e07ec38fb722bb83505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae76a1e48eac4f5d6110361c4c4e52095"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerAngleOfContact.html#ae76a1e48eac4f5d6110361c4c4e52095">assemble_rhs</a> (<a class="el" href="classCahnHilliardScratchData.html">CahnHilliardScratchData</a>&lt; dim &gt; &amp;scratch_data, <a class="el" href="classStabilizedMethodsCopyData.html">StabilizedMethodsCopyData</a> &amp;copy_data) override</td></tr>
+<tr class="memdesc:ae76a1e48eac4f5d6110361c4c4e52095"><td class="mdescLeft">&#160;</td><td class="mdescRight">assemble_rhs Assembles the rhs  <a href="classCahnHilliardAssemblerAngleOfContact.html#ae76a1e48eac4f5d6110361c4c4e52095">More...</a><br /></td></tr>
+<tr class="separator:ae76a1e48eac4f5d6110361c4c4e52095"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCahnHilliardAssemblerBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCahnHilliardAssemblerBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCahnHilliardAssemblerBase.html">CahnHilliardAssemblerBase&lt; dim &gt;</a></td></tr>
 <tr class="memitem:a5ba2ae1d1109b802077145012ef7b48c inherit pub_methods_classCahnHilliardAssemblerBase"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCahnHilliardAssemblerBase.html#a5ba2ae1d1109b802077145012ef7b48c">CahnHilliardAssemblerBase</a> (std::shared_ptr&lt; <a class="el" href="classSimulationControl.html">SimulationControl</a> &gt; p_simulation_control)</td></tr>
 <tr class="separator:a5ba2ae1d1109b802077145012ef7b48c inherit pub_methods_classCahnHilliardAssemblerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,6 +131,8 @@ class CahnHilliardAssemblerAngleOfContact&lt; dim &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="cahn__hilliard__assemblers_8h_source.html#l00137">137</a> of file <a class="el" href="cahn__hilliard__assemblers_8h_source.html">cahn_hilliard_assemblers.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a94facdfb26cbd0f7c56d2bb56979aafe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94facdfb26cbd0f7c56d2bb56979aafe">&#9670;&nbsp;</a></span>CahnHilliardAssemblerAngleOfContact()</h2>
@@ -161,11 +170,13 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cahn__hilliard__assemblers_8h_source.html#l00141">141</a> of file <a class="el" href="cahn__hilliard__assemblers_8h_source.html">cahn_hilliard_assemblers.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a46c767a5c7946ddaa80f83860898765e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46c767a5c7946ddaa80f83860898765e">&#9670;&nbsp;</a></span>assemble_matrix()</h2>
+<a id="aa2525b14e7508e07ec38fb722bb83505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2525b14e7508e07ec38fb722bb83505">&#9670;&nbsp;</a></span>assemble_matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +187,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classCahnHilliardAssemblerAngleOfContact.html">CahnHilliardAssemblerAngleOfContact</a>&lt; dim &gt;::assemble_matrix </td>
+          <td class="memname">void <a class="el" href="classCahnHilliardAssemblerAngleOfContact.html">CahnHilliardAssemblerAngleOfContact</a>&lt; dim &gt;::assemble_matrix </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCahnHilliardScratchData.html">CahnHilliardScratchData</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>scratch_data</em>, </td>
@@ -211,10 +222,14 @@ template&lt;int dim&gt; </div>
 
 <p>Implements <a class="el" href="classCahnHilliardAssemblerBase.html#aca44b903381d3506c8fa3832b275a336">CahnHilliardAssemblerBase&lt; dim &gt;</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="cahn__hilliard__assemblers_8cc_source.html#l00263">263</a> of file <a class="el" href="cahn__hilliard__assemblers_8cc_source.html">cahn_hilliard_assemblers.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00427">CahnHilliardScratchData&lt; dim &gt;::boundary_face_id</a>, <a class="el" href="namespaceBoundaryConditions.html#a07df76d63cde5cb5bcbea0d9c25a54b8ab1004baebeb1fd16f6bb7780e9b5d3e3">BoundaryConditions::cahn_hilliard_angle_of_contact</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00359">CahnHilliardScratchData&lt; dim &gt;::epsilon</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00419">CahnHilliardScratchData&lt; dim &gt;::face_JxW</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00432">CahnHilliardScratchData&lt; dim &gt;::face_phase_grad_values</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00430">CahnHilliardScratchData&lt; dim &gt;::grad_phi_face_phase</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00425">CahnHilliardScratchData&lt; dim &gt;::is_boundary_cell</a>, <a class="el" href="copy__data_8h_source.html#l00119">StabilizedMethodsCopyData::local_matrix</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00375">CahnHilliardScratchData&lt; dim &gt;::n_dofs</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00421">CahnHilliardScratchData&lt; dim &gt;::n_faces</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00422">CahnHilliardScratchData&lt; dim &gt;::n_faces_q_points</a>, and <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00402">CahnHilliardScratchData&lt; dim &gt;::phi_potential</a>.</p>
+
 </div>
 </div>
-<a id="a017c876529f0dc8950146026c0bb363a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a017c876529f0dc8950146026c0bb363a">&#9670;&nbsp;</a></span>assemble_rhs()</h2>
+<a id="ae76a1e48eac4f5d6110361c4c4e52095"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae76a1e48eac4f5d6110361c4c4e52095">&#9670;&nbsp;</a></span>assemble_rhs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +240,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classCahnHilliardAssemblerAngleOfContact.html">CahnHilliardAssemblerAngleOfContact</a>&lt; dim &gt;::assemble_rhs </td>
+          <td class="memname">void <a class="el" href="classCahnHilliardAssemblerAngleOfContact.html">CahnHilliardAssemblerAngleOfContact</a>&lt; dim &gt;::assemble_rhs </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCahnHilliardScratchData.html">CahnHilliardScratchData</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>scratch_data</em>, </td>
@@ -260,6 +275,10 @@ template&lt;int dim&gt; </div>
 
 <p>Implements <a class="el" href="classCahnHilliardAssemblerBase.html#afc714072cde8ecaab803956226b9289d">CahnHilliardAssemblerBase&lt; dim &gt;</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="cahn__hilliard__assemblers_8cc_source.html#l00324">324</a> of file <a class="el" href="cahn__hilliard__assemblers_8cc_source.html">cahn_hilliard_assemblers.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00427">CahnHilliardScratchData&lt; dim &gt;::boundary_face_id</a>, <a class="el" href="namespaceBoundaryConditions.html#a07df76d63cde5cb5bcbea0d9c25a54b8ab1004baebeb1fd16f6bb7780e9b5d3e3">BoundaryConditions::cahn_hilliard_angle_of_contact</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00359">CahnHilliardScratchData&lt; dim &gt;::epsilon</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00419">CahnHilliardScratchData&lt; dim &gt;::face_JxW</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00432">CahnHilliardScratchData&lt; dim &gt;::face_phase_grad_values</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00425">CahnHilliardScratchData&lt; dim &gt;::is_boundary_cell</a>, <a class="el" href="copy__data_8h_source.html#l00120">StabilizedMethodsCopyData::local_rhs</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00375">CahnHilliardScratchData&lt; dim &gt;::n_dofs</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00421">CahnHilliardScratchData&lt; dim &gt;::n_faces</a>, <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00422">CahnHilliardScratchData&lt; dim &gt;::n_faces_q_points</a>, and <a class="el" href="cahn__hilliard__scratch__data_8h_source.html#l00402">CahnHilliardScratchData&lt; dim &gt;::phi_potential</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -277,6 +296,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cahn__hilliard__assemblers_8h_source.html#l00171">171</a> of file <a class="el" href="cahn__hilliard__assemblers_8h_source.html">cahn_hilliard_assemblers.h</a>.</p>
+
 </div>
 </div>
 <a id="a371402698df5bd3e76f0d951331a2d90"></a>
@@ -293,10 +314,13 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="cahn__hilliard__assemblers_8h_source.html#l00169">169</a> of file <a class="el" href="cahn__hilliard__assemblers_8h_source.html">cahn_hilliard_assemblers.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/solvers/<a class="el" href="cahn__hilliard__assemblers_8h_source.html">cahn_hilliard_assemblers.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/solvers/<a class="el" href="cahn__hilliard__assemblers_8cc_source.html">cahn_hilliard_assemblers.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

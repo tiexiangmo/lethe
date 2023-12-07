@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -108,6 +115,8 @@ Public Attributes</h2></td></tr>
 class StabilizedMethodsTensorCopyData&lt; dim &gt;</h3>
 
 <p>Class responsible for storing the information calculated using the assembly of stabilized Tensor&lt;1,dim&gt; equations. Like the <a class="el" href="classCopyData.html" title="Class responsible for storing the information calculated using the assembly of regular (meaning non-s...">CopyData</a> class, this class is used to initialize, zero (reset) and store the cell_matrix and the cell_rhs. Contrary to the regular <a class="el" href="classCopyData.html" title="Class responsible for storing the information calculated using the assembly of regular (meaning non-s...">CopyData</a> class, this class also stores the strong_residual and the strong_jacobian of the equation being assembled. This is useful for equations that implement residual-based stabilization such as SUPG. This class is specialized for Tensor&lt;1,dim&gt; equations because the strong jacobian is stored using a Tensor&lt;1,dim&gt; </p>
+
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00144">144</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5f1050cb1eb751d2b5000b1032e5b577"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f1050cb1eb751d2b5000b1032e5b577">&#9670;&nbsp;</a></span>StabilizedMethodsTensorCopyData()</h2>
@@ -154,6 +163,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00156">156</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -184,6 +195,8 @@ template&lt;int dim&gt; </div>
 
 <p>Resets the cell_matrix, cell_rhs, strong_residual and strong_jacobian to zero. </p>
 
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00169">169</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -201,6 +214,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00194">194</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a792b8ffe59def9adf90e3aca7b4b55aa"></a>
@@ -216,6 +231,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00193">193</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
 
 </div>
 </div>
@@ -233,6 +250,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00185">185</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a153703d2fac45c897f515afe21bb4e8b"></a>
@@ -248,6 +267,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00183">183</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
 
 </div>
 </div>
@@ -265,6 +286,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00184">184</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
+
 </div>
 </div>
 <a id="af24c3fb2e5c1de2ba6d53355aeba646a"></a>
@@ -281,6 +304,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00187">187</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
+
 </div>
 </div>
 <a id="aea8bef63eb86faec6537c26700557121"></a>
@@ -296,6 +321,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="copy__data_8h_source.html#l00186">186</a> of file <a class="el" href="copy__data_8h_source.html">copy_data.h</a>.</p>
 
 </div>
 </div>

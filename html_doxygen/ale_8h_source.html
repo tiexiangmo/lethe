@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -95,7 +102,13 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;deal.II/lac/vector.h&gt;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span>dealii;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span>dealii;<span class="comment"></span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> * The ALE class provides an interface for all common</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> * element required for the introduction of the required terms for a moving</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> *referential in the governing equations.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> **/</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespaceParameters.html">   32</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceParameters.html">Parameters</a></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
@@ -162,12 +175,12 @@ $(function() {
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassParameters_1_1ALE_html"><div class="ttname"><a href="classParameters_1_1ALE.html">Parameters::ALE</a></div><div class="ttdef"><b>Definition:</b> ale.h:36</div></div>
-<div class="ttc" id="aclassParameters_1_1ALE_html_a2e865c516276b818c8d038a91402e780"><div class="ttname"><a href="classParameters_1_1ALE.html#a2e865c516276b818c8d038a91402e780">Parameters::ALE::enable</a></div><div class="ttdeci">bool enable</div><div class="ttdef"><b>Definition:</b> ale.h:59</div></div>
-<div class="ttc" id="aclassParameters_1_1ALE_html_a80b415d5841494c1d8dc7f8ddd0c76d3"><div class="ttname"><a href="classParameters_1_1ALE.html#a80b415d5841494c1d8dc7f8ddd0c76d3">Parameters::ALE::enabled</a></div><div class="ttdeci">bool enabled() const</div><div class="ttdef"><b>Definition:</b> ale.h:53</div></div>
-<div class="ttc" id="aclassParameters_1_1ALE_html_ac897c6b998651c85ea66c0d4686ffe02"><div class="ttname"><a href="classParameters_1_1ALE.html#ac897c6b998651c85ea66c0d4686ffe02">Parameters::ALE::velocity</a></div><div class="ttdeci">std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt; velocity</div><div class="ttdef"><b>Definition:</b> ale.h:50</div></div>
-<div class="ttc" id="aclassParameters_1_1ALE_html_ade026e2db1b08812368525649a02fa60"><div class="ttname"><a href="classParameters_1_1ALE.html#ade026e2db1b08812368525649a02fa60">Parameters::ALE::ALE</a></div><div class="ttdeci">ALE()</div><div class="ttdef"><b>Definition:</b> ale.h:38</div></div>
-<div class="ttc" id="anamespaceParameters_html"><div class="ttname"><a href="namespaceParameters.html">Parameters</a></div><div class="ttdef"><b>Definition:</b> ale.h:33</div></div>
+<div class="ttc" id="aclassParameters_1_1ALE_html"><div class="ttname"><a href="classParameters_1_1ALE.html">Parameters::ALE</a></div><div class="ttdef"><b>Definition:</b> <a href="ale_8h_source.html#l00035">ale.h:36</a></div></div>
+<div class="ttc" id="aclassParameters_1_1ALE_html_a2e865c516276b818c8d038a91402e780"><div class="ttname"><a href="classParameters_1_1ALE.html#a2e865c516276b818c8d038a91402e780">Parameters::ALE::enable</a></div><div class="ttdeci">bool enable</div><div class="ttdef"><b>Definition:</b> <a href="ale_8h_source.html#l00059">ale.h:59</a></div></div>
+<div class="ttc" id="aclassParameters_1_1ALE_html_a80b415d5841494c1d8dc7f8ddd0c76d3"><div class="ttname"><a href="classParameters_1_1ALE.html#a80b415d5841494c1d8dc7f8ddd0c76d3">Parameters::ALE::enabled</a></div><div class="ttdeci">bool enabled() const</div><div class="ttdef"><b>Definition:</b> <a href="ale_8h_source.html#l00053">ale.h:53</a></div></div>
+<div class="ttc" id="aclassParameters_1_1ALE_html_ac897c6b998651c85ea66c0d4686ffe02"><div class="ttname"><a href="classParameters_1_1ALE.html#ac897c6b998651c85ea66c0d4686ffe02">Parameters::ALE::velocity</a></div><div class="ttdeci">std::shared_ptr&lt; Functions::ParsedFunction&lt; dim &gt; &gt; velocity</div><div class="ttdef"><b>Definition:</b> <a href="ale_8h_source.html#l00050">ale.h:50</a></div></div>
+<div class="ttc" id="aclassParameters_1_1ALE_html_ade026e2db1b08812368525649a02fa60"><div class="ttname"><a href="classParameters_1_1ALE.html#ade026e2db1b08812368525649a02fa60">Parameters::ALE::ALE</a></div><div class="ttdeci">ALE()</div><div class="ttdef"><b>Definition:</b> <a href="ale_8h_source.html#l00038">ale.h:38</a></div></div>
+<div class="ttc" id="anamespaceParameters_html"><div class="ttname"><a href="namespaceParameters.html">Parameters</a></div><div class="ttdef"><b>Definition:</b> <a href="ale_8h_source.html#l00032">ale.h:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

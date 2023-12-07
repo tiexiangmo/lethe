@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -141,12 +148,14 @@ Protected Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classSurfaceTensionModel"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classSurfaceTensionModel')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classSurfaceTensionModel.html">SurfaceTensionModel</a></td></tr>
-<tr class="memitem:a5774ba322dca701782c47d116d56e755 inherit pub_static_methods_classSurfaceTensionModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classSurfaceTensionModel.html">SurfaceTensionModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSurfaceTensionModel.html#a5774ba322dca701782c47d116d56e755">model_cast</a> (const <a class="el" href="classParameters_1_1MaterialInteractions.html">Parameters::MaterialInteractions</a> &amp;material_interaction_parameters)</td></tr>
-<tr class="memdesc:a5774ba322dca701782c47d116d56e755 inherit pub_static_methods_classSurfaceTensionModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classSurfaceTensionModel.html" title="Abstract class that allows to calculate the surface tension coefficient.">SurfaceTensionModel</a> object by casting it to the proper child class.  <a href="classSurfaceTensionModel.html#a5774ba322dca701782c47d116d56e755">More...</a><br /></td></tr>
-<tr class="separator:a5774ba322dca701782c47d116d56e755 inherit pub_static_methods_classSurfaceTensionModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13db76b578d57071867904b85163e158 inherit pub_static_methods_classSurfaceTensionModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classSurfaceTensionModel.html">SurfaceTensionModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSurfaceTensionModel.html#a13db76b578d57071867904b85163e158">model_cast</a> (const <a class="el" href="classParameters_1_1MaterialInteractions.html">Parameters::MaterialInteractions</a> &amp;material_interaction_parameters)</td></tr>
+<tr class="memdesc:a13db76b578d57071867904b85163e158 inherit pub_static_methods_classSurfaceTensionModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classSurfaceTensionModel.html" title="Abstract class that allows to calculate the surface tension coefficient.">SurfaceTensionModel</a> object by casting it to the proper child class.  <a href="classSurfaceTensionModel.html#a13db76b578d57071867904b85163e158">More...</a><br /></td></tr>
+<tr class="separator:a13db76b578d57071867904b85163e158 inherit pub_static_methods_classSurfaceTensionModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Linear surface tension. The surface tension is given by: sigma_0 + dsimga/dT * (T-T_0). </p>
+
+<p class="definition">Definition at line <a class="el" href="surface__tension__model_8h_source.html#l00144">144</a> of file <a class="el" href="surface__tension__model_8h_source.html">surface_tension_model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa59e6a4a85fddbc1cabe3705caf80ea0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa59e6a4a85fddbc1cabe3705caf80ea0">&#9670;&nbsp;</a></span>SurfaceTensionLinear()</h2>
@@ -179,6 +188,10 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="surface__tension__model_8h_source.html#l00153">153</a> of file <a class="el" href="surface__tension__model_8h_source.html">surface_tension_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="interface__property__model_8h_source.html#l00168">InterfacePropertyModel::model_depends_on</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -231,6 +244,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classSurfaceTensionPhaseChange.html#a64401135c011c8657fc4bdfe1f173a6d">SurfaceTensionPhaseChange</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="surface__tension__model_8h_source.html#l00206">206</a> of file <a class="el" href="surface__tension__model_8h_source.html">surface_tension_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="surface__tension__model_8h_source.html#l00241">surface_tension_gradient</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <a id="a395b6cd9cc19d961a68faeba824072ba"></a>
@@ -269,6 +286,10 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classInterfacePropertyModel.html#aa62a1d4d9fe1ab5ccc430fb78310bfaa">InterfacePropertyModel</a>.</p>
 
 <p>Reimplemented in <a class="el" href="classSurfaceTensionPhaseChange.html#acb3cf7ebd2b24d9d01da6149a1644978">SurfaceTensionPhaseChange</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="surface__tension__model_8h_source.html#l00171">171</a> of file <a class="el" href="surface__tension__model_8h_source.html">surface_tension_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="surface__tension__model_8h_source.html#l00239">surface_tension_coefficient</a>, <a class="el" href="surface__tension__model_8h_source.html#l00241">surface_tension_gradient</a>, <a class="el" href="surface__tension__model_8h_source.html#l00240">T_0</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -326,6 +347,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classSurfaceTensionPhaseChange.html#a662b31c5a644c851d7d4709f40988c1d">SurfaceTensionPhaseChange</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="surface__tension__model_8h_source.html#l00225">225</a> of file <a class="el" href="surface__tension__model_8h_source.html">surface_tension_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="surface__tension__model_8h_source.html#l00241">surface_tension_gradient</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <a id="ac89a9c994e5688845a360a07e81cf49f"></a>
@@ -375,6 +400,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classSurfaceTensionPhaseChange.html#ae824f31ba2ac4c2eb0a8e5b32b95b41b">SurfaceTensionPhaseChange</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="surface__tension__model_8h_source.html#l00185">185</a> of file <a class="el" href="surface__tension__model_8h_source.html">surface_tension_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="surface__tension__model_8h_source.html#l00239">surface_tension_coefficient</a>, <a class="el" href="surface__tension__model_8h_source.html#l00241">surface_tension_gradient</a>, <a class="el" href="surface__tension__model_8h_source.html#l00240">T_0</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -398,6 +427,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="surface__tension__model_8h_source.html#l00239">239</a> of file <a class="el" href="surface__tension__model_8h_source.html">surface_tension_model.h</a>.</p>
+
 </div>
 </div>
 <a id="a9bd646f8055a9620e1451377ed203d83"></a>
@@ -420,6 +451,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="surface__tension__model_8h_source.html#l00241">241</a> of file <a class="el" href="surface__tension__model_8h_source.html">surface_tension_model.h</a>.</p>
+
 </div>
 </div>
 <a id="abf3a8dbf56e508519de69c78c255fcf6"></a>
@@ -441,6 +474,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="surface__tension__model_8h_source.html#l00240">240</a> of file <a class="el" href="surface__tension__model_8h_source.html">surface_tension_model.h</a>.</p>
 
 </div>
 </div>

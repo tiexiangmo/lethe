@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -72,7 +79,7 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classLagrangianPostProcessing.html#a13aefd2b18a8e50971ac21559eb6489c">calculate_average_granular_temperature</a>(const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler)</td><td class="entry"><a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="classLagrangianPostProcessing.html#ab67a62590f5e39cd4e959bbfeda98593">calculate_average_particles_velocity</a>(const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler)</td><td class="entry"><a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classLagrangianPostProcessing.html#a89cccd6c9ea93e09b42195c8483039e3">calculate_cell_average_particles_velocity</a>(const typename parallel::distributed::Triangulation&lt; dim &gt;::cell_iterator &amp;cell, const Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler)</td><td class="entry"><a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classLagrangianPostProcessing.html#af129358bfa24ba9d1eb0a10477642e38">calculate_cell_average_particles_velocity</a>(const typename parallel::distributed::Triangulation&lt; dim &gt;::cell_iterator &amp;cell, const Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler)</td><td class="entry"><a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="classLagrangianPostProcessing.html#a98447c343014d8b2c17967e5b2c016b1">granular_temperature_average</a></td><td class="entry"><a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classLagrangianPostProcessing.html#a9c640dd28a1abaccb55ef150bf1027fd">LagrangianPostProcessing</a>()</td><td class="entry"><a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing&lt; dim &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classLagrangianPostProcessing.html#a5d22622cd7cc319ee7873fc8fe146711">velocity_average_magnitude</a></td><td class="entry"><a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>

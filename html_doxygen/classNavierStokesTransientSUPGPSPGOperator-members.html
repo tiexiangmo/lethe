@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -89,11 +96,11 @@ $(function() {
   <tr class="even"><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#a5787f55423a1a18db5aa6f602a20e86e">fe_degree</a></td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classNavierStokesTransientSUPGPSPGOperator.html#a66fd4ec955acc823615ed6edf3d996fc">FECellIntegrator</a> typedef</td><td class="entry"><a class="el" href="classNavierStokesTransientSUPGPSPGOperator.html">NavierStokesTransientSUPGPSPGOperator&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#ad2191b8b07616d001aa47ce2cc347fef">forcing_function</a></td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#a34bbf83d41ee695b8f873a5f2e871262">get_element_size</a>() const</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#a4c56ef9e8bbcdf5ba05e99bd4c73821d">get_refinement_edges</a>(const MatrixFree&lt; dim, number &gt; &amp;matrix_free)</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#af7014b33ca2ef26dd14aed7bad344a85">get_system_matrix</a>() const</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#ab183d304d4745699a690a2a48e43dc80">get_system_matrix_free</a>() const</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#a8853f277d9cabb52bf05a5d6f2e91b5b">get_vector_partitioner</a>() const</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#ac86e210b0a99d6dd6efe8d9b897be7e2">get_element_size</a>() const</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#ab146a285fab246e305d67dc039f59d8c">get_refinement_edges</a>(const MatrixFree&lt; dim, number &gt; &amp;matrix_free)</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#af8897d3ddc186e91096ca3e3f9f893dd">get_system_matrix</a>() const</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#ad2988887b018d153e04d4395d126993d">get_system_matrix_free</a>() const</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#a57edb76799387ee1cdfc116d816a9dc8">get_vector_partitioner</a>() const</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#a2855c16f9456cdfa7a847cddd2574e2c">has_edge_constrained_indices</a></td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#ac8897ffe280ad2d9c7fc0193191e1219">initialize_dof_vector</a>(VectorType &amp;vec) const</td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html#aaa39b709f4adbfc517d5d57337d8fc48">kinematic_viscosity</a></td><td class="entry"><a class="el" href="classNavierStokesOperatorBase.html">NavierStokesOperatorBase&lt; dim, number &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>

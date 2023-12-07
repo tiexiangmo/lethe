@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -131,15 +138,17 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classSpecificHeatModel"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classSpecificHeatModel')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classSpecificHeatModel.html">SpecificHeatModel</a></td></tr>
-<tr class="memitem:ae285282ef7c125c39998c42e19d3a0be inherit pub_static_methods_classSpecificHeatModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classSpecificHeatModel.html">SpecificHeatModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpecificHeatModel.html#ae285282ef7c125c39998c42e19d3a0be">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
-<tr class="memdesc:ae285282ef7c125c39998c42e19d3a0be inherit pub_static_methods_classSpecificHeatModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classSpecificHeatModel.html" title="Abstract class that allows to calculate the specific heat on each quadrature point using the temperat...">SpecificHeatModel</a> object by casting it to the proper child class.  <a href="classSpecificHeatModel.html#ae285282ef7c125c39998c42e19d3a0be">More...</a><br /></td></tr>
-<tr class="separator:ae285282ef7c125c39998c42e19d3a0be inherit pub_static_methods_classSpecificHeatModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac17fb0fd329a03eaf11fbfeec367c72d inherit pub_static_methods_classSpecificHeatModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classSpecificHeatModel.html">SpecificHeatModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpecificHeatModel.html#ac17fb0fd329a03eaf11fbfeec367c72d">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
+<tr class="memdesc:ac17fb0fd329a03eaf11fbfeec367c72d inherit pub_static_methods_classSpecificHeatModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classSpecificHeatModel.html" title="Abstract class that allows to calculate the specific heat on each quadrature point using the temperat...">SpecificHeatModel</a> object by casting it to the proper child class.  <a href="classSpecificHeatModel.html#ac17fb0fd329a03eaf11fbfeec367c72d">More...</a><br /></td></tr>
+<tr class="separator:ac17fb0fd329a03eaf11fbfeec367c72d inherit pub_static_methods_classSpecificHeatModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classPhysicalPropertyModel"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classPhysicalPropertyModel')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td></tr>
 <tr class="memitem:ad805b20920189b0c308b0a4730217b81 inherit pro_attribs_classPhysicalPropertyModel"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicalPropertyModel.html#ad805b20920189b0c308b0a4730217b81">model_depends_on</a></td></tr>
 <tr class="separator:ad805b20920189b0c308b0a4730217b81 inherit pro_attribs_classPhysicalPropertyModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This model takes into account the phase change of a material by considering the latent heat into the specific heat over a phase change interval determined by [T_solidus,T_liquidus]. </p>
+
+<p class="definition">Definition at line <a class="el" href="specific__heat__model_8h_source.html#l00123">123</a> of file <a class="el" href="specific__heat__model_8h_source.html">specific_heat_model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a877c3a9fc362aba7f3d29ba9b0f53f8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a877c3a9fc362aba7f3d29ba9b0f53f8d">&#9670;&nbsp;</a></span>PhaseChangeSpecificHeat()</h2>
@@ -166,6 +175,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="specific__heat__model_8h_source.html#l00129">129</a> of file <a class="el" href="specific__heat__model_8h_source.html">specific_heat_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00036">previous_temperature</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -211,6 +224,10 @@ Pure solid</h2>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Value of the enthalpy </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="specific__heat__model_8h_source.html#l00255">255</a> of file <a class="el" href="specific__heat__model_8h_source.html">specific_heat_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="phase__change_8h_source.html#l00033">calculate_liquid_fraction()</a>.</p>
 
 </div>
 </div>
@@ -260,6 +277,10 @@ Pure solid</h2>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a3fc51243a48832ed3c6e3b4ee797c6b2">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="specific__heat__model_8h_source.html#l00210">210</a> of file <a class="el" href="specific__heat__model_8h_source.html">specific_heat_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <a id="a32d1906b856eb83a9668e3fe2f549ba6"></a>
@@ -297,6 +318,10 @@ Pure solid</h2>
  </dd></dl>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a23d2b90f4f05ee9de4be96f6f9989a37">PhysicalPropertyModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="specific__heat__model_8h_source.html#l00142">142</a> of file <a class="el" href="specific__heat__model_8h_source.html">specific_heat_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00036">previous_temperature</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -352,6 +377,8 @@ Pure solid</h2>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#ae71d2dd28b12d69622987bced8c0c661">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="specific__heat__model_8h_source.html#l00225">225</a> of file <a class="el" href="specific__heat__model_8h_source.html">specific_heat_model.h</a>.</p>
+
 </div>
 </div>
 <a id="a214b7fb4283e170664e89ab3a2ca0f50"></a>
@@ -399,6 +426,10 @@ Pure solid</h2>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a93dd785206d0e4e6659ca03f7f10ddec">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="specific__heat__model_8h_source.html#l00166">166</a> of file <a class="el" href="specific__heat__model_8h_source.html">specific_heat_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00036">previous_temperature</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -422,6 +453,8 @@ Pure solid</h2>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="specific__heat__model_8h_source.html#l00275">275</a> of file <a class="el" href="specific__heat__model_8h_source.html">specific_heat_model.h</a>.</p>
+
 </div>
 </div>
 <a id="af4adf0decddd57a13cbeb22810812f8a"></a>
@@ -443,6 +476,8 @@ Pure solid</h2>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="specific__heat__model_8h_source.html#l00274">274</a> of file <a class="el" href="specific__heat__model_8h_source.html">specific_heat_model.h</a>.</p>
 
 </div>
 </div>

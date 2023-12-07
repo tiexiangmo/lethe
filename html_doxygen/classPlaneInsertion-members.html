@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -80,7 +87,7 @@ $(function() {
   <tr><td class="entry"><a class="el" href="classInsertion.html#aa37df9385edf189426ce85ac0bde61f8">distributions_objects</a></td><td class="entry"><a class="el" href="classInsertion.html">Insertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classPlaneInsertion.html#a34f3c20ea9c101dd23ff233f23e36bca">find_centers_of_inplane_cells</a>()</td><td class="entry"><a class="el" href="classPlaneInsertion.html">PlaneInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="classPlaneInsertion.html#ad8389381870749888719c7ab3af81b09">find_inplane_cells</a>(const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, Point&lt; 3 &gt; plane_point, Tensor&lt; 1, 3 &gt; plane_normal_vector)</td><td class="entry"><a class="el" href="classPlaneInsertion.html">PlaneInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classPlaneInsertion.html#a2448312e600f58d4c4d794c305622ea4">insert</a>(Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters) override</td><td class="entry"><a class="el" href="classPlaneInsertion.html">PlaneInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classPlaneInsertion.html#a067fc5c7b2a370a70610eae3b15de722">insert</a>(Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters) override</td><td class="entry"><a class="el" href="classPlaneInsertion.html">PlaneInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classInsertion.html#af2c570045018de7fc91c0fb63ba084b1">inserted_this_step</a></td><td class="entry"><a class="el" href="classInsertion.html">Insertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classInsertion.html#ad0a52bf0b712bcf669b0948737e13cd3">inserted_this_step_this_proc</a></td><td class="entry"><a class="el" href="classInsertion.html">Insertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classInsertion.html#aa6720a7d2e690697207ae122d69f7320">Insertion</a>(const std::vector&lt; std::shared_ptr&lt; Distribution &gt;&gt; &amp;distribution_object_container)</td><td class="entry"><a class="el" href="classInsertion.html">Insertion&lt; dim &gt;</a></td><td class="entry"></td></tr>

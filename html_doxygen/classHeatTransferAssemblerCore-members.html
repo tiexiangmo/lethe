@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -70,8 +77,8 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classHeatTransferAssemblerCore.html">HeatTransferAssemblerCore&lt; dim &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html#a5890f2f0afeab41ffe612d42f266e082">assemble_matrix</a>(HeatTransferScratchData&lt; dim &gt; &amp;scratch_data, StabilizedMethodsCopyData &amp;copy_data) override</td><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html">HeatTransferAssemblerCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html#acb32e8065c0c6a2dddb931d2452ee3f5">assemble_rhs</a>(HeatTransferScratchData&lt; dim &gt; &amp;scratch_data, StabilizedMethodsCopyData &amp;copy_data) override</td><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html">HeatTransferAssemblerCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html#af9d5881a9cffb3939bb3e248a6ea0e51">assemble_matrix</a>(HeatTransferScratchData&lt; dim &gt; &amp;scratch_data, StabilizedMethodsCopyData &amp;copy_data) override</td><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html">HeatTransferAssemblerCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html#ab21d9e6d62d8b4198921e6231ae215ca">assemble_rhs</a>(HeatTransferScratchData&lt; dim &gt; &amp;scratch_data, StabilizedMethodsCopyData &amp;copy_data) override</td><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html">HeatTransferAssemblerCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classHeatTransferAssemblerBase.html#ae9e2da98a83917e10bf8d7432daeb0fd">HeatTransferAssemblerBase</a>(std::shared_ptr&lt; SimulationControl &gt; p_simulation_control)</td><td class="entry"><a class="el" href="classHeatTransferAssemblerBase.html">HeatTransferAssemblerBase&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html#a75704c3f39bb82bc8c4d6e54c8ac8abe">HeatTransferAssemblerCore</a>(std::shared_ptr&lt; SimulationControl &gt; simulation_control)</td><td class="entry"><a class="el" href="classHeatTransferAssemblerCore.html">HeatTransferAssemblerCore&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classHeatTransferAssemblerBase.html#a45b9b1596df94830638abaebd296d719">simulation_control</a></td><td class="entry"><a class="el" href="classHeatTransferAssemblerBase.html">HeatTransferAssemblerBase&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>

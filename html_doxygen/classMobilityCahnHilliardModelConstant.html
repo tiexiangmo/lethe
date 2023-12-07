@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -134,15 +141,17 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classMobilityCahnHilliardModel"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classMobilityCahnHilliardModel')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classMobilityCahnHilliardModel.html">MobilityCahnHilliardModel</a></td></tr>
-<tr class="memitem:a35df44bc4b732055e874e1245b6127d9 inherit pub_static_methods_classMobilityCahnHilliardModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classMobilityCahnHilliardModel.html">MobilityCahnHilliardModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMobilityCahnHilliardModel.html#a35df44bc4b732055e874e1245b6127d9">model_cast</a> (const <a class="el" href="classParameters_1_1MaterialInteractions.html">Parameters::MaterialInteractions</a> &amp;material_interaction_parameters)</td></tr>
-<tr class="memdesc:a35df44bc4b732055e874e1245b6127d9 inherit pub_static_methods_classMobilityCahnHilliardModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classMobilityCahnHilliardModel.html" title="Abstract class that allows to calculate the mobility for the Cahn-Hilliard-Navier-Stokes equations.">MobilityCahnHilliardModel</a> object by casting it to the proper child class.  <a href="classMobilityCahnHilliardModel.html#a35df44bc4b732055e874e1245b6127d9">More...</a><br /></td></tr>
-<tr class="separator:a35df44bc4b732055e874e1245b6127d9 inherit pub_static_methods_classMobilityCahnHilliardModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a713a42a537b676607a2b5158414d2ec9 inherit pub_static_methods_classMobilityCahnHilliardModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classMobilityCahnHilliardModel.html">MobilityCahnHilliardModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMobilityCahnHilliardModel.html#a713a42a537b676607a2b5158414d2ec9">model_cast</a> (const <a class="el" href="classParameters_1_1MaterialInteractions.html">Parameters::MaterialInteractions</a> &amp;material_interaction_parameters)</td></tr>
+<tr class="memdesc:a713a42a537b676607a2b5158414d2ec9 inherit pub_static_methods_classMobilityCahnHilliardModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classMobilityCahnHilliardModel.html" title="Abstract class that allows to calculate the mobility for the Cahn-Hilliard-Navier-Stokes equations.">MobilityCahnHilliardModel</a> object by casting it to the proper child class.  <a href="classMobilityCahnHilliardModel.html#a713a42a537b676607a2b5158414d2ec9">More...</a><br /></td></tr>
+<tr class="separator:a713a42a537b676607a2b5158414d2ec9 inherit pub_static_methods_classMobilityCahnHilliardModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classInterfacePropertyModel"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classInterfacePropertyModel')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classInterfacePropertyModel.html">InterfacePropertyModel</a></td></tr>
 <tr class="memitem:ae5c76554a4701ba2a5b401f3ae57d559 inherit pro_attribs_classInterfacePropertyModel"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInterfacePropertyModel.html#ae5c76554a4701ba2a5b401f3ae57d559">model_depends_on</a></td></tr>
 <tr class="separator:ae5c76554a4701ba2a5b401f3ae57d559 inherit pro_attribs_classInterfacePropertyModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Constant mobility_cahn_hilliard_constant. </p>
+
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00064">64</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1c62f5726a5504455e9e452d959e4d2a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c62f5726a5504455e9e452d959e4d2a">&#9670;&nbsp;</a></span>MobilityCahnHilliardModelConstant()</h2>
@@ -169,6 +178,8 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00070">70</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
 
 </div>
 </div>
@@ -201,6 +212,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classMobilityCahnHilliardModel.html#a30e5353a6de60ca650b0c40b0a0eeba5">MobilityCahnHilliardModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00090">90</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00152">mobility_cahn_hilliard_constant</a>.</p>
+
 </div>
 </div>
 <a id="a043ddba923ef28dc30517c7d353fb2c6"></a>
@@ -230,6 +245,10 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>returns a MobilityModel object </dd></dl>
 
 <p>Implements <a class="el" href="classMobilityCahnHilliardModel.html#a14241f20bb8a1976a360b05649d66ff3">MobilityCahnHilliardModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00080">80</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00153">model</a>.</p>
 
 </div>
 </div>
@@ -279,6 +298,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classInterfacePropertyModel.html#a70d1f3386f5459fe0c3b4fa94c20feb2">InterfacePropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00129">129</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
+
 </div>
 </div>
 <a id="abd1610a279246e9a86473021a28be85a"></a>
@@ -315,6 +336,10 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>value of the physical property calculated with the fields_value </dd></dl>
 
 <p>Implements <a class="el" href="classInterfacePropertyModel.html#aa62a1d4d9fe1ab5ccc430fb78310bfaa">InterfacePropertyModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00101">101</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00152">mobility_cahn_hilliard_constant</a>.</p>
 
 </div>
 </div>
@@ -370,6 +395,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classInterfacePropertyModel.html#afca4b3825ab872da0eb897febf023cf2">InterfacePropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00143">143</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
+
 </div>
 </div>
 <a id="a72eb5c9862260f3a318135ca79556818"></a>
@@ -417,6 +444,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classInterfacePropertyModel.html#a93e12f8468e56f0de7425609188aac6d">InterfacePropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00112">112</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00152">mobility_cahn_hilliard_constant</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -440,6 +471,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00152">152</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
+
 </div>
 </div>
 <a id="ae10c2be2f1d173891c1edb113a63db39"></a>
@@ -461,6 +494,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mobility__cahn__hilliard__model_8h_source.html#l00153">153</a> of file <a class="el" href="mobility__cahn__hilliard__model_8h_source.html">mobility_cahn_hilliard_model.h</a>.</p>
 
 </div>
 </div>

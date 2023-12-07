@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -84,13 +91,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af7e8440d45cd2862f027d3337c738057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1Lagrangian_1_1LagrangianPostProcessing.html#af7e8440d45cd2862f027d3337c738057">parse_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:af7e8440d45cd2862f027d3337c738057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a055ece1e46238943c1e542eccf14cc33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1Lagrangian_1_1LagrangianPostProcessing.html#a055ece1e46238943c1e542eccf14cc33">parse_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:a055ece1e46238943c1e542eccf14cc33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1382c8e3799673a5c4860c8c72ee3e48"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1Lagrangian_1_1LagrangianPostProcessing.html#a1382c8e3799673a5c4860c8c72ee3e48">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:a1382c8e3799673a5c4860c8c72ee3e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd5488a774b26ac506c343e1aa13332b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1Lagrangian_1_1LagrangianPostProcessing.html#afd5488a774b26ac506c343e1aa13332b">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:afd5488a774b26ac506c343e1aa13332b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -99,9 +106,11 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespaceParameters_1_1Lagrangian.html">Lagrangian</a> Postprocessing - Defines the parameters for the <a class="el" href="namespaceParameters_1_1Lagrangian.html">Lagrangian</a> post-processing. </p>
+
+<p class="definition">Definition at line <a class="el" href="parameters__lagrangian_8h_source.html#l00440">440</a> of file <a class="el" href="parameters__lagrangian_8h_source.html">parameters_lagrangian.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1382c8e3799673a5c4860c8c72ee3e48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1382c8e3799673a5c4860c8c72ee3e48">&#9670;&nbsp;</a></span>declare_parameters()</h2>
+<a id="afd5488a774b26ac506c343e1aa13332b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd5488a774b26ac506c343e1aa13332b">&#9670;&nbsp;</a></span>declare_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -110,7 +119,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Parameters::Lagrangian::LagrangianPostProcessing::declare_parameters </td>
+          <td class="memname">void <a class="el" href="structParameters_1_1Lagrangian_1_1LagrangianPostProcessing.html">LagrangianPostProcessing</a>&lt; dim &gt;::declare_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -124,16 +133,18 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters__lagrangian_8cc_source.html#l01334">1334</a> of file <a class="el" href="parameters__lagrangian_8cc_source.html">parameters_lagrangian.cc</a>.</p>
+
 </div>
 </div>
-<a id="af7e8440d45cd2862f027d3337c738057"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7e8440d45cd2862f027d3337c738057">&#9670;&nbsp;</a></span>parse_parameters()</h2>
+<a id="a055ece1e46238943c1e542eccf14cc33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a055ece1e46238943c1e542eccf14cc33">&#9670;&nbsp;</a></span>parse_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Parameters::Lagrangian::LagrangianPostProcessing::parse_parameters </td>
+          <td class="memname">void <a class="el" href="structParameters_1_1Lagrangian_1_1LagrangianPostProcessing.html">LagrangianPostProcessing</a>&lt; dim &gt;::parse_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -141,6 +152,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters__lagrangian_8cc_source.html#l01348">1348</a> of file <a class="el" href="parameters__lagrangian_8cc_source.html">parameters_lagrangian.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters__lagrangian_8h_source.html#l00443">Lagrangian_post_processing</a>.</p>
 
 </div>
 </div>
@@ -157,10 +172,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters__lagrangian_8h_source.html#l00443">443</a> of file <a class="el" href="parameters__lagrangian_8h_source.html">parameters_lagrangian.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="parameters__lagrangian_8h_source.html">parameters_lagrangian.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="parameters__lagrangian_8cc_source.html">parameters_lagrangian.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

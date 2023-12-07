@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -83,10 +90,10 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aca6eea7e4b34a56a65c4035f8cfbcefb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#aca6eea7e4b34a56a65c4035f8cfbcefb">AnalyticalSolution</a> ()</td></tr>
 <tr class="separator:aca6eea7e4b34a56a65c4035f8cfbcefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7229f7cc58768e0976b93efa837e9669"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a7229f7cc58768e0976b93efa837e9669">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:a7229f7cc58768e0976b93efa837e9669"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89691388f830009d881ff57244fb5a05"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a89691388f830009d881ff57244fb5a05">parse_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:a89691388f830009d881ff57244fb5a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a309d34b3b98a5c8d9975ae0dbd4816a8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a309d34b3b98a5c8d9975ae0dbd4816a8">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:a309d34b3b98a5c8d9975ae0dbd4816a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9861ba108a631a5a47778b7aad05d62c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a9861ba108a631a5a47778b7aad05d62c">parse_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:a9861ba108a631a5a47778b7aad05d62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb4aa87710f9b4d188366c5e34b19dc0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#abb4aa87710f9b4d188366c5e34b19dc0">calculate_error</a> ()</td></tr>
 <tr class="separator:abb4aa87710f9b4d188366c5e34b19dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a346d45102e39e357280fa8283c79d61e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a346d45102e39e357280fa8283c79d61e">set_enable</a> (bool is_enable)</td></tr>
@@ -116,7 +123,13 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a96b10c2bc9cdeae76f91734929ed90d2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a96b10c2bc9cdeae76f91734929ed90d2">filename</a></td></tr>
 <tr class="separator:a96b10c2bc9cdeae76f91734929ed90d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;int dim&gt;<br />
+class AnalyticalSolutions::AnalyticalSolution&lt; dim &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00045">45</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aca6eea7e4b34a56a65c4035f8cfbcefb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca6eea7e4b34a56a65c4035f8cfbcefb">&#9670;&nbsp;</a></span>AnalyticalSolution()</h2>
 
@@ -141,6 +154,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00052">52</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -170,10 +185,12 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00066">66</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+
 </div>
 </div>
-<a id="a7229f7cc58768e0976b93efa837e9669"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7229f7cc58768e0976b93efa837e9669">&#9670;&nbsp;</a></span>declare_parameters()</h2>
+<a id="a309d34b3b98a5c8d9975ae0dbd4816a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a309d34b3b98a5c8d9975ae0dbd4816a8">&#9670;&nbsp;</a></span>declare_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +201,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html">AnalyticalSolutions::AnalyticalSolution</a>&lt; dim &gt;::declare_parameters </td>
+          <td class="memname">void <a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html">AnalyticalSolutions::AnalyticalSolution</a>&lt; dim &gt;::declare_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -197,6 +214,10 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8cc_source.html#l00026">26</a> of file <a class="el" href="analytical__solutions_8cc_source.html">analytical_solutions.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="multiphysics_8h_source.html#l00035">cahn_hilliard</a>, <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>, and <a class="el" href="multiphysics_8h_source.html#l00033">tracer</a>.</p>
 
 </div>
 </div>
@@ -225,10 +246,12 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00078">78</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+
 </div>
 </div>
-<a id="a89691388f830009d881ff57244fb5a05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89691388f830009d881ff57244fb5a05">&#9670;&nbsp;</a></span>parse_parameters()</h2>
+<a id="a9861ba108a631a5a47778b7aad05d62c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9861ba108a631a5a47778b7aad05d62c">&#9670;&nbsp;</a></span>parse_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,7 +262,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html">AnalyticalSolutions::AnalyticalSolution</a>&lt; dim &gt;::parse_parameters </td>
+          <td class="memname">void <a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html">AnalyticalSolutions::AnalyticalSolution</a>&lt; dim &gt;::parse_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -252,6 +275,10 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8cc_source.html#l00081">81</a> of file <a class="el" href="analytical__solutions_8cc_source.html">analytical_solutions.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="multiphysics_8h_source.html#l00035">cahn_hilliard</a>, <a class="el" href="namespaceParameters.html#ad408350a21239600add83c5e91fcfa26a556966c7830465dc4623d62e32cec31d">Parameters::quiet</a>, <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>, <a class="el" href="multiphysics_8h_source.html#l00033">tracer</a>, and <a class="el" href="namespaceParameters.html#ad408350a21239600add83c5e91fcfa26a2c7aea4237e25b4f8ee3b0bf77d6fed0">Parameters::verbose</a>.</p>
 
 </div>
 </div>
@@ -281,6 +308,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00072">72</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -297,6 +326,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00094">94</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -322,6 +353,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00048">48</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+
 </div>
 </div>
 <a id="a96b10c2bc9cdeae76f91734929ed90d2"></a>
@@ -346,6 +379,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00049">49</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+
 </div>
 </div>
 <a id="a6ceb1daead9e7da2d1b27825c4d69420"></a>
@@ -361,6 +396,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00092">92</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -378,6 +415,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00088">88</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+
 </div>
 </div>
 <a id="a8837f52e7aa838847211ab44de8696e8"></a>
@@ -393,6 +432,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00090">90</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -410,6 +451,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00085">85</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+
 </div>
 </div>
 <a id="a10ba7632f1e08db631a7ac43d319b1d3"></a>
@@ -426,10 +469,13 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00083">83</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/solvers/<a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/solvers/<a class="el" href="analytical__solutions_8cc_source.html">analytical_solutions.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -126,6 +133,8 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class that defines the interface for a interface property model. Interface property model provides an abstract interface to calculate the value of an interface property or a vector of interface property value for given field value. By default, the interface does not require that all (or any) fields be specified. This is why a map is used to pass the dependent variable. To allow for the calculation of the appropriate jacobian matrix (when that is necessary) the interface also provides a jacobian function, which must provide the derivative with respect to the field specified as an argument. </p>
+
+<p class="definition">Definition at line <a class="el" href="interface__property__model_8h_source.html#l00036">36</a> of file <a class="el" href="interface__property__model_8h_source.html">interface_property_model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad5a30d304ce21abf3baf295b20b81598"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5a30d304ce21abf3baf295b20b81598">&#9670;&nbsp;</a></span>InterfacePropertyModel()</h2>
@@ -151,6 +160,10 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>class <a class="el" href="classInterfacePropertyModel.html" title="Abstract class that defines the interface for a interface property model. Interface property model pr...">InterfacePropertyModel</a> Default constructor. Set the model_depends_on to false for all variables. </p>
+
+<p class="definition">Definition at line <a class="el" href="interface__property__model_8h_source.html#l00042">42</a> of file <a class="el" href="interface__property__model_8h_source.html">interface_property_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00038">phase_order_cahn_hilliard</a>, <a class="el" href="physical__property__model_8h_source.html#l00037">pressure</a>, <a class="el" href="physical__property__model_8h_source.html#l00036">previous_temperature</a>, <a class="el" href="physical__property__model_8h_source.html#l00034">shear_rate</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -180,6 +193,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns true if the <a class="el" href="classInterfacePropertyModel.html" title="Abstract class that defines the interface for a interface property model. Interface property model pr...">InterfacePropertyModel</a> depends on a field, false if not. </p>
+
+<p class="definition">Definition at line <a class="el" href="interface__property__model_8h_source.html#l00056">56</a> of file <a class="el" href="interface__property__model_8h_source.html">interface_property_model.h</a>.</p>
 
 </div>
 </div>
@@ -274,6 +289,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="interface__property__model_8h_source.html#l00112">112</a> of file <a class="el" href="interface__property__model_8h_source.html">interface_property_model.h</a>.</p>
 
 </div>
 </div>
@@ -419,6 +436,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="interface__property__model_8h_source.html#l00133">133</a> of file <a class="el" href="interface__property__model_8h_source.html">interface_property_model.h</a>.</p>
+
 </div>
 </div>
 <a id="a93e12f8468e56f0de7425609188aac6d"></a>
@@ -487,6 +506,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interface__property__model_8h_source.html#l00168">168</a> of file <a class="el" href="interface__property__model_8h_source.html">interface_property_model.h</a>.</p>
 
 </div>
 </div>

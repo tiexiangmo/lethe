@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -79,12 +86,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a077565ed579e788955823b74117cd753"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::pair&lt; std::string, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDEM_1_1DEMProperties.html#a077565ed579e788955823b74117cd753">get_properties_name</a> ()</td></tr>
-<tr class="separator:a077565ed579e788955823b74117cd753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1be01b3be89fcbe3bf61fb1440b4daed"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::pair&lt; std::string, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDEM_1_1DEMProperties.html#a1be01b3be89fcbe3bf61fb1440b4daed">get_properties_name</a> ()</td></tr>
+<tr class="separator:a1be01b3be89fcbe3bf61fb1440b4daed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a077565ed579e788955823b74117cd753"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a077565ed579e788955823b74117cd753">&#9670;&nbsp;</a></span>get_properties_name()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;int dim&gt;<br />
+class DEM::DEMProperties&lt; dim &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="dem__properties_8h_source.html#l00063">63</a> of file <a class="el" href="dem__properties_8h_source.html">dem_properties.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1be01b3be89fcbe3bf61fb1440b4daed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1be01b3be89fcbe3bf61fb1440b4daed">&#9670;&nbsp;</a></span>get_properties_name()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -95,10 +108,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::vector&lt;std::pair&lt;std::string, int&gt; &gt; <a class="el" href="classDEM_1_1DEMProperties.html">DEM::DEMProperties</a>&lt; dim &gt;::get_properties_name </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">std::vector&lt; std::pair&lt; std::string, int &gt; &gt; <a class="el" href="classDEM_1_1DEMProperties.html">DEM::DEMProperties</a>&lt; dim &gt;::get_properties_name</td>
         </tr>
       </table>
   </td>
@@ -108,10 +118,15 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="dem__properties_8cc_source.html#l00026">26</a> of file <a class="el" href="dem__properties_8cc_source.html">dem_properties.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00041">DEM::dp</a>, <a class="el" href="dem__properties_8h_source.html#l00048">DEM::fem_force_x</a>, <a class="el" href="dem__properties_8h_source.html#l00049">DEM::fem_force_y</a>, <a class="el" href="dem__properties_8h_source.html#l00050">DEM::fem_force_z</a>, <a class="el" href="dem__properties_8h_source.html#l00051">DEM::fem_torque_x</a>, <a class="el" href="dem__properties_8h_source.html#l00052">DEM::fem_torque_y</a>, <a class="el" href="dem__properties_8h_source.html#l00053">DEM::fem_torque_z</a>, <a class="el" href="dem__properties_8h_source.html#l00054">DEM::mass</a>, <a class="el" href="dem__properties_8h_source.html#l00056">DEM::n_properties</a>, <a class="el" href="dem__properties_8h_source.html#l00045">DEM::omega_x</a>, <a class="el" href="dem__properties_8h_source.html#l00046">DEM::omega_y</a>, <a class="el" href="dem__properties_8h_source.html#l00047">DEM::omega_z</a>, <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>, <a class="el" href="dem__properties_8h_source.html#l00042">DEM::v_x</a>, <a class="el" href="dem__properties_8h_source.html#l00043">DEM::v_y</a>, <a class="el" href="dem__properties_8h_source.html#l00044">DEM::v_z</a>, and <a class="el" href="dem__properties_8h_source.html#l00055">DEM::volumetric_contribution</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="dem__properties_8h_source.html">dem_properties.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="dem__properties_8cc_source.html">dem_properties.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

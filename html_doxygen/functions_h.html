@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -95,6 +102,16 @@ $(function() {
 , <a class="el" href="classDEMSolver.html#a613db147aef1a4b7414f922a94bee44e">DEMSolver&lt; dim &gt;</a>
 , <a class="el" href="classGLSVANSSolver.html#ad44c24097bf9a7f31a146c17a8fcb4ea">GLSVANSSolver&lt; dim &gt;</a>
 </li>
+<li>heat_flux()
+: <a class="el" href="classEvaporationModel.html#afac59c43eeabd35bc6c6e54379281dda">EvaporationModel</a>
+, <a class="el" href="classEvaporationModelConstant.html#ad7feb0c8cd584805da015a1c7f4fa0a9">EvaporationModelConstant</a>
+, <a class="el" href="classEvaporationModelTemperature.html#ad47d061db23ca7a58761f8f345ddf5ec">EvaporationModelTemperature</a>
+</li>
+<li>heat_flux_jacobian()
+: <a class="el" href="classEvaporationModel.html#a2d85dfa122533dbb2a74dc928ce5ff6f">EvaporationModel</a>
+, <a class="el" href="classEvaporationModelConstant.html#af0e67f829bb67ac11a27ba6e478d8e9c">EvaporationModelConstant</a>
+, <a class="el" href="classEvaporationModelTemperature.html#a2f7f478a9a57792af874588209b3faed">EvaporationModelTemperature</a>
+</li>
 <li>heat_flux_output_name
 : <a class="el" href="structParameters_1_1PostProcessing.html#afa39e6fc402bb8a5cf3ba094aeb776ba">Parameters::PostProcessing</a>
 </li>
@@ -140,8 +157,11 @@ $(function() {
 <li>HeatTransferAssemblerViscousDissipationVOF()
 : <a class="el" href="classHeatTransferAssemblerViscousDissipationVOF.html#a09815019b8cf4b5b77f50deadfbc7257">HeatTransferAssemblerViscousDissipationVOF&lt; dim &gt;</a>
 </li>
+<li>HeatTransferAssemblerVOFEvaporation()
+: <a class="el" href="classHeatTransferAssemblerVOFEvaporation.html#acf457ded15b258e309e3f3513068ee28">HeatTransferAssemblerVOFEvaporation&lt; dim &gt;</a>
+</li>
 <li>HeatTransferScratchData()
-: <a class="el" href="classHeatTransferScratchData.html#aad9246a24b21b3c7343b9405bdf07f06">HeatTransferScratchData&lt; dim &gt;</a>
+: <a class="el" href="classHeatTransferScratchData.html#aaa4b7b3a2d5fd1212e99d3080365841e">HeatTransferScratchData&lt; dim &gt;</a>
 </li>
 <li>height
 : <a class="el" href="classCone.html#a739dc61dfe0c8b42ab9f761ae8c0d25a">Cone&lt; dim &gt;</a>

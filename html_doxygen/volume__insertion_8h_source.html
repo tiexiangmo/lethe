@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -101,23 +108,64 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classVolumeInsertion.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVolumeInsertion.html">VolumeInsertion</a> : <span class="keyword">public</span> <a class="code" href="classInsertion.html">Insertion</a>&lt;dim&gt;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classVolumeInsertion.html#a940c77a34bdf267cad71b1dd67c97027">   44</a></span>&#160;  <a class="code" href="classVolumeInsertion.html#a940c77a34bdf267cad71b1dd67c97027">VolumeInsertion</a>(<span class="keyword">const</span> <a class="code" href="classDEMSolverParameters.html">DEMSolverParameters&lt;dim&gt;</a> &amp;dem_parameters,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">   * The constructor investigates if the insertion box is large enough to handle</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">   * to insert the desired number of particles with the specified insertion</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">   * parameters. If the insertion box is not adequately large, the number of</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">   * inserted particles at each insertion step is updated. It also finds the</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">   * insertion points in each direction (number_of_particles_x_direction,</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">   * number_of_particles_y_direction and number_of_particles_z_direction).</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">   * @param dem_parameters DEM parameters declared in the .prm file</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">   * @param maximum_particle_diameter Maximum particle diameter based on values</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">   * defined in the parameter handler</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="classVolumeInsertion.html#a940c77a34bdf267cad71b1dd67c97027">VolumeInsertion</a>(<span class="keyword">const</span> <a class="code" href="classDEMSolverParameters.html">DEMSolverParameters&lt;dim&gt;</a> &amp;dem_parameters,</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                  <span class="keyword">const</span> <span class="keywordtype">double</span>                    maximum_particle_diameter,</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                  <span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;Distribution&gt;&gt;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    &amp;distribution_object_container);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">   * Carries out the volume insertion of particles.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">   * @param particle_handler The particle handler of particles which are being</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">   * inserted</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">   * @param triangulation Triangulation to access the cells in which the</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">   * particles are inserted</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">   * @param dem_parameters DEM parameters declared in the .prm file</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classVolumeInsertion.html#a8552dd9e7053d4265b7dcb3d79524bea">   60</a></span>&#160;  <a class="code" href="classVolumeInsertion.html#a8552dd9e7053d4265b7dcb3d79524bea">insert</a>(Particles::ParticleHandler&lt;dim&gt;                 &amp;particle_handler,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="classVolumeInsertion.html#adf719a5b23e4545ed45ac32b05661032">insert</a>(Particles::ParticleHandler&lt;dim&gt;                 &amp;particle_handler,</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;         <span class="keyword">const</span> parallel::distributed::Triangulation&lt;dim&gt; &amp;triangulation,</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;         <span class="keyword">const</span> <a class="code" href="classDEMSolverParameters.html">DEMSolverParameters&lt;dim&gt;</a> &amp;dem_parameters) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">   * Creates a vector of random numbers with size of particles which are going</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">   * to be inserted at each insertion step</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">   * @param random_container A vector of random numbers</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">   * @param random_number_range The range in which the random numbers will be</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">   * generated</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">   * @param random_number_seed random number seed</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classVolumeInsertion.html#aaf4af5592d861873cdf099add6dc65f7">   75</a></span>&#160;  <a class="code" href="classVolumeInsertion.html#aaf4af5592d861873cdf099add6dc65f7">create_random_number_container</a>(std::vector&lt;double&gt; &amp;random_container,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="classVolumeInsertion.html#aaf4af5592d861873cdf099add6dc65f7">create_random_number_container</a>(std::vector&lt;double&gt; &amp;random_container,</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                 <span class="keyword">const</span> <span class="keywordtype">double</span>         random_number_range,</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                 <span class="keyword">const</span> <span class="keywordtype">int</span>            random_number_seed);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">   * Converts id of particles to volume insertion location</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">   * @param insertion_location Insertion location of the particle</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">   * @param id Particle_id</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">   * @param random_number1 A random number to create randomness in volume insertion</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">   * @param random_number2 A random number to create randomness in volume insertion</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">   * @param insertion_information DEM insertion parameters declared in the .prm</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">   * file</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classVolumeInsertion.html#a29e8293e13581e498d781500e432daba">   90</a></span>&#160;  <a class="code" href="classVolumeInsertion.html#a29e8293e13581e498d781500e432daba">find_insertion_location_volume</a>(</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    Point&lt;dim&gt;                                  &amp;insertion_location,</div>
@@ -133,18 +181,18 @@ $(function() {
 <div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classVolumeInsertion.html#a79af674cd02a54d6d916cf39597ca14d">  101</a></span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classVolumeInsertion.html#a79af674cd02a54d6d916cf39597ca14d">particles_of_each_type_remaining</a>;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* volume_insertion_h */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassDEMSolverParameters_html"><div class="ttname"><a href="classDEMSolverParameters.html">DEMSolverParameters</a></div><div class="ttdef"><b>Definition:</b> dem_solver_parameters.h:33</div></div>
-<div class="ttc" id="aclassInsertion_html"><div class="ttname"><a href="classInsertion.html">Insertion</a></div><div class="ttdef"><b>Definition:</b> insertion.h:57</div></div>
-<div class="ttc" id="aclassVolumeInsertion_html"><div class="ttname"><a href="classVolumeInsertion.html">VolumeInsertion</a></div><div class="ttdef"><b>Definition:</b> volume_insertion.h:30</div></div>
+<div class="ttc" id="aclassDEMSolverParameters_html"><div class="ttname"><a href="classDEMSolverParameters.html">DEMSolverParameters</a></div><div class="ttdef"><b>Definition:</b> <a href="dem__solver__parameters_8h_source.html#l00032">dem_solver_parameters.h:33</a></div></div>
+<div class="ttc" id="aclassInsertion_html"><div class="ttname"><a href="classInsertion.html">Insertion</a></div><div class="ttdef"><b>Definition:</b> <a href="insertion_8h_source.html#l00056">insertion.h:57</a></div></div>
+<div class="ttc" id="aclassVolumeInsertion_html"><div class="ttname"><a href="classVolumeInsertion.html">VolumeInsertion</a></div><div class="ttdef"><b>Definition:</b> <a href="volume__insertion_8h_source.html#l00029">volume_insertion.h:30</a></div></div>
 <div class="ttc" id="aclassVolumeInsertion_html_a29e8293e13581e498d781500e432daba"><div class="ttname"><a href="classVolumeInsertion.html#a29e8293e13581e498d781500e432daba">VolumeInsertion::find_insertion_location_volume</a></div><div class="ttdeci">void find_insertion_location_volume(Point&lt; dim &gt; &amp;insertion_location, const unsigned int id, const double random_number1, const double random_number2, const Parameters::Lagrangian::InsertionInfo &amp;insertion_information)</div></div>
-<div class="ttc" id="aclassVolumeInsertion_html_a50467323b0201d9a26eb331455885a3a"><div class="ttname"><a href="classVolumeInsertion.html#a50467323b0201d9a26eb331455885a3a">VolumeInsertion::current_inserting_particle_type</a></div><div class="ttdeci">unsigned int current_inserting_particle_type</div><div class="ttdef"><b>Definition:</b> volume_insertion.h:97</div></div>
-<div class="ttc" id="aclassVolumeInsertion_html_a79af674cd02a54d6d916cf39597ca14d"><div class="ttname"><a href="classVolumeInsertion.html#a79af674cd02a54d6d916cf39597ca14d">VolumeInsertion::particles_of_each_type_remaining</a></div><div class="ttdeci">unsigned int particles_of_each_type_remaining</div><div class="ttdef"><b>Definition:</b> volume_insertion.h:101</div></div>
-<div class="ttc" id="aclassVolumeInsertion_html_a8552dd9e7053d4265b7dcb3d79524bea"><div class="ttname"><a href="classVolumeInsertion.html#a8552dd9e7053d4265b7dcb3d79524bea">VolumeInsertion::insert</a></div><div class="ttdeci">virtual void insert(Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters) override</div></div>
-<div class="ttc" id="aclassVolumeInsertion_html_a940c77a34bdf267cad71b1dd67c97027"><div class="ttname"><a href="classVolumeInsertion.html#a940c77a34bdf267cad71b1dd67c97027">VolumeInsertion::VolumeInsertion</a></div><div class="ttdeci">VolumeInsertion(const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters, const double maximum_particle_diameter, const std::vector&lt; std::shared_ptr&lt; Distribution &gt;&gt; &amp;distribution_object_container)</div></div>
-<div class="ttc" id="aclassVolumeInsertion_html_aaf4af5592d861873cdf099add6dc65f7"><div class="ttname"><a href="classVolumeInsertion.html#aaf4af5592d861873cdf099add6dc65f7">VolumeInsertion::create_random_number_container</a></div><div class="ttdeci">void create_random_number_container(std::vector&lt; double &gt; &amp;random_container, const double random_number_range, const int random_number_seed)</div></div>
+<div class="ttc" id="aclassVolumeInsertion_html_a50467323b0201d9a26eb331455885a3a"><div class="ttname"><a href="classVolumeInsertion.html#a50467323b0201d9a26eb331455885a3a">VolumeInsertion::current_inserting_particle_type</a></div><div class="ttdeci">unsigned int current_inserting_particle_type</div><div class="ttdef"><b>Definition:</b> <a href="volume__insertion_8h_source.html#l00097">volume_insertion.h:97</a></div></div>
+<div class="ttc" id="aclassVolumeInsertion_html_a79af674cd02a54d6d916cf39597ca14d"><div class="ttname"><a href="classVolumeInsertion.html#a79af674cd02a54d6d916cf39597ca14d">VolumeInsertion::particles_of_each_type_remaining</a></div><div class="ttdeci">unsigned int particles_of_each_type_remaining</div><div class="ttdef"><b>Definition:</b> <a href="volume__insertion_8h_source.html#l00101">volume_insertion.h:101</a></div></div>
+<div class="ttc" id="aclassVolumeInsertion_html_a940c77a34bdf267cad71b1dd67c97027"><div class="ttname"><a href="classVolumeInsertion.html#a940c77a34bdf267cad71b1dd67c97027">VolumeInsertion::VolumeInsertion</a></div><div class="ttdeci">VolumeInsertion(const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters, const double maximum_particle_diameter, const std::vector&lt; std::shared_ptr&lt; Distribution &gt;&gt; &amp;distribution_object_container)</div><div class="ttdef"><b>Definition:</b> <a href="volume__insertion_8cc_source.html#l00011">volume_insertion.cc:11</a></div></div>
+<div class="ttc" id="aclassVolumeInsertion_html_aaf4af5592d861873cdf099add6dc65f7"><div class="ttname"><a href="classVolumeInsertion.html#aaf4af5592d861873cdf099add6dc65f7">VolumeInsertion::create_random_number_container</a></div><div class="ttdeci">void create_random_number_container(std::vector&lt; double &gt; &amp;random_container, const double random_number_range, const int random_number_seed)</div><div class="ttdef"><b>Definition:</b> <a href="volume__insertion_8cc_source.html#l00150">volume_insertion.cc:150</a></div></div>
+<div class="ttc" id="aclassVolumeInsertion_html_adf719a5b23e4545ed45ac32b05661032"><div class="ttname"><a href="classVolumeInsertion.html#adf719a5b23e4545ed45ac32b05661032">VolumeInsertion::insert</a></div><div class="ttdeci">virtual void insert(Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters) override</div><div class="ttdef"><b>Definition:</b> <a href="volume__insertion_8cc_source.html#l00030">volume_insertion.cc:30</a></div></div>
 <div class="ttc" id="adem__solver__parameters_8h_html"><div class="ttname"><a href="dem__solver__parameters_8h.html">dem_solver_parameters.h</a></div></div>
 <div class="ttc" id="ainsertion_8h_html"><div class="ttname"><a href="insertion_8h.html">insertion.h</a></div></div>
-<div class="ttc" id="astructParameters_1_1Lagrangian_1_1InsertionInfo_html"><div class="ttname"><a href="structParameters_1_1Lagrangian_1_1InsertionInfo.html">Parameters::Lagrangian::InsertionInfo</a></div><div class="ttdef"><b>Definition:</b> parameters_lagrangian.h:151</div></div>
+<div class="ttc" id="astructParameters_1_1Lagrangian_1_1InsertionInfo_html"><div class="ttname"><a href="structParameters_1_1Lagrangian_1_1InsertionInfo.html">Parameters::Lagrangian::InsertionInfo</a></div><div class="ttdef"><b>Definition:</b> <a href="parameters__lagrangian_8h_source.html#l00150">parameters_lagrangian.h:151</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

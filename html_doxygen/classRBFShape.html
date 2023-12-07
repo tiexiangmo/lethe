@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -154,15 +161,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3bb5e038767577ace42bbb92fffe8d0f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a3bb5e038767577ace42bbb92fffe8d0f">value_with_cell_guess</a> (const Point&lt; dim &gt; &amp;evaluation_point, const typename DoFHandler&lt; dim &gt;::active_cell_iterator, const unsigned int) override</td></tr>
 <tr class="memdesc:a3bb5e038767577ace42bbb92fffe8d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the evaluation of the signed distance function of this solid at the given point evaluation point with a guess for the cell containing the evaluation point.  <a href="classRBFShape.html#a3bb5e038767577ace42bbb92fffe8d0f">More...</a><br /></td></tr>
 <tr class="separator:a3bb5e038767577ace42bbb92fffe8d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47fa6d39fce5339f7388386cd09c9e7b"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a47fa6d39fce5339f7388386cd09c9e7b">gradient_with_cell_guess</a> (const Point&lt; dim &gt; &amp;evaluation_point, const typename DoFHandler&lt; dim &gt;::active_cell_iterator cell, const unsigned int component=0) override</td></tr>
-<tr class="memdesc:a47fa6d39fce5339f7388386cd09c9e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the analytical gradient of the distance.  <a href="classRBFShape.html#a47fa6d39fce5339f7388386cd09c9e7b">More...</a><br /></td></tr>
-<tr class="separator:a47fa6d39fce5339f7388386cd09c9e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38814664cb045b891218f3551fd74607"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a38814664cb045b891218f3551fd74607">gradient</a> (const Point&lt; dim &gt; &amp;evaluation_point, const unsigned int component=0) const override</td></tr>
-<tr class="memdesc:a38814664cb045b891218f3551fd74607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the analytical gradient of the distance for the current RBF.  <a href="classRBFShape.html#a38814664cb045b891218f3551fd74607">More...</a><br /></td></tr>
-<tr class="separator:a38814664cb045b891218f3551fd74607"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3beeb836a75275e7c82406d9e425a2a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classShape.html">Shape</a>&lt; dim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#af3beeb836a75275e7c82406d9e425a2a">static_copy</a> () const override</td></tr>
-<tr class="memdesc:af3beeb836a75275e7c82406d9e425a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to a copy of the <a class="el" href="classShape.html" title="A base class used to represent geometrical entities. Its main uses are to return signed distance and ...">Shape</a>.  <a href="classRBFShape.html#af3beeb836a75275e7c82406d9e425a2a">More...</a><br /></td></tr>
-<tr class="separator:af3beeb836a75275e7c82406d9e425a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ef6b66fa9f842370f062e52be95229"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a76ef6b66fa9f842370f062e52be95229">gradient_with_cell_guess</a> (const Point&lt; dim &gt; &amp;evaluation_point, const typename DoFHandler&lt; dim &gt;::active_cell_iterator cell, const unsigned int component=0) override</td></tr>
+<tr class="memdesc:a76ef6b66fa9f842370f062e52be95229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the analytical gradient of the distance.  <a href="classRBFShape.html#a76ef6b66fa9f842370f062e52be95229">More...</a><br /></td></tr>
+<tr class="separator:a76ef6b66fa9f842370f062e52be95229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa992e134d80d8ab948734af8894bc308"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#aa992e134d80d8ab948734af8894bc308">gradient</a> (const Point&lt; dim &gt; &amp;evaluation_point, const unsigned int component=0) const override</td></tr>
+<tr class="memdesc:aa992e134d80d8ab948734af8894bc308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the analytical gradient of the distance for the current RBF.  <a href="classRBFShape.html#aa992e134d80d8ab948734af8894bc308">More...</a><br /></td></tr>
+<tr class="separator:aa992e134d80d8ab948734af8894bc308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a721338733c1b0dee4d9b3d65b4e77aaf"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classShape.html">Shape</a>&lt; dim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a721338733c1b0dee4d9b3d65b4e77aaf">static_copy</a> () const override</td></tr>
+<tr class="memdesc:a721338733c1b0dee4d9b3d65b4e77aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to a copy of the <a class="el" href="classShape.html" title="A base class used to represent geometrical entities. Its main uses are to return signed distance and ...">Shape</a>.  <a href="classRBFShape.html#a721338733c1b0dee4d9b3d65b4e77aaf">More...</a><br /></td></tr>
+<tr class="separator:a721338733c1b0dee4d9b3d65b4e77aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2be32db34ed155f81ca2c8f03534d6c9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRBFShape.html#a2be32db34ed155f81ca2c8f03534d6c9">displaced_volume</a> (const double fluid_density) override</td></tr>
 <tr class="memdesc:a2be32db34ed155f81ca2c8f03534d6c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the volume displaced by the solid.  <a href="classRBFShape.html#a2be32db34ed155f81ca2c8f03534d6c9">More...</a><br /></td></tr>
 <tr class="separator:a2be32db34ed155f81ca2c8f03534d6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -275,11 +282,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afe1e03ec9d78e28f160d88380ffd0a35 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#afe1e03ec9d78e28f160d88380ffd0a35">Shape</a> (double radius, const Point&lt; dim &gt; &amp;<a class="el" href="classShape.html#ac35254a566e6850f6f9b8606aa25ddc4">position</a>, const Tensor&lt; 1, 3 &gt; &amp;<a class="el" href="classShape.html#a2ca8b6d6616659ad6ea4727762ab0d9f">orientation</a>)</td></tr>
 <tr class="memdesc:afe1e03ec9d78e28f160d88380ffd0a35 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">A general constructor for the Shapes.  <a href="classShape.html#afe1e03ec9d78e28f160d88380ffd0a35">More...</a><br /></td></tr>
 <tr class="separator:afe1e03ec9d78e28f160d88380ffd0a35 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f82ca0c6c68056e21191c1d43878c9a inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a1f82ca0c6c68056e21191c1d43878c9a">closest_surface_point</a> (const Point&lt; dim &gt; &amp;p, Point&lt; dim &gt; &amp;closest_point, const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell_guess)</td></tr>
-<tr class="memdesc:a1f82ca0c6c68056e21191c1d43878c9a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the closest_point parameter to be the point on the surface of the shape which has the minimal distance from the given point p.  <a href="classShape.html#a1f82ca0c6c68056e21191c1d43878c9a">More...</a><br /></td></tr>
-<tr class="separator:a1f82ca0c6c68056e21191c1d43878c9a inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42614ab5c2fbcc1e9438b71f6c1a6693 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a42614ab5c2fbcc1e9438b71f6c1a6693">closest_surface_point</a> (const Point&lt; dim &gt; &amp;p, Point&lt; dim &gt; &amp;closest_point) const</td></tr>
-<tr class="separator:a42614ab5c2fbcc1e9438b71f6c1a6693 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b5eef85928c9e2261165a0c171f3918 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a3b5eef85928c9e2261165a0c171f3918">closest_surface_point</a> (const Point&lt; dim &gt; &amp;p, Point&lt; dim &gt; &amp;closest_point, const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell_guess)</td></tr>
+<tr class="memdesc:a3b5eef85928c9e2261165a0c171f3918 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the closest_point parameter to be the point on the surface of the shape which has the minimal distance from the given point p.  <a href="classShape.html#a3b5eef85928c9e2261165a0c171f3918">More...</a><br /></td></tr>
+<tr class="separator:a3b5eef85928c9e2261165a0c171f3918 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab62a9020dd584342e820cb622da9a357 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#ab62a9020dd584342e820cb622da9a357">closest_surface_point</a> (const Point&lt; dim &gt; &amp;p, Point&lt; dim &gt; &amp;closest_point) const</td></tr>
+<tr class="separator:ab62a9020dd584342e820cb622da9a357 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81b71bed82c812367cc9bb77b74c0318 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a81b71bed82c812367cc9bb77b74c0318">set_position</a> (const Point&lt; dim &gt; &amp;new_position)</td></tr>
 <tr class="memdesc:a81b71bed82c812367cc9bb77b74c0318 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new position for the shape.  <a href="classShape.html#a81b71bed82c812367cc9bb77b74c0318">More...</a><br /></td></tr>
 <tr class="separator:a81b71bed82c812367cc9bb77b74c0318 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -292,18 +299,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9740ff4dbc197b170b42e231ebda50b0 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual Tensor&lt; 1, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a9740ff4dbc197b170b42e231ebda50b0">get_orientation</a> ()</td></tr>
 <tr class="memdesc:a9740ff4dbc197b170b42e231ebda50b0 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the orientation of the shape.  <a href="classShape.html#a9740ff4dbc197b170b42e231ebda50b0">More...</a><br /></td></tr>
 <tr class="separator:a9740ff4dbc197b170b42e231ebda50b0 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e2ccf01b52ca93406f9e13c73488962 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; Manifold&lt; dim - 1, dim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a8e2ccf01b52ca93406f9e13c73488962">get_shape_manifold</a> ()</td></tr>
-<tr class="memdesc:a8e2ccf01b52ca93406f9e13c73488962 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the default manifold of the shape. If not redefined, it is a flat manifold.  <a href="classShape.html#a8e2ccf01b52ca93406f9e13c73488962">More...</a><br /></td></tr>
-<tr class="separator:a8e2ccf01b52ca93406f9e13c73488962 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7b25213b03319f8fda0634db5606099 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#ab7b25213b03319f8fda0634db5606099">clear_cache</a> ()</td></tr>
-<tr class="memdesc:ab7b25213b03319f8fda0634db5606099 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the cache of the shape.  <a href="classShape.html#ab7b25213b03319f8fda0634db5606099">More...</a><br /></td></tr>
-<tr class="separator:ab7b25213b03319f8fda0634db5606099 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a38773f106f96ad0dcda809c8238f0866">align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most value functions assume that the particle's position is at the origin and that the shape is aligned with one of the main axes. This function returns a point that is rotated and translated, in accordance with the current shape position and orientation, so that subsequent calculations for the value function are made more easily; it abstracts a step that is required in the value function for most shapes.  <a href="classShape.html#a38773f106f96ad0dcda809c8238f0866">More...</a><br /></td></tr>
-<tr class="separator:a38773f106f96ad0dcda809c8238f0866 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a5523265f632187cdaf131f44ec19f09a">reverse_align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
-<tr class="memdesc:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the inverse operation of align_and_center.  <a href="classShape.html#a5523265f632187cdaf131f44ec19f09a">More...</a><br /></td></tr>
-<tr class="separator:a5523265f632187cdaf131f44ec19f09a inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7241905f76ccff3798d1b1606f6ae43f inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; Manifold&lt; dim - 1, dim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a7241905f76ccff3798d1b1606f6ae43f">get_shape_manifold</a> ()</td></tr>
+<tr class="memdesc:a7241905f76ccff3798d1b1606f6ae43f inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the default manifold of the shape. If not redefined, it is a flat manifold.  <a href="classShape.html#a7241905f76ccff3798d1b1606f6ae43f">More...</a><br /></td></tr>
+<tr class="separator:a7241905f76ccff3798d1b1606f6ae43f inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3358ae0d479c23c540ebc3a7763bf19c inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a3358ae0d479c23c540ebc3a7763bf19c">clear_cache</a> ()</td></tr>
+<tr class="memdesc:a3358ae0d479c23c540ebc3a7763bf19c inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the cache of the shape.  <a href="classShape.html#a3358ae0d479c23c540ebc3a7763bf19c">More...</a><br /></td></tr>
+<tr class="separator:a3358ae0d479c23c540ebc3a7763bf19c inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad60cd0c45095c2a4a0fa39d504dc4f39 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#ad60cd0c45095c2a4a0fa39d504dc4f39">align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
+<tr class="memdesc:ad60cd0c45095c2a4a0fa39d504dc4f39 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most value functions assume that the particle's position is at the origin and that the shape is aligned with one of the main axes. This function returns a point that is rotated and translated, in accordance with the current shape position and orientation, so that subsequent calculations for the value function are made more easily; it abstracts a step that is required in the value function for most shapes.  <a href="classShape.html#ad60cd0c45095c2a4a0fa39d504dc4f39">More...</a><br /></td></tr>
+<tr class="separator:ad60cd0c45095c2a4a0fa39d504dc4f39 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fb04c9145a69a03028d3cecf2cd9338 inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a8fb04c9145a69a03028d3cecf2cd9338">reverse_align_and_center</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
+<tr class="memdesc:a8fb04c9145a69a03028d3cecf2cd9338 inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function applies the inverse operation of align_and_center.  <a href="classShape.html#a8fb04c9145a69a03028d3cecf2cd9338">More...</a><br /></td></tr>
+<tr class="separator:a8fb04c9145a69a03028d3cecf2cd9338 inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">point_to_string</a> (const Point&lt; dim &gt; &amp;evaluation_point) const</td></tr>
 <tr class="memdesc:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns a point in a string of text. This is used in the cache of the shape.  <a href="classShape.html#a532f0f37cbc778f665364b3a2e2a559a">More...</a><br /></td></tr>
 <tr class="separator:a532f0f37cbc778f665364b3a2e2a559a inherit pub_methods_classShape"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -384,6 +391,8 @@ class RBFShape&lt; dim &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01313">1313</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a2060a8058a7a5a439d772319f39ec66b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2060a8058a7a5a439d772319f39ec66b">&#9670;&nbsp;</a></span>RBFBasisFunction</h2>
@@ -426,6 +435,8 @@ template&lt;int dim&gt; </div>
 <tr><td class="fieldname"><a id="a2060a8058a7a5a439d772319f39ec66baba5e864526cbaa667bca74e2d1d453f0"></a>C2C2&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2060a8058a7a5a439d772319f39ec66baef23ef1d426ae1a73a7eed399cef707d"></a>COS&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01322">1322</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -474,6 +485,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01484">1484</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="shape_8h_source.html#l01837">RBFShape&lt; dim &gt;::filename</a>, and <a class="el" href="shape_8cc_source.html#l01966">RBFShape&lt; dim &gt;::load_data_from_file()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -511,6 +526,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01581">1581</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a9f67ac796c1ed2a72be9d6d461a2592e"></a>
@@ -546,6 +563,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01751">1751</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -583,6 +602,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01619">1619</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a7ee2faeaa1d172856bc44f1767108349"></a>
@@ -618,6 +639,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01785">1785</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -655,6 +678,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01559">1559</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a05a7bf6a5acb71d4b7f16b9f003dcb4c"></a>
@@ -690,6 +715,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01729">1729</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -727,6 +754,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01593">1593</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a00bfd5d4107225fbdca9d713ad864415"></a>
@@ -762,6 +791,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01762">1762</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -799,6 +830,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01633">1633</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="abdcd268bc190b0217e5f05752910decc"></a>
@@ -834,6 +867,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01796">1796</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -871,6 +906,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01570">1570</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a262916275cec9936d6594b42a21d3721"></a>
@@ -906,6 +943,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01740">1740</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -943,6 +982,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01606">1606</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="ac5edc7e7d2b8ba2f5fc8b8558f90a769"></a>
@@ -978,6 +1019,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01773">1773</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -1015,6 +1058,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01647">1647</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a894d36a22a3f83760581f1e614f6daca"></a>
@@ -1050,6 +1095,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01810">1810</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -1087,6 +1134,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01660">1660</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a904c73520b5051319725c4b9daf87711"></a>
@@ -1122,6 +1171,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01823">1823</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -1162,6 +1213,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01900">1900</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
+
 </div>
 </div>
 <a id="a2be32db34ed155f81ca2c8f03534d6c9"></a>
@@ -1198,7 +1251,9 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classShape.html#a6e8b81d1201b002ef56c79ab03601a88">Shape&lt; dim &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classShape.html#a51998bd72fb461f6d7cf55626cfff572">Shape&lt; dim &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01690">1690</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
 
 </div>
 </div>
@@ -1247,6 +1302,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l02124">2124</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="shape_8h_source.html#l01581">RBFShape&lt; dim &gt;::c0c1()</a>, <a class="el" href="shape_8h_source.html#l01619">RBFShape&lt; dim &gt;::c0c2()</a>, <a class="el" href="shape_8h_source.html#l01559">RBFShape&lt; dim &gt;::c1c0()</a>, <a class="el" href="shape_8h_source.html#l01593">RBFShape&lt; dim &gt;::c1c1()</a>, <a class="el" href="shape_8h_source.html#l01633">RBFShape&lt; dim &gt;::c1c2()</a>, <a class="el" href="shape_8h_source.html#l01570">RBFShape&lt; dim &gt;::c2c0()</a>, <a class="el" href="shape_8h_source.html#l01606">RBFShape&lt; dim &gt;::c2c1()</a>, <a class="el" href="shape_8h_source.html#l01647">RBFShape&lt; dim &gt;::c2c2()</a>, <a class="el" href="shape_8h_source.html#l01660">RBFShape&lt; dim &gt;::cos()</a>, <a class="el" href="shape_8h_source.html#l01525">RBFShape&lt; dim &gt;::gauss90()</a>, <a class="el" href="shape_8h_source.html#l01536">RBFShape&lt; dim &gt;::gauss95()</a>, <a class="el" href="shape_8h_source.html#l01547">RBFShape&lt; dim &gt;::gauss99()</a>, <a class="el" href="shape_8h_source.html#l01515">RBFShape&lt; dim &gt;::linear()</a>, and <a class="el" href="shape_8h_source.html#l01503">RBFShape&lt; dim &gt;::wendlandc2()</a>.</p>
+
 </div>
 </div>
 <a id="a8992761fa880440ad3840732d1adbe5b"></a>
@@ -1294,6 +1353,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l02164">2164</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="shape_8h_source.html#l01751">RBFShape&lt; dim &gt;::c0c1_derivative()</a>, <a class="el" href="shape_8h_source.html#l01785">RBFShape&lt; dim &gt;::c0c2_derivative()</a>, <a class="el" href="shape_8h_source.html#l01729">RBFShape&lt; dim &gt;::c1c0_derivative()</a>, <a class="el" href="shape_8h_source.html#l01762">RBFShape&lt; dim &gt;::c1c1_derivative()</a>, <a class="el" href="shape_8h_source.html#l01796">RBFShape&lt; dim &gt;::c1c2_derivative()</a>, <a class="el" href="shape_8h_source.html#l01740">RBFShape&lt; dim &gt;::c2c0_derivative()</a>, <a class="el" href="shape_8h_source.html#l01773">RBFShape&lt; dim &gt;::c2c1_derivative()</a>, <a class="el" href="shape_8h_source.html#l01810">RBFShape&lt; dim &gt;::c2c2_derivative()</a>, <a class="el" href="shape_8h_source.html#l01823">RBFShape&lt; dim &gt;::cosinus_derivative()</a>, <a class="el" href="shape_8h_source.html#l01692">RBFShape&lt; dim &gt;::gauss90_derivative()</a>, <a class="el" href="shape_8h_source.html#l01704">RBFShape&lt; dim &gt;::gauss95_derivative()</a>, <a class="el" href="shape_8h_source.html#l01716">RBFShape&lt; dim &gt;::gauss99_derivative()</a>, <a class="el" href="shape_8h_source.html#l01682">RBFShape&lt; dim &gt;::linear_derivative()</a>, and <a class="el" href="shape_8h_source.html#l01671">RBFShape&lt; dim &gt;::wendlandc2_derivative()</a>.</p>
+
 </div>
 </div>
 <a id="a4dcfdbddf4845e4d58b8e29bb091431b"></a>
@@ -1329,6 +1392,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01525">1525</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -1366,6 +1431,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01692">1692</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="ae61701d91c2312f7700d830dd7122897"></a>
@@ -1401,6 +1468,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01536">1536</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -1438,6 +1507,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01704">1704</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a6b8d26b17a3cdc03cd9189dbff1d0b12"></a>
@@ -1473,6 +1544,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01547">1547</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -1510,10 +1583,12 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01716">1716</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
-<a id="a38814664cb045b891218f3551fd74607"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38814664cb045b891218f3551fd74607">&#9670;&nbsp;</a></span>gradient()</h2>
+<a id="aa992e134d80d8ab948734af8894bc308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa992e134d80d8ab948734af8894bc308">&#9670;&nbsp;</a></span>gradient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1524,7 +1599,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Tensor&lt;1, dim&gt; <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::gradient </td>
+          <td class="memname">Tensor&lt; 1, dim &gt; <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::gradient </td>
           <td>(</td>
           <td class="paramtype">const Point&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>evaluation_point</em>, </td>
@@ -1557,10 +1632,12 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01606">1606</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
+
 </div>
 </div>
-<a id="a47fa6d39fce5339f7388386cd09c9e7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47fa6d39fce5339f7388386cd09c9e7b">&#9670;&nbsp;</a></span>gradient_with_cell_guess()</h2>
+<a id="a76ef6b66fa9f842370f062e52be95229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ef6b66fa9f842370f062e52be95229">&#9670;&nbsp;</a></span>gradient_with_cell_guess()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1571,7 +1648,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Tensor&lt;1, dim&gt; <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::gradient_with_cell_guess </td>
+          <td class="memname">Tensor&lt; 1, dim &gt; <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::gradient_with_cell_guess </td>
           <td>(</td>
           <td class="paramtype">const Point&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>evaluation_point</em>, </td>
@@ -1611,7 +1688,9 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classShape.html#a4fcdd90edd1d078cafacf16864e8fac5">Shape&lt; dim &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classShape.html#a816b648f0d216adbb718482f5811c115">Shape&lt; dim &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01535">1535</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
 
 </div>
 </div>
@@ -1624,16 +1703,15 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::initialize_bounding_box </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::initialize_bounding_box</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Initializes the bounding box around the nodes which enables distance calculation even if the RBF nodes don't cover the whole domain. </p>
 <p>A bounding box is constructed around the collection of nodes defining the RBF. It solves an issue where the collection of nodes is located only around the object itself, which would result in an undefined distance when the value is evaluated outside of all support radii. The hyper rectangle shape doesn't have this limitation, as its distance can be evaluated anywhere. The distance computed by an RBF object will therefore use an approximated distance when the evaluation point is too far. </p>
+
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01697">1697</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
 
 </div>
 </div>
@@ -1671,6 +1749,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01515">1515</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a008589cf434ca19e13d2fee6549e36dc"></a>
@@ -1707,6 +1787,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01682">1682</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a3c31b8da4338b3f09c7fc78d1e35faa1"></a>
@@ -1718,15 +1800,16 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::load_data_from_file </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::load_data_from_file</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Load RBF data from file. To be called at initialization, after repartitioning or when shape has moved. This function is used only for RBF shapes and its composites at the moment. </p>
+
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01966">1966</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="utilities_8cc_source.html#l00189">fill_vectors_from_file()</a>.</p>
 
 </div>
 </div>
@@ -1767,6 +1850,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l02015">2015</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
+
 </div>
 </div>
 <a id="a37e04469a136df013e5c01044e2a4e73"></a>
@@ -1778,20 +1863,19 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::rotate_nodes </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::rotate_nodes</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Rotate RBF nodes in the global reference frame (the reference frame of the triangulation). </p>
 
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l02111">2111</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
+
 </div>
 </div>
-<a id="af3beeb836a75275e7c82406d9e425a2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3beeb836a75275e7c82406d9e425a2a">&#9670;&nbsp;</a></span>static_copy()</h2>
+<a id="a721338733c1b0dee4d9b3d65b4e77aaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a721338733c1b0dee4d9b3d65b4e77aaf">&#9670;&nbsp;</a></span>static_copy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1802,10 +1886,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="classShape.html">Shape</a>&lt;dim&gt; &gt; <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::static_copy </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classShape.html">Shape</a>&lt; dim &gt; &gt; <a class="el" href="classRBFShape.html">RBFShape</a>&lt; dim &gt;::static_copy</td>
         </tr>
       </table>
   </td>
@@ -1818,6 +1899,8 @@ template&lt;int dim&gt; </div>
 <p>Return a pointer to a copy of the <a class="el" href="classShape.html" title="A base class used to represent geometrical entities. Its main uses are to return signed distance and ...">Shape</a>. </p>
 
 <p>Implements <a class="el" href="classShape.html#a8ea127bd7907b7dd9974ccbf6345bbeb">Shape&lt; dim &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01679">1679</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
 
 </div>
 </div>
@@ -1846,6 +1929,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l02205">2205</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
 
 </div>
 </div>
@@ -1885,6 +1970,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01727">1727</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
 
 </div>
 </div>
@@ -1935,6 +2022,8 @@ template&lt;int dim&gt; </div>
 
 <p>Implements <a class="el" href="classShape.html#ad5f4333acae9352a237b917a6eb49ae9">Shape&lt; dim &gt;</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01567">1567</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
+
 </div>
 </div>
 <a id="a3bb5e038767577ace42bbb92fffe8d0f"></a>
@@ -1958,7 +2047,7 @@ template&lt;int dim&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const typename DoFHandler&lt; dim &gt;::active_cell_iterator&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>cell</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1989,7 +2078,9 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classShape.html#ae04a8ffb097d20ecc709a9a5435b3f89">Shape&lt; dim &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classShape.html#a53cd426c500960e007ff2ef2f5df0d1d">Shape&lt; dim &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="shape_8cc_source.html#l01505">1505</a> of file <a class="el" href="shape_8cc_source.html">shape.cc</a>.</p>
 
 </div>
 </div>
@@ -2027,6 +2118,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01503">1503</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a0e6efac8271e7370c1cd8c0180e0d4a8"></a>
@@ -2063,6 +2156,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01671">1671</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -2079,6 +2174,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01871">1871</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -2104,6 +2201,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01839">1839</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a85c623f365defe6bb9bcf2b62547d7ea"></a>
@@ -2127,6 +2226,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01862">1862</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -2152,6 +2253,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01837">1837</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a0c93189216143c45549d01818ace16a1"></a>
@@ -2175,6 +2278,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01845">1845</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -2200,6 +2305,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01860">1860</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="a5bfbf5ead66ac910419533858ec0412c"></a>
@@ -2223,6 +2330,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01861">1861</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -2248,6 +2357,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01864">1864</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="ad139b88eb2ea6c07005e56a54179fce7"></a>
@@ -2263,6 +2374,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01868">1868</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -2288,6 +2401,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01838">1838</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="aa6c393f51fc07580a0f6ba64a0b19dee"></a>
@@ -2303,6 +2418,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01869">1869</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -2320,6 +2437,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01870">1870</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
 <a id="adee8e4d8527a849ba3cb086c3085f02f"></a>
@@ -2335,6 +2454,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01872">1872</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
 
 </div>
 </div>
@@ -2352,10 +2473,13 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="shape_8h_source.html#l01867">1867</a> of file <a class="el" href="shape_8h_source.html">shape.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="shape_8h_source.html">shape.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="shape_8cc_source.html">shape.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

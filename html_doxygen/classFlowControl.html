@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -129,6 +136,8 @@ Private Attributes</h2></td></tr>
 class FlowControl&lt; dim &gt;</h3>
 
 <p>Class allows to dynamically control the flow with a beta coefficient calculated at each step time. </p>
+
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00042">42</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aeab13df0da2212c7c37408b69e131f30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeab13df0da2212c7c37408b69e131f30">&#9670;&nbsp;</a></span>FlowControl()</h2>
@@ -147,6 +156,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="flow__control_8cc_source.html#l00006">6</a> of file <a class="el" href="flow__control_8cc_source.html">flow_control.cc</a>.</p>
 
 </div>
 </div>
@@ -195,6 +206,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8cc_source.html#l00020">20</a> of file <a class="el" href="flow__control_8cc_source.html">flow_control.cc</a>.</p>
+
 </div>
 </div>
 <a id="a1079527c5c8ef81b000a5cb375056e39"></a>
@@ -223,6 +236,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>get_beta. This function gives the beta force of the step time </p>
+
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00103">103</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
 
 </div>
 </div>
@@ -264,6 +279,8 @@ template&lt;int dim&gt; </div>
 
 <p>get_beta_particle. This function gives the beta force of the CFD time step scaled for particles. </p>
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00113">113</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
+
 </div>
 </div>
 <a id="a3f8d388638224072acc18b94f0c11f9e"></a>
@@ -303,6 +320,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>main_flow_controller. This function calculates a beta coefficient based on a formula described by Wang, 2009 in "A non-body conformal grid method for simulations of laminar and turbulent flows with a compressible large eddy simulation solver" </p>
+
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00083">83</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
 
 </div>
 </div>
@@ -344,6 +363,8 @@ template&lt;int dim&gt; </div>
 
 <p>proportional_flow_controller. This function calculates a beta only with the last step average velocity. It is used to initialize the beta if there's no initial beta value at 1st time step and the 2nd time step. </p>
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00069">69</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
+
 </div>
 </div>
 <a id="a784e8af69ab6919e780da137c6145713"></a>
@@ -364,6 +385,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8cc_source.html#l00116">116</a> of file <a class="el" href="flow__control_8cc_source.html">flow_control.cc</a>.</p>
+
 </div>
 </div>
 <a id="a7aad205f0c46e1c0ba32f5a9d3bbf93f"></a>
@@ -383,6 +406,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="flow__control_8cc_source.html#l00103">103</a> of file <a class="el" href="flow__control_8cc_source.html">flow_control.cc</a>.</p>
 
 </div>
 </div>
@@ -409,6 +434,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00147">147</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
+
 </div>
 </div>
 <a id="add256a67717dc0487757017e76ac9722"></a>
@@ -432,6 +459,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00143">143</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
 
 </div>
 </div>
@@ -457,6 +486,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00152">152</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
+
 </div>
 </div>
 <a id="aaf16a6a43fc8174bbeef9a0af9e81685"></a>
@@ -480,6 +511,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00140">140</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
 
 </div>
 </div>
@@ -505,6 +538,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00146">146</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
+
 </div>
 </div>
 <a id="a19769bbf4028d49ce417aa4980e82a8b"></a>
@@ -528,6 +563,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00151">151</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
 
 </div>
 </div>
@@ -553,6 +590,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00148">148</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
+
 </div>
 </div>
 <a id="a450ad4a1f4caab72f1950ae8d8300f42"></a>
@@ -576,6 +615,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00155">155</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
 
 </div>
 </div>
@@ -601,6 +642,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00158">158</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
+
 </div>
 </div>
 <a id="a32c0e8b195226d56637cd5db22ae9115"></a>
@@ -625,10 +668,13 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="flow__control_8h_source.html#l00159">159</a> of file <a class="el" href="flow__control_8h_source.html">flow_control.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/solvers/<a class="el" href="flow__control_8h_source.html">flow_control.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/solvers/<a class="el" href="flow__control_8cc_source.html">flow_control.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

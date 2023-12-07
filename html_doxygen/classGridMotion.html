@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -96,6 +103,14 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a9d47495e887736911334770f006891c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29e96f413052a3c7d952f23056359427"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMotion.html#a29e96f413052a3c7d952f23056359427">move_grid_translational</a> (Triangulation&lt; dim, spacedim &gt; &amp;triangulation)</td></tr>
 <tr class="separator:a29e96f413052a3c7d952f23056359427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9546d6327c21d313ffe79d94269a82e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMotion.html#a9546d6327c21d313ffe79d94269a82e8">move_grid_rotational</a> (Triangulation&lt; 1, 2 &gt; &amp;)</td></tr>
+<tr class="separator:a9546d6327c21d313ffe79d94269a82e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b6da5d461783668bbf7aa15ac12787e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMotion.html#a1b6da5d461783668bbf7aa15ac12787e">move_grid_rotational</a> (Triangulation&lt; 2, 2 &gt; &amp;triangulation)</td></tr>
+<tr class="separator:a1b6da5d461783668bbf7aa15ac12787e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadf9087183c5ab22dadcd1dc0a416929"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMotion.html#aadf9087183c5ab22dadcd1dc0a416929">move_grid_rotational</a> (Triangulation&lt; 2, 3 &gt; &amp;triangulation)</td></tr>
+<tr class="separator:aadf9087183c5ab22dadcd1dc0a416929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a2a2192b5a326fe83827e63a87dab78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMotion.html#a3a2a2192b5a326fe83827e63a87dab78">move_grid_rotational</a> (Triangulation&lt; 3, 3 &gt; &amp;triangulation)</td></tr>
+<tr class="separator:a3a2a2192b5a326fe83827e63a87dab78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -121,6 +136,8 @@ class GridMotion&lt; dim, spacedim &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="grid__motion_8h_source.html#l00043">43</a> of file <a class="el" href="grid__motion_8h_source.html">grid_motion.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="af227c03280158d4ce32cd8524e4d62d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af227c03280158d4ce32cd8524e4d62d0">&#9670;&nbsp;</a></span>FuncPtrType</h2>
@@ -144,6 +161,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="grid__motion_8h_source.html#l00045">45</a> of file <a class="el" href="grid__motion_8h_source.html">grid_motion.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -153,7 +172,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classGridMotion.html">GridMotion</a>&lt; dim, spacedim &gt;::<a class="el" href="classGridMotion.html">GridMotion</a> </td>
@@ -182,6 +201,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="grid__motion_8cc_source.html#l00011">11</a> of file <a class="el" href="grid__motion_8cc_source.html">grid_motion.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters__lagrangian_8h_source.html#l00427">Parameters::Lagrangian::GridMotion&lt; dim &gt;::grid_rotational_axis</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00423">Parameters::Lagrangian::GridMotion&lt; dim &gt;::grid_rotational_speed</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00420">Parameters::Lagrangian::GridMotion&lt; dim &gt;::grid_translational_velocity</a>, and <a class="el" href="classParameters_1_1Lagrangian_1_1GridMotion.html#a6a652cd37c45ff9993cb39f37cab01cd">Parameters::Lagrangian::GridMotion&lt; dim &gt;::motion_type</a>.</p>
 
 </div>
 </div>
@@ -219,10 +242,124 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="grid__motion_8h_source.html#l00068">68</a> of file <a class="el" href="grid__motion_8h_source.html">grid_motion.h</a>.</p>
+
+</div>
+</div>
+<a id="a9546d6327c21d313ffe79d94269a82e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9546d6327c21d313ffe79d94269a82e8">&#9670;&nbsp;</a></span>move_grid_rotational() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGridMotion.html">GridMotion</a>&lt; 1, 2 &gt;::move_grid_rotational </td>
+          <td>(</td>
+          <td class="paramtype">Triangulation&lt; 1, 2 &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__motion_8cc_source.html#l00036">36</a> of file <a class="el" href="grid__motion_8cc_source.html">grid_motion.cc</a>.</p>
+
+</div>
+</div>
+<a id="a1b6da5d461783668bbf7aa15ac12787e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b6da5d461783668bbf7aa15ac12787e">&#9670;&nbsp;</a></span>move_grid_rotational() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGridMotion.html">GridMotion</a>&lt; 2, 2 &gt;::move_grid_rotational </td>
+          <td>(</td>
+          <td class="paramtype">Triangulation&lt; 2, 2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>triangulation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__motion_8cc_source.html#l00045">45</a> of file <a class="el" href="grid__motion_8cc_source.html">grid_motion.cc</a>.</p>
+
+</div>
+</div>
+<a id="aadf9087183c5ab22dadcd1dc0a416929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadf9087183c5ab22dadcd1dc0a416929">&#9670;&nbsp;</a></span>move_grid_rotational() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGridMotion.html">GridMotion</a>&lt; 2, 3 &gt;::move_grid_rotational </td>
+          <td>(</td>
+          <td class="paramtype">Triangulation&lt; 2, 3 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>triangulation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__motion_8cc_source.html#l00052">52</a> of file <a class="el" href="grid__motion_8cc_source.html">grid_motion.cc</a>.</p>
+
+</div>
+</div>
+<a id="a3a2a2192b5a326fe83827e63a87dab78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a2a2192b5a326fe83827e63a87dab78">&#9670;&nbsp;</a></span>move_grid_rotational() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classGridMotion.html">GridMotion</a>&lt; 3, 3 &gt;::move_grid_rotational </td>
+          <td>(</td>
+          <td class="paramtype">Triangulation&lt; 3, 3 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>triangulation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__motion_8cc_source.html#l00061">61</a> of file <a class="el" href="grid__motion_8cc_source.html">grid_motion.cc</a>.</p>
+
 </div>
 </div>
 <a id="a9d47495e887736911334770f006891c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d47495e887736911334770f006891c1">&#9670;&nbsp;</a></span>move_grid_rotational()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d47495e887736911334770f006891c1">&#9670;&nbsp;</a></span>move_grid_rotational() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +399,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -289,6 +426,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="grid__motion_8cc_source.html#l00070">70</a> of file <a class="el" href="grid__motion_8cc_source.html">grid_motion.cc</a>.</p>
+
 </div>
 </div>
 <a id="a88c697e5125dc3ff3eadf593597c1d1b"></a>
@@ -297,7 +436,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classGridMotion.html">GridMotion</a>&lt; dim, spacedim &gt;::update_boundary_points_and_normal_vectors_in_contact_list </td>
@@ -327,6 +466,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="grid__motion_8cc_source.html#l00078">78</a> of file <a class="el" href="grid__motion_8cc_source.html">grid_motion.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -352,6 +493,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="grid__motion_8h_source.html#l00047">47</a> of file <a class="el" href="grid__motion_8h_source.html">grid_motion.h</a>.</p>
+
 </div>
 </div>
 <a id="a3b24a212b18918958279f27c27fd4c58"></a>
@@ -375,6 +518,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__motion_8h_source.html#l00114">114</a> of file <a class="el" href="grid__motion_8h_source.html">grid_motion.h</a>.</p>
 
 </div>
 </div>
@@ -400,6 +545,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="grid__motion_8h_source.html#l00116">116</a> of file <a class="el" href="grid__motion_8h_source.html">grid_motion.h</a>.</p>
+
 </div>
 </div>
 <a id="accd121cda27c90d79ad4ba09f5c41c46"></a>
@@ -424,10 +571,13 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="grid__motion_8h_source.html#l00118">118</a> of file <a class="el" href="grid__motion_8h_source.html">grid_motion.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/dem/<a class="el" href="grid__motion_8h_source.html">grid_motion.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/dem/<a class="el" href="grid__motion_8cc_source.html">grid_motion.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

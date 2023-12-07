@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -119,9 +126,9 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ae38be1f7ac158d8b89a07a495d610279"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetectorInteractions.html#ae38be1f7ac158d8b89a07a495d610279">calculate_efficiency</a> ()</td></tr>
 <tr class="memdesc:ae38be1f7ac158d8b89a07a495d610279"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the efficiency of the detector with the Monte Carlo method.  <a href="classParticleDetectorInteractions.html#ae38be1f7ac158d8b89a07a495d610279">More...</a><br /></td></tr>
 <tr class="separator:ae38be1f7ac158d8b89a07a495d610279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03a9484284e78da0adfd330d19ae4099"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetectorInteractions.html#a03a9484284e78da0adfd330d19ae4099">solve_t</a> (Tensor&lt; 2, dim &gt; e_inverse, Tensor&lt; 1, dim &gt; detector_particle_origin, Tensor&lt; 1, dim &gt; particle_position_rotation)</td></tr>
-<tr class="memdesc:a03a9484284e78da0adfd330d19ae4099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the t variable of the equation of a straigth line in parametric form. It used the Newton's method with a numerical derivative with initial values of -1 and 1.  <a href="classParticleDetectorInteractions.html#a03a9484284e78da0adfd330d19ae4099">More...</a><br /></td></tr>
-<tr class="separator:a03a9484284e78da0adfd330d19ae4099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab54b281427a30e0468ac6f088aee87d0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParticleDetectorInteractions.html#ab54b281427a30e0468ac6f088aee87d0">solve_t</a> (Tensor&lt; 2, dim &gt; e_inverse, Tensor&lt; 1, dim &gt; detector_particle_origin, Tensor&lt; 1, dim &gt; particle_position_rotation)</td></tr>
+<tr class="memdesc:ab54b281427a30e0468ac6f088aee87d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the t variable of the equation of a straigth line in parametric form. It used the Newton's method with a numerical derivative with initial values of -1 and 1.  <a href="classParticleDetectorInteractions.html#ab54b281427a30e0468ac6f088aee87d0">More...</a><br /></td></tr>
+<tr class="separator:ab54b281427a30e0468ac6f088aee87d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -175,6 +182,8 @@ Private Attributes</h2></td></tr>
 class ParticleDetectorInteractions&lt; dim &gt;</h3>
 
 <p>This class allows to calculate the photon count from a particle received by a detector with the Monte Carlo method. </p>
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00034">34</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a45a96f19d8f6f90276aae816f0469399"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45a96f19d8f6f90276aae816f0469399">&#9670;&nbsp;</a></span>ParticleDetectorInteractions()</h2>
@@ -231,6 +240,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00053">53</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -243,15 +254,14 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_count </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_count</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Calculate photon count of a detector with the Monte Carlo method. </p>
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00367">367</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
 
 </div>
 </div>
@@ -289,6 +299,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00305">305</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
+
 </div>
 </div>
 <a id="aa5a37526e70a8e152a690da4cba9214a"></a>
@@ -303,10 +315,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_detector_path_length </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_detector_path_length</td>
         </tr>
       </table>
   </td>
@@ -317,6 +326,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>Calculate the length of the photon path through the detector. </p>
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00142">142</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
 
 </div>
 </div>
@@ -332,10 +343,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_efficiency </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_efficiency</td>
         </tr>
       </table>
   </td>
@@ -346,6 +354,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>Calculate the efficiency of the detector with the Monte Carlo method. </p>
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00328">328</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
 
 </div>
 </div>
@@ -383,6 +393,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00317">317</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
+
 </div>
 </div>
 <a id="a9f4c1e0e769d3de340b2b86b4a20cc44"></a>
@@ -397,10 +409,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_position_parameters </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_position_parameters</td>
         </tr>
       </table>
   </td>
@@ -411,6 +420,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>Calculate position parameters (h &amp; rho) of the particle with the detector. </p>
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00008">8</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
 
 </div>
 </div>
@@ -426,10 +437,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_reactor_path_length </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::calculate_reactor_path_length</td>
         </tr>
       </table>
   </td>
@@ -440,6 +448,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>Calculate the length of the photon path through the reactor/tank. </p>
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00248">248</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
 
 </div>
 </div>
@@ -488,6 +498,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00049">49</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
+
 </div>
 </div>
 <a id="a045177739a55e04bdab460fb9e38f7d7"></a>
@@ -517,6 +529,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00406">406</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
 
 </div>
 </div>
@@ -548,6 +562,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00426">426</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
+
 </div>
 </div>
 <a id="a42e5b83e176041585b8bba7b2fc76c3c"></a>
@@ -559,13 +575,12 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::get_h </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::get_h</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00388">388</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
 
 </div>
 </div>
@@ -597,6 +612,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00438">438</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
+
 </div>
 </div>
 <a id="a20a56aa3d1ef58121e3a34cd75c778f6"></a>
@@ -608,13 +625,12 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::get_rho </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">double <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::get_rho</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00397">397</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
 
 </div>
 </div>
@@ -646,10 +662,12 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00416">416</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
+
 </div>
 </div>
-<a id="a03a9484284e78da0adfd330d19ae4099"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03a9484284e78da0adfd330d19ae4099">&#9670;&nbsp;</a></span>solve_t()</h2>
+<a id="ab54b281427a30e0468ac6f088aee87d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab54b281427a30e0468ac6f088aee87d0">&#9670;&nbsp;</a></span>solve_t()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -660,7 +678,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt; <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::solve_t </td>
+          <td class="memname">std::vector&lt; double &gt; <a class="el" href="classParticleDetectorInteractions.html">ParticleDetectorInteractions</a>&lt; dim &gt;::solve_t </td>
           <td>(</td>
           <td class="paramtype">Tensor&lt; 2, dim &gt;&#160;</td>
           <td class="paramname"><em>e_inverse</em>, </td>
@@ -700,6 +718,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8cc_source.html#l00182">182</a> of file <a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -725,6 +745,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00187">187</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="ac7de8304d2fb8fd5d0d5f07443f8eb78"></a>
@@ -748,6 +770,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00167">167</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -773,6 +797,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00188">188</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="a7a0833815ba0216f90fe3cb950c67970"></a>
@@ -796,6 +822,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00186">186</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -821,6 +849,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00181">181</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="a3bf1f19e1256cef9d18c63b2ea1494fc"></a>
@@ -844,6 +874,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00185">185</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -869,6 +901,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00182">182</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="a01cb53465523a03f9837a8928e1b0514"></a>
@@ -892,6 +926,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00176">176</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -917,6 +953,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00177">177</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="a348118c030ada0fd49405f6e8ff4b393"></a>
@@ -940,6 +978,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00178">178</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -965,6 +1005,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00184">184</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="a82d51d276312d903b4cd1ffb6feb0bfa"></a>
@@ -988,6 +1030,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00166">166</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -1013,6 +1057,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00172">172</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="ac4837a12dfcf9d1b89158bc2d89b4abc"></a>
@@ -1036,6 +1082,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00174">174</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -1061,6 +1109,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00175">175</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="a194a9fed73d5e99a7bfe807502ecb3a6"></a>
@@ -1084,6 +1134,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00189">189</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -1109,6 +1161,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00180">180</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="a421fcf2e1a1758da3cde7db7cbcb66cd"></a>
@@ -1132,6 +1186,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00173">173</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -1157,6 +1213,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00168">168</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="a0095aa7ccb3e17c8f6d3356f62292c47"></a>
@@ -1180,6 +1238,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00169">169</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
 
 </div>
 </div>
@@ -1205,6 +1265,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00170">170</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
 <a id="a116925df5f72c4f1d065a5a4250325b4"></a>
@@ -1229,10 +1291,13 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="particle__detector__interactions_8h_source.html#l00171">171</a> of file <a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/rpt/<a class="el" href="particle__detector__interactions_8h_source.html">particle_detector_interactions.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/rpt/<a class="el" href="particle__detector__interactions_8cc_source.html">particle_detector_interactions.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

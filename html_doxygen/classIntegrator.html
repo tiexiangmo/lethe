@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -102,6 +109,8 @@ Public Member Functions</h2></td></tr>
 class Integrator&lt; dim &gt;</h3>
 
 <p>Base interface for classes that carry out the integration of the velocity and position of particles with inertia </p>
+
+<p class="definition">Definition at line <a class="el" href="integrator_8h_source.html#l00037">37</a> of file <a class="el" href="integrator_8h_source.html">integrator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0814e3ffd4eb6f2f003d5ba8436b5718"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0814e3ffd4eb6f2f003d5ba8436b5718">&#9670;&nbsp;</a></span>Integrator()</h2>
@@ -129,6 +138,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>The constructor to the integrator class is currently blank Eventually it might be a good idea to have the integration class contain the index to the velocity property, the force property and the acceleration property manually </p>
 
+<p class="definition">Definition at line <a class="el" href="integrator_8h_source.html#l00046">46</a> of file <a class="el" href="integrator_8h_source.html">integrator.h</a>.</p>
+
 </div>
 </div>
 <a id="a259d4bd6190cdfcffe390ba6b0447d10"></a>
@@ -155,6 +166,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="integrator_8h_source.html#l00049">49</a> of file <a class="el" href="integrator_8h_source.html">integrator.h</a>.</p>
 
 </div>
 </div>
@@ -231,7 +244,7 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classVelocityVerletIntegrator.html#af3e7c2904bf95b73618f1be464719fc8">VelocityVerletIntegrator&lt; dim &gt;</a>, <a class="el" href="classGear3Integrator.html#a1d08b3ca7bdcd610fd8939693054deed">Gear3Integrator&lt; dim &gt;</a>, and <a class="el" href="classExplicitEulerIntegrator.html#ad28191df77a9ca460fcdac67d9be355c">ExplicitEulerIntegrator&lt; dim &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classVelocityVerletIntegrator.html#a7dbefbe8afffd94cfbbb9f20d5cf643b">VelocityVerletIntegrator&lt; dim &gt;</a>, <a class="el" href="classGear3Integrator.html#ad0c4bf9ca6d4fe9aadfec79247347bcf">Gear3Integrator&lt; dim &gt;</a>, and <a class="el" href="classExplicitEulerIntegrator.html#af70d4321118e5a2eeabb44dd6f8308a1">ExplicitEulerIntegrator&lt; dim &gt;</a>.</p>
 
 </div>
 </div>
@@ -307,7 +320,7 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classVelocityVerletIntegrator.html#a975d62cff73824fddb13c44c4454b58a">VelocityVerletIntegrator&lt; dim &gt;</a>, <a class="el" href="classGear3Integrator.html#a01f189ac5f812b8e56206cdf2a7d0126">Gear3Integrator&lt; dim &gt;</a>, and <a class="el" href="classExplicitEulerIntegrator.html#a5d5ce6002bba0073e6dbaa18279925fe">ExplicitEulerIntegrator&lt; dim &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classVelocityVerletIntegrator.html#a199afb3771f3f1afe82ebcc096de94ad">VelocityVerletIntegrator&lt; dim &gt;</a>, <a class="el" href="classGear3Integrator.html#a95aa9857bf1108b7228664d140aaaff6">Gear3Integrator&lt; dim &gt;</a>, and <a class="el" href="classExplicitEulerIntegrator.html#a084b4ea22f4172fd86164f15fb85a6b3">ExplicitEulerIntegrator&lt; dim &gt;</a>.</p>
 
 </div>
 </div>
@@ -383,7 +396,7 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classVelocityVerletIntegrator.html#a2dd543646de56f847a934e97e3f8c229">VelocityVerletIntegrator&lt; dim &gt;</a>, <a class="el" href="classGear3Integrator.html#a74f8767084fb4633285e10b734de240c">Gear3Integrator&lt; dim &gt;</a>, and <a class="el" href="classExplicitEulerIntegrator.html#a433a5734b16f63ff4927afa6c14eebc5">ExplicitEulerIntegrator&lt; dim &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classVelocityVerletIntegrator.html#abe2aaed38fbf001db9f7479fd409905c">VelocityVerletIntegrator&lt; dim &gt;</a>, <a class="el" href="classGear3Integrator.html#afadf36da9cc5cf5222790549f7863d8a">Gear3Integrator&lt; dim &gt;</a>, and <a class="el" href="classExplicitEulerIntegrator.html#ab2d67dd0acdeb58b06de7835887c7b63">ExplicitEulerIntegrator&lt; dim &gt;</a>.</p>
 
 </div>
 </div>

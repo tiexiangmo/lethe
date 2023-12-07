@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -141,7 +148,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad59ea3e8a59c983f724c8d8f113f2cd0"><td class="memItemLeft" align="right" valign="top">TimerOutput&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRPTL2Projection.html#ad59ea3e8a59c983f724c8d8f113f2cd0">computing_timer</a></td></tr>
 <tr class="separator:ad59ea3e8a59c983f724c8d8f113f2cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;int dim&gt;<br />
+class RPTL2Projection&lt; dim &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00077">77</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a35120f9ed67e6863e87428c3e8fad22f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35120f9ed67e6863e87428c3e8fad22f">&#9670;&nbsp;</a></span>RPTL2Projection()</h2>
 
@@ -194,6 +207,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00087">87</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -223,6 +238,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8cc_source.html#l00243">243</a> of file <a class="el" href="rpt__fem__reconstruction_8cc_source.html">rpt_fem_reconstruction.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="particle__detector__interactions_8cc_source.html#l00367">ParticleDetectorInteractions&lt; dim &gt;::calculate_count()</a>.</p>
+
 </div>
 </div>
 <a id="a924a1ea8ca5a6c21d5db530fa92cb97a"></a>
@@ -234,15 +253,14 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::checkpoint </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::checkpoint</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Saves the built dictionary which will be used later for the 3D FEM reconstruction. </p>
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8cc_source.html#l00423">423</a> of file <a class="el" href="rpt__fem__reconstruction_8cc_source.html">rpt_fem_reconstruction.cc</a>.</p>
 
 </div>
 </div>
@@ -255,15 +273,14 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::L2_project </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::L2_project</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Using the L2 projection, builds a dictionary of photon counts with respect to a detector for given positions inside a reactor. </p>
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8cc_source.html#l00449">449</a> of file <a class="el" href="rpt__fem__reconstruction_8cc_source.html">rpt_fem_reconstruction.cc</a>.</p>
 
 </div>
 </div>
@@ -276,15 +293,16 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::output_raw_results </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::output_raw_results</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Outputs the position of each vertex of every cell of the grid and the photon count at that position for every detector in a ".dat" file format. </p>
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8cc_source.html#l00348">348</a> of file <a class="el" href="rpt__fem__reconstruction_8cc_source.html">rpt_fem_reconstruction.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="namespaceParameters.html#ad408350a21239600add83c5e91fcfa26a2c7aea4237e25b4f8ee3b0bf77d6fed0">Parameters::verbose</a>.</p>
 
 </div>
 </div>
@@ -297,15 +315,14 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::output_results </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::output_results</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Outputs the solution of the linear system (nodal counts) in a ".vtk" file format. </p>
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8cc_source.html#l00325">325</a> of file <a class="el" href="rpt__fem__reconstruction_8cc_source.html">rpt_fem_reconstruction.cc</a>.</p>
 
 </div>
 </div>
@@ -318,15 +335,14 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::setup_system </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::setup_system</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Set up the system to be solved by enumerating the degrees of freedom and set up the matrix and vector objects to hold the system data. </p>
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8cc_source.html#l00178">178</a> of file <a class="el" href="rpt__fem__reconstruction_8cc_source.html">rpt_fem_reconstruction.cc</a>.</p>
 
 </div>
 </div>
@@ -339,15 +355,16 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::setup_triangulation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classRPTL2Projection.html">RPTL2Projection</a>&lt; dim &gt;::setup_triangulation</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Set up the triangulation that covers the domain of the reactor. </p>
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8cc_source.html#l00038">38</a> of file <a class="el" href="rpt__fem__reconstruction_8cc_source.html">rpt_fem_reconstruction.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="structParameters_1_1RPTFEMReconstructionParameters.html#abcdd422f5bd67d0cab793a003dec9df2ab7c7797f3a0a1098b484e5e3a780e025">Parameters::RPTFEMReconstructionParameters::gmsh</a>.</p>
 
 </div>
 </div>
@@ -377,6 +394,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8cc_source.html#l00218">218</a> of file <a class="el" href="rpt__fem__reconstruction_8cc_source.html">rpt_fem_reconstruction.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -394,6 +413,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00187">187</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
 <a id="a82d64ad0a43f2af2b0050319e1bf872a"></a>
@@ -409,6 +430,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00180">180</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
 
 </div>
 </div>
@@ -426,6 +449,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00175">175</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
 <a id="aa8a231b418532827c59429579ff0f19f"></a>
@@ -441,6 +466,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00177">177</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
 
 </div>
 </div>
@@ -458,6 +485,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00171">171</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
 <a id="a4e1d1859e3991f5b9fd3062e735a7db6"></a>
@@ -473,6 +502,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00170">170</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
 
 </div>
 </div>
@@ -490,6 +521,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00174">174</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
 <a id="aee8d9f22556835a4a629687178e4a4c0"></a>
@@ -505,6 +538,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00172">172</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
 
 </div>
 </div>
@@ -522,6 +557,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00168">168</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
 <a id="a57081b07639cffd5b4fdbef2e1e15bd9"></a>
@@ -537,6 +574,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00178">178</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
 
 </div>
 </div>
@@ -554,6 +593,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00184">184</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
 <a id="a896181fbfc6afe44b7a63c429cb3ac9e"></a>
@@ -569,6 +610,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00173">173</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
 
 </div>
 </div>
@@ -586,6 +629,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00186">186</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
 <a id="a41a78e250247d6ca36ac3370f267f565"></a>
@@ -601,6 +646,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00183">183</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
 
 </div>
 </div>
@@ -618,6 +665,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00181">181</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
 <a id="a3187dd00ab4ee1ddd8ad58db12e8625e"></a>
@@ -633,6 +682,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00182">182</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
 
 </div>
 </div>
@@ -650,10 +701,13 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rpt__fem__reconstruction_8h_source.html#l00169">169</a> of file <a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/rpt/<a class="el" href="rpt__fem__reconstruction_8h_source.html">rpt_fem_reconstruction.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/rpt/<a class="el" href="rpt__fem__reconstruction_8cc_source.html">rpt_fem_reconstruction.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

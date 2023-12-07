@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -107,7 +114,12 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2acbc0ad67f70aa071fb58cc555ff266f9">   34</a></span>&#160;  <a class="code" href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2acbc0ad67f70aa071fb58cc555ff266f9">VOF</a>            = 3,</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2adb9b8e35efba351d474020dd829e49dd">cahn_hilliard</a>  = 4</div>
 <div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2adb9b8e35efba351d474020dd829e49dd">   36</a></span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> * @brief Utility function used for parsing physics-based</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"> * parameters</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">inline</span> <a class="code" href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2">PhysicsID</a></div>
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="multiphysics_8h.html#afb53a921f58fed3067eb4bc6d0ab3932">   44</a></span>&#160;<a class="code" href="multiphysics_8h.html#afb53a921f58fed3067eb4bc6d0ab3932">get_physics_id</a>(std::string physics_name)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
@@ -124,13 +136,13 @@ $(function() {
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2">PhysicsID</a></div><div class="ttdeci">PhysicsID</div><div class="ttdef"><b>Definition:</b> multiphysics.h:30</div></div>
-<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2a0bb34d58a3e8914bc47bf4b415f206c2"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2a0bb34d58a3e8914bc47bf4b415f206c2">fluid_dynamics</a></div><div class="ttdeci">@ fluid_dynamics</div><div class="ttdef"><b>Definition:</b> multiphysics.h:31</div></div>
-<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2a50955dac125ab3c822a8f3bb4f6fcaef"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2a50955dac125ab3c822a8f3bb4f6fcaef">tracer</a></div><div class="ttdeci">@ tracer</div><div class="ttdef"><b>Definition:</b> multiphysics.h:33</div></div>
-<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2acbc0ad67f70aa071fb58cc555ff266f9"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2acbc0ad67f70aa071fb58cc555ff266f9">VOF</a></div><div class="ttdeci">@ VOF</div><div class="ttdef"><b>Definition:</b> multiphysics.h:34</div></div>
-<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2ad4151ddbc1976755e1fcd118d2917fa8"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2ad4151ddbc1976755e1fcd118d2917fa8">heat_transfer</a></div><div class="ttdeci">@ heat_transfer</div><div class="ttdef"><b>Definition:</b> multiphysics.h:32</div></div>
-<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2adb9b8e35efba351d474020dd829e49dd"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2adb9b8e35efba351d474020dd829e49dd">cahn_hilliard</a></div><div class="ttdeci">@ cahn_hilliard</div><div class="ttdef"><b>Definition:</b> multiphysics.h:35</div></div>
-<div class="ttc" id="amultiphysics_8h_html_afb53a921f58fed3067eb4bc6d0ab3932"><div class="ttname"><a href="multiphysics_8h.html#afb53a921f58fed3067eb4bc6d0ab3932">get_physics_id</a></div><div class="ttdeci">PhysicsID get_physics_id(std::string physics_name)</div><div class="ttdoc">Utility function used for parsing physics-based parameters.</div><div class="ttdef"><b>Definition:</b> multiphysics.h:44</div></div>
+<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2">PhysicsID</a></div><div class="ttdeci">PhysicsID</div><div class="ttdef"><b>Definition:</b> <a href="multiphysics_8h_source.html#l00029">multiphysics.h:30</a></div></div>
+<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2a0bb34d58a3e8914bc47bf4b415f206c2"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2a0bb34d58a3e8914bc47bf4b415f206c2">fluid_dynamics</a></div><div class="ttdeci">@ fluid_dynamics</div><div class="ttdef"><b>Definition:</b> <a href="multiphysics_8h_source.html#l00031">multiphysics.h:31</a></div></div>
+<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2a50955dac125ab3c822a8f3bb4f6fcaef"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2a50955dac125ab3c822a8f3bb4f6fcaef">tracer</a></div><div class="ttdeci">@ tracer</div><div class="ttdef"><b>Definition:</b> <a href="multiphysics_8h_source.html#l00033">multiphysics.h:33</a></div></div>
+<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2acbc0ad67f70aa071fb58cc555ff266f9"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2acbc0ad67f70aa071fb58cc555ff266f9">VOF</a></div><div class="ttdeci">@ VOF</div><div class="ttdef"><b>Definition:</b> <a href="multiphysics_8h_source.html#l00034">multiphysics.h:34</a></div></div>
+<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2ad4151ddbc1976755e1fcd118d2917fa8"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2ad4151ddbc1976755e1fcd118d2917fa8">heat_transfer</a></div><div class="ttdeci">@ heat_transfer</div><div class="ttdef"><b>Definition:</b> <a href="multiphysics_8h_source.html#l00032">multiphysics.h:32</a></div></div>
+<div class="ttc" id="amultiphysics_8h_html_ae14bb720bc9a37edc36fb8d90df712c2adb9b8e35efba351d474020dd829e49dd"><div class="ttname"><a href="multiphysics_8h.html#ae14bb720bc9a37edc36fb8d90df712c2adb9b8e35efba351d474020dd829e49dd">cahn_hilliard</a></div><div class="ttdeci">@ cahn_hilliard</div><div class="ttdef"><b>Definition:</b> <a href="multiphysics_8h_source.html#l00036">multiphysics.h:35</a></div></div>
+<div class="ttc" id="amultiphysics_8h_html_afb53a921f58fed3067eb4bc6d0ab3932"><div class="ttname"><a href="multiphysics_8h.html#afb53a921f58fed3067eb4bc6d0ab3932">get_physics_id</a></div><div class="ttdeci">PhysicsID get_physics_id(std::string physics_name)</div><div class="ttdoc">Utility function used for parsing physics-based parameters.</div><div class="ttdef"><b>Definition:</b> <a href="multiphysics_8h_source.html#l00044">multiphysics.h:44</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

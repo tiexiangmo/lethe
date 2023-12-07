@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -74,6 +81,7 @@ $(function() {
 </li>
 <li>assemble_matrix_and_rhs()
 : <a class="el" href="rpt__fem__reconstruction_8h.html#a3b067da022e1afc62faaae6d681d57df">rpt_fem_reconstruction.h</a>
+, <a class="el" href="rpt__fem__reconstruction_8cc.html#a3b067da022e1afc62faaae6d681d57df">rpt_fem_reconstruction.cc</a>
 </li>
 <li>assign_detector_positions()
 : <a class="el" href="rpt__utilities_8h.html#aa6aa1b0d66b8e3e1cdf57747ae9bcd38">rpt_utilities.h</a>
@@ -82,315 +90,17 @@ $(function() {
 : <a class="el" href="rpt__utilities_8h.html#a145bf8ccacafb8920d8a1440eb54509a">rpt_utilities.h</a>
 </li>
 <li>attach_cad_to_manifold()
-: <a class="el" href="manifolds_8h.html#a92f5f220c4b61859f1d6686b5421ffe5">manifolds.h</a>
+: <a class="el" href="manifolds_8cc.html#aa872a9db22d7326d1a9512a45706c58e">manifolds.cc</a>
+, <a class="el" href="manifolds_8h.html#ad04572fd19cd8452afdbfc1b5a0c2392">manifolds.h</a>
 </li>
 <li>attach_grid_to_triangulation()
 : <a class="el" href="grids_8h.html#a8346f27f01e84f93cc4f8c72c91761ba">grids.h</a>
 , <a class="el" href="rpt__utilities_8h.html#aba208d797dcf0e0054e48b8d2f357780">rpt_utilities.h</a>
+, <a class="el" href="grids_8cc.html#a8346f27f01e84f93cc4f8c72c91761ba">grids.cc</a>
 </li>
 <li>attach_manifolds_to_triangulation()
 : <a class="el" href="manifolds_8h.html#a6cf3a8fabce0608b5487c5c517fbd1d8">manifolds.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_b"></a>- b -</h3><ul>
-<li>bdf_coefficients()
-: <a class="el" href="bdf_8h.html#a8819b8d37da17f777876c7bb3404f0ad">bdf.h</a>
-</li>
-<li>bdf_extrapolate()
-: <a class="el" href="bdf_8h.html#a730c40ff7789476c2dbbdd3158b928a6">bdf.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_c"></a>- c -</h3><ul>
-<li>calculate_apparent_viscosity()
-: <a class="el" href="postprocessing__cfd_8h.html#aab737a9d3042e8a6d5552a5c4ca7587e">postprocessing_cfd.h</a>
-</li>
-<li>calculate_average_velocity()
-: <a class="el" href="postprocessing__cfd_8h.html#a885519f82401f5f66cb4f0363b9715a9">postprocessing_cfd.h</a>
-</li>
-<li>calculate_CFL()
-: <a class="el" href="postprocessing__cfd_8h.html#a79160fa3703aadaf40fb29841456e49b">postprocessing_cfd.h</a>
-</li>
-<li>calculate_enstrophy()
-: <a class="el" href="postprocessing__cfd_8h.html#ada57d5e521dc73dc11b3146b8860a2ea">postprocessing_cfd.h</a>
-</li>
-<li>calculate_flow_rate()
-: <a class="el" href="postprocessing__cfd_8h.html#a12092e92e04aafe458d728885dd49f6d">postprocessing_cfd.h</a>
-</li>
-<li>calculate_forces()
-: <a class="el" href="postprocessing__cfd_8h.html#a4176bbc905ba1767b7a71b41fa792f91">postprocessing_cfd.h</a>
-</li>
-<li>calculate_gamma()
-: <a class="el" href="vans__assemblers_8h.html#ae801b45c8aa88b8de6787730af087b59">vans_assemblers.h</a>
-</li>
-<li>calculate_kinetic_energy()
-: <a class="el" href="postprocessing__cfd_8h.html#a6e07b611c2791d19a53166c71c24e6cc">postprocessing_cfd.h</a>
-</li>
-<li>calculate_L2_error()
-: <a class="el" href="postprocessing__cfd_8h.html#a02e5072b6f6abdda7c5ef07e0b866f19">postprocessing_cfd.h</a>
-</li>
-<li>calculate_liquid_fraction()
-: <a class="el" href="phase__change_8h.html#a42e019a8aec393ea26cc629ae8376e03">phase_change.h</a>
-</li>
-<li>calculate_navier_stokes_gls_tau_steady()
-: <a class="el" href="stabilization_8h.html#ad7bda84af6efd7354449cf295b62c5a6">stabilization.h</a>
-</li>
-<li>calculate_navier_stokes_gls_tau_transient()
-: <a class="el" href="stabilization_8h.html#ac745989803675db20549e0b61324b549">stabilization.h</a>
-</li>
-<li>calculate_point_property()
-: <a class="el" href="utilities_8h.html#a955c2851894d041727c14dff59686f0d">utilities.h</a>
-</li>
-<li>calculate_point_property_cahn_hilliard()
-: <a class="el" href="utilities_8h.html#ac2174ef369010698c8197b717864e4a3">utilities.h</a>
-</li>
-<li>calculate_pressure_drop()
-: <a class="el" href="postprocessing__cfd_8h.html#a9f21676d8d00e49763d1c0ea39550d9c">postprocessing_cfd.h</a>
-</li>
-<li>calculate_shear_rate_magnitude()
-: <a class="el" href="rheological__model_8h.html#ae75fc07fc5d04fd29ba0409c9fbaffcb">rheological_model.h</a>
-</li>
-<li>calculate_torques()
-: <a class="el" href="postprocessing__cfd_8h.html#aa2a9eb8fd27cb6ade3a8e928b5270367">postprocessing_cfd.h</a>
-</li>
-<li>constant_rolling_resistance_torque()
-: <a class="el" href="rolling__resistance__torque__models_8h.html#a9e5b3ac17838d8507bd2ee452f386367">rolling_resistance_torque_models.h</a>
-</li>
-<li>create_output_folder()
-: <a class="el" href="utilities_8h.html#a4b182f49ed10ffa3d2d50a9a309cd2f0">utilities.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_d"></a>- d -</h3><ul>
-<li>DeclException1()
-: <a class="el" href="boundary__conditions_8h.html#a5fcd305334cb05e8a032b84fcfbf3918">boundary_conditions.h</a>
-, <a class="el" href="exceptions_8h.html#ab5d93ae5c63eea113e8c4fb89bfbad26">exceptions.h</a>
-, <a class="el" href="physical__properties__manager_8h.html#ac657a4500a72769c4c3bda860d58d3e7">physical_properties_manager.h</a>
-, <a class="el" href="vof_8h.html#aeedddc4879d6bfb3082279b9caf7aedb">vof.h</a>
-</li>
-<li>DeclException2()
-: <a class="el" href="physical__property__model_8h.html#a45c394304afd0d30e45a663608950b14">physical_property_model.h</a>
-</li>
-<li>DeclException3()
-: <a class="el" href="exceptions_8h.html#a3dac88f65ceb8fd470561f959e5a7ea2">exceptions.h</a>
-</li>
-<li>delta()
-: <a class="el" href="bdf_8h.html#a031702a84563b27e14b0d85d361ab08f">bdf.h</a>
-</li>
-<li>deserialize_table()
-: <a class="el" href="utilities_8h.html#a704ab7e8f1f853cd7433b31d571df760">utilities.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_f"></a>- f -</h3><ul>
-<li>fill_table_from_file()
-: <a class="el" href="utilities_8h.html#a120afbe974701b97039517c195e18416">utilities.h</a>
-</li>
-<li>fill_vectors_from_file()
-: <a class="el" href="utilities_8h.html#a5a470018cf7c417efd11a163d465f951">utilities.h</a>
-</li>
-<li>find_floating_mesh_mapping_step()
-: <a class="el" href="find__contact__detection__step_8h.html#a0275c4da5683b99058b27a74bdb3d4fe">find_contact_detection_step.h</a>
-</li>
-<li>find_particle_contact_detection_step()
-: <a class="el" href="find__contact__detection__step_8h.html#ae7b4104d780efddc8459389243ff5e16">find_contact_detection_step.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_g"></a>- g -</h3><ul>
-<li>get_dimension()
-: <a class="el" href="utilities_8h.html#a2f4c4c70d98da93b973297b97e085b90">utilities.h</a>
-</li>
-<li>get_last_value_of_parameter()
-: <a class="el" href="utilities_8h.html#a34ac72c0df6c4a24f85c97b22d137520">utilities.h</a>
-</li>
-<li>get_max_number_of_boundary_conditions()
-: <a class="el" href="utilities_8h.html#aa286625bb871dd4165a509b7ebc41763">utilities.h</a>
-</li>
-<li>get_physics_id()
-: <a class="el" href="multiphysics_8h.html#afb53a921f58fed3067eb4bc6d0ab3932">multiphysics.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_h"></a>- h -</h3><ul>
-<li>harmonic_mean()
-: <a class="el" href="auxiliary__math__functions_8h.html#a8ff6bf628f52424c1bf0cfa6530779fe">auxiliary_math_functions.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_i"></a>- i -</h3><ul>
-<li>input_parameter_inspection()
-: <a class="el" href="input__parameter__inspection_8h.html#a5ced62957d6e246524c01e4410cf5acf">input_parameter_inspection.h</a>
-</li>
-<li>is_bdf()
-: <a class="el" href="time__integration__utilities_8h.html#a0a24876ac89130c482872183aaabb619">time_integration_utilities.h</a>
-</li>
-<li>is_bdf1()
-: <a class="el" href="time__integration__utilities_8h.html#a7da95e1285b0d113c52cfaab83dbf006">time_integration_utilities.h</a>
-</li>
-<li>is_bdf_high_order()
-: <a class="el" href="time__integration__utilities_8h.html#a69f8bb4355f154e729d5c7994a7be273">time_integration_utilities.h</a>
-</li>
-<li>is_steady()
-: <a class="el" href="time__integration__utilities_8h.html#a2070dbfdd25ef92b18165612d533e92d">time_integration_utilities.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_m"></a>- m -</h3><ul>
-<li>make_table_scalars_tensors()
-: <a class="el" href="utilities_8h.html#a43e705fb37095233195a715f6a91fd16">utilities.h</a>
-</li>
-<li>make_table_tensors_scalars()
-: <a class="el" href="utilities_8h.html#a4f8be0a4a9bd70e4e18961771885c7af">utilities.h</a>
-</li>
-<li>make_table_tensors_tensors()
-: <a class="el" href="utilities_8h.html#a9ec85faec7fdcdb73be04ef41794697d">utilities.h</a>
-</li>
-<li>match_periodic_boundaries()
-: <a class="el" href="read__mesh_8h.html#aa0e668d23d18e691148d2805f960cfbb">read_mesh.h</a>
-</li>
-<li>maximum_number_of_previous_solutions()
-: <a class="el" href="bdf_8h.html#a20abc47ca7441007f8923c529000ace5">bdf.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_n"></a>- n -</h3><ul>
-<li>no_rolling_resistance_torque()
-: <a class="el" href="rolling__resistance__torque__models_8h.html#acefa220ec4dba87e057e1244f1cf55c0">rolling_resistance_torque_models.h</a>
-</li>
-<li>number_of_previous_solutions()
-: <a class="el" href="bdf_8h.html#a8b5d2bb44cdac716464d7e779fa14c4c">bdf.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_p"></a>- p -</h3><ul>
-<li>particle_circle_intersection_2d()
-: <a class="el" href="gls__vans_8h.html#a295257336d7ec7de9c5303816983fe23">gls_vans.h</a>
-</li>
-<li>particle_sphere_intersection_3d()
-: <a class="el" href="gls__vans_8h.html#a54147426ca2e61a0d8fda082850714f8">gls_vans.h</a>
-</li>
-<li>point_nd_to_2d()
-: <a class="el" href="tensors__and__points__dimension__manipulation_8h.html#a91d7730ef485565a87e023cfb5362ffa">tensors_and_points_dimension_manipulation.h</a>
-</li>
-<li>point_nd_to_3d()
-: <a class="el" href="tensors__and__points__dimension__manipulation_8h.html#ae6b1bfcf472bf014c96d7188128dfc89">tensors_and_points_dimension_manipulation.h</a>
-</li>
-<li>print_initial_information()
-: <a class="el" href="print__initial__information_8h.html#acd8758a2d3d75933076006d3c84b0a28">print_initial_information.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_r"></a>- r -</h3><ul>
-<li>read_checkpoint()
-: <a class="el" href="read__checkpoint_8h.html#a76cfea50dad489597638a3276eeee69e">read_checkpoint.h</a>
-</li>
-<li>read_counts()
-: <a class="el" href="rpt__utilities_8h.html#afb311ddd4fc6ddc39e08b938b5b5d8e2">rpt_utilities.h</a>
-</li>
-<li>read_detectors_counts()
-: <a class="el" href="rpt__utilities_8h.html#ab52e570b67e8a6acd6a0e47d9390a369">rpt_utilities.h</a>
-</li>
-<li>read_mesh()
-: <a class="el" href="read__mesh_8h.html#abeb1a5f69ed489d2326f7eb893fb9f1c">read_mesh.h</a>
-</li>
-<li>read_mesh_and_manifolds()
-: <a class="el" href="grids_8h.html#a1f27ceafbf8c10616efa13f334641b85">grids.h</a>
-</li>
-<li>read_positions()
-: <a class="el" href="rpt__utilities_8h.html#a2b0e670bb628a6ffb43f9c02334459dd">rpt_utilities.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_s"></a>- s -</h3><ul>
-<li>sdirk_coefficients()
-: <a class="el" href="sdirk_8h.html#a04c4c73ef7eb1c9c152c96a25d92c5aa">sdirk.h</a>
-</li>
-<li>serialize_table()
-: <a class="el" href="utilities_8h.html#a1169674c9744ed63bfb067efce02df5f">utilities.h</a>
-</li>
-<li>set_field_vector()
-: <a class="el" href="physical__property__model_8h.html#a545ac73a2b70d10beade7a2ffe30a970">physical_property_model.h</a>
-</li>
-<li>set_particle_particle_contact_force_model()
-: <a class="el" href="set__particle__particle__contact__force__model_8h.html#a11a538e148e69bfd6cdc87b04dd0814d">set_particle_particle_contact_force_model.h</a>
-</li>
-<li>set_particle_wall_contact_force_model()
-: <a class="el" href="set__particle__wall__contact__force__model_8h.html#ac61df363c65d1bf1526af75e523faa5b">set_particle_wall_contact_force_model.h</a>
-</li>
-<li>setup_periodic_boundary_conditions()
-: <a class="el" href="grids_8h.html#af1d2696e4728fe2ef2d49e1f7a656116">grids.h</a>
-</li>
-<li>sgn()
-: <a class="el" href="utilities_8h.html#a1ab31b90bc584c635ec159468ceed9b2">utilities.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_t"></a>- t -</h3><ul>
-<li>tensor_nd_to_2d()
-: <a class="el" href="tensors__and__points__dimension__manipulation_8h.html#a27c1cf644f7a15f718727c1dcc0d9bbf">tensors_and_points_dimension_manipulation.h</a>
-</li>
-<li>tensor_nd_to_3d()
-: <a class="el" href="tensors__and__points__dimension__manipulation_8h.html#a46aac20f08a720c94e25ef4d02867304">tensors_and_points_dimension_manipulation.h</a>
-</li>
-<li>time_stepping_method_uses_three_previous_solutions()
-: <a class="el" href="time__integration__utilities_8h.html#adf5fa5651bf02fc02d58595cd8ff956e">time_integration_utilities.h</a>
-</li>
-<li>time_stepping_method_uses_two_previous_solutions()
-: <a class="el" href="time__integration__utilities_8h.html#afba3537bc98e554f2ef4ca0ae49fc9cb">time_integration_utilities.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_u"></a>- u -</h3><ul>
-<li>update_contact_container_iterators()
-: <a class="el" href="update__local__particle__containers_8h.html#a9f454e352b5860b6a2ea2351008d1bdd">update_local_particle_containers.h</a>
-</li>
-<li>update_fine_search_candidates()
-: <a class="el" href="update__fine__search__candidates_8h.html#a23c84fac56844bb9576debb9876bbb81">update_fine_search_candidates.h</a>
-</li>
-<li>update_particle_container()
-: <a class="el" href="update__local__particle__containers_8h.html#ad1a5f7fd1dd45aa5ac72f5e7a9b9df37">update_local_particle_containers.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_v"></a>- v -</h3><ul>
-<li>viscous_rolling_resistance_torque()
-: <a class="el" href="rolling__resistance__torque__models_8h.html#a3ef3cb79df5d8b7ddd5a2763e672f44d">rolling_resistance_torque_models.h</a>
-</li>
-</ul>
-
-
-<h3><a id="index_w"></a>- w -</h3><ul>
-<li>write_boundaries_vtu()
-: <a class="el" href="solutions__output_8h.html#aae5e90863534ed99f2a1f9c25b90cb86">solutions_output.h</a>
-</li>
-<li>write_checkpoint()
-: <a class="el" href="write__checkpoint_8h.html#a413703bf453ba32814a943e66c7cde6b">write_checkpoint.h</a>
-</li>
-<li>write_forces_torques_output_locally()
-: <a class="el" href="output__force__torque__calculation_8h.html#a010e5d7ef53d2de1f71eb4ec1ffaf389">output_force_torque_calculation.h</a>
-</li>
-<li>write_forces_torques_output_results()
-: <a class="el" href="output__force__torque__calculation_8h.html#ac6a3113165ca94d717869e1200d6ee56">output_force_torque_calculation.h</a>
-</li>
-<li>write_vtu_and_pvd()
-: <a class="el" href="solutions__output_8h.html#aaa3a49d95b67c63daf29210e4eb2acce">solutions_output.h</a>
+, <a class="el" href="manifolds_8cc.html#a665658dbe45c11149a27c1fae4ab4320">manifolds.cc</a>
 </li>
 </ul>
 </div><!-- contents -->

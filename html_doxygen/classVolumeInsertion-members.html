@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -78,7 +85,9 @@ $(function() {
   <tr><td class="entry"><a class="el" href="classVolumeInsertion.html#a50467323b0201d9a26eb331455885a3a">current_inserting_particle_type</a></td><td class="entry"><a class="el" href="classVolumeInsertion.html">VolumeInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classInsertion.html#aa37df9385edf189426ce85ac0bde61f8">distributions_objects</a></td><td class="entry"><a class="el" href="classInsertion.html">Insertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classVolumeInsertion.html#a29e8293e13581e498d781500e432daba">find_insertion_location_volume</a>(Point&lt; dim &gt; &amp;insertion_location, const unsigned int id, const double random_number1, const double random_number2, const Parameters::Lagrangian::InsertionInfo &amp;insertion_information)</td><td class="entry"><a class="el" href="classVolumeInsertion.html">VolumeInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classVolumeInsertion.html#a8552dd9e7053d4265b7dcb3d79524bea">insert</a>(Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters) override</td><td class="entry"><a class="el" href="classVolumeInsertion.html">VolumeInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classVolumeInsertion.html#a709dd318960e959d262beec930400a49">find_insertion_location_volume</a>(Point&lt; 2 &gt; &amp;insertion_location, const unsigned int id, const double random_number1, const double random_number2, const Parameters::Lagrangian::InsertionInfo &amp;insertion_information)</td><td class="entry"><a class="el" href="classVolumeInsertion.html">VolumeInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classVolumeInsertion.html#af0a56dd055fd257fefda131deef27cc1">find_insertion_location_volume</a>(Point&lt; 3 &gt; &amp;insertion_location, const unsigned int id, const double random_number1, const double random_number2, const Parameters::Lagrangian::InsertionInfo &amp;insertion_information)</td><td class="entry"><a class="el" href="classVolumeInsertion.html">VolumeInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classVolumeInsertion.html#adf719a5b23e4545ed45ac32b05661032">insert</a>(Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters) override</td><td class="entry"><a class="el" href="classVolumeInsertion.html">VolumeInsertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classInsertion.html#af2c570045018de7fc91c0fb63ba084b1">inserted_this_step</a></td><td class="entry"><a class="el" href="classInsertion.html">Insertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classInsertion.html#ad0a52bf0b712bcf669b0948737e13cd3">inserted_this_step_this_proc</a></td><td class="entry"><a class="el" href="classInsertion.html">Insertion&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classInsertion.html#aa6720a7d2e690697207ae122d69f7320">Insertion</a>(const std::vector&lt; std::shared_ptr&lt; Distribution &gt;&gt; &amp;distribution_object_container)</td><td class="entry"><a class="el" href="classInsertion.html">Insertion&lt; dim &gt;</a></td><td class="entry"></td></tr>

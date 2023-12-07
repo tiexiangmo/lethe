@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -75,7 +82,7 @@ $(function() {
   <tr class="even"><td class="entry"><a class="el" href="classMobilityCahnHilliardModel.html#a14241f20bb8a1976a360b05649d66ff3">get_model</a>()=0</td><td class="entry"><a class="el" href="classMobilityCahnHilliardModel.html">MobilityCahnHilliardModel</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classInterfacePropertyModel.html#ad5a30d304ce21abf3baf295b20b81598">InterfacePropertyModel</a>()</td><td class="entry"><a class="el" href="classInterfacePropertyModel.html">InterfacePropertyModel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classInterfacePropertyModel.html#a70d1f3386f5459fe0c3b4fa94c20feb2">jacobian</a>(const std::map&lt; field, double &gt; &amp;field_values, const field id)=0</td><td class="entry"><a class="el" href="classInterfacePropertyModel.html">InterfacePropertyModel</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classMobilityCahnHilliardModel.html#a35df44bc4b732055e874e1245b6127d9">model_cast</a>(const Parameters::MaterialInteractions &amp;material_interaction_parameters)</td><td class="entry"><a class="el" href="classMobilityCahnHilliardModel.html">MobilityCahnHilliardModel</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classMobilityCahnHilliardModel.html#a713a42a537b676607a2b5158414d2ec9">model_cast</a>(const Parameters::MaterialInteractions &amp;material_interaction_parameters)</td><td class="entry"><a class="el" href="classMobilityCahnHilliardModel.html">MobilityCahnHilliardModel</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classInterfacePropertyModel.html#ae5c76554a4701ba2a5b401f3ae57d559">model_depends_on</a></td><td class="entry"><a class="el" href="classInterfacePropertyModel.html">InterfacePropertyModel</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classInterfacePropertyModel.html#a1447682647905a04a66677e0692b7a0f">numerical_jacobian</a>(const std::map&lt; field, double &gt; &amp;field_values, const field id)</td><td class="entry"><a class="el" href="classInterfacePropertyModel.html">InterfacePropertyModel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classInterfacePropertyModel.html#aa62a1d4d9fe1ab5ccc430fb78310bfaa">value</a>(const std::map&lt; field, double &gt; &amp;fields_value)=0</td><td class="entry"><a class="el" href="classInterfacePropertyModel.html">InterfacePropertyModel</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>

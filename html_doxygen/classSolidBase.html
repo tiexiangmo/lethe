@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -99,20 +106,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac8c08d6c4700089c55a19f7c15ef26d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#ac8c08d6c4700089c55a19f7c15ef26d4">load_particles</a> (const std::string filename_part)</td></tr>
 <tr class="memdesc:ac8c08d6c4700089c55a19f7c15ef26d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a particle handler in the fluid triangulation domain that holds the particles of the solid according to a specific quadrature, and sets up dofs.  <a href="classSolidBase.html#ac8c08d6c4700089c55a19f7c15ef26d4">More...</a><br /></td></tr>
 <tr class="separator:ac8c08d6c4700089c55a19f7c15ef26d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52caa039faa5056a038f264b254c13b6"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Particles::ParticleHandler&lt; spacedim &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a52caa039faa5056a038f264b254c13b6">get_solid_particle_handler</a> ()</td></tr>
-<tr class="separator:a52caa039faa5056a038f264b254c13b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a693c879ff6bb885ddd04b860417bc381"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; parallel::DistributedTriangulationBase&lt; dim, spacedim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a693c879ff6bb885ddd04b860417bc381">get_solid_triangulation</a> ()</td></tr>
-<tr class="separator:a693c879ff6bb885ddd04b860417bc381"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad96999ce0cef969577e7ece87da1e292"><td class="memItemLeft" align="right" valign="top">DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#ad96999ce0cef969577e7ece87da1e292">get_solid_dof_handler</a> ()</td></tr>
-<tr class="separator:ad96999ce0cef969577e7ece87da1e292"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2b64705f789ab46dd6a5e51aa5e62f9"><td class="memItemLeft" align="right" valign="top">DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#ad2b64705f789ab46dd6a5e51aa5e62f9">get_displacement_dof_handler</a> ()</td></tr>
-<tr class="separator:ad2b64705f789ab46dd6a5e51aa5e62f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b06e4eb820d0d5c62af7331882ae951"><td class="memItemLeft" align="right" valign="top">TrilinosWrappers::MPI::Vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a3b06e4eb820d0d5c62af7331882ae951">get_displacement_vector</a> ()</td></tr>
-<tr class="separator:a3b06e4eb820d0d5c62af7331882ae951"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af34f1e349c6761933bb852ba59258338"><td class="memItemLeft" align="right" valign="top">Function&lt; spacedim &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#af34f1e349c6761933bb852ba59258338">get_solid_velocity</a> ()</td></tr>
-<tr class="separator:af34f1e349c6761933bb852ba59258338"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cb0a6307a60f734ede7ab4e0c589dba"><td class="memItemLeft" align="right" valign="top">Function&lt; spacedim &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a2cb0a6307a60f734ede7ab4e0c589dba">get_solid_temperature</a> ()</td></tr>
-<tr class="separator:a2cb0a6307a60f734ede7ab4e0c589dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1529113b1b385784b7fe404f0849fe04"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Particles::ParticleHandler&lt; spacedim &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a1529113b1b385784b7fe404f0849fe04">get_solid_particle_handler</a> ()</td></tr>
+<tr class="separator:a1529113b1b385784b7fe404f0849fe04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc72772fae98f0895b24993626323465"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; parallel::DistributedTriangulationBase&lt; dim, spacedim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#abc72772fae98f0895b24993626323465">get_solid_triangulation</a> ()</td></tr>
+<tr class="separator:abc72772fae98f0895b24993626323465"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28a717a4dbde1519221b6a03a1aa2617"><td class="memItemLeft" align="right" valign="top">DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a28a717a4dbde1519221b6a03a1aa2617">get_solid_dof_handler</a> ()</td></tr>
+<tr class="separator:a28a717a4dbde1519221b6a03a1aa2617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3986cf1ffd321bfb9b450e0ed2ffcf59"><td class="memItemLeft" align="right" valign="top">DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a3986cf1ffd321bfb9b450e0ed2ffcf59">get_displacement_dof_handler</a> ()</td></tr>
+<tr class="separator:a3986cf1ffd321bfb9b450e0ed2ffcf59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eb0c0d83560924e0305888a228c1203"><td class="memItemLeft" align="right" valign="top">TrilinosWrappers::MPI::Vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a1eb0c0d83560924e0305888a228c1203">get_displacement_vector</a> ()</td></tr>
+<tr class="separator:a1eb0c0d83560924e0305888a228c1203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac11318594a4f5f71f515549866869b78"><td class="memItemLeft" align="right" valign="top">Function&lt; spacedim &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#ac11318594a4f5f71f515549866869b78">get_solid_velocity</a> ()</td></tr>
+<tr class="separator:ac11318594a4f5f71f515549866869b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acddeeba8d853c9649a77590efdbea715"><td class="memItemLeft" align="right" valign="top">Function&lt; spacedim &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#acddeeba8d853c9649a77590efdbea715">get_solid_temperature</a> ()</td></tr>
+<tr class="separator:acddeeba8d853c9649a77590efdbea715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5eaf06fd116ba6d89bf04661e6e1289"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#af5eaf06fd116ba6d89bf04661e6e1289">integrate_velocity</a> (double time_step, double initial_time)</td></tr>
 <tr class="memdesc:af5eaf06fd116ba6d89bf04661e6e1289"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates particle positions in solid_particle_handler by integrating velocity using an explicit Runge-Kutta 4 method.  <a href="classSolidBase.html#af5eaf06fd116ba6d89bf04661e6e1289">More...</a><br /></td></tr>
 <tr class="separator:af5eaf06fd116ba6d89bf04661e6e1289"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,6 +147,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a76e8a2bbcc379ab82b12932eae9baf0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a76e8a2bbcc379ab82b12932eae9baf0a">write_checkpoint</a> (std::string prefix_name)</td></tr>
 <tr class="memdesc:a76e8a2bbcc379ab82b12932eae9baf0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">write solid base triangulation checkpoint  <a href="classSolidBase.html#a76e8a2bbcc379ab82b12932eae9baf0a">More...</a><br /></td></tr>
 <tr class="separator:a76e8a2bbcc379ab82b12932eae9baf0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ad5b00d8ca482825d834fbd6c4fe5f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a3ad5b00d8ca482825d834fbd6c4fe5f8">rotate_grid</a> (const double angle, const Tensor&lt; 1, 3 &gt;)</td></tr>
+<tr class="separator:a3ad5b00d8ca482825d834fbd6c4fe5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b95212a394ee6cb44e4142cd9b7a3e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a0b95212a394ee6cb44e4142cd9b7a3e0">rotate_grid</a> (const double angle, const Tensor&lt; 1, 3 &gt; axis)</td></tr>
+<tr class="separator:a0b95212a394ee6cb44e4142cd9b7a3e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eab605dbf4cf8434a757c9aed83011e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a3eab605dbf4cf8434a757c9aed83011e">rotate_grid</a> (const double angle, const Tensor&lt; 1, 3 &gt; axis)</td></tr>
+<tr class="separator:a3eab605dbf4cf8434a757c9aed83011e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2867cdcdad2070d35176847c8d9c0d97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a2867cdcdad2070d35176847c8d9c0d97">translate_grid</a> (const Tensor&lt; 1, 3 &gt; translation)</td></tr>
+<tr class="separator:a2867cdcdad2070d35176847c8d9c0d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab07d18e59a071e1d05389dd4da70777d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#ab07d18e59a071e1d05389dd4da70777d">translate_grid</a> (const Tensor&lt; 1, 3 &gt; translation)</td></tr>
+<tr class="separator:ab07d18e59a071e1d05389dd4da70777d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55396dc1f98b0ea4ee8724f36c89e9e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSolidBase.html#a55396dc1f98b0ea4ee8724f36c89e9e1">translate_grid</a> (const Tensor&lt; 1, 3 &gt; translation)</td></tr>
+<tr class="separator:a55396dc1f98b0ea4ee8724f36c89e9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -199,6 +218,8 @@ class SolidBase&lt; dim, spacedim &gt;</h3>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Carole-Anne Daunais, Valerie Bibeau, 2020 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00062">62</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9f4dc8deca9f9a243067db8dd4f0492a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f4dc8deca9f9a243067db8dd4f0492a">&#9670;&nbsp;</a></span>SolidBase()</h2>
@@ -206,7 +227,7 @@ class SolidBase&lt; dim, spacedim &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::<a class="el" href="classSolidBase.html">SolidBase</a> </td>
@@ -234,145 +255,144 @@ template&lt;int dim, int spacedim = dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00054">54</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="solid__base_8h_source.html#l00256">SolidBase&lt; dim, spacedim &gt;::displacement_dh</a>, <a class="el" href="solid__base_8h_source.html#l00257">SolidBase&lt; dim, spacedim &gt;::displacement_fe</a>, <a class="el" href="solid__base_8h_source.html#l00249">SolidBase&lt; dim, spacedim &gt;::fe</a>, <a class="el" href="solid__base_8h_source.html#l00239">SolidBase&lt; dim, spacedim &gt;::mpi_communicator</a>, <a class="el" href="solid__base_8h_source.html#l00262">SolidBase&lt; dim, spacedim &gt;::param</a>, <a class="el" href="solid__base_8h_source.html#l00253">SolidBase&lt; dim, spacedim &gt;::quadrature</a>, <a class="el" href="solid__base_8h_source.html#l00246">SolidBase&lt; dim, spacedim &gt;::solid_dh</a>, <a class="el" href="solid__base_8h_source.html#l00251">SolidBase&lt; dim, spacedim &gt;::solid_mapping</a>, and <a class="el" href="solid__base_8h_source.html#l00244">SolidBase&lt; dim, spacedim &gt;::solid_tria</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad2b64705f789ab46dd6a5e51aa5e62f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2b64705f789ab46dd6a5e51aa5e62f9">&#9670;&nbsp;</a></span>get_displacement_dof_handler()</h2>
+<a id="a3986cf1ffd321bfb9b450e0ed2ffcf59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3986cf1ffd321bfb9b450e0ed2ffcf59">&#9670;&nbsp;</a></span>get_displacement_dof_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">DoFHandler&lt;dim, spacedim&gt;&amp; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_displacement_dof_handler </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">DoFHandler&lt; dim, spacedim &gt; &amp; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_displacement_dof_handler</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the reference to the displacement dof handler </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00442">442</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
-<a id="a3b06e4eb820d0d5c62af7331882ae951"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b06e4eb820d0d5c62af7331882ae951">&#9670;&nbsp;</a></span>get_displacement_vector()</h2>
+<a id="a1eb0c0d83560924e0305888a228c1203"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eb0c0d83560924e0305888a228c1203">&#9670;&nbsp;</a></span>get_displacement_vector()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">TrilinosWrappers::MPI::Vector&amp; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_displacement_vector </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">TrilinosWrappers::MPI::Vector &amp; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_displacement_vector</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the reference to the displacement vector </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00450">450</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
-<a id="ad96999ce0cef969577e7ece87da1e292"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad96999ce0cef969577e7ece87da1e292">&#9670;&nbsp;</a></span>get_solid_dof_handler()</h2>
+<a id="a28a717a4dbde1519221b6a03a1aa2617"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28a717a4dbde1519221b6a03a1aa2617">&#9670;&nbsp;</a></span>get_solid_dof_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">DoFHandler&lt;dim, spacedim&gt;&amp; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_dof_handler </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">DoFHandler&lt; dim, spacedim &gt; &amp; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_dof_handler</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the reference to the solid dof handler </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00435">435</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
-<a id="a52caa039faa5056a038f264b254c13b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52caa039faa5056a038f264b254c13b6">&#9670;&nbsp;</a></span>get_solid_particle_handler()</h2>
+<a id="a1529113b1b385784b7fe404f0849fe04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1529113b1b385784b7fe404f0849fe04">&#9670;&nbsp;</a></span>get_solid_particle_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;Particles::ParticleHandler&lt;spacedim&gt; &gt;&amp; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_particle_handler </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">std::shared_ptr&lt; Particles::ParticleHandler&lt; spacedim &gt; &gt; &amp; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_particle_handler</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the reference to the std::shared_ptr of a Particles::ParticleHandler&lt;spacedim&gt; that contains the solid particle handler </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00458">458</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
-<a id="a2cb0a6307a60f734ede7ab4e0c589dba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cb0a6307a60f734ede7ab4e0c589dba">&#9670;&nbsp;</a></span>get_solid_temperature()</h2>
+<a id="acddeeba8d853c9649a77590efdbea715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acddeeba8d853c9649a77590efdbea715">&#9670;&nbsp;</a></span>get_solid_temperature()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Function&lt;spacedim&gt;* <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_temperature </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">Function&lt; spacedim &gt; * <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_temperature</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00478">478</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
-<a id="a693c879ff6bb885ddd04b860417bc381"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a693c879ff6bb885ddd04b860417bc381">&#9670;&nbsp;</a></span>get_solid_triangulation()</h2>
+<a id="abc72772fae98f0895b24993626323465"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc72772fae98f0895b24993626323465">&#9670;&nbsp;</a></span>get_solid_triangulation()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;parallel::DistributedTriangulationBase&lt;dim, spacedim&gt; &gt; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_triangulation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">std::shared_ptr&lt; parallel::DistributedTriangulationBase&lt; dim, spacedim &gt; &gt; <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_triangulation</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>shared_ptr of the solid triangulation </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00465">465</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
-<a id="af34f1e349c6761933bb852ba59258338"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af34f1e349c6761933bb852ba59258338">&#9670;&nbsp;</a></span>get_solid_velocity()</h2>
+<a id="ac11318594a4f5f71f515549866869b78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac11318594a4f5f71f515549866869b78">&#9670;&nbsp;</a></span>get_solid_velocity()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Function&lt;spacedim&gt;* <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_velocity </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">Function&lt; spacedim &gt; * <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::get_solid_velocity</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Function&lt;spacedim&gt; of the solid velocity </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00472">472</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
 
 </div>
 </div>
@@ -382,18 +402,17 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::initial_setup </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::initial_setup</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Manages solid triangulation and particles setup. </p>
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00112">112</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
 
 </div>
 </div>
@@ -403,7 +422,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::integrate_velocity </td>
@@ -434,6 +453,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00492">492</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
 <a id="ac8c08d6c4700089c55a19f7c15ef26d4"></a>
@@ -442,7 +463,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::load_particles </td>
@@ -456,6 +477,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Loads a particle handler in the fluid triangulation domain that holds the particles of the solid according to a specific quadrature, and sets up dofs. </p>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00414">414</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
 <a id="a9ab0a3288b041264cb8074cbb9713f3c"></a>
@@ -464,7 +487,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::load_triangulation </td>
@@ -478,6 +501,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Loads a solid triangulation from a restart file. </p>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00282">282</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
 <a id="a4c767cc5b7c391f820dfe881eec58e28"></a>
@@ -486,7 +511,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::move_solid_triangulation </td>
@@ -517,6 +542,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00598">598</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
 <a id="a9ebae14d0b18ffddedab124a4619e172"></a>
@@ -525,18 +552,17 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::move_solid_triangulation_with_displacement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::move_solid_triangulation_with_displacement</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Moves the dofs of the solid_triangulation by using the displacement vector. This is only use to move the solid triangulation at the correct location when the simulation is restarted. </p>
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00680">680</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
 
 </div>
 </div>
@@ -546,18 +572,17 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::print_particle_positions </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::print_particle_positions</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>prints the positions of the particles </p>
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00714">714</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
 
 </div>
 </div>
@@ -567,7 +592,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::read_checkpoint </td>
@@ -581,10 +606,12 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>read solid base triangulation checkpoint </p>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00767">767</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
 </div>
 </div>
 <a id="a74e83d98f02c979151c56429d8eee162"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74e83d98f02c979151c56429d8eee162">&#9670;&nbsp;</a></span>rotate_grid()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a74e83d98f02c979151c56429d8eee162">&#9670;&nbsp;</a></span>rotate_grid() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -622,24 +649,113 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 </div>
 </div>
+<a id="a0b95212a394ee6cb44e4142cd9b7a3e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b95212a394ee6cb44e4142cd9b7a3e0">&#9670;&nbsp;</a></span>rotate_grid() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; 2, 3 &gt;::rotate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00247">247</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+</div>
+</div>
+<a id="a3eab605dbf4cf8434a757c9aed83011e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eab605dbf4cf8434a757c9aed83011e">&#9670;&nbsp;</a></span>rotate_grid() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; 3, 3 &gt;::rotate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00253">253</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+</div>
+</div>
+<a id="a3ad5b00d8ca482825d834fbd6c4fe5f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ad5b00d8ca482825d834fbd6c4fe5f8">&#9670;&nbsp;</a></span>rotate_grid() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; 2, 2 &gt;::rotate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00241">241</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+</div>
+</div>
 <a id="ac8bd2ffa327601876162a5d44d0b4d5b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8bd2ffa327601876162a5d44d0b4d5b">&#9670;&nbsp;</a></span>setup_displacement()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::setup_displacement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::setup_displacement</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Sets-up particles with particle handler, in the fluid triangulation domain that holds the particles of the solid according to a specific quadrature. </p>
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00829">829</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
 
 </div>
 </div>
@@ -649,18 +765,19 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::setup_particles </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::setup_particles</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Sets-up particles with particle handler, in the fluid triangulation domain that holds the particles of the solid according to a specific quadrature. </p>
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00332">332</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00056">DEM::n_properties</a>.</p>
 
 </div>
 </div>
@@ -670,18 +787,19 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::setup_particles_handler </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::setup_particles_handler</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Creates a particle handler in the fluid triangulation domain. </p>
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00319">319</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00056">DEM::n_properties</a>.</p>
 
 </div>
 </div>
@@ -691,7 +809,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::setup_triangulation </td>
@@ -705,10 +823,14 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Generates a solid triangulation from a dealii or gmsh mesh. </p>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00125">125</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="structParameters_1_1Mesh.html#a9be2ccd9771c7cc7df861429a0c7864ca3c4b939087811f328575e358443a5880">Parameters::Mesh::dealii</a>, and <a class="el" href="structParameters_1_1Mesh.html#a9be2ccd9771c7cc7df861429a0c7864cab7c7797f3a0a1098b484e5e3a780e025">Parameters::Mesh::gmsh</a>.</p>
+
 </div>
 </div>
 <a id="aa287aebb7afed84a74093eb454a33ca8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa287aebb7afed84a74093eb454a33ca8">&#9670;&nbsp;</a></span>translate_grid()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa287aebb7afed84a74093eb454a33ca8">&#9670;&nbsp;</a></span>translate_grid() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -735,13 +857,73 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 </div>
 </div>
+<a id="a2867cdcdad2070d35176847c8d9c0d97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2867cdcdad2070d35176847c8d9c0d97">&#9670;&nbsp;</a></span>translate_grid() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; 2, 2 &gt;::translate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>translation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00260">260</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+</div>
+</div>
+<a id="ab07d18e59a071e1d05389dd4da70777d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07d18e59a071e1d05389dd4da70777d">&#9670;&nbsp;</a></span>translate_grid() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; 2, 3 &gt;::translate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>translation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00267">267</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+</div>
+</div>
+<a id="a55396dc1f98b0ea4ee8724f36c89e9e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55396dc1f98b0ea4ee8724f36c89e9e1">&#9670;&nbsp;</a></span>translate_grid() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; 3, 3 &gt;::translate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>translation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00274">274</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+</div>
+</div>
 <a id="a761e2ca79e01c421e94595c64c7fefa5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a761e2ca79e01c421e94595c64c7fefa5">&#9670;&nbsp;</a></span>update_temperature_time()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::update_temperature_time </td>
@@ -755,6 +937,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Updates the time in the function used to describe the solid temperature. </p>
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00485">485</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <a id="a76e8a2bbcc379ab82b12932eae9baf0a"></a>
@@ -763,7 +949,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSolidBase.html">SolidBase</a>&lt; dim, spacedim &gt;::write_checkpoint </td>
@@ -776,6 +962,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </div><div class="memdoc">
 
 <p>write solid base triangulation checkpoint </p>
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8cc_source.html#l00738">738</a> of file <a class="el" href="solid__base_8cc_source.html">solid_base.cc</a>.</p>
 
 </div>
 </div>
@@ -802,6 +990,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00258">258</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="aa144e923997cd9018eb937948cf62a49"></a>
@@ -825,6 +1015,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00256">256</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -850,6 +1042,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00257">257</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="a64c4de4d95da4d83fc52e7ae5368f1f7"></a>
@@ -873,6 +1067,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00259">259</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -898,6 +1094,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00249">249</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="a8854df1daf4ffc7765b14b7172a5872b"></a>
@@ -921,6 +1119,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00252">252</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -946,6 +1146,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00245">245</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="af52a1e31f6993b4b03d03c6888a3c55d"></a>
@@ -969,6 +1171,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00267">267</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -994,6 +1198,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00236">236</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="acde659c37feabc1e5d917131ca735c26"></a>
@@ -1017,6 +1223,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00237">237</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -1042,6 +1250,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00239">239</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="a81e5fe89e625dff4485a5485780d51b9"></a>
@@ -1065,6 +1275,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00240">240</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -1090,6 +1302,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00262">262</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="a7d82e6a453f72017699c4e5fb64a3ec5"></a>
@@ -1113,6 +1327,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00253">253</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -1138,6 +1354,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00246">246</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="acbbc05f239caac7d8244d77fd2a4b962"></a>
@@ -1161,6 +1379,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00251">251</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -1186,6 +1406,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00247">247</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="a2afe9938f9c4549c4fe29821b280a2d1"></a>
@@ -1209,6 +1431,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00244">244</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -1234,6 +1458,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00265">265</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
 <a id="a6b800b5858d1d2849bcffd93511cbf1b"></a>
@@ -1257,6 +1483,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00241">241</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
 
 </div>
 </div>
@@ -1282,10 +1510,13 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="solid__base_8h_source.html#l00264">264</a> of file <a class="el" href="solid__base_8h_source.html">solid_base.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="solid__base_8h_source.html">solid_base.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="solid__base_8cc_source.html">solid_base.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

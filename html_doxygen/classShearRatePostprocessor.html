@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -89,7 +96,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7ec3182fe5fcd934d5ae47a6620792da"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShearRatePostprocessor.html#a7ec3182fe5fcd934d5ae47a6620792da">evaluate_vector_field</a> (const DataPostprocessorInputs::Vector&lt; dim &gt; &amp;inputs, std::vector&lt; Vector&lt; double &gt;&gt; &amp;computed_quantities) const override</td></tr>
 <tr class="separator:a7ec3182fe5fcd934d5ae47a6620792da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;int dim&gt;<br />
+class ShearRatePostprocessor&lt; dim &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="postprocessors_8h_source.html#l00320">320</a> of file <a class="el" href="postprocessors_8h_source.html">postprocessors.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac167b9094660f5940346e434dd43bf20"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac167b9094660f5940346e434dd43bf20">&#9670;&nbsp;</a></span>ShearRatePostprocessor()</h2>
 
@@ -114,6 +127,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="postprocessors_8h_source.html#l00323">323</a> of file <a class="el" href="postprocessors_8h_source.html">postprocessors.h</a>.</p>
 
 </div>
 </div>
@@ -153,6 +168,10 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="postprocessors_8h_source.html#l00327">327</a> of file <a class="el" href="postprocessors_8h_source.html">postprocessors.h</a>.</p>
+
+<p class="reference">References <a class="el" href="rheological__model_8h_source.html#l00615">calculate_shear_rate_magnitude()</a>, and <a class="el" href="physical__property__model_8h_source.html#l00034">shear_rate</a>.</p>
 
 </div>
 </div>

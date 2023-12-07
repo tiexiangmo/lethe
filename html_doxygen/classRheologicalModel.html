@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -151,9 +158,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a402c2835cae9e3fe537a2f7a085114fc"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classRheologicalModel.html">RheologicalModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRheologicalModel.html#a402c2835cae9e3fe537a2f7a085114fc">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
-<tr class="memdesc:a402c2835cae9e3fe537a2f7a085114fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instanciates and returns a pointer to a <a class="el" href="classRheologicalModel.html" title="Abstract class that allows to calculate the non-newtonian viscosity on each quadrature point and the ...">RheologicalModel</a> object by casting it to the proper child class.  <a href="classRheologicalModel.html#a402c2835cae9e3fe537a2f7a085114fc">More...</a><br /></td></tr>
-<tr class="separator:a402c2835cae9e3fe537a2f7a085114fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dc1c9a77886e59ee701ce27749c0505"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classRheologicalModel.html">RheologicalModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRheologicalModel.html#a8dc1c9a77886e59ee701ce27749c0505">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
+<tr class="memdesc:a8dc1c9a77886e59ee701ce27749c0505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instanciates and returns a pointer to a <a class="el" href="classRheologicalModel.html" title="Abstract class that allows to calculate the non-newtonian viscosity on each quadrature point and the ...">RheologicalModel</a> object by casting it to the proper child class.  <a href="classRheologicalModel.html#a8dc1c9a77886e59ee701ce27749c0505">More...</a><br /></td></tr>
+<tr class="separator:a8dc1c9a77886e59ee701ce27749c0505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -165,6 +172,8 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class that allows to calculate the non-newtonian viscosity on each quadrature point and the shear rate magnitude. </p>
+
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00030">30</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2b726e190a35dfedff80e51134f712fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2b726e190a35dfedff80e51134f712fa">&#9670;&nbsp;</a></span>RheologicalModel()</h2>
@@ -190,6 +199,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00036">36</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
 
 </div>
 </div>
@@ -321,6 +332,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCarreau.html#a748fe7d4f6b25061a85f5d43d814734d">Carreau</a>, <a class="el" href="classPowerLaw.html#a70e7471d362851357a0df66777072aca">PowerLaw</a>, and <a class="el" href="classNewtonian.html#a1c5d3155baed6d5aaa389848e1720138">Newtonian</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00071">71</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
 </div>
 </div>
 <a id="ab43002838045831b3ecade35a92b9dea"></a>
@@ -349,6 +362,8 @@ Protected Attributes</h2></td></tr>
 <p>Returns the kinematic viscosity scale. This is used to get the kinematic viscosity scale in the problem when it's not constant. This is useful for weak boundary conditions. </p>
 
 <p>Reimplemented in <a class="el" href="classCarreau.html#a9b8aa58c403f50a8670ea84ad5a25939">Carreau</a>, <a class="el" href="classPowerLaw.html#a57468f68215be9476d784569f672f01b">PowerLaw</a>, and <a class="el" href="classNewtonian.html#a7fc57c5cf04d94d62b21704e43e6be09">Newtonian</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00082">82</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
 
 </div>
 </div>
@@ -379,6 +394,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCarreau.html#aac6942e6be6e22a4d5389737fa8df48d">Carreau</a>, and <a class="el" href="classPowerLaw.html#a56b326b54866b59547ae6620907afdb4">PowerLaw</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00055">55</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
 </div>
 </div>
 <a id="a8a9f7f56f2c0437d4a6360040dc17f38"></a>
@@ -407,10 +424,12 @@ Protected Attributes</h2></td></tr>
 <p>is_non_newtonian_rheological_model Returns a boolean indicating if the model is a non newtonian rheological model. </p>
 <dl class="section return"><dt>Returns</dt><dd>Boolean value of if the model corresponds to a non newtonian rheological model. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00134">134</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
 </div>
 </div>
-<a id="a402c2835cae9e3fe537a2f7a085114fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a402c2835cae9e3fe537a2f7a085114fc">&#9670;&nbsp;</a></span>model_cast()</h2>
+<a id="a8dc1c9a77886e59ee701ce27749c0505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dc1c9a77886e59ee701ce27749c0505">&#9670;&nbsp;</a></span>model_cast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -419,7 +438,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::shared_ptr&lt;<a class="el" href="classRheologicalModel.html">RheologicalModel</a>&gt; RheologicalModel::model_cast </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classRheologicalModel.html">RheologicalModel</a> &gt; RheologicalModel::model_cast </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em></td><td>)</td>
@@ -440,6 +459,10 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="rheological__model_8cc_source.html#l00004">4</a> of file <a class="el" href="rheological__model_8cc_source.html">rheological_model.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters_8h_source.html#l00261">Parameters::CarreauParameters::a</a>, <a class="el" href="classParameters_1_1Material.html#a16a1e74c1322d187f42c7a3587bf2ab1a2feb8649b74af645feff78ba004ed0c2">Parameters::Material::carreau</a>, <a class="el" href="parameters_8h_source.html#l00277">Parameters::NonNewtonian::carreau_parameters</a>, <a class="el" href="parameters_8h_source.html#l00234">Parameters::PowerLawParameters::K</a>, <a class="el" href="parameters_8h_source.html#l00371">Parameters::Material::kinematic_viscosity</a>, <a class="el" href="parameters_8h_source.html#l00254">Parameters::CarreauParameters::kinematic_viscosity_0</a>, <a class="el" href="parameters_8h_source.html#l00257">Parameters::CarreauParameters::kinematic_viscosity_inf</a>, <a class="el" href="parameters_8h_source.html#l00259">Parameters::CarreauParameters::lambda</a>, <a class="el" href="parameters_8h_source.html#l00236">Parameters::PowerLawParameters::n</a>, <a class="el" href="parameters_8h_source.html#l00263">Parameters::CarreauParameters::n</a>, <a class="el" href="classParameters_1_1Material.html#a16a1e74c1322d187f42c7a3587bf2ab1aae02ec5bee6f2a01b6d635cc0e0b09fb">Parameters::Material::newtonian</a>, <a class="el" href="parameters_8h_source.html#l00394">Parameters::Material::non_newtonian_parameters</a>, <a class="el" href="parameters_8h_source.html#l00384">Parameters::Material::phase_change_parameters</a>, <a class="el" href="classParameters_1_1Material.html#a16a1e74c1322d187f42c7a3587bf2ab1ae9f7a4aafeda67a0dab579ba480c24d6">Parameters::Material::powerlaw</a>, <a class="el" href="parameters_8h_source.html#l00278">Parameters::NonNewtonian::powerlaw_parameters</a>, <a class="el" href="classParameters_1_1Material.html#a3c4fc2f23a985ad07d01750c5c478c7f">Parameters::Material::rheological_model</a>, and <a class="el" href="parameters_8h_source.html#l00239">Parameters::PowerLawParameters::shear_rate_min</a>.</p>
 
 </div>
 </div>
@@ -477,6 +500,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classNewtonian.html#a692a984e7cd5e0b92949e7dacd58da4f">Newtonian</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00101">101</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
 </div>
 </div>
 <a id="ada0a0171f64497e9be3a93420d855a0b"></a>
@@ -513,6 +538,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCarreau.html#a78c8590574d172714e92ca75ff8e3801">Carreau</a>, <a class="el" href="classPowerLaw.html#a1206649f0353c758932588ccf98ef9ae">PowerLaw</a>, and <a class="el" href="classNewtonian.html#a79a5cb5bfdbd4eba03695317ed347789">Newtonian</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00092">92</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
 </div>
 </div>
 <a id="ab30beefc400cbaeda162a96fccd8920f"></a>
@@ -543,6 +570,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCarreau.html#a90505f365d8fa846133219b4c4837b6b">Carreau</a>, and <a class="el" href="classPowerLaw.html#ab01838c8f270558ac46334ceeecd75fe">PowerLaw</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00064">64</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -566,10 +595,13 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00140">140</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="rheological__model_8h_source.html">rheological_model.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="rheological__model_8cc_source.html">rheological_model.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

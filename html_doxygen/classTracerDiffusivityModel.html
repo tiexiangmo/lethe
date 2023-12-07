@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -88,9 +95,9 @@ Inheritance diagram for TracerDiffusivityModel:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a78c519a3635c95d987ff57996f26b4b4"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classTracerDiffusivityModel.html">TracerDiffusivityModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTracerDiffusivityModel.html#a78c519a3635c95d987ff57996f26b4b4">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
-<tr class="memdesc:a78c519a3635c95d987ff57996f26b4b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classTracerDiffusivityModel.html" title="Abstract class that allows to calculates the tracer diffusivity.">TracerDiffusivityModel</a> object by casting it to the proper child class.  <a href="classTracerDiffusivityModel.html#a78c519a3635c95d987ff57996f26b4b4">More...</a><br /></td></tr>
-<tr class="separator:a78c519a3635c95d987ff57996f26b4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac95429cb2e3de075247691ad5870bfa0"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classTracerDiffusivityModel.html">TracerDiffusivityModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTracerDiffusivityModel.html#ac95429cb2e3de075247691ad5870bfa0">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
+<tr class="memdesc:ac95429cb2e3de075247691ad5870bfa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classTracerDiffusivityModel.html" title="Abstract class that allows to calculates the tracer diffusivity.">TracerDiffusivityModel</a> object by casting it to the proper child class.  <a href="classTracerDiffusivityModel.html#ac95429cb2e3de075247691ad5870bfa0">More...</a><br /></td></tr>
+<tr class="separator:ac95429cb2e3de075247691ad5870bfa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -125,9 +132,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class that allows to calculates the tracer diffusivity. </p>
+
+<p class="definition">Definition at line <a class="el" href="tracer__diffusivity__model_8h_source.html#l00026">26</a> of file <a class="el" href="tracer__diffusivity__model_8h_source.html">tracer_diffusivity_model.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a78c519a3635c95d987ff57996f26b4b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78c519a3635c95d987ff57996f26b4b4">&#9670;&nbsp;</a></span>model_cast()</h2>
+<a id="ac95429cb2e3de075247691ad5870bfa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac95429cb2e3de075247691ad5870bfa0">&#9670;&nbsp;</a></span>model_cast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,7 +145,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::shared_ptr&lt;<a class="el" href="classTracerDiffusivityModel.html">TracerDiffusivityModel</a>&gt; TracerDiffusivityModel::model_cast </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classTracerDiffusivityModel.html">TracerDiffusivityModel</a> &gt; TracerDiffusivityModel::model_cast </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em></td><td>)</td>
@@ -158,10 +167,15 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="tracer__diffusivity__model_8cc_source.html#l00020">20</a> of file <a class="el" href="tracer__diffusivity__model_8cc_source.html">tracer_diffusivity_model.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters_8h_source.html#l00381">Parameters::Material::tracer_diffusivity</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="tracer__diffusivity__model_8h_source.html">tracer_diffusivity_model.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="tracer__diffusivity__model_8cc_source.html">tracer_diffusivity_model.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

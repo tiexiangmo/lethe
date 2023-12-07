@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -138,9 +145,9 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classDensityModel"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classDensityModel')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classDensityModel.html">DensityModel</a></td></tr>
-<tr class="memitem:abc49a8b9b5b207ae82250a93afb0ca10 inherit pub_static_methods_classDensityModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classDensityModel.html">DensityModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDensityModel.html#abc49a8b9b5b207ae82250a93afb0ca10">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
-<tr class="memdesc:abc49a8b9b5b207ae82250a93afb0ca10 inherit pub_static_methods_classDensityModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classDensityModel.html" title="Abstract class that allows to calculate the density.">DensityModel</a> object by casting it to the proper child class.  <a href="classDensityModel.html#abc49a8b9b5b207ae82250a93afb0ca10">More...</a><br /></td></tr>
-<tr class="separator:abc49a8b9b5b207ae82250a93afb0ca10 inherit pub_static_methods_classDensityModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a678019a0aa3a358b943c1221834ae4d8 inherit pub_static_methods_classDensityModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classDensityModel.html">DensityModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDensityModel.html#a678019a0aa3a358b943c1221834ae4d8">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
+<tr class="memdesc:a678019a0aa3a358b943c1221834ae4d8 inherit pub_static_methods_classDensityModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classDensityModel.html" title="Abstract class that allows to calculate the density.">DensityModel</a> object by casting it to the proper child class.  <a href="classDensityModel.html#a678019a0aa3a358b943c1221834ae4d8">More...</a><br /></td></tr>
+<tr class="separator:a678019a0aa3a358b943c1221834ae4d8 inherit pub_static_methods_classDensityModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classDensityModel"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classDensityModel')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classDensityModel.html">DensityModel</a></td></tr>
 <tr class="memitem:a2de97b1f1c3bd75a484ced3fe953b1e9 inherit pro_attribs_classDensityModel"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDensityModel.html#a2de97b1f1c3bd75a484ced3fe953b1e9">constant_density_model</a> = false</td></tr>
 <tr class="separator:a2de97b1f1c3bd75a484ced3fe953b1e9 inherit pro_attribs_classDensityModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +157,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Isothermal ideal gas density. </p>
+
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00178">178</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a799d7300804196a16fd2f7527627d198"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a799d7300804196a16fd2f7527627d198">&#9670;&nbsp;</a></span>DensityIsothermalIdealGas()</h2>
@@ -193,6 +202,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Default constructor. </p>
 
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00184">184</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00197">PhysicalPropertyModel::model_depends_on</a>, and <a class="el" href="physical__property__model_8h_source.html#l00037">pressure</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -224,6 +237,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDensityModel.html#a845641eca7b01b68c5973e61d558eeba">DensityModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00278">278</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="density__model_8h_source.html#l00284">density_ref</a>.</p>
+
 </div>
 </div>
 <a id="a9dbea2076d516c3eda32249ba44da956"></a>
@@ -253,6 +270,10 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>isothermal ideal gas compressibility factor </dd></dl>
 
 <p>Implements <a class="el" href="classDensityModel.html#a8c2d5a30784dfbd1f8f0e0166510e2d3">DensityModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00267">267</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="density__model_8h_source.html#l00285">psi</a>.</p>
 
 </div>
 </div>
@@ -302,6 +323,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a3fc51243a48832ed3c6e3b4ee797c6b2">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00231">231</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00037">pressure</a>, and <a class="el" href="density__model_8h_source.html#l00285">psi</a>.</p>
+
 </div>
 </div>
 <a id="a7e82ac6d3302f9bc84d924a09aeed279"></a>
@@ -338,6 +363,10 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>value of the physical property calculated with the fields_value </dd></dl>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a23d2b90f4f05ee9de4be96f6f9989a37">PhysicalPropertyModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00200">200</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="density__model_8h_source.html#l00284">density_ref</a>, <a class="el" href="physical__property__model_8h_source.html#l00037">pressure</a>, and <a class="el" href="density__model_8h_source.html#l00285">psi</a>.</p>
 
 </div>
 </div>
@@ -393,6 +422,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#ae71d2dd28b12d69622987bced8c0c661">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00250">250</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00037">pressure</a>, and <a class="el" href="density__model_8h_source.html#l00285">psi</a>.</p>
+
 </div>
 </div>
 <a id="a8ad4ed3e067afa2a72a43f8b55a5e54a"></a>
@@ -440,6 +473,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a93dd785206d0e4e6659ca03f7f10ddec">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00212">212</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="density__model_8h_source.html#l00284">density_ref</a>, <a class="el" href="physical__property__model_8h_source.html#l00037">pressure</a>, and <a class="el" href="density__model_8h_source.html#l00285">psi</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -463,6 +500,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00284">284</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
+
 </div>
 </div>
 <a id="a9c9beeb8876bc2d49a16b749943f480f"></a>
@@ -484,6 +523,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="density__model_8h_source.html#l00285">285</a> of file <a class="el" href="density__model_8h_source.html">density_model.h</a>.</p>
 
 </div>
 </div>

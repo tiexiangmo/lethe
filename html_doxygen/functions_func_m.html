@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -82,7 +89,12 @@ $(function() {
 : <a class="el" href="classPeriodicBoundariesManipulator.html#a7f9ac1843d0beb0dea34a5beadd4120a">PeriodicBoundariesManipulator&lt; dim &gt;</a>
 </li>
 <li>map_solid_in_background_triangulation()
-: <a class="el" href="classSerialSolid.html#a82de51dafef0f6f6b277c97d55b785ad">SerialSolid&lt; dim, spacedim &gt;</a>
+: <a class="el" href="classSerialSolid.html#ab8ad4d1cd9fc4e30cb6559111919e4c4">SerialSolid&lt; dim, spacedim &gt;</a>
+</li>
+<li>mass_flux()
+: <a class="el" href="classEvaporationModel.html#a160196770f256f261bd931fca4015033">EvaporationModel</a>
+, <a class="el" href="classEvaporationModelConstant.html#a10e193fa9f226c23481d47a2813045fd">EvaporationModelConstant</a>
+, <a class="el" href="classEvaporationModelTemperature.html#a379a35bfc98a45e24f35d0f363cca9e6">EvaporationModelTemperature</a>
 </li>
 <li>Material()
 : <a class="el" href="classParameters_1_1Material.html#aa5ff991e8bf570b07c93a7ff4d3e2509">Parameters::Material</a>
@@ -103,22 +115,33 @@ $(function() {
 : <a class="el" href="classMobilityCahnHilliardModelQuartic.html#aae92ef430e8e9513c177546f4a339d8c">MobilityCahnHilliardModelQuartic</a>
 </li>
 <li>model_cast()
-: <a class="el" href="classDensityModel.html#abc49a8b9b5b207ae82250a93afb0ca10">DensityModel</a>
-, <a class="el" href="classMobilityCahnHilliardModel.html#a35df44bc4b732055e874e1245b6127d9">MobilityCahnHilliardModel</a>
-, <a class="el" href="classRheologicalModel.html#a402c2835cae9e3fe537a2f7a085114fc">RheologicalModel</a>
-, <a class="el" href="classSpecificHeatModel.html#ae285282ef7c125c39998c42e19d3a0be">SpecificHeatModel</a>
-, <a class="el" href="classSurfaceTensionModel.html#a5774ba322dca701782c47d116d56e755">SurfaceTensionModel</a>
-, <a class="el" href="classThermalConductivityModel.html#a6d11732dea0bbfe2128abb211befbf90">ThermalConductivityModel</a>
-, <a class="el" href="classThermalExpansionModel.html#a2b4f46a544682c34f55e404fbb8c0567">ThermalExpansionModel</a>
-, <a class="el" href="classTracerDiffusivityModel.html#a78c519a3635c95d987ff57996f26b4b4">TracerDiffusivityModel</a>
-, <a class="el" href="classVolumeOfFluidFilterBase.html#a4a85eab29e322e3fb90f59beb4ac3d24">VolumeOfFluidFilterBase</a>
+: <a class="el" href="classDensityModel.html#a678019a0aa3a358b943c1221834ae4d8">DensityModel</a>
+, <a class="el" href="classEvaporationModel.html#a8584ac33f510a3999d15d1367132c1e5">EvaporationModel</a>
+, <a class="el" href="classMobilityCahnHilliardModel.html#a713a42a537b676607a2b5158414d2ec9">MobilityCahnHilliardModel</a>
+, <a class="el" href="classRheologicalModel.html#a8dc1c9a77886e59ee701ce27749c0505">RheologicalModel</a>
+, <a class="el" href="classSpecificHeatModel.html#ac17fb0fd329a03eaf11fbfeec367c72d">SpecificHeatModel</a>
+, <a class="el" href="classSurfaceTensionModel.html#a13db76b578d57071867904b85163e158">SurfaceTensionModel</a>
+, <a class="el" href="classThermalConductivityModel.html#a141c4d482c3fd0e0e0bff222d264aa7e">ThermalConductivityModel</a>
+, <a class="el" href="classThermalExpansionModel.html#a89104a8c0ce44d483737ca6281004079">ThermalExpansionModel</a>
+, <a class="el" href="classTracerDiffusivityModel.html#ac95429cb2e3de075247691ad5870bfa0">TracerDiffusivityModel</a>
+, <a class="el" href="classVolumeOfFluidFilterBase.html#a87286b158579e34a40627510e9824536">VolumeOfFluidFilterBase</a>
 </li>
 <li>modify_solution()
 : <a class="el" href="classAuxiliaryPhysics.html#ace42d65b732019925cb4824e9af89f52">AuxiliaryPhysics&lt; dim, VectorType &gt;</a>
 , <a class="el" href="classVolumeOfFluid.html#a29ca82046f032548ac60d4ad4f8c5c4c">VolumeOfFluid&lt; dim &gt;</a>
 </li>
+<li>momentum_flux()
+: <a class="el" href="classEvaporationModel.html#a47be0272cdef51c598387125bc4d8071">EvaporationModel</a>
+, <a class="el" href="classEvaporationModelConstant.html#a368945d4af48897e655faacf3ffc0ab9">EvaporationModelConstant</a>
+, <a class="el" href="classEvaporationModelTemperature.html#a73a548a9bd637c3a03aeb122ae686237">EvaporationModelTemperature</a>
+</li>
+<li>momentum_flux_jacobian()
+: <a class="el" href="classEvaporationModel.html#a6d108efeb02e7c59d9e4d104f0ae1a32">EvaporationModel</a>
+, <a class="el" href="classEvaporationModelConstant.html#a111e6af8e0229f91e7bd2bd8c42621bb">EvaporationModelConstant</a>
+, <a class="el" href="classEvaporationModelTemperature.html#aa60d6855b180b40f4920982fc520601e">EvaporationModelTemperature</a>
+</li>
 <li>monitor_mass_conservation()
-: <a class="el" href="classGLSVANSSolver.html#a3311d516c9c1fe56d379edace794793f">GLSVANSSolver&lt; dim &gt;</a>
+: <a class="el" href="classGLSVANSSolver.html#a938ebc83377361602c801822e567616d">GLSVANSSolver&lt; dim &gt;</a>
 </li>
 <li>move_grid()
 : <a class="el" href="classGridMotion.html#a265718c0e236abfc51bdcfda1ae8c18e">GridMotion&lt; dim, spacedim &gt;</a>

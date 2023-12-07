@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -126,9 +133,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="grids_8h__dep__incl.png" border="0" usemap="#a_2home_2runner_2work_2lethe_2lethe_2include_2core_2grids_8hdep" alt=""/></div>
 <map name="a_2home_2runner_2work_2lethe_2lethe_2include_2core_2grids_8hdep" id="a_2home_2runner_2work_2lethe_2lethe_2include_2core_2grids_8hdep">
-<area shape="rect" title=" " alt="" coords="5,5,196,47"/>
-<area shape="rect" href="gls__vans_8h.html" title=" " alt="" coords="9,95,192,151"/>
-<area shape="rect" href="cfd__dem__coupling_8h.html" title=" " alt="" coords="9,199,192,255"/>
+<area shape="rect" title=" " alt="" coords="1008,5,1199,47"/>
+<area shape="rect" href="gls__vans_8h.html" title=" " alt="" coords="212,95,395,151"/>
+<area shape="rect" href="cfd__dem__coupling_8cc.html" title=" " alt="" coords="173,303,356,359"/>
+<area shape="rect" href="grids_8cc.html" title=" " alt="" coords="470,102,662,143"/>
+<area shape="rect" href="read__mesh_8cc.html" title=" " alt="" coords="687,95,869,151"/>
+<area shape="rect" href="gls__sharp__navier__stokes_8cc.html" title=" " alt="" coords="894,95,1097,151"/>
+<area shape="rect" href="gd__navier__stokes_8cc.html" title=" " alt="" coords="1121,95,1304,151"/>
+<area shape="rect" href="gls__navier__stokes_8cc.html" title=" " alt="" coords="1328,95,1511,151"/>
+<area shape="rect" href="gls__nitsche__navier__stokes_8cc.html" title=" " alt="" coords="1535,95,1749,151"/>
+<area shape="rect" href="mf__navier__stokes_8cc.html" title=" " alt="" coords="1773,95,1956,151"/>
+<area shape="rect" href="navier__stokes__base_8cc.html" title=" " alt="" coords="1980,95,2163,151"/>
+<area shape="rect" href="cfd__dem__coupling_8h.html" title=" " alt="" coords="5,199,188,255"/>
+<area shape="rect" href="gls__vans_8cc.html" title=" " alt="" coords="212,199,395,255"/>
 </map>
 </div>
 </div>
@@ -187,6 +204,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="grids_8cc_source.html#l00021">21</a> of file <a class="el" href="grids_8cc_source.html">grids.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="structParameters_1_1Mesh.html#a9be2ccd9771c7cc7df861429a0c7864ca9c7cd9fc9aa15fae1e37885314637c36">Parameters::Mesh::cylinder</a>, <a class="el" href="structParameters_1_1Mesh.html#a9be2ccd9771c7cc7df861429a0c7864ca3c4b939087811f328575e358443a5880">Parameters::Mesh::dealii</a>, <a class="el" href="parameters_8h_source.html#l01071">Parameters::Mesh::file_name</a>, <a class="el" href="structParameters_1_1Mesh.html#a9be2ccd9771c7cc7df861429a0c7864cab7c7797f3a0a1098b484e5e3a780e025">Parameters::Mesh::gmsh</a>, <a class="el" href="parameters_8h_source.html#l01077">Parameters::Mesh::grid_arguments</a>, <a class="el" href="parameters_8h_source.html#l01074">Parameters::Mesh::grid_type</a>, <a class="el" href="parameters_8h_source.html#l01080">Parameters::Mesh::initial_refinement</a>, <a class="el" href="periodic__hills__grid_8h_source.html#l00517">PeriodicHillsGrid&lt; dim, spacedim &gt;::make_grid()</a>, <a class="el" href="structParameters_1_1Mesh.html#a9be2ccd9771c7cc7df861429a0c7864ca8b6e7e08f9b5c2b02a4d5065cb5b69ce">Parameters::Mesh::periodic_hills</a>, <a class="el" href="parameters_8h_source.html#l01086">Parameters::Mesh::simplex</a>, and <a class="el" href="parameters_8h_source.html#l01068">Parameters::Mesh::type</a>.</p>
 
 </div>
 </div>
@@ -247,6 +268,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="grids_8cc_source.html#l00313">313</a> of file <a class="el" href="grids_8cc_source.html">grids.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="grids_8cc_source.html#l00021">attach_grid_to_triangulation()</a>, <a class="el" href="manifolds_8cc_source.html#l00259">attach_manifolds_to_triangulation()</a>, <a class="el" href="parameters_8h_source.html#l01080">Parameters::Mesh::initial_refinement</a>, <a class="el" href="parameters_8h_source.html#l01083">Parameters::Mesh::refine_until_target_size</a>, <a class="el" href="grids_8cc_source.html#l00284">setup_periodic_boundary_conditions()</a>, <a class="el" href="parameters_8h_source.html#l01086">Parameters::Mesh::simplex</a>, and <a class="el" href="parameters_8h_source.html#l01089">Parameters::Mesh::target_size</a>.</p>
+
 </div>
 </div>
 <a id="af1d2696e4728fe2ef2d49e1f7a656116"></a>
@@ -285,6 +310,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="grids_8cc_source.html#l00284">284</a> of file <a class="el" href="grids_8cc_source.html">grids.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="boundary__conditions_8h_source.html#l00079">BoundaryConditions::BoundaryConditions&lt; dim &gt;::id</a>, <a class="el" href="namespaceBoundaryConditions.html#a07df76d63cde5cb5bcbea0d9c25a54b8ae6ffdec5e14fce371eb7ae99edebbbee">BoundaryConditions::periodic</a>, <a class="el" href="boundary__conditions_8h_source.html#l00097">BoundaryConditions::BoundaryConditions&lt; dim &gt;::periodic_direction</a>, <a class="el" href="boundary__conditions_8h_source.html#l00096">BoundaryConditions::BoundaryConditions&lt; dim &gt;::periodic_id</a>, <a class="el" href="boundary__conditions_8h_source.html#l00092">BoundaryConditions::BoundaryConditions&lt; dim &gt;::size</a>, and <a class="el" href="boundary__conditions_8h_source.html#l00082">BoundaryConditions::BoundaryConditions&lt; dim &gt;::type</a>.</p>
 
 </div>
 </div>

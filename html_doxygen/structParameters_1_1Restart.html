@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -89,8 +96,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:abf6e64626e7fd8ae63be8b2cbb9bc442"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1Restart.html#abf6e64626e7fd8ae63be8b2cbb9bc442">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:abf6e64626e7fd8ae63be8b2cbb9bc442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a776295b1fda544594443631a63cd1dc0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1Restart.html#a776295b1fda544594443631a63cd1dc0">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:a776295b1fda544594443631a63cd1dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -105,9 +112,11 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="structParameters_1_1Restart.html" title="Restart - Controls writing and reading simulation checkpoints.">Restart</a> - Controls writing and reading simulation checkpoints. </p>
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l01232">1232</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="abf6e64626e7fd8ae63be8b2cbb9bc442"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf6e64626e7fd8ae63be8b2cbb9bc442">&#9670;&nbsp;</a></span>declare_parameters()</h2>
+<a id="a776295b1fda544594443631a63cd1dc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a776295b1fda544594443631a63cd1dc0">&#9670;&nbsp;</a></span>declare_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,7 +125,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Parameters::Restart::declare_parameters </td>
+          <td class="memname">void Parameters::Restart::declare_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -129,6 +138,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8cc_source.html#l02539">2539</a> of file <a class="el" href="parameters_8cc_source.html">parameters.cc</a>.</p>
 
 </div>
 </div>
@@ -148,6 +159,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8cc_source.html#l02567">2567</a> of file <a class="el" href="parameters_8cc_source.html">parameters.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters_8h_source.html#l01236">checkpoint</a>, <a class="el" href="parameters_8h_source.html#l01234">filename</a>, <a class="el" href="parameters_8h_source.html#l01237">frequency</a>, and <a class="el" href="parameters_8h_source.html#l01235">restart</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -163,6 +178,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l01236">1236</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
 <a id="a37b14091bf2827a90e3f279f4e191b44"></a>
@@ -176,6 +193,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l01234">1234</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
 </div>
 </div>
@@ -191,6 +210,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l01237">1237</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
 <a id="ad71babefa334afc643f3093b7b654149"></a>
@@ -205,10 +226,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l01235">1235</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="parameters_8h_source.html">parameters.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="parameters_8cc_source.html">parameters.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

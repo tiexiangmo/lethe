@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -133,9 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac8897ffe280ad2d9c7fc0193191e1219 inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#ac8897ffe280ad2d9c7fc0193191e1219">initialize_dof_vector</a> (<a class="el" href="classNavierStokesOperatorBase.html#af38ac45042fda00de01ec4f576b62eeb">VectorType</a> &amp;vec) const</td></tr>
 <tr class="memdesc:ac8897ffe280ad2d9c7fc0193191e1219 inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a given vector by delegating it to the MatrixFree function in charge of this task.  <a href="classNavierStokesOperatorBase.html#ac8897ffe280ad2d9c7fc0193191e1219">More...</a><br /></td></tr>
 <tr class="separator:ac8897ffe280ad2d9c7fc0193191e1219 inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8853f277d9cabb52bf05a5d6f2e91b5b inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; const Utilities::MPI::Partitioner &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#a8853f277d9cabb52bf05a5d6f2e91b5b">get_vector_partitioner</a> () const</td></tr>
-<tr class="memdesc:a8853f277d9cabb52bf05a5d6f2e91b5b inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the vector partitioner object required for LS multigrid.  <a href="classNavierStokesOperatorBase.html#a8853f277d9cabb52bf05a5d6f2e91b5b">More...</a><br /></td></tr>
-<tr class="separator:a8853f277d9cabb52bf05a5d6f2e91b5b inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57edb76799387ee1cdfc116d816a9dc8 inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; const Utilities::MPI::Partitioner &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#a57edb76799387ee1cdfc116d816a9dc8">get_vector_partitioner</a> () const</td></tr>
+<tr class="memdesc:a57edb76799387ee1cdfc116d816a9dc8 inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the vector partitioner object required for LS multigrid.  <a href="classNavierStokesOperatorBase.html#a57edb76799387ee1cdfc116d816a9dc8">More...</a><br /></td></tr>
+<tr class="separator:a57edb76799387ee1cdfc116d816a9dc8 inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5624dc744e5395a765a74dce3345f341 inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#a5624dc744e5395a765a74dce3345f341">vmult</a> (<a class="el" href="classNavierStokesOperatorBase.html#af38ac45042fda00de01ec4f576b62eeb">VectorType</a> &amp;dst, const <a class="el" href="classNavierStokesOperatorBase.html#af38ac45042fda00de01ec4f576b62eeb">VectorType</a> &amp;src) const</td></tr>
 <tr class="memdesc:a5624dc744e5395a765a74dce3345f341 inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an operator evaluation dst = A*src by looping with the help of the MatrixFree object over all cells and evaluatinf the effect of cell integrals.  <a href="classNavierStokesOperatorBase.html#a5624dc744e5395a765a74dce3345f341">More...</a><br /></td></tr>
 <tr class="separator:a5624dc744e5395a765a74dce3345f341 inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,15 +155,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeeacf3bcb0b3c7b30eb6556b6997e6fc inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#aeeacf3bcb0b3c7b30eb6556b6997e6fc">vmult_interface_up</a> (<a class="el" href="classNavierStokesOperatorBase.html#af38ac45042fda00de01ec4f576b62eeb">VectorType</a> &amp;dst, <a class="el" href="classNavierStokesOperatorBase.html#af38ac45042fda00de01ec4f576b62eeb">VectorType</a> const &amp;src) const</td></tr>
 <tr class="memdesc:aeeacf3bcb0b3c7b30eb6556b6997e6fc inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vmult ooperator for an interface. Required only if local smoothing multigrid is used and for meshes with hanging nodes.  <a href="classNavierStokesOperatorBase.html#aeeacf3bcb0b3c7b30eb6556b6997e6fc">More...</a><br /></td></tr>
 <tr class="separator:aeeacf3bcb0b3c7b30eb6556b6997e6fc inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7014b33ca2ef26dd14aed7bad344a85 inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">const TrilinosWrappers::SparseMatrix &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#af7014b33ca2ef26dd14aed7bad344a85">get_system_matrix</a> () const</td></tr>
-<tr class="memdesc:af7014b33ca2ef26dd14aed7bad344a85 inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate matrix if needed, e.g., by coarse-grid solver when a multigrid algorithm is used.  <a href="classNavierStokesOperatorBase.html#af7014b33ca2ef26dd14aed7bad344a85">More...</a><br /></td></tr>
-<tr class="separator:af7014b33ca2ef26dd14aed7bad344a85 inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab183d304d4745699a690a2a48e43dc80 inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">const MatrixFree&lt; dim, number &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#ab183d304d4745699a690a2a48e43dc80">get_system_matrix_free</a> () const</td></tr>
-<tr class="memdesc:ab183d304d4745699a690a2a48e43dc80 inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the system matrix free object.  <a href="classNavierStokesOperatorBase.html#ab183d304d4745699a690a2a48e43dc80">More...</a><br /></td></tr>
-<tr class="separator:ab183d304d4745699a690a2a48e43dc80 inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34bbf83d41ee695b8f873a5f2e871262 inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">const AlignedVector&lt; VectorizedArray&lt; number &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#a34bbf83d41ee695b8f873a5f2e871262">get_element_size</a> () const</td></tr>
-<tr class="memdesc:a34bbf83d41ee695b8f873a5f2e871262 inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the element size object.  <a href="classNavierStokesOperatorBase.html#a34bbf83d41ee695b8f873a5f2e871262">More...</a><br /></td></tr>
-<tr class="separator:a34bbf83d41ee695b8f873a5f2e871262 inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8897d3ddc186e91096ca3e3f9f893dd inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">const TrilinosWrappers::SparseMatrix &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#af8897d3ddc186e91096ca3e3f9f893dd">get_system_matrix</a> () const</td></tr>
+<tr class="memdesc:af8897d3ddc186e91096ca3e3f9f893dd inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate matrix if needed, e.g., by coarse-grid solver when a multigrid algorithm is used.  <a href="classNavierStokesOperatorBase.html#af8897d3ddc186e91096ca3e3f9f893dd">More...</a><br /></td></tr>
+<tr class="separator:af8897d3ddc186e91096ca3e3f9f893dd inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2988887b018d153e04d4395d126993d inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">const MatrixFree&lt; dim, number &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#ad2988887b018d153e04d4395d126993d">get_system_matrix_free</a> () const</td></tr>
+<tr class="memdesc:ad2988887b018d153e04d4395d126993d inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the system matrix free object.  <a href="classNavierStokesOperatorBase.html#ad2988887b018d153e04d4395d126993d">More...</a><br /></td></tr>
+<tr class="separator:ad2988887b018d153e04d4395d126993d inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac86e210b0a99d6dd6efe8d9b897be7e2 inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">const AlignedVector&lt; VectorizedArray&lt; number &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#ac86e210b0a99d6dd6efe8d9b897be7e2">get_element_size</a> () const</td></tr>
+<tr class="memdesc:ac86e210b0a99d6dd6efe8d9b897be7e2 inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the element size object.  <a href="classNavierStokesOperatorBase.html#ac86e210b0a99d6dd6efe8d9b897be7e2">More...</a><br /></td></tr>
+<tr class="separator:ac86e210b0a99d6dd6efe8d9b897be7e2 inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cd7ec35df51137f9fe9020c6c01fffe inherit pub_methods_classNavierStokesOperatorBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesOperatorBase.html#a9cd7ec35df51137f9fe9020c6c01fffe">compute_inverse_diagonal</a> (<a class="el" href="classNavierStokesOperatorBase.html#af38ac45042fda00de01ec4f576b62eeb">VectorType</a> &amp;diagonal) const</td></tr>
 <tr class="memdesc:a9cd7ec35df51137f9fe9020c6c01fffe inherit pub_methods_classNavierStokesOperatorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the diagonal of the operator using an optimized MatrixFree function. Needed for preconditioners.  <a href="classNavierStokesOperatorBase.html#a9cd7ec35df51137f9fe9020c6c01fffe">More...</a><br /></td></tr>
 <tr class="separator:a9cd7ec35df51137f9fe9020c6c01fffe inherit pub_methods_classNavierStokesOperatorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -238,6 +245,8 @@ class NavierStokesTransientSUPGPSPGOperator&lt; dim, number &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="mf__navier__stokes__operators_8h_source.html#l00413">413</a> of file <a class="el" href="mf__navier__stokes__operators_8h_source.html">mf_navier_stokes_operators.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a66fd4ec955acc823615ed6edf3d996fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66fd4ec955acc823615ed6edf3d996fc">&#9670;&nbsp;</a></span>FECellIntegrator</h2>
@@ -252,6 +261,8 @@ template&lt;int dim, typename number &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mf__navier__stokes__operators_8h_source.html#l00417">417</a> of file <a class="el" href="mf__navier__stokes__operators_8h_source.html">mf_navier_stokes_operators.h</a>.</p>
 
 </div>
 </div>
@@ -269,6 +280,8 @@ template&lt;int dim, typename number &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="mf__navier__stokes__operators_8h_source.html#l00418">418</a> of file <a class="el" href="mf__navier__stokes__operators_8h_source.html">mf_navier_stokes_operators.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -279,6 +292,9 @@ template&lt;int dim, typename number &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;int dim, typename number &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classNavierStokesTransientSUPGPSPGOperator.html">NavierStokesTransientSUPGPSPGOperator</a>&lt; dim, number &gt;::<a class="el" href="classNavierStokesTransientSUPGPSPGOperator.html">NavierStokesTransientSUPGPSPGOperator</a> </td>
@@ -287,6 +303,11 @@ template&lt;int dim, typename number &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -319,14 +340,24 @@ template&lt;int dim, typename number &gt; </div>
 </div><div class="memdoc">
 
 <p>Perform cell integral on a cell batch without gathering and scattering the values, and according to the Jacobian of the Navier-Stokes equations with SUPG/PSPG stabilization. </p>
+<p>This function performs a cell integral, i.e., the Jacobian of the discretization of the transient Navier-Stokes equations with SUPG PSPG stabilization in a cell batch. The equations are given as follows: (q,∇δu) + (v,∂t δu) + (v,(u·∇)δu) + (v,(δu·∇)u) - (∇·v,δp) + ν(∇v,∇δu) (Weak form Jacobian)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">integrator</td><td>FEEvaluation object that allows to evaluate functions at quadrature points and perform cell integrations. </td></tr>
+    <tr><td class="paramname">integrator</td><td>FEEvaluation object that allows to evaluate functions at quadrature points and perform cell integrations.</td></tr>
   </table>
   </dd>
 </dl>
+<ul>
+<li>(∂t δu +(u·∇)δu + (δu·∇)u + ∇δp - ν∆δu)τ·∇q (PSPG Jacobian)</li>
+<li>(∂t δu +(u·∇)δu + (δu·∇)u + ∇δp - ν∆δu)τu·∇v (SUPG Jacobian Part 1)</li>
+<li>(∂t u +(u·∇)u + ∇p - ν∆u - f )τδu·∇v (SUPG Jacobian Part 2) </li>
+</ul>
 
 <p>Implements <a class="el" href="classNavierStokesOperatorBase.html#a9f3bb8de4716c95844cbdf35272b30a6">NavierStokesOperatorBase&lt; dim, number &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="mf__navier__stokes__operators_8cc_source.html#l00849">849</a> of file <a class="el" href="mf__navier__stokes__operators_8cc_source.html">mf_navier_stokes_operators.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="bdf_8cc_source.html#l00023">bdf_coefficients()</a>.</p>
 
 </div>
 </div>
@@ -379,22 +410,32 @@ template&lt;int dim, typename number &gt; </div>
 </div><div class="memdoc">
 
 <p>Perform cell integral on a cell batch with gathering and scattering the values, and according to the residual of the Navier-Stokes equations with SUPG/PSPG stabilization. </p>
+<p>This function computes the residual of the weak form of the transient Navier-Stokes equations with SUPG PSPG discretization performing a cell integral in a cell batch. The equations are given as follows: (q, ∇·u) + (v,∂t u) + (v,(u·∇)u) - (∇·v,p) + ν(∇v,∇u) - (v,f) (Weak form)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">matrix_free</td><td>Object that contains all data. </td></tr>
     <tr><td class="paramname">dst</td><td>Global vector where the final result is added. </td></tr>
     <tr><td class="paramname">src</td><td>Input vector with all values in all cells. </td></tr>
-    <tr><td class="paramname">range</td><td>Range of the cell batch. </td></tr>
+    <tr><td class="paramname">range</td><td>Range of the cell batch.</td></tr>
   </table>
   </dd>
 </dl>
+<ul>
+<li>(∂t u +(u·∇)u + ∇p - ν∆u - f)τ∇·q (PSPG term)</li>
+<li>(∂t u +(u·∇)u + ∇p - ν∆u - f)τu·∇v (SUPG term) </li>
+</ul>
 
 <p>Implements <a class="el" href="classNavierStokesOperatorBase.html#a1d289e3cf780010e8be1f75d4b027194">NavierStokesOperatorBase&lt; dim, number &gt;</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="mf__navier__stokes__operators_8cc_source.html#l01001">1001</a> of file <a class="el" href="mf__navier__stokes__operators_8cc_source.html">mf_navier_stokes_operators.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="bdf_8cc_source.html#l00023">bdf_coefficients()</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/solvers/<a class="el" href="mf__navier__stokes__operators_8h_source.html">mf_navier_stokes_operators.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/solvers/<a class="el" href="mf__navier__stokes__operators_8cc_source.html">mf_navier_stokes_operators.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

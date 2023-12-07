@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -97,17 +104,24 @@ $(function() {
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifndef set_particle_particle_contact_force_model_h</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#  define set_particle_particle_contact_force_model_h</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * Sets the selected particle-particle contact force model in the parameter</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> * handler file.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> * @param dem_parameters DEM parameters</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> * @return A pointer to the particle-particle contact force object</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;std::shared_ptr&lt;ParticleParticleContactForceBase&lt;dim&gt;&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="set__particle__particle__contact__force__model_8h.html#a11a538e148e69bfd6cdc87b04dd0814d">   37</a></span>&#160;<a class="code" href="set__particle__particle__contact__force__model_8h.html#a11a538e148e69bfd6cdc87b04dd0814d">set_particle_particle_contact_force_model</a>(</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="set__particle__particle__contact__force__model_8h.html#a11a538e148e69bfd6cdc87b04dd0814d">set_particle_particle_contact_force_model</a>(</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">const</span> <a class="code" href="classDEMSolverParameters.html">DEMSolverParameters&lt;dim&gt;</a> &amp;dem_parameters);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* set_particle_particle_contact_force_model_h */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassDEMSolverParameters_html"><div class="ttname"><a href="classDEMSolverParameters.html">DEMSolverParameters</a></div><div class="ttdef"><b>Definition:</b> dem_solver_parameters.h:33</div></div>
+<div class="ttc" id="aclassDEMSolverParameters_html"><div class="ttname"><a href="classDEMSolverParameters.html">DEMSolverParameters</a></div><div class="ttdef"><b>Definition:</b> <a href="dem__solver__parameters_8h_source.html#l00032">dem_solver_parameters.h:33</a></div></div>
 <div class="ttc" id="adem__solver__parameters_8h_html"><div class="ttname"><a href="dem__solver__parameters_8h.html">dem_solver_parameters.h</a></div></div>
 <div class="ttc" id="aparticle__particle__contact__force_8h_html"><div class="ttname"><a href="particle__particle__contact__force_8h.html">particle_particle_contact_force.h</a></div></div>
-<div class="ttc" id="aset__particle__particle__contact__force__model_8h_html_a11a538e148e69bfd6cdc87b04dd0814d"><div class="ttname"><a href="set__particle__particle__contact__force__model_8h.html#a11a538e148e69bfd6cdc87b04dd0814d">set_particle_particle_contact_force_model</a></div><div class="ttdeci">std::shared_ptr&lt; ParticleParticleContactForceBase&lt; dim &gt; &gt; set_particle_particle_contact_force_model(const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters)</div></div>
+<div class="ttc" id="aset__particle__particle__contact__force__model_8h_html_a11a538e148e69bfd6cdc87b04dd0814d"><div class="ttname"><a href="set__particle__particle__contact__force__model_8h.html#a11a538e148e69bfd6cdc87b04dd0814d">set_particle_particle_contact_force_model</a></div><div class="ttdeci">std::shared_ptr&lt; ParticleParticleContactForceBase&lt; dim &gt; &gt; set_particle_particle_contact_force_model(const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters)</div><div class="ttdef"><b>Definition:</b> <a href="set__particle__particle__contact__force__model_8cc_source.html#l00007">set_particle_particle_contact_force_model.cc:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

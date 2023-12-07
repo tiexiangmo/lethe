@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -90,9 +97,9 @@ Inheritance diagram for GLSVansAssemblerVorticalTorque&lt; dim &gt;:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9d5cf40e1754ed844c44e07f26517c4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSVansAssemblerVorticalTorque.html#a9d5cf40e1754ed844c44e07f26517c4b">GLSVansAssemblerVorticalTorque</a> (<a class="el" href="structParameters_1_1Lagrangian_1_1LagrangianPhysicalProperties.html">Parameters::Lagrangian::LagrangianPhysicalProperties</a> <a class="el" href="classGLSVansAssemblerVorticalTorque.html#a836255ae37193a17b7df37a79bf74b48">lagrangian_physical_properties</a>)</td></tr>
 <tr class="separator:a9d5cf40e1754ed844c44e07f26517c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add779f118d8c2527825db1aa112994ae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSVansAssemblerVorticalTorque.html#add779f118d8c2527825db1aa112994ae">calculate_particle_fluid_interactions</a> (<a class="el" href="classNavierStokesScratchData.html">NavierStokesScratchData</a>&lt; dim &gt; &amp;scratch_data) override</td></tr>
-<tr class="memdesc:add779f118d8c2527825db1aa112994ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate_particle_fluid_interactions calculates the viscous torque dissipation  <a href="classGLSVansAssemblerVorticalTorque.html#add779f118d8c2527825db1aa112994ae">More...</a><br /></td></tr>
-<tr class="separator:add779f118d8c2527825db1aa112994ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4efd9497734a15be8a42c56b7a191151"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSVansAssemblerVorticalTorque.html#a4efd9497734a15be8a42c56b7a191151">calculate_particle_fluid_interactions</a> (<a class="el" href="classNavierStokesScratchData.html">NavierStokesScratchData</a>&lt; dim &gt; &amp;scratch_data) override</td></tr>
+<tr class="memdesc:a4efd9497734a15be8a42c56b7a191151"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate_particle_fluid_interactions calculates the viscous torque dissipation  <a href="classGLSVansAssemblerVorticalTorque.html#a4efd9497734a15be8a42c56b7a191151">More...</a><br /></td></tr>
+<tr class="separator:a4efd9497734a15be8a42c56b7a191151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -111,6 +118,8 @@ class GLSVansAssemblerVorticalTorque&lt; dim &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="vans__assemblers_8h_source.html#l00552">552</a> of file <a class="el" href="vans__assemblers_8h_source.html">vans_assemblers.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9d5cf40e1754ed844c44e07f26517c4b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d5cf40e1754ed844c44e07f26517c4b">&#9670;&nbsp;</a></span>GLSVansAssemblerVorticalTorque()</h2>
@@ -138,11 +147,13 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="vans__assemblers_8h_source.html#l00555">555</a> of file <a class="el" href="vans__assemblers_8h_source.html">vans_assemblers.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="add779f118d8c2527825db1aa112994ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add779f118d8c2527825db1aa112994ae">&#9670;&nbsp;</a></span>calculate_particle_fluid_interactions()</h2>
+<a id="a4efd9497734a15be8a42c56b7a191151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4efd9497734a15be8a42c56b7a191151">&#9670;&nbsp;</a></span>calculate_particle_fluid_interactions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,7 +164,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classGLSVansAssemblerVorticalTorque.html">GLSVansAssemblerVorticalTorque</a>&lt; dim &gt;::calculate_particle_fluid_interactions </td>
+          <td class="memname">void <a class="el" href="classGLSVansAssemblerVorticalTorque.html">GLSVansAssemblerVorticalTorque</a>&lt; dim &gt;::calculate_particle_fluid_interactions </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classNavierStokesScratchData.html">NavierStokesScratchData</a>&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>scratch_data</em></td><td>)</td>
@@ -178,6 +189,10 @@ template&lt;int dim&gt; </div>
 
 <p>Implements <a class="el" href="classParticleFluidAssemblerBase.html#a273a79d7265d8eaf8af65287186f4fea">ParticleFluidAssemblerBase&lt; dim &gt;</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="vans__assemblers_8cc_source.html#l01684">1684</a> of file <a class="el" href="vans__assemblers_8cc_source.html">vans_assemblers.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__properties__manager_8h_source.html#l00253">PhysicalPropertiesManager::density_is_constant()</a>, <a class="el" href="dem__properties_8h_source.html#l00041">DEM::dp</a>, <a class="el" href="dem__properties_8h_source.html#l00051">DEM::fem_torque_x</a>, <a class="el" href="navier__stokes__scratch__data_8h_source.html#l01098">NavierStokesScratchData&lt; dim &gt;::fluid_velocity_curls_at_particle_location_3d</a>, <a class="el" href="physical__properties__manager_8h_source.html#l00228">PhysicalPropertiesManager::get_density_scale()</a>, <a class="el" href="physical__properties__manager_8h_source.html#l00222">PhysicalPropertiesManager::get_kinematic_viscosity_scale()</a>, <a class="el" href="physical__properties__manager_8h_source.html#l00241">PhysicalPropertiesManager::is_non_newtonian()</a>, <a class="el" href="navier__stokes__scratch__data_8h_source.html#l01105">NavierStokesScratchData&lt; dim &gt;::pic</a>, and <a class="el" href="navier__stokes__scratch__data_8h_source.html#l00977">NavierStokesScratchData&lt; dim &gt;::properties_manager</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -195,10 +210,13 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="vans__assemblers_8h_source.html#l00572">572</a> of file <a class="el" href="vans__assemblers_8h_source.html">vans_assemblers.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/fem-dem/<a class="el" href="vans__assemblers_8h_source.html">vans_assemblers.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/fem-dem/<a class="el" href="vans__assemblers_8cc_source.html">vans_assemblers.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

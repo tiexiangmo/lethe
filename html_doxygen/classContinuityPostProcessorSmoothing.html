@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -95,15 +102,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab92e81ec91a66d0d9b8a2cf95fe51869 inherit pub_methods_classPostProcessorSmoothing"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessorSmoothing.html#ab92e81ec91a66d0d9b8a2cf95fe51869">generate_mass_matrix</a> ()</td></tr>
 <tr class="memdesc:ab92e81ec91a66d0d9b8a2cf95fe51869 inherit pub_methods_classPostProcessorSmoothing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the mass matrix, that is independent of the physics.  <a href="classPostProcessorSmoothing.html#ab92e81ec91a66d0d9b8a2cf95fe51869">More...</a><br /></td></tr>
 <tr class="separator:ab92e81ec91a66d0d9b8a2cf95fe51869 inherit pub_methods_classPostProcessorSmoothing"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15dad1e89c5bdd518c1daff14b956f27 inherit pub_methods_classPostProcessorSmoothing"><td class="memItemLeft" align="right" valign="top">const TrilinosWrappers::MPI::Vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessorSmoothing.html#a15dad1e89c5bdd518c1daff14b956f27">solve_L2_projection</a> ()</td></tr>
-<tr class="memdesc:a15dad1e89c5bdd518c1daff14b956f27 inherit pub_methods_classPostProcessorSmoothing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves the matrix system and outputs the smoothed field solution.  <a href="classPostProcessorSmoothing.html#a15dad1e89c5bdd518c1daff14b956f27">More...</a><br /></td></tr>
-<tr class="separator:a15dad1e89c5bdd518c1daff14b956f27 inherit pub_methods_classPostProcessorSmoothing"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f950b7f40ecea5809a1491d623541fe inherit pub_methods_classPostProcessorSmoothing"><td class="memItemLeft" align="right" valign="top">const TrilinosWrappers::MPI::Vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessorSmoothing.html#a6f950b7f40ecea5809a1491d623541fe">calculate_smoothed_field</a> (const VectorType &amp;solution, const DoFHandler&lt; dim &gt; &amp;dof_handler_velocity, std::shared_ptr&lt; Mapping&lt; dim &gt;&gt; mapping_velocity)</td></tr>
-<tr class="memdesc:a6f950b7f40ecea5809a1491d623541fe inherit pub_methods_classPostProcessorSmoothing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the smoothed field solution.  <a href="classPostProcessorSmoothing.html#a6f950b7f40ecea5809a1491d623541fe">More...</a><br /></td></tr>
-<tr class="separator:a6f950b7f40ecea5809a1491d623541fe inherit pub_methods_classPostProcessorSmoothing"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4526d8003b321c4c0911c26da797964 inherit pub_methods_classPostProcessorSmoothing"><td class="memItemLeft" align="right" valign="top">const DoFHandler&lt; dim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessorSmoothing.html#ac4526d8003b321c4c0911c26da797964">get_dof_handler</a> () const</td></tr>
-<tr class="memdesc:ac4526d8003b321c4c0911c26da797964 inherit pub_methods_classPostProcessorSmoothing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant reference to the dof_handler.  <a href="classPostProcessorSmoothing.html#ac4526d8003b321c4c0911c26da797964">More...</a><br /></td></tr>
-<tr class="separator:ac4526d8003b321c4c0911c26da797964 inherit pub_methods_classPostProcessorSmoothing"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cb241dea583bfc1bdc397269c8063a6 inherit pub_methods_classPostProcessorSmoothing"><td class="memItemLeft" align="right" valign="top">const TrilinosWrappers::MPI::Vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessorSmoothing.html#a6cb241dea583bfc1bdc397269c8063a6">solve_L2_projection</a> ()</td></tr>
+<tr class="memdesc:a6cb241dea583bfc1bdc397269c8063a6 inherit pub_methods_classPostProcessorSmoothing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves the matrix system and outputs the smoothed field solution.  <a href="classPostProcessorSmoothing.html#a6cb241dea583bfc1bdc397269c8063a6">More...</a><br /></td></tr>
+<tr class="separator:a6cb241dea583bfc1bdc397269c8063a6 inherit pub_methods_classPostProcessorSmoothing"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf27dd4edb9ce8740f8a6d2244e4393 inherit pub_methods_classPostProcessorSmoothing"><td class="memItemLeft" align="right" valign="top">const TrilinosWrappers::MPI::Vector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessorSmoothing.html#accf27dd4edb9ce8740f8a6d2244e4393">calculate_smoothed_field</a> (const VectorType &amp;solution, const DoFHandler&lt; dim &gt; &amp;dof_handler_velocity, std::shared_ptr&lt; Mapping&lt; dim &gt;&gt; mapping_velocity)</td></tr>
+<tr class="memdesc:accf27dd4edb9ce8740f8a6d2244e4393 inherit pub_methods_classPostProcessorSmoothing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the smoothed field solution.  <a href="classPostProcessorSmoothing.html#accf27dd4edb9ce8740f8a6d2244e4393">More...</a><br /></td></tr>
+<tr class="separator:accf27dd4edb9ce8740f8a6d2244e4393 inherit pub_methods_classPostProcessorSmoothing"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa14eb3b82900d49dcad89de88c0b58d3 inherit pub_methods_classPostProcessorSmoothing"><td class="memItemLeft" align="right" valign="top">const DoFHandler&lt; dim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostProcessorSmoothing.html#aa14eb3b82900d49dcad89de88c0b58d3">get_dof_handler</a> () const</td></tr>
+<tr class="memdesc:aa14eb3b82900d49dcad89de88c0b58d3 inherit pub_methods_classPostProcessorSmoothing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant reference to the dof_handler.  <a href="classPostProcessorSmoothing.html#aa14eb3b82900d49dcad89de88c0b58d3">More...</a><br /></td></tr>
+<tr class="separator:aa14eb3b82900d49dcad89de88c0b58d3 inherit pub_methods_classPostProcessorSmoothing"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -138,6 +145,8 @@ Additional Inherited Members</h2></td></tr>
 class ContinuityPostProcessorSmoothing&lt; dim, VectorType &gt;</h3>
 
 <p>A class that assembles the rhs and solves the L2projection of the continuity equation (div u) at the nodes </p>
+
+<p class="definition">Definition at line <a class="el" href="postprocessors__smoothing_8h_source.html#l00142">142</a> of file <a class="el" href="postprocessors__smoothing_8h_source.html">postprocessors_smoothing.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8b18c2865a3d53b6e8b6be2c0cc904dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b18c2865a3d53b6e8b6be2c0cc904dc">&#9670;&nbsp;</a></span>ContinuityPostProcessorSmoothing()</h2>
@@ -172,6 +181,8 @@ template&lt;int dim, typename VectorType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="postprocessors__smoothing_8cc_source.html#l00311">311</a> of file <a class="el" href="postprocessors__smoothing_8cc_source.html">postprocessors_smoothing.cc</a>.</p>
 
 </div>
 </div>
@@ -230,10 +241,13 @@ template&lt;int dim, typename VectorType &gt; </div>
 
 <p>Reimplemented from <a class="el" href="classPostProcessorSmoothing.html#a07df5166b6045604996f4a4181198706">PostProcessorSmoothing&lt; dim, VectorType &gt;</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="postprocessors__smoothing_8cc_source.html#l00323">323</a> of file <a class="el" href="postprocessors__smoothing_8cc_source.html">postprocessors_smoothing.cc</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/solvers/<a class="el" href="postprocessors__smoothing_8h_source.html">postprocessors_smoothing.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/solvers/<a class="el" href="postprocessors__smoothing_8cc_source.html">postprocessors_smoothing.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -93,7 +100,19 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>dealii;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * @brief Calculate the stabilization parameter for the Navier-Stokes equations</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> * in steady-state</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> * @return Value of the stabilization parameter - tau</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * @param u_mag Magnitude of the velocity</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * @param kinematic_viscosity Kinematic viscosity</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> * @param h Cell size; it should be calculated using the diameter of a sphere of</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> * equal volume to that of the cell.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">double</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="stabilization_8h.html#ad7bda84af6efd7354449cf295b62c5a6">   37</a></span>&#160;<a class="code" href="stabilization_8h.html#ad7bda84af6efd7354449cf295b62c5a6">calculate_navier_stokes_gls_tau_steady</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> u_mag,</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                       <span class="keyword">const</span> <span class="keywordtype">double</span> kinematic_viscosity,</div>
@@ -103,7 +122,22 @@ $(function() {
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        9 * Utilities::fixed_power&lt;2&gt;(4 * kinematic_viscosity /</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                                      (h * h)));</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"> * @brief Calculate the stabilization parameter for the transient Navier-Stokes</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> * equations</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> * @return Value of the stabilization parameter - tau</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> * @param u_mag Magnitude of the velocity</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> * @param kinematic_viscosity Kinematic viscosity</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"> * @param h Cell size; it should be calculated using the diameter of a sphere of</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * equal volume to that of the cell.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> * @param sdt Inverse of the time-step (1/dt)</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">double</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="stabilization_8h.html#ac745989803675db20549e0b61324b549">   62</a></span>&#160;<a class="code" href="stabilization_8h.html#ac745989803675db20549e0b61324b549">calculate_navier_stokes_gls_tau_transient</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> u_mag,</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                          <span class="keyword">const</span> <span class="keywordtype">double</span> kinematic_viscosity,</div>
@@ -115,8 +149,8 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        9 * Utilities::fixed_power&lt;2&gt;(4 * kinematic_viscosity /</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                                      (h * h)));</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="ttc" id="astabilization_8h_html_ac745989803675db20549e0b61324b549"><div class="ttname"><a href="stabilization_8h.html#ac745989803675db20549e0b61324b549">calculate_navier_stokes_gls_tau_transient</a></div><div class="ttdeci">double calculate_navier_stokes_gls_tau_transient(const double u_mag, const double kinematic_viscosity, const double h, const double sdt)</div><div class="ttdoc">Calculate the stabilization parameter for the transient Navier-Stokes equations.</div><div class="ttdef"><b>Definition:</b> stabilization.h:62</div></div>
-<div class="ttc" id="astabilization_8h_html_ad7bda84af6efd7354449cf295b62c5a6"><div class="ttname"><a href="stabilization_8h.html#ad7bda84af6efd7354449cf295b62c5a6">calculate_navier_stokes_gls_tau_steady</a></div><div class="ttdeci">double calculate_navier_stokes_gls_tau_steady(const double u_mag, const double kinematic_viscosity, const double h)</div><div class="ttdoc">Calculate the stabilization parameter for the Navier-Stokes equations in steady-state.</div><div class="ttdef"><b>Definition:</b> stabilization.h:37</div></div>
+<div class="ttc" id="astabilization_8h_html_ac745989803675db20549e0b61324b549"><div class="ttname"><a href="stabilization_8h.html#ac745989803675db20549e0b61324b549">calculate_navier_stokes_gls_tau_transient</a></div><div class="ttdeci">double calculate_navier_stokes_gls_tau_transient(const double u_mag, const double kinematic_viscosity, const double h, const double sdt)</div><div class="ttdoc">Calculate the stabilization parameter for the transient Navier-Stokes equations.</div><div class="ttdef"><b>Definition:</b> <a href="stabilization_8h_source.html#l00062">stabilization.h:62</a></div></div>
+<div class="ttc" id="astabilization_8h_html_ad7bda84af6efd7354449cf295b62c5a6"><div class="ttname"><a href="stabilization_8h.html#ad7bda84af6efd7354449cf295b62c5a6">calculate_navier_stokes_gls_tau_steady</a></div><div class="ttdeci">double calculate_navier_stokes_gls_tau_steady(const double u_mag, const double kinematic_viscosity, const double h)</div><div class="ttdoc">Calculate the stabilization parameter for the Navier-Stokes equations in steady-state.</div><div class="ttdef"><b>Definition:</b> <a href="stabilization_8h_source.html#l00037">stabilization.h:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

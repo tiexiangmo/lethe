@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -139,6 +146,8 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class that defines the interface for a physical property model Physical property model provides an abstract interface to calculate the value of a physical property or a vector of physical property value for given field value. By default, the interface does not require that all (or any) fields be specified. This is why a map is used to pass the dependent variable. To allow for the calculation of the appropriate jacobian matrix (when that is necessary) the interface also provides a jacobian function, which must provide the derivative with respect to the field specified as an argument. </p>
+
+<p class="definition">Definition at line <a class="el" href="physical__property__model_8h_source.html#l00065">65</a> of file <a class="el" href="physical__property__model_8h_source.html">physical_property_model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a790b73800189af9ff8d80f1e6f8c9306"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a790b73800189af9ff8d80f1e6f8c9306">&#9670;&nbsp;</a></span>PhysicalPropertyModel()</h2>
@@ -164,6 +173,10 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p><a class="el" href="classPhysicalPropertyModel.html" title="Abstract class that defines the interface for a physical property model Physical property model provi...">PhysicalPropertyModel</a> Default constructor. Set the model_depends_on to false for all variables. </p>
+
+<p class="definition">Definition at line <a class="el" href="physical__property__model_8h_source.html#l00071">71</a> of file <a class="el" href="physical__property__model_8h_source.html">physical_property_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00038">phase_order_cahn_hilliard</a>, <a class="el" href="physical__property__model_8h_source.html#l00037">pressure</a>, <a class="el" href="physical__property__model_8h_source.html#l00036">previous_temperature</a>, <a class="el" href="physical__property__model_8h_source.html#l00034">shear_rate</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -193,6 +206,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns true if the <a class="el" href="classPhysicalPropertyModel.html" title="Abstract class that defines the interface for a physical property model Physical property model provi...">PhysicalPropertyModel</a> depends on a field, false if not. </p>
+
+<p class="definition">Definition at line <a class="el" href="physical__property__model_8h_source.html#l00085">85</a> of file <a class="el" href="physical__property__model_8h_source.html">physical_property_model.h</a>.</p>
 
 </div>
 </div>
@@ -287,6 +302,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="physical__property__model_8h_source.html#l00141">141</a> of file <a class="el" href="physical__property__model_8h_source.html">physical_property_model.h</a>.</p>
 
 </div>
 </div>
@@ -432,6 +449,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="physical__property__model_8h_source.html#l00162">162</a> of file <a class="el" href="physical__property__model_8h_source.html">physical_property_model.h</a>.</p>
+
 </div>
 </div>
 <a id="a93dd785206d0e4e6659ca03f7f10ddec"></a>
@@ -500,6 +519,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="physical__property__model_8h_source.html#l00197">197</a> of file <a class="el" href="physical__property__model_8h_source.html">physical_property_model.h</a>.</p>
 
 </div>
 </div>

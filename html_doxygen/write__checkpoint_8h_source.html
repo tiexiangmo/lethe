@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -110,10 +117,25 @@ $(function() {
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#ifndef write_checkpoint_h</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#  define write_checkpoint_h</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * Write_checkpoint Write a DEM simulation checkpointing to allow for DEM</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> * simulation restart</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"> * @param computing_timer Dem timer</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> * @param dem_parameters Input DEM parameters in the parameter handler file</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"> * @param simulation_control Simulation control</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> * @param particles_pvdhandler PVD handler</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> * @param grid_pvdhandler PVD handler for post-processing</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> * @param triangulation Triangulation</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> * @param particle_handler Particle handler</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> * @param pcout Printing in parallel</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"> * @param mpi_communicator</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="write__checkpoint_8h.html#a413703bf453ba32814a943e66c7cde6b">   58</a></span>&#160;<a class="code" href="write__checkpoint_8h.html#a413703bf453ba32814a943e66c7cde6b">write_checkpoint</a>(TimerOutput                        &amp;computing_timer,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<a class="code" href="write__checkpoint_8h.html#a413703bf453ba32814a943e66c7cde6b">write_checkpoint</a>(TimerOutput                        &amp;computing_timer,</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                 <span class="keyword">const</span> <a class="code" href="classDEMSolverParameters.html">DEMSolverParameters&lt;dim&gt;</a>     &amp;dem_parameters,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                 std::shared_ptr&lt;SimulationControl&gt; &amp;simulation_control,</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                 <a class="code" href="classPVDHandler.html">PVDHandler</a>                         &amp;particles_pvdhandler,</div>
@@ -124,11 +146,11 @@ $(function() {
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                 MPI_Comm                                  &amp;mpi_communicator);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* write_checkpoint_h */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassDEMSolverParameters_html"><div class="ttname"><a href="classDEMSolverParameters.html">DEMSolverParameters</a></div><div class="ttdef"><b>Definition:</b> dem_solver_parameters.h:33</div></div>
-<div class="ttc" id="aclassPVDHandler_html"><div class="ttname"><a href="classPVDHandler.html">PVDHandler</a></div><div class="ttdoc">The PVDHandler class manages the storage of the information required to write pvd file....</div><div class="ttdef"><b>Definition:</b> pvd_handler.h:33</div></div>
+<div class="ttc" id="aclassDEMSolverParameters_html"><div class="ttname"><a href="classDEMSolverParameters.html">DEMSolverParameters</a></div><div class="ttdef"><b>Definition:</b> <a href="dem__solver__parameters_8h_source.html#l00032">dem_solver_parameters.h:33</a></div></div>
+<div class="ttc" id="aclassPVDHandler_html"><div class="ttname"><a href="classPVDHandler.html">PVDHandler</a></div><div class="ttdoc">The PVDHandler class manages the storage of the information required to write pvd file....</div><div class="ttdef"><b>Definition:</b> <a href="pvd__handler_8h_source.html#l00032">pvd_handler.h:33</a></div></div>
 <div class="ttc" id="adem__solver__parameters_8h_html"><div class="ttname"><a href="dem__solver__parameters_8h.html">dem_solver_parameters.h</a></div></div>
 <div class="ttc" id="apvd__handler_8h_html"><div class="ttname"><a href="pvd__handler_8h.html">pvd_handler.h</a></div></div>
-<div class="ttc" id="awrite__checkpoint_8h_html_a413703bf453ba32814a943e66c7cde6b"><div class="ttname"><a href="write__checkpoint_8h.html#a413703bf453ba32814a943e66c7cde6b">write_checkpoint</a></div><div class="ttdeci">void write_checkpoint(TimerOutput &amp;computing_timer, const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters, std::shared_ptr&lt; SimulationControl &gt; &amp;simulation_control, PVDHandler &amp;particles_pvdhandler, PVDHandler &amp;grid_pvdhandler, parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const ConditionalOStream &amp;pcout, MPI_Comm &amp;mpi_communicator)</div></div>
+<div class="ttc" id="awrite__checkpoint_8h_html_a413703bf453ba32814a943e66c7cde6b"><div class="ttname"><a href="write__checkpoint_8h.html#a413703bf453ba32814a943e66c7cde6b">write_checkpoint</a></div><div class="ttdeci">void write_checkpoint(TimerOutput &amp;computing_timer, const DEMSolverParameters&lt; dim &gt; &amp;dem_parameters, std::shared_ptr&lt; SimulationControl &gt; &amp;simulation_control, PVDHandler &amp;particles_pvdhandler, PVDHandler &amp;grid_pvdhandler, parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const ConditionalOStream &amp;pcout, MPI_Comm &amp;mpi_communicator)</div><div class="ttdef"><b>Definition:</b> <a href="write__checkpoint_8cc_source.html#l00007">write_checkpoint.cc:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

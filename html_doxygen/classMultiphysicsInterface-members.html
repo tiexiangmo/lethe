@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -86,13 +93,13 @@ $(function() {
   <tr><td class="entry"><a class="el" href="classMultiphysicsInterface.html#a315a4f5dd287b24a75f2a3c1fb0d93f4">get_block_previous_solutions</a>(const PhysicsID physics_id)</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMultiphysicsInterface.html#a88b427adadd32a94a7d041478fbe1e3d">get_block_solution</a>(const PhysicsID physics_id)</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classMultiphysicsInterface.html#a854e610a2bdb814ad03ddba80ac0680f">get_block_time_average_solution</a>(const PhysicsID physics_id)</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classMultiphysicsInterface.html#abf6d3e66a540c7804eb52972f6f50076">get_curvature_dof_handler</a>()</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classMultiphysicsInterface.html#a9fd768979e087d736e50ad886f9f2218">get_curvature_solution</a>()</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMultiphysicsInterface.html#a775cb1abb370cc0655309a32241c87ba">get_curvature_dof_handler</a>()</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classMultiphysicsInterface.html#a8e9f4665382ff27fde44fcb0998ede8f">get_curvature_solution</a>()</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMultiphysicsInterface.html#ad891429bc134a12f5ec4c5b3c0398151">get_dof_handler</a>(const PhysicsID physics_id)</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classMultiphysicsInterface.html#acc926aa0df0650537541e1f6e33e550c">get_filtered_solution</a>(const PhysicsID physics_id)</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMultiphysicsInterface.html#a84670a552a7bdda7b5942120cd542158">get_previous_solutions</a>(const PhysicsID physics_id)</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classMultiphysicsInterface.html#aca418853cfdec3e8e683e92e0fa2c384">get_projected_phase_fraction_gradient_dof_handler</a>()</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classMultiphysicsInterface.html#ad3d8290b68b5e435d83e3db645e5892b">get_projected_phase_fraction_gradient_solution</a>()</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classMultiphysicsInterface.html#a100d7f802ef9f12948be62d32f93bef9">get_projected_phase_fraction_gradient_dof_handler</a>()</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMultiphysicsInterface.html#ab8620b69e2b62b4b13e605ee35839f6d">get_projected_phase_fraction_gradient_solution</a>()</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classMultiphysicsInterface.html#adbd47c11dda18a6efc80ca90fe72dabe">get_reynolds_stress_solution</a>(const PhysicsID physics_id)</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMultiphysicsInterface.html#a8fd285fa3f9e62f50b6fb86996f0da11">get_solids</a>(const int number_solids)</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classMultiphysicsInterface.html#aa6776c18717b4e1058db0f20dca36f05">get_solution</a>(const PhysicsID physics_id)</td><td class="entry"><a class="el" href="classMultiphysicsInterface.html">MultiphysicsInterface&lt; dim &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>

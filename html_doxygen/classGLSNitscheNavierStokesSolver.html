@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -90,9 +97,9 @@ Inheritance diagram for GLSNitscheNavierStokesSolver&lt; dim, spacedim &gt;:</di
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a07a8c8dfae3855e749a717e4374e9a3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a07a8c8dfae3855e749a717e4374e9a3f">GLSNitscheNavierStokesSolver</a> (<a class="el" href="classSimulationParameters.html">SimulationParameters</a>&lt; spacedim &gt; &amp;nsparam)</td></tr>
 <tr class="separator:a07a8c8dfae3855e749a717e4374e9a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae446b36591ab0a41512a95ef019b415d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#ae446b36591ab0a41512a95ef019b415d">solve</a> () override</td></tr>
-<tr class="memdesc:ae446b36591ab0a41512a95ef019b415d"><td class="mdescLeft">&#160;</td><td class="mdescRight">solve Solves the Navier-Stokes problem  <a href="classGLSNitscheNavierStokesSolver.html#ae446b36591ab0a41512a95ef019b415d">More...</a><br /></td></tr>
-<tr class="separator:ae446b36591ab0a41512a95ef019b415d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70f7a56a430f8a306fddee4404b81d9a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a70f7a56a430f8a306fddee4404b81d9a">solve</a> () override</td></tr>
+<tr class="memdesc:a70f7a56a430f8a306fddee4404b81d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">solve Solves the Navier-Stokes problem  <a href="classGLSNitscheNavierStokesSolver.html#a70f7a56a430f8a306fddee4404b81d9a">More...</a><br /></td></tr>
+<tr class="separator:a70f7a56a430f8a306fddee4404b81d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classGLSNavierStokesSolver"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classGLSNavierStokesSolver')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classGLSNavierStokesSolver.html">GLSNavierStokesSolver&lt; dim &gt;</a></td></tr>
 <tr class="memitem:aeecfa9f77a8647583ca26068ef8f625e inherit pub_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#aeecfa9f77a8647583ca26068ef8f625e">GLSNavierStokesSolver</a> (<a class="el" href="classSimulationParameters.html">SimulationParameters</a>&lt; dim &gt; &amp;nsparam)</td></tr>
 <tr class="separator:aeecfa9f77a8647583ca26068ef8f625e inherit pub_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,12 +126,12 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:aa9d21bc45894c10eefe3b6e46df3bb42"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#aa9d21bc45894c10eefe3b6e46df3bb42">assemble_nitsche_restriction</a> ()</td></tr>
 <tr class="memdesc:aa9d21bc45894c10eefe3b6e46df3bb42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the nitsche restriction to the global matrix and global rhs on the cells surrounding the immersed solid.  <a href="classGLSNitscheNavierStokesSolver.html#aa9d21bc45894c10eefe3b6e46df3bb42">More...</a><br /></td></tr>
 <tr class="separator:aa9d21bc45894c10eefe3b6e46df3bb42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16ba8d2351f25f110fa0375f3a2b1274"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, spacedim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a16ba8d2351f25f110fa0375f3a2b1274">calculate_forces_on_solid</a> (const unsigned int i_solid)</td></tr>
-<tr class="memdesc:a16ba8d2351f25f110fa0375f3a2b1274"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the force due to the fluid motion on the solid.  <a href="classGLSNitscheNavierStokesSolver.html#a16ba8d2351f25f110fa0375f3a2b1274">More...</a><br /></td></tr>
-<tr class="separator:a16ba8d2351f25f110fa0375f3a2b1274"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dfeff95c2c464ed18ebf0c763b2de19"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a4dfeff95c2c464ed18ebf0c763b2de19">calculate_torque_on_solid</a> (const unsigned int i_solid)</td></tr>
-<tr class="memdesc:a4dfeff95c2c464ed18ebf0c763b2de19"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the torque due to the fluid motion on the solid.  <a href="classGLSNitscheNavierStokesSolver.html#a4dfeff95c2c464ed18ebf0c763b2de19">More...</a><br /></td></tr>
-<tr class="separator:a4dfeff95c2c464ed18ebf0c763b2de19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a118def0617b46c0d183e211af6a3f0d8"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, spacedim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a118def0617b46c0d183e211af6a3f0d8">calculate_forces_on_solid</a> (const unsigned int i_solid)</td></tr>
+<tr class="memdesc:a118def0617b46c0d183e211af6a3f0d8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the force due to the fluid motion on the solid.  <a href="classGLSNitscheNavierStokesSolver.html#a118def0617b46c0d183e211af6a3f0d8">More...</a><br /></td></tr>
+<tr class="separator:a118def0617b46c0d183e211af6a3f0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3038adea6b956ee9cc1a174e1b657752"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a3038adea6b956ee9cc1a174e1b657752">calculate_torque_on_solid</a> (const unsigned int i_solid)</td></tr>
+<tr class="memdesc:a3038adea6b956ee9cc1a174e1b657752"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the torque due to the fluid motion on the solid.  <a href="classGLSNitscheNavierStokesSolver.html#a3038adea6b956ee9cc1a174e1b657752">More...</a><br /></td></tr>
+<tr class="separator:a3038adea6b956ee9cc1a174e1b657752"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc24556892fd0c637e2e12b075ba6ad2"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#abc24556892fd0c637e2e12b075ba6ad2">calculate_torque_on_solid</a> ()</td></tr>
 <tr class="memdesc:abc24556892fd0c637e2e12b075ba6ad2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the torque due to the fluid motion on the solid.  <a href="classGLSNitscheNavierStokesSolver.html#abc24556892fd0c637e2e12b075ba6ad2">More...</a><br /></td></tr>
 <tr class="separator:abc24556892fd0c637e2e12b075ba6ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,15 +159,17 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ace288f5f6facee311e40718eb18ebb7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#ace288f5f6facee311e40718eb18ebb7e">output_solid_triangulation</a> (const unsigned int i_solid)</td></tr>
 <tr class="memdesc:ace288f5f6facee311e40718eb18ebb7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs a vtu file for each output frequency of the solid triangulation.  <a href="classGLSNitscheNavierStokesSolver.html#ace288f5f6facee311e40718eb18ebb7e">More...</a><br /></td></tr>
 <tr class="separator:ace288f5f6facee311e40718eb18ebb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a072ba346cec8d35f51083d0aff18b01d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a072ba346cec8d35f51083d0aff18b01d">refine_mesh</a> () override</td></tr>
-<tr class="memdesc:a072ba346cec8d35f51083d0aff18b01d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow the refinement of the mesh according to one of the 2 methods proposed. Overrides the regular mesh adaptation by ensuring that the Nitsche solids are prepared for adaptation.  <a href="classGLSNitscheNavierStokesSolver.html#a072ba346cec8d35f51083d0aff18b01d">More...</a><br /></td></tr>
-<tr class="separator:a072ba346cec8d35f51083d0aff18b01d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af70c99afc9937d1612847a20cef7de2a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#af70c99afc9937d1612847a20cef7de2a">write_checkpoint</a> () override</td></tr>
-<tr class="memdesc:af70c99afc9937d1612847a20cef7de2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a gls_nitsche simulation checkpointing to allow for gls_nitsche simulation restart.  <a href="classGLSNitscheNavierStokesSolver.html#af70c99afc9937d1612847a20cef7de2a">More...</a><br /></td></tr>
-<tr class="separator:af70c99afc9937d1612847a20cef7de2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fd4a3433aa4aef3419f71a34f8a8217"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a8fd4a3433aa4aef3419f71a34f8a8217">read_checkpoint</a> () override</td></tr>
-<tr class="memdesc:a8fd4a3433aa4aef3419f71a34f8a8217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a gls_nitsche simulation checkpoint and initiate simulation restart.  <a href="classGLSNitscheNavierStokesSolver.html#a8fd4a3433aa4aef3419f71a34f8a8217">More...</a><br /></td></tr>
-<tr class="separator:a8fd4a3433aa4aef3419f71a34f8a8217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5914ec8d0ee28e0bb57c5098e6ae587"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#ad5914ec8d0ee28e0bb57c5098e6ae587">refine_mesh</a> () override</td></tr>
+<tr class="memdesc:ad5914ec8d0ee28e0bb57c5098e6ae587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow the refinement of the mesh according to one of the 2 methods proposed. Overrides the regular mesh adaptation by ensuring that the Nitsche solids are prepared for adaptation.  <a href="classGLSNitscheNavierStokesSolver.html#ad5914ec8d0ee28e0bb57c5098e6ae587">More...</a><br /></td></tr>
+<tr class="separator:ad5914ec8d0ee28e0bb57c5098e6ae587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4cf9f18a4ab157c0005bb743682c0e2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#ac4cf9f18a4ab157c0005bb743682c0e2">write_checkpoint</a> () override</td></tr>
+<tr class="memdesc:ac4cf9f18a4ab157c0005bb743682c0e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a gls_nitsche simulation checkpointing to allow for gls_nitsche simulation restart.  <a href="classGLSNitscheNavierStokesSolver.html#ac4cf9f18a4ab157c0005bb743682c0e2">More...</a><br /></td></tr>
+<tr class="separator:ac4cf9f18a4ab157c0005bb743682c0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b4d411a6d70f502972e800e857bf80"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a23b4d411a6d70f502972e800e857bf80">read_checkpoint</a> () override</td></tr>
+<tr class="memdesc:a23b4d411a6d70f502972e800e857bf80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a gls_nitsche simulation checkpoint and initiate simulation restart.  <a href="classGLSNitscheNavierStokesSolver.html#a23b4d411a6d70f502972e800e857bf80">More...</a><br /></td></tr>
+<tr class="separator:a23b4d411a6d70f502972e800e857bf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4693c3934084038fbd9499bb34b9d87b"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNitscheNavierStokesSolver.html#a4693c3934084038fbd9499bb34b9d87b">calculate_forces_on_solid</a> (const unsigned int i_solid)</td></tr>
+<tr class="separator:a4693c3934084038fbd9499bb34b9d87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -183,21 +192,21 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a13df07fecddd07c49c6c6f7355c27ac8 inherit pub_attribs_classPhysicsSolver"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structParameters_1_1SimulationControl.html#a75b33ae454da14bc72dbe078c121d7e9">Parameters::SimulationControl::TimeSteppingMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsSolver.html#a13df07fecddd07c49c6c6f7355c27ac8">time_stepping_method</a></td></tr>
 <tr class="separator:a13df07fecddd07c49c6c6f7355c27ac8 inherit pub_attribs_classPhysicsSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classGLSNavierStokesSolver"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classGLSNavierStokesSolver')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classGLSNavierStokesSolver.html">GLSNavierStokesSolver&lt; dim &gt;</a></td></tr>
-<tr class="memitem:a1f85b96cf8c8865094b86d203319c44c inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a1f85b96cf8c8865094b86d203319c44c">setup_dofs_fd</a> () override</td></tr>
-<tr class="memdesc:a1f85b96cf8c8865094b86d203319c44c inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">setup_dofs_fd Setup the degree of freedom, system matrix and solution vectors Navier-Stokes problem  <a href="classGLSNavierStokesSolver.html#a1f85b96cf8c8865094b86d203319c44c">More...</a><br /></td></tr>
-<tr class="separator:a1f85b96cf8c8865094b86d203319c44c inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a142dfa519254ad9e67c46cc1eafe2bf5 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a142dfa519254ad9e67c46cc1eafe2bf5">setup_dofs_fd</a> () override</td></tr>
+<tr class="memdesc:a142dfa519254ad9e67c46cc1eafe2bf5 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">setup_dofs_fd Setup the degree of freedom, system matrix and solution vectors Navier-Stokes problem  <a href="classGLSNavierStokesSolver.html#a142dfa519254ad9e67c46cc1eafe2bf5">More...</a><br /></td></tr>
+<tr class="separator:a142dfa519254ad9e67c46cc1eafe2bf5 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5436a88e96be02f684fccb77a94e7778 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a5436a88e96be02f684fccb77a94e7778">update_boundary_conditions</a> ()</td></tr>
 <tr class="memdesc:a5436a88e96be02f684fccb77a94e7778 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">update non zero constraint if the boundary is time-dependent  <a href="classGLSNavierStokesSolver.html#a5436a88e96be02f684fccb77a94e7778">More...</a><br /></td></tr>
 <tr class="separator:a5436a88e96be02f684fccb77a94e7778 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab74ac23e62da7e04cef74ca6233f6f32 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#ab74ac23e62da7e04cef74ca6233f6f32">set_initial_condition_fd</a> (<a class="el" href="namespaceParameters.html#a86eaa101a59015fa52c81783382dd525">Parameters::InitialConditionType</a> initial_condition_type, bool restart=false) override</td></tr>
-<tr class="memdesc:ab74ac23e62da7e04cef74ca6233f6f32 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the initial condition for the solver.  <a href="classGLSNavierStokesSolver.html#ab74ac23e62da7e04cef74ca6233f6f32">More...</a><br /></td></tr>
-<tr class="separator:ab74ac23e62da7e04cef74ca6233f6f32 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95b911e47b5d59808658eed275a3fbea inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a95b911e47b5d59808658eed275a3fbea">assemble_system_matrix_without_preconditioner</a> ()</td></tr>
-<tr class="memdesc:a95b911e47b5d59808658eed275a3fbea inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assembles the matrix associated with the solver without computing the preconditioner.  <a href="classGLSNavierStokesSolver.html#a95b911e47b5d59808658eed275a3fbea">More...</a><br /></td></tr>
-<tr class="separator:a95b911e47b5d59808658eed275a3fbea inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d2bd7705a91b970176b5795c5844ea5 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a2d2bd7705a91b970176b5795c5844ea5">update_multiphysics_time_average_solution</a> () override</td></tr>
-<tr class="memdesc:a2d2bd7705a91b970176b5795c5844ea5 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the average velocity field solution in the multiphyscics interface.  <a href="classGLSNavierStokesSolver.html#a2d2bd7705a91b970176b5795c5844ea5">More...</a><br /></td></tr>
-<tr class="separator:a2d2bd7705a91b970176b5795c5844ea5 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0713e51aed5a8c0e6c4c44f0fdda6530 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a0713e51aed5a8c0e6c4c44f0fdda6530">set_initial_condition_fd</a> (<a class="el" href="namespaceParameters.html#a86eaa101a59015fa52c81783382dd525">Parameters::InitialConditionType</a> initial_condition_type, bool restart=false) override</td></tr>
+<tr class="memdesc:a0713e51aed5a8c0e6c4c44f0fdda6530 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the initial condition for the solver.  <a href="classGLSNavierStokesSolver.html#a0713e51aed5a8c0e6c4c44f0fdda6530">More...</a><br /></td></tr>
+<tr class="separator:a0713e51aed5a8c0e6c4c44f0fdda6530 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeabf0ae5e276ad9cf4cd9e62455fe905 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#aeabf0ae5e276ad9cf4cd9e62455fe905">assemble_system_matrix_without_preconditioner</a> ()</td></tr>
+<tr class="memdesc:aeabf0ae5e276ad9cf4cd9e62455fe905 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assembles the matrix associated with the solver without computing the preconditioner.  <a href="classGLSNavierStokesSolver.html#aeabf0ae5e276ad9cf4cd9e62455fe905">More...</a><br /></td></tr>
+<tr class="separator:aeabf0ae5e276ad9cf4cd9e62455fe905 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f1c98ac40ac82307f28b45d200ddc5 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#ac0f1c98ac40ac82307f28b45d200ddc5">update_multiphysics_time_average_solution</a> () override</td></tr>
+<tr class="memdesc:ac0f1c98ac40ac82307f28b45d200ddc5 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the average velocity field solution in the multiphyscics interface.  <a href="classGLSNavierStokesSolver.html#ac0f1c98ac40ac82307f28b45d200ddc5">More...</a><br /></td></tr>
+<tr class="separator:ac0f1c98ac40ac82307f28b45d200ddc5 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b531d1c4e60595b81cd15b7f3297e98 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a4b531d1c4e60595b81cd15b7f3297e98">setup_preconditioner</a> ()</td></tr>
 <tr class="memdesc:a4b531d1c4e60595b81cd15b7f3297e98 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set-up the appropriate preconditioner.  <a href="classGLSNavierStokesSolver.html#a4b531d1c4e60595b81cd15b7f3297e98">More...</a><br /></td></tr>
 <tr class="separator:a4b531d1c4e60595b81cd15b7f3297e98 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,21 +216,21 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ac59661e99b54af30b1cb5c599857bf59 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#ac59661e99b54af30b1cb5c599857bf59">define_zero_constraints</a> ()</td></tr>
 <tr class="memdesc:ac59661e99b54af30b1cb5c599857bf59 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">defined the zero_constraints used to solved the problem.  <a href="classGLSNavierStokesSolver.html#ac59661e99b54af30b1cb5c599857bf59">More...</a><br /></td></tr>
 <tr class="separator:ac59661e99b54af30b1cb5c599857bf59 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a534e9741a06ee7a76fc1ab0a57b097e3 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a534e9741a06ee7a76fc1ab0a57b097e3">assemble_local_system_matrix</a> (const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, <a class="el" href="classNavierStokesScratchData.html">NavierStokesScratchData</a>&lt; dim &gt; &amp;scratch_data, <a class="el" href="classStabilizedMethodsTensorCopyData.html">StabilizedMethodsTensorCopyData</a>&lt; dim &gt; &amp;copy_data)</td></tr>
-<tr class="memdesc:a534e9741a06ee7a76fc1ab0a57b097e3 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble the local matrix for a given cell.  <a href="classGLSNavierStokesSolver.html#a534e9741a06ee7a76fc1ab0a57b097e3">More...</a><br /></td></tr>
-<tr class="separator:a534e9741a06ee7a76fc1ab0a57b097e3 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a313e8580c7f05924231a63ab937c74d1 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a313e8580c7f05924231a63ab937c74d1">assemble_local_system_rhs</a> (const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, <a class="el" href="classNavierStokesScratchData.html">NavierStokesScratchData</a>&lt; dim &gt; &amp;scratch_data, <a class="el" href="classStabilizedMethodsTensorCopyData.html">StabilizedMethodsTensorCopyData</a>&lt; dim &gt; &amp;copy_data)</td></tr>
-<tr class="memdesc:a313e8580c7f05924231a63ab937c74d1 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble the local rhs for a given cell.  <a href="classGLSNavierStokesSolver.html#a313e8580c7f05924231a63ab937c74d1">More...</a><br /></td></tr>
-<tr class="separator:a313e8580c7f05924231a63ab937c74d1 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cbbc742cad203188411e30839a6dcee inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a6cbbc742cad203188411e30839a6dcee">setup_assemblers</a> ()</td></tr>
-<tr class="memdesc:a6cbbc742cad203188411e30839a6dcee inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets up the vector of assembler functions  <a href="classGLSNavierStokesSolver.html#a6cbbc742cad203188411e30839a6dcee">More...</a><br /></td></tr>
-<tr class="separator:a6cbbc742cad203188411e30839a6dcee inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a317889783222f84c1ba6d393b340a4e6 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a317889783222f84c1ba6d393b340a4e6">copy_local_matrix_to_global_matrix</a> (const <a class="el" href="classStabilizedMethodsTensorCopyData.html">StabilizedMethodsTensorCopyData</a>&lt; dim &gt; &amp;copy_data)</td></tr>
-<tr class="memdesc:a317889783222f84c1ba6d393b340a4e6 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy local cell information to global matrix.  <a href="classGLSNavierStokesSolver.html#a317889783222f84c1ba6d393b340a4e6">More...</a><br /></td></tr>
-<tr class="separator:a317889783222f84c1ba6d393b340a4e6 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbae4d2edb3ecc08a993be8b69c21070 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#adbae4d2edb3ecc08a993be8b69c21070">copy_local_rhs_to_global_rhs</a> (const <a class="el" href="classStabilizedMethodsTensorCopyData.html">StabilizedMethodsTensorCopyData</a>&lt; dim &gt; &amp;copy_data)</td></tr>
-<tr class="memdesc:adbae4d2edb3ecc08a993be8b69c21070 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy local cell rhs information to global rhs.  <a href="classGLSNavierStokesSolver.html#adbae4d2edb3ecc08a993be8b69c21070">More...</a><br /></td></tr>
-<tr class="separator:adbae4d2edb3ecc08a993be8b69c21070 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c126900448ce8b14051d5adffffba3 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#ac2c126900448ce8b14051d5adffffba3">assemble_local_system_matrix</a> (const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, <a class="el" href="classNavierStokesScratchData.html">NavierStokesScratchData</a>&lt; dim &gt; &amp;scratch_data, <a class="el" href="classStabilizedMethodsTensorCopyData.html">StabilizedMethodsTensorCopyData</a>&lt; dim &gt; &amp;copy_data)</td></tr>
+<tr class="memdesc:ac2c126900448ce8b14051d5adffffba3 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble the local matrix for a given cell.  <a href="classGLSNavierStokesSolver.html#ac2c126900448ce8b14051d5adffffba3">More...</a><br /></td></tr>
+<tr class="separator:ac2c126900448ce8b14051d5adffffba3 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae59ef66f7b2e6201684e737cd4ac1d5d inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#ae59ef66f7b2e6201684e737cd4ac1d5d">assemble_local_system_rhs</a> (const typename DoFHandler&lt; dim &gt;::active_cell_iterator &amp;cell, <a class="el" href="classNavierStokesScratchData.html">NavierStokesScratchData</a>&lt; dim &gt; &amp;scratch_data, <a class="el" href="classStabilizedMethodsTensorCopyData.html">StabilizedMethodsTensorCopyData</a>&lt; dim &gt; &amp;copy_data)</td></tr>
+<tr class="memdesc:ae59ef66f7b2e6201684e737cd4ac1d5d inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble the local rhs for a given cell.  <a href="classGLSNavierStokesSolver.html#ae59ef66f7b2e6201684e737cd4ac1d5d">More...</a><br /></td></tr>
+<tr class="separator:ae59ef66f7b2e6201684e737cd4ac1d5d inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8fb59a2a39f6b2680a5fb50762a1737 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#ac8fb59a2a39f6b2680a5fb50762a1737">setup_assemblers</a> ()</td></tr>
+<tr class="memdesc:ac8fb59a2a39f6b2680a5fb50762a1737 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets up the vector of assembler functions  <a href="classGLSNavierStokesSolver.html#ac8fb59a2a39f6b2680a5fb50762a1737">More...</a><br /></td></tr>
+<tr class="separator:ac8fb59a2a39f6b2680a5fb50762a1737 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1266bef5027374a8ddecc9a4eb080d3 inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#aa1266bef5027374a8ddecc9a4eb080d3">copy_local_matrix_to_global_matrix</a> (const <a class="el" href="classStabilizedMethodsTensorCopyData.html">StabilizedMethodsTensorCopyData</a>&lt; dim &gt; &amp;copy_data)</td></tr>
+<tr class="memdesc:aa1266bef5027374a8ddecc9a4eb080d3 inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy local cell information to global matrix.  <a href="classGLSNavierStokesSolver.html#aa1266bef5027374a8ddecc9a4eb080d3">More...</a><br /></td></tr>
+<tr class="separator:aa1266bef5027374a8ddecc9a4eb080d3 inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a173f622ae3b3bfa73f68d2d17081ad7d inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a173f622ae3b3bfa73f68d2d17081ad7d">copy_local_rhs_to_global_rhs</a> (const <a class="el" href="classStabilizedMethodsTensorCopyData.html">StabilizedMethodsTensorCopyData</a>&lt; dim &gt; &amp;copy_data)</td></tr>
+<tr class="memdesc:a173f622ae3b3bfa73f68d2d17081ad7d inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy local cell rhs information to global rhs.  <a href="classGLSNavierStokesSolver.html#a173f622ae3b3bfa73f68d2d17081ad7d">More...</a><br /></td></tr>
+<tr class="separator:a173f622ae3b3bfa73f68d2d17081ad7d inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95c4de6f06f3f48c7062b3ad568ff67b inherit pro_methods_classGLSNavierStokesSolver"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSNavierStokesSolver.html#a95c4de6f06f3f48c7062b3ad568ff67b">solve_linear_system</a> (const bool initial_step, const bool renewed_matrix=true) override</td></tr>
 <tr class="memdesc:a95c4de6f06f3f48c7062b3ad568ff67b inherit pro_methods_classGLSNavierStokesSolver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call for the assembly of the linear system of equation.  <a href="classGLSNavierStokesSolver.html#a95c4de6f06f3f48c7062b3ad568ff67b">More...</a><br /></td></tr>
 <tr class="separator:a95c4de6f06f3f48c7062b3ad568ff67b inherit pro_methods_classGLSNavierStokesSolver"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -255,30 +264,30 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:adb76636e0a657ae4abc07d996dc4f8d5 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#adb76636e0a657ae4abc07d996dc4f8d5">set_initial_condition</a> (<a class="el" href="namespaceParameters.html#a86eaa101a59015fa52c81783382dd525">Parameters::InitialConditionType</a> initial_condition_type, bool restart=false)</td></tr>
 <tr class="memdesc:adb76636e0a657ae4abc07d996dc4f8d5 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">set_initial_conditions  <a href="classNavierStokesBase.html#adb76636e0a657ae4abc07d996dc4f8d5">More...</a><br /></td></tr>
 <tr class="separator:adb76636e0a657ae4abc07d996dc4f8d5 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a284d2925884460afdae5e23ccdbc8751 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a284d2925884460afdae5e23ccdbc8751">finish_time_step</a> ()</td></tr>
-<tr class="memdesc:a284d2925884460afdae5e23ccdbc8751 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish_time_step Finishes the time step of the fluid dynamics Post-processing and time stepping  <a href="classNavierStokesBase.html#a284d2925884460afdae5e23ccdbc8751">More...</a><br /></td></tr>
-<tr class="separator:a284d2925884460afdae5e23ccdbc8751 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a29c92d1d0cd45faa8258f285e9b21a inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a4a29c92d1d0cd45faa8258f285e9b21a">percolate_time_vectors_fd</a> ()</td></tr>
-<tr class="memdesc:a4a29c92d1d0cd45faa8258f285e9b21a inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish_time_step Finishes the time step of the fluid dynamics Post-processing and time stepping  <a href="classNavierStokesBase.html#a4a29c92d1d0cd45faa8258f285e9b21a">More...</a><br /></td></tr>
-<tr class="separator:a4a29c92d1d0cd45faa8258f285e9b21a inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e07e67baaf085649cea34a8aec24a3 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a66e07e67baaf085649cea34a8aec24a3">finish_time_step</a> ()</td></tr>
+<tr class="memdesc:a66e07e67baaf085649cea34a8aec24a3 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish_time_step Finishes the time step of the fluid dynamics Post-processing and time stepping  <a href="classNavierStokesBase.html#a66e07e67baaf085649cea34a8aec24a3">More...</a><br /></td></tr>
+<tr class="separator:a66e07e67baaf085649cea34a8aec24a3 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add394a755303214dd4a9edbdcd992f6c inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#add394a755303214dd4a9edbdcd992f6c">percolate_time_vectors_fd</a> ()</td></tr>
+<tr class="memdesc:add394a755303214dd4a9edbdcd992f6c inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish_time_step Finishes the time step of the fluid dynamics Post-processing and time stepping  <a href="classNavierStokesBase.html#add394a755303214dd4a9edbdcd992f6c">More...</a><br /></td></tr>
+<tr class="separator:add394a755303214dd4a9edbdcd992f6c inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9befe173b4d33ac9c482743b998deae3 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a9befe173b4d33ac9c482743b998deae3">finish_simulation_fd</a> ()</td></tr>
 <tr class="memdesc:a9befe173b4d33ac9c482743b998deae3 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish_simulation Finishes the simulation for fluid dynamics by calling the post-processing elements that are required  <a href="classNavierStokesBase.html#a9befe173b4d33ac9c482743b998deae3">More...</a><br /></td></tr>
 <tr class="separator:a9befe173b4d33ac9c482743b998deae3 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26e80d0f180b0984214ce0bf6dea54c8 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a26e80d0f180b0984214ce0bf6dea54c8">postprocess_fd</a> (bool first_iteration)</td></tr>
-<tr class="memdesc:a26e80d0f180b0984214ce0bf6dea54c8 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">postprocess Post-process fluid dynamics after an iteration  <a href="classNavierStokesBase.html#a26e80d0f180b0984214ce0bf6dea54c8">More...</a><br /></td></tr>
-<tr class="separator:a26e80d0f180b0984214ce0bf6dea54c8 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e0b2804ae3afe6bb89e0a25fc26ed2 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#aa5e0b2804ae3afe6bb89e0a25fc26ed2">postprocess_fd</a> (bool first_iteration)</td></tr>
+<tr class="memdesc:aa5e0b2804ae3afe6bb89e0a25fc26ed2 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">postprocess Post-process fluid dynamics after an iteration  <a href="classNavierStokesBase.html#aa5e0b2804ae3afe6bb89e0a25fc26ed2">More...</a><br /></td></tr>
+<tr class="separator:aa5e0b2804ae3afe6bb89e0a25fc26ed2 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeac63e5c8291a3e2314914f1605969ff inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#aeac63e5c8291a3e2314914f1605969ff">postprocessing_forces</a> (const TrilinosWrappers::MPI::Vector &amp;<a class="el" href="classNavierStokesBase.html#aabb0e8f71a997a58ec438d15de79eac8">evaluation_point</a>)</td></tr>
 <tr class="memdesc:aeac63e5c8291a3e2314914f1605969ff inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">postprocessing_forces Post-processing function Outputs the forces acting on each boundary condition  <a href="classNavierStokesBase.html#aeac63e5c8291a3e2314914f1605969ff">More...</a><br /></td></tr>
 <tr class="separator:aeac63e5c8291a3e2314914f1605969ff inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fbfce857a0331b37588f002999e6856 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a5fbfce857a0331b37588f002999e6856">postprocessing_torques</a> (const TrilinosWrappers::MPI::Vector &amp;<a class="el" href="classNavierStokesBase.html#aabb0e8f71a997a58ec438d15de79eac8">evaluation_point</a>)</td></tr>
 <tr class="memdesc:a5fbfce857a0331b37588f002999e6856 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">postprocessing_torques Post-processing function Outputs the torque acting on each boundary condition  <a href="classNavierStokesBase.html#a5fbfce857a0331b37588f002999e6856">More...</a><br /></td></tr>
 <tr class="separator:a5fbfce857a0331b37588f002999e6856 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ebd7d8f67a68bfcba0ebc9bae40eb12 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a4ebd7d8f67a68bfcba0ebc9bae40eb12">dynamic_flow_control</a> ()</td></tr>
-<tr class="memdesc:a4ebd7d8f67a68bfcba0ebc9bae40eb12 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">dynamic_flow_control If set to enable, dynamic_flow_control allows to control the flow by executing space-average velocity and beta coefficient force calculation at each time step.  <a href="classNavierStokesBase.html#a4ebd7d8f67a68bfcba0ebc9bae40eb12">More...</a><br /></td></tr>
-<tr class="separator:a4ebd7d8f67a68bfcba0ebc9bae40eb12 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdb6460be28506df1b8ffa1ac4805a93 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#acdb6460be28506df1b8ffa1ac4805a93">iterate</a> ()</td></tr>
-<tr class="memdesc:acdb6460be28506df1b8ffa1ac4805a93 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">iterate Do a regular CFD iteration  <a href="classNavierStokesBase.html#acdb6460be28506df1b8ffa1ac4805a93">More...</a><br /></td></tr>
-<tr class="separator:acdb6460be28506df1b8ffa1ac4805a93 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81907d370a2824fdd1ca042e63601208 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a81907d370a2824fdd1ca042e63601208">dynamic_flow_control</a> ()</td></tr>
+<tr class="memdesc:a81907d370a2824fdd1ca042e63601208 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">dynamic_flow_control If set to enable, dynamic_flow_control allows to control the flow by executing space-average velocity and beta coefficient force calculation at each time step.  <a href="classNavierStokesBase.html#a81907d370a2824fdd1ca042e63601208">More...</a><br /></td></tr>
+<tr class="separator:a81907d370a2824fdd1ca042e63601208 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98a7f846709b83df0ea64c361fee192c inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a98a7f846709b83df0ea64c361fee192c">iterate</a> ()</td></tr>
+<tr class="memdesc:a98a7f846709b83df0ea64c361fee192c inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">iterate Do a regular CFD iteration  <a href="classNavierStokesBase.html#a98a7f846709b83df0ea64c361fee192c">More...</a><br /></td></tr>
+<tr class="separator:a98a7f846709b83df0ea64c361fee192c inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ae507879c1f61a95b7ff255ebcfff58 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a0ae507879c1f61a95b7ff255ebcfff58">box_refine_mesh</a> ()</td></tr>
 <tr class="memdesc:a0ae507879c1f61a95b7ff255ebcfff58 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow the initial refinement of all cells of the principal mesh that are partially contained in one of the cells of the box refinement mesh given in the parameter.  <a href="classNavierStokesBase.html#a0ae507879c1f61a95b7ff255ebcfff58">More...</a><br /></td></tr>
 <tr class="separator:a0ae507879c1f61a95b7ff255ebcfff58 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -300,9 +309,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a18c2b29088f98ef45c04212bc5f2d33c inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a18c2b29088f98ef45c04212bc5f2d33c">write_output_results</a> (const TrilinosWrappers::MPI::Vector &amp;solution)</td></tr>
 <tr class="memdesc:a18c2b29088f98ef45c04212bc5f2d33c inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">write_output_results Post-processing as parallel VTU files  <a href="classNavierStokesBase.html#a18c2b29088f98ef45c04212bc5f2d33c">More...</a><br /></td></tr>
 <tr class="separator:a18c2b29088f98ef45c04212bc5f2d33c inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabccef2027b85bc23ff0a539f2f50b5f inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#aabccef2027b85bc23ff0a539f2f50b5f">output_field_hook</a> (DataOut&lt; dim &gt; &amp;)</td></tr>
-<tr class="memdesc:aabccef2027b85bc23ff0a539f2f50b5f inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">output_field_hook This function is to be redefined in specialized classes to adapt the output to each solver.  <a href="classNavierStokesBase.html#aabccef2027b85bc23ff0a539f2f50b5f">More...</a><br /></td></tr>
-<tr class="separator:aabccef2027b85bc23ff0a539f2f50b5f inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964e80e99870334447ac9859c4f1980d inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a964e80e99870334447ac9859c4f1980d">output_field_hook</a> (DataOut&lt; dim &gt; &amp;)</td></tr>
+<tr class="memdesc:a964e80e99870334447ac9859c4f1980d inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">output_field_hook This function is to be redefined in specialized classes to adapt the output to each solver.  <a href="classNavierStokesBase.html#a964e80e99870334447ac9859c4f1980d">More...</a><br /></td></tr>
+<tr class="separator:a964e80e99870334447ac9859c4f1980d inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e9feead6145031632d44698801fb644 inherit pro_methods_classNavierStokesBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNavierStokesBase.html#a4e9feead6145031632d44698801fb644">write_output_forces</a> ()</td></tr>
 <tr class="memdesc:a4e9feead6145031632d44698801fb644 inherit pro_methods_classNavierStokesBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">write_output_forces Writes the forces per boundary condition to a text file output  <a href="classNavierStokesBase.html#a4e9feead6145031632d44698801fb644">More...</a><br /></td></tr>
 <tr class="separator:a4e9feead6145031632d44698801fb644 inherit pro_methods_classNavierStokesBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -420,6 +429,8 @@ class GLSNitscheNavierStokesSolver&lt; dim, spacedim &gt;</h3>
   </dd>
 </dl>
 <dl class="section author"><dt>Author</dt><dd>Bruno Blais, 2019 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00045">45</a> of file <a class="el" href="gls__nitsche__navier__stokes_8h_source.html">gls_nitsche_navier_stokes.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a07a8c8dfae3855e749a717e4374e9a3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07a8c8dfae3855e749a717e4374e9a3f">&#9670;&nbsp;</a></span>GLSNitscheNavierStokesSolver()</h2>
@@ -427,7 +438,7 @@ class GLSNitscheNavierStokesSolver&lt; dim, spacedim &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::<a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a> </td>
@@ -439,6 +450,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00041">41</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00169">GLSNitscheNavierStokesSolver&lt; dim, spacedim &gt;::pvdhandler_solid_particles</a>, <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00168">GLSNitscheNavierStokesSolver&lt; dim, spacedim &gt;::pvdhandler_solid_triangulation</a>, <a class="el" href="navier__stokes__base_8h_source.html#l00423">NavierStokesBase&lt; dim, TrilinosWrappers::MPI::Vector, IndexSet &gt;::simulation_parameters</a>, <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00171">GLSNitscheNavierStokesSolver&lt; dim, spacedim &gt;::solid_forces_table</a>, <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00172">GLSNitscheNavierStokesSolver&lt; dim, spacedim &gt;::solid_torques_table</a>, and <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00167">GLSNitscheNavierStokesSolver&lt; dim, spacedim &gt;::solids</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -448,16 +463,13 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::assemble_matrix_and_rhs </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::assemble_matrix_and_rhs</td>
         </tr>
       </table>
   </td>
@@ -470,6 +482,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>Same as in gls_navier_stokes, but calls <a class="el" href="classGLSNitscheNavierStokesSolver.html#aa9d21bc45894c10eefe3b6e46df3bb42" title="Adds the nitsche restriction to the global matrix and global rhs on the cells surrounding the immerse...">assemble_nitsche_restriction()</a> when global matrix and rhs are assembled. </p>
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000003">Deprecated:</a></b></dt><dd>This function is to be deprecated when the new assembly mechanism is integrated to this solver </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00956">956</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="gls__navier__stokes_8cc_source.html#l00831">GLSNavierStokesSolver&lt; dim &gt;::assemble_system_rhs()</a>.</p>
+
 </div>
 </div>
 <a id="aa9d21bc45894c10eefe3b6e46df3bb42"></a>
@@ -478,7 +494,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <div class="memtemplate">
 template&lt;bool assemble_matrix&gt; </div>
 <table class="mlabels">
@@ -486,10 +502,7 @@ template&lt;bool assemble_matrix&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::assemble_nitsche_restriction </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::assemble_nitsche_restriction</td>
         </tr>
       </table>
   </td>
@@ -501,6 +514,10 @@ template&lt;bool assemble_matrix&gt; </div>
 
 <p>Adds the nitsche restriction to the global matrix and global rhs on the cells surrounding the immersed solid. </p>
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00067">67</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="structParameters_1_1SimulationControl.html#a75b33ae454da14bc72dbe078c121d7e9a4f997f546b68779b58e9f6f19dc2b9e5">Parameters::SimulationControl::steady</a>.</p>
+
 </div>
 </div>
 <a id="a0cc7684ac78fd0260ffd6a3cdda99d62"></a>
@@ -509,16 +526,13 @@ template&lt;bool assemble_matrix&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::assemble_rhs </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::assemble_rhs</td>
         </tr>
       </table>
   </td>
@@ -530,6 +544,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Same as in gls_navier_stokes, but calls <a class="el" href="classGLSNitscheNavierStokesSolver.html#aa9d21bc45894c10eefe3b6e46df3bb42" title="Adds the nitsche restriction to the global matrix and global rhs on the cells surrounding the immerse...">assemble_nitsche_restriction()</a> when rhs is assembled. </p>
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000004">Deprecated:</a></b></dt><dd>This function is to be deprecated when the new assembly mechanism is integrated to this solver </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00969">969</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="gls__navier__stokes_8cc_source.html#l00831">GLSNavierStokesSolver&lt; dim &gt;::assemble_system_rhs()</a>.</p>
 
 </div>
 </div>
@@ -560,7 +578,11 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Call for the assembly of the matrix. </p>
 
-<p>Reimplemented from <a class="el" href="classGLSNavierStokesSolver.html#a046475aea2e8482f88df185eb7bf98ef">GLSNavierStokesSolver&lt; dim &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classGLSNavierStokesSolver.html#ab5be2c153e6a0158ad52cb45b19f4ee8">GLSNavierStokesSolver&lt; dim &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00104">104</a> of file <a class="el" href="gls__nitsche__navier__stokes_8h_source.html">gls_nitsche_navier_stokes.h</a>.</p>
+
+<p class="reference">References <a class="el" href="rpt__fem__reconstruction_8cc_source.html#l00496">assemble_matrix_and_rhs()</a>.</p>
 
 </div>
 </div>
@@ -591,23 +613,25 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Call for the assembly of the right-hand side. </p>
 
-<p>Reimplemented from <a class="el" href="classGLSNavierStokesSolver.html#aebf7b8552fee485bd2a29eb1731fdb9f">GLSNavierStokesSolver&lt; dim &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classGLSNavierStokesSolver.html#a77a043e1f19097afeca90c1abaa1b60a">GLSNavierStokesSolver&lt; dim &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00113">113</a> of file <a class="el" href="gls__nitsche__navier__stokes_8h_source.html">gls_nitsche_navier_stokes.h</a>.</p>
 
 </div>
 </div>
-<a id="a16ba8d2351f25f110fa0375f3a2b1274"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16ba8d2351f25f110fa0375f3a2b1274">&#9670;&nbsp;</a></span>calculate_forces_on_solid()</h2>
+<a id="a118def0617b46c0d183e211af6a3f0d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a118def0617b46c0d183e211af6a3f0d8">&#9670;&nbsp;</a></span>calculate_forces_on_solid() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Tensor&lt;1, spacedim&gt; <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::calculate_forces_on_solid </td>
+          <td class="memname">Tensor&lt; 1, spacedim &gt; <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::calculate_forces_on_solid </td>
           <td>(</td>
           <td class="paramtype">const unsigned int&#160;</td>
           <td class="paramname"><em>i_solid</em></td><td>)</td>
@@ -623,6 +647,38 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p><a class="el" href="classCalculates.html">Calculates</a> the force due to the fluid motion on the solid. </p>
 <dl class="section return"><dt>Returns</dt><dd>Tensor of forces on the solid </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00347">347</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+</div>
+</div>
+<a id="a4693c3934084038fbd9499bb34b9d87b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4693c3934084038fbd9499bb34b9d87b">&#9670;&nbsp;</a></span>calculate_forces_on_solid() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tensor&lt; 1, 3 &gt; <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; 2, 3 &gt;::calculate_forces_on_solid </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>i_solid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00250">250</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00037">pressure</a>.</p>
 
 </div>
 </div>
@@ -656,19 +712,19 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 </div>
 </div>
-<a id="a4dfeff95c2c464ed18ebf0c763b2de19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dfeff95c2c464ed18ebf0c763b2de19">&#9670;&nbsp;</a></span>calculate_torque_on_solid() <span class="overload">[2/2]</span></h2>
+<a id="a3038adea6b956ee9cc1a174e1b657752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3038adea6b956ee9cc1a174e1b657752">&#9670;&nbsp;</a></span>calculate_torque_on_solid() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Tensor&lt;1, 3&gt; <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::calculate_torque_on_solid </td>
+          <td class="memname">Tensor&lt; 1, 3 &gt; <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::calculate_torque_on_solid </td>
           <td>(</td>
           <td class="paramtype">const unsigned int&#160;</td>
           <td class="paramname"><em>i_solid</em></td><td>)</td>
@@ -685,6 +741,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p><a class="el" href="classCalculates.html">Calculates</a> the torque due to the fluid motion on the solid. </p>
 <dl class="section return"><dt>Returns</dt><dd>Tensor of torque on the solid. This is always a 3D tensor even in 2D </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00431">431</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
 </div>
 </div>
 <a id="a94553ce349a933512c082e96333cbc9a"></a>
@@ -693,7 +751,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -715,6 +773,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Outputs a vtu file for each output frequency of the particles. </p>
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00832">832</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
 </div>
 </div>
 <a id="ace288f5f6facee311e40718eb18ebb7e"></a>
@@ -723,7 +783,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -745,6 +805,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Outputs a vtu file for each output frequency of the solid triangulation. </p>
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00860">860</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
 </div>
 </div>
 <a id="a298f31bce3cd1409210c2db7ea40ddff"></a>
@@ -753,7 +815,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -792,6 +854,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00537">537</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="utilities_8cc_source.html#l00010">make_table_scalars_tensors()</a>, and <a class="el" href="namespaceParameters.html#ad408350a21239600add83c5e91fcfa26a2c7aea4237e25b4f8ee3b0bf77d6fed0">Parameters::verbose</a>.</p>
+
 </div>
 </div>
 <a id="a58d70f88c210e16ebb6e914f37c814ef"></a>
@@ -800,7 +866,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -839,24 +905,25 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00621">621</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="utilities_8cc_source.html#l00010">make_table_scalars_tensors()</a>, and <a class="el" href="namespaceParameters.html#ad408350a21239600add83c5e91fcfa26a2c7aea4237e25b4f8ee3b0bf77d6fed0">Parameters::verbose</a>.</p>
+
 </div>
 </div>
-<a id="a8fd4a3433aa4aef3419f71a34f8a8217"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fd4a3433aa4aef3419f71a34f8a8217">&#9670;&nbsp;</a></span>read_checkpoint()</h2>
+<a id="a23b4d411a6d70f502972e800e857bf80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b4d411a6d70f502972e800e857bf80">&#9670;&nbsp;</a></span>read_checkpoint()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::read_checkpoint </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::read_checkpoint</td>
         </tr>
       </table>
   </td>
@@ -868,26 +935,27 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Read a gls_nitsche simulation checkpoint and initiate simulation restart. </p>
 
-<p>Reimplemented from <a class="el" href="classNavierStokesBase.html#ad21bd3b0de0935d3ebb4bd4154c644cb">NavierStokesBase&lt; dim, TrilinosWrappers::MPI::Vector, IndexSet &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classNavierStokesBase.html#a582b5a5fd99b3e8e1c2b21c17bb1b21a">NavierStokesBase&lt; dim, TrilinosWrappers::MPI::Vector, IndexSet &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l01022">1022</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="utilities_8cc_source.html#l00139">fill_table_from_file()</a>, and <a class="el" href="navier__stokes__base_8cc_source.html#l01530">NavierStokesBase&lt; dim, TrilinosWrappers::MPI::Vector, IndexSet &gt;::read_checkpoint()</a>.</p>
 
 </div>
 </div>
-<a id="a072ba346cec8d35f51083d0aff18b01d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a072ba346cec8d35f51083d0aff18b01d">&#9670;&nbsp;</a></span>refine_mesh()</h2>
+<a id="ad5914ec8d0ee28e0bb57c5098e6ae587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5914ec8d0ee28e0bb57c5098e6ae587">&#9670;&nbsp;</a></span>refine_mesh()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::refine_mesh </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::refine_mesh</td>
         </tr>
       </table>
   </td>
@@ -899,26 +967,27 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Allow the refinement of the mesh according to one of the 2 methods proposed. Overrides the regular mesh adaptation by ensuring that the Nitsche solids are prepared for adaptation. </p>
 
-<p>Reimplemented from <a class="el" href="classNavierStokesBase.html#a33d389ea5a7a8ee0d12ad9c7b01ee3a4">NavierStokesBase&lt; dim, TrilinosWrappers::MPI::Vector, IndexSet &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classNavierStokesBase.html#a57ffa198f9fabb15e3af4c9fa2921e18">NavierStokesBase&lt; dim, TrilinosWrappers::MPI::Vector, IndexSet &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00920">920</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="structParameters_1_1MeshAdaptation.html#a20a32a04c8c684495ff2d3c7be73c5a2aae074a5692dfb7c26aae5147e52ceb40">Parameters::MeshAdaptation::kelly</a>, <a class="el" href="structParameters_1_1MeshAdaptation.html#a20a32a04c8c684495ff2d3c7be73c5a2a334c4a4c42fdb79d7ebc3e73b517e6f8">Parameters::MeshAdaptation::none</a>, and <a class="el" href="structParameters_1_1MeshAdaptation.html#a20a32a04c8c684495ff2d3c7be73c5a2aa489ffed938ef1b9e86889bc413501ee">Parameters::MeshAdaptation::uniform</a>.</p>
 
 </div>
 </div>
-<a id="ae446b36591ab0a41512a95ef019b415d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae446b36591ab0a41512a95ef019b415d">&#9670;&nbsp;</a></span>solve()</h2>
+<a id="a70f7a56a430f8a306fddee4404b81d9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70f7a56a430f8a306fddee4404b81d9a">&#9670;&nbsp;</a></span>solve()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::solve </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::solve</td>
         </tr>
       </table>
   </td>
@@ -931,26 +1000,27 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>solve Solves the Navier-Stokes problem </p>
 <p>This functions solves the problem defined by the Navier-Stokes paramter by iterating through time or through the mesh refinements. </p>
 
-<p>Reimplemented from <a class="el" href="classGLSNavierStokesSolver.html#ae1b8118a003110af20b417136e97d208">GLSNavierStokesSolver&lt; dim &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classGLSNavierStokesSolver.html#ab0b0983381a34bf2fa122936db0ebf47">GLSNavierStokesSolver&lt; dim &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00704">704</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="grids_8cc_source.html#l00313">read_mesh_and_manifolds()</a>.</p>
 
 </div>
 </div>
-<a id="af70c99afc9937d1612847a20cef7de2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af70c99afc9937d1612847a20cef7de2a">&#9670;&nbsp;</a></span>write_checkpoint()</h2>
+<a id="ac4cf9f18a4ab157c0005bb743682c0e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4cf9f18a4ab157c0005bb743682c0e2">&#9670;&nbsp;</a></span>write_checkpoint()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::write_checkpoint </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classGLSNitscheNavierStokesSolver.html">GLSNitscheNavierStokesSolver</a>&lt; dim, spacedim &gt;::write_checkpoint</td>
         </tr>
       </table>
   </td>
@@ -962,7 +1032,11 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Write a gls_nitsche simulation checkpointing to allow for gls_nitsche simulation restart. </p>
 
-<p>Reimplemented from <a class="el" href="classNavierStokesBase.html#a3c6f36773afea7a0ae6efedb09a6eccc">NavierStokesBase&lt; dim, TrilinosWrappers::MPI::Vector, IndexSet &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classNavierStokesBase.html#af311920c0b819b973d410db4fa5e8924">NavierStokesBase&lt; dim, TrilinosWrappers::MPI::Vector, IndexSet &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html#l00978">978</a> of file <a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="navier__stokes__base_8cc_source.html#l02168">NavierStokesBase&lt; dim, TrilinosWrappers::MPI::Vector, IndexSet &gt;::write_checkpoint()</a>.</p>
 
 </div>
 </div>
@@ -989,6 +1063,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00169">169</a> of file <a class="el" href="gls__nitsche__navier__stokes_8h_source.html">gls_nitsche_navier_stokes.h</a>.</p>
+
 </div>
 </div>
 <a id="af1f4c2ba10a9ba06f5c07c790e8e5906"></a>
@@ -1012,6 +1088,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00168">168</a> of file <a class="el" href="gls__nitsche__navier__stokes_8h_source.html">gls_nitsche_navier_stokes.h</a>.</p>
 
 </div>
 </div>
@@ -1037,6 +1115,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00171">171</a> of file <a class="el" href="gls__nitsche__navier__stokes_8h_source.html">gls_nitsche_navier_stokes.h</a>.</p>
+
 </div>
 </div>
 <a id="ac970c1dc72d2c831a48763b186dbae9b"></a>
@@ -1060,6 +1140,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00172">172</a> of file <a class="el" href="gls__nitsche__navier__stokes_8h_source.html">gls_nitsche_navier_stokes.h</a>.</p>
 
 </div>
 </div>
@@ -1085,10 +1167,13 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="gls__nitsche__navier__stokes_8h_source.html#l00167">167</a> of file <a class="el" href="gls__nitsche__navier__stokes_8h_source.html">gls_nitsche_navier_stokes.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/solvers/<a class="el" href="gls__nitsche__navier__stokes_8h_source.html">gls_nitsche_navier_stokes.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/solvers/<a class="el" href="gls__nitsche__navier__stokes_8cc_source.html">gls_nitsche_navier_stokes.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

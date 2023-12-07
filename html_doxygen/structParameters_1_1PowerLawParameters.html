@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -89,8 +96,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a793876b40e99be5f1b60506c4a97e1b4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1PowerLawParameters.html#a793876b40e99be5f1b60506c4a97e1b4">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:a793876b40e99be5f1b60506c4a97e1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d227d780d889850e2d9356e192eddea"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1PowerLawParameters.html#a2d227d780d889850e2d9356e192eddea">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:a2d227d780d889850e2d9356e192eddea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -103,9 +110,11 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Power-law rheological model to solve for non <a class="el" href="classNewtonian.html">Newtonian</a> flows. </p>
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00231">231</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a793876b40e99be5f1b60506c4a97e1b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a793876b40e99be5f1b60506c4a97e1b4">&#9670;&nbsp;</a></span>declare_parameters()</h2>
+<a id="a2d227d780d889850e2d9356e192eddea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d227d780d889850e2d9356e192eddea">&#9670;&nbsp;</a></span>declare_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -114,7 +123,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Parameters::PowerLawParameters::declare_parameters </td>
+          <td class="memname">void Parameters::PowerLawParameters::declare_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -127,6 +136,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8cc_source.html#l00280">280</a> of file <a class="el" href="parameters_8cc_source.html">parameters.cc</a>.</p>
 
 </div>
 </div>
@@ -156,6 +167,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8cc_source.html#l00298">298</a> of file <a class="el" href="parameters_8cc_source.html">parameters.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters_8h_source.html#l00234">K</a>, <a class="el" href="parameters_8h_source.html#l00236">n</a>, <a class="el" href="parameters_8h_source.html#l00239">shear_rate_min</a>, <a class="el" href="dimensionality_8h_source.html#l00087">Parameters::Dimensionality::time</a>, and <a class="el" href="dimensionality_8h_source.html#l00099">Parameters::Dimensionality::viscosity_scaling</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -171,6 +186,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00234">234</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
 <a id="a2933561b86415c3f9de67fba6e5381b2"></a>
@@ -184,6 +201,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00236">236</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
 </div>
 </div>
@@ -199,10 +218,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00239">239</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="parameters_8h_source.html">parameters.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="parameters_8cc_source.html">parameters.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

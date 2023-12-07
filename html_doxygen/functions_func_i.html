@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -67,7 +74,7 @@ $(function() {
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>ib_velocity()
-: <a class="el" href="classIBStencil.html#a707eaeb89806987fbcafe16cfa7e3fea">IBStencil&lt; dim &gt;</a>
+: <a class="el" href="classIBStencil.html#aede5a0adadb55c7342aa8c7fb171aaa1">IBStencil&lt; dim &gt;</a>
 </li>
 <li>identify_mobility_status()
 : <a class="el" href="classDisableContacts.html#aa1b7dfee81da1ae8a4d3aec86092f883">DisableContacts&lt; dim &gt;</a>
@@ -87,7 +94,7 @@ $(function() {
 </li>
 <li>initialize()
 : <a class="el" href="classIBParticlesDEM.html#a873aba46d57c5317f4ee5841c7c5fdfd">IBParticlesDEM&lt; dim &gt;</a>
-, <a class="el" href="classParticleWallContactForce.html#af4452312ad215bba064ae71069b2e309">ParticleWallContactForce&lt; dim &gt;</a>
+, <a class="el" href="classParticleWallContactForce.html#a7a9e41f14cd2f099d09f58f0c9114e87">ParticleWallContactForce&lt; dim &gt;</a>
 , <a class="el" href="classPhysicalPropertiesManager.html#a8ff075795ba8a60c71e5163d8566993d">PhysicalPropertiesManager</a>
 </li>
 <li>initialize_all()
@@ -123,10 +130,10 @@ $(function() {
 </li>
 <li>insert()
 : <a class="el" href="classInsertion.html#ab7b6cf7393246d7d5b3ffeec6d721a14">Insertion&lt; dim &gt;</a>
-, <a class="el" href="classListInsertion.html#a295c598cb8eb67bde0eb783c1231ea1d">ListInsertion&lt; dim &gt;</a>
-, <a class="el" href="classPlaneInsertion.html#a2448312e600f58d4c4d794c305622ea4">PlaneInsertion&lt; dim &gt;</a>
+, <a class="el" href="classListInsertion.html#aeb3760ee33eb0558230b5a848da0459c">ListInsertion&lt; dim &gt;</a>
+, <a class="el" href="classPlaneInsertion.html#a067fc5c7b2a370a70610eae3b15de722">PlaneInsertion&lt; dim &gt;</a>
 , <a class="el" href="classUniformInsertion.html#a75418effee6613b56b6525aff50654b9">UniformInsertion&lt; dim &gt;</a>
-, <a class="el" href="classVolumeInsertion.html#a8552dd9e7053d4265b7dcb3d79524bea">VolumeInsertion&lt; dim &gt;</a>
+, <a class="el" href="classVolumeInsertion.html#adf719a5b23e4545ed45ac32b05661032">VolumeInsertion&lt; dim &gt;</a>
 </li>
 <li>insert_particles()
 : <a class="el" href="classDEMSolver.html#a6432e29ba0169734e27eb9060dc7ed9c">DEMSolver&lt; dim &gt;</a>
@@ -138,19 +145,19 @@ $(function() {
 : <a class="el" href="classMultiphysicsInterface.html#aaada3e3716bfe0c453d4f1e101b3bd60">MultiphysicsInterface&lt; dim &gt;</a>
 </li>
 <li>integrate()
-: <a class="el" href="classExplicitEulerIntegrator.html#a5d5ce6002bba0073e6dbaa18279925fe">ExplicitEulerIntegrator&lt; dim &gt;</a>
-, <a class="el" href="classGear3Integrator.html#a1d08b3ca7bdcd610fd8939693054deed">Gear3Integrator&lt; dim &gt;</a>
+: <a class="el" href="classExplicitEulerIntegrator.html#a084b4ea22f4172fd86164f15fb85a6b3">ExplicitEulerIntegrator&lt; dim &gt;</a>
+, <a class="el" href="classGear3Integrator.html#ad0c4bf9ca6d4fe9aadfec79247347bcf">Gear3Integrator&lt; dim &gt;</a>
 , <a class="el" href="classIntegrator.html#ace36cb39c30e1b7268e60fe4fdd7047c">Integrator&lt; dim &gt;</a>
 , <a class="el" href="classSimulationControl.html#a67aa726e7105dd0af92f47dac688e001">SimulationControl</a>
-, <a class="el" href="classSimulationControlSteady.html#a5b748bcdb7bc0229de544d7c8495e577">SimulationControlSteady</a>
-, <a class="el" href="classSimulationControlTransient.html#a49829dcb567680d5bcc2e4c80fe8ff60">SimulationControlTransient</a>
-, <a class="el" href="classVelocityVerletIntegrator.html#af3e7c2904bf95b73618f1be464719fc8">VelocityVerletIntegrator&lt; dim &gt;</a>
+, <a class="el" href="classSimulationControlSteady.html#a1a841b038955ea6ba6b6d8a938d442f9">SimulationControlSteady</a>
+, <a class="el" href="classSimulationControlTransient.html#a9323f75f9c5d9ab8463f1340c83fa539">SimulationControlTransient</a>
+, <a class="el" href="classVelocityVerletIntegrator.html#a7dbefbe8afffd94cfbbb9f20d5cf643b">VelocityVerletIntegrator&lt; dim &gt;</a>
 </li>
 <li>integrate_half_step_location()
-: <a class="el" href="classExplicitEulerIntegrator.html#a433a5734b16f63ff4927afa6c14eebc5">ExplicitEulerIntegrator&lt; dim &gt;</a>
-, <a class="el" href="classGear3Integrator.html#a74f8767084fb4633285e10b734de240c">Gear3Integrator&lt; dim &gt;</a>
+: <a class="el" href="classExplicitEulerIntegrator.html#ab2d67dd0acdeb58b06de7835887c7b63">ExplicitEulerIntegrator&lt; dim &gt;</a>
+, <a class="el" href="classGear3Integrator.html#afadf36da9cc5cf5222790549f7863d8a">Gear3Integrator&lt; dim &gt;</a>
 , <a class="el" href="classIntegrator.html#a96653fa0a2b7d6b892eeb3ff86eaa398">Integrator&lt; dim &gt;</a>
-, <a class="el" href="classVelocityVerletIntegrator.html#a2dd543646de56f847a934e97e3f8c229">VelocityVerletIntegrator&lt; dim &gt;</a>
+, <a class="el" href="classVelocityVerletIntegrator.html#abe2aaed38fbf001db9f7479fd409905c">VelocityVerletIntegrator&lt; dim &gt;</a>
 </li>
 <li>integrate_particles()
 : <a class="el" href="classGLSSharpNavierStokesSolver.html#a6a417ce9d99e367d9c28278f46ae3cfb">GLSSharpNavierStokesSolver&lt; dim &gt;</a>
@@ -169,9 +176,9 @@ $(function() {
 </li>
 <li>is_at_end()
 : <a class="el" href="classSimulationControl.html#ace7a05ca520659fb2178d26a536b07f4">SimulationControl</a>
-, <a class="el" href="classSimulationControlAdjointSteady.html#ad5659b47f827251a6d7c6260d7d35b77">SimulationControlAdjointSteady</a>
-, <a class="el" href="classSimulationControlSteady.html#aff3d065baf7eca7166d318585b82077f">SimulationControlSteady</a>
-, <a class="el" href="classSimulationControlTransient.html#a0b52cb9e60c10e21c4729838f61f8fe1">SimulationControlTransient</a>
+, <a class="el" href="classSimulationControlAdjointSteady.html#ac8534ba715f32012c81368600656323d">SimulationControlAdjointSteady</a>
+, <a class="el" href="classSimulationControlSteady.html#a9131dcc7cba2713e43ed16653da5f7c0">SimulationControlSteady</a>
+, <a class="el" href="classSimulationControlTransient.html#aa319da7751b899049697edecee141d66">SimulationControlTransient</a>
 </li>
 <li>is_at_start()
 : <a class="el" href="classSimulationControl.html#a566e0413e49cdea412ad307783a170aa">SimulationControl</a>
@@ -196,18 +203,18 @@ $(function() {
 : <a class="el" href="classRheologicalModel.html#a8a9f7f56f2c0437d4a6360040dc17f38">RheologicalModel</a>
 </li>
 <li>is_output_iteration()
-: <a class="el" href="classSimulationControl.html#a16bd99aca045e174b5748cd0b21ce351">SimulationControl</a>
-, <a class="el" href="classSimulationControlTransientDynamicOutput.html#a7f3cc346651432fed4900f1902c1f065">SimulationControlTransientDynamicOutput</a>
+: <a class="el" href="classSimulationControl.html#a037f676d4e45242bb481e0a4a71e2dc9">SimulationControl</a>
+, <a class="el" href="classSimulationControlTransientDynamicOutput.html#ae5e027b141859911a3fce4f5565077fd">SimulationControlTransientDynamicOutput</a>
 </li>
 <li>is_steady()
 : <a class="el" href="classSimulationControl.html#aa84426cbfcb0ba22e12e6f79e6c3ccc4">SimulationControl</a>
 </li>
 <li>is_verbose_iteration()
-: <a class="el" href="classSimulationControl.html#ae0f69f9775d554360103b060d702c15b">SimulationControl</a>
+: <a class="el" href="classSimulationControl.html#a0d7540a21443e8833003fb39da2a2f4d">SimulationControl</a>
 </li>
 <li>iterate()
-: <a class="el" href="classGLSVANSSolver.html#ae61fdfdb6260b278a573c2f33416262c">GLSVANSSolver&lt; dim &gt;</a>
-, <a class="el" href="classNavierStokesBase.html#acdb6460be28506df1b8ffa1ac4805a93">NavierStokesBase&lt; dim, VectorType, DofsType &gt;</a>
+: <a class="el" href="classGLSVANSSolver.html#a7f6446688b144c442c4085569f97470d">GLSVANSSolver&lt; dim &gt;</a>
+, <a class="el" href="classNavierStokesBase.html#a98a7f846709b83df0ea64c361fee192c">NavierStokesBase&lt; dim, VectorType, DofsType &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->

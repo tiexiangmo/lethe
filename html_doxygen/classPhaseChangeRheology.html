@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -161,9 +168,9 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classRheologicalModel"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classRheologicalModel')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classRheologicalModel.html">RheologicalModel</a></td></tr>
-<tr class="memitem:a402c2835cae9e3fe537a2f7a085114fc inherit pub_static_methods_classRheologicalModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classRheologicalModel.html">RheologicalModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRheologicalModel.html#a402c2835cae9e3fe537a2f7a085114fc">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
-<tr class="memdesc:a402c2835cae9e3fe537a2f7a085114fc inherit pub_static_methods_classRheologicalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instanciates and returns a pointer to a <a class="el" href="classRheologicalModel.html" title="Abstract class that allows to calculate the non-newtonian viscosity on each quadrature point and the ...">RheologicalModel</a> object by casting it to the proper child class.  <a href="classRheologicalModel.html#a402c2835cae9e3fe537a2f7a085114fc">More...</a><br /></td></tr>
-<tr class="separator:a402c2835cae9e3fe537a2f7a085114fc inherit pub_static_methods_classRheologicalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dc1c9a77886e59ee701ce27749c0505 inherit pub_static_methods_classRheologicalModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classRheologicalModel.html">RheologicalModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRheologicalModel.html#a8dc1c9a77886e59ee701ce27749c0505">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
+<tr class="memdesc:a8dc1c9a77886e59ee701ce27749c0505 inherit pub_static_methods_classRheologicalModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instanciates and returns a pointer to a <a class="el" href="classRheologicalModel.html" title="Abstract class that allows to calculate the non-newtonian viscosity on each quadrature point and the ...">RheologicalModel</a> object by casting it to the proper child class.  <a href="classRheologicalModel.html#a8dc1c9a77886e59ee701ce27749c0505">More...</a><br /></td></tr>
+<tr class="separator:a8dc1c9a77886e59ee701ce27749c0505 inherit pub_static_methods_classRheologicalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classRheologicalModel"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classRheologicalModel')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classRheologicalModel.html">RheologicalModel</a></td></tr>
 <tr class="memitem:a5ce1d5923b687879e0fbc8a7c95d71c0 inherit pro_attribs_classRheologicalModel"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRheologicalModel.html#a5ce1d5923b687879e0fbc8a7c95d71c0">non_newtonian_rheological_model</a> = false</td></tr>
 <tr class="separator:a5ce1d5923b687879e0fbc8a7c95d71c0 inherit pro_attribs_classRheologicalModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,7 +178,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ad805b20920189b0c308b0a4730217b81 inherit pro_attribs_classPhysicalPropertyModel"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicalPropertyModel.html#ad805b20920189b0c308b0a4730217b81">model_depends_on</a></td></tr>
 <tr class="separator:ad805b20920189b0c308b0a4730217b81 inherit pro_attribs_classPhysicalPropertyModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00630">630</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a979f72404c60f6aea238141aa9047c9f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a979f72404c60f6aea238141aa9047c9f">&#9670;&nbsp;</a></span>PhaseChangeRheology()</h2>
 
@@ -203,6 +213,10 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00639">639</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -251,6 +265,10 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p>Implements <a class="el" href="classRheologicalModel.html#a0d82866accbc7d9af6b65ada628adb28">RheologicalModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00699">699</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -305,6 +323,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classRheologicalModel.html#a5434fa06902647e8a62838e8f2e52802">RheologicalModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00714">714</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <a id="ae8e77c434057c54eb36364bc1f41a739"></a>
@@ -320,13 +342,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">double PhaseChangeRheology::jacobian </td>
           <td>(</td>
           <td class="paramtype">const std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, double &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>field_values</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -352,6 +374,10 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>value of the partial derivative of the kinematic viscosity with respect to the field. </dd></dl>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a3fc51243a48832ed3c6e3b4ee797c6b2">PhysicalPropertyModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="rheological__model_8cc_source.html#l00152">152</a> of file <a class="el" href="rheological__model_8cc_source.html">rheological_model.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00141">PhysicalPropertyModel::numerical_jacobian()</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -388,6 +414,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>value of the kinematic viscosity </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00736">736</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
 </div>
 </div>
 <a id="ab1fbbdabb965a62eeee60a15da2aa37b"></a>
@@ -403,7 +431,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">double PhaseChangeRheology::value </td>
           <td>(</td>
           <td class="paramtype">const std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, double &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>field_values</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -424,6 +452,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a23d2b90f4f05ee9de4be96f6f9989a37">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8cc_source.html#l00130">130</a> of file <a class="el" href="rheological__model_8cc_source.html">rheological_model.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="rheological__model_8h_source.html#l00736">kinematic_viscosity()</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <a id="a3327b6351143c1918a27d6177f6ba1c5"></a>
@@ -439,13 +471,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">void PhaseChangeRheology::vector_jacobian </td>
           <td>(</td>
           <td class="paramtype">const std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, std::vector&lt; double &gt;&gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>field_vectors</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const&#160;</td>
-          <td class="paramname"><em>field</em>, </td>
+          <td class="paramtype">const <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -478,6 +510,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#ae71d2dd28b12d69622987bced8c0c661">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8cc_source.html#l00162">162</a> of file <a class="el" href="rheological__model_8cc_source.html">rheological_model.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00162">PhysicalPropertyModel::vector_numerical_jacobian()</a>.</p>
+
 </div>
 </div>
 <a id="a3f1336cfa1a49ab94ea7281c973ce013"></a>
@@ -493,7 +529,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">void PhaseChangeRheology::vector_value </td>
           <td>(</td>
           <td class="paramtype">const std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, std::vector&lt; double &gt;&gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>field_vectors</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -524,6 +560,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a93dd785206d0e4e6659ca03f7f10ddec">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8cc_source.html#l00138">138</a> of file <a class="el" href="rheological__model_8cc_source.html">rheological_model.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="rheological__model_8h_source.html#l00736">kinematic_viscosity()</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -547,10 +587,13 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="rheological__model_8h_source.html#l00748">748</a> of file <a class="el" href="rheological__model_8h_source.html">rheological_model.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="rheological__model_8h_source.html">rheological_model.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="rheological__model_8cc_source.html">rheological_model.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

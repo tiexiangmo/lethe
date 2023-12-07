@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -82,12 +89,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a552b1c7085a2ec4ff00f87fe17e517"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIBParticle.html#a9a552b1c7085a2ec4ff00f87fe17e517">initialize_previous_solution</a> ()</td></tr>
 <tr class="memdesc:a9a552b1c7085a2ec4ff00f87fe17e517"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialize the value of the last state of the particle  <a href="classIBParticle.html#a9a552b1c7085a2ec4ff00f87fe17e517">More...</a><br /></td></tr>
 <tr class="separator:a9a552b1c7085a2ec4ff00f87fe17e517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c8fb10a3694ed832955ca6fe196dcda"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; std::string, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIBParticle.html#a5c8fb10a3694ed832955ca6fe196dcda">get_properties_name</a> ()</td></tr>
-<tr class="memdesc:a5c8fb10a3694ed832955ca6fe196dcda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the names of properties of the IB_particle for visualisation.  <a href="classIBParticle.html#a5c8fb10a3694ed832955ca6fe196dcda">More...</a><br /></td></tr>
-<tr class="separator:a5c8fb10a3694ed832955ca6fe196dcda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab6f23bb8fe0425e45e9eb004e7200e2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIBParticle.html#aab6f23bb8fe0425e45e9eb004e7200e2">get_properties</a> ()</td></tr>
-<tr class="memdesc:aab6f23bb8fe0425e45e9eb004e7200e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of the properties of the particle for visualisation.  <a href="classIBParticle.html#aab6f23bb8fe0425e45e9eb004e7200e2">More...</a><br /></td></tr>
-<tr class="separator:aab6f23bb8fe0425e45e9eb004e7200e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1bd8471146cc5580164fb8b28415ed8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; std::string, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIBParticle.html#aa1bd8471146cc5580164fb8b28415ed8">get_properties_name</a> ()</td></tr>
+<tr class="memdesc:aa1bd8471146cc5580164fb8b28415ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the names of properties of the IB_particle for visualisation.  <a href="classIBParticle.html#aa1bd8471146cc5580164fb8b28415ed8">More...</a><br /></td></tr>
+<tr class="separator:aa1bd8471146cc5580164fb8b28415ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16aea2f4bc24e16a1b065e8746e0f3e7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIBParticle.html#a16aea2f4bc24e16a1b065e8746e0f3e7">get_properties</a> ()</td></tr>
+<tr class="memdesc:a16aea2f4bc24e16a1b065e8746e0f3e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of the properties of the particle for visualisation.  <a href="classIBParticle.html#a16aea2f4bc24e16a1b065e8746e0f3e7">More...</a><br /></td></tr>
+<tr class="separator:a16aea2f4bc24e16a1b065e8746e0f3e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b56b812092c882562d3061fc97845bc"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIBParticle.html#a5b56b812092c882562d3061fc97845bc">get_number_properties</a> ()</td></tr>
 <tr class="memdesc:a5b56b812092c882562d3061fc97845bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of properties of the particle for visualisation.  <a href="classIBParticle.html#a5b56b812092c882562d3061fc97845bc">More...</a><br /></td></tr>
 <tr class="separator:a5b56b812092c882562d3061fc97845bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -236,7 +243,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ac5b93cc65a5fb4d0c7cb0613b566fa8a"><td class="memItemLeft" align="right" valign="top">Point&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIBParticle.html#ac5b93cc65a5fb4d0c7cb0613b566fa8a">pressure_location</a></td></tr>
 <tr class="separator:ac5b93cc65a5fb4d0c7cb0613b566fa8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;int dim&gt;<br />
+class IBParticle&lt; dim &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00036">36</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a45da6cdb769a95e3fb1924ebb40e31a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45da6cdb769a95e3fb1924ebb40e31a6">&#9670;&nbsp;</a></span>clear_shape_cache()</h2>
 
@@ -246,15 +259,14 @@ Public Attributes</h2></td></tr>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::clear_shape_cache </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::clear_shape_cache</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Clear the cache used to evaluate the value and vector defining the sign distance function of the shape. </p>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00149">149</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
 
 </div>
 </div>
@@ -286,6 +298,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>See overloaded function </p>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00188">188</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
 
 </div>
 </div>
@@ -333,6 +347,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00178">178</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
+
 </div>
 </div>
 <a id="ace3d26a335540ed2c9dc451a3b3b5558"></a>
@@ -361,6 +377,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>See overloaded function </p>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00099">99</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -409,6 +427,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00089">89</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a5b56b812092c882562d3061fc97845bc"></a>
@@ -438,10 +458,14 @@ template&lt;int dim&gt; </div>
 
 <p>Return the number of properties of the particle for visualisation. </p>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00073">73</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00056">DEM::n_properties</a>.</p>
+
 </div>
 </div>
-<a id="aab6f23bb8fe0425e45e9eb004e7200e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab6f23bb8fe0425e45e9eb004e7200e2">&#9670;&nbsp;</a></span>get_properties()</h2>
+<a id="a16aea2f4bc24e16a1b065e8746e0f3e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16aea2f4bc24e16a1b065e8746e0f3e7">&#9670;&nbsp;</a></span>get_properties()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -449,20 +473,21 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt; <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::get_properties </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">std::vector&lt; double &gt; <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::get_properties</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Return the value of the properties of the particle for visualisation. </p>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00116">116</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00041">DEM::dp</a>, <a class="el" href="dem__properties_8h_source.html#l00048">DEM::fem_force_x</a>, <a class="el" href="dem__properties_8h_source.html#l00049">DEM::fem_force_y</a>, <a class="el" href="dem__properties_8h_source.html#l00050">DEM::fem_force_z</a>, <a class="el" href="dem__properties_8h_source.html#l00051">DEM::fem_torque_x</a>, <a class="el" href="dem__properties_8h_source.html#l00052">DEM::fem_torque_y</a>, <a class="el" href="dem__properties_8h_source.html#l00053">DEM::fem_torque_z</a>, <a class="el" href="dem__properties_8cc_source.html#l00053">DEM::get_number_properties()</a>, <a class="el" href="dem__properties_8h_source.html#l00054">DEM::mass</a>, <a class="el" href="dem__properties_8h_source.html#l00045">DEM::omega_x</a>, <a class="el" href="dem__properties_8h_source.html#l00046">DEM::omega_y</a>, <a class="el" href="dem__properties_8h_source.html#l00047">DEM::omega_z</a>, <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>, <a class="el" href="dem__properties_8h_source.html#l00042">DEM::v_x</a>, <a class="el" href="dem__properties_8h_source.html#l00043">DEM::v_y</a>, and <a class="el" href="dem__properties_8h_source.html#l00044">DEM::v_z</a>.</p>
+
 </div>
 </div>
-<a id="a5c8fb10a3694ed832955ca6fe196dcda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c8fb10a3694ed832955ca6fe196dcda">&#9670;&nbsp;</a></span>get_properties_name()</h2>
+<a id="aa1bd8471146cc5580164fb8b28415ed8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1bd8471146cc5580164fb8b28415ed8">&#9670;&nbsp;</a></span>get_properties_name()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -470,15 +495,16 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::pair&lt;std::string, int&gt; &gt; <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::get_properties_name </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">std::vector&lt; std::pair&lt; std::string, int &gt; &gt; <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::get_properties_name</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Return the names of properties of the IB_particle for visualisation. </p>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00102">102</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8cc_source.html#l00026">DEM::DEMProperties&lt; dim &gt;::get_properties_name()</a>, <a class="el" href="dem__properties_8h_source.html#l00056">DEM::n_properties</a>, and <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>.</p>
 
 </div>
 </div>
@@ -491,15 +517,14 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::initialize_all </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::initialize_all</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>initialised the particle </p>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00009">9</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
 
 </div>
 </div>
@@ -512,15 +537,14 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::initialize_previous_solution </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::initialize_previous_solution</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>initialize the value of the last state of the particle </p>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00082">82</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
 
 </div>
 </div>
@@ -561,6 +585,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00167">167</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="shape__parsing_8cc_source.html#l00005">ShapeGenerator::initialize_shape()</a>, and <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>.</p>
+
 </div>
 </div>
 <a id="a67d643161abaf21b8d5d2acf0ce534d8"></a>
@@ -599,6 +627,10 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00156">156</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="shape__parsing_8cc_source.html#l00034">ShapeGenerator::initialize_shape_from_vector()</a>, and <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>.</p>
 
 </div>
 </div>
@@ -642,6 +674,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>See overloaded function </p>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00224">224</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
 
 </div>
 </div>
@@ -703,6 +737,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00196">196</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
+
 </div>
 </div>
 <a id="a2ea032dbbcaad3e5b10f5eebfc8efcbf"></a>
@@ -714,15 +750,14 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::load_data_from_file </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classIBParticle.html">IBParticle</a>&lt; dim &gt;::load_data_from_file</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Loads data from the files for file-based Shapes (RBF at the moment) </p>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00294">294</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
 
 </div>
 </div>
@@ -763,6 +798,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00280">280</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
+
 </div>
 </div>
 <a id="aa6f51ae5c5232f784ca2b6bac7e8ab7d"></a>
@@ -799,6 +836,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00233">233</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="ad19ebdd1188adb181af979666037a7b5"></a>
@@ -826,6 +865,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00250">250</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
 
 </div>
 </div>
@@ -874,6 +915,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00207">207</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="aa98eab44ccaac1bb391d2c8ea9ab1475"></a>
@@ -909,6 +952,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00163">163</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -949,6 +994,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8cc_source.html#l00258">258</a> of file <a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -966,6 +1013,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00335">335</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a19daff48b9b85fdba99848cd1bb0265a"></a>
@@ -981,6 +1030,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00358">358</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -998,6 +1049,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00362">362</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="ad996a7a9ce9e3f9b0f695c4f8231bf0f"></a>
@@ -1013,6 +1066,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00354">354</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1030,6 +1085,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00350">350</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a247d6d712692a8e2c4041c51d3e7799e"></a>
@@ -1045,6 +1102,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00296">296</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1062,6 +1121,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00298">298</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="ad34a935fb3b6310227f3fc1b98c8a8fb"></a>
@@ -1077,6 +1138,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00304">304</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1094,6 +1157,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00297">297</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="adddec01292ea0e889516e7f871a94b4b"></a>
@@ -1109,6 +1174,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00282">282</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1126,6 +1193,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00333">333</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="adf8301c20e687e124d5ec8fbe2e65637"></a>
@@ -1141,6 +1210,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00337">337</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1158,6 +1229,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00290">290</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a2b6babaf1f62c9ed1f8d82ea6790d4a9"></a>
@@ -1173,6 +1246,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00369">369</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1190,6 +1265,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00286">286</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="ae197e52181968546f838e42737a43a81"></a>
@@ -1205,6 +1282,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00374">374</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1222,6 +1301,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00324">324</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="af1454ad4345b667a9bbe2ccd6cfa6adf"></a>
@@ -1237,6 +1318,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00342">342</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1254,6 +1337,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00340">340</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="acd42a94c485822dc08475ba79faef870"></a>
@@ -1269,6 +1354,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00345">345</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1286,6 +1373,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00328">328</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a114a3e0194b458b3882b3e7c4ff5a59a"></a>
@@ -1301,6 +1390,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00320">320</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1318,6 +1409,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00268">268</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a3f22ce88edd0adf0e7465e17b06f6f63"></a>
@@ -1333,6 +1426,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00280">280</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1350,6 +1445,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00292">292</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="ac5b93cc65a5fb4d0c7cb0613b566fa8a"></a>
@@ -1365,6 +1462,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00388">388</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1382,6 +1481,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00330">330</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="ab23863d5985da2b0757896ba204fe958"></a>
@@ -1397,6 +1498,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00316">316</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1414,6 +1517,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00300">300</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a8fc10b6c23a026ce276836580276966b"></a>
@@ -1429,6 +1534,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00302">302</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1446,6 +1553,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00307">307</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a5d539d352306c9d987b81640a012b372"></a>
@@ -1461,6 +1570,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00301">301</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1478,6 +1589,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00384">384</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a10cfac9fba82bf8df40459883382f425"></a>
@@ -1493,6 +1606,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00381">381</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1510,6 +1625,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00326">326</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a00bd1f663ff20dd664f07f5ee0f28b64"></a>
@@ -1525,6 +1642,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00322">322</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1542,6 +1661,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00294">294</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="affb7875bb991c38cc61f9d2c7b5359d3"></a>
@@ -1557,6 +1678,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00312">312</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1574,6 +1697,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00274">274</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a12df621208693c6b1ac11d63697c3bf3"></a>
@@ -1589,6 +1714,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00378">378</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1606,6 +1733,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00376">376</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a95785ef9825ebd34879b5e4bd25836dd"></a>
@@ -1621,6 +1750,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00278">278</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1638,6 +1769,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00284">284</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="ae884117b8006c71afb78714792d8ccd6"></a>
@@ -1653,6 +1786,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00271">271</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1670,6 +1805,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00288">288</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="a79a713bdf1f6e13a0ba5db3f31c0469e"></a>
@@ -1685,6 +1822,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00309">309</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
 
 </div>
 </div>
@@ -1702,6 +1841,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00314">314</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
 <a id="ae6a678a2676e33033134e548318ee2e7"></a>
@@ -1718,10 +1859,13 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ib__particle_8h_source.html#l00276">276</a> of file <a class="el" href="ib__particle_8h_source.html">ib_particle.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="ib__particle_8h_source.html">ib_particle.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="ib__particle_8cc_source.html">ib_particle.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

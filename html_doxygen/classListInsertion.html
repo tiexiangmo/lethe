@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -87,9 +94,9 @@ Inheritance diagram for ListInsertion&lt; dim &gt;:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5bbb9691b36d2aa6dbc36e02b1e0cfed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classListInsertion.html#a5bbb9691b36d2aa6dbc36e02b1e0cfed">ListInsertion</a> (const <a class="el" href="classDEMSolverParameters.html">DEMSolverParameters</a>&lt; dim &gt; &amp;dem_parameters, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classDistribution.html">Distribution</a> &gt;&gt; &amp;distribution_object_container)</td></tr>
 <tr class="separator:a5bbb9691b36d2aa6dbc36e02b1e0cfed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a295c598cb8eb67bde0eb783c1231ea1d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classListInsertion.html#a295c598cb8eb67bde0eb783c1231ea1d">insert</a> (Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const <a class="el" href="classDEMSolverParameters.html">DEMSolverParameters</a>&lt; dim &gt; &amp;dem_parameters) override</td></tr>
-<tr class="memdesc:a295c598cb8eb67bde0eb783c1231ea1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classListInsertion.html">ListInsertion</a> class inserts particles using a list specific position. This allows the insertion of any number of particles at a well-controled location which is especially useful from a testing perspective. The code ensures that the number of positions provided in the x,y (and possibly z) direction is coherent. If more particles than the number of position in the list are requested, the class will continue inserting particles at the insertion frequency using the list of position. There is no mechanism in place that prevents the overlap of these new particles with previous ones.  <a href="classListInsertion.html#a295c598cb8eb67bde0eb783c1231ea1d">More...</a><br /></td></tr>
-<tr class="separator:a295c598cb8eb67bde0eb783c1231ea1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb3760ee33eb0558230b5a848da0459c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classListInsertion.html#aeb3760ee33eb0558230b5a848da0459c">insert</a> (Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler, const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const <a class="el" href="classDEMSolverParameters.html">DEMSolverParameters</a>&lt; dim &gt; &amp;dem_parameters) override</td></tr>
+<tr class="memdesc:aeb3760ee33eb0558230b5a848da0459c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classListInsertion.html">ListInsertion</a> class inserts particles using a list specific position. This allows the insertion of any number of particles at a well-controled location which is especially useful from a testing perspective. The code ensures that the number of positions provided in the x,y (and possibly z) direction is coherent. If more particles than the number of position in the list are requested, the class will continue inserting particles at the insertion frequency using the list of position. There is no mechanism in place that prevents the overlap of these new particles with previous ones.  <a href="classListInsertion.html#aeb3760ee33eb0558230b5a848da0459c">More...</a><br /></td></tr>
+<tr class="separator:aeb3760ee33eb0558230b5a848da0459c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84eff350a36e558f7f8064e1a25f1ee4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classListInsertion.html#a84eff350a36e558f7f8064e1a25f1ee4">assign_particle_properties_for_list_insertion</a> (const <a class="el" href="classDEMSolverParameters.html">DEMSolverParameters</a>&lt; dim &gt; &amp;dem_parameters, const unsigned int &amp;<a class="el" href="classInsertion.html#ad0a52bf0b712bcf669b0948737e13cd3">inserted_this_step_this_proc</a>, const unsigned int &amp;<a class="el" href="classListInsertion.html#ae37e6ce07f8edc7439617d821c46024e">current_inserting_particle_type</a>, std::vector&lt; std::vector&lt; double &gt;&gt; &amp;particle_properties)</td></tr>
 <tr class="memdesc:a84eff350a36e558f7f8064e1a25f1ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carries out assigning the properties of inserted particles specificly for the list insertion method. In this method, the initial translationnal and angular velocities and the diameter of each particles is set.  <a href="classListInsertion.html#a84eff350a36e558f7f8064e1a25f1ee4">More...</a><br /></td></tr>
 <tr class="separator:a84eff350a36e558f7f8064e1a25f1ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,6 +151,8 @@ class ListInsertion&lt; dim &gt;</h3>
 
 <p><a class="el" href="classInsertion.html">Insertion</a> of particles using a list of positions</p>
 <dl class="section author"><dt>Author</dt><dd>Bruno Blais, Polytechnique Montreal 2021- </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="list__insertion_8h_source.html#l00039">39</a> of file <a class="el" href="list__insertion_8h_source.html">list_insertion.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5bbb9691b36d2aa6dbc36e02b1e0cfed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5bbb9691b36d2aa6dbc36e02b1e0cfed">&#9670;&nbsp;</a></span>ListInsertion()</h2>
@@ -172,6 +181,10 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="list__insertion_8cc_source.html#l00015">15</a> of file <a class="el" href="list__insertion_8cc_source.html">list_insertion.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="list__insertion_8h_source.html#l00097">ListInsertion&lt; dim &gt;::angular_velocities</a>, <a class="el" href="list__insertion_8h_source.html#l00091">ListInsertion&lt; dim &gt;::current_inserting_particle_type</a>, <a class="el" href="list__insertion_8h_source.html#l00098">ListInsertion&lt; dim &gt;::diameters</a>, <a class="el" href="dem__solver__parameters_8h_source.html#l00042">DEMSolverParameters&lt; dim &gt;::insertion_info</a>, <a class="el" href="list__insertion_8h_source.html#l00095">ListInsertion&lt; dim &gt;::insertion_points</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00185">Parameters::Lagrangian::InsertionInfo::list_d</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00184">Parameters::Lagrangian::InsertionInfo::list_vx</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00184">Parameters::Lagrangian::InsertionInfo::list_vy</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00184">Parameters::Lagrangian::InsertionInfo::list_vz</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00185">Parameters::Lagrangian::InsertionInfo::list_wx</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00185">Parameters::Lagrangian::InsertionInfo::list_wy</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00185">Parameters::Lagrangian::InsertionInfo::list_wz</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00184">Parameters::Lagrangian::InsertionInfo::list_x</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00184">Parameters::Lagrangian::InsertionInfo::list_y</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00184">Parameters::Lagrangian::InsertionInfo::list_z</a>, and <a class="el" href="list__insertion_8h_source.html#l00096">ListInsertion&lt; dim &gt;::velocities</a>.</p>
 
 </div>
 </div>
@@ -227,10 +240,14 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="list__insertion_8cc_source.html#l00147">147</a> of file <a class="el" href="list__insertion_8cc_source.html">list_insertion.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00048">DEM::fem_force_x</a>, <a class="el" href="dem__properties_8h_source.html#l00049">DEM::fem_force_y</a>, <a class="el" href="dem__properties_8h_source.html#l00050">DEM::fem_force_z</a>, <a class="el" href="dem__properties_8h_source.html#l00051">DEM::fem_torque_x</a>, <a class="el" href="dem__properties_8h_source.html#l00052">DEM::fem_torque_y</a>, <a class="el" href="dem__properties_8h_source.html#l00053">DEM::fem_torque_z</a>, <a class="el" href="dem__solver__parameters_8h_source.html#l00041">DEMSolverParameters&lt; dim &gt;::lagrangian_physical_properties</a>, <a class="el" href="dem__properties_8h_source.html#l00054">DEM::mass</a>, <a class="el" href="dem__properties_8h_source.html#l00045">DEM::omega_x</a>, <a class="el" href="dem__properties_8h_source.html#l00046">DEM::omega_y</a>, <a class="el" href="dem__properties_8h_source.html#l00047">DEM::omega_z</a>, <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>, and <a class="el" href="dem__properties_8h_source.html#l00055">DEM::volumetric_contribution</a>.</p>
+
 </div>
 </div>
-<a id="a295c598cb8eb67bde0eb783c1231ea1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a295c598cb8eb67bde0eb783c1231ea1d">&#9670;&nbsp;</a></span>insert()</h2>
+<a id="aeb3760ee33eb0558230b5a848da0459c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb3760ee33eb0558230b5a848da0459c">&#9670;&nbsp;</a></span>insert()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,7 +258,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classListInsertion.html">ListInsertion</a>&lt; dim &gt;::insert </td>
+          <td class="memname">void <a class="el" href="classListInsertion.html">ListInsertion</a>&lt; dim &gt;::insert </td>
           <td>(</td>
           <td class="paramtype">Particles::ParticleHandler&lt; dim &gt; &amp;&#160;</td>
           <td class="paramname"><em>particle_handler</em>, </td>
@@ -283,6 +300,10 @@ template&lt;int dim&gt; </div>
 
 <p>Implements <a class="el" href="classInsertion.html#ab7b6cf7393246d7d5b3ffeec6d721a14">Insertion&lt; dim &gt;</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="list__insertion_8cc_source.html#l00066">66</a> of file <a class="el" href="list__insertion_8cc_source.html">list_insertion.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__solver__parameters_8h_source.html#l00041">DEMSolverParameters&lt; dim &gt;::lagrangian_physical_properties</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00078">Parameters::Lagrangian::LagrangianPhysicalProperties::number</a>, and <a class="el" href="parameters__lagrangian_8h_source.html#l00066">Parameters::Lagrangian::LagrangianPhysicalProperties::particle_type_number</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -300,6 +321,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="list__insertion_8h_source.html#l00097">97</a> of file <a class="el" href="list__insertion_8h_source.html">list_insertion.h</a>.</p>
+
 </div>
 </div>
 <a id="ae37e6ce07f8edc7439617d821c46024e"></a>
@@ -315,6 +338,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="list__insertion_8h_source.html#l00091">91</a> of file <a class="el" href="list__insertion_8h_source.html">list_insertion.h</a>.</p>
 
 </div>
 </div>
@@ -332,6 +357,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="list__insertion_8h_source.html#l00098">98</a> of file <a class="el" href="list__insertion_8h_source.html">list_insertion.h</a>.</p>
+
 </div>
 </div>
 <a id="a1eb9c484097739b813270b6387c12b96"></a>
@@ -347,6 +374,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="list__insertion_8h_source.html#l00095">95</a> of file <a class="el" href="list__insertion_8h_source.html">list_insertion.h</a>.</p>
 
 </div>
 </div>
@@ -364,6 +393,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="list__insertion_8h_source.html#l00090">90</a> of file <a class="el" href="list__insertion_8h_source.html">list_insertion.h</a>.</p>
+
 </div>
 </div>
 <a id="ab30e5706448499ecdcadd2c567a13a70"></a>
@@ -380,10 +411,13 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="list__insertion_8h_source.html#l00096">96</a> of file <a class="el" href="list__insertion_8h_source.html">list_insertion.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/dem/<a class="el" href="list__insertion_8h_source.html">list_insertion.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/dem/<a class="el" href="list__insertion_8cc_source.html">list_insertion.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

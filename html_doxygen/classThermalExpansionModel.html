@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -89,9 +96,9 @@ Inheritance diagram for ThermalExpansionModel:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b4f46a544682c34f55e404fbb8c0567"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classThermalExpansionModel.html">ThermalExpansionModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThermalExpansionModel.html#a2b4f46a544682c34f55e404fbb8c0567">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
-<tr class="memdesc:a2b4f46a544682c34f55e404fbb8c0567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classThermalExpansionModel.html" title="Abstract class that allows to calculate the thermal expansion coefficient (with unit of inverse tempe...">ThermalExpansionModel</a> object by casting it to the proper child class.  <a href="classThermalExpansionModel.html#a2b4f46a544682c34f55e404fbb8c0567">More...</a><br /></td></tr>
-<tr class="separator:a2b4f46a544682c34f55e404fbb8c0567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89104a8c0ce44d483737ca6281004079"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classThermalExpansionModel.html">ThermalExpansionModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThermalExpansionModel.html#a89104a8c0ce44d483737ca6281004079">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
+<tr class="memdesc:a89104a8c0ce44d483737ca6281004079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classThermalExpansionModel.html" title="Abstract class that allows to calculate the thermal expansion coefficient (with unit of inverse tempe...">ThermalExpansionModel</a> object by casting it to the proper child class.  <a href="classThermalExpansionModel.html#a89104a8c0ce44d483737ca6281004079">More...</a><br /></td></tr>
+<tr class="separator:a89104a8c0ce44d483737ca6281004079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -126,9 +133,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class that allows to calculate the thermal expansion coefficient (with unit of inverse temperature) </p>
+
+<p class="definition">Definition at line <a class="el" href="thermal__expansion__model_8h_source.html#l00027">27</a> of file <a class="el" href="thermal__expansion__model_8h_source.html">thermal_expansion_model.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2b4f46a544682c34f55e404fbb8c0567"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b4f46a544682c34f55e404fbb8c0567">&#9670;&nbsp;</a></span>model_cast()</h2>
+<a id="a89104a8c0ce44d483737ca6281004079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89104a8c0ce44d483737ca6281004079">&#9670;&nbsp;</a></span>model_cast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +146,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::shared_ptr&lt;<a class="el" href="classThermalExpansionModel.html">ThermalExpansionModel</a>&gt; ThermalExpansionModel::model_cast </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classThermalExpansionModel.html">ThermalExpansionModel</a> &gt; ThermalExpansionModel::model_cast </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;&#160;</td>
           <td class="paramname"><em>material_properties</em></td><td>)</td>
@@ -159,10 +168,15 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="thermal__expansion__model_8cc_source.html#l00020">20</a> of file <a class="el" href="thermal__expansion__model_8cc_source.html">thermal_expansion_model.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="classParameters_1_1Material.html#a822ebfba0d5a0b0b8f5df1ff6104e1bcad0b50e5bdf6e59d6f8ce448465e09069">Parameters::Material::phase_change</a>, <a class="el" href="parameters_8h_source.html#l00384">Parameters::Material::phase_change_parameters</a>, <a class="el" href="parameters_8h_source.html#l00379">Parameters::Material::thermal_expansion</a>, and <a class="el" href="classParameters_1_1Material.html#a4e4afc26711146553e7a3f9934772b41">Parameters::Material::thermal_expansion_model</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="thermal__expansion__model_8h_source.html">thermal_expansion_model.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="thermal__expansion__model_8cc_source.html">thermal_expansion_model.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

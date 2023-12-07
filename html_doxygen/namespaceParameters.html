@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -175,6 +182,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1DynamicFlowControl.html">DynamicFlowControl</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classFlowControl.html" title="Class allows to dynamically control the flow with a beta coefficient calculated at each step time.">FlowControl</a> - Set average velocity on a boundary (CFD) or the domain (CFD-DEM).  <a href="structParameters_1_1DynamicFlowControl.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1Evaporation.html">Evaporation</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structParameters_1_1Evaporation.html" title="Evaporation - Defines the subparameters for the evaporation cooling and recoil pressure at the free s...">Evaporation</a> - Defines the subparameters for the evaporation cooling and recoil pressure at the free surface (air/metal interface).  <a href="structParameters_1_1Evaporation.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1VOF__MassConservation.html">VOF_MassConservation</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the sub-parameters for free surface mass conservation. Has to be declared before member creation in <a class="el" href="structParameters_1_1VOF.html" title="VOF - Defines the parameters for free surface simulations using the VOF method. Has to be declared be...">VOF</a> structure.  <a href="structParameters_1_1VOF__MassConservation.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -294,9 +304,9 @@ Functions</h2></td></tr>
 <tr class="memitem:abf9a3d883f67a19bea80ba4d93ad1c1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structParameters_1_1SizeOfSubsections.html">SizeOfSubsections</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceParameters.html#abf9a3d883f67a19bea80ba4d93ad1c1c">get_size_of_subsections</a> (const std::string &amp;file_name)</td></tr>
 <tr class="memdesc:abf9a3d883f67a19bea80ba4d93ad1c1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the maximum number of all variable size sections within the parameter file.  <a href="namespaceParameters.html#abf9a3d883f67a19bea80ba4d93ad1c1c">More...</a><br /></td></tr>
 <tr class="separator:abf9a3d883f67a19bea80ba4d93ad1c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab538696c2796454edde7b1a8161d29ed"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceParameters.html#ab538696c2796454edde7b1a8161d29ed">entry_string_to_tensor3</a> (ParameterHandler &amp;prm, const std::string &amp;entry_string)</td></tr>
-<tr class="memdesc:ab538696c2796454edde7b1a8161d29ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the tensor of entry <code>entry_string</code>. If the entry is specified in the .prm file, then the changed value is returned, otherwise the default value is returned. If the entry is not equivalent to a Tensor&lt;1,3&gt;, an error will be thrown. This function can be use for Point&lt;3&gt; variables.  <a href="namespaceParameters.html#ab538696c2796454edde7b1a8161d29ed">More...</a><br /></td></tr>
-<tr class="separator:ab538696c2796454edde7b1a8161d29ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae131fa9ac73a7013e3b40ec3cae4f447"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceParameters.html#ae131fa9ac73a7013e3b40ec3cae4f447">entry_string_to_tensor3</a> (ParameterHandler &amp;prm, const std::string &amp;entry_string)</td></tr>
+<tr class="memdesc:ae131fa9ac73a7013e3b40ec3cae4f447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the tensor of entry <code>entry_string</code>. If the entry is specified in the .prm file, then the changed value is returned, otherwise the default value is returned. If the entry is not equivalent to a Tensor&lt;1,3&gt;, an error will be thrown. This function can be use for Point&lt;3&gt; variables.  <a href="namespaceParameters.html#ae131fa9ac73a7013e3b40ec3cae4f447">More...</a><br /></td></tr>
+<tr class="separator:ae131fa9ac73a7013e3b40ec3cae4f447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classParameters_1_1ALE.html">ALE</a> class provides an interface for all common element required for the introduction of the required terms for a moving referential in the governing equations.</p>
@@ -330,6 +340,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a8b408c8f42632c3dd96b69b720ace6f6a5b11eff46b4ff2d0e186789cb3a402ed"></a>gidaspow&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="parameters__cfd__dem_8h_source.html#l00051">51</a> of file <a class="el" href="parameters__cfd__dem_8h_source.html">parameters_cfd_dem.h</a>.</p>
+
 </div>
 </div>
 <a id="a2f4421761ead0a91af8b120a8d77de16"></a>
@@ -355,6 +367,8 @@ Functions</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2f4421761ead0a91af8b120a8d77de16a2bd9c0ed00116be1258e0cc66617d7c8"></a>automatic&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a2f4421761ead0a91af8b120a8d77de16a3c78b35502b2693fefdfc51cba3a53a5"></a>manual&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="parameters__multiphysics_8h_source.html#l00060">60</a> of file <a class="el" href="parameters__multiphysics_8h_source.html">parameters_multiphysics.h</a>.</p>
 
 </div>
 </div>
@@ -387,6 +401,8 @@ Functions</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a35f23be89bc6cc4d28f9c1b10519e9b8a334c4a4c42fdb79d7ebc3e73b517e6f8"></a>none&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a35f23be89bc6cc4d28f9c1b10519e9b8a5c0dbba3a6ee4ac0eb26cfee75ccb8b4"></a>tanh&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="parameters__multiphysics_8h_source.html#l00054">54</a> of file <a class="el" href="parameters__multiphysics_8h_source.html">parameters_multiphysics.h</a>.</p>
 
 </div>
 </div>
@@ -422,6 +438,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a978815f8cf26f3c77304639e1786aec1af6cb3e816496528d4187db53bc66567f"></a>both&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00074">74</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
 <a id="a86eaa101a59015fa52c81783382dd525"></a>
@@ -450,6 +468,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a86eaa101a59015fa52c81783382dd525a2e69977b7c3df8d5c77016255b4006f2"></a>nodal&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a86eaa101a59015fa52c81783382dd525a93939238f5427e2d2d2b1365d18483f9"></a>ramp&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="initial__conditions_8h_source.html#l00034">34</a> of file <a class="el" href="initial__conditions_8h_source.html">initial_conditions.h</a>.</p>
 
 </div>
 </div>
@@ -483,6 +503,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="afaf982762668ab166df8919c45a58ee1a8cb043b2dace9afc0680e6bae5cd316f"></a>adaptive&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="parameters__multiphysics_8h_source.html#l00043">43</a> of file <a class="el" href="parameters__multiphysics_8h_source.html">parameters_multiphysics.h</a>.</p>
+
 </div>
 </div>
 <a id="a885ce66c74635a68dd078d94aedddac6"></a>
@@ -508,6 +530,8 @@ Functions</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a885ce66c74635a68dd078d94aedddac6aaab653aeeee220006e2b9f692569492c"></a>modelA&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a885ce66c74635a68dd078d94aedddac6ab35bb34924c70e61eec8a8bae8cac690"></a>modelB&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="parameters__cfd__dem_8h_source.html#l00061">61</a> of file <a class="el" href="parameters__cfd__dem_8h_source.html">parameters_cfd_dem.h</a>.</p>
 
 </div>
 </div>
@@ -535,6 +559,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="ad408350a21239600add83c5e91fcfa26a2c7aea4237e25b4f8ee3b0bf77d6fed0"></a>verbose&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ad408350a21239600add83c5e91fcfa26ae5cbb8171b496f26a4488b9e15a0fe52"></a>extra_verbose&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00060">60</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
 </div>
 </div>
@@ -564,17 +590,19 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a59bccd897a552f378b3da967e9fa803fa51762626b4f785729159fd35eea74deb"></a>spm&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="parameters__cfd__dem_8h_source.html#l00043">43</a> of file <a class="el" href="parameters__cfd__dem_8h_source.html">parameters_cfd_dem.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab538696c2796454edde7b1a8161d29ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab538696c2796454edde7b1a8161d29ed">&#9670;&nbsp;</a></span>entry_string_to_tensor3()</h2>
+<a id="ae131fa9ac73a7013e3b40ec3cae4f447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae131fa9ac73a7013e3b40ec3cae4f447">&#9670;&nbsp;</a></span>entry_string_to_tensor3()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Tensor&lt;1, 3&gt; Parameters::entry_string_to_tensor3 </td>
+          <td class="memname">Tensor&lt; 1, 3 &gt; Parameters::entry_string_to_tensor3 </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em>, </td>
@@ -602,6 +630,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="parameters_8cc_source.html#l03344">3344</a> of file <a class="el" href="parameters_8cc_source.html">parameters.cc</a>.</p>
+
 </div>
 </div>
 <a id="abf9a3d883f67a19bea80ba4d93ad1c1c"></a>
@@ -627,6 +657,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="parameters_8cc_source.html#l00063">63</a> of file <a class="el" href="parameters_8cc_source.html">parameters.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters_8h_source.html#l00048">Parameters::SizeOfSubsections::boundary_conditions</a>, and <a class="el" href="utilities_8cc_source.html#l00536">get_max_number_of_boundary_conditions()</a>.</p>
 
 </div>
 </div>

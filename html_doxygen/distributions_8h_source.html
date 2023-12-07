@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -100,31 +107,62 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classDistribution.html#a7117bc322467803abcc3cd6397dde672">   29</a></span>&#160;  std::vector&lt;double&gt; <a class="code" href="classDistribution.html#a7117bc322467803abcc3cd6397dde672">particle_sizes</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">   * @brief Carries out the size sampling of particles. This is the base class of</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">   * NormalDistribution, UniformDistribution, LogNormalDistribution and</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">   * HistogramDistribution classes.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">   * @param particle_number Number of particle inserted at a given insertion time step.</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classDistribution.html#a78b6b315dc54c1c0e683d3963ff11ea2">   38</a></span>&#160;  <a class="code" href="classDistribution.html#a78b6b315dc54c1c0e683d3963ff11ea2">particle_size_sampling</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> particle_number) = 0;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">   * @brief Return the minimum diameter for a certain distribution.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classDistribution.html#a279e7f5a4849f5d5e1d1bf2dc571e71b">   44</a></span>&#160;  <a class="code" href="classDistribution.html#a279e7f5a4849f5d5e1d1bf2dc571e71b">find_min_diameter</a>() = 0;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">   * @brief Return the maximum diameter for a certain distribution.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">double</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classDistribution.html#af426f32ff999e52f8ec4070ce85bb5bc">   50</a></span>&#160;  <a class="code" href="classDistribution.html#af426f32ff999e52f8ec4070ce85bb5bc">find_max_diameter</a>() = 0;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classNormalDistribution.html">   53</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNormalDistribution.html">NormalDistribution</a> : <span class="keyword">public</span> <a class="code" href="classDistribution.html">Distribution</a></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classNormalDistribution.html#afc79920405dd0469468389068ba541a6">   63</a></span>&#160;  <a class="code" href="classNormalDistribution.html#afc79920405dd0469468389068ba541a6">NormalDistribution</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> d_averages,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">   * @brief The constructor stores the parameters necessary to define the normal</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">   * distribution</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">   * @param d_averages Average diameters for each type of particle.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">   * @param d_standard_deviations Standard deviation of the diameter for each type of particle.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="classNormalDistribution.html#afc79920405dd0469468389068ba541a6">NormalDistribution</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> d_averages,</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                     <span class="keyword">const</span> <span class="keywordtype">double</span> d_standard_deviations);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">   * @brief Carries out the size sampling of each particle inserted at a insertion</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">   * time step.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">   * @param particle_number Number of particle inserted at a given insertion time step.</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classNormalDistribution.html#a0e4087d51aeed494b6a59a711d2d458e">   73</a></span>&#160;  <a class="code" href="classNormalDistribution.html#a0e4087d51aeed494b6a59a711d2d458e">particle_size_sampling</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> particle_number) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="classNormalDistribution.html#a0e4087d51aeed494b6a59a711d2d458e">particle_size_sampling</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> particle_number) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">   * @brief Return @diameter_values.</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classNormalDistribution.html#a4d2a8ffa6859412a765d4157b7011cff">   79</a></span>&#160;  <a class="code" href="classNormalDistribution.html#a4d2a8ffa6859412a765d4157b7011cff">find_min_diameter</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="classNormalDistribution.html#a4d2a8ffa6859412a765d4157b7011cff">find_min_diameter</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">   * @brief Return @diameter_values.</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classNormalDistribution.html#a94e38bd19fceee2ec68851bef42d3237">   85</a></span>&#160;  <a class="code" href="classNormalDistribution.html#a94e38bd19fceee2ec68851bef42d3237">find_max_diameter</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="classNormalDistribution.html#a94e38bd19fceee2ec68851bef42d3237">find_max_diameter</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment">// Average diameters.</span></div>
@@ -135,17 +173,35 @@ $(function() {
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
 <div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classUniformDistribution.html">   94</a></span>&#160;<span class="keyword">class </span><a class="code" href="classUniformDistribution.html">UniformDistribution</a> : <span class="keyword">public</span> <a class="code" href="classDistribution.html">Distribution</a></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classUniformDistribution.html#afe064545a19463c5bb89f87ec97a8cde">  103</a></span>&#160;  <a class="code" href="classUniformDistribution.html#afe064545a19463c5bb89f87ec97a8cde">UniformDistribution</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> d_values);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">   * @brief The constructor store the parameters necessary to define the uniform</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">   * distribution</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">   * @param d_values Diameter values for each particle type.</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="classUniformDistribution.html#afe064545a19463c5bb89f87ec97a8cde">UniformDistribution</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> d_values);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">   * @brief Carries out the size sampling of every particles inserted at a insertion</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">   * time step.</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">   * @param particle_number Number of particle inserted at a given insertion time step.</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classUniformDistribution.html#a6337267ba33fc20e45c033fa1b95d740">  112</a></span>&#160;  <a class="code" href="classUniformDistribution.html#a6337267ba33fc20e45c033fa1b95d740">particle_size_sampling</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> particle_number) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <a class="code" href="classUniformDistribution.html#a6337267ba33fc20e45c033fa1b95d740">particle_size_sampling</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> particle_number) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">   * @brief Return @diameter_values.</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="classUniformDistribution.html#a6520888190ecba8ce6b7ba6d4dec98d0">  118</a></span>&#160;  <a class="code" href="classUniformDistribution.html#a6520888190ecba8ce6b7ba6d4dec98d0">find_min_diameter</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <a class="code" href="classUniformDistribution.html#a6520888190ecba8ce6b7ba6d4dec98d0">find_min_diameter</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">   * @brief Return @diameter_values.</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classUniformDistribution.html#a8e28a66b33365aca51fa2065e31c7c03">  124</a></span>&#160;  <a class="code" href="classUniformDistribution.html#a8e28a66b33365aca51fa2065e31c7c03">find_max_diameter</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <a class="code" href="classUniformDistribution.html#a8e28a66b33365aca51fa2065e31c7c03">find_max_diameter</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="comment">// Diameter values.</span></div>
@@ -153,24 +209,24 @@ $(function() {
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;};</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* distributions_h */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassDistribution_html"><div class="ttname"><a href="classDistribution.html">Distribution</a></div><div class="ttdef"><b>Definition:</b> distributions.h:27</div></div>
+<div class="ttc" id="aclassDistribution_html"><div class="ttname"><a href="classDistribution.html">Distribution</a></div><div class="ttdef"><b>Definition:</b> <a href="distributions_8h_source.html#l00026">distributions.h:27</a></div></div>
 <div class="ttc" id="aclassDistribution_html_a279e7f5a4849f5d5e1d1bf2dc571e71b"><div class="ttname"><a href="classDistribution.html#a279e7f5a4849f5d5e1d1bf2dc571e71b">Distribution::find_min_diameter</a></div><div class="ttdeci">virtual double find_min_diameter()=0</div><div class="ttdoc">Return the minimum diameter for a certain distribution.</div></div>
-<div class="ttc" id="aclassDistribution_html_a7117bc322467803abcc3cd6397dde672"><div class="ttname"><a href="classDistribution.html#a7117bc322467803abcc3cd6397dde672">Distribution::particle_sizes</a></div><div class="ttdeci">std::vector&lt; double &gt; particle_sizes</div><div class="ttdef"><b>Definition:</b> distributions.h:29</div></div>
+<div class="ttc" id="aclassDistribution_html_a7117bc322467803abcc3cd6397dde672"><div class="ttname"><a href="classDistribution.html#a7117bc322467803abcc3cd6397dde672">Distribution::particle_sizes</a></div><div class="ttdeci">std::vector&lt; double &gt; particle_sizes</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8h_source.html#l00029">distributions.h:29</a></div></div>
 <div class="ttc" id="aclassDistribution_html_a78b6b315dc54c1c0e683d3963ff11ea2"><div class="ttname"><a href="classDistribution.html#a78b6b315dc54c1c0e683d3963ff11ea2">Distribution::particle_size_sampling</a></div><div class="ttdeci">virtual void particle_size_sampling(const unsigned int particle_number)=0</div><div class="ttdoc">Carries out the size sampling of particles. This is the base class of NormalDistribution,...</div></div>
 <div class="ttc" id="aclassDistribution_html_af426f32ff999e52f8ec4070ce85bb5bc"><div class="ttname"><a href="classDistribution.html#af426f32ff999e52f8ec4070ce85bb5bc">Distribution::find_max_diameter</a></div><div class="ttdeci">virtual double find_max_diameter()=0</div><div class="ttdoc">Return the maximum diameter for a certain distribution.</div></div>
-<div class="ttc" id="aclassNormalDistribution_html"><div class="ttname"><a href="classNormalDistribution.html">NormalDistribution</a></div><div class="ttdef"><b>Definition:</b> distributions.h:54</div></div>
-<div class="ttc" id="aclassNormalDistribution_html_a0e4087d51aeed494b6a59a711d2d458e"><div class="ttname"><a href="classNormalDistribution.html#a0e4087d51aeed494b6a59a711d2d458e">NormalDistribution::particle_size_sampling</a></div><div class="ttdeci">void particle_size_sampling(const unsigned int particle_number) override</div><div class="ttdoc">Carries out the size sampling of each particle inserted at a insertion time step.</div></div>
-<div class="ttc" id="aclassNormalDistribution_html_a41821846adb264fe24b809325350d435"><div class="ttname"><a href="classNormalDistribution.html#a41821846adb264fe24b809325350d435">NormalDistribution::standard_deviations</a></div><div class="ttdeci">double standard_deviations</div><div class="ttdef"><b>Definition:</b> distributions.h:91</div></div>
-<div class="ttc" id="aclassNormalDistribution_html_a4d2a8ffa6859412a765d4157b7011cff"><div class="ttname"><a href="classNormalDistribution.html#a4d2a8ffa6859412a765d4157b7011cff">NormalDistribution::find_min_diameter</a></div><div class="ttdeci">double find_min_diameter() override</div><div class="ttdoc">Return @diameter_values.</div></div>
-<div class="ttc" id="aclassNormalDistribution_html_a94e38bd19fceee2ec68851bef42d3237"><div class="ttname"><a href="classNormalDistribution.html#a94e38bd19fceee2ec68851bef42d3237">NormalDistribution::find_max_diameter</a></div><div class="ttdeci">double find_max_diameter() override</div><div class="ttdoc">Return @diameter_values.</div></div>
-<div class="ttc" id="aclassNormalDistribution_html_acfba7434265d52b12ef274948c094547"><div class="ttname"><a href="classNormalDistribution.html#acfba7434265d52b12ef274948c094547">NormalDistribution::diameter_averages</a></div><div class="ttdeci">double diameter_averages</div><div class="ttdef"><b>Definition:</b> distributions.h:89</div></div>
-<div class="ttc" id="aclassNormalDistribution_html_afc79920405dd0469468389068ba541a6"><div class="ttname"><a href="classNormalDistribution.html#afc79920405dd0469468389068ba541a6">NormalDistribution::NormalDistribution</a></div><div class="ttdeci">NormalDistribution(const double d_averages, const double d_standard_deviations)</div><div class="ttdoc">The constructor stores the parameters necessary to define the normal distribution.</div></div>
-<div class="ttc" id="aclassUniformDistribution_html"><div class="ttname"><a href="classUniformDistribution.html">UniformDistribution</a></div><div class="ttdef"><b>Definition:</b> distributions.h:95</div></div>
-<div class="ttc" id="aclassUniformDistribution_html_a366215cb7713d42b9c765605195e8ced"><div class="ttname"><a href="classUniformDistribution.html#a366215cb7713d42b9c765605195e8ced">UniformDistribution::diameter_values</a></div><div class="ttdeci">double diameter_values</div><div class="ttdef"><b>Definition:</b> distributions.h:128</div></div>
-<div class="ttc" id="aclassUniformDistribution_html_a6337267ba33fc20e45c033fa1b95d740"><div class="ttname"><a href="classUniformDistribution.html#a6337267ba33fc20e45c033fa1b95d740">UniformDistribution::particle_size_sampling</a></div><div class="ttdeci">void particle_size_sampling(const unsigned int particle_number) override</div><div class="ttdoc">Carries out the size sampling of every particles inserted at a insertion time step.</div></div>
-<div class="ttc" id="aclassUniformDistribution_html_a6520888190ecba8ce6b7ba6d4dec98d0"><div class="ttname"><a href="classUniformDistribution.html#a6520888190ecba8ce6b7ba6d4dec98d0">UniformDistribution::find_min_diameter</a></div><div class="ttdeci">double find_min_diameter() override</div><div class="ttdoc">Return @diameter_values.</div></div>
-<div class="ttc" id="aclassUniformDistribution_html_a8e28a66b33365aca51fa2065e31c7c03"><div class="ttname"><a href="classUniformDistribution.html#a8e28a66b33365aca51fa2065e31c7c03">UniformDistribution::find_max_diameter</a></div><div class="ttdeci">double find_max_diameter() override</div><div class="ttdoc">Return @diameter_values.</div></div>
-<div class="ttc" id="aclassUniformDistribution_html_afe064545a19463c5bb89f87ec97a8cde"><div class="ttname"><a href="classUniformDistribution.html#afe064545a19463c5bb89f87ec97a8cde">UniformDistribution::UniformDistribution</a></div><div class="ttdeci">UniformDistribution(const double d_values)</div><div class="ttdoc">The constructor store the parameters necessary to define the uniform distribution.</div></div>
+<div class="ttc" id="aclassNormalDistribution_html"><div class="ttname"><a href="classNormalDistribution.html">NormalDistribution</a></div><div class="ttdef"><b>Definition:</b> <a href="distributions_8h_source.html#l00053">distributions.h:54</a></div></div>
+<div class="ttc" id="aclassNormalDistribution_html_a0e4087d51aeed494b6a59a711d2d458e"><div class="ttname"><a href="classNormalDistribution.html#a0e4087d51aeed494b6a59a711d2d458e">NormalDistribution::particle_size_sampling</a></div><div class="ttdeci">void particle_size_sampling(const unsigned int particle_number) override</div><div class="ttdoc">Carries out the size sampling of each particle inserted at a insertion time step.</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8cc_source.html#l00011">distributions.cc:11</a></div></div>
+<div class="ttc" id="aclassNormalDistribution_html_a41821846adb264fe24b809325350d435"><div class="ttname"><a href="classNormalDistribution.html#a41821846adb264fe24b809325350d435">NormalDistribution::standard_deviations</a></div><div class="ttdeci">double standard_deviations</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8h_source.html#l00091">distributions.h:91</a></div></div>
+<div class="ttc" id="aclassNormalDistribution_html_a4d2a8ffa6859412a765d4157b7011cff"><div class="ttname"><a href="classNormalDistribution.html#a4d2a8ffa6859412a765d4157b7011cff">NormalDistribution::find_min_diameter</a></div><div class="ttdeci">double find_min_diameter() override</div><div class="ttdoc">Return @diameter_values.</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8cc_source.html#l00026">distributions.cc:26</a></div></div>
+<div class="ttc" id="aclassNormalDistribution_html_a94e38bd19fceee2ec68851bef42d3237"><div class="ttname"><a href="classNormalDistribution.html#a94e38bd19fceee2ec68851bef42d3237">NormalDistribution::find_max_diameter</a></div><div class="ttdeci">double find_max_diameter() override</div><div class="ttdoc">Return @diameter_values.</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8cc_source.html#l00036">distributions.cc:36</a></div></div>
+<div class="ttc" id="aclassNormalDistribution_html_acfba7434265d52b12ef274948c094547"><div class="ttname"><a href="classNormalDistribution.html#acfba7434265d52b12ef274948c094547">NormalDistribution::diameter_averages</a></div><div class="ttdeci">double diameter_averages</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8h_source.html#l00089">distributions.h:89</a></div></div>
+<div class="ttc" id="aclassNormalDistribution_html_afc79920405dd0469468389068ba541a6"><div class="ttname"><a href="classNormalDistribution.html#afc79920405dd0469468389068ba541a6">NormalDistribution::NormalDistribution</a></div><div class="ttdeci">NormalDistribution(const double d_averages, const double d_standard_deviations)</div><div class="ttdoc">The constructor stores the parameters necessary to define the normal distribution.</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8cc_source.html#l00003">distributions.cc:3</a></div></div>
+<div class="ttc" id="aclassUniformDistribution_html"><div class="ttname"><a href="classUniformDistribution.html">UniformDistribution</a></div><div class="ttdef"><b>Definition:</b> <a href="distributions_8h_source.html#l00094">distributions.h:95</a></div></div>
+<div class="ttc" id="aclassUniformDistribution_html_a366215cb7713d42b9c765605195e8ced"><div class="ttname"><a href="classUniformDistribution.html#a366215cb7713d42b9c765605195e8ced">UniformDistribution::diameter_values</a></div><div class="ttdeci">double diameter_values</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8h_source.html#l00128">distributions.h:128</a></div></div>
+<div class="ttc" id="aclassUniformDistribution_html_a6337267ba33fc20e45c033fa1b95d740"><div class="ttname"><a href="classUniformDistribution.html#a6337267ba33fc20e45c033fa1b95d740">UniformDistribution::particle_size_sampling</a></div><div class="ttdeci">void particle_size_sampling(const unsigned int particle_number) override</div><div class="ttdoc">Carries out the size sampling of every particles inserted at a insertion time step.</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8cc_source.html#l00051">distributions.cc:51</a></div></div>
+<div class="ttc" id="aclassUniformDistribution_html_a6520888190ecba8ce6b7ba6d4dec98d0"><div class="ttname"><a href="classUniformDistribution.html#a6520888190ecba8ce6b7ba6d4dec98d0">UniformDistribution::find_min_diameter</a></div><div class="ttdeci">double find_min_diameter() override</div><div class="ttdoc">Return @diameter_values.</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8cc_source.html#l00061">distributions.cc:61</a></div></div>
+<div class="ttc" id="aclassUniformDistribution_html_a8e28a66b33365aca51fa2065e31c7c03"><div class="ttname"><a href="classUniformDistribution.html#a8e28a66b33365aca51fa2065e31c7c03">UniformDistribution::find_max_diameter</a></div><div class="ttdeci">double find_max_diameter() override</div><div class="ttdoc">Return @diameter_values.</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8cc_source.html#l00067">distributions.cc:67</a></div></div>
+<div class="ttc" id="aclassUniformDistribution_html_afe064545a19463c5bb89f87ec97a8cde"><div class="ttname"><a href="classUniformDistribution.html#afe064545a19463c5bb89f87ec97a8cde">UniformDistribution::UniformDistribution</a></div><div class="ttdeci">UniformDistribution(const double d_values)</div><div class="ttdoc">The constructor store the parameters necessary to define the uniform distribution.</div><div class="ttdef"><b>Definition:</b> <a href="distributions_8cc_source.html#l00045">distributions.cc:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

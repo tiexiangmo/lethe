@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -96,35 +103,57 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using namespace </span>dealii;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespaceShapeGenerator.html">   25</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceShapeGenerator.html">ShapeGenerator</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{<span class="comment"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">   * Initializes the shape from its type and arguments</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">   * @param type the type of shape</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">   * @param shape_arguments_str the raw arguments</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">   * @param position the position of the shape</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">   * @param orientation the orientation of the shape</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  std::shared_ptr&lt;Shape&lt;dim&gt;&gt;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespaceShapeGenerator.html#ab8ce05a710873cbf5ed8d61e8315852d">   36</a></span>&#160;  <a class="code" href="namespaceShapeGenerator.html#ab8ce05a710873cbf5ed8d61e8315852d">initialize_shape</a>(<span class="keyword">const</span> std::string   <a class="code" href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">type</a>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="namespaceShapeGenerator.html#ab2cae82c83b23485e5aef2f382edc548">initialize_shape</a>(<span class="keyword">const</span> std::string   <a class="code" href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">type</a>,</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                   <span class="keyword">const</span> std::string   shape_arguments_str,</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                   <span class="keyword">const</span> Point&lt;dim&gt;   &amp;position,</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                   <span class="keyword">const</span> Tensor&lt;1, 3&gt; &amp;orientation);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">   * Initializes the shape from its type and numerical arguments</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">   * @param type the type of shape</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">   * @param shape_arguments the numerical arguments</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">   * @param position the position of the shape</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">   * @param orientation the orientation of the shape</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  std::shared_ptr&lt;Shape&lt;dim&gt;&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespaceShapeGenerator.html#a8e270d266b1f37764411ce4e159c4414">   50</a></span>&#160;  <a class="code" href="namespaceShapeGenerator.html#a8e270d266b1f37764411ce4e159c4414">initialize_shape_from_vector</a>(<span class="keyword">const</span> std::string         <a class="code" href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">type</a>,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="namespaceShapeGenerator.html#a18d62f0a3db14afe4523b47ac3890d66">initialize_shape_from_vector</a>(<span class="keyword">const</span> std::string         <a class="code" href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">type</a>,</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                               <span class="keyword">const</span> std::vector&lt;double&gt; shape_arguments,</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                               <span class="keyword">const</span> Point&lt;dim&gt;         &amp;position,</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                               <span class="keyword">const</span> Tensor&lt;1, 3&gt;       &amp;orientation);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">   * Initializes the shape from its type and a text file that contains the real</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">   * initialization data</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">   * @param type the type of shape</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">   * @param file_name the name of the file that contains the initialization data</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">   * @param position the position of the shape</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">   * @param orientation the orientation of the shape</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  std::shared_ptr&lt;Shape&lt;dim&gt;&gt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="namespaceShapeGenerator.html#acb0378f15f76c02f81bf0c9fc739ef1e">   65</a></span>&#160;  <a class="code" href="namespaceShapeGenerator.html#acb0378f15f76c02f81bf0c9fc739ef1e">initialize_shape_from_file</a>(<span class="keyword">const</span> std::string   <a class="code" href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">type</a>,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="namespaceShapeGenerator.html#adaa6f7895b2c33c489b5e9137ccc5433">initialize_shape_from_file</a>(<span class="keyword">const</span> std::string   <a class="code" href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">type</a>,</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                             <span class="keyword">const</span> std::string   file_name,</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                             <span class="keyword">const</span> Point&lt;dim&gt;   &amp;position,</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                             <span class="keyword">const</span> Tensor&lt;1, 3&gt; &amp;orientation);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace ShapeGenerator</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// lethe_shape_parsing_h</span></div>
-<div class="ttc" id="anamespaceDEM_html_ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099"><div class="ttname"><a href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">DEM::type</a></div><div class="ttdeci">@ type</div><div class="ttdef"><b>Definition:</b> dem_properties.h:40</div></div>
-<div class="ttc" id="anamespaceShapeGenerator_html"><div class="ttname"><a href="namespaceShapeGenerator.html">ShapeGenerator</a></div><div class="ttdef"><b>Definition:</b> shape_parsing.h:26</div></div>
-<div class="ttc" id="anamespaceShapeGenerator_html_a8e270d266b1f37764411ce4e159c4414"><div class="ttname"><a href="namespaceShapeGenerator.html#a8e270d266b1f37764411ce4e159c4414">ShapeGenerator::initialize_shape_from_vector</a></div><div class="ttdeci">std::shared_ptr&lt; Shape&lt; dim &gt; &gt; initialize_shape_from_vector(const std::string type, const std::vector&lt; double &gt; shape_arguments, const Point&lt; dim &gt; &amp;position, const Tensor&lt; 1, 3 &gt; &amp;orientation)</div></div>
-<div class="ttc" id="anamespaceShapeGenerator_html_ab8ce05a710873cbf5ed8d61e8315852d"><div class="ttname"><a href="namespaceShapeGenerator.html#ab8ce05a710873cbf5ed8d61e8315852d">ShapeGenerator::initialize_shape</a></div><div class="ttdeci">std::shared_ptr&lt; Shape&lt; dim &gt; &gt; initialize_shape(const std::string type, const std::string shape_arguments_str, const Point&lt; dim &gt; &amp;position, const Tensor&lt; 1, 3 &gt; &amp;orientation)</div></div>
-<div class="ttc" id="anamespaceShapeGenerator_html_acb0378f15f76c02f81bf0c9fc739ef1e"><div class="ttname"><a href="namespaceShapeGenerator.html#acb0378f15f76c02f81bf0c9fc739ef1e">ShapeGenerator::initialize_shape_from_file</a></div><div class="ttdeci">std::shared_ptr&lt; Shape&lt; dim &gt; &gt; initialize_shape_from_file(const std::string type, const std::string file_name, const Point&lt; dim &gt; &amp;position, const Tensor&lt; 1, 3 &gt; &amp;orientation)</div></div>
+<div class="ttc" id="anamespaceDEM_html_ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099"><div class="ttname"><a href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">DEM::type</a></div><div class="ttdeci">@ type</div><div class="ttdef"><b>Definition:</b> <a href="dem__properties_8h_source.html#l00040">dem_properties.h:40</a></div></div>
+<div class="ttc" id="anamespaceShapeGenerator_html"><div class="ttname"><a href="namespaceShapeGenerator.html">ShapeGenerator</a></div><div class="ttdef"><b>Definition:</b> <a href="shape__parsing_8h_source.html#l00025">shape_parsing.h:26</a></div></div>
+<div class="ttc" id="anamespaceShapeGenerator_html_a18d62f0a3db14afe4523b47ac3890d66"><div class="ttname"><a href="namespaceShapeGenerator.html#a18d62f0a3db14afe4523b47ac3890d66">ShapeGenerator::initialize_shape_from_vector</a></div><div class="ttdeci">std::shared_ptr&lt; Shape&lt; dim &gt; &gt; initialize_shape_from_vector(const std::string type, const std::vector&lt; double &gt; shape_arguments, const Point&lt; dim &gt; &amp;position, const Tensor&lt; 1, 3 &gt; &amp;orientation)</div><div class="ttdef"><b>Definition:</b> <a href="shape__parsing_8cc_source.html#l00034">shape_parsing.cc:34</a></div></div>
+<div class="ttc" id="anamespaceShapeGenerator_html_ab2cae82c83b23485e5aef2f382edc548"><div class="ttname"><a href="namespaceShapeGenerator.html#ab2cae82c83b23485e5aef2f382edc548">ShapeGenerator::initialize_shape</a></div><div class="ttdeci">std::shared_ptr&lt; Shape&lt; dim &gt; &gt; initialize_shape(const std::string type, const std::string shape_arguments_str, const Point&lt; dim &gt; &amp;position, const Tensor&lt; 1, 3 &gt; &amp;orientation)</div><div class="ttdef"><b>Definition:</b> <a href="shape__parsing_8cc_source.html#l00005">shape_parsing.cc:5</a></div></div>
+<div class="ttc" id="anamespaceShapeGenerator_html_adaa6f7895b2c33c489b5e9137ccc5433"><div class="ttname"><a href="namespaceShapeGenerator.html#adaa6f7895b2c33c489b5e9137ccc5433">ShapeGenerator::initialize_shape_from_file</a></div><div class="ttdeci">std::shared_ptr&lt; Shape&lt; dim &gt; &gt; initialize_shape_from_file(const std::string type, const std::string file_name, const Point&lt; dim &gt; &amp;position, const Tensor&lt; 1, 3 &gt; &amp;orientation)</div><div class="ttdef"><b>Definition:</b> <a href="shape__parsing_8cc_source.html#l00148">shape_parsing.cc:148</a></div></div>
 <div class="ttc" id="ashape_8h_html"><div class="ttname"><a href="shape_8h.html">shape.h</a></div></div>
 <div class="ttc" id="autilities_8h_html"><div class="ttname"><a href="utilities_8h.html">utilities.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

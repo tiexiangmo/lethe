@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -88,8 +95,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:ab67a62590f5e39cd4e959bbfeda98593"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13aefd2b18a8e50971ac21559eb6489c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLagrangianPostProcessing.html#a13aefd2b18a8e50971ac21559eb6489c">calculate_average_granular_temperature</a> (const parallel::distributed::Triangulation&lt; dim &gt; &amp;triangulation, const Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler)</td></tr>
 <tr class="separator:a13aefd2b18a8e50971ac21559eb6489c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89cccd6c9ea93e09b42195c8483039e3"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLagrangianPostProcessing.html#a89cccd6c9ea93e09b42195c8483039e3">calculate_cell_average_particles_velocity</a> (const typename parallel::distributed::Triangulation&lt; dim &gt;::cell_iterator &amp;cell, const Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler)</td></tr>
-<tr class="separator:a89cccd6c9ea93e09b42195c8483039e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af129358bfa24ba9d1eb0a10477642e38"><td class="memItemLeft" align="right" valign="top">Tensor&lt; 1, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLagrangianPostProcessing.html#af129358bfa24ba9d1eb0a10477642e38">calculate_cell_average_particles_velocity</a> (const typename parallel::distributed::Triangulation&lt; dim &gt;::cell_iterator &amp;cell, const Particles::ParticleHandler&lt; dim &gt; &amp;particle_handler)</td></tr>
+<tr class="separator:af129358bfa24ba9d1eb0a10477642e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -111,6 +118,8 @@ class LagrangianPostProcessing&lt; dim &gt;</h3>
 <p>This class deals with Lagrangian post-processing. At the moment, calculation of time-averaged particles velocity and granular temperature are added to the class.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Add tracer particles</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Shahab Golshan, Polytechnique Montreal 2019- </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8h_source.html#l00050">50</a> of file <a class="el" href="lagrangian__post__processing_8h_source.html">lagrangian_post_processing.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9c640dd28a1abaccb55ef150bf1027fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9c640dd28a1abaccb55ef150bf1027fd">&#9670;&nbsp;</a></span>LagrangianPostProcessing()</h2>
@@ -121,13 +130,12 @@ class LagrangianPostProcessing&lt; dim &gt;</h3>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing</a>&lt; dim &gt;::<a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing</a>&lt; dim &gt;::<a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8cc_source.html#l00016">16</a> of file <a class="el" href="lagrangian__post__processing_8cc_source.html">lagrangian_post_processing.cc</a>.</p>
 
 </div>
 </div>
@@ -176,6 +184,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8cc_source.html#l00062">62</a> of file <a class="el" href="lagrangian__post__processing_8cc_source.html">lagrangian_post_processing.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00042">DEM::v_x</a>.</p>
+
 </div>
 </div>
 <a id="ab67a62590f5e39cd4e959bbfeda98593"></a>
@@ -222,10 +234,12 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8cc_source.html#l00021">21</a> of file <a class="el" href="lagrangian__post__processing_8cc_source.html">lagrangian_post_processing.cc</a>.</p>
+
 </div>
 </div>
-<a id="a89cccd6c9ea93e09b42195c8483039e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89cccd6c9ea93e09b42195c8483039e3">&#9670;&nbsp;</a></span>calculate_cell_average_particles_velocity()</h2>
+<a id="af129358bfa24ba9d1eb0a10477642e38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af129358bfa24ba9d1eb0a10477642e38">&#9670;&nbsp;</a></span>calculate_cell_average_particles_velocity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,7 +250,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Tensor&lt;1, dim&gt; <a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing</a>&lt; dim &gt;::calculate_cell_average_particles_velocity </td>
+          <td class="memname">Tensor&lt; 1, dim &gt; <a class="el" href="classLagrangianPostProcessing.html">LagrangianPostProcessing</a>&lt; dim &gt;::calculate_cell_average_particles_velocity </td>
           <td>(</td>
           <td class="paramtype">const typename parallel::distributed::Triangulation&lt; dim &gt;::cell_iterator &amp;&#160;</td>
           <td class="paramname"><em>cell</em>, </td>
@@ -268,6 +282,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A tensor which stores the average particles velocity in the input cell </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8cc_source.html#l00133">133</a> of file <a class="el" href="lagrangian__post__processing_8cc_source.html">lagrangian_post_processing.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00042">DEM::v_x</a>.</p>
 
 </div>
 </div>
@@ -355,6 +373,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8cc_source.html#l00176">176</a> of file <a class="el" href="lagrangian__post__processing_8cc_source.html">lagrangian_post_processing.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="disable__contacts_8h_source.html#l00219">DisableContacts&lt; dim &gt;::get_mobility_status_vector()</a>, <a class="el" href="parameters_8h_source.html#l00168">Parameters::SimulationControl::group_files</a>, <a class="el" href="parameters_8h_source.html#l00131">Parameters::SimulationControl::output_folder</a>, <a class="el" href="parameters_8h_source.html#l00134">Parameters::SimulationControl::output_name</a>, and <a class="el" href="dem__solver__parameters_8h_source.html#l00039">DEMSolverParameters&lt; dim &gt;::simulation_control</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -380,6 +402,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8h_source.html#l00129">129</a> of file <a class="el" href="lagrangian__post__processing_8h_source.html">lagrangian_post_processing.h</a>.</p>
+
 </div>
 </div>
 <a id="a5d22622cd7cc319ee7873fc8fe146711"></a>
@@ -403,6 +427,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8h_source.html#l00127">127</a> of file <a class="el" href="lagrangian__post__processing_8h_source.html">lagrangian_post_processing.h</a>.</p>
 
 </div>
 </div>
@@ -428,6 +454,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8h_source.html#l00124">124</a> of file <a class="el" href="lagrangian__post__processing_8h_source.html">lagrangian_post_processing.h</a>.</p>
+
 </div>
 </div>
 <a id="a9622407c615b58687a96c3f27e9ca712"></a>
@@ -451,6 +479,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8h_source.html#l00125">125</a> of file <a class="el" href="lagrangian__post__processing_8h_source.html">lagrangian_post_processing.h</a>.</p>
 
 </div>
 </div>
@@ -476,10 +506,13 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="lagrangian__post__processing_8h_source.html#l00126">126</a> of file <a class="el" href="lagrangian__post__processing_8h_source.html">lagrangian_post_processing.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/dem/<a class="el" href="lagrangian__post__processing_8h_source.html">lagrangian_post_processing.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/dem/<a class="el" href="lagrangian__post__processing_8cc_source.html">lagrangian_post_processing.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

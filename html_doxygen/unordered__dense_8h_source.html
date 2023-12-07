@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -71,7 +78,9 @@ $(function() {
 <div class="title">unordered_dense.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="unordered__dense_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<a href="unordered__dense_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">///////////////////////// ankerl::unordered_dense::{map, set}</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"></span><span class="comment">////////////////////////////</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// A fast &amp; densely stored hashmap and hashset based on robin-hood backward</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// shift deletion. Version 3.1.0 https://github.com/martinus/unordered_dense</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//</span></div>
@@ -852,7 +861,11 @@ $(function() {
 <div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;                          <span class="keyword">sizeof</span>(Bucket) * bucket_count());</div>
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;            }</div>
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;        }</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160; </div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;<span class="comment">        /**</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment">         * True when no element can be added any more without increasing the</span></div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">         * size</span></div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">         */</span></div>
 <div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        [[nodiscard]] <span class="keyword">auto</span></div>
 <div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        is_full() <span class="keyword">const</span> -&gt; <span class="keywordtype">bool</span></div>
 <div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;        {</div>
@@ -2300,9 +2313,9 @@ $(function() {
 <div class="line"><a name="l02233"></a><span class="lineno"> 2233</span>&#160; </div>
 <div class="line"><a name="l02234"></a><span class="lineno"> 2234</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l02235"></a><span class="lineno"> 2235</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="anamespaceDEM_html_ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099"><div class="ttname"><a href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">DEM::type</a></div><div class="ttdeci">@ type</div><div class="ttdef"><b>Definition:</b> dem_properties.h:40</div></div>
-<div class="ttc" id="aunordered__dense_8h_html_a118c771e88ea4a2e08bf197e1938dd75"><div class="ttname"><a href="unordered__dense_8h.html#a118c771e88ea4a2e08bf197e1938dd75">ANKERL_UNORDERED_DENSE_NAMESPACE</a></div><div class="ttdeci">#define ANKERL_UNORDERED_DENSE_NAMESPACE</div><div class="ttdef"><b>Definition:</b> unordered_dense.h:46</div></div>
-<div class="ttc" id="aunordered__dense_8h_html_a75c20e9af6befb6c4d65eb969c36ee47"><div class="ttname"><a href="unordered__dense_8h.html#a75c20e9af6befb6c4d65eb969c36ee47">ANKERL_UNORDERED_DENSE_NOINLINE</a></div><div class="ttdeci">#define ANKERL_UNORDERED_DENSE_NOINLINE</div><div class="ttdef"><b>Definition:</b> unordered_dense.h:75</div></div>
+<div class="ttc" id="anamespaceDEM_html_ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099"><div class="ttname"><a href="namespaceDEM.html#ae6292a647794105882a3dcd6b8c941aca583578bd4a0494a2a7a1b60ea1ec8099">DEM::type</a></div><div class="ttdeci">@ type</div><div class="ttdef"><b>Definition:</b> <a href="dem__properties_8h_source.html#l00040">dem_properties.h:40</a></div></div>
+<div class="ttc" id="aunordered__dense_8h_html_a118c771e88ea4a2e08bf197e1938dd75"><div class="ttname"><a href="unordered__dense_8h.html#a118c771e88ea4a2e08bf197e1938dd75">ANKERL_UNORDERED_DENSE_NAMESPACE</a></div><div class="ttdeci">#define ANKERL_UNORDERED_DENSE_NAMESPACE</div><div class="ttdef"><b>Definition:</b> <a href="unordered__dense_8h_source.html#l00046">unordered_dense.h:46</a></div></div>
+<div class="ttc" id="aunordered__dense_8h_html_a75c20e9af6befb6c4d65eb969c36ee47"><div class="ttname"><a href="unordered__dense_8h.html#a75c20e9af6befb6c4d65eb969c36ee47">ANKERL_UNORDERED_DENSE_NOINLINE</a></div><div class="ttdeci">#define ANKERL_UNORDERED_DENSE_NOINLINE</div><div class="ttdef"><b>Definition:</b> <a href="unordered__dense_8h_source.html#l00075">unordered_dense.h:75</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

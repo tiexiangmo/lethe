@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -142,9 +149,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="vans__assemblers_8h__dep__incl.png" border="0" usemap="#a_2home_2runner_2work_2lethe_2lethe_2include_2fem-dem_2vans__assemblers_8hdep" alt=""/></div>
 <map name="a_2home_2runner_2work_2lethe_2lethe_2include_2fem-dem_2vans__assemblers_8hdep" id="a_2home_2runner_2work_2lethe_2lethe_2include_2fem-dem_2vans__assemblers_8hdep">
-<area shape="rect" title=" " alt="" coords="5,5,188,61"/>
-<area shape="rect" href="gls__vans_8h.html" title=" " alt="" coords="5,109,188,165"/>
+<area shape="rect" title=" " alt="" coords="211,5,393,61"/>
+<area shape="rect" href="gls__vans_8h.html" title=" " alt="" coords="108,109,291,165"/>
+<area shape="rect" href="vans__assemblers_8cc.html" title=" " alt="" coords="315,109,497,165"/>
 <area shape="rect" href="cfd__dem__coupling_8h.html" title=" " alt="" coords="5,213,188,269"/>
+<area shape="rect" href="gls__vans_8cc.html" title=" " alt="" coords="212,213,395,269"/>
+<area shape="rect" href="cfd__dem__coupling_8cc.html" title=" " alt="" coords="5,317,188,373"/>
 </map>
 </div>
 </div>
@@ -162,7 +172,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the core of Model A of the Volume Averaged Navier-Stokes equations.  <a href="classGLSVansAssemblerCoreModelA.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSVansAssemblerBDF.html">GLSVansAssemblerBDF&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the transient time arising from BDF time integration for the Navier-Stokes equation with free surface using VOF modeling.. For example, if a BDF1 scheme is chosen, the following is assembled <img class="formulaInl" alt="$\frac{(\rho \mathbf{u})^{t+\Delta t}-(\rho \mathbf{u})^{t}}{\Delta t}$" src="form_1.png"/>.  <a href="classGLSVansAssemblerBDF.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the transient time arising from BDF time integration for the Navier-Stokes equation with free surface using VOF modeling.. For example, if a BDF1 scheme is chosen, the following is assembled \(\frac{(\rho \mathbf{u})^{t+\Delta t}-(\rho \mathbf{u})^{t}}{\Delta t}\).  <a href="classGLSVansAssemblerBDF.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLSVansAssemblerDiFelice.html">GLSVansAssemblerDiFelice&lt; dim &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that assembles the drag force using DiFelice model for the VANS equations where the drag coefficient c_d = pow((0.63 + 4.8 / sqrt(re)), 2) * pow(cell_void_fraction, -(3.7 - 0.65 * exp(-pow((1.5 - log10(re)), 2) / 2))) and the momentum exchange coefficient beta =(0.5 * c_d * M_PI * pow(particle_properties[DEM::PropertiesIndex::dp], 2) / 4) * relative_velocity.norm()  <a href="classGLSVansAssemblerDiFelice.html#details">More...</a><br /></td></tr>
@@ -258,6 +268,8 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vans__assemblers_8h_source.html#l00708">708</a> of file <a class="el" href="vans__assemblers_8h_source.html">vans_assemblers.h</a>.</p>
 
 </div>
 </div>

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -87,6 +94,8 @@ class ParticleParticleFineSearch&lt; dim &gt;</h3>
 <p>This class is used for local-local and local-ghost fine particle-particle contact search. Fine search is used to find all the particle pairs which are physically in contact and obtain all the required information for calculation of the contact force</p>
 <dl class="section note"><dt>Note</dt><dd></dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Shahab Golshan, Polytechnique Montreal 2019- </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="particle__particle__fine__search_8h_source.html#l00052">52</a> of file <a class="el" href="particle__particle__fine__search_8h_source.html">particle_particle_fine_search.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a454a5838e83a4877af5f5309ddb41c54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a454a5838e83a4877af5f5309ddb41c54">&#9670;&nbsp;</a></span>ParticleParticleFineSearch()</h2>
@@ -97,13 +106,12 @@ class ParticleParticleFineSearch&lt; dim &gt;</h3>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classParticleParticleFineSearch.html">ParticleParticleFineSearch</a>&lt; dim &gt;::<a class="el" href="classParticleParticleFineSearch.html">ParticleParticleFineSearch</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="classParticleParticleFineSearch.html">ParticleParticleFineSearch</a>&lt; dim &gt;::<a class="el" href="classParticleParticleFineSearch.html">ParticleParticleFineSearch</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__particle__fine__search_8cc_source.html#l00007">7</a> of file <a class="el" href="particle__particle__fine__search_8cc_source.html">particle_particle_fine_search.cc</a>.</p>
 
 </div>
 </div>
@@ -144,7 +152,7 @@ template&lt;int dim&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Tensor&lt; 1, dim &gt;&#160;</td>
-          <td class="paramname"><em>periodic_offset</em> = <code>Tensor&lt;&#160;1,&#160;dim&#160;&gt;()</code>&#160;</td>
+          <td class="paramname"><em>periodic_offset</em> = <code>Tensor&lt;1,&#160;dim&gt;()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -165,10 +173,13 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="particle__particle__fine__search_8cc_source.html#l00012">12</a> of file <a class="el" href="particle__particle__fine__search_8cc_source.html">particle_particle_fine_search.cc</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/dem/<a class="el" href="particle__particle__fine__search_8h_source.html">particle_particle_fine_search.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/dem/<a class="el" href="particle__particle__fine__search_8cc_source.html">particle_particle_fine_search.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

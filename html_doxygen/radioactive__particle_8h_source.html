@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -89,7 +96,11 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef lethe_radioactive_particle_h</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define lethe_radioactive_particle_h</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * Contains all properties of a particle at one position.</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;deal.II/base/point.h&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using namespace </span>dealii;</div>
@@ -97,7 +108,15 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classRadioParticle.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRadioParticle.html">RadioParticle</a></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">   * @brief Constructor for the RadioParticle.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">   * @param location Position of the particle</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">   * @param n ID number to the particle</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classRadioParticle.html#a2802bbe4d9567d04127349acc67e4279">   40</a></span>&#160;  <a class="code" href="classRadioParticle.html#a2802bbe4d9567d04127349acc67e4279">RadioParticle</a>(Point&lt;dim&gt; &amp;location, <span class="keywordtype">int</span> n)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    : position(location)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    , id(n)</div>
@@ -121,12 +140,12 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// lethe_radioactive_particle_h</span></div>
-<div class="ttc" id="aclassRadioParticle_html"><div class="ttname"><a href="classRadioParticle.html">RadioParticle</a></div><div class="ttdef"><b>Definition:</b> radioactive_particle.h:30</div></div>
-<div class="ttc" id="aclassRadioParticle_html_a053fed9b3e3d5585045d59f462fa6103"><div class="ttname"><a href="classRadioParticle.html#a053fed9b3e3d5585045d59f462fa6103">RadioParticle::get_position</a></div><div class="ttdeci">Point&lt; dim &gt; get_position()</div><div class="ttdef"><b>Definition:</b> radioactive_particle.h:46</div></div>
-<div class="ttc" id="aclassRadioParticle_html_a2802bbe4d9567d04127349acc67e4279"><div class="ttname"><a href="classRadioParticle.html#a2802bbe4d9567d04127349acc67e4279">RadioParticle::RadioParticle</a></div><div class="ttdeci">RadioParticle(Point&lt; dim &gt; &amp;location, int n)</div><div class="ttdoc">Constructor for the RadioParticle.</div><div class="ttdef"><b>Definition:</b> radioactive_particle.h:40</div></div>
-<div class="ttc" id="aclassRadioParticle_html_a622496d5b342a37be1c3efdc80545a12"><div class="ttname"><a href="classRadioParticle.html#a622496d5b342a37be1c3efdc80545a12">RadioParticle::position</a></div><div class="ttdeci">Point&lt; dim &gt; position</div><div class="ttdef"><b>Definition:</b> radioactive_particle.h:58</div></div>
-<div class="ttc" id="aclassRadioParticle_html_ac6fd90abc4a477bcd58ce3faf49ed0d8"><div class="ttname"><a href="classRadioParticle.html#ac6fd90abc4a477bcd58ce3faf49ed0d8">RadioParticle::get_id</a></div><div class="ttdeci">Point&lt; dim &gt; get_id()</div><div class="ttdef"><b>Definition:</b> radioactive_particle.h:52</div></div>
-<div class="ttc" id="aclassRadioParticle_html_afee84e3d7dd465ce14c6c6de77235aac"><div class="ttname"><a href="classRadioParticle.html#afee84e3d7dd465ce14c6c6de77235aac">RadioParticle::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> radioactive_particle.h:59</div></div>
+<div class="ttc" id="aclassRadioParticle_html"><div class="ttname"><a href="classRadioParticle.html">RadioParticle</a></div><div class="ttdef"><b>Definition:</b> <a href="radioactive__particle_8h_source.html#l00029">radioactive_particle.h:30</a></div></div>
+<div class="ttc" id="aclassRadioParticle_html_a053fed9b3e3d5585045d59f462fa6103"><div class="ttname"><a href="classRadioParticle.html#a053fed9b3e3d5585045d59f462fa6103">RadioParticle::get_position</a></div><div class="ttdeci">Point&lt; dim &gt; get_position()</div><div class="ttdef"><b>Definition:</b> <a href="radioactive__particle_8h_source.html#l00046">radioactive_particle.h:46</a></div></div>
+<div class="ttc" id="aclassRadioParticle_html_a2802bbe4d9567d04127349acc67e4279"><div class="ttname"><a href="classRadioParticle.html#a2802bbe4d9567d04127349acc67e4279">RadioParticle::RadioParticle</a></div><div class="ttdeci">RadioParticle(Point&lt; dim &gt; &amp;location, int n)</div><div class="ttdoc">Constructor for the RadioParticle.</div><div class="ttdef"><b>Definition:</b> <a href="radioactive__particle_8h_source.html#l00040">radioactive_particle.h:40</a></div></div>
+<div class="ttc" id="aclassRadioParticle_html_a622496d5b342a37be1c3efdc80545a12"><div class="ttname"><a href="classRadioParticle.html#a622496d5b342a37be1c3efdc80545a12">RadioParticle::position</a></div><div class="ttdeci">Point&lt; dim &gt; position</div><div class="ttdef"><b>Definition:</b> <a href="radioactive__particle_8h_source.html#l00058">radioactive_particle.h:58</a></div></div>
+<div class="ttc" id="aclassRadioParticle_html_ac6fd90abc4a477bcd58ce3faf49ed0d8"><div class="ttname"><a href="classRadioParticle.html#ac6fd90abc4a477bcd58ce3faf49ed0d8">RadioParticle::get_id</a></div><div class="ttdeci">Point&lt; dim &gt; get_id()</div><div class="ttdef"><b>Definition:</b> <a href="radioactive__particle_8h_source.html#l00052">radioactive_particle.h:52</a></div></div>
+<div class="ttc" id="aclassRadioParticle_html_afee84e3d7dd465ce14c6c6de77235aac"><div class="ttname"><a href="classRadioParticle.html#afee84e3d7dd465ce14c6c6de77235aac">RadioParticle::id</a></div><div class="ttdeci">int id</div><div class="ttdef"><b>Definition:</b> <a href="radioactive__particle_8h_source.html#l00059">radioactive_particle.h:59</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

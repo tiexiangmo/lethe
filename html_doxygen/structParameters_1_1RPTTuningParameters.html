@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -98,8 +105,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a16f878156ce706a00baec4ef883e0bdb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1RPTTuningParameters.html#a16f878156ce706a00baec4ef883e0bdb">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:a16f878156ce706a00baec4ef883e0bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac59224b456b0a770720b8ab31b1fe003"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1RPTTuningParameters.html#ac59224b456b0a770720b8ab31b1fe003">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:ac59224b456b0a770720b8ab31b1fe003"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -112,6 +119,8 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>InitialRPTParameters - Allows parameters tuning. If turned on, other parameters values are the initial guess for the optimization, otherwise those act as fixed parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="parameters__rpt_8h_source.html#l00087">87</a> of file <a class="el" href="parameters__rpt_8h_source.html">parameters_rpt.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ac0a5432712a06ab61dbfbc8d10ebf8e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0a5432712a06ab61dbfbc8d10ebf8e5">&#9670;&nbsp;</a></span>CostFunctionType</h2>
@@ -138,11 +147,13 @@ Public Attributes</h2></td></tr>
 <tr><td class="fieldname"><a id="ac0a5432712a06ab61dbfbc8d10ebf8e5abec25675775e9e0a0d783a5018b463e3"></a>l2&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="parameters__rpt_8h_source.html#l00093">93</a> of file <a class="el" href="parameters__rpt_8h_source.html">parameters_rpt.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a16f878156ce706a00baec4ef883e0bdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16f878156ce706a00baec4ef883e0bdb">&#9670;&nbsp;</a></span>declare_parameters()</h2>
+<a id="ac59224b456b0a770720b8ab31b1fe003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac59224b456b0a770720b8ab31b1fe003">&#9670;&nbsp;</a></span>declare_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,7 +162,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Parameters::RPTTuningParameters::declare_parameters </td>
+          <td class="memname">void Parameters::RPTTuningParameters::declare_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -164,6 +175,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters__rpt_8cc_source.html#l00109">109</a> of file <a class="el" href="parameters__rpt_8cc_source.html">parameters_rpt.cc</a>.</p>
 
 </div>
 </div>
@@ -183,6 +196,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters__rpt_8cc_source.html#l00133">133</a> of file <a class="el" href="parameters__rpt_8cc_source.html">parameters_rpt.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -198,6 +215,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters__rpt_8h_source.html#l00100">100</a> of file <a class="el" href="parameters__rpt_8h_source.html">parameters_rpt.h</a>.</p>
+
 </div>
 </div>
 <a id="ae3988aab739c30ff728a001902d60014"></a>
@@ -211,6 +230,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters__rpt_8h_source.html#l00103">103</a> of file <a class="el" href="parameters__rpt_8h_source.html">parameters_rpt.h</a>.</p>
 
 </div>
 </div>
@@ -226,10 +247,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters__rpt_8h_source.html#l00090">90</a> of file <a class="el" href="parameters__rpt_8h_source.html">parameters_rpt.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/rpt/<a class="el" href="parameters__rpt_8h_source.html">parameters_rpt.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/rpt/<a class="el" href="parameters__rpt_8cc_source.html">parameters_rpt.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

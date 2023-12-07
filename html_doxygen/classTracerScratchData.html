@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -160,6 +167,8 @@ class TracerScratchData&lt; dim &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00064">64</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4d8617a42475ae8091769d5d4224599d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d8617a42475ae8091769d5d4224599d">&#9670;&nbsp;</a></span>TracerScratchData() <span class="overload">[1/2]</span></h2>
@@ -225,6 +234,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00080">80</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a0594b102906d6ec2f6137d6675db0514"></a>
@@ -263,6 +274,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00109">109</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -275,16 +288,17 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classTracerScratchData.html">TracerScratchData</a>&lt; dim &gt;::allocate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classTracerScratchData.html">TracerScratchData</a>&lt; dim &gt;::allocate</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Allocates the memory for the scratch. </p>
 <p>This function allocates the necessary memory for all members of the scratch </p>
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8cc_source.html#l00007">7</a> of file <a class="el" href="tracer__scratch__data_8cc_source.html">tracer_scratch_data.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="bdf_8h_source.html#l00096">maximum_number_of_previous_solutions()</a>.</p>
 
 </div>
 </div>
@@ -297,15 +311,14 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classTracerScratchData.html">TracerScratchData</a>&lt; dim &gt;::calculate_physical_properties </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classTracerScratchData.html">TracerScratchData</a>&lt; dim &gt;::calculate_physical_properties</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p><a class="el" href="classCalculates.html">Calculates</a> the physical properties. This function calculates the physical properties that may be required by the tracer. Namely the diffusivity. </p>
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8cc_source.html#l00052">52</a> of file <a class="el" href="tracer__scratch__data_8cc_source.html">tracer_scratch_data.cc</a>.</p>
 
 </div>
 </div>
@@ -371,6 +384,8 @@ template&lt;typename VectorType &gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00151">151</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="aae90bb4cc60f1a4d5a1a75b6aca90612"></a>
@@ -433,6 +448,10 @@ template&lt;typename VectorType &gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00215">215</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
+<p class="reference">References <a class="el" href="ale_8h_source.html#l00053">Parameters::ALE&lt; dim &gt;::enabled()</a>, and <a class="el" href="ale_8h_source.html#l00050">Parameters::ALE&lt; dim &gt;::velocity</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -450,6 +469,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00265">265</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="af1560bd6c799db82b03e9b4edd9fb66e"></a>
@@ -465,6 +486,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00292">292</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -482,6 +505,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00262">262</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a6f91ffc276b8b3413de00ff01ebc3818"></a>
@@ -497,6 +522,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00254">254</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -514,6 +541,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00284">284</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a290e8502ad8a79e3aa0c49154df1d43b"></a>
@@ -529,6 +558,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00282">282</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -546,6 +577,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00268">268</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="adc65d357c979a5293ef25eecfabc8304"></a>
@@ -561,6 +594,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00283">283</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -578,6 +613,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00263">263</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="aa2433a31e03df3c330d128b61d2e4623"></a>
@@ -593,6 +630,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00264">264</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -610,6 +649,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00281">281</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a43016c72bda256435b0f9cf7c99e44ad"></a>
@@ -625,6 +666,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00275">275</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -642,6 +685,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00253">253</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="ae4d965918409b373aee0d2b253f03a0d"></a>
@@ -657,6 +702,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00269">269</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -674,6 +721,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00278">278</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a4b8064bbbb6a9756887f7239fd2510bf"></a>
@@ -689,6 +738,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00255">255</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -706,6 +757,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00256">256</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a244a7a150f0287ab94f026fb3b11e5b2"></a>
@@ -721,6 +774,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00257">257</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -738,6 +793,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00273">273</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="ad11ca3ee30d7f6d167e96b1913f08502"></a>
@@ -754,6 +811,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00274">274</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a0a8fa3946c73380041084baea6aee5e1"></a>
@@ -769,6 +828,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00272">272</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
 
 </div>
 </div>
@@ -787,6 +848,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Scratch component for the Navier-Stokes component </p>
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00290">290</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
 <a id="a31037d9facbfe1e934b79ff380e8d000"></a>
@@ -803,10 +866,13 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="tracer__scratch__data_8h_source.html#l00293">293</a> of file <a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/solvers/<a class="el" href="tracer__scratch__data_8h_source.html">tracer_scratch_data.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/solvers/<a class="el" href="tracer__scratch__data_8cc_source.html">tracer_scratch_data.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

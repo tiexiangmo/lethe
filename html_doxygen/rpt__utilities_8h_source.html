@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -105,7 +112,10 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;iterator&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">using namespace </span>dealii;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"> * @brief Create grid of the reactor vessel (cylinder).</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="rpt__utilities_8h.html#aba208d797dcf0e0054e48b8d2f357780">   41</a></span>&#160;<a class="code" href="rpt__utilities_8h.html#aba208d797dcf0e0054e48b8d2f357780">attach_grid_to_triangulation</a>(Triangulation&lt;dim&gt;              &amp;triangulation,</div>
@@ -133,7 +143,12 @@ $(function() {
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  triangulation.refine_global(n_refinement);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"> * @brief Read text file for positions</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> *  @param positions_filename Data filename for particle positions</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;std::vector&lt;Point&lt;dim&gt;&gt;</div>
 <div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="rpt__utilities_8h.html#a2b0e670bb628a6ffb43f9c02334459dd">   74</a></span>&#160;<a class="code" href="rpt__utilities_8h.html#a2b0e670bb628a6ffb43f9c02334459dd">read_positions</a>(std::string &amp;positions_filename)</div>
@@ -163,7 +178,13 @@ $(function() {
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">return</span> positions;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"> * @brief Read text file for particle positions and assign them to particle</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"> * objects</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"> *  @param particle_positions_filename Data filename for particle positions</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;std::vector&lt;RadioParticle&lt;dim&gt;&gt;</div>
 <div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="rpt__utilities_8h.html#a145bf8ccacafb8920d8a1440eb54509a">  110</a></span>&#160;<a class="code" href="rpt__utilities_8h.html#a145bf8ccacafb8920d8a1440eb54509a">assign_particle_positions</a>(std::string &amp;particle_positions_filename)</div>
@@ -182,7 +203,14 @@ $(function() {
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keywordflow">return</span> particle_positions;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment"> * @brief Read text file for detector positions and assign them to detector</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"> * objects</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment"> * @param detector_parameters All parameters related to detector</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;std::vector&lt;Detector&lt;dim&gt;&gt;</div>
 <div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="rpt__utilities_8h.html#aa6aa1b0d66b8e3e1cdf57747ae9bcd38">  136</a></span>&#160;<a class="code" href="rpt__utilities_8h.html#aa6aa1b0d66b8e3e1cdf57747ae9bcd38">assign_detector_positions</a>(<a class="code" href="structParameters_1_1DetectorParameters.html">Parameters::DetectorParameters</a> &amp;detector_parameters)</div>
@@ -222,7 +250,12 @@ $(function() {
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keywordflow">return</span> detectors;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment"> * @brief Read text file for count data and store it in a vector</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment"> * @param counts_filename Data filename for counts</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;std::vector&lt;double&gt;</div>
 <div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="rpt__utilities_8h.html#afb311ddd4fc6ddc39e08b938b5b5d8e2">  181</a></span>&#160;<a class="code" href="rpt__utilities_8h.html#afb311ddd4fc6ddc39e08b938b5b5d8e2">read_counts</a>(std::string &amp;counts_filename)</div>
@@ -244,7 +277,13 @@ $(function() {
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="keywordflow">return</span> counts;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment"> * @brief Read text file for count data and sort them to match all counts</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment"> * to a detector</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment"> * @param counts_filename Data filename for counts</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;std::vector&lt;std::vector&lt;double&gt;&gt;</div>
 <div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="rpt__utilities_8h.html#ab52e570b67e8a6acd6a0e47d9390a369">  209</a></span>&#160;<a class="code" href="rpt__utilities_8h.html#ab52e570b67e8a6acd6a0e47d9390a369">read_detectors_counts</a>(std::string &amp;counts_filename, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n_detectors)</div>
@@ -269,21 +308,21 @@ $(function() {
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LETHE_RPT_UTILITIES_H</span></div>
-<div class="ttc" id="aclassDetector_html"><div class="ttname"><a href="classDetector.html">Detector</a></div><div class="ttdef"><b>Definition:</b> detector.h:32</div></div>
-<div class="ttc" id="aclassRadioParticle_html"><div class="ttname"><a href="classRadioParticle.html">RadioParticle</a></div><div class="ttdef"><b>Definition:</b> radioactive_particle.h:30</div></div>
+<div class="ttc" id="aclassDetector_html"><div class="ttname"><a href="classDetector.html">Detector</a></div><div class="ttdef"><b>Definition:</b> <a href="detector_8h_source.html#l00031">detector.h:32</a></div></div>
+<div class="ttc" id="aclassRadioParticle_html"><div class="ttname"><a href="classRadioParticle.html">RadioParticle</a></div><div class="ttdef"><b>Definition:</b> <a href="radioactive__particle_8h_source.html#l00029">radioactive_particle.h:30</a></div></div>
 <div class="ttc" id="adetector_8h_html"><div class="ttname"><a href="detector_8h.html">detector.h</a></div></div>
 <div class="ttc" id="aradioactive__particle_8h_html"><div class="ttname"><a href="radioactive__particle_8h.html">radioactive_particle.h</a></div></div>
-<div class="ttc" id="arpt__utilities_8h_html_a145bf8ccacafb8920d8a1440eb54509a"><div class="ttname"><a href="rpt__utilities_8h.html#a145bf8ccacafb8920d8a1440eb54509a">assign_particle_positions</a></div><div class="ttdeci">std::vector&lt; RadioParticle&lt; dim &gt; &gt; assign_particle_positions(std::string &amp;particle_positions_filename)</div><div class="ttdoc">Read text file for particle positions and assign them to particle objects.</div><div class="ttdef"><b>Definition:</b> rpt_utilities.h:110</div></div>
-<div class="ttc" id="arpt__utilities_8h_html_a2b0e670bb628a6ffb43f9c02334459dd"><div class="ttname"><a href="rpt__utilities_8h.html#a2b0e670bb628a6ffb43f9c02334459dd">read_positions</a></div><div class="ttdeci">std::vector&lt; Point&lt; dim &gt; &gt; read_positions(std::string &amp;positions_filename)</div><div class="ttdoc">Read text file for positions.</div><div class="ttdef"><b>Definition:</b> rpt_utilities.h:74</div></div>
-<div class="ttc" id="arpt__utilities_8h_html_aa6aa1b0d66b8e3e1cdf57747ae9bcd38"><div class="ttname"><a href="rpt__utilities_8h.html#aa6aa1b0d66b8e3e1cdf57747ae9bcd38">assign_detector_positions</a></div><div class="ttdeci">std::vector&lt; Detector&lt; dim &gt; &gt; assign_detector_positions(Parameters::DetectorParameters &amp;detector_parameters)</div><div class="ttdoc">Read text file for detector positions and assign them to detector objects.</div><div class="ttdef"><b>Definition:</b> rpt_utilities.h:136</div></div>
-<div class="ttc" id="arpt__utilities_8h_html_ab52e570b67e8a6acd6a0e47d9390a369"><div class="ttname"><a href="rpt__utilities_8h.html#ab52e570b67e8a6acd6a0e47d9390a369">read_detectors_counts</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; double &gt; &gt; read_detectors_counts(std::string &amp;counts_filename, unsigned int n_detectors)</div><div class="ttdoc">Read text file for count data and sort them to match all counts to a detector.</div><div class="ttdef"><b>Definition:</b> rpt_utilities.h:209</div></div>
-<div class="ttc" id="arpt__utilities_8h_html_aba208d797dcf0e0054e48b8d2f357780"><div class="ttname"><a href="rpt__utilities_8h.html#aba208d797dcf0e0054e48b8d2f357780">attach_grid_to_triangulation</a></div><div class="ttdeci">void attach_grid_to_triangulation(Triangulation&lt; dim &gt; &amp;triangulation, const Parameters::RPTParameters &amp;parameters, const unsigned int n_refinement)</div><div class="ttdoc">Create grid of the reactor vessel (cylinder).</div><div class="ttdef"><b>Definition:</b> rpt_utilities.h:41</div></div>
-<div class="ttc" id="arpt__utilities_8h_html_afb311ddd4fc6ddc39e08b938b5b5d8e2"><div class="ttname"><a href="rpt__utilities_8h.html#afb311ddd4fc6ddc39e08b938b5b5d8e2">read_counts</a></div><div class="ttdeci">std::vector&lt; double &gt; read_counts(std::string &amp;counts_filename)</div><div class="ttdoc">Read text file for count data and store it in a vector.</div><div class="ttdef"><b>Definition:</b> rpt_utilities.h:181</div></div>
-<div class="ttc" id="astructParameters_1_1DetectorParameters_html"><div class="ttname"><a href="structParameters_1_1DetectorParameters.html">Parameters::DetectorParameters</a></div><div class="ttdoc">DetectorParameters - Defines information related to detectors. All detectors must have the same dimen...</div><div class="ttdef"><b>Definition:</b> parameters_rpt.h:117</div></div>
-<div class="ttc" id="astructParameters_1_1DetectorParameters_html_a978052d6862d9d7dfaef4d67bc21d93c"><div class="ttname"><a href="structParameters_1_1DetectorParameters.html#a978052d6862d9d7dfaef4d67bc21d93c">Parameters::DetectorParameters::detector_positions_file</a></div><div class="ttdeci">std::string detector_positions_file</div><div class="ttdef"><b>Definition:</b> parameters_rpt.h:120</div></div>
-<div class="ttc" id="astructParameters_1_1RPTParameters_html"><div class="ttname"><a href="structParameters_1_1RPTParameters.html">Parameters::RPTParameters</a></div><div class="ttdoc">RPTParameters - Defines the common parameters for the RPT simulation as fixed parameters,...</div><div class="ttdef"><b>Definition:</b> parameters_rpt.h:44</div></div>
-<div class="ttc" id="astructParameters_1_1RPTParameters_html_a8e8bddbdcb395e002d574de36d9a81d4"><div class="ttname"><a href="structParameters_1_1RPTParameters.html#a8e8bddbdcb395e002d574de36d9a81d4">Parameters::RPTParameters::reactor_height</a></div><div class="ttdeci">double reactor_height</div><div class="ttdef"><b>Definition:</b> parameters_rpt.h:65</div></div>
-<div class="ttc" id="astructParameters_1_1RPTParameters_html_aa4ca720ab2c38bf8fbc335b3cb81c819"><div class="ttname"><a href="structParameters_1_1RPTParameters.html#aa4ca720ab2c38bf8fbc335b3cb81c819">Parameters::RPTParameters::reactor_radius</a></div><div class="ttdeci">double reactor_radius</div><div class="ttdef"><b>Definition:</b> parameters_rpt.h:64</div></div>
+<div class="ttc" id="arpt__utilities_8h_html_a145bf8ccacafb8920d8a1440eb54509a"><div class="ttname"><a href="rpt__utilities_8h.html#a145bf8ccacafb8920d8a1440eb54509a">assign_particle_positions</a></div><div class="ttdeci">std::vector&lt; RadioParticle&lt; dim &gt; &gt; assign_particle_positions(std::string &amp;particle_positions_filename)</div><div class="ttdoc">Read text file for particle positions and assign them to particle objects.</div><div class="ttdef"><b>Definition:</b> <a href="rpt__utilities_8h_source.html#l00110">rpt_utilities.h:110</a></div></div>
+<div class="ttc" id="arpt__utilities_8h_html_a2b0e670bb628a6ffb43f9c02334459dd"><div class="ttname"><a href="rpt__utilities_8h.html#a2b0e670bb628a6ffb43f9c02334459dd">read_positions</a></div><div class="ttdeci">std::vector&lt; Point&lt; dim &gt; &gt; read_positions(std::string &amp;positions_filename)</div><div class="ttdoc">Read text file for positions.</div><div class="ttdef"><b>Definition:</b> <a href="rpt__utilities_8h_source.html#l00074">rpt_utilities.h:74</a></div></div>
+<div class="ttc" id="arpt__utilities_8h_html_aa6aa1b0d66b8e3e1cdf57747ae9bcd38"><div class="ttname"><a href="rpt__utilities_8h.html#aa6aa1b0d66b8e3e1cdf57747ae9bcd38">assign_detector_positions</a></div><div class="ttdeci">std::vector&lt; Detector&lt; dim &gt; &gt; assign_detector_positions(Parameters::DetectorParameters &amp;detector_parameters)</div><div class="ttdoc">Read text file for detector positions and assign them to detector objects.</div><div class="ttdef"><b>Definition:</b> <a href="rpt__utilities_8h_source.html#l00136">rpt_utilities.h:136</a></div></div>
+<div class="ttc" id="arpt__utilities_8h_html_ab52e570b67e8a6acd6a0e47d9390a369"><div class="ttname"><a href="rpt__utilities_8h.html#ab52e570b67e8a6acd6a0e47d9390a369">read_detectors_counts</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; double &gt; &gt; read_detectors_counts(std::string &amp;counts_filename, unsigned int n_detectors)</div><div class="ttdoc">Read text file for count data and sort them to match all counts to a detector.</div><div class="ttdef"><b>Definition:</b> <a href="rpt__utilities_8h_source.html#l00209">rpt_utilities.h:209</a></div></div>
+<div class="ttc" id="arpt__utilities_8h_html_aba208d797dcf0e0054e48b8d2f357780"><div class="ttname"><a href="rpt__utilities_8h.html#aba208d797dcf0e0054e48b8d2f357780">attach_grid_to_triangulation</a></div><div class="ttdeci">void attach_grid_to_triangulation(Triangulation&lt; dim &gt; &amp;triangulation, const Parameters::RPTParameters &amp;parameters, const unsigned int n_refinement)</div><div class="ttdoc">Create grid of the reactor vessel (cylinder).</div><div class="ttdef"><b>Definition:</b> <a href="rpt__utilities_8h_source.html#l00041">rpt_utilities.h:41</a></div></div>
+<div class="ttc" id="arpt__utilities_8h_html_afb311ddd4fc6ddc39e08b938b5b5d8e2"><div class="ttname"><a href="rpt__utilities_8h.html#afb311ddd4fc6ddc39e08b938b5b5d8e2">read_counts</a></div><div class="ttdeci">std::vector&lt; double &gt; read_counts(std::string &amp;counts_filename)</div><div class="ttdoc">Read text file for count data and store it in a vector.</div><div class="ttdef"><b>Definition:</b> <a href="rpt__utilities_8h_source.html#l00181">rpt_utilities.h:181</a></div></div>
+<div class="ttc" id="astructParameters_1_1DetectorParameters_html"><div class="ttname"><a href="structParameters_1_1DetectorParameters.html">Parameters::DetectorParameters</a></div><div class="ttdoc">DetectorParameters - Defines information related to detectors. All detectors must have the same dimen...</div><div class="ttdef"><b>Definition:</b> <a href="parameters__rpt_8h_source.html#l00116">parameters_rpt.h:117</a></div></div>
+<div class="ttc" id="astructParameters_1_1DetectorParameters_html_a978052d6862d9d7dfaef4d67bc21d93c"><div class="ttname"><a href="structParameters_1_1DetectorParameters.html#a978052d6862d9d7dfaef4d67bc21d93c">Parameters::DetectorParameters::detector_positions_file</a></div><div class="ttdeci">std::string detector_positions_file</div><div class="ttdef"><b>Definition:</b> <a href="parameters__rpt_8h_source.html#l00120">parameters_rpt.h:120</a></div></div>
+<div class="ttc" id="astructParameters_1_1RPTParameters_html"><div class="ttname"><a href="structParameters_1_1RPTParameters.html">Parameters::RPTParameters</a></div><div class="ttdoc">RPTParameters - Defines the common parameters for the RPT simulation as fixed parameters,...</div><div class="ttdef"><b>Definition:</b> <a href="parameters__rpt_8h_source.html#l00043">parameters_rpt.h:44</a></div></div>
+<div class="ttc" id="astructParameters_1_1RPTParameters_html_a8e8bddbdcb395e002d574de36d9a81d4"><div class="ttname"><a href="structParameters_1_1RPTParameters.html#a8e8bddbdcb395e002d574de36d9a81d4">Parameters::RPTParameters::reactor_height</a></div><div class="ttdeci">double reactor_height</div><div class="ttdef"><b>Definition:</b> <a href="parameters__rpt_8h_source.html#l00065">parameters_rpt.h:65</a></div></div>
+<div class="ttc" id="astructParameters_1_1RPTParameters_html_aa4ca720ab2c38bf8fbc335b3cb81c819"><div class="ttname"><a href="structParameters_1_1RPTParameters.html#aa4ca720ab2c38bf8fbc335b3cb81c819">Parameters::RPTParameters::reactor_radius</a></div><div class="ttdeci">double reactor_radius</div><div class="ttdef"><b>Definition:</b> <a href="parameters__rpt_8h_source.html#l00064">parameters_rpt.h:64</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

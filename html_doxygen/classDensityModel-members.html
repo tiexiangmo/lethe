@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -76,7 +83,7 @@ $(function() {
   <tr><td class="entry"><a class="el" href="classDensityModel.html#a8c2d5a30784dfbd1f8f0e0166510e2d3">get_psi</a>() const =0</td><td class="entry"><a class="el" href="classDensityModel.html">DensityModel</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classDensityModel.html#a017b43e273de5fb394cb4584ca891364">is_constant_density_model</a>() const</td><td class="entry"><a class="el" href="classDensityModel.html">DensityModel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classPhysicalPropertyModel.html#a3fc51243a48832ed3c6e3b4ee797c6b2">jacobian</a>(const std::map&lt; field, double &gt; &amp;field_values, const field id)=0</td><td class="entry"><a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDensityModel.html#abc49a8b9b5b207ae82250a93afb0ca10">model_cast</a>(const Parameters::Material &amp;material_properties)</td><td class="entry"><a class="el" href="classDensityModel.html">DensityModel</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDensityModel.html#a678019a0aa3a358b943c1221834ae4d8">model_cast</a>(const Parameters::Material &amp;material_properties)</td><td class="entry"><a class="el" href="classDensityModel.html">DensityModel</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr><td class="entry"><a class="el" href="classPhysicalPropertyModel.html#ad805b20920189b0c308b0a4730217b81">model_depends_on</a></td><td class="entry"><a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classPhysicalPropertyModel.html#a6be82a7f56166add6af232ac511194d4">numerical_jacobian</a>(const std::map&lt; field, double &gt; &amp;field_values, const field id)</td><td class="entry"><a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classPhysicalPropertyModel.html#a790b73800189af9ff8d80f1e6f8c9306">PhysicalPropertyModel</a>()</td><td class="entry"><a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>

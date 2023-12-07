@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -111,7 +118,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a7117bc322467803abcc3cd6397dde672 inherit pub_attribs_classDistribution"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDistribution.html#a7117bc322467803abcc3cd6397dde672">particle_sizes</a></td></tr>
 <tr class="separator:a7117bc322467803abcc3cd6397dde672 inherit pub_attribs_classDistribution"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="distributions_8h_source.html#l00053">53</a> of file <a class="el" href="distributions_8h_source.html">distributions.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afc79920405dd0469468389068ba541a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc79920405dd0469468389068ba541a6">&#9670;&nbsp;</a></span>NormalDistribution()</h2>
 
@@ -147,6 +157,10 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="distributions_8cc_source.html#l00003">3</a> of file <a class="el" href="distributions_8cc_source.html">distributions.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="distributions_8h_source.html#l00089">diameter_averages</a>, and <a class="el" href="distributions_8h_source.html#l00091">standard_deviations</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -177,6 +191,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDistribution.html#af426f32ff999e52f8ec4070ce85bb5bc">Distribution</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="distributions_8cc_source.html#l00036">36</a> of file <a class="el" href="distributions_8cc_source.html">distributions.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="distributions_8h_source.html#l00089">diameter_averages</a>, and <a class="el" href="distributions_8h_source.html#l00091">standard_deviations</a>.</p>
+
 </div>
 </div>
 <a id="a4d2a8ffa6859412a765d4157b7011cff"></a>
@@ -205,6 +223,10 @@ Additional Inherited Members</h2></td></tr>
 <p>Return @diameter_values. </p>
 
 <p>Implements <a class="el" href="classDistribution.html#a279e7f5a4849f5d5e1d1bf2dc571e71b">Distribution</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="distributions_8cc_source.html#l00026">26</a> of file <a class="el" href="distributions_8cc_source.html">distributions.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="distributions_8h_source.html#l00089">diameter_averages</a>, and <a class="el" href="distributions_8h_source.html#l00091">standard_deviations</a>.</p>
 
 </div>
 </div>
@@ -242,6 +264,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classDistribution.html#a78b6b315dc54c1c0e683d3963ff11ea2">Distribution</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="distributions_8cc_source.html#l00011">11</a> of file <a class="el" href="distributions_8cc_source.html">distributions.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="distributions_8h_source.html#l00089">diameter_averages</a>, <a class="el" href="distributions_8h_source.html#l00029">Distribution::particle_sizes</a>, and <a class="el" href="distributions_8h_source.html#l00091">standard_deviations</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -265,6 +291,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="distributions_8h_source.html#l00089">89</a> of file <a class="el" href="distributions_8h_source.html">distributions.h</a>.</p>
+
 </div>
 </div>
 <a id="a41821846adb264fe24b809325350d435"></a>
@@ -287,10 +315,13 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="distributions_8h_source.html#l00091">91</a> of file <a class="el" href="distributions_8h_source.html">distributions.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/dem/<a class="el" href="distributions_8h_source.html">distributions.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/dem/<a class="el" href="distributions_8cc_source.html">distributions.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

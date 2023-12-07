@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -126,15 +133,17 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classThermalExpansionModel"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classThermalExpansionModel')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classThermalExpansionModel.html">ThermalExpansionModel</a></td></tr>
-<tr class="memitem:a2b4f46a544682c34f55e404fbb8c0567 inherit pub_static_methods_classThermalExpansionModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classThermalExpansionModel.html">ThermalExpansionModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThermalExpansionModel.html#a2b4f46a544682c34f55e404fbb8c0567">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
-<tr class="memdesc:a2b4f46a544682c34f55e404fbb8c0567 inherit pub_static_methods_classThermalExpansionModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classThermalExpansionModel.html" title="Abstract class that allows to calculate the thermal expansion coefficient (with unit of inverse tempe...">ThermalExpansionModel</a> object by casting it to the proper child class.  <a href="classThermalExpansionModel.html#a2b4f46a544682c34f55e404fbb8c0567">More...</a><br /></td></tr>
-<tr class="separator:a2b4f46a544682c34f55e404fbb8c0567 inherit pub_static_methods_classThermalExpansionModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89104a8c0ce44d483737ca6281004079 inherit pub_static_methods_classThermalExpansionModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classThermalExpansionModel.html">ThermalExpansionModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThermalExpansionModel.html#a89104a8c0ce44d483737ca6281004079">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
+<tr class="memdesc:a89104a8c0ce44d483737ca6281004079 inherit pub_static_methods_classThermalExpansionModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classThermalExpansionModel.html" title="Abstract class that allows to calculate the thermal expansion coefficient (with unit of inverse tempe...">ThermalExpansionModel</a> object by casting it to the proper child class.  <a href="classThermalExpansionModel.html#a89104a8c0ce44d483737ca6281004079">More...</a><br /></td></tr>
+<tr class="separator:a89104a8c0ce44d483737ca6281004079 inherit pub_static_methods_classThermalExpansionModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classPhysicalPropertyModel"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classPhysicalPropertyModel')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td></tr>
 <tr class="memitem:ad805b20920189b0c308b0a4730217b81 inherit pro_attribs_classPhysicalPropertyModel"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicalPropertyModel.html#ad805b20920189b0c308b0a4730217b81">model_depends_on</a></td></tr>
 <tr class="separator:ad805b20920189b0c308b0a4730217b81 inherit pro_attribs_classPhysicalPropertyModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements a phase-dependant thermal expansion coefficient. </p>
+
+<p class="definition">Definition at line <a class="el" href="thermal__expansion__model_8h_source.html#l00117">117</a> of file <a class="el" href="thermal__expansion__model_8h_source.html">thermal_expansion_model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a78df32ff0fb74f6342c10c93d0620bf4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78df32ff0fb74f6342c10c93d0620bf4">&#9670;&nbsp;</a></span>ThermalExpansionPhaseChange()</h2>
@@ -161,6 +170,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="thermal__expansion__model_8h_source.html#l00123">123</a> of file <a class="el" href="thermal__expansion__model_8h_source.html">thermal_expansion_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00197">PhysicalPropertyModel::model_depends_on</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -211,6 +224,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a3fc51243a48832ed3c6e3b4ee797c6b2">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="thermal__expansion__model_8h_source.html#l00200">200</a> of file <a class="el" href="thermal__expansion__model_8h_source.html">thermal_expansion_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00141">PhysicalPropertyModel::numerical_jacobian()</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <a id="a937cf8431158bb796efe9238ce7d7996"></a>
@@ -247,6 +264,10 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>value of the thermal expansion coefficient calculated with the fields_value. </dd></dl>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a23d2b90f4f05ee9de4be96f6f9989a37">PhysicalPropertyModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="thermal__expansion__model_8h_source.html#l00135">135</a> of file <a class="el" href="thermal__expansion__model_8h_source.html">thermal_expansion_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="phase__change_8h_source.html#l00033">calculate_liquid_fraction()</a>, <a class="el" href="thermal__expansion__model_8h_source.html#l00221">p_phase_change_params</a>, <a class="el" href="parameters_8h_source.html#l00192">Parameters::PhaseChange::T_liquidus</a>, <a class="el" href="parameters_8h_source.html#l00189">Parameters::PhaseChange::T_solidus</a>, <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>, <a class="el" href="parameters_8h_source.html#l00210">Parameters::PhaseChange::thermal_expansion_l</a>, and <a class="el" href="parameters_8h_source.html#l00213">Parameters::PhaseChange::thermal_expansion_s</a>.</p>
 
 </div>
 </div>
@@ -302,6 +323,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#ae71d2dd28b12d69622987bced8c0c661">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="thermal__expansion__model_8h_source.html#l00216">216</a> of file <a class="el" href="thermal__expansion__model_8h_source.html">thermal_expansion_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00162">PhysicalPropertyModel::vector_numerical_jacobian()</a>.</p>
+
 </div>
 </div>
 <a id="a455e0cd7487f46f6759c385113148bb2"></a>
@@ -349,6 +374,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a93dd785206d0e4e6659ca03f7f10ddec">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="thermal__expansion__model_8h_source.html#l00167">167</a> of file <a class="el" href="thermal__expansion__model_8h_source.html">thermal_expansion_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="phase__change_8h_source.html#l00033">calculate_liquid_fraction()</a>, <a class="el" href="thermal__expansion__model_8h_source.html#l00221">p_phase_change_params</a>, <a class="el" href="parameters_8h_source.html#l00192">Parameters::PhaseChange::T_liquidus</a>, <a class="el" href="parameters_8h_source.html#l00189">Parameters::PhaseChange::T_solidus</a>, <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>, <a class="el" href="parameters_8h_source.html#l00210">Parameters::PhaseChange::thermal_expansion_l</a>, and <a class="el" href="parameters_8h_source.html#l00213">Parameters::PhaseChange::thermal_expansion_s</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -371,6 +400,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="thermal__expansion__model_8h_source.html#l00224">224</a> of file <a class="el" href="thermal__expansion__model_8h_source.html">thermal_expansion_model.h</a>.</p>
 
 </div>
 </div>

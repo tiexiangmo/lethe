@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -128,15 +135,17 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classThermalConductivityModel"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classThermalConductivityModel')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classThermalConductivityModel.html">ThermalConductivityModel</a></td></tr>
-<tr class="memitem:a6d11732dea0bbfe2128abb211befbf90 inherit pub_static_methods_classThermalConductivityModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classThermalConductivityModel.html">ThermalConductivityModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThermalConductivityModel.html#a6d11732dea0bbfe2128abb211befbf90">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
-<tr class="memdesc:a6d11732dea0bbfe2128abb211befbf90 inherit pub_static_methods_classThermalConductivityModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classThermalConductivityModel.html" title="Abstract class that allows to calculate the thermal conductivity on each quadrature point using the t...">ThermalConductivityModel</a> object by casting it to the proper child class.  <a href="classThermalConductivityModel.html#a6d11732dea0bbfe2128abb211befbf90">More...</a><br /></td></tr>
-<tr class="separator:a6d11732dea0bbfe2128abb211befbf90 inherit pub_static_methods_classThermalConductivityModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a141c4d482c3fd0e0e0bff222d264aa7e inherit pub_static_methods_classThermalConductivityModel"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classThermalConductivityModel.html">ThermalConductivityModel</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classThermalConductivityModel.html#a141c4d482c3fd0e0e0bff222d264aa7e">model_cast</a> (const <a class="el" href="classParameters_1_1Material.html">Parameters::Material</a> &amp;material_properties)</td></tr>
+<tr class="memdesc:a141c4d482c3fd0e0e0bff222d264aa7e inherit pub_static_methods_classThermalConductivityModel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classThermalConductivityModel.html" title="Abstract class that allows to calculate the thermal conductivity on each quadrature point using the t...">ThermalConductivityModel</a> object by casting it to the proper child class.  <a href="classThermalConductivityModel.html#a141c4d482c3fd0e0e0bff222d264aa7e">More...</a><br /></td></tr>
+<tr class="separator:a141c4d482c3fd0e0e0bff222d264aa7e inherit pub_static_methods_classThermalConductivityModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classPhysicalPropertyModel"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classPhysicalPropertyModel')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td></tr>
 <tr class="memitem:ad805b20920189b0c308b0a4730217b81 inherit pro_attribs_classPhysicalPropertyModel"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="physical__property__model_8h.html#a0b2c854385812ebfac83689a5c3ead58">field</a>, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicalPropertyModel.html#ad805b20920189b0c308b0a4730217b81">model_depends_on</a></td></tr>
 <tr class="separator:ad805b20920189b0c308b0a4730217b81 inherit pro_attribs_classPhysicalPropertyModel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements a linear temperature-dependant thermal conductivity of the form k = A + BT. </p>
+
+<p class="definition">Definition at line <a class="el" href="thermal__conductivity__model_8h_source.html#l00118">118</a> of file <a class="el" href="thermal__conductivity__model_8h_source.html">thermal_conductivity_model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aba95363b19b6144b38d4c68ec8e6bfa8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba95363b19b6144b38d4c68ec8e6bfa8">&#9670;&nbsp;</a></span>ThermalConductivityLinear()</h2>
@@ -173,6 +182,10 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="thermal__conductivity__model_8h_source.html#l00124">124</a> of file <a class="el" href="thermal__conductivity__model_8h_source.html">thermal_conductivity_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00197">PhysicalPropertyModel::model_depends_on</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -223,6 +236,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a3fc51243a48832ed3c6e3b4ee797c6b2">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="thermal__conductivity__model_8h_source.html#l00165">165</a> of file <a class="el" href="thermal__conductivity__model_8h_source.html">thermal_conductivity_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="thermal__conductivity__model_8h_source.html#l00189">B</a>.</p>
+
 </div>
 </div>
 <a id="a591a41dfa86a84ce01c5e8f936d48a01"></a>
@@ -259,6 +276,10 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>value of the thermal conductivity calculated with the fields_value. </dd></dl>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a23d2b90f4f05ee9de4be96f6f9989a37">PhysicalPropertyModel</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="thermal__conductivity__model_8h_source.html#l00137">137</a> of file <a class="el" href="thermal__conductivity__model_8h_source.html">thermal_conductivity_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="thermal__conductivity__model_8h_source.html#l00185">A</a>, <a class="el" href="thermal__conductivity__model_8h_source.html#l00189">B</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
 
 </div>
 </div>
@@ -314,6 +335,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#ae71d2dd28b12d69622987bced8c0c661">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="thermal__conductivity__model_8h_source.html#l00179">179</a> of file <a class="el" href="thermal__conductivity__model_8h_source.html">thermal_conductivity_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="thermal__conductivity__model_8h_source.html#l00189">B</a>.</p>
+
 </div>
 </div>
 <a id="ac31769cf56a8bbc87c442a5fc7ba7aa7"></a>
@@ -361,6 +386,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classPhysicalPropertyModel.html#a93dd785206d0e4e6659ca03f7f10ddec">PhysicalPropertyModel</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="thermal__conductivity__model_8h_source.html#l00148">148</a> of file <a class="el" href="thermal__conductivity__model_8h_source.html">thermal_conductivity_model.h</a>.</p>
+
+<p class="reference">References <a class="el" href="thermal__conductivity__model_8h_source.html#l00185">A</a>, <a class="el" href="thermal__conductivity__model_8h_source.html#l00189">B</a>, and <a class="el" href="physical__property__model_8h_source.html#l00035">temperature</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -384,6 +413,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="thermal__conductivity__model_8h_source.html#l00188">188</a> of file <a class="el" href="thermal__conductivity__model_8h_source.html">thermal_conductivity_model.h</a>.</p>
+
 </div>
 </div>
 <a id="a65bdace70d96173f07f99231031daeb6"></a>
@@ -405,6 +436,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="thermal__conductivity__model_8h_source.html#l00189">189</a> of file <a class="el" href="thermal__conductivity__model_8h_source.html">thermal_conductivity_model.h</a>.</p>
 
 </div>
 </div>

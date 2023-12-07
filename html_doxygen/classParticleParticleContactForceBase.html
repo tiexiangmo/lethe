@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -94,6 +101,8 @@ Public Member Functions</h2></td></tr>
 class ParticleParticleContactForceBase&lt; dim &gt;</h3>
 
 <p>Base class for the particle-particle contact force models This class does not implement any of the models, but ensures that an interface without template specialization is available. All of the actual implementation of the models are carried out in the <a class="el" href="classParticleParticleContactForce.html" title="Class that carries out the calculation of particle-particle contact force including non-linear and li...">ParticleParticleContactForce</a> class which is templated by the contact model type. </p>
+
+<p class="definition">Definition at line <a class="el" href="particle__particle__contact__force_8h_source.html#l00050">50</a> of file <a class="el" href="particle__particle__contact__force_8h_source.html">particle_particle_contact_force.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae597a46af1e3152a647002ebaf14bb53"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae597a46af1e3152a647002ebaf14bb53">&#9670;&nbsp;</a></span>calculate_IB_particle_particle_contact_force()</h2>
@@ -237,7 +246,7 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classParticleParticleContactForce.html#aab3ecb9eb0ff7d878e19c24d3eff6b24">ParticleParticleContactForce&lt; dim, force_model, rolling_friction_model &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classParticleParticleContactForce.html#a5ec5f579d78ea0997ee7def375f4ecfc">ParticleParticleContactForce&lt; dim, force_model, rolling_friction_model &gt;</a>.</p>
 
 </div>
 </div>
@@ -307,7 +316,7 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classParticleParticleContactForce.html#ad14043486bd79b83448347337c8cac88">ParticleParticleContactForce&lt; dim, force_model, rolling_friction_model &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classParticleParticleContactForce.html#a3f27cfe044a82ad30382e29c485bf261">ParticleParticleContactForce&lt; dim, force_model, rolling_friction_model &gt;</a>.</p>
 
 </div>
 </div>

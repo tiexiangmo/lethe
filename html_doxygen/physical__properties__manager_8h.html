@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -122,41 +129,56 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="physical__properties__manager_8h__dep__incl.png" border="0" usemap="#a_2home_2runner_2work_2lethe_2lethe_2include_2solvers_2physical__properties__manager_8hdep" alt=""/></div>
 <map name="a_2home_2runner_2work_2lethe_2lethe_2include_2solvers_2physical__properties__manager_8hdep" id="a_2home_2runner_2work_2lethe_2lethe_2include_2solvers_2physical__properties__manager_8hdep">
-<area shape="rect" title=" " alt="" coords="1587,5,1816,61"/>
-<area shape="rect" href="cahn__hilliard__scratch__data_8h.html" title=" " alt="" coords="2355,429,2565,485"/>
-<area shape="rect" href="navier__stokes__scratch__data_8h.html" title=" " alt="" coords="512,213,731,269"/>
-<area shape="rect" href="postprocessing__cfd_8h.html" title=" " alt="" coords="1277,109,1459,165"/>
-<area shape="rect" href="simulation__parameters_8h.html" title=" " alt="" coords="1607,109,1796,165"/>
-<area shape="rect" href="tracer__scratch__data_8h.html" title=" " alt="" coords="2769,213,2951,269"/>
-<area shape="rect" href="cahn__hilliard_8h.html" title=" " alt="" coords="2245,644,2427,700"/>
-<area shape="rect" href="cahn__hilliard__assemblers_8h.html" title=" " alt="" coords="2304,540,2507,596"/>
-<area shape="rect" href="cfd__dem__coupling_8h.html" title=" " alt="" coords="689,748,871,804"/>
-<area shape="rect" href="vans__assemblers_8h.html" title=" " alt="" coords="591,540,774,596"/>
-<area shape="rect" href="gls__navier__stokes_8h.html" title=" " alt="" coords="1091,540,1274,596"/>
-<area shape="rect" href="isothermal__compressible__navier__stokes__assembler_8h.html" title=" " alt="" coords="93,421,299,492"/>
-<area shape="rect" href="isothermal__compressible__navier__stokes__vof__assembler_8h.html" title=" " alt="" coords="323,421,557,492"/>
-<area shape="rect" href="navier__stokes__assemblers_8h.html" title=" " alt="" coords="516,317,727,373"/>
-<area shape="rect" href="navier__stokes__cahn__hilliard__assemblers_8h.html" title=" " alt="" coords="895,421,1102,492"/>
-<area shape="rect" href="navier__stokes__vof__assemblers_8h.html" title=" " alt="" coords="633,429,871,485"/>
-<area shape="rect" href="gls__vans_8h.html" title=" " alt="" coords="689,644,871,700"/>
-<area shape="rect" href="gls__sharp__navier__stokes_8h.html" title=" " alt="" coords="1128,644,1325,700"/>
-<area shape="rect" href="gls__nitsche__navier__stokes_8h.html" title=" " alt="" coords="896,644,1104,700"/>
-<area shape="rect" href="navier__stokes__base_8h.html" title=" " alt="" coords="1557,429,1739,485"/>
-<area shape="rect" href="gd__navier__stokes_8h.html" title=" " alt="" coords="1607,540,1790,596"/>
-<area shape="rect" href="mf__navier__stokes_8h.html" title=" " alt="" coords="1401,540,1583,596"/>
-<area shape="rect" href="cfd__dem__simulation__parameters_8h.html" title=" " alt="" coords="1229,429,1481,485"/>
-<area shape="rect" href="auxiliary__physics_8h.html" title=" " alt="" coords="1903,213,2086,269"/>
-<area shape="rect" href="multiphysics__interface_8h.html" title=" " alt="" coords="2224,317,2411,373"/>
-<area shape="rect" href="mf__navier__stokes__operators_8h.html" title=" " alt="" coords="1371,317,1594,373"/>
-<area shape="rect" href="postprocessors__smoothing_8h.html" title=" " alt="" coords="1667,213,1879,269"/>
-<area shape="rect" href="heat__transfer_8h.html" title=" " alt="" coords="1949,644,2131,700"/>
-<area shape="rect" href="tracer_8h.html" title=" " alt="" coords="2898,429,3081,485"/>
-<area shape="rect" href="vof_8h.html" title=" " alt="" coords="2619,651,2816,693"/>
-<area shape="rect" href="heat__transfer__assemblers_8h.html" title=" " alt="" coords="1866,540,2073,596"/>
-<area shape="rect" href="heat__transfer__scratch__data_8h.html" title=" " alt="" coords="1913,429,2127,485"/>
-<area shape="rect" href="vof__scratch__data_8h.html" title=" " alt="" coords="2691,429,2874,485"/>
-<area shape="rect" href="vof__assemblers_8h.html" title=" " alt="" coords="2691,540,2874,596"/>
-<area shape="rect" href="tracer__assemblers_8h.html" title=" " alt="" coords="2769,317,2951,373"/>
+<area shape="rect" title=" " alt="" coords="1463,5,1693,61"/>
+<area shape="rect" href="cahn__hilliard__scratch__data_8h.html" title=" " alt="" coords="457,443,667,499"/>
+<area shape="rect" href="navier__stokes__scratch__data_8h.html" title=" " alt="" coords="2398,213,2617,269"/>
+<area shape="rect" href="postprocessing__cfd_8h.html" title=" " alt="" coords="1651,443,1833,499"/>
+<area shape="rect" href="simulation__parameters_8h.html" title=" " alt="" coords="1362,109,1551,165"/>
+<area shape="rect" href="tracer__scratch__data_8h.html" title=" " alt="" coords="280,213,463,269"/>
+<area shape="rect" href="physical__properties__manager_8cc.html" title=" " alt="" coords="1789,109,2023,165"/>
+<area shape="rect" href="cahn__hilliard_8h.html" title=" " alt="" coords="693,673,876,729"/>
+<area shape="rect" href="cahn__hilliard_8cc.html" title=" " alt="" coords="331,777,513,833"/>
+<area shape="rect" href="cahn__hilliard__assemblers_8h.html" title=" " alt="" coords="522,562,725,618"/>
+<area shape="rect" href="cahn__hilliard__scratch__data_8cc.html" title=" " alt="" coords="315,555,497,625"/>
+<area shape="rect" href="multiphysics__interface_8cc.html" title=" " alt="" coords="689,777,881,833"/>
+<area shape="rect" href="cahn__hilliard__assemblers_8cc.html" title=" " alt="" coords="460,673,669,729"/>
+<area shape="rect" href="cfd__dem__coupling_8h.html" title=" " alt="" coords="1348,777,1531,833"/>
+<area shape="rect" href="vans__assemblers_8h.html" title=" " alt="" coords="2163,562,2345,618"/>
+<area shape="rect" href="gls__navier__stokes_8h.html" title=" " alt="" coords="1904,562,2087,618"/>
+<area shape="rect" href="isothermal__compressible__navier__stokes__assembler_8h.html" title=" " alt="" coords="2597,436,2802,507"/>
+<area shape="rect" href="isothermal__compressible__navier__stokes__vof__assembler_8h.html" title=" " alt="" coords="3067,436,3300,507"/>
+<area shape="rect" href="navier__stokes__assemblers_8h.html" title=" " alt="" coords="2589,325,2799,381"/>
+<area shape="rect" href="navier__stokes__cahn__hilliard__assemblers_8h.html" title=" " alt="" coords="2365,436,2572,507"/>
+<area shape="rect" href="navier__stokes__vof__assemblers_8h.html" title=" " alt="" coords="3376,443,3615,499"/>
+<area shape="rect" href="navier__stokes__scratch__data_8cc.html" title=" " alt="" coords="2875,317,3057,388"/>
+<area shape="rect" href="cfd__dem__coupling_8cc.html" title=" " alt="" coords="1348,881,1531,937"/>
+<area shape="rect" href="gls__vans_8h.html" title=" " alt="" coords="1516,673,1699,729"/>
+<area shape="rect" href="vans__assemblers_8cc.html" title=" " alt="" coords="2228,673,2411,729"/>
+<area shape="rect" href="gls__vans_8cc.html" title=" " alt="" coords="1555,777,1737,833"/>
+<area shape="rect" href="gls__sharp__navier__stokes_8h.html" title=" " alt="" coords="1723,673,1921,729"/>
+<area shape="rect" href="gls__nitsche__navier__stokes_8h.html" title=" " alt="" coords="1945,673,2153,729"/>
+<area shape="rect" href="gls__navier__stokes_8cc.html" title=" " alt="" coords="2808,673,2991,729"/>
+<area shape="rect" href="gls__sharp__navier__stokes_8cc.html" title=" " alt="" coords="2626,777,2829,833"/>
+<area shape="rect" href="isothermal__compressible__navier__stokes__assembler_8cc.html" title=" " alt="" coords="2651,555,2862,625"/>
+<area shape="rect" href="gd__navier__stokes_8cc.html" title=" " alt="" coords="3303,562,3485,618"/>
+<area shape="rect" href="isothermal__compressible__navier__stokes__vof__assembler_8cc.html" title=" " alt="" coords="2937,555,3176,625"/>
+<area shape="rect" href="navier__stokes__base_8h.html" title=" " alt="" coords="1444,443,1627,499"/>
+<area shape="rect" href="navier__stokes__assemblers_8cc.html" title=" " alt="" coords="2826,443,3042,499"/>
+<area shape="rect" href="navier__stokes__base_8cc.html" title=" " alt="" coords="1387,562,1569,618"/>
+<area shape="rect" href="navier__stokes__cahn__hilliard__assemblers_8cc.html" title=" " alt="" coords="2369,555,2576,625"/>
+<area shape="rect" href="navier__stokes__vof__assemblers_8cc.html" title=" " alt="" coords="3561,562,3805,618"/>
+<area shape="rect" href="postprocessing__cfd_8cc.html" title=" " alt="" coords="1645,562,1828,618"/>
+<area shape="rect" href="cfd__dem__simulation__parameters_8h.html" title=" " alt="" coords="1116,443,1368,499"/>
+<area shape="rect" href="auxiliary__physics_8h.html" title=" " alt="" coords="771,213,953,269"/>
+<area shape="rect" href="multiphysics__interface_8h.html" title=" " alt="" coords="639,325,826,381"/>
+<area shape="rect" href="mf__navier__stokes__operators_8h.html" title=" " alt="" coords="977,213,1200,269"/>
+<area shape="rect" href="postprocessors__smoothing_8h.html" title=" " alt="" coords="1401,325,1613,381"/>
+<area shape="rect" href="simulation__parameters_8cc.html" title=" " alt="" coords="1225,213,1419,269"/>
+<area shape="rect" href="cfd__dem__simulation__parameters_8cc.html" title=" " alt="" coords="951,562,1210,618"/>
+<area shape="rect" href="tracer_8h.html" title=" " alt="" coords="221,443,404,499"/>
+<area shape="rect" href="tracer_8cc.html" title=" " alt="" coords="5,562,188,618"/>
+<area shape="rect" href="tracer__assemblers_8h.html" title=" " alt="" coords="73,325,256,381"/>
+<area shape="rect" href="tracer__scratch__data_8cc.html" title=" " alt="" coords="280,325,463,381"/>
 </map>
 </div>
 </div>
@@ -198,6 +220,8 @@ Functions</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3374dca42581d32444eb366feb9f3189afca154035ca3d8f1e45a9b648a2d6ef6"></a>fluid_fluid&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a3374dca42581d32444eb366feb9f3189a2116a68bfe5535ddc1f83113fcede062"></a>fluid_solid&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="physical__properties__manager_8h_source.html#l00052">52</a> of file <a class="el" href="physical__properties__manager_8h_source.html">physical_properties_manager.h</a>.</p>
 
 </div>
 </div>

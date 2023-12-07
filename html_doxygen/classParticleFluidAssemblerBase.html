@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -114,6 +121,8 @@ class ParticleFluidAssemblerBase&lt; dim &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="vans__assemblers_8h_source.html#l00040">40</a> of file <a class="el" href="vans__assemblers_8h_source.html">vans_assemblers.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a273a79d7265d8eaf8af65287186f4fea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a273a79d7265d8eaf8af65287186f4fea">&#9670;&nbsp;</a></span>calculate_particle_fluid_interactions()</h2>
@@ -150,7 +159,7 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classGLSVansAssemblerShearForce.html#a694276ff2d91bc6f1742392760aee1e1">GLSVansAssemblerShearForce&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerPressureForce.html#aba731e1547f5fdb1b5ac66c8981e2f5b">GLSVansAssemblerPressureForce&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerBuoyancy.html#a4db1fd9c1df6bfa6e65ec88fe4850605">GLSVansAssemblerBuoyancy&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerVorticalTorque.html#add779f118d8c2527825db1aa112994ae">GLSVansAssemblerVorticalTorque&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerViscousTorque.html#a0abcaacb2ef8da5ad7ff09014a4e3775">GLSVansAssemblerViscousTorque&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerMagnus.html#ad9ad94c1a2563b6d78a1f56a61727e68">GLSVansAssemblerMagnus&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerSaffmanMei.html#ae0470116371b5462f23a926fe8f57ba7">GLSVansAssemblerSaffmanMei&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerGidaspow.html#a64c084cf0624a12cbd84ecf75020e7b1">GLSVansAssemblerGidaspow&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerBeetstra.html#a5c5907f72c770e9d577fe931f2f43fa9">GLSVansAssemblerBeetstra&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerKochHill.html#a0c29f516ae0928b6a79ad7cdb2ef9c89">GLSVansAssemblerKochHill&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerDallavalle.html#a87880822abe3a3f6d5bf8734526b918d">GLSVansAssemblerDallavalle&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerRong.html#a78e818081b156e2cbf36b674603b0c9a">GLSVansAssemblerRong&lt; dim &gt;</a>, and <a class="el" href="classGLSVansAssemblerDiFelice.html#a7047c3d773d18e6e7e5b4f0454276298">GLSVansAssemblerDiFelice&lt; dim &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classGLSVansAssemblerShearForce.html#a9eeb3871876ffc515279893760d4ebe4">GLSVansAssemblerShearForce&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerPressureForce.html#a7161fc0fca19e9c690adecd1247b3511">GLSVansAssemblerPressureForce&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerBuoyancy.html#adedeb816182a4ea5cd030b07d16b0be8">GLSVansAssemblerBuoyancy&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerVorticalTorque.html#a4efd9497734a15be8a42c56b7a191151">GLSVansAssemblerVorticalTorque&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerViscousTorque.html#a1d08fdf5c8aa004d7376b4d8c30f3022">GLSVansAssemblerViscousTorque&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerMagnus.html#a443a5540f1efac4a84615860dcd7bd0d">GLSVansAssemblerMagnus&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerSaffmanMei.html#a73886a53b576cbee6c93fc9e9c91a7e4">GLSVansAssemblerSaffmanMei&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerGidaspow.html#a64580728c6be8eab3349d38b59cc7506">GLSVansAssemblerGidaspow&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerBeetstra.html#a54d46351a8de53c83bb6754acfb59c63">GLSVansAssemblerBeetstra&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerKochHill.html#a73f83736c416c90c9c2c53ed496c51c1">GLSVansAssemblerKochHill&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerDallavalle.html#a7daac2e79fdb712df8d2b06d5a3400e7">GLSVansAssemblerDallavalle&lt; dim &gt;</a>, <a class="el" href="classGLSVansAssemblerRong.html#a58101c5c18403c7427c67b1078d0f1f6">GLSVansAssemblerRong&lt; dim &gt;</a>, and <a class="el" href="classGLSVansAssemblerDiFelice.html#ac066e426d0916b8ff6c6b1347503e59c">GLSVansAssemblerDiFelice&lt; dim &gt;</a>.</p>
 
 </div>
 </div>

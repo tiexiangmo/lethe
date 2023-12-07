@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -97,12 +104,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a4a85eab29e322e3fb90f59beb4ac3d24"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classVolumeOfFluidFilterBase.html">VolumeOfFluidFilterBase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVolumeOfFluidFilterBase.html#a4a85eab29e322e3fb90f59beb4ac3d24">model_cast</a> (const <a class="el" href="structParameters_1_1VOF__PhaseFilter.html">Parameters::VOF_PhaseFilter</a> &amp;phase_filter_parameters)</td></tr>
-<tr class="memdesc:a4a85eab29e322e3fb90f59beb4ac3d24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classVolumeOfFluidFilterBase.html" title="Class that allows phase fraction filtering.">VolumeOfFluidFilterBase</a> object by casting it to the proper child class.  <a href="classVolumeOfFluidFilterBase.html#a4a85eab29e322e3fb90f59beb4ac3d24">More...</a><br /></td></tr>
-<tr class="separator:a4a85eab29e322e3fb90f59beb4ac3d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87286b158579e34a40627510e9824536"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classVolumeOfFluidFilterBase.html">VolumeOfFluidFilterBase</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVolumeOfFluidFilterBase.html#a87286b158579e34a40627510e9824536">model_cast</a> (const <a class="el" href="structParameters_1_1VOF__PhaseFilter.html">Parameters::VOF_PhaseFilter</a> &amp;phase_filter_parameters)</td></tr>
+<tr class="memdesc:a87286b158579e34a40627510e9824536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates and returns a pointer to a <a class="el" href="classVolumeOfFluidFilterBase.html" title="Class that allows phase fraction filtering.">VolumeOfFluidFilterBase</a> object by casting it to the proper child class.  <a href="classVolumeOfFluidFilterBase.html#a87286b158579e34a40627510e9824536">More...</a><br /></td></tr>
+<tr class="separator:a87286b158579e34a40627510e9824536"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that allows phase fraction filtering. </p>
+
+<p class="definition">Definition at line <a class="el" href="vof__filter_8h_source.html#l00026">26</a> of file <a class="el" href="vof__filter_8h_source.html">vof_filter.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aabb897196522e954249510c58aaa5b7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabb897196522e954249510c58aaa5b7a">&#9670;&nbsp;</a></span>VolumeOfFluidFilterBase()</h2>
@@ -126,6 +135,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vof__filter_8h_source.html#l00029">29</a> of file <a class="el" href="vof__filter_8h_source.html">vof_filter.h</a>.</p>
 
 </div>
 </div>
@@ -167,8 +178,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4a85eab29e322e3fb90f59beb4ac3d24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a85eab29e322e3fb90f59beb4ac3d24">&#9670;&nbsp;</a></span>model_cast()</h2>
+<a id="a87286b158579e34a40627510e9824536"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87286b158579e34a40627510e9824536">&#9670;&nbsp;</a></span>model_cast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +188,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::shared_ptr&lt;<a class="el" href="classVolumeOfFluidFilterBase.html">VolumeOfFluidFilterBase</a>&gt; VolumeOfFluidFilterBase::model_cast </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classVolumeOfFluidFilterBase.html">VolumeOfFluidFilterBase</a> &gt; VolumeOfFluidFilterBase::model_cast </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structParameters_1_1VOF__PhaseFilter.html">Parameters::VOF_PhaseFilter</a> &amp;&#160;</td>
           <td class="paramname"><em>phase_filter_parameters</em></td><td>)</td>
@@ -199,10 +210,15 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="vof__filter_8cc_source.html#l00020">20</a> of file <a class="el" href="vof__filter_8cc_source.html">vof_filter.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters__multiphysics_8h_source.html#l00157">Parameters::VOF_PhaseFilter::beta</a>, <a class="el" href="namespaceParameters.html#a35f23be89bc6cc4d28f9c1b10519e9b8a5c0dbba3a6ee4ac0eb26cfee75ccb8b4">Parameters::tanh</a>, and <a class="el" href="parameters__multiphysics_8h_source.html#l00154">Parameters::VOF_PhaseFilter::type</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/solvers/<a class="el" href="vof__filter_8h_source.html">vof_filter.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/solvers/<a class="el" href="vof__filter_8cc_source.html">vof_filter.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -99,12 +106,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a14e2714be26a4c4e60abbec7352f319a"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; DataOutBase::Patch&lt; 0, dim &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisualization.html#a14e2714be26a4c4e60abbec7352f319a">get_patches</a> () const override</td></tr>
-<tr class="separator:a14e2714be26a4c4e60abbec7352f319a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f289a17711377f73e83cca23204b938"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisualization.html#a1f289a17711377f73e83cca23204b938">get_dataset_names</a> () const override</td></tr>
-<tr class="separator:a1f289a17711377f73e83cca23204b938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0075807f047983c7c83ade9f0506c5d"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::tuple&lt; unsigned int, unsigned int, std::string, DataComponentInterpretation::DataComponentInterpretation &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisualization.html#ad0075807f047983c7c83ade9f0506c5d">get_nonscalar_data_ranges</a> () const override</td></tr>
-<tr class="separator:ad0075807f047983c7c83ade9f0506c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e4c70cb1f75b15f24d89b06aed43e98"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; DataOutBase::Patch&lt; 0, dim &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisualization.html#a6e4c70cb1f75b15f24d89b06aed43e98">get_patches</a> () const override</td></tr>
+<tr class="separator:a6e4c70cb1f75b15f24d89b06aed43e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab37262bc7cff58031cf3498746a07bc1"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisualization.html#ab37262bc7cff58031cf3498746a07bc1">get_dataset_names</a> () const override</td></tr>
+<tr class="separator:ab37262bc7cff58031cf3498746a07bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfb35662e7a53cff2e642e6820f69b3a"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::tuple&lt; unsigned int, unsigned int, std::string, DataComponentInterpretation::DataComponentInterpretation &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVisualization.html#abfb35662e7a53cff2e642e6820f69b3a">get_nonscalar_data_ranges</a> () const override</td></tr>
+<tr class="separator:abfb35662e7a53cff2e642e6820f69b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -124,6 +131,8 @@ class Visualization&lt; dim &gt;</h3>
 <p>Building patches of particle properties for visualization</p>
 <dl class="section note"><dt>Note</dt><dd>This function is taken from Aspect and dealii and implemented here</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Shahab Golshan, Polytechnique Montreal 2019- </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="visualization_8h_source.html#l00046">46</a> of file <a class="el" href="visualization_8h_source.html">visualization.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0deffb9118000ce9568c2cf2f72f0e75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0deffb9118000ce9568c2cf2f72f0e75">&#9670;&nbsp;</a></span>Visualization()</h2>
@@ -134,13 +143,12 @@ class Visualization&lt; dim &gt;</h3>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::<a class="el" href="classVisualization.html">Visualization</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::<a class="el" href="classVisualization.html">Visualization</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="visualization_8cc_source.html#l00008">8</a> of file <a class="el" href="visualization_8cc_source.html">visualization.cc</a>.</p>
 
 </div>
 </div>
@@ -153,13 +161,12 @@ template&lt;int dim&gt; </div>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::~<a class="el" href="classVisualization.html">Visualization</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::~<a class="el" href="classVisualization.html">Visualization</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="visualization_8cc_source.html#l00211">211</a> of file <a class="el" href="visualization_8cc_source.html">visualization.cc</a>.</p>
 
 </div>
 </div>
@@ -200,10 +207,14 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="visualization_8cc_source.html#l00013">13</a> of file <a class="el" href="visualization_8cc_source.html">visualization.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8cc_source.html#l00053">DEM::get_number_properties()</a>.</p>
+
 </div>
 </div>
-<a id="a1f289a17711377f73e83cca23204b938"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f289a17711377f73e83cca23204b938">&#9670;&nbsp;</a></span>get_dataset_names()</h2>
+<a id="ab37262bc7cff58031cf3498746a07bc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab37262bc7cff58031cf3498746a07bc1">&#9670;&nbsp;</a></span>get_dataset_names()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,10 +225,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt;std::string&gt; <a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::get_dataset_names </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">std::vector&lt; std::string &gt; <a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::get_dataset_names</td>
         </tr>
       </table>
   </td>
@@ -228,10 +236,12 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Implementation of the corresponding function of the base class. </p>
 
+<p class="definition">Definition at line <a class="el" href="visualization_8cc_source.html#l00194">194</a> of file <a class="el" href="visualization_8cc_source.html">visualization.cc</a>.</p>
+
 </div>
 </div>
-<a id="ad0075807f047983c7c83ade9f0506c5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0075807f047983c7c83ade9f0506c5d">&#9670;&nbsp;</a></span>get_nonscalar_data_ranges()</h2>
+<a id="abfb35662e7a53cff2e642e6820f69b3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb35662e7a53cff2e642e6820f69b3a">&#9670;&nbsp;</a></span>get_nonscalar_data_ranges()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,10 +252,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::vector&lt; std::tuple&lt;unsigned int, unsigned int, std::string, DataComponentInterpretation::DataComponentInterpretation&gt; &gt; <a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::get_nonscalar_data_ranges </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">std::vector&lt; std::tuple&lt; unsigned int, unsigned int, std::string, DataComponentInterpretation::DataComponentInterpretation &gt; &gt; <a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::get_nonscalar_data_ranges</td>
         </tr>
       </table>
   </td>
@@ -255,10 +262,12 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="visualization_8cc_source.html#l00205">205</a> of file <a class="el" href="visualization_8cc_source.html">visualization.cc</a>.</p>
+
 </div>
 </div>
-<a id="a14e2714be26a4c4e60abbec7352f319a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14e2714be26a4c4e60abbec7352f319a">&#9670;&nbsp;</a></span>get_patches()</h2>
+<a id="a6e4c70cb1f75b15f24d89b06aed43e98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e4c70cb1f75b15f24d89b06aed43e98">&#9670;&nbsp;</a></span>get_patches()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -269,10 +278,7 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const std::vector&lt;DataOutBase::Patch&lt;0, dim&gt; &gt;&amp; <a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::get_patches </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">const std::vector&lt; DataOutBase::Patch&lt; 0, dim &gt; &gt; &amp; <a class="el" href="classVisualization.html">Visualization</a>&lt; dim &gt;::get_patches</td>
         </tr>
       </table>
   </td>
@@ -282,6 +288,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Implementation of the corresponding function of the base class. </p>
+
+<p class="definition">Definition at line <a class="el" href="visualization_8cc_source.html#l00187">187</a> of file <a class="el" href="visualization_8cc_source.html">visualization.cc</a>.</p>
 
 </div>
 </div>
@@ -328,6 +336,8 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="visualization_8cc_source.html#l00139">139</a> of file <a class="el" href="visualization_8cc_source.html">visualization.cc</a>.</p>
+
 </div>
 </div>
 <a id="a73b7b12059473fb07b02231f630d0229"></a>
@@ -372,6 +382,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="visualization_8cc_source.html#l00084">84</a> of file <a class="el" href="visualization_8cc_source.html">visualization.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00041">DEM::dp</a>, and <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -398,6 +412,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>A list of field names for all data components stored in patches. </p>
 
+<p class="definition">Definition at line <a class="el" href="visualization_8h_source.html#l00121">121</a> of file <a class="el" href="visualization_8h_source.html">visualization.h</a>.</p>
+
 </div>
 </div>
 <a id="adf0742d6d69fdf8c5e700cd121d896b6"></a>
@@ -422,6 +438,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Output information that is filled by <a class="el" href="classVisualization.html#ab8894f42d0892f05dd90bd982455f264">build_patches()</a> and written by the write function of the base class. </p>
+
+<p class="definition">Definition at line <a class="el" href="visualization_8h_source.html#l00116">116</a> of file <a class="el" href="visualization_8h_source.html">visualization.h</a>.</p>
 
 </div>
 </div>
@@ -448,6 +466,8 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Particle properties that are written in output files </p>
 
+<p class="definition">Definition at line <a class="el" href="visualization_8h_source.html#l00141">141</a> of file <a class="el" href="visualization_8h_source.html">visualization.h</a>.</p>
+
 </div>
 </div>
 <a id="a995a7acac02af698d000083b5a24e983"></a>
@@ -473,10 +493,13 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 <p>Store which of the data fields are vectors. </p>
 
+<p class="definition">Definition at line <a class="el" href="visualization_8h_source.html#l00135">135</a> of file <a class="el" href="visualization_8h_source.html">visualization.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/dem/<a class="el" href="visualization_8h_source.html">visualization.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/dem/<a class="el" href="visualization_8cc_source.html">visualization.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

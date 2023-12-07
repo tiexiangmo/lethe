@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -89,7 +96,13 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef lethe_rpt_h</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define lethe_rpt_h</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * This class handles positions of particles and detector and allows to</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> * calculate count for every pair. It also shows results in terminal or exports</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * them in .csv file if enable.</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;deal.II/base/point.h&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;deal.II/base/tensor.h&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;deal.II/base/utilities.h&gt;</span></div>
@@ -105,20 +118,40 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classRPT.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRPT.html">RPT</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classRPT.html#a1c65316533eea65bd4b50e9a4b950bfd">   49</a></span>&#160;  <a class="code" href="classRPT.html#a1c65316533eea65bd4b50e9a4b950bfd">RPT</a>(<a class="code" href="classRPTCalculatingParameters.html">RPTCalculatingParameters</a> &amp;RPTparameters);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">   * @brief Constructor for the RPT</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">   * @param RPTparameters All parameters and positions needed for the count</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">   * calculation</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="classRPT.html">RPT</a>(<a class="code" href="classRPTCalculatingParameters.html">RPTCalculatingParameters</a> &amp;RPTparameters);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">   * @brief Set up data assignation &amp; call photon counts calculation</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">   * for all particle positions and detector</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classRPT.html#a36bbffc3e27f53c9740e34c67d13a1b7">   56</a></span>&#160;  <a class="code" href="classRPT.html#a36bbffc3e27f53c9740e34c67d13a1b7">setup_and_calculate</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  setup_and_calculate();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">   * @brief Export position, detector id and count results in .csv or .dat</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classRPT.html#a32d2adb001e3c69be9d7e8c3f07e26bb">   62</a></span>&#160;  <a class="code" href="classRPT.html#a32d2adb001e3c69be9d7e8c3f07e26bb">export_data</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  export_data();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">   * @brief Calculate photon counts for all particle positions and detector</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classRPT.html#af4c528a5e1760afe4de31429c5c9ec9c">   68</a></span>&#160;  <a class="code" href="classRPT.html#af4c528a5e1760afe4de31429c5c9ec9c">calculate_counts</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  calculate_counts();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">   * @brief Calculate cost function for calculated and measured counts</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">double</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classRPT.html#af6865fd7dc0a70df5d3862538fdb9673">   74</a></span>&#160;  <a class="code" href="classRPT.html#af6865fd7dc0a70df5d3862538fdb9673">calculate_cost_function</a>(std::vector&lt;double&gt; &amp;measured_counts,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  calculate_cost_function(std::vector&lt;double&gt; &amp;measured_counts,</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                          std::vector&lt;double&gt; &amp;calculated_counts);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classRPT.html#ae8b913a2a26589e95c08cb0d2a5ca16a">   77</a></span>&#160;  <a class="code" href="classRPTCalculatingParameters.html">RPTCalculatingParameters</a> <a class="code" href="classRPT.html#ae8b913a2a26589e95c08cb0d2a5ca16a">rpt_parameters</a>;</div>
@@ -130,17 +163,12 @@ $(function() {
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassRPTCalculatingParameters_html"><div class="ttname"><a href="classRPTCalculatingParameters.html">RPTCalculatingParameters</a></div><div class="ttdef"><b>Definition:</b> rpt_calculating_parameters.h:32</div></div>
-<div class="ttc" id="aclassRPT_html"><div class="ttname"><a href="classRPT.html">RPT</a></div><div class="ttdef"><b>Definition:</b> rpt.h:40</div></div>
-<div class="ttc" id="aclassRPT_html_a177eddbf86f84447017571758609cc5a"><div class="ttname"><a href="classRPT.html#a177eddbf86f84447017571758609cc5a">RPT::particle_positions</a></div><div class="ttdeci">std::vector&lt; RadioParticle&lt; dim &gt; &gt; particle_positions</div><div class="ttdef"><b>Definition:</b> rpt.h:80</div></div>
-<div class="ttc" id="aclassRPT_html_a1c65316533eea65bd4b50e9a4b950bfd"><div class="ttname"><a href="classRPT.html#a1c65316533eea65bd4b50e9a4b950bfd">RPT::RPT</a></div><div class="ttdeci">RPT(RPTCalculatingParameters &amp;RPTparameters)</div><div class="ttdoc">Constructor for the RPT.</div></div>
-<div class="ttc" id="aclassRPT_html_a32d2adb001e3c69be9d7e8c3f07e26bb"><div class="ttname"><a href="classRPT.html#a32d2adb001e3c69be9d7e8c3f07e26bb">RPT::export_data</a></div><div class="ttdeci">void export_data()</div><div class="ttdoc">Export position, detector id and count results in .csv or .dat.</div></div>
-<div class="ttc" id="aclassRPT_html_a36bbffc3e27f53c9740e34c67d13a1b7"><div class="ttname"><a href="classRPT.html#a36bbffc3e27f53c9740e34c67d13a1b7">RPT::setup_and_calculate</a></div><div class="ttdeci">void setup_and_calculate()</div><div class="ttdoc">Set up data assignation &amp; call photon counts calculation for all particle positions and detector.</div></div>
-<div class="ttc" id="aclassRPT_html_a82b0b19ab39b9e215867699a68e51189"><div class="ttname"><a href="classRPT.html#a82b0b19ab39b9e215867699a68e51189">RPT::detectors</a></div><div class="ttdeci">std::vector&lt; Detector&lt; dim &gt; &gt; detectors</div><div class="ttdef"><b>Definition:</b> rpt.h:81</div></div>
-<div class="ttc" id="aclassRPT_html_a9af243035fa9f0bf9da7b64a883db7be"><div class="ttname"><a href="classRPT.html#a9af243035fa9f0bf9da7b64a883db7be">RPT::calculated_counts</a></div><div class="ttdeci">std::vector&lt; double &gt; calculated_counts</div><div class="ttdef"><b>Definition:</b> rpt.h:82</div></div>
-<div class="ttc" id="aclassRPT_html_ae8b913a2a26589e95c08cb0d2a5ca16a"><div class="ttname"><a href="classRPT.html#ae8b913a2a26589e95c08cb0d2a5ca16a">RPT::rpt_parameters</a></div><div class="ttdeci">RPTCalculatingParameters rpt_parameters</div><div class="ttdef"><b>Definition:</b> rpt.h:77</div></div>
-<div class="ttc" id="aclassRPT_html_af4c528a5e1760afe4de31429c5c9ec9c"><div class="ttname"><a href="classRPT.html#af4c528a5e1760afe4de31429c5c9ec9c">RPT::calculate_counts</a></div><div class="ttdeci">void calculate_counts()</div><div class="ttdoc">Calculate photon counts for all particle positions and detector.</div></div>
-<div class="ttc" id="aclassRPT_html_af6865fd7dc0a70df5d3862538fdb9673"><div class="ttname"><a href="classRPT.html#af6865fd7dc0a70df5d3862538fdb9673">RPT::calculate_cost_function</a></div><div class="ttdeci">double calculate_cost_function(std::vector&lt; double &gt; &amp;measured_counts, std::vector&lt; double &gt; &amp;calculated_counts)</div><div class="ttdoc">Calculate cost function for calculated and measured counts.</div></div>
+<div class="ttc" id="aclassRPTCalculatingParameters_html"><div class="ttname"><a href="classRPTCalculatingParameters.html">RPTCalculatingParameters</a></div><div class="ttdef"><b>Definition:</b> <a href="rpt__calculating__parameters_8h_source.html#l00031">rpt_calculating_parameters.h:32</a></div></div>
+<div class="ttc" id="aclassRPT_html"><div class="ttname"><a href="classRPT.html">RPT</a></div><div class="ttdef"><b>Definition:</b> <a href="rpt_8h_source.html#l00039">rpt.h:40</a></div></div>
+<div class="ttc" id="aclassRPT_html_a177eddbf86f84447017571758609cc5a"><div class="ttname"><a href="classRPT.html#a177eddbf86f84447017571758609cc5a">RPT::particle_positions</a></div><div class="ttdeci">std::vector&lt; RadioParticle&lt; dim &gt; &gt; particle_positions</div><div class="ttdef"><b>Definition:</b> <a href="rpt_8h_source.html#l00080">rpt.h:80</a></div></div>
+<div class="ttc" id="aclassRPT_html_a82b0b19ab39b9e215867699a68e51189"><div class="ttname"><a href="classRPT.html#a82b0b19ab39b9e215867699a68e51189">RPT::detectors</a></div><div class="ttdeci">std::vector&lt; Detector&lt; dim &gt; &gt; detectors</div><div class="ttdef"><b>Definition:</b> <a href="rpt_8h_source.html#l00081">rpt.h:81</a></div></div>
+<div class="ttc" id="aclassRPT_html_a9af243035fa9f0bf9da7b64a883db7be"><div class="ttname"><a href="classRPT.html#a9af243035fa9f0bf9da7b64a883db7be">RPT::calculated_counts</a></div><div class="ttdeci">std::vector&lt; double &gt; calculated_counts</div><div class="ttdef"><b>Definition:</b> <a href="rpt_8h_source.html#l00082">rpt.h:82</a></div></div>
+<div class="ttc" id="aclassRPT_html_ae8b913a2a26589e95c08cb0d2a5ca16a"><div class="ttname"><a href="classRPT.html#ae8b913a2a26589e95c08cb0d2a5ca16a">RPT::rpt_parameters</a></div><div class="ttdeci">RPTCalculatingParameters rpt_parameters</div><div class="ttdef"><b>Definition:</b> <a href="rpt_8h_source.html#l00077">rpt.h:77</a></div></div>
 <div class="ttc" id="adetector_8h_html"><div class="ttname"><a href="detector_8h.html">detector.h</a></div></div>
 <div class="ttc" id="aparameters__rpt_8h_html"><div class="ttname"><a href="parameters__rpt_8h.html">parameters_rpt.h</a></div></div>
 <div class="ttc" id="aparticle__detector__interactions_8h_html"><div class="ttname"><a href="particle__detector__interactions_8h.html">particle_detector_interactions.h</a></div></div>

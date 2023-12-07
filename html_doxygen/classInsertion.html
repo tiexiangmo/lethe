@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -132,6 +139,8 @@ Private Attributes</h2></td></tr>
 class Insertion&lt; dim &gt;</h3>
 
 <p>Base interface for classes that carry out the insertion of particles in the system </p>
+
+<p class="definition">Definition at line <a class="el" href="insertion_8h_source.html#l00056">56</a> of file <a class="el" href="insertion_8h_source.html">insertion.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa6720a7d2e690697207ae122d69f7320"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa6720a7d2e690697207ae122d69f7320">&#9670;&nbsp;</a></span>Insertion()</h2>
@@ -157,6 +166,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="insertion_8cc_source.html#l00026">26</a> of file <a class="el" href="insertion_8cc_source.html">insertion.cc</a>.</p>
 
 </div>
 </div>
@@ -219,6 +230,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="insertion_8cc_source.html#l00053">53</a> of file <a class="el" href="insertion_8cc_source.html">insertion.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00048">DEM::fem_force_x</a>, <a class="el" href="dem__properties_8h_source.html#l00049">DEM::fem_force_y</a>, <a class="el" href="dem__properties_8h_source.html#l00050">DEM::fem_force_z</a>, <a class="el" href="dem__properties_8h_source.html#l00051">DEM::fem_torque_x</a>, <a class="el" href="dem__properties_8h_source.html#l00052">DEM::fem_torque_y</a>, <a class="el" href="dem__properties_8h_source.html#l00053">DEM::fem_torque_z</a>, <a class="el" href="dem__solver__parameters_8h_source.html#l00042">DEMSolverParameters&lt; dim &gt;::insertion_info</a>, <a class="el" href="dem__solver__parameters_8h_source.html#l00041">DEMSolverParameters&lt; dim &gt;::lagrangian_physical_properties</a>, <a class="el" href="dem__properties_8h_source.html#l00054">DEM::mass</a>, <a class="el" href="dem__properties_8h_source.html#l00045">DEM::omega_x</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00173">Parameters::Lagrangian::InsertionInfo::omega_x</a>, <a class="el" href="dem__properties_8h_source.html#l00046">DEM::omega_y</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00173">Parameters::Lagrangian::InsertionInfo::omega_y</a>, <a class="el" href="dem__properties_8h_source.html#l00047">DEM::omega_z</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00173">Parameters::Lagrangian::InsertionInfo::omega_z</a>, <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00173">Parameters::Lagrangian::InsertionInfo::vel_x</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00173">Parameters::Lagrangian::InsertionInfo::vel_y</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00173">Parameters::Lagrangian::InsertionInfo::vel_z</a>, and <a class="el" href="dem__properties_8h_source.html#l00055">DEM::volumetric_contribution</a>.</p>
+
 </div>
 </div>
 <a id="a4ef020b59a1b122f8245badc093efdc2"></a>
@@ -265,6 +280,10 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="insertion_8cc_source.html#l00122">122</a> of file <a class="el" href="insertion_8cc_source.html">insertion.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters__lagrangian_8h_source.html#l00167">Parameters::Lagrangian::InsertionInfo::axis_0</a>, and <a class="el" href="dem__solver__parameters_8h_source.html#l00042">DEMSolverParameters&lt; dim &gt;::insertion_info</a>.</p>
 
 </div>
 </div>
@@ -319,7 +338,7 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classVolumeInsertion.html#a8552dd9e7053d4265b7dcb3d79524bea">VolumeInsertion&lt; dim &gt;</a>, <a class="el" href="classUniformInsertion.html#a75418effee6613b56b6525aff50654b9">UniformInsertion&lt; dim &gt;</a>, <a class="el" href="classPlaneInsertion.html#a2448312e600f58d4c4d794c305622ea4">PlaneInsertion&lt; dim &gt;</a>, and <a class="el" href="classListInsertion.html#a295c598cb8eb67bde0eb783c1231ea1d">ListInsertion&lt; dim &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classVolumeInsertion.html#adf719a5b23e4545ed45ac32b05661032">VolumeInsertion&lt; dim &gt;</a>, <a class="el" href="classUniformInsertion.html#a75418effee6613b56b6525aff50654b9">UniformInsertion&lt; dim &gt;</a>, <a class="el" href="classPlaneInsertion.html#a067fc5c7b2a370a70610eae3b15de722">PlaneInsertion&lt; dim &gt;</a>, and <a class="el" href="classListInsertion.html#aeb3760ee33eb0558230b5a848da0459c">ListInsertion&lt; dim &gt;</a>.</p>
 
 </div>
 </div>
@@ -381,6 +400,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="insertion_8cc_source.html#l00035">35</a> of file <a class="el" href="insertion_8cc_source.html">insertion.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="utilities_8h_source.html#l00288">announce_string()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -406,6 +429,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="insertion_8h_source.html#l00143">143</a> of file <a class="el" href="insertion_8h_source.html">insertion.h</a>.</p>
+
 </div>
 </div>
 <a id="a3b3ab9d52069d054158da951a1f1d049"></a>
@@ -429,6 +454,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="insertion_8h_source.html#l00143">143</a> of file <a class="el" href="insertion_8h_source.html">insertion.h</a>.</p>
 
 </div>
 </div>
@@ -454,6 +481,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="insertion_8h_source.html#l00153">153</a> of file <a class="el" href="insertion_8h_source.html">insertion.h</a>.</p>
+
 </div>
 </div>
 <a id="af2c570045018de7fc91c0fb63ba084b1"></a>
@@ -477,6 +506,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="insertion_8h_source.html#l00135">135</a> of file <a class="el" href="insertion_8h_source.html">insertion.h</a>.</p>
 
 </div>
 </div>
@@ -502,6 +533,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="insertion_8h_source.html#l00149">149</a> of file <a class="el" href="insertion_8h_source.html">insertion.h</a>.</p>
+
 </div>
 </div>
 <a id="ac9e99cb2c9755016ad092f8879f3f4cd"></a>
@@ -525,6 +558,8 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="insertion_8h_source.html#l00146">146</a> of file <a class="el" href="insertion_8h_source.html">insertion.h</a>.</p>
 
 </div>
 </div>
@@ -550,6 +585,8 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="insertion_8h_source.html#l00138">138</a> of file <a class="el" href="insertion_8h_source.html">insertion.h</a>.</p>
+
 </div>
 </div>
 <a id="a353eb2bfb4f218a5ed55fd13f0a1715d"></a>
@@ -574,10 +611,13 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="insertion_8h_source.html#l00157">157</a> of file <a class="el" href="insertion_8h_source.html">insertion.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/dem/<a class="el" href="insertion_8h_source.html">insertion.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/dem/<a class="el" href="insertion_8cc_source.html">insertion.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

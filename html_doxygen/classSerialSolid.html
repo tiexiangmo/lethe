@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -79,9 +86,9 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afc151490486adb2a1e06d2b3af30cf5f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#afc151490486adb2a1e06d2b3af30cf5f">SerialSolid</a> (std::shared_ptr&lt; <a class="el" href="classParameters_1_1RigidSolidObject.html">Parameters::RigidSolidObject</a>&lt; spacedim &gt;&gt; &amp;<a class="el" href="classSerialSolid.html#a76b6e66c124b143416ed743cbb35c3d7">param</a>, unsigned int <a class="el" href="classSerialSolid.html#a108709db5f2eca7699fc3b51d60f0f70">id</a>)</td></tr>
 <tr class="separator:afc151490486adb2a1e06d2b3af30cf5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82de51dafef0f6f6b277c97d55b785ad"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; typename Triangulation&lt; spacedim &gt;::active_cell_iterator, typename Triangulation&lt; dim, spacedim &gt;::active_cell_iterator &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a82de51dafef0f6f6b277c97d55b785ad">map_solid_in_background_triangulation</a> (const parallel::TriangulationBase&lt; spacedim &gt; &amp;background_tr)</td></tr>
-<tr class="memdesc:a82de51dafef0f6f6b277c97d55b785ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the solid object in the background triangulation.  <a href="classSerialSolid.html#a82de51dafef0f6f6b277c97d55b785ad">More...</a><br /></td></tr>
-<tr class="separator:a82de51dafef0f6f6b277c97d55b785ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8ad4d1cd9fc4e30cb6559111919e4c4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; typename Triangulation&lt; spacedim &gt;::active_cell_iterator, typename Triangulation&lt; dim, spacedim &gt;::active_cell_iterator &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#ab8ad4d1cd9fc4e30cb6559111919e4c4">map_solid_in_background_triangulation</a> (const parallel::TriangulationBase&lt; spacedim &gt; &amp;background_tr)</td></tr>
+<tr class="memdesc:ab8ad4d1cd9fc4e30cb6559111919e4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the solid object in the background triangulation.  <a href="classSerialSolid.html#ab8ad4d1cd9fc4e30cb6559111919e4c4">More...</a><br /></td></tr>
+<tr class="separator:ab8ad4d1cd9fc4e30cb6559111919e4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a638e083c3505ef7729194357add903a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a638e083c3505ef7729194357add903a7">initial_setup</a> ()</td></tr>
 <tr class="memdesc:a638e083c3505ef7729194357add903a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages solid triangulation setup.  <a href="classSerialSolid.html#a638e083c3505ef7729194357add903a7">More...</a><br /></td></tr>
 <tr class="separator:a638e083c3505ef7729194357add903a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,15 +98,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e1e63989dd2a3a462f58972ff096f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a2e1e63989dd2a3a462f58972ff096f55">setup_dof_handler</a> ()</td></tr>
 <tr class="memdesc:a2e1e63989dd2a3a462f58972ff096f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set-ups the displacement vector to store the motion of the triangulation.  <a href="classSerialSolid.html#a2e1e63989dd2a3a462f58972ff096f55">More...</a><br /></td></tr>
 <tr class="separator:a2e1e63989dd2a3a462f58972ff096f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1ddf6a1a767a5cc1c265bf8a1a04de4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Triangulation&lt; dim, spacedim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#ae1ddf6a1a767a5cc1c265bf8a1a04de4">get_triangulation</a> ()</td></tr>
-<tr class="memdesc:ae1ddf6a1a767a5cc1c265bf8a1a04de4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the shared pointer to the solid object triangulation.  <a href="classSerialSolid.html#ae1ddf6a1a767a5cc1c265bf8a1a04de4">More...</a><br /></td></tr>
-<tr class="separator:ae1ddf6a1a767a5cc1c265bf8a1a04de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7cf06e1a4f15b12e2604ace7468ce95"><td class="memItemLeft" align="right" valign="top">DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#aa7cf06e1a4f15b12e2604ace7468ce95">get_dof_handler</a> ()</td></tr>
-<tr class="memdesc:aa7cf06e1a4f15b12e2604ace7468ce95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dof_handler associated with the displacement of the solid object.  <a href="classSerialSolid.html#aa7cf06e1a4f15b12e2604ace7468ce95">More...</a><br /></td></tr>
-<tr class="separator:aa7cf06e1a4f15b12e2604ace7468ce95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a384a08e16ea8966f89acfd70e25c7a25"><td class="memItemLeft" align="right" valign="top">Vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a384a08e16ea8966f89acfd70e25c7a25">get_displacement_vector</a> ()</td></tr>
-<tr class="memdesc:a384a08e16ea8966f89acfd70e25c7a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the displacement vector of all the vertices of the solid object.  <a href="classSerialSolid.html#a384a08e16ea8966f89acfd70e25c7a25">More...</a><br /></td></tr>
-<tr class="separator:a384a08e16ea8966f89acfd70e25c7a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cc11ff813d55f4cab58685e3c87a26c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Triangulation&lt; dim, spacedim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a4cc11ff813d55f4cab58685e3c87a26c">get_triangulation</a> ()</td></tr>
+<tr class="memdesc:a4cc11ff813d55f4cab58685e3c87a26c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the shared pointer to the solid object triangulation.  <a href="classSerialSolid.html#a4cc11ff813d55f4cab58685e3c87a26c">More...</a><br /></td></tr>
+<tr class="separator:a4cc11ff813d55f4cab58685e3c87a26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8442bda162e551585b8f1e921b46d41"><td class="memItemLeft" align="right" valign="top">DoFHandler&lt; dim, spacedim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#aa8442bda162e551585b8f1e921b46d41">get_dof_handler</a> ()</td></tr>
+<tr class="memdesc:aa8442bda162e551585b8f1e921b46d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dof_handler associated with the displacement of the solid object.  <a href="classSerialSolid.html#aa8442bda162e551585b8f1e921b46d41">More...</a><br /></td></tr>
+<tr class="separator:aa8442bda162e551585b8f1e921b46d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7becb8ea517716b098d57a8b3a1b605"><td class="memItemLeft" align="right" valign="top">Vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#af7becb8ea517716b098d57a8b3a1b605">get_displacement_vector</a> ()</td></tr>
+<tr class="memdesc:af7becb8ea517716b098d57a8b3a1b605"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the displacement vector of all the vertices of the solid object.  <a href="classSerialSolid.html#af7becb8ea517716b098d57a8b3a1b605">More...</a><br /></td></tr>
+<tr class="separator:af7becb8ea517716b098d57a8b3a1b605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a193745cce84cb1bd27ac415e953c77e2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a193745cce84cb1bd27ac415e953c77e2">get_max_displacement_since_mapped</a> ()</td></tr>
 <tr class="memdesc:a193745cce84cb1bd27ac415e953c77e2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCalculates.html">Calculates</a> the max displacement of the solid object. The max displacement is defined as the L^\infty norm of the displacement components. This is a measure of the maximal displacement in any direction.  <a href="classSerialSolid.html#a193745cce84cb1bd27ac415e953c77e2">More...</a><br /></td></tr>
 <tr class="separator:a193745cce84cb1bd27ac415e953c77e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,6 +149,22 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ab16fab6a30698ac3b1f98f83e43beeaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#ab16fab6a30698ac3b1f98f83e43beeaa">translate_grid</a> (const Tensor&lt; 1, 3 &gt; translate)</td></tr>
 <tr class="memdesc:ab16fab6a30698ac3b1f98f83e43beeaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translate the grid. In spacedim=2, the third component is ignore.  <a href="classSerialSolid.html#ab16fab6a30698ac3b1f98f83e43beeaa">More...</a><br /></td></tr>
 <tr class="separator:ab16fab6a30698ac3b1f98f83e43beeaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf9f74ed42c60c0eb7da7ece6f0da51e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#aaf9f74ed42c60c0eb7da7ece6f0da51e">rotate_grid</a> (const double angle, const Tensor&lt; 1, 3 &gt;)</td></tr>
+<tr class="separator:aaf9f74ed42c60c0eb7da7ece6f0da51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19635544a26cc5a58dcfc4965ec6455b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a19635544a26cc5a58dcfc4965ec6455b">rotate_grid</a> (double angle, const Tensor&lt; 1, 3 &gt;)</td></tr>
+<tr class="separator:a19635544a26cc5a58dcfc4965ec6455b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a2539013b9883aad8a3d82c549b933"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a13a2539013b9883aad8a3d82c549b933">rotate_grid</a> (const double angle, const Tensor&lt; 1, 3 &gt; axis)</td></tr>
+<tr class="separator:a13a2539013b9883aad8a3d82c549b933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e520329cc69d2f0b5907551869e8664"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a0e520329cc69d2f0b5907551869e8664">rotate_grid</a> (double angle, const Tensor&lt; 1, 3 &gt; axis)</td></tr>
+<tr class="separator:a0e520329cc69d2f0b5907551869e8664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cc7d53b1bfa82468bcc7c8324a16cb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a0cc7d53b1bfa82468bcc7c8324a16cb1">translate_grid</a> (const Tensor&lt; 1, 3 &gt; translation)</td></tr>
+<tr class="separator:a0cc7d53b1bfa82468bcc7c8324a16cb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a704220fe5bdc4c5103c5aca6c31cc9b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a704220fe5bdc4c5103c5aca6c31cc9b8">translate_grid</a> (const Tensor&lt; 1, 3 &gt; translation)</td></tr>
+<tr class="separator:a704220fe5bdc4c5103c5aca6c31cc9b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11e71f7ed55e693757b171e585ed405e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#a11e71f7ed55e693757b171e585ed405e">translate_grid</a> (const Tensor&lt; 1, 3 &gt; translation)</td></tr>
+<tr class="separator:a11e71f7ed55e693757b171e585ed405e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5383d41355eecc591b8a9b634e544db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialSolid.html#ab5383d41355eecc591b8a9b634e544db">translate_grid</a> (const Tensor&lt; 1, 3 &gt; translation)</td></tr>
+<tr class="separator:ab5383d41355eecc591b8a9b634e544db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -194,6 +217,8 @@ class SerialSolid&lt; dim, spacedim &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00061">61</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afc151490486adb2a1e06d2b3af30cf5f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc151490486adb2a1e06d2b3af30cf5f">&#9670;&nbsp;</a></span>SerialSolid()</h2>
@@ -201,7 +226,7 @@ class SerialSolid&lt; dim, spacedim &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::<a class="el" href="classSerialSolid.html">SerialSolid</a> </td>
@@ -223,6 +248,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00043">43</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="serial__solid_8h_source.html#l00281">SerialSolid&lt; dim, spacedim &gt;::displacement_dh</a>, <a class="el" href="serial__solid_8h_source.html#l00282">SerialSolid&lt; dim, spacedim &gt;::displacement_fe</a>, <a class="el" href="serial__solid_8h_source.html#l00279">SerialSolid&lt; dim, spacedim &gt;::fe</a>, <a class="el" href="serial__solid_8cc_source.html#l00152">SerialSolid&lt; dim, spacedim &gt;::initial_setup()</a>, <a class="el" href="serial__solid_8h_source.html#l00272">SerialSolid&lt; dim, spacedim &gt;::param</a>, <a class="el" href="serial__solid_8h_source.html#l00280">SerialSolid&lt; dim, spacedim &gt;::solid_mapping</a>, and <a class="el" href="serial__solid_8h_source.html#l00278">SerialSolid&lt; dim, spacedim &gt;::solid_tria</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -232,16 +261,13 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::displace_solid_triangulation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::displace_solid_triangulation</td>
         </tr>
       </table>
   </td>
@@ -252,6 +278,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </div><div class="memdoc">
 
 <p>Moves the dofs of the solid_triangulation by using the displacement vector. This is only used to move the solid triangulation at the correct location when the simulation is restarted. </p>
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00400">400</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
 
 </div>
 </div>
@@ -283,6 +311,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>Returns the angular velocity of the center of mass of the solid object. </p>
 <dl class="section return"><dt>Returns</dt><dd>The angular velocity of the solid object </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00151">151</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="a26ebeeb366a6f155635a550a1edcc9cc"></a>
@@ -313,21 +343,22 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>Returns the center of rotation of the center of mass of the solid object. </p>
 <dl class="section return"><dt>Returns</dt><dd>The center of rotation of the solid object </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00162">162</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
+<p class="reference">References <a class="el" href="tensors__and__points__dimension__manipulation_8h_source.html#l00085">point_nd_to_3d()</a>.</p>
+
 </div>
 </div>
-<a id="a384a08e16ea8966f89acfd70e25c7a25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a384a08e16ea8966f89acfd70e25c7a25">&#9670;&nbsp;</a></span>get_displacement_vector()</h2>
+<a id="af7becb8ea517716b098d57a8b3a1b605"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7becb8ea517716b098d57a8b3a1b605">&#9670;&nbsp;</a></span>get_displacement_vector()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Vector&lt;double&gt;&amp; <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::get_displacement_vector </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">Vector&lt; double &gt; &amp; <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::get_displacement_vector</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -335,27 +366,28 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>Returns the displacement vector of all the vertices of the solid object. </p>
 <dl class="section return"><dt>Returns</dt><dd>the reference to the displacement vector </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00245">245</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
 </div>
 </div>
-<a id="aa7cf06e1a4f15b12e2604ace7468ce95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7cf06e1a4f15b12e2604ace7468ce95">&#9670;&nbsp;</a></span>get_dof_handler()</h2>
+<a id="aa8442bda162e551585b8f1e921b46d41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8442bda162e551585b8f1e921b46d41">&#9670;&nbsp;</a></span>get_dof_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">DoFHandler&lt;dim, spacedim&gt;&amp; <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::get_dof_handler </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">DoFHandler&lt; dim, spacedim &gt; &amp; <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::get_dof_handler</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Returns the dof_handler associated with the displacement of the solid object. </p>
 <dl class="section return"><dt>Returns</dt><dd>the reference to the displacement dof handler </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00237">237</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
 
 </div>
 </div>
@@ -365,19 +397,18 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::get_max_displacement_since_mapped </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">double <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::get_max_displacement_since_mapped</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p><a class="el" href="classCalculates.html">Calculates</a> the max displacement of the solid object. The max displacement is defined as the L^\infty norm of the displacement components. This is a measure of the maximal displacement in any direction. </p>
 <dl class="section return"><dt>Returns</dt><dd>The reference to the vector of the displacement since the mapping </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00252">252</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
 
 </div>
 </div>
@@ -409,6 +440,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>Returns the solid id of the solid object. This ID is an unsigned integer which is given to the solid object at compile time and is mostly used when writing files. </p>
 <dl class="section return"><dt>Returns</dt><dd>id of the solid </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00179">179</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="a281fa1ca724482b62b07fc498c5e3924"></a>
@@ -439,27 +472,30 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <p>Returns translational velocity of the center of mass of the solid object. </p>
 <dl class="section return"><dt>Returns</dt><dd>The translational velocity of the solid object </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00136">136</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
+<p class="reference">References <a class="el" href="tensors__and__points__dimension__manipulation_8h_source.html#l00040">tensor_nd_to_3d()</a>.</p>
+
 </div>
 </div>
-<a id="ae1ddf6a1a767a5cc1c265bf8a1a04de4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1ddf6a1a767a5cc1c265bf8a1a04de4">&#9670;&nbsp;</a></span>get_triangulation()</h2>
+<a id="a4cc11ff813d55f4cab58685e3c87a26c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cc11ff813d55f4cab58685e3c87a26c">&#9670;&nbsp;</a></span>get_triangulation()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;Triangulation&lt;dim, spacedim&gt; &gt; <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::get_triangulation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">std::shared_ptr&lt; Triangulation&lt; dim, spacedim &gt; &gt; <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::get_triangulation</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Returns the shared pointer to the solid object triangulation. </p>
 <dl class="section return"><dt>Returns</dt><dd>shared_ptr of the solid triangulation </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00259">259</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
 
 </div>
 </div>
@@ -469,31 +505,30 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::initial_setup </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::initial_setup</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Manages solid triangulation setup. </p>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00152">152</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
 </div>
 </div>
-<a id="a82de51dafef0f6f6b277c97d55b785ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82de51dafef0f6f6b277c97d55b785ad">&#9670;&nbsp;</a></span>map_solid_in_background_triangulation()</h2>
+<a id="ab8ad4d1cd9fc4e30cb6559111919e4c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8ad4d1cd9fc4e30cb6559111919e4c4">&#9670;&nbsp;</a></span>map_solid_in_background_triangulation()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::pair&lt;typename Triangulation&lt;spacedim&gt;::active_cell_iterator, typename Triangulation&lt;dim, spacedim&gt;::active_cell_iterator&gt; &gt; <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::map_solid_in_background_triangulation </td>
+          <td class="memname">std::vector&lt; std::pair&lt; typename Triangulation&lt; spacedim &gt;::active_cell_iterator, typename Triangulation&lt; dim, spacedim &gt;::active_cell_iterator &gt; &gt; <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::map_solid_in_background_triangulation </td>
           <td>(</td>
           <td class="paramtype">const parallel::TriangulationBase&lt; spacedim &gt; &amp;&#160;</td>
           <td class="paramname"><em>background_tr</em></td><td>)</td>
@@ -504,6 +539,10 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Maps the solid object in the background triangulation. </p>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00093">93</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="lethe__grid__tools_8cc_source.html#l01477">LetheGridTools::find_point_triangle_distance()</a>.</p>
+
 </div>
 </div>
 <a id="a61418fd2272a22899c3fc0bfbe948cd0"></a>
@@ -512,7 +551,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::move_solid_triangulation </td>
@@ -543,6 +582,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00321">321</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
 </div>
 </div>
 <a id="a842a54f912a268373e43c120471685e2"></a>
@@ -551,7 +592,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::read_checkpoint </td>
@@ -571,6 +612,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>This is currently not implemented </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00507">507</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
 
 </div>
 </div>
@@ -601,10 +644,12 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 <p>Reset displacements since intersection for contact detection. </p>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00240">240</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="aacd53d2b3425e246f90c148f678fa1de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacd53d2b3425e246f90c148f678fa1de">&#9670;&nbsp;</a></span>rotate_grid()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aacd53d2b3425e246f90c148f678fa1de">&#9670;&nbsp;</a></span>rotate_grid() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -650,24 +695,175 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 </div>
 </div>
+<a id="a13a2539013b9883aad8a3d82c549b933"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a2539013b9883aad8a3d82c549b933">&#9670;&nbsp;</a></span>rotate_grid() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; 2, 3 &gt;::rotate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00280">280</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+</div>
+</div>
+<a id="aaf9f74ed42c60c0eb7da7ece6f0da51e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9f74ed42c60c0eb7da7ece6f0da51e">&#9670;&nbsp;</a></span>rotate_grid() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; 1, 2 &gt;::rotate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00266">266</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+</div>
+</div>
+<a id="a0e520329cc69d2f0b5907551869e8664"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e520329cc69d2f0b5907551869e8664">&#9670;&nbsp;</a></span>rotate_grid() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; 3, 3 &gt;::rotate_grid </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00286">286</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+</div>
+</div>
+<a id="a19635544a26cc5a58dcfc4965ec6455b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19635544a26cc5a58dcfc4965ec6455b">&#9670;&nbsp;</a></span>rotate_grid() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; 2, 2 &gt;::rotate_grid </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00273">273</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+</div>
+</div>
 <a id="a2e1e63989dd2a3a462f58972ff096f55"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e1e63989dd2a3a462f58972ff096f55">&#9670;&nbsp;</a></span>setup_dof_handler()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::setup_dof_handler </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::setup_dof_handler</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Set-ups the displacement vector to store the motion of the triangulation. </p>
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00563">563</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
 
 </div>
 </div>
@@ -677,7 +873,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::setup_triangulation </td>
@@ -697,10 +893,14 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00164">164</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="structParameters_1_1Mesh.html#a9be2ccd9771c7cc7df861429a0c7864ca3c4b939087811f328575e358443a5880">Parameters::Mesh::dealii</a>, and <a class="el" href="structParameters_1_1Mesh.html#a9be2ccd9771c7cc7df861429a0c7864cab7c7797f3a0a1098b484e5e3a780e025">Parameters::Mesh::gmsh</a>.</p>
+
 </div>
 </div>
 <a id="ab16fab6a30698ac3b1f98f83e43beeaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab16fab6a30698ac3b1f98f83e43beeaa">&#9670;&nbsp;</a></span>translate_grid()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab16fab6a30698ac3b1f98f83e43beeaa">&#9670;&nbsp;</a></span>translate_grid() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -735,13 +935,125 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 
 </div>
 </div>
+<a id="a0cc7d53b1bfa82468bcc7c8324a16cb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cc7d53b1bfa82468bcc7c8324a16cb1">&#9670;&nbsp;</a></span>translate_grid() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; 1, 2 &gt;::translate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>translation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00293">293</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+</div>
+</div>
+<a id="a704220fe5bdc4c5103c5aca6c31cc9b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a704220fe5bdc4c5103c5aca6c31cc9b8">&#9670;&nbsp;</a></span>translate_grid() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; 2, 2 &gt;::translate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>translation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00300">300</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+</div>
+</div>
+<a id="a11e71f7ed55e693757b171e585ed405e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11e71f7ed55e693757b171e585ed405e">&#9670;&nbsp;</a></span>translate_grid() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; 2, 3 &gt;::translate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>translation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00307">307</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+</div>
+</div>
+<a id="ab5383d41355eecc591b8a9b634e544db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5383d41355eecc591b8a9b634e544db">&#9670;&nbsp;</a></span>translate_grid() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; 3, 3 &gt;::translate_grid </td>
+          <td>(</td>
+          <td class="paramtype">const Tensor&lt; 1, 3 &gt;&#160;</td>
+          <td class="paramname"><em>translation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00314">314</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
+</div>
+</div>
 <a id="a996b1aaaa71f3242d925d0794644d495"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a996b1aaaa71f3242d925d0794644d495">&#9670;&nbsp;</a></span>write_checkpoint()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::write_checkpoint </td>
@@ -762,6 +1074,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>This is currently not implemented </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00487">487</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
+
 </div>
 </div>
 <a id="a59e372a6a88cb56bfe7de2fecee214c4"></a>
@@ -770,7 +1084,7 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int spacedim = dim&gt; </div>
+template&lt;int dim, int spacedim&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classSerialSolid.html">SerialSolid</a>&lt; dim, spacedim &gt;::write_output_results </td>
@@ -789,6 +1103,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8cc_source.html#l00435">435</a> of file <a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a>.</p>
 
 </div>
 </div>
@@ -815,6 +1131,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00291">291</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="ae5e8aaa71e6ecac5970198f230cc4d0c"></a>
@@ -838,6 +1156,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00292">292</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
 
 </div>
 </div>
@@ -863,6 +1183,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00294">294</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="a50324af15d6d835305ec272cf4dcebc0"></a>
@@ -886,6 +1208,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00293">293</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
 
 </div>
 </div>
@@ -911,6 +1235,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00283">283</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="a68aa77d32aa4524b73fcf880276d8b70"></a>
@@ -934,6 +1260,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00281">281</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
 
 </div>
 </div>
@@ -959,6 +1287,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00282">282</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="a3e8f54b644d65b08f094ff8a759a8445"></a>
@@ -982,6 +1312,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00284">284</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
 
 </div>
 </div>
@@ -1007,6 +1339,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00279">279</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="a108709db5f2eca7699fc3b51d60f0f70"></a>
@@ -1030,6 +1364,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00275">275</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
 
 </div>
 </div>
@@ -1055,6 +1391,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00267">267</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="a1029eb424f3776a93cf778bc4843b4bd"></a>
@@ -1078,6 +1416,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00268">268</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
 
 </div>
 </div>
@@ -1103,6 +1443,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00272">272</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="a1b73c04e11d917a8a12b83ebad9070ae"></a>
@@ -1126,6 +1468,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00287">287</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
 
 </div>
 </div>
@@ -1151,6 +1495,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00280">280</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="a2901d3041ae21ffd0aa769ab69cbcc65"></a>
@@ -1174,6 +1520,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00278">278</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
 
 </div>
 </div>
@@ -1199,6 +1547,8 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00269">269</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
 <a id="abb4d03f6876e945b6d9eb3243397cae7"></a>
@@ -1223,10 +1573,13 @@ template&lt;int dim, int spacedim = dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="serial__solid_8h_source.html#l00290">290</a> of file <a class="el" href="serial__solid_8h_source.html">serial_solid.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="serial__solid_8h_source.html">serial_solid.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="serial__solid_8cc_source.html">serial_solid.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

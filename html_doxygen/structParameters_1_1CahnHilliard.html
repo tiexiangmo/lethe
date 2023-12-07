@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -80,10 +87,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a49319b0782dbd0837d8825bcb20b5892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1CahnHilliard.html#a49319b0782dbd0837d8825bcb20b5892">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:a49319b0782dbd0837d8825bcb20b5892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa65be1f16e43c14c29064049cd014d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1CahnHilliard.html#afa65be1f16e43c14c29064049cd014d8">parse_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:afa65be1f16e43c14c29064049cd014d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a068836485309274e40fa63bd4cea6d23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1CahnHilliard.html#a068836485309274e40fa63bd4cea6d23">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:a068836485309274e40fa63bd4cea6d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae869d3e91cea901a8ea2fee64ac836da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1CahnHilliard.html#ae869d3e91cea901a8ea2fee64ac836da">parse_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:ae869d3e91cea901a8ea2fee64ac836da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -94,15 +101,18 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a7571d0b4561b5cf166b0e31be037f11d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1CahnHilliard.html#a7571d0b4561b5cf166b0e31be037f11d">epsilon</a></td></tr>
 <tr class="separator:a7571d0b4561b5cf166b0e31be037f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a49319b0782dbd0837d8825bcb20b5892"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49319b0782dbd0837d8825bcb20b5892">&#9670;&nbsp;</a></span>declare_parameters()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="parameters__multiphysics_8h_source.html#l00197">197</a> of file <a class="el" href="parameters__multiphysics_8h_source.html">parameters_multiphysics.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a068836485309274e40fa63bd4cea6d23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a068836485309274e40fa63bd4cea6d23">&#9670;&nbsp;</a></span>declare_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Parameters::CahnHilliard::declare_parameters </td>
+          <td class="memname">void <a class="el" href="structParameters_1_1CahnHilliard.html">CahnHilliard</a>&lt; dim &gt;::declare_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -111,16 +121,18 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters__multiphysics_8cc_source.html#l00488">488</a> of file <a class="el" href="parameters__multiphysics_8cc_source.html">parameters_multiphysics.cc</a>.</p>
+
 </div>
 </div>
-<a id="afa65be1f16e43c14c29064049cd014d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa65be1f16e43c14c29064049cd014d8">&#9670;&nbsp;</a></span>parse_parameters()</h2>
+<a id="ae869d3e91cea901a8ea2fee64ac836da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae869d3e91cea901a8ea2fee64ac836da">&#9670;&nbsp;</a></span>parse_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Parameters::CahnHilliard::parse_parameters </td>
+          <td class="memname">void <a class="el" href="structParameters_1_1CahnHilliard.html">CahnHilliard</a>&lt; dim &gt;::parse_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -128,6 +140,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters__multiphysics_8cc_source.html#l00517">517</a> of file <a class="el" href="parameters__multiphysics_8cc_source.html">parameters_multiphysics.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="namespaceParameters.html#a2f4421761ead0a91af8b120a8d77de16a2bd9c0ed00116be1258e0cc66617d7c8">Parameters::automatic</a>, and <a class="el" href="namespaceParameters.html#a2f4421761ead0a91af8b120a8d77de16a3c78b35502b2693fefdfc51cba3a53a5">Parameters::manual</a>.</p>
 
 </div>
 </div>
@@ -144,6 +160,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters__multiphysics_8h_source.html#l00206">206</a> of file <a class="el" href="parameters__multiphysics_8h_source.html">parameters_multiphysics.h</a>.</p>
+
 </div>
 </div>
 <a id="a16e1ea0f5eac716c5307fde342112dad"></a>
@@ -157,6 +175,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters__multiphysics_8h_source.html#l00203">203</a> of file <a class="el" href="parameters__multiphysics_8h_source.html">parameters_multiphysics.h</a>.</p>
 
 </div>
 </div>
@@ -172,10 +192,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters__multiphysics_8h_source.html#l00200">200</a> of file <a class="el" href="parameters__multiphysics_8h_source.html">parameters_multiphysics.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="parameters__multiphysics_8h_source.html">parameters_multiphysics.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="parameters__multiphysics_8cc_source.html">parameters_multiphysics.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

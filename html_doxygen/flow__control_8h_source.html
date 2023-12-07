@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -106,24 +113,52 @@ $(function() {
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">using namespace </span>dealii;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"> * @brief Class allows to dynamically control the flow with a beta coefficient calculated at each step time.</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim&gt;</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classFlowControl.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFlowControl.html">FlowControl</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classFlowControl.html#aeab13df0da2212c7c37408b69e131f30">   45</a></span>&#160;  <a class="code" href="classFlowControl.html#aeab13df0da2212c7c37408b69e131f30">FlowControl</a>(<span class="keyword">const</span> <a class="code" href="structParameters_1_1DynamicFlowControl.html">Parameters::DynamicFlowControl</a> &amp;flow_control);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="classFlowControl.html">FlowControl</a>(<span class="keyword">const</span> <a class="code" href="structParameters_1_1DynamicFlowControl.html">Parameters::DynamicFlowControl</a> &amp;flow_control);<span class="comment"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">   * @brief calculate_beta. This function calculates a beta coefficient which</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">   * applies a force to the flow in order to adjust the flow rate to a desired</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">   * average velocity through the previous flow rate. Once the flow rate is</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">   * reached, the algorithm calculates a new beta to keep a constant flow rate.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">   * @param average_velocity. The last step average_velocity</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">   * @param dt. The current time step</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">   * @param step_number. The current step</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classFlowControl.html#a5e8755cf979872c69e4fc4501f9d3b69">   59</a></span>&#160;  <a class="code" href="classFlowControl.html#a5e8755cf979872c69e4fc4501f9d3b69">calculate_beta</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>       &amp;average_velocity,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  calculate_beta(<span class="keyword">const</span> <span class="keywordtype">double</span>       &amp;average_velocity,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                 <span class="keyword">const</span> <span class="keywordtype">double</span>       &amp;dt,</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                 <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;step_number);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">   * @brief proportional_flow_controller. This function calculates a beta only</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">   * with the last step average velocity. It is used to initialize the beta</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">   * if there&#39;s no initial beta value at 1st time step and the 2nd time step.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classFlowControl.html#af7d056138ae4650a3a826912549dfb0b">   69</a></span>&#160;  <a class="code" href="classFlowControl.html#af7d056138ae4650a3a826912549dfb0b">proportional_flow_controller</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;average_velocity_n,</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;dt)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  {</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> 0.5 * alpha * (average_velocity_0 - average_velocity_n) / dt;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">   * @brief main_flow_controller. This function calculates a beta coefficient</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">   * based on a formula described by Wang, 2009 in &quot;A non-body conformal grid</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">   * method for simulations</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">   * of laminar and turbulent flows with a compressible</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">   * large eddy simulation solver&quot;</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classFlowControl.html#a3f8d388638224072acc18b94f0c11f9e">   83</a></span>&#160;  <a class="code" href="classFlowControl.html#a3f8d388638224072acc18b94f0c11f9e">main_flow_controller</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;average_velocity_n, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;dt)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  {</div>
@@ -140,13 +175,20 @@ $(function() {
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">return</span> beta_n1;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">   * @brief get_beta. This function gives the beta force of the step time</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  Tensor&lt;1, dim&gt;</div>
 <div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classFlowControl.html#a1079527c5c8ef81b000a5cb375056e39">  103</a></span>&#160;  <a class="code" href="classFlowControl.html#a1079527c5c8ef81b000a5cb375056e39">get_beta</a>()</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  {</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> beta;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">   * @brief get_beta_particle. This function gives the beta force of the</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">   * CFD time step scaled for particles.</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keyword">inline</span> Tensor&lt;1, 3&gt;</div>
 <div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classFlowControl.html#acabda2bdcaca0c1bf51f4016faa8c213">  113</a></span>&#160;  <a class="code" href="classFlowControl.html#acabda2bdcaca0c1bf51f4016faa8c213">get_beta_particles</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;fluid_density,</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                     <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;particle_density)</div>
@@ -165,10 +207,10 @@ $(function() {
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classFlowControl.html#a7aad205f0c46e1c0ba32f5a9d3bbf93f">  130</a></span>&#160;  <a class="code" href="classFlowControl.html#a7aad205f0c46e1c0ba32f5a9d3bbf93f">save</a>(std::string prefix);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  save(std::string prefix);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classFlowControl.html#a784e8af69ab6919e780da137c6145713">  133</a></span>&#160;  <a class="code" href="classFlowControl.html#a784e8af69ab6919e780da137c6145713">read</a>(std::string prefix);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  read(std::string prefix);</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="comment">// The coefficients are stored in the following fashion :</span></div>
@@ -198,27 +240,23 @@ $(function() {
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;};</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassFlowControl_html"><div class="ttname"><a href="classFlowControl.html">FlowControl</a></div><div class="ttdoc">Class allows to dynamically control the flow with a beta coefficient calculated at each step time.</div><div class="ttdef"><b>Definition:</b> flow_control.h:43</div></div>
-<div class="ttc" id="aclassFlowControl_html_a1079527c5c8ef81b000a5cb375056e39"><div class="ttname"><a href="classFlowControl.html#a1079527c5c8ef81b000a5cb375056e39">FlowControl::get_beta</a></div><div class="ttdeci">Tensor&lt; 1, dim &gt; get_beta()</div><div class="ttdoc">get_beta. This function gives the beta force of the step time</div><div class="ttdef"><b>Definition:</b> flow_control.h:103</div></div>
-<div class="ttc" id="aclassFlowControl_html_a1799d2f88e1a0adadfc92e7852685c65"><div class="ttname"><a href="classFlowControl.html#a1799d2f88e1a0adadfc92e7852685c65">FlowControl::alpha</a></div><div class="ttdeci">double alpha</div><div class="ttdef"><b>Definition:</b> flow_control.h:147</div></div>
-<div class="ttc" id="aclassFlowControl_html_a19769bbf4028d49ce417aa4980e82a8b"><div class="ttname"><a href="classFlowControl.html#a19769bbf4028d49ce417aa4980e82a8b">FlowControl::beta_n</a></div><div class="ttdeci">double beta_n</div><div class="ttdef"><b>Definition:</b> flow_control.h:151</div></div>
-<div class="ttc" id="aclassFlowControl_html_a32c0e8b195226d56637cd5db22ae9115"><div class="ttname"><a href="classFlowControl.html#a32c0e8b195226d56637cd5db22ae9115">FlowControl::threshold_factor</a></div><div class="ttdeci">double threshold_factor</div><div class="ttdef"><b>Definition:</b> flow_control.h:159</div></div>
-<div class="ttc" id="aclassFlowControl_html_a3451785c2ee653a616cb9bea00cda404"><div class="ttname"><a href="classFlowControl.html#a3451785c2ee653a616cb9bea00cda404">FlowControl::beta_threshold</a></div><div class="ttdeci">double beta_threshold</div><div class="ttdef"><b>Definition:</b> flow_control.h:148</div></div>
-<div class="ttc" id="aclassFlowControl_html_a3f8d388638224072acc18b94f0c11f9e"><div class="ttname"><a href="classFlowControl.html#a3f8d388638224072acc18b94f0c11f9e">FlowControl::main_flow_controller</a></div><div class="ttdeci">double main_flow_controller(const double &amp;average_velocity_n, const double &amp;dt)</div><div class="ttdoc">main_flow_controller. This function calculates a beta coefficient based on a formula described by Wan...</div><div class="ttdef"><b>Definition:</b> flow_control.h:83</div></div>
-<div class="ttc" id="aclassFlowControl_html_a450ad4a1f4caab72f1950ae8d8300f42"><div class="ttname"><a href="classFlowControl.html#a450ad4a1f4caab72f1950ae8d8300f42">FlowControl::flow_direction</a></div><div class="ttdeci">unsigned int flow_direction</div><div class="ttdef"><b>Definition:</b> flow_control.h:155</div></div>
-<div class="ttc" id="aclassFlowControl_html_a5e8755cf979872c69e4fc4501f9d3b69"><div class="ttname"><a href="classFlowControl.html#a5e8755cf979872c69e4fc4501f9d3b69">FlowControl::calculate_beta</a></div><div class="ttdeci">void calculate_beta(const double &amp;average_velocity, const double &amp;dt, const unsigned int &amp;step_number)</div><div class="ttdoc">calculate_beta. This function calculates a beta coefficient which applies a force to the flow in orde...</div></div>
-<div class="ttc" id="aclassFlowControl_html_a784e8af69ab6919e780da137c6145713"><div class="ttname"><a href="classFlowControl.html#a784e8af69ab6919e780da137c6145713">FlowControl::read</a></div><div class="ttdeci">void read(std::string prefix)</div></div>
-<div class="ttc" id="aclassFlowControl_html_a7aad205f0c46e1c0ba32f5a9d3bbf93f"><div class="ttname"><a href="classFlowControl.html#a7aad205f0c46e1c0ba32f5a9d3bbf93f">FlowControl::save</a></div><div class="ttdeci">void save(std::string prefix)</div></div>
-<div class="ttc" id="aclassFlowControl_html_a80d14d2c68789e091a9c3277a4414361"><div class="ttname"><a href="classFlowControl.html#a80d14d2c68789e091a9c3277a4414361">FlowControl::no_force</a></div><div class="ttdeci">bool no_force</div><div class="ttdef"><b>Definition:</b> flow_control.h:158</div></div>
-<div class="ttc" id="aclassFlowControl_html_a8ae774535e50107219c481d41488953b"><div class="ttname"><a href="classFlowControl.html#a8ae774535e50107219c481d41488953b">FlowControl::average_velocity_1n</a></div><div class="ttdeci">double average_velocity_1n</div><div class="ttdef"><b>Definition:</b> flow_control.h:152</div></div>
-<div class="ttc" id="aclassFlowControl_html_aaf16a6a43fc8174bbeef9a0af9e81685"><div class="ttname"><a href="classFlowControl.html#aaf16a6a43fc8174bbeef9a0af9e81685">FlowControl::beta</a></div><div class="ttdeci">Tensor&lt; 1, dim &gt; beta</div><div class="ttdef"><b>Definition:</b> flow_control.h:140</div></div>
-<div class="ttc" id="aclassFlowControl_html_ab9ca2a1b21eaf39cc47d1d889feb97fe"><div class="ttname"><a href="classFlowControl.html#ab9ca2a1b21eaf39cc47d1d889feb97fe">FlowControl::beta_0</a></div><div class="ttdeci">double beta_0</div><div class="ttdef"><b>Definition:</b> flow_control.h:146</div></div>
-<div class="ttc" id="aclassFlowControl_html_acabda2bdcaca0c1bf51f4016faa8c213"><div class="ttname"><a href="classFlowControl.html#acabda2bdcaca0c1bf51f4016faa8c213">FlowControl::get_beta_particles</a></div><div class="ttdeci">Tensor&lt; 1, 3 &gt; get_beta_particles(const double &amp;fluid_density, const double &amp;particle_density)</div><div class="ttdoc">get_beta_particle. This function gives the beta force of the CFD time step scaled for particles.</div><div class="ttdef"><b>Definition:</b> flow_control.h:113</div></div>
-<div class="ttc" id="aclassFlowControl_html_add256a67717dc0487757017e76ac9722"><div class="ttname"><a href="classFlowControl.html#add256a67717dc0487757017e76ac9722">FlowControl::average_velocity_0</a></div><div class="ttdeci">double average_velocity_0</div><div class="ttdef"><b>Definition:</b> flow_control.h:143</div></div>
-<div class="ttc" id="aclassFlowControl_html_aeab13df0da2212c7c37408b69e131f30"><div class="ttname"><a href="classFlowControl.html#aeab13df0da2212c7c37408b69e131f30">FlowControl::FlowControl</a></div><div class="ttdeci">FlowControl(const Parameters::DynamicFlowControl &amp;flow_control)</div></div>
-<div class="ttc" id="aclassFlowControl_html_af7d056138ae4650a3a826912549dfb0b"><div class="ttname"><a href="classFlowControl.html#af7d056138ae4650a3a826912549dfb0b">FlowControl::proportional_flow_controller</a></div><div class="ttdeci">double proportional_flow_controller(const double &amp;average_velocity_n, const double &amp;dt)</div><div class="ttdoc">proportional_flow_controller. This function calculates a beta only with the last step average velocit...</div><div class="ttdef"><b>Definition:</b> flow_control.h:69</div></div>
+<div class="ttc" id="aclassFlowControl_html"><div class="ttname"><a href="classFlowControl.html">FlowControl</a></div><div class="ttdoc">Class allows to dynamically control the flow with a beta coefficient calculated at each step time.</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00042">flow_control.h:43</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_a1079527c5c8ef81b000a5cb375056e39"><div class="ttname"><a href="classFlowControl.html#a1079527c5c8ef81b000a5cb375056e39">FlowControl::get_beta</a></div><div class="ttdeci">Tensor&lt; 1, dim &gt; get_beta()</div><div class="ttdoc">get_beta. This function gives the beta force of the step time</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00103">flow_control.h:103</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_a1799d2f88e1a0adadfc92e7852685c65"><div class="ttname"><a href="classFlowControl.html#a1799d2f88e1a0adadfc92e7852685c65">FlowControl::alpha</a></div><div class="ttdeci">double alpha</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00147">flow_control.h:147</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_a19769bbf4028d49ce417aa4980e82a8b"><div class="ttname"><a href="classFlowControl.html#a19769bbf4028d49ce417aa4980e82a8b">FlowControl::beta_n</a></div><div class="ttdeci">double beta_n</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00151">flow_control.h:151</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_a32c0e8b195226d56637cd5db22ae9115"><div class="ttname"><a href="classFlowControl.html#a32c0e8b195226d56637cd5db22ae9115">FlowControl::threshold_factor</a></div><div class="ttdeci">double threshold_factor</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00159">flow_control.h:159</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_a3451785c2ee653a616cb9bea00cda404"><div class="ttname"><a href="classFlowControl.html#a3451785c2ee653a616cb9bea00cda404">FlowControl::beta_threshold</a></div><div class="ttdeci">double beta_threshold</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00148">flow_control.h:148</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_a3f8d388638224072acc18b94f0c11f9e"><div class="ttname"><a href="classFlowControl.html#a3f8d388638224072acc18b94f0c11f9e">FlowControl::main_flow_controller</a></div><div class="ttdeci">double main_flow_controller(const double &amp;average_velocity_n, const double &amp;dt)</div><div class="ttdoc">main_flow_controller. This function calculates a beta coefficient based on a formula described by Wan...</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00083">flow_control.h:83</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_a450ad4a1f4caab72f1950ae8d8300f42"><div class="ttname"><a href="classFlowControl.html#a450ad4a1f4caab72f1950ae8d8300f42">FlowControl::flow_direction</a></div><div class="ttdeci">unsigned int flow_direction</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00155">flow_control.h:155</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_a80d14d2c68789e091a9c3277a4414361"><div class="ttname"><a href="classFlowControl.html#a80d14d2c68789e091a9c3277a4414361">FlowControl::no_force</a></div><div class="ttdeci">bool no_force</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00158">flow_control.h:158</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_a8ae774535e50107219c481d41488953b"><div class="ttname"><a href="classFlowControl.html#a8ae774535e50107219c481d41488953b">FlowControl::average_velocity_1n</a></div><div class="ttdeci">double average_velocity_1n</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00152">flow_control.h:152</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_aaf16a6a43fc8174bbeef9a0af9e81685"><div class="ttname"><a href="classFlowControl.html#aaf16a6a43fc8174bbeef9a0af9e81685">FlowControl::beta</a></div><div class="ttdeci">Tensor&lt; 1, dim &gt; beta</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00140">flow_control.h:140</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_ab9ca2a1b21eaf39cc47d1d889feb97fe"><div class="ttname"><a href="classFlowControl.html#ab9ca2a1b21eaf39cc47d1d889feb97fe">FlowControl::beta_0</a></div><div class="ttdeci">double beta_0</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00146">flow_control.h:146</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_acabda2bdcaca0c1bf51f4016faa8c213"><div class="ttname"><a href="classFlowControl.html#acabda2bdcaca0c1bf51f4016faa8c213">FlowControl::get_beta_particles</a></div><div class="ttdeci">Tensor&lt; 1, 3 &gt; get_beta_particles(const double &amp;fluid_density, const double &amp;particle_density)</div><div class="ttdoc">get_beta_particle. This function gives the beta force of the CFD time step scaled for particles.</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00113">flow_control.h:113</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_add256a67717dc0487757017e76ac9722"><div class="ttname"><a href="classFlowControl.html#add256a67717dc0487757017e76ac9722">FlowControl::average_velocity_0</a></div><div class="ttdeci">double average_velocity_0</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00143">flow_control.h:143</a></div></div>
+<div class="ttc" id="aclassFlowControl_html_af7d056138ae4650a3a826912549dfb0b"><div class="ttname"><a href="classFlowControl.html#af7d056138ae4650a3a826912549dfb0b">FlowControl::proportional_flow_controller</a></div><div class="ttdeci">double proportional_flow_controller(const double &amp;average_velocity_n, const double &amp;dt)</div><div class="ttdoc">proportional_flow_controller. This function calculates a beta only with the last step average velocit...</div><div class="ttdef"><b>Definition:</b> <a href="flow__control_8h_source.html#l00069">flow_control.h:69</a></div></div>
 <div class="ttc" id="aparameters_8h_html"><div class="ttname"><a href="parameters_8h.html">parameters.h</a></div></div>
-<div class="ttc" id="astructParameters_1_1DynamicFlowControl_html"><div class="ttname"><a href="structParameters_1_1DynamicFlowControl.html">Parameters::DynamicFlowControl</a></div><div class="ttdoc">FlowControl - Set average velocity on a boundary (CFD) or the domain (CFD-DEM).</div><div class="ttdef"><b>Definition:</b> parameters.h:1324</div></div>
+<div class="ttc" id="astructParameters_1_1DynamicFlowControl_html"><div class="ttname"><a href="structParameters_1_1DynamicFlowControl.html">Parameters::DynamicFlowControl</a></div><div class="ttdoc">FlowControl - Set average velocity on a boundary (CFD) or the domain (CFD-DEM).</div><div class="ttdef"><b>Definition:</b> <a href="parameters_8h_source.html#l01323">parameters.h:1324</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

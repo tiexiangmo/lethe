@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -89,8 +96,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a912c41b053ef175c836afb5f10b5c886"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1PhaseChange.html#a912c41b053ef175c836afb5f10b5c886">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
-<tr class="separator:a912c41b053ef175c836afb5f10b5c886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac25a068ddfc311952145dc2c3fc80f91"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structParameters_1_1PhaseChange.html#ac25a068ddfc311952145dc2c3fc80f91">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="separator:ac25a068ddfc311952145dc2c3fc80f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -119,9 +126,11 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Phase change model for melting/freezing liquids The model assumes that the phase change occurs between a solidus and liquidus temperature. This defines a solidification interval which is used to smooth the non-linearity of the melting problem or to fit the real thermodynamics of the melting process. </p>
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00186">186</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a912c41b053ef175c836afb5f10b5c886"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a912c41b053ef175c836afb5f10b5c886">&#9670;&nbsp;</a></span>declare_parameters()</h2>
+<a id="ac25a068ddfc311952145dc2c3fc80f91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac25a068ddfc311952145dc2c3fc80f91">&#9670;&nbsp;</a></span>declare_parameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,7 +139,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Parameters::PhaseChange::declare_parameters </td>
+          <td class="memname">void Parameters::PhaseChange::declare_parameters </td>
           <td>(</td>
           <td class="paramtype">ParameterHandler &amp;&#160;</td>
           <td class="paramname"><em>prm</em></td><td>)</td>
@@ -143,6 +152,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8cc_source.html#l00598">598</a> of file <a class="el" href="parameters_8cc_source.html">parameters.cc</a>.</p>
 
 </div>
 </div>
@@ -172,6 +183,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8cc_source.html#l00548">548</a> of file <a class="el" href="parameters_8cc_source.html">parameters.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters_8h_source.html#l00198">cp_l</a>, <a class="el" href="parameters_8h_source.html#l00201">cp_s</a>, <a class="el" href="dimensionality_8h_source.html#l00102">Parameters::Dimensionality::enthalpy_scaling</a>, <a class="el" href="parameters_8h_source.html#l00216">kinematic_viscosity_l</a>, <a class="el" href="parameters_8h_source.html#l00219">kinematic_viscosity_s</a>, <a class="el" href="parameters_8h_source.html#l00195">latent_enthalpy</a>, <a class="el" href="dimensionality_8h_source.html#l00100">Parameters::Dimensionality::specific_heat_scaling</a>, <a class="el" href="parameters_8h_source.html#l00192">T_liquidus</a>, <a class="el" href="parameters_8h_source.html#l00189">T_solidus</a>, <a class="el" href="dimensionality_8h_source.html#l00088">Parameters::Dimensionality::temperature</a>, <a class="el" href="parameters_8h_source.html#l00204">thermal_conductivity_l</a>, <a class="el" href="parameters_8h_source.html#l00207">thermal_conductivity_s</a>, <a class="el" href="dimensionality_8h_source.html#l00101">Parameters::Dimensionality::thermal_conductivity_scaling</a>, <a class="el" href="parameters_8h_source.html#l00210">thermal_expansion_l</a>, <a class="el" href="parameters_8h_source.html#l00213">thermal_expansion_s</a>, <a class="el" href="dimensionality_8h_source.html#l00104">Parameters::Dimensionality::thermal_expansion_scaling</a>, and <a class="el" href="dimensionality_8h_source.html#l00099">Parameters::Dimensionality::viscosity_scaling</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -187,6 +202,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00198">198</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
 <a id="aa6efc0f78d5fbecca11488c842f9e905"></a>
@@ -200,6 +217,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00201">201</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
 </div>
 </div>
@@ -215,6 +234,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00216">216</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
 <a id="ad62b561bfd8f495d51b930f2e2f84911"></a>
@@ -228,6 +249,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00219">219</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
 </div>
 </div>
@@ -243,6 +266,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00195">195</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
 <a id="a1628072cfb15a7e5f8f07f9f7361ebbc"></a>
@@ -256,6 +281,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00192">192</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
 </div>
 </div>
@@ -271,6 +298,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00189">189</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
 <a id="a0933fa5c4bf067da0d6be88de9005e40"></a>
@@ -284,6 +313,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00204">204</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
 </div>
 </div>
@@ -299,6 +330,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00207">207</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
 <a id="ac48ccb7722022c807cd9e2360a0ef1b1"></a>
@@ -312,6 +345,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00210">210</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
 
 </div>
 </div>
@@ -327,10 +362,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="parameters_8h_source.html#l00213">213</a> of file <a class="el" href="parameters_8h_source.html">parameters.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/core/<a class="el" href="parameters_8h_source.html">parameters.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/core/<a class="el" href="parameters_8cc_source.html">parameters.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

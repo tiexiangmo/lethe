@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -137,6 +144,8 @@ Public Attributes</h2></td></tr>
 class BoundaryConditions::NSBoundaryConditions&lt; dim &gt;</h3>
 
 <p>This class manages the boundary conditions for Navier-Stokes solver It introduces the boundary functions and declares the boundary conditions coherently. </p>
+
+<p class="definition">Definition at line <a class="el" href="boundary__conditions_8h_source.html#l00155">155</a> of file <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5111373395f857dbf454ec1bd377e141"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5111373395f857dbf454ec1bd377e141">&#9670;&nbsp;</a></span>createNoSlip()</h2>
@@ -153,6 +162,10 @@ template&lt;int dim&gt; </div>
 </div><div class="memdoc">
 
 <p>Creates a noslip boundary condition for id=0 Used in tests only. </p>
+
+<p class="definition">Definition at line <a class="el" href="boundary__conditions_8h_source.html#l00195">195</a> of file <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>.</p>
 
 </div>
 </div>
@@ -193,6 +206,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="boundary__conditions_8h_source.html#l00363">363</a> of file <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>.</p>
+
 </div>
 </div>
 <a id="a501b9fbfb2b30237e3daa2ded115444f"></a>
@@ -231,6 +248,10 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="boundary__conditions_8h_source.html#l00216">216</a> of file <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+<p class="reference">References <a class="el" href="boundary__conditions_8h_source.html#l00363">BoundaryConditions::NSBoundaryConditions&lt; dim &gt;::declare_parameters()</a>.</p>
 
 </div>
 </div>
@@ -271,6 +292,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="boundary__conditions_8h_source.html#l00291">291</a> of file <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+<p class="reference">References <a class="el" href="physical__property__model_8h_source.html#l00037">pressure</a>, and <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>.</p>
+
 </div>
 </div>
 <a id="a07c8e99cd72eaf572c69486a659fdfb4"></a>
@@ -301,6 +326,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="boundary__conditions_8h_source.html#l00408">408</a> of file <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
+<p class="reference">References <a class="el" href="dem__properties_8h_source.html#l00040">DEM::type</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -318,6 +347,8 @@ template&lt;int dim&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="boundary__conditions_8h_source.html#l00159">159</a> of file <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
+
 </div>
 </div>
 <a id="a259dac7b8ad04da991df035bd55ecc53"></a>
@@ -333,6 +364,8 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="boundary__conditions_8h_source.html#l00160">160</a> of file <a class="el" href="boundary__conditions_8h_source.html">boundary_conditions.h</a>.</p>
 
 </div>
 </div>

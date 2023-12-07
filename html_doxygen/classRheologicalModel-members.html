@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -78,7 +85,7 @@ $(function() {
   <tr><td class="entry"><a class="el" href="classRheologicalModel.html#a61b80433703743427ea134a5de5354d9">get_n</a>() const</td><td class="entry"><a class="el" href="classRheologicalModel.html">RheologicalModel</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classRheologicalModel.html#a8a9f7f56f2c0437d4a6360040dc17f38">is_non_newtonian_rheological_model</a>() const</td><td class="entry"><a class="el" href="classRheologicalModel.html">RheologicalModel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="classPhysicalPropertyModel.html#a3fc51243a48832ed3c6e3b4ee797c6b2">jacobian</a>(const std::map&lt; field, double &gt; &amp;field_values, const field id)=0</td><td class="entry"><a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRheologicalModel.html#a402c2835cae9e3fe537a2f7a085114fc">model_cast</a>(const Parameters::Material &amp;material_properties)</td><td class="entry"><a class="el" href="classRheologicalModel.html">RheologicalModel</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRheologicalModel.html#a8dc1c9a77886e59ee701ce27749c0505">model_cast</a>(const Parameters::Material &amp;material_properties)</td><td class="entry"><a class="el" href="classRheologicalModel.html">RheologicalModel</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
   <tr><td class="entry"><a class="el" href="classPhysicalPropertyModel.html#ad805b20920189b0c308b0a4730217b81">model_depends_on</a></td><td class="entry"><a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classRheologicalModel.html#a5ce1d5923b687879e0fbc8a7c95d71c0">non_newtonian_rheological_model</a></td><td class="entry"><a class="el" href="classRheologicalModel.html">RheologicalModel</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classPhysicalPropertyModel.html#a6be82a7f56166add6af232ac511194d4">numerical_jacobian</a>(const std::map&lt; field, double &gt; &amp;field_values, const field id)</td><td class="entry"><a class="el" href="classPhysicalPropertyModel.html">PhysicalPropertyModel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>

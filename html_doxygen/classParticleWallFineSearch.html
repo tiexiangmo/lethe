@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -91,6 +98,8 @@ class ParticleWallFineSearch&lt; dim &gt;</h3>
 <p>This class is used for fine particle-wall contact search. Fine search is used to find all the particles which are physically in contact with system boundaries and obtain all the required information for calculation of the corresponding particle-wall contact force</p>
 <dl class="section note"><dt>Note</dt><dd></dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Shahab Golshan, Polytechnique Montreal 2019- </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="particle__wall__fine__search_8h_source.html#l00050">50</a> of file <a class="el" href="particle__wall__fine__search_8h_source.html">particle_wall_fine_search.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5307bc8c5d4762c94fc89f812cdf1068"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5307bc8c5d4762c94fc89f812cdf1068">&#9670;&nbsp;</a></span>ParticleWallFineSearch()</h2>
@@ -101,13 +110,12 @@ class ParticleWallFineSearch&lt; dim &gt;</h3>
 template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classParticleWallFineSearch.html">ParticleWallFineSearch</a>&lt; dim &gt;::<a class="el" href="classParticleWallFineSearch.html">ParticleWallFineSearch</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="classParticleWallFineSearch.html">ParticleWallFineSearch</a>&lt; dim &gt;::<a class="el" href="classParticleWallFineSearch.html">ParticleWallFineSearch</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="particle__wall__fine__search_8cc_source.html#l00011">11</a> of file <a class="el" href="particle__wall__fine__search_8cc_source.html">particle_wall_fine_search.cc</a>.</p>
 
 </div>
 </div>
@@ -147,6 +155,8 @@ template&lt;int dim&gt; </div>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="particle__wall__fine__search_8cc_source.html#l00163">163</a> of file <a class="el" href="particle__wall__fine__search_8cc_source.html">particle_wall_fine_search.cc</a>.</p>
 
 </div>
 </div>
@@ -200,6 +210,10 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="particle__wall__fine__search_8cc_source.html#l00069">69</a> of file <a class="el" href="particle__wall__fine__search_8cc_source.html">particle_wall_fine_search.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="parameters__lagrangian_8h_source.html#l00325">Parameters::Lagrangian::FloatingWalls&lt; dim &gt;::floating_walls_normal_vectors</a>, <a class="el" href="tensors__and__points__dimension__manipulation_8h_source.html#l00085">point_nd_to_3d()</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00322">Parameters::Lagrangian::FloatingWalls&lt; dim &gt;::points_on_walls</a>, <a class="el" href="tensors__and__points__dimension__manipulation_8h_source.html#l00040">tensor_nd_to_3d()</a>, <a class="el" href="parameters__lagrangian_8h_source.html#l00331">Parameters::Lagrangian::FloatingWalls&lt; dim &gt;::time_end</a>, and <a class="el" href="parameters__lagrangian_8h_source.html#l00328">Parameters::Lagrangian::FloatingWalls&lt; dim &gt;::time_start</a>.</p>
+
 </div>
 </div>
 <a id="a84af95b38fdf614839507a71728f85f5"></a>
@@ -238,10 +252,15 @@ template&lt;int dim&gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="particle__wall__fine__search_8cc_source.html#l00016">16</a> of file <a class="el" href="particle__wall__fine__search_8cc_source.html">particle_wall_fine_search.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="tensors__and__points__dimension__manipulation_8h_source.html#l00085">point_nd_to_3d()</a>, and <a class="el" href="tensors__and__points__dimension__manipulation_8h_source.html#l00040">tensor_nd_to_3d()</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/lethe/lethe/include/dem/<a class="el" href="particle__wall__fine__search_8h_source.html">particle_wall_fine_search.h</a></li>
+<li>/home/runner/work/lethe/lethe/source/dem/<a class="el" href="particle__wall__fine__search_8cc_source.html">particle_wall_fine_search.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
