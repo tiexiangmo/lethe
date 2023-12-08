@@ -77,28 +77,37 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classAnalyticalSolutions_1_1AnalyticalSolution-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">AnalyticalSolutions::AnalyticalSolution&lt; dim &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Implements analytical solutions for the Navier-Stokes equations and the other physics supported by lethe.  
+ <a href="classAnalyticalSolutions_1_1AnalyticalSolution.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aca6eea7e4b34a56a65c4035f8cfbcefb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#aca6eea7e4b34a56a65c4035f8cfbcefb">AnalyticalSolution</a> ()</td></tr>
+<tr class="memdesc:aca6eea7e4b34a56a65c4035f8cfbcefb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html" title="Implements analytical solutions for the Navier-Stokes equations and the other physics supported by le...">AnalyticalSolution</a> object.  <a href="classAnalyticalSolutions_1_1AnalyticalSolution.html#aca6eea7e4b34a56a65c4035f8cfbcefb">More...</a><br /></td></tr>
 <tr class="separator:aca6eea7e4b34a56a65c4035f8cfbcefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a309d34b3b98a5c8d9975ae0dbd4816a8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a309d34b3b98a5c8d9975ae0dbd4816a8">declare_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="memdesc:a309d34b3b98a5c8d9975ae0dbd4816a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the parameters required by the analytical solution within a parameter file.  <a href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a309d34b3b98a5c8d9975ae0dbd4816a8">More...</a><br /></td></tr>
 <tr class="separator:a309d34b3b98a5c8d9975ae0dbd4816a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9861ba108a631a5a47778b7aad05d62c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a9861ba108a631a5a47778b7aad05d62c">parse_parameters</a> (ParameterHandler &amp;prm)</td></tr>
+<tr class="memdesc:a9861ba108a631a5a47778b7aad05d62c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declares the parameters required by the analytical solution within a parameter file.  <a href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a9861ba108a631a5a47778b7aad05d62c">More...</a><br /></td></tr>
 <tr class="separator:a9861ba108a631a5a47778b7aad05d62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb4aa87710f9b4d188366c5e34b19dc0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#abb4aa87710f9b4d188366c5e34b19dc0">calculate_error</a> ()</td></tr>
+<tr class="memdesc:abb4aa87710f9b4d188366c5e34b19dc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the calculation of the error using the analytical solution is enabled. This option is there to prevent unnecessary calculations when no analytical solutions are required.  <a href="classAnalyticalSolutions_1_1AnalyticalSolution.html#abb4aa87710f9b4d188366c5e34b19dc0">More...</a><br /></td></tr>
 <tr class="separator:abb4aa87710f9b4d188366c5e34b19dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a346d45102e39e357280fa8283c79d61e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a346d45102e39e357280fa8283c79d61e">set_enable</a> (bool is_enable)</td></tr>
+<tr class="memdesc:a346d45102e39e357280fa8283c79d61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the usage of the analytical solution.  <a href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a346d45102e39e357280fa8283c79d61e">More...</a><br /></td></tr>
 <tr class="separator:a346d45102e39e357280fa8283c79d61e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78fe3527d5b28736a0a779cfecb74770"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a78fe3527d5b28736a0a779cfecb74770">get_filename</a> ()</td></tr>
+<tr class="memdesc:a78fe3527d5b28736a0a779cfecb74770"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the file name associated with the output of the L2 norm of the error calculated using the analytical solution.  <a href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a78fe3527d5b28736a0a779cfecb74770">More...</a><br /></td></tr>
 <tr class="separator:a78fe3527d5b28736a0a779cfecb74770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -116,8 +125,8 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0115ff125f40027162497934796e1c62"><td class="memItemLeft" align="right" valign="top">Functions::ParsedFunction&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a0115ff125f40027162497934796e1c62">cahn_hilliard</a></td></tr>
 <tr class="separator:a0115ff125f40027162497934796e1c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
 <tr class="memitem:af9215a7772b163c607e0380b79f20744"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#af9215a7772b163c607e0380b79f20744">enable</a></td></tr>
 <tr class="separator:af9215a7772b163c607e0380b79f20744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96b10c2bc9cdeae76f91734929ed90d2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html#a96b10c2bc9cdeae76f91734929ed90d2">filename</a></td></tr>
@@ -127,8 +136,16 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;int dim&gt;<br />
 class AnalyticalSolutions::AnalyticalSolution&lt; dim &gt;</h3>
 
+<p>Implements analytical solutions for the Navier-Stokes equations and the other physics supported by lethe. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">dim</td><td>An integer that denotes the dimension of the space in which the flow is solved.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The analytical solution class provides an all common element required for the calculation of analytical solution for all the physics supported by Lethe. </p>
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00045">45</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00048">48</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aca6eea7e4b34a56a65c4035f8cfbcefb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca6eea7e4b34a56a65c4035f8cfbcefb">&#9670;&nbsp;</a></span>AnalyticalSolution()</h2>
@@ -155,7 +172,10 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00052">52</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p>Construct a new <a class="el" href="classAnalyticalSolutions_1_1AnalyticalSolution.html" title="Implements analytical solutions for the Navier-Stokes equations and the other physics supported by le...">AnalyticalSolution</a> object. </p>
+<p>The constructor automatically sets the number of components of each equation manually since all equations currently supported have a set number of equations. </p>
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00071">71</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -185,7 +205,9 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00066">66</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p>Checks if the calculation of the error using the analytical solution is enabled. This option is there to prevent unnecessary calculations when no analytical solutions are required. </p>
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00105">105</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -214,6 +236,14 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Declares the parameters required by the analytical solution within a parameter file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prm</td><td>ParameterHandler used to declare the parameters. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="analytical__solutions_8cc_source.html#l00026">26</a> of file <a class="el" href="analytical__solutions_8cc_source.html">analytical_solutions.cc</a>.</p>
 
@@ -246,7 +276,10 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00078">78</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p>Get the file name associated with the output of the L2 norm of the error calculated using the analytical solution. </p>
+<dl class="section return"><dt>Returns</dt><dd>filename A string that contains the filename used to output the L2 norm of the error. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00128">128</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -275,6 +308,14 @@ template&lt;int dim&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Declares the parameters required by the analytical solution within a parameter file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prm</td><td>ParameterHandler used to parse the parameters. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="analytical__solutions_8cc_source.html#l00081">81</a> of file <a class="el" href="analytical__solutions_8cc_source.html">analytical_solutions.cc</a>.</p>
 
@@ -308,7 +349,9 @@ template&lt;int dim&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00072">72</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p>Enables the usage of the analytical solution. </p>
+
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00115">115</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -326,8 +369,9 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ParsedFunction that contains the analytical solution for the phase order and the chemical potential. </p>
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00094">94</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00165">165</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -348,12 +392,13 @@ template&lt;int dim&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Establishes if the calculation of the analytical solution is enabled or not </p>
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00048">48</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00055">55</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -374,12 +419,13 @@ template&lt;int dim&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Filename used to store the L2 norm of the error </p>
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00049">49</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00060">60</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -396,8 +442,9 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ParsedFunction that contains the analytical solution for the phase. </p>
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00092">92</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00159">159</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -414,8 +461,9 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ParsedFunction that contains the analytical solution for the temperature. </p>
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00088">88</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00149">149</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -432,8 +480,9 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ParsedFunction that contains the analytical solution for the tracer. </p>
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00090">90</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00154">154</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -450,8 +499,9 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ParsedFunction that contains the analytical solution for the velocity components and the pressure. </p>
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00085">85</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00144">144</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
@@ -468,8 +518,9 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Controls if the L2 norm of the error is printed to the terminal during the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00083">83</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="analytical__solutions_8h_source.html#l00138">138</a> of file <a class="el" href="analytical__solutions_8h_source.html">analytical_solutions.h</a>.</p>
 
 </div>
 </div>
