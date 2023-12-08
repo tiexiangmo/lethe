@@ -386,6 +386,24 @@
 <p class="admonition-title">Note</p>
 <p>You will need to install <a class="reference external" href="https://www.docker.com/get-started">Docker</a> and have 5 GB of free disk space.</p>
 </div>
+<section id="no-compilation-required-using-the-provided-lethe-docker-image">
+<h2>No Compilation Required: Using the Provided Lethe Docker Image<a class="headerlink" href="#no-compilation-required-using-the-provided-lethe-docker-image" title="Permalink to this headline">¶</a></h2>
+<p>If you don’t want to build Lethe and its dependencies, you can use the provided <a class="reference external" href="https://github.com/lethe-cfd/lethe/pkgs/container/lethe">Docker image</a>.</p>
+<p>For example, to launch the 2D Lid-Driven Cavity Flow simulation, run the following lines inside the root Lethe folder:</p>
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/dealii<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ghcr.io/lethe-cfd/lethe:master<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>lethe-fluid<span class="w"> </span>examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm
+</pre></div>
+</div>
+<p>In general, to run a lethe simulation you will just need to run the following command:</p>
+<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/dealii<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ghcr.io/lethe-cfd/lethe:master<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>lethe-executable<span class="w"> </span>parameter-file.prm
+</pre></div>
+</div>
+</section>
 <section id="using-a-deal-ii-docker-container">
 <h2>Using a deal.II  Docker Container<a class="headerlink" href="#using-a-deal-ii-docker-container" title="Permalink to this headline">¶</a></h2>
 <p>The deal.II library is a mature project containing <cite>O(1,000,000)</cite> lines of C++ code, itself depending on other similar libraries (e.g. Trilinos). Compiling deal.II with its exact dependencies can be a daunting task even for moderate C++ programmers - one with many knobs and dials, normally taking 4-6 hours.</p>
@@ -513,17 +531,6 @@ somefile.txt
 <p>You can now clone <code class="docutils literal notranslate"><span class="pre">lethe</span></code>, compile it, and run large-scale, efficient multi-physics simulations!</p>
 </section>
 </section>
-<section id="no-compilation-required-using-the-provided-lethe-docker-image">
-<h2>No Compilation Required: Using the Provided Lethe Docker Image<a class="headerlink" href="#no-compilation-required-using-the-provided-lethe-docker-image" title="Permalink to this headline">¶</a></h2>
-<p>If you don’t want to build Lethe and its dependencies, you can use the provided <a class="reference external" href="https://github.com/lethe-cfd/lethe/pkgs/container/lethe">Docker image</a>.</p>
-<p>For example, to launch the 2D Lid-Driven Cavity Flow simulation, run the following lines inside the root Lethe folder:</p>
-<div class="copy-button highlight-shell notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/home/dealii<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>ghcr.io/lethe-cfd/lethe:master<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>lethe-fluid<span class="w"> </span>examples/incompressible_flow/2d_lid_driven_cavity/cavity.prm
-</pre></div>
-</div>
-</section>
 </section>
 
         </article>
@@ -578,6 +585,7 @@ somefile.txt
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Docker</a><ul>
+<li><a class="reference internal" href="#no-compilation-required-using-the-provided-lethe-docker-image">No Compilation Required: Using the Provided Lethe Docker Image</a></li>
 <li><a class="reference internal" href="#using-a-deal-ii-docker-container">Using a deal.II  Docker Container</a><ul>
 <li><a class="reference internal" href="#tl-dr">0. TL;DR</a></li>
 <li><a class="reference internal" href="#get-docker">1. Get Docker</a></li>
@@ -586,7 +594,6 @@ somefile.txt
 <li><a class="reference internal" href="#final-notes">Final Notes</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#no-compilation-required-using-the-provided-lethe-docker-image">No Compilation Required: Using the Provided Lethe Docker Image</a></li>
 </ul>
 </li>
 </ul>
