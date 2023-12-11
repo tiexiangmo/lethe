@@ -509,175 +509,191 @@ $(function() {
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    }</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;}</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno"><a class="line" href="classSerialSolid.html#a59e372a6a88cb56bfe7de2fecee214c4">  435</a></span>&#160;<a class="code" href="classSerialSolid.html#a59e372a6a88cb56bfe7de2fecee214c4">SerialSolid&lt;dim, spacedim&gt;::write_output_results</a>(</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  std::shared_ptr&lt;SimulationControl&gt; simulation_control)</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;{</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  DataOut&lt;dim, spacedim&gt; data_out;</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  data_out.attach_dof_handler(displacement_dh);</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  {</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    std::vector&lt;std::string&gt; displacement_names(spacedim, <span class="stringliteral">&quot;displacement&quot;</span>);</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    std::vector&lt;DataComponentInterpretation::DataComponentInterpretation&gt;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      data_component_interpretation(</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        spacedim, DataComponentInterpretation::component_is_part_of_vector);</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    data_out.add_data_vector(displacement,</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;                             displacement_names,</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                             DataOut&lt;dim, spacedim&gt;::type_dof_data,</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                             data_component_interpretation);</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  }</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  {</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    std::vector&lt;std::string&gt; displacement_names(spacedim,</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;                                                <span class="stringliteral">&quot;displacement_since_mapped&quot;</span>);</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    std::vector&lt;DataComponentInterpretation::DataComponentInterpretation&gt;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;      data_component_interpretation(</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        spacedim, DataComponentInterpretation::component_is_part_of_vector);</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno"><a class="line" href="classSerialSolid.html#ae5bc1623235411e6761d5b7f4cd450ff">  434</a></span>&#160;<a class="code" href="classSerialSolid.html#ae5bc1623235411e6761d5b7f4cd450ff">SerialSolid&lt;dim, spacedim&gt;::move_solid_triangulation_with_displacement</a>()</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;{</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dofs_per_cell = displacement_fe-&gt;dofs_per_cell;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  <span class="comment">// Set of vertices which were displaced already. A set is used</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  <span class="comment">// for efficiency when searching over it.</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  std::set&lt;unsigned int&gt;               dof_vertex_displaced;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  std::vector&lt;types::global_dof_index&gt; local_dof_indices(dofs_per_cell);</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  <span class="comment">// Loop over all cells</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;cell : displacement_dh.active_cell_iterators())</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    {</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vertex = 0;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;           vertex &lt; cell-&gt;reference_cell().n_vertices();</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;           ++vertex)</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        {</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;          <span class="keywordflow">if</span> (!dof_vertex_displaced.count(cell-&gt;vertex_index(vertex)))</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;            {</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;              <span class="keyword">const</span> <span class="keyword">auto</span>       dof_index = cell-&gt;vertex_dof_index(vertex, 0);</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;              Point&lt;spacedim&gt; &amp;vertex_position = cell-&gt;vertex(vertex);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;              <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> d = 0; d &lt; spacedim; ++d)</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;                {</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;                  vertex_position[d] += displacement[dof_index + d];</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                }</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    data_out.add_data_vector(displacement_since_mapped,</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                             displacement_names,</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                             DataOut&lt;dim, spacedim&gt;::type_dof_data,</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                             data_component_interpretation);</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  }</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;              dof_vertex_displaced.insert(cell-&gt;vertex_index(vertex));</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;            }</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        }</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    }</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;}</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160; </div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;  data_out.build_patches();</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;  <span class="keyword">const</span> std::string folder        = simulation_control-&gt;get_output_path();</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;  <span class="keyword">const</span> std::string solution_name = simulation_control-&gt;get_output_name() +</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;                                    <span class="stringliteral">&quot;_solid_&quot;</span> + Utilities::int_to_string(<span class="keywordtype">id</span>, 2);</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter        = simulation_control-&gt;get_step_number();</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span>       time        = simulation_control-&gt;get_current_time();</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> group_files = simulation_control-&gt;get_group_files();</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno"><a class="line" href="classSerialSolid.html#a59e372a6a88cb56bfe7de2fecee214c4">  469</a></span>&#160;<a class="code" href="classSerialSolid.html#a59e372a6a88cb56bfe7de2fecee214c4">SerialSolid&lt;dim, spacedim&gt;::write_output_results</a>(</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;  std::shared_ptr&lt;SimulationControl&gt; simulation_control)</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;{</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  DataOut&lt;dim, spacedim&gt; data_out;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  data_out.attach_dof_handler(displacement_dh);</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160; </div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;  write_vtu_and_pvd&lt;dim, spacedim&gt;(pvdhandler,</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;                                   data_out,</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;                                   folder,</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                                   solution_name,</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                                   time,</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                                   iter,</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                                   group_files,</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                                   this-&gt;mpi_communicator);</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;}</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno"><a class="line" href="classSerialSolid.html#a996b1aaaa71f3242d925d0794644d495">  487</a></span>&#160;<a class="code" href="classSerialSolid.html#a996b1aaaa71f3242d925d0794644d495">SerialSolid&lt;dim, spacedim&gt;::write_checkpoint</a>(std::string <span class="comment">/*prefix*/</span>)</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;{</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  <span class="comment">// SolutionTransfer&lt;dim, Vector&lt;double&gt;, spacedim&gt; system_trans_vectors(</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  <span class="comment">//   this-&gt;displacement_dh);</span></div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;  <span class="comment">// std::vector&lt;const Vector&lt;double&gt; *&gt; sol_set_transfer;</span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;  <span class="comment">// sol_set_transfer.push_back(&amp;displacement);</span></div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160; </div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;  <span class="comment">// system_trans_vectors.prepare_for_serialization(sol_set_transfer);</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160; </div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;  <span class="comment">// if (auto tria = dynamic_cast&lt;parallel::distributed::Triangulation&lt;dim&gt; *&gt;(</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;  <span class="comment">//       this-&gt;solid_tria.get()))</span></div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;  <span class="comment">//   {</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  <span class="comment">//     std::string triangulationName = prefix + &quot;.triangulation&quot;;</span></div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;  <span class="comment">//     tria-&gt;save(prefix + &quot;.triangulation&quot;);</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  <span class="comment">//   }</span></div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;}</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno"><a class="line" href="classSerialSolid.html#a842a54f912a268373e43c120471685e2">  507</a></span>&#160;<a class="code" href="classSerialSolid.html#a842a54f912a268373e43c120471685e2">SerialSolid&lt;dim, spacedim&gt;::read_checkpoint</a>(std::string <span class="comment">/*prefix*/</span>)</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;{</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;  <span class="keywordflow">throw</span>(std::runtime_error(</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="stringliteral">&quot;Restarting DEM simulations with floating meshes is currently not possible.&quot;</span>));</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;  <span class="comment">// Setup an un-refined triangulation before loading</span></div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;  <span class="comment">// setup_triangulation(true);</span></div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160; </div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;  <span class="comment">// Read the triangulation from the checkpoint</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;  <span class="comment">// const std::string filename = prefix + &quot;.triangulation&quot;;</span></div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;  <span class="comment">// std::ifstream     in(filename.c_str());</span></div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;  <span class="comment">// if (!in)</span></div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;  <span class="comment">//  AssertThrow(false,</span></div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;  <span class="comment">//              ExcMessage(</span></div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;  <span class="comment">//                std::string(&quot;You are trying to read a solid triangulation, &quot;</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;  <span class="comment">//                            &quot;but the restart file &lt;&quot;) +</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;  <span class="comment">//                filename + &quot;&gt; does not appear to exist!&quot;));</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160; </div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;  <span class="comment">// try</span></div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;  <span class="comment">//   {</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;  <span class="comment">//     if (auto tria = dynamic_cast&lt;parallel::distributed::Triangulation&lt;dim&gt;</span></div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;  <span class="comment">//     *&gt;(</span></div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;  <span class="comment">//           this-&gt;solid_tria.get()))</span></div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;  <span class="comment">//       tria-&gt;load(filename.c_str());</span></div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;  <span class="comment">//   }</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;  <span class="comment">// catch (...)</span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;  <span class="comment">//   {</span></div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;  <span class="comment">//     AssertThrow(false,</span></div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;  <span class="comment">//                 ExcMessage(&quot;Cannot open snapshot mesh file or read the &quot;</span></div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;  <span class="comment">//                            &quot;triangulation stored there.&quot;));</span></div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;  <span class="comment">//   }</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;  <span class="comment">// Setup dof-handler for solid and displacement</span></div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;  <span class="comment">// solid_dh.distribute_dofs(*fe);</span></div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;  <span class="comment">// setup_displacement();</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;  {</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    std::vector&lt;std::string&gt; displacement_names(spacedim, <span class="stringliteral">&quot;displacement&quot;</span>);</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    std::vector&lt;DataComponentInterpretation::DataComponentInterpretation&gt;</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;      data_component_interpretation(</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        spacedim, DataComponentInterpretation::component_is_part_of_vector);</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; </div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    data_out.add_data_vector(displacement,</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                             displacement_names,</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                             DataOut&lt;dim, spacedim&gt;::type_dof_data,</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                             data_component_interpretation);</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;  }</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160; </div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;  {</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    std::vector&lt;std::string&gt; displacement_names(spacedim,</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                                                <span class="stringliteral">&quot;displacement_since_mapped&quot;</span>);</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    std::vector&lt;DataComponentInterpretation::DataComponentInterpretation&gt;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;      data_component_interpretation(</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        spacedim, DataComponentInterpretation::component_is_part_of_vector);</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160; </div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    data_out.add_data_vector(displacement_since_mapped,</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                             displacement_names,</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                             DataOut&lt;dim, spacedim&gt;::type_dof_data,</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                             data_component_interpretation);</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;  }</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160; </div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  data_out.build_patches();</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; </div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  <span class="keyword">const</span> std::string folder        = simulation_control-&gt;get_output_path();</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  <span class="keyword">const</span> std::string solution_name = simulation_control-&gt;get_output_name() +</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                                    <span class="stringliteral">&quot;.solid_object.&quot;</span> +</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                                    Utilities::int_to_string(<span class="keywordtype">id</span>, 2);</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> iter        = simulation_control-&gt;get_step_number();</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">double</span>       time        = simulation_control-&gt;get_current_time();</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> group_files = simulation_control-&gt;get_group_files();</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160; </div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;  write_vtu_and_pvd&lt;dim, spacedim&gt;(pvdhandler,</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                                   data_out,</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                                   folder,</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                                   solution_name,</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                                   time,</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                                   iter,</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                                   group_files,</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                                   this-&gt;mpi_communicator);</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;}</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno"><a class="line" href="classSerialSolid.html#a996b1aaaa71f3242d925d0794644d495">  522</a></span>&#160;<a class="code" href="classSerialSolid.html#a996b1aaaa71f3242d925d0794644d495">SerialSolid&lt;dim, spacedim&gt;::write_checkpoint</a>(std::string prefix)</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;{</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;  <span class="comment">// Checkpoint the DOF Handler</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;  {</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    std::string file_name =</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;      prefix + <span class="stringliteral">&quot;.solid_object.&quot;</span> + Utilities::int_to_string(<span class="keywordtype">id</span>, 2) + <span class="stringliteral">&quot;.dof&quot;</span>;</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    std::ofstream                 ofs(file_name);</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    boost::archive::text_oarchive oa(ofs);</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    displacement_dh.save(oa, 0);</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;  }</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;  <span class="comment">// Checkpoint the displacement vector which we will use to shift the</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;  <span class="comment">// triangulation</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;  {</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    std::string file_name = prefix + <span class="stringliteral">&quot;.solid_object.&quot;</span> +</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;                            Utilities::int_to_string(<span class="keywordtype">id</span>, 2) + <span class="stringliteral">&quot;.displacement&quot;</span>;</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    std::ofstream                 ofs(file_name);</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    boost::archive::text_oarchive oa(ofs);</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    displacement.save(oa, 0);</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;  }</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160; </div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="comment">  //// Read displacement vector</span></div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment"></span>  <span class="comment">// std::vector&lt;Vector&lt;double&gt; *&gt; x_system(1);</span></div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;  <span class="comment">// x_system[0] = &amp;(displacement);</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160; </div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;  <span class="comment">// SolutionTransfer&lt;dim, Vector&lt;double&gt;, spacedim&gt; system_trans_vectors(</span></div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;  <span class="comment">//   this-&gt;displacement_dh);</span></div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160; </div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;  <span class="comment">// system_trans_vectors.deserialize(x_system);</span></div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;  <span class="comment">// displacement;</span></div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="comment">  //// Reset triangulation position using displacement vector</span></div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment"></span>  <span class="comment">// move_solid_triangulation_with_displacement();</span></div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160; </div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160; </div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;  <span class="comment">// We did not checkpoint particles, we re-create them from scratch</span></div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;}</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160; </div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160; </div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00563"></a><span class="lineno"><a class="line" href="classSerialSolid.html#a2e1e63989dd2a3a462f58972ff096f55">  563</a></span>&#160;<a class="code" href="classSerialSolid.html#a2e1e63989dd2a3a462f58972ff096f55">SerialSolid&lt;dim, spacedim&gt;::setup_dof_handler</a>()</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;{</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;  displacement_dh.distribute_dofs(*this-&gt;displacement_fe);</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;  displacement.reinit(displacement_dh.n_locally_owned_dofs());</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;  displacement_since_mapped.reinit(displacement_dh.n_locally_owned_dofs());</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160; </div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;  displacement              = 0;</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;  displacement_since_mapped = 0;</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;}</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160; </div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160; </div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="comment">// Pre-compile the 2D, 3D and the 2D in 3D versions with the types that can</span></div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="comment">// occur</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSerialSolid.html">SerialSolid&lt;1, 2&gt;</a>;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSerialSolid.html">SerialSolid&lt;2, 3&gt;</a>;</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSerialSolid.html">SerialSolid&lt;2&gt;</a>;</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSerialSolid.html">SerialSolid&lt;3&gt;</a>;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;  <span class="comment">// Re-read pvd handler from output files</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;  pvdhandler.save(prefix + <span class="stringliteral">&quot;_solid_object_&quot;</span> + Utilities::int_to_string(<span class="keywordtype">id</span>, 2));</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;}</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160; </div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno"><a class="line" href="classSerialSolid.html#a842a54f912a268373e43c120471685e2">  548</a></span>&#160;<a class="code" href="classSerialSolid.html#a842a54f912a268373e43c120471685e2">SerialSolid&lt;dim, spacedim&gt;::read_checkpoint</a>(std::string prefix)</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;{</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;  <span class="comment">// Import dof handler</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;  {</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="comment">// displacement_dh.distribute_dofs(fe);</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    std::string file_name =</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;      prefix + <span class="stringliteral">&quot;.solid_object.&quot;</span> + Utilities::int_to_string(<span class="keywordtype">id</span>, 2) + <span class="stringliteral">&quot;.dof&quot;</span>;</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    std::ifstream                 ifs(file_name);</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    boost::archive::text_iarchive ia(ifs);</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    displacement_dh.load(ia, 0);</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;  }</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;  <span class="comment">// Import nodal counts</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;  {</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    std::string file_name = prefix + <span class="stringliteral">&quot;.solid_object.&quot;</span> +</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                            Utilities::int_to_string(<span class="keywordtype">id</span>, 2) + <span class="stringliteral">&quot;.displacement&quot;</span>;</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    std::ifstream                 ifs(file_name);</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    boost::archive::text_iarchive ia(ifs);</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    displacement.load(ia, 0);</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;  }</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160; </div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;  <span class="comment">// Re-read pvd handler from output files</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;  pvdhandler.read(prefix + <span class="stringliteral">&quot;.solid_object.&quot;</span> + Utilities::int_to_string(<span class="keywordtype">id</span>, 2));</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160; </div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;  <span class="comment">// Reset triangulation position using displacement vector</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;  move_solid_triangulation_with_displacement();</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;}</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160; </div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160; </div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> spacedim&gt;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno"><a class="line" href="classSerialSolid.html#a2e1e63989dd2a3a462f58972ff096f55">  578</a></span>&#160;<a class="code" href="classSerialSolid.html#a2e1e63989dd2a3a462f58972ff096f55">SerialSolid&lt;dim, spacedim&gt;::setup_dof_handler</a>()</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;{</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;  displacement_dh.distribute_dofs(*this-&gt;displacement_fe);</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;  displacement.reinit(displacement_dh.n_locally_owned_dofs());</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;  displacement_since_mapped.reinit(displacement_dh.n_locally_owned_dofs());</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;  displacement              = 0;</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;  displacement_since_mapped = 0;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;}</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160; </div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="comment">// Pre-compile the 2D, 3D and the 2D in 3D versions with the types that can</span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="comment">// occur</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSerialSolid.html">SerialSolid&lt;1, 2&gt;</a>;</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSerialSolid.html">SerialSolid&lt;2, 3&gt;</a>;</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSerialSolid.html">SerialSolid&lt;2&gt;</a>;</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classSerialSolid.html">SerialSolid&lt;3&gt;</a>;</div>
 <div class="ttc" id="aclassParameters_1_1RigidSolidObject_html"><div class="ttname"><a href="classParameters_1_1RigidSolidObject.html">Parameters::RigidSolidObject</a></div><div class="ttdef"><b>Definition:</b> <a href="solid__objects__parameters_8h_source.html#l00271">solid_objects_parameters.h:272</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html"><div class="ttname"><a href="classSerialSolid.html">SerialSolid</a></div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00061">serial_solid.h:62</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_a193745cce84cb1bd27ac415e953c77e2"><div class="ttname"><a href="classSerialSolid.html#a193745cce84cb1bd27ac415e953c77e2">SerialSolid::get_max_displacement_since_mapped</a></div><div class="ttdeci">double get_max_displacement_since_mapped()</div><div class="ttdoc">Calculates the max displacement of the solid object. The max displacement is defined as the L^\infty ...</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00252">serial_solid.cc:252</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_a2901d3041ae21ffd0aa769ab69cbcc65"><div class="ttname"><a href="classSerialSolid.html#a2901d3041ae21ffd0aa769ab69cbcc65">SerialSolid::solid_tria</a></div><div class="ttdeci">std::shared_ptr&lt; Triangulation&lt; dim, spacedim &gt; &gt; solid_tria</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00278">serial_solid.h:278</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_a2e1e63989dd2a3a462f58972ff096f55"><div class="ttname"><a href="classSerialSolid.html#a2e1e63989dd2a3a462f58972ff096f55">SerialSolid::setup_dof_handler</a></div><div class="ttdeci">void setup_dof_handler()</div><div class="ttdoc">Set-ups the displacement vector to store the motion of the triangulation.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00563">serial_solid.cc:563</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_a3482741be7244592d610a0f61613a4b8"><div class="ttname"><a href="classSerialSolid.html#a3482741be7244592d610a0f61613a4b8">SerialSolid::fe</a></div><div class="ttdeci">std::shared_ptr&lt; FiniteElement&lt; dim, spacedim &gt; &gt; fe</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00279">serial_solid.h:279</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_a3b561b8f19caf6d6184af3185a81d27a"><div class="ttname"><a href="classSerialSolid.html#a3b561b8f19caf6d6184af3185a81d27a">SerialSolid::displacement_fe</a></div><div class="ttdeci">std::shared_ptr&lt; FESystem&lt; dim, spacedim &gt; &gt; displacement_fe</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00282">serial_solid.h:282</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_a2901d3041ae21ffd0aa769ab69cbcc65"><div class="ttname"><a href="classSerialSolid.html#a2901d3041ae21ffd0aa769ab69cbcc65">SerialSolid::solid_tria</a></div><div class="ttdeci">std::shared_ptr&lt; Triangulation&lt; dim, spacedim &gt; &gt; solid_tria</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00285">serial_solid.h:285</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_a2e1e63989dd2a3a462f58972ff096f55"><div class="ttname"><a href="classSerialSolid.html#a2e1e63989dd2a3a462f58972ff096f55">SerialSolid::setup_dof_handler</a></div><div class="ttdeci">void setup_dof_handler()</div><div class="ttdoc">Set-ups the displacement vector to store the motion of the triangulation.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00578">serial_solid.cc:578</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_a3482741be7244592d610a0f61613a4b8"><div class="ttname"><a href="classSerialSolid.html#a3482741be7244592d610a0f61613a4b8">SerialSolid::fe</a></div><div class="ttdeci">std::shared_ptr&lt; FiniteElement&lt; dim, spacedim &gt; &gt; fe</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00286">serial_solid.h:286</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_a3b561b8f19caf6d6184af3185a81d27a"><div class="ttname"><a href="classSerialSolid.html#a3b561b8f19caf6d6184af3185a81d27a">SerialSolid::displacement_fe</a></div><div class="ttdeci">std::shared_ptr&lt; FESystem&lt; dim, spacedim &gt; &gt; displacement_fe</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00289">serial_solid.h:289</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_a4cc11ff813d55f4cab58685e3c87a26c"><div class="ttname"><a href="classSerialSolid.html#a4cc11ff813d55f4cab58685e3c87a26c">SerialSolid::get_triangulation</a></div><div class="ttdeci">std::shared_ptr&lt; Triangulation&lt; dim, spacedim &gt; &gt; get_triangulation()</div><div class="ttdoc">Returns the shared pointer to the solid object triangulation.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00259">serial_solid.cc:259</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_a59e372a6a88cb56bfe7de2fecee214c4"><div class="ttname"><a href="classSerialSolid.html#a59e372a6a88cb56bfe7de2fecee214c4">SerialSolid::write_output_results</a></div><div class="ttdeci">void write_output_results(std::shared_ptr&lt; SimulationControl &gt; simulation_control)</div><div class="ttdoc">Write the output file of the solid object triangulation.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00435">serial_solid.cc:435</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_a59e372a6a88cb56bfe7de2fecee214c4"><div class="ttname"><a href="classSerialSolid.html#a59e372a6a88cb56bfe7de2fecee214c4">SerialSolid::write_output_results</a></div><div class="ttdeci">void write_output_results(std::shared_ptr&lt; SimulationControl &gt; simulation_control)</div><div class="ttdoc">Write the output file of the solid object triangulation.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00469">serial_solid.cc:469</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_a61418fd2272a22899c3fc0bfbe948cd0"><div class="ttname"><a href="classSerialSolid.html#a61418fd2272a22899c3fc0bfbe948cd0">SerialSolid::move_solid_triangulation</a></div><div class="ttdeci">void move_solid_triangulation(double time_step, double initial_time)</div><div class="ttdoc">Moves the vertices of the solid triangulation. This function uses explicitEuler scheme time integrato...</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00321">serial_solid.cc:321</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_a638e083c3505ef7729194357add903a7"><div class="ttname"><a href="classSerialSolid.html#a638e083c3505ef7729194357add903a7">SerialSolid::initial_setup</a></div><div class="ttdeci">void initial_setup()</div><div class="ttdoc">Manages solid triangulation setup.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00152">serial_solid.cc:152</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_a68aa77d32aa4524b73fcf880276d8b70"><div class="ttname"><a href="classSerialSolid.html#a68aa77d32aa4524b73fcf880276d8b70">SerialSolid::displacement_dh</a></div><div class="ttdeci">DoFHandler&lt; dim, spacedim &gt; displacement_dh</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00281">serial_solid.h:281</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_a76b6e66c124b143416ed743cbb35c3d7"><div class="ttname"><a href="classSerialSolid.html#a76b6e66c124b143416ed743cbb35c3d7">SerialSolid::param</a></div><div class="ttdeci">std::shared_ptr&lt; Parameters::RigidSolidObject&lt; spacedim &gt; &gt; &amp; param</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00272">serial_solid.h:272</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_a842a54f912a268373e43c120471685e2"><div class="ttname"><a href="classSerialSolid.html#a842a54f912a268373e43c120471685e2">SerialSolid::read_checkpoint</a></div><div class="ttdeci">void read_checkpoint(std::string prefix_name)</div><div class="ttdoc">read solid base triangulation checkpoint</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00507">serial_solid.cc:507</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_a996b1aaaa71f3242d925d0794644d495"><div class="ttname"><a href="classSerialSolid.html#a996b1aaaa71f3242d925d0794644d495">SerialSolid::write_checkpoint</a></div><div class="ttdeci">void write_checkpoint(std::string prefix_name)</div><div class="ttdoc">write solid base triangulation checkpoint</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00487">serial_solid.cc:487</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_a68aa77d32aa4524b73fcf880276d8b70"><div class="ttname"><a href="classSerialSolid.html#a68aa77d32aa4524b73fcf880276d8b70">SerialSolid::displacement_dh</a></div><div class="ttdeci">DoFHandler&lt; dim, spacedim &gt; displacement_dh</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00288">serial_solid.h:288</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_a76b6e66c124b143416ed743cbb35c3d7"><div class="ttname"><a href="classSerialSolid.html#a76b6e66c124b143416ed743cbb35c3d7">SerialSolid::param</a></div><div class="ttdeci">std::shared_ptr&lt; Parameters::RigidSolidObject&lt; spacedim &gt; &gt; &amp; param</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00279">serial_solid.h:279</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_a842a54f912a268373e43c120471685e2"><div class="ttname"><a href="classSerialSolid.html#a842a54f912a268373e43c120471685e2">SerialSolid::read_checkpoint</a></div><div class="ttdeci">void read_checkpoint(std::string prefix_name)</div><div class="ttdoc">read solid base triangulation checkpoint and replaces the triangulation at the location where it was ...</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00548">serial_solid.cc:548</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_a996b1aaaa71f3242d925d0794644d495"><div class="ttname"><a href="classSerialSolid.html#a996b1aaaa71f3242d925d0794644d495">SerialSolid::write_checkpoint</a></div><div class="ttdeci">void write_checkpoint(std::string prefix_name)</div><div class="ttdoc">write solid base triangulation checkpoint</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00522">serial_solid.cc:522</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_aa8442bda162e551585b8f1e921b46d41"><div class="ttname"><a href="classSerialSolid.html#aa8442bda162e551585b8f1e921b46d41">SerialSolid::get_dof_handler</a></div><div class="ttdeci">DoFHandler&lt; dim, spacedim &gt; &amp; get_dof_handler()</div><div class="ttdoc">Returns the dof_handler associated with the displacement of the solid object.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00237">serial_solid.cc:237</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_aacd53d2b3425e246f90c148f678fa1de"><div class="ttname"><a href="classSerialSolid.html#aacd53d2b3425e246f90c148f678fa1de">SerialSolid::rotate_grid</a></div><div class="ttdeci">void rotate_grid(const double angle, const Tensor&lt; 1, 3 &gt; axis)</div><div class="ttdoc">Rotates the grid by a given angle around an axis.</div></div>
 <div class="ttc" id="aclassSerialSolid_html_ab16fab6a30698ac3b1f98f83e43beeaa"><div class="ttname"><a href="classSerialSolid.html#ab16fab6a30698ac3b1f98f83e43beeaa">SerialSolid::translate_grid</a></div><div class="ttdeci">void translate_grid(const Tensor&lt; 1, 3 &gt; translate)</div><div class="ttdoc">Translate the grid. In spacedim=2, the third component is ignore.</div></div>
 <div class="ttc" id="aclassSerialSolid_html_ab8ad4d1cd9fc4e30cb6559111919e4c4"><div class="ttname"><a href="classSerialSolid.html#ab8ad4d1cd9fc4e30cb6559111919e4c4">SerialSolid::map_solid_in_background_triangulation</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; typename Triangulation&lt; spacedim &gt;::active_cell_iterator, typename Triangulation&lt; dim, spacedim &gt;::active_cell_iterator &gt; &gt; map_solid_in_background_triangulation(const parallel::TriangulationBase&lt; spacedim &gt; &amp;background_tr)</div><div class="ttdoc">Maps the solid object in the background triangulation.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00093">serial_solid.cc:93</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_ae5bc1623235411e6761d5b7f4cd450ff"><div class="ttname"><a href="classSerialSolid.html#ae5bc1623235411e6761d5b7f4cd450ff">SerialSolid::move_solid_triangulation_with_displacement</a></div><div class="ttdeci">void move_solid_triangulation_with_displacement()</div><div class="ttdoc">Moves the vertices of the solid triangulation using the displacement vector. This is mostly used when...</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00434">serial_solid.cc:434</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_ae65af976c4cb15ba3916588312922b64"><div class="ttname"><a href="classSerialSolid.html#ae65af976c4cb15ba3916588312922b64">SerialSolid::displace_solid_triangulation</a></div><div class="ttdeci">void displace_solid_triangulation()</div><div class="ttdoc">Moves the dofs of the solid_triangulation by using the displacement vector. This is only used to move...</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00400">serial_solid.cc:400</a></div></div>
-<div class="ttc" id="aclassSerialSolid_html_aede6f1e63624bd34e7c25c15551a9a9d"><div class="ttname"><a href="classSerialSolid.html#aede6f1e63624bd34e7c25c15551a9a9d">SerialSolid::solid_mapping</a></div><div class="ttdeci">std::shared_ptr&lt; Mapping&lt; dim, spacedim &gt; &gt; solid_mapping</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00280">serial_solid.h:280</a></div></div>
+<div class="ttc" id="aclassSerialSolid_html_aede6f1e63624bd34e7c25c15551a9a9d"><div class="ttname"><a href="classSerialSolid.html#aede6f1e63624bd34e7c25c15551a9a9d">SerialSolid::solid_mapping</a></div><div class="ttdeci">std::shared_ptr&lt; Mapping&lt; dim, spacedim &gt; &gt; solid_mapping</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8h_source.html#l00287">serial_solid.h:287</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_aeea81ad3be95913c3112f40291761a53"><div class="ttname"><a href="classSerialSolid.html#aeea81ad3be95913c3112f40291761a53">SerialSolid::setup_triangulation</a></div><div class="ttdeci">void setup_triangulation(const bool restart)</div><div class="ttdoc">Generates a solid triangulation from a dealii or gmsh mesh.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00164">serial_solid.cc:164</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_af7becb8ea517716b098d57a8b3a1b605"><div class="ttname"><a href="classSerialSolid.html#af7becb8ea517716b098d57a8b3a1b605">SerialSolid::get_displacement_vector</a></div><div class="ttdeci">Vector&lt; double &gt; &amp; get_displacement_vector()</div><div class="ttdoc">Returns the displacement vector of all the vertices of the solid object.</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00245">serial_solid.cc:245</a></div></div>
 <div class="ttc" id="aclassSerialSolid_html_afc151490486adb2a1e06d2b3af30cf5f"><div class="ttname"><a href="classSerialSolid.html#afc151490486adb2a1e06d2b3af30cf5f">SerialSolid::SerialSolid</a></div><div class="ttdeci">SerialSolid(std::shared_ptr&lt; Parameters::RigidSolidObject&lt; spacedim &gt;&gt; &amp;param, unsigned int id)</div><div class="ttdef"><b>Definition:</b> <a href="serial__solid_8cc_source.html#l00043">serial_solid.cc:43</a></div></div>
