@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -387,15 +387,16 @@
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code></p></li>
-<li><p>Post-processing using <a class="reference external" href="https://www.python.org/">Python</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a></p></li>
+<li><p>Postprocessing using <a class="reference external" href="https://www.python.org/">Python</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a></p></li>
 </ul>
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/dem/3d-oblique-wall-impact</span></code>).</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/oblique_wall_impact_template.prm</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/ooblique_wall_impact_case_generator.py</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/oblique_wall_impact_post-processing.py</span></code></p></li>
+<li><p>Case generation Python script: <code class="docutils literal notranslate"><span class="pre">oblique_wall_impact_case_generator.py</span></code></p></li>
+<li><p>Parameter file for case generation: <code class="docutils literal notranslate"><span class="pre">oblique_wall_impact_template.tpl</span></code></p></li>
+<li><p>Postprocessing Python script: <code class="docutils literal notranslate"><span class="pre">oblique_wall_impact_postprocessing.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -479,7 +480,7 @@ end
 <section id="generating-the-parameter-files">
 <h2>Generating the parameter files<a class="headerlink" href="#generating-the-parameter-files" title="Permalink to this headline">¶</a></h2>
 <p>Using the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">oblique_wall_impact_case_generator</span><span class="o">.</span><span class="n">py</span>
+<div class="copy-button highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">oblique_wall_impact_case_generator</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>Generates 34 file with the prefix <code class="docutils literal notranslate"><span class="pre">run_oblique_impact_</span></code> and the <code class="docutils literal notranslate"><span class="pre">{angle}.prm</span></code> as a suffix.</p>
@@ -487,15 +488,15 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Once all files are created, the simulation can be launched in parallel using the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>for i in $(ls run_oblique_impact*); do lethe-particles $i &amp; sleep 2; done
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>for i in $(ls run_oblique_impact*); do lethe-particles $i &amp; sleep 2; done
 </pre></div>
 </div>
 <p>Depending on the speed of your computer, all 34 simulation should be completed in less than two minutes. A folder named according to the angle of every simulation used will be generated (<code class="docutils literal notranslate"><span class="pre">/xx</span></code>).</p>
 </section>
-<section id="post-processing">
-<h2>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
-<p>A Python post-processing code called <code class="docutils literal notranslate"><span class="pre">oblique_wall_impact_post-processing.py</span></code> is provided with this example. It is used to compare the rebound angle, the angular velocity and the tangential coefficient of restituion of the particles. Use the following line in your command line to run the post-processing code :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 oblique_wall_impact_post-processing.py
+<section id="postprocessing">
+<h2>Postprocessing<a class="headerlink" href="#postprocessing" title="Permalink to this headline">¶</a></h2>
+<p>A Python post-processing code called <code class="docutils literal notranslate"><span class="pre">oblique_wall_impact_postprocessing.py</span></code> is provided with this example. It is used to compare the rebound angle, the angular velocity and the tangential coefficient of restitution of the particles. Use the following line in your command line to run the post-processing code :</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>python3 oblique_wall_impact_postprocessing.py
 </pre></div>
 </div>
 <div class="admonition important">
@@ -591,7 +592,7 @@ end
 </li>
 <li><a class="reference internal" href="#generating-the-parameter-files">Generating the parameter files</a></li>
 <li><a class="reference internal" href="#running-the-simulation">Running the Simulation</a></li>
-<li><a class="reference internal" href="#post-processing">Post-processing</a></li>
+<li><a class="reference internal" href="#postprocessing">Postprocessing</a></li>
 <li><a class="reference internal" href="#results-and-discussion">Results and Discussion</a></li>
 <li><a class="reference internal" href="#reference">Reference</a></li>
 </ul>

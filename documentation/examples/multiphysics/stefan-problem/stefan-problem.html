@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -394,7 +394,11 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/stefan-problem/stefan.prm</span></code></p>
+<p>Both files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/multiphysics/stefan-problem</span></code>).</p>
+<ul class="simple">
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">stefan.prm</span></code></p></li>
+<li><p>Postprocessing Python script: <code class="docutils literal notranslate"><span class="pre">stefan-problem-postprocessing.py</span></code></p></li>
+</ul>
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
@@ -498,8 +502,19 @@ end
 </div>
 </section>
 </section>
+<section id="running-the-simulation">
+<h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> executable is within your path, the simulation can be launched by typing:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid stefan.prm
+</pre></div>
+</div>
+</section>
 <section id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Once the simulation is done, the results can be postprocessed using:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>python3 stefan-problem-postprocessing.py
+</pre></div>
+</div>
 <p>The following image compares the results obtained with Lethe with the analytical solution for the Stefan problem at <span class="math notranslate nohighlight">\(t=5\)</span>. This data is extracted through the use of a python script available in the folder of the example. We see that a quasi perfect agreement can be obtained with the analytical solution of the Stefan problem.</p>
 <img alt="comparison_analytical_solution" class="align-center" src="../../../_images/lethe-stefan-comparison.png"/>
 <p>Refining the mesh, decreasing the time step and decreasing the phase change interval (by decreasing <code class="docutils literal notranslate"><span class="pre">liquidus</span> <span class="pre">temperature</span></code>) would increase the accuracy of the solution since the analytical solution of the Stefan problem is defined for a pure fluid (for which the liquid and the solidus temperatures are equal).</p>
@@ -581,6 +596,7 @@ end
 <li><a class="reference internal" href="#simulation-control">Simulation Control</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#running-the-simulation">Running the Simulation</a></li>
 <li><a class="reference internal" href="#results">Results</a></li>
 <li><a class="reference internal" href="#possibilities-for-extension">Possibilities for Extension</a></li>
 <li><a class="reference internal" href="#references">References</a></li>

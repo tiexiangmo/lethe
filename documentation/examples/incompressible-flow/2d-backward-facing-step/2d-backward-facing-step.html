@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -393,9 +393,14 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-backward-facing-step</span></code>).</p>
 <ul class="simple">
-<li><p>Base case (<span class="math notranslate nohighlight">\(Re &lt; 700\)</span>): <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-backward-facing-step/Reynolds100-600.prm</span></code></p></li>
-<li><p>Higher-Reynolds case (<span class="math notranslate nohighlight">\(Re \geq 700\)</span>): <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-backward-facing-step/Reynolds700-1000.prm</span></code></p></li>
+<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">backward-facing-step.geo</span></code></p></li>
+<li><p>Mesh file: <code class="docutils literal notranslate"><span class="pre">backward-facing-step.msh</span></code></p></li>
+<li><p>Parameter file for the base case (<span class="math notranslate nohighlight">\(Re &lt; 700\)</span>): <code class="docutils literal notranslate"><span class="pre">Reynolds100-600.prm</span></code></p></li>
+<li><p>Parameter file for the higher-Reynolds case (<span class="math notranslate nohighlight">\(Re \geq 700\)</span>): <code class="docutils literal notranslate"><span class="pre">Reynolds700-1000.prm</span></code></p></li>
+<li><p>Postprocessing Python script for computing the reattachment length: <code class="docutils literal notranslate"><span class="pre">bisection.py</span></code></p></li>
+<li><p>Postprocessing Python script for computing velocity distributions at inlet and outlet: <code class="docutils literal notranslate"><span class="pre">velocity_distribution.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -584,11 +589,11 @@ end
 <section id="running-the-simulations">
 <h2>Running the Simulations<a class="headerlink" href="#running-the-simulations" title="Permalink to this headline">¶</a></h2>
 <p>The simulation can be executed using the following command (assuming that the solver’s location is in your PATH environment variable):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid 2D-backward-facing-step-steady.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid 2D-backward-facing-step-steady.prm
 </pre></div>
 </div>
 <p>However, mpi can be used to lower calculation time by using several CPUs (especially useful for pseudo-steady simulations) :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np j lethe-fluid 2D-backward-facing-step-steady.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np j lethe-fluid 2D-backward-facing-step-steady.prm
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">j</span></code> is the number of CPUs used for the computations.</p>

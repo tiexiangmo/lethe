@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -393,10 +393,11 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-ahmed-body</span></code>).</p>
 <ul class="simple">
-<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-ahmed-body/Ahmed-Body-20-2D.geo</span></code></p></li>
-<li><p>Mesh file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-ahmed-body/Ahmed-Body-20-2D.msh</span></code></p></li>
-<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-ahmed-body/ahmed.prm</span></code></p></li>
+<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">Ahmed-Body-20-2D.geo</span></code></p></li>
+<li><p>Mesh file: <code class="docutils literal notranslate"><span class="pre">Ahmed-Body-20-2D.msh</span></code></p></li>
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">ahmed.prm</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -511,18 +512,21 @@ end
 end
 </pre></div>
 </div>
+</section>
+</section>
+<section id="running-the-simulation">
+<h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is launched in the same folder as the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> and <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file, using the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> solver. To decrease simulation time, it is advised to run on multiple cpu, using <code class="docutils literal notranslate"><span class="pre">mpirun</span></code>:</p>
 <p>To do so, copy and paste the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> executable to the same folder as your <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file and launch it running the following line:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 6 lethe-fluid ahmed.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 6 lethe-fluid ahmed.prm
 </pre></div>
 </div>
 <p>where 6 is the number of CPUs used. The estimated execution time for a 4 seconds simulation with 6 CPUs is 6 minutes and 53 seconds. For 1 CPU, the estimated time is 30 minutes and 37 seconds.</p>
 <p>Alternatively, specify the path to the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> in your <code class="docutils literal notranslate"><span class="pre">build/applications</span></code> folder, as follows:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 6 ../build/applications/lethe-fluid/lethe-fluid ahmed.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 6 ../build/applications/lethe-fluid/lethe-fluid ahmed.prm
 </pre></div>
 </div>
 <p>Guidelines for parameters other than the previous mentioned are found at the <a class="reference external" href="https://lethe-cfd.github.io/lethe/documentation/parameters/parameters.html">Parameters guide</a>.</p>
-</section>
 </section>
 <section id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
@@ -673,6 +677,7 @@ end
 <li><a class="reference internal" href="#simulation-control">Simulation Control</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#running-the-simulation">Running the Simulation</a></li>
 <li><a class="reference internal" href="#results">Results</a></li>
 <li><a class="reference internal" href="#possibilities-for-extension">Possibilities for Extension</a></li>
 <li><a class="reference internal" href="#reference">Reference</a></li>

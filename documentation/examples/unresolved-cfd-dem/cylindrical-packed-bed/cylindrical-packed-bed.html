@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -393,9 +393,10 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>Both files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/unresolved-cfd-dem/cylindrical-packed-bed</span></code>).</p>
 <ul class="simple">
-<li><p>Parameter file for particle generation and packing: <code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/cylindrical-packed-bed/packing-in-cylinder.prm</span></code></p></li>
-<li><p>Parameter file for CFD-DEM simulation of the packed bed: <code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/cylindrical-packed-bed/flow-in-bed.prm</span></code></p></li>
+<li><p>Parameter file for CFD-DEM simulation of the packed bed: <code class="docutils literal notranslate"><span class="pre">cylindrical-packed-bed/flow-in-bed.prm</span></code></p></li>
+<li><p>Parameter file for particle generation and packing: <code class="docutils literal notranslate"><span class="pre">packing-in-cylinder.prm</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -536,11 +537,11 @@ end
 <section id="running-the-dem-simulation">
 <h2>Running the DEM Simulation<a class="headerlink" href="#running-the-dem-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code> executable is within your path, the simulation can be launched on a single processor by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-particles packing-in-circle.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-particles packing-in-circle.prm
 </pre></div>
 </div>
 <p>or in parallel (where 8 represents the number of processors)</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-particles packing-in-circle.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-particles packing-in-circle.prm
 </pre></div>
 </div>
 <p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>
@@ -687,8 +688,8 @@ end
 </section>
 <section id="running-the-vans-simulation">
 <h2>Running the VANS Simulation<a class="headerlink" href="#running-the-vans-simulation" title="Permalink to this headline">¶</a></h2>
-<p>The simulation is run using the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-vans</span></code> application as per the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>path_to_vans_application/lethe-fluid-vans parameter_file.prm
+<p>The simulation is run using the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-vans</span></code> application. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-vans</span></code> executable is within your path, the simulation can be launched as per the following command:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid-vans parameter_file.prm
 </pre></div>
 </div>
 </section>

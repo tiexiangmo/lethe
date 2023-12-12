@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -392,14 +392,15 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation</span></code>).</p>
 <ul class="simple">
-<li><p>File containing detector positions: <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions.detector</span></code></p></li>
-<li><p>File containing particle positions for the first scenario:  <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions-horizontalx.particle</span></code></p></li>
-<li><p>File containing particle positions for the second scenario  <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions-horizontaly.particle</span></code></p></li>
-<li><p>File containing particle positions for the third scenario:  <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions-vertical.particle</span></code></p></li>
-<li><p>File containing particle positions for the fourth scenario:  <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/positions-diagonal.particle</span></code></p></li>
-<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/rpt-count-calculation.prm</span></code></p></li>
-<li><p>Python script for post-processing the data: <code class="docutils literal notranslate"><span class="pre">examples/rpt/count-calculation/rpt_count-calculation_plot.py</span></code></p></li>
+<li><p>File containing detector positions: <code class="docutils literal notranslate"><span class="pre">positions.detector</span></code></p></li>
+<li><p>File containing particle positions for the first scenario:  <code class="docutils literal notranslate"><span class="pre">positions-horizontalx.particle</span></code></p></li>
+<li><p>File containing particle positions for the second scenario  <code class="docutils literal notranslate"><span class="pre">positions-horizontaly.particle</span></code></p></li>
+<li><p>File containing particle positions for the third scenario:  <code class="docutils literal notranslate"><span class="pre">positions-vertical.particle</span></code></p></li>
+<li><p>File containing particle positions for the fourth scenario:  <code class="docutils literal notranslate"><span class="pre">positions-diagonal.particle</span></code></p></li>
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">rpt-count-calculation.prm</span></code></p></li>
+<li><p>Postprocessing Python script: <code class="docutils literal notranslate"><span class="pre">rpt_count-calculation_plot.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -501,7 +502,7 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> executable is within your path, the simulation can be launched by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-3d rpt-count-calculation.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-3d rpt-count-calculation.prm
 </pre></div>
 </div>
 <p>Lethe will generate a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file with the name specified next to the <code class="docutils literal notranslate"><span class="pre">counts</span> <span class="pre">file</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">rpt-count-calculation.prm</span></code>. The generated <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file will contain the <span class="math notranslate nohighlight">\((x,y,z)\)</span> coordinates of the particle with its respective photon count measured by a given detector. Each detector is identified by its id number (<code class="docutils literal notranslate"><span class="pre">detector_id</span></code>). In this example, as we have only one detector, all values in the <code class="docutils literal notranslate"><span class="pre">detector_id</span></code> column should be <span class="math notranslate nohighlight">\(0\)</span>.</p>

@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -394,11 +394,12 @@ The calculation is performed for a given set of positions inside a square.</p>
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/rpt/particle-fem-reconstruction</span></code>).</p>
 <ul class="simple">
-<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/rpt/particle-fem-reconstruction/rpt-fem-reconstruction.prm</span></code></p></li>
-<li><p>File containing detectors positions: <code class="docutils literal notranslate"><span class="pre">examples/rpt/particle-fem-reconstruction/positions.detector</span></code></p></li>
-<li><p>File containing the experimental counts: <code class="docutils literal notranslate"><span class="pre">examples/rpt/particle-fem-reconstruction/experimental-counts.txt</span></code></p></li>
-<li><p>File containing the real particle positions: <code class="docutils literal notranslate"><span class="pre">examples/rpt/particle-fem-reconstruction/real-positions.txt</span></code></p></li>
+<li><p>File containing detectors positions: <code class="docutils literal notranslate"><span class="pre">positions.detector</span></code></p></li>
+<li><p>File containing the experimental counts: <code class="docutils literal notranslate"><span class="pre">experimental-counts.txt</span></code></p></li>
+<li><p>File containing the real particle positions: <code class="docutils literal notranslate"><span class="pre">real-positions.txt</span></code></p></li>
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">rpt-fem-reconstruction.prm</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -471,27 +472,27 @@ end
 end
 </pre></div>
 </div>
+</section>
+</section>
 <section id="running-the-simulation">
-<h4>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h4>
+<h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Assuming that <code class="docutils literal notranslate"><span class="pre">lethe-rpt-l2-projection-3d</span></code> and <code class="docutils literal notranslate"><span class="pre">lethe-rpt-fem-reconstruction-3d</span></code> executables are within your path, you can start launching FEM-PR by typing :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-l2-projection-3d rpt-fem-reconstruction.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-l2-projection-3d rpt-fem-reconstruction.prm
 </pre></div>
 </div>
 <p>This step uses the L2 projection technique to smooth the noise of the Monte Carlo method and calculates the photon counts at the nodes. After this part is done, the program generates the file of nodal counts from each detector as such : <code class="docutils literal notranslate"><span class="pre">temp_nodal_counts_detector00.counts</span></code>. The next step is to launch the position reconstruction as follows:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-fem-reconstruction-3d rpt-fem-reconstruction.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-fem-reconstruction-3d rpt-fem-reconstruction.prm
 </pre></div>
 </div>
 </section>
 <section id="results">
-<h4>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h4>
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>With the figure shown below we assess the validity of the reconstruction algorithm with a reconstruction of a set of experimental points. It shows the real positions of the particle and the reconstructed positions.</p>
 <a class="reference internal image-reference" href="../../../_images/position_reconstruction_result.png" id="results-from-the-fem-reconstruction"><img alt="The geometryew" class="align-center" id="results-from-the-fem-reconstruction" src="../../../_images/position_reconstruction_result.png" style="width: 600px;"/></a>
 </section>
 <section id="references">
-<h4>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h4>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://doi.org/10.1016/j.nima.2023.168504">[1]</a>  G. Mirakhori, A. Collard-Daigneault, A. Alphonius, J. Doucet, B. Blais, and J. Chaouki, “An improved position reconstruction method for radioactive particle tracking,” <em>Nucl. Instrum. Methods Phys. Res. Sect. Accel. Spectrometers Detect. Assoc. Equip.</em>, vol. 1055, p. 168504, Oct. 2023, doi: 10.1016/j.nima.2023.168504.</p>
-</section>
-</section>
 </section>
 </section>
 
@@ -553,14 +554,12 @@ end
 <li><a class="reference internal" href="#parameter-file">Parameter File</a><ul>
 <li><a class="reference internal" href="#rpt-parameters">RPT Parameters</a></li>
 <li><a class="reference internal" href="#detector-parameters">Detector Parameters</a></li>
-<li><a class="reference internal" href="#fem-reconstruction-parameters">FEM Reconstruction Parameters</a><ul>
+<li><a class="reference internal" href="#fem-reconstruction-parameters">FEM Reconstruction Parameters</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#running-the-simulation">Running the Simulation</a></li>
 <li><a class="reference internal" href="#results">Results</a></li>
 <li><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>

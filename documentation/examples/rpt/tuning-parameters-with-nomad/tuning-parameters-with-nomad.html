@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -397,15 +397,16 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/rpt/parameters-tuning</span></code>).</p>
 <ul class="simple">
-<li><p>File containing experimental particle counts: <code class="docutils literal notranslate"><span class="pre">examples/rpt/parameters-tuning/counts.experimental</span></code></p></li>
-<li><p>File containing detector positions: <code class="docutils literal notranslate"><span class="pre">examples/rpt/parameters-tuning/positions.detector</span></code></p></li>
-<li><p>File containing particle positions: <code class="docutils literal notranslate"><span class="pre">examples/rpt/parameters-tuning/positions.particle</span></code></p></li>
-<li><p>Parameter file for calculating photon counts: <code class="docutils literal notranslate"><span class="pre">examples/rpt/parameters-tuning/rpt-count-calculation.prm</span></code></p></li>
-<li><p>Parameter file for tuning parameters: <code class="docutils literal notranslate"><span class="pre">examples/rpt/parameters-tuning/rpt-parameters.prm</span></code></p></li>
-<li><p>Python script for NOMAD: <code class="docutils literal notranslate"><span class="pre">examples/rpt/parameters-tuning/rpt_lethe_nomad.py</span></code></p></li>
-<li><p>Python script for post-processing the data: <code class="docutils literal notranslate"><span class="pre">examples/rpt/parameters-tuning/rpt_parameter_tuning_plot.py</span></code></p></li>
-<li><p>Text file used when running NOMAD: <code class="docutils literal notranslate"><span class="pre">examples/rpt/parameters-tuning/param-nomad.txt</span></code></p></li>
+<li><p>File containing experimental particle counts: <code class="docutils literal notranslate"><span class="pre">counts.experimental</span></code></p></li>
+<li><p>File containing detector positions: <code class="docutils literal notranslate"><span class="pre">positions.detector</span></code></p></li>
+<li><p>File containing particle positions: <code class="docutils literal notranslate"><span class="pre">positions.particle</span></code></p></li>
+<li><p>Parameter file for calculating photon counts: <code class="docutils literal notranslate"><span class="pre">rpt-count-calculation.prm</span></code></p></li>
+<li><p>Parameter file for tuning parameters: <code class="docutils literal notranslate"><span class="pre">rpt-parameters.prm</span></code></p></li>
+<li><p>Python script for NOMAD: <code class="docutils literal notranslate"><span class="pre">rpt_lethe_nomad.py</span></code></p></li>
+<li><p>Postprocessing Python script: <code class="docutils literal notranslate"><span class="pre">rpt_parameter_tuning_plot.py</span></code></p></li>
+<li><p>Text file used when running NOMAD: <code class="docutils literal notranslate"><span class="pre">param-nomad.txt</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -533,7 +534,7 @@ DISPLAY_STATS BBE ( SOL ) OBJ                         # Display the number of ev
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Assuming that <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> and <code class="docutils literal notranslate"><span class="pre">nomad</span></code> executables are within your path, you may run NOMAD by typing :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nomad param-nomad.txt
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>nomad param-nomad.txt
 </pre></div>
 </div>
 <p>NOMAD will then execute the Python script (<code class="docutils literal notranslate"><span class="pre">rpt_lethe_nomad.py</span></code>) which is specified in the <code class="docutils literal notranslate"><span class="pre">param-nomad.txt</span></code> file. The Python script <code class="docutils literal notranslate"><span class="pre">rpt_nomad_lethe.py</span></code> proceeds the values of parameters to tune given by NOMAD, modifies the parameter file for Lethe, and runs the <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> application. <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> of Lethe executes the Monte Carlo ray model and calculates a cost function which is caught by NOMAD through the terminal. NOMAD executes its MADS algorithm and generates a new set of parameters until a terminating criterion is reached.</p>
@@ -558,7 +559,7 @@ Total number of evaluations: 459
 <p>Changing the initial values of the optimization problem to ones that are closer to the solution seen above can reduce the computation time.</p>
 </div>
 <p>We may now verify if these values correspond to the physical system. To do so, as it was done in the previous example (<a class="reference internal" href="../photon-count-calculation-in-a-cylindrical-vessel/photon-count-calculation-in-a-cylindrical-vessel.html"><span class="doc">Photon Count Calculation in a Cylindrical Vessel</span></a>), we calculate the counts for the set of particle positions that the corresponding experimental counts are known. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-rpt-3d</span></code> executable is within your path, the simulation can be launched by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-3d rpt-count-calculation.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-rpt-3d rpt-count-calculation.prm
 </pre></div>
 </div>
 <div class="admonition attention">

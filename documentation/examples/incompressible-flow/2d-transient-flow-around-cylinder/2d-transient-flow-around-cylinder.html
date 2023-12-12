@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -393,10 +393,11 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-transient-flow-around-cylinder</span></code>).</p>
 <ul class="simple">
-<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-transient-flow-around-cylinder/cylinder-structured.geo</span></code></p></li>
-<li><p>Mesh file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-transient-flow-around-cylinder/cylinder-structured.msh</span></code></p></li>
-<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-transient-flow-around-cylinder/cylinder.prm</span></code></p></li>
+<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">cylinder-structured.geo</span></code></p></li>
+<li><p>Mesh file: <code class="docutils literal notranslate"><span class="pre">cylinder-structured.msh</span></code></p></li>
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">cylinder.prm</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -557,7 +558,7 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is launched in parallel using 10 CPUs, as explained in <a class="reference external" href="https://lethe-cfd.github.io/lethe/documentation/examples/incompressible-flow/2d-transient-around-ahmed-body/2d-transient-around-ahmed-body.html">2D Transient flow around an Ahmed body</a> :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 10 lethe-fluid cylinder.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 10 lethe-fluid cylinder.prm
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -568,7 +569,7 @@ end
 <section id="results">
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <p>The time evolution of the drag and lift coefficients is obtained from a Gnuplot script available in the example folder by launching in the same directory the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gnuplot -c "./postprocess.gnu" "./Re200"
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>gnuplot -c "./postprocess.gnu" "./Re200"
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">./postprocess.gnu</span></code> is the path to the provided script and <code class="docutils literal notranslate"><span class="pre">./Re200</span></code> is the path to the directory that contains the simulation results (specified in the <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> subsection). The figure, named <code class="docutils literal notranslate"><span class="pre">CL-CD.png</span></code>, is outputted in the directory <code class="docutils literal notranslate"><span class="pre">./Re200</span></code>.</p>
@@ -580,7 +581,7 @@ end
 <p>Using the fast Fourier transform (FFT) of the CL for the last 100 seconds, we can obtain the frequency <span class="math notranslate nohighlight">\(f_v\)</span> at which the vortices are shed :</p>
 <img alt="Strouhal Number" class="align-center" id="strouhal" src="../../../_images/cylinderFFT.png"/>
 <p>This corresponds to the frequency at which the peak of amplitude appears in the FFT : <span class="math notranslate nohighlight">\(f_v = 0.2\)</span>. From this result, we can obtain the Strouhal number, <span class="math notranslate nohighlight">\(S_t = 0.2\)</span>, using the equation presented above. The python script used to obtain the FFT is available in the example folder and is launched in the same directory using the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python ./postprocess.py ./Re200
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>python ./postprocess.py ./Re200
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">./postprocess.py</span></code> is the path to the provided script  and <code class="docutils literal notranslate"><span class="pre">./Re200</span></code> is the path to the directory that contains the simulation results (specified in the <code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">control</span></code> subsection). The figure, named <code class="docutils literal notranslate"><span class="pre">cylinderFFT.png</span></code>, is outputted in the directory <code class="docutils literal notranslate"><span class="pre">./Re200</span></code>.</p>

@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -387,15 +387,16 @@
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Solvers: <code class="docutils literal notranslate"><span class="pre">lethe-particles</span></code></p></li>
-<li><p>Post-processing using <a class="reference external" href="https://www.python.org/">Python</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a>, and <a class="reference external" href="https://www.paraview.org/">ParaView</a>.</p></li>
+<li><p>Postprocessing using <a class="reference external" href="https://www.python.org/">Python</a>, <a class="reference external" href="https://docs.pyvista.org/">PyVista</a>, <a class="reference external" href="https://github.com/lethe-cfd/lethe/tree/master/contrib/postprocessing">lethe_pyvista_tools</a>, and <a class="reference external" href="https://www.paraview.org/">ParaView</a>.</p></li>
 </ul>
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/dem/3d-bouncing-particle</span></code>).</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/bouncing_particle_original.prm</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/bouncing_particle_case_generator.py</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/examples/dem/3d-bouncing-particle/bouncing_particle_post-processing.py</span></code></p></li>
+<li><p>Case generation Python script: <code class="docutils literal notranslate"><span class="pre">bouncing_particle_case_generator.py</span></code></p></li>
+<li><p>Parameter file for case generation: <code class="docutils literal notranslate"><span class="pre">bouncing_particle_original.tpl</span></code></p></li>
+<li><p>Postprocessing Python script: <code class="docutils literal notranslate"><span class="pre">bouncing_particle_postprocessing.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -433,7 +434,7 @@ end
 <h3>Lagrangian Physical Properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>
 <p>Different spring constant and restitution coefficient are used in this example. The spring constant is not defined explicitly in the parameter file, and, consequently, the physical properties must be chosen to obtain a desired spring constant. The interested reader can consult <a class="reference external" href="../../../parameters/dem/dem.html">DEM parameters</a> for more information about the definition of the sprint constant.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">poisson</span> <span class="pre">ratio</span></code> of both the wall and the particle are being set to 0.3 arbitrarily. The Young’s modulus of the wall is also being set arbitrarily to the high value of 1E12 Pa.</p>
-<p>The following properties are defined in the <code class="docutils literal notranslate"><span class="pre">bouncing_particle_original.prm</span></code>  according to MFIX DEM02 verification test.</p>
+<p>The following properties are defined in the <code class="docutils literal notranslate"><span class="pre">bouncing_particle_original.tpl</span></code>  according to MFIX DEM02 verification test.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection lagrangian physical properties
   set gx                       = 0.0
   set gy                       = 0.0
@@ -456,8 +457,8 @@ end
 end
 </pre></div>
 </div>
-<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> and the <code class="docutils literal notranslate"><span class="pre">restitution</span> <span class="pre">coefficient</span></code> of both the wall and particle are not yet defined in the <code class="docutils literal notranslate"><span class="pre">bouncing_particle_original.prm</span></code> file. A Python code called <code class="docutils literal notranslate"><span class="pre">bouncing_particle_case_generator.py</span></code> is provided with this example. This code allows the generation 6 parameter files each using a different restitution coefficient values (from 0.5 to 1.0) for one specific normal spring constant. The <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> parameter will be determined using a bisection algorithm to satisfy the desired normal spring constant. Assuming you have Python3 installed on your machine, this code can be launched using this next line:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 Lethe_case_generator.py 5000000
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> and the <code class="docutils literal notranslate"><span class="pre">restitution</span> <span class="pre">coefficient</span></code> of both the wall and particle are not yet defined in the <code class="docutils literal notranslate"><span class="pre">bouncing_particle_original.tpl</span></code> file. A Python code called <code class="docutils literal notranslate"><span class="pre">bouncing_particle_case_generator.py</span></code> is provided with this example. This code allows the generation 6 parameter files each using a different restitution coefficient values (from 0.5 to 1.0) for one specific normal spring constant. The <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> parameter will be determined using a bisection algorithm to satisfy the desired normal spring constant. Assuming you have Python3 installed on your machine, this code can be launched using this next line:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>python3 bouncing_particle_case_generator.py 5000000
 </pre></div>
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">5000000</span></code> represent the normal spring constant that is wish to be used for the simulations. This code will generate 6 files named <code class="docutils literal notranslate"><span class="pre">bouncing_particle_XX.prm</span></code>, where <code class="docutils literal notranslate"><span class="pre">XX</span></code> represent the value of the restitution coefficient used in it.</p>
@@ -466,19 +467,19 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Once all 6 parameter file are created, the simulation can be launched one after the other using the following line (parallel mode is not recommend since there is only one particle):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>for i in $(seq -w 5 10); do lethe-particles bouncing_particle_${i}.prm ; done
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>for i in $(seq -w 5 10); do lethe-particles bouncing_particle_${i}.prm ; done
 </pre></div>
 </div>
 <p>All 6 simulations takes less than 2 minutes to run. A folder named according to the restitution coefficient of every simulation used will be generated (<code class="docutils literal notranslate"><span class="pre">/out_xx</span></code>).</p>
 </section>
-<section id="post-processing">
-<h2>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
+<section id="postprocessing">
+<h2>Postprocessing<a class="headerlink" href="#postprocessing" title="Permalink to this headline">¶</a></h2>
 <p>A Python post-processing code called <code class="docutils literal notranslate"><span class="pre">bouncing_particle_post_processing.py</span></code> is provided with this example. It is used to compare the height reached by the particle after each rebound with the analytical solution of a hard sphere bouncing on a flat plane. This analytical solution considers instantaneous collision between the particle and the wall, thus the maximum height of each bounce can be express by the following expression:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[h_{k}^{max} = (h_0 - r_p)e^{2k} + rp\]</div></div>
 <p>with <span class="math notranslate nohighlight">\(k\)</span> represent the <span class="math notranslate nohighlight">\(k^{th}\)</span> bounce, <span class="math notranslate nohighlight">\(h_0\)</span> the starting height and <span class="math notranslate nohighlight">\(r_p\)</span> the radius of the particle.</p>
 <p>Once the 6 simulations have been run, use the following line in your command line to run the post-processing code :</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python3 bouncing_particle_post_processing.py
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>python3 bouncing_particle_postprocessing.py
 </pre></div>
 </div>
 <div class="admonition important">
@@ -571,7 +572,7 @@ end
 </ul>
 </li>
 <li><a class="reference internal" href="#running-the-simulation">Running the Simulation</a></li>
-<li><a class="reference internal" href="#post-processing">Post-processing</a></li>
+<li><a class="reference internal" href="#postprocessing">Postprocessing</a></li>
 <li><a class="reference internal" href="#results-and-discussion">Results and Discussion</a></li>
 <li><a class="reference internal" href="#reference">Reference</a></li>
 </ul>

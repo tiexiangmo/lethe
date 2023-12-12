@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -394,9 +394,10 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>Both files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/multiphysics/static-bubble</span></code>).</p>
 <ul class="simple">
-<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/static-bubble/static_bubble.prm</span></code></p></li>
-<li><p>Python file to generate plots: <code class="docutils literal notranslate"><span class="pre">examples/multiphysics/static-bubble/static_bubble.py</span></code></p></li>
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">static_bubble.prm</span></code></p></li>
+<li><p>Postprocessing Python script: <code class="docutils literal notranslate"><span class="pre">static_bubble.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -541,7 +542,9 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Call the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> by invoking:</p>
-<p><code class="docutils literal notranslate"><span class="pre">mpirun</span> <span class="pre">-np</span> <span class="pre">8</span> <span class="pre">lethe-fluid</span> <span class="pre">static-bubble.prm</span></code></p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-fluid static-bubble.prm
+</pre></div>
+</div>
 <p>to run the simulation using eight CPU cores. Feel free to use more.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -554,7 +557,7 @@ run in parallel using mpirun. This simulation takes
 <h2>Results and Discussion<a class="headerlink" href="#results-and-discussion" title="Permalink to this headline">¶</a></h2>
 <p>Using Paraview, we can visualize the evolution of the velocity field over the time:</p>
 <iframe allowfullscreen="" frameborder="0" height="615" src="https://www.youtube.com/embed/rrwNpdlIVYQ" title="2D Static bubble with surface tension" width="822"></iframe><p>The time evolution of the <span class="math notranslate nohighlight">\(\mathcal{L}^2\)</span> norm of the error on the velocity magnitude is obtained from a Gnuplot script available in the example folder by launching in the same directory the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gnuplot -c "./postprocess.gnu" "./output"
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>gnuplot -c "./postprocess.gnu" "./output"
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">./postprocess.gnu</span></code> is the path to the provided script and <code class="docutils literal notranslate"><span class="pre">./output</span></code> is the path to the directory that contains the <code class="docutils literal notranslate"><span class="pre">L2Error.dat</span></code> file. The figure, named <code class="docutils literal notranslate"><span class="pre">L2Error.png</span></code>, is outputted in the directory <code class="docutils literal notranslate"><span class="pre">./output</span></code>.</p>

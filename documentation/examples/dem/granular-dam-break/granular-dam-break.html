@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -394,11 +394,12 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/dem/3d-dam-break</span></code>).</p>
 <ul class="simple">
-<li><p>Parameters file for the problem (H=20cm): <code class="docutils literal notranslate"><span class="pre">examples/dem/3d-dam-break/granular-dam-break.prm</span></code></p></li>
-<li><p>Parameters file for the H=40cm bed: <code class="docutils literal notranslate"><span class="pre">examples/dem/3d-dam-break/granular-dam-break-H-40cm.prm</span></code></p></li>
-<li><p>GMSH geo file: <code class="docutils literal notranslate"><span class="pre">examples/dem/3d-dam-break/square.geo</span></code></p></li>
-<li><p>GMSH mesh file: <code class="docutils literal notranslate"><span class="pre">examples/dem/3d-dam-break/square.msh</span></code></p></li>
+<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">square.geo</span></code></p></li>
+<li><p>Mesh file: <code class="docutils literal notranslate"><span class="pre">square.msh</span></code></p></li>
+<li><p>Parameters file for the problem (<span class="math notranslate nohighlight">\(H=20 \, \text{cm}\)</span>): <code class="docutils literal notranslate"><span class="pre">granular-dam-break.prm</span></code></p></li>
+<li><p>Parameters file for the <span class="math notranslate nohighlight">\(H=40 \, \text{cm}\)</span> bed: <code class="docutils literal notranslate"><span class="pre">granular-dam-break-H-40cm.prm</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -530,7 +531,7 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is launched using a single input file for the insertion of the particles, the opening of the sluice gate and the granular motion of the particles.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-particles granular-dam-break.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span> mpirun -np 8 lethe-particles granular-dam-break.prm
 </pre></div>
 </div>
 <div class="admonition note">

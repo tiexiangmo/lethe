@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -382,7 +382,7 @@
         <article role="main">
           <section id="flow-around-a-sphere">
 <h1>Flow around a Sphere<a class="headerlink" href="#flow-around-a-sphere" title="Permalink to this headline">¶</a></h1>
-<p>In this example, a fluid flows past a sphere</p>
+<p>In this example, a fluid flows past a sphere.</p>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -394,10 +394,11 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-flow-around-sphere</span></code>).</p>
 <ul class="simple">
-<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=0.1\)</span>: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/3d-flow-around-sphere/sphere-0.1.prm</span></code></p></li>
-<li><p>Parameter file For <span class="math notranslate nohighlight">\(Re=150\)</span>: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/3d-flow-around-sphere/sphere-150.prm</span></code></p></li>
-<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=150\)</span> using adaptative mesh refinement: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/3d-flow-around-sphere/sphere-adapt.prm</span></code></p></li>
+<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=0.1\)</span>: <code class="docutils literal notranslate"><span class="pre">sphere-0.1.prm</span></code></p></li>
+<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=150\)</span>: <code class="docutils literal notranslate"><span class="pre">sphere-150.prm</span></code></p></li>
+<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re=150\)</span> using adaptative mesh refinement: <code class="docutils literal notranslate"><span class="pre">sphere-adapt.prm</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -573,15 +574,15 @@ end
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> executable is within your path, the simulation can be launched by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid sphere-0.1.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid sphere-0.1.prm
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid sphere-150.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid sphere-150.prm
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid sphere-adapt.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid sphere-adapt.prm
 </pre></div>
 </div>
 <p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>

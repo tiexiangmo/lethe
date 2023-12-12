@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -393,10 +393,11 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-naca0012-low-reynolds</span></code>).</p>
 <ul class="simple">
-<li><p>Base case parameter file (<span class="math notranslate nohighlight">\(Re=1000\)</span>): <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-naca0012-low-reynolds/naca.prm</span></code></p></li>
-<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-naca0012-low-reynolds/c_type_mesh.geo</span></code></p></li>
-<li><p>Python script for postprocessing: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-naca0012-low-reynolds/post_processing.py</span></code></p></li>
+<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">c_type_mesh.geo</span></code></p></li>
+<li><p>Parameter file for the base case (<span class="math notranslate nohighlight">\(Re=1000\)</span>): <code class="docutils literal notranslate"><span class="pre">naca.prm</span></code></p></li>
+<li><p>Postprocessing Python script: <code class="docutils literal notranslate"><span class="pre">postprocessing.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -455,6 +456,13 @@ end
 <section id="mesh">
 <h3>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <p>A C-Type mesh was created around the NACA. It is one of the usual types of mesh chosen for airfoils because it allows for the curvature of the grid to match the leading edge of the airfoil. Also, it allows the user to place more cells in areas which require higher resolution, typically near the upper and lower surfaces of the airfoil and in the wake. These properties are also true for O-type meshes, the difference being that the exterior boundary is a full circle, instead of a semi-circle in entry. In order to obtain such a mesh, the Transfinite functions of <code class="docutils literal notranslate"><span class="pre">gmsh</span></code> were used. To get a good understanding of how it was done, the reader is advised to read through the <code class="docutils literal notranslate"><span class="pre">c_type_mesh.geo</span></code> file included in the example, which is thoroughly commented on. To generate a mesh with a different angle of attack, the only thing required is to change the <code class="docutils literal notranslate"><span class="pre">angle</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">c_type_mesh.geo</span></code> file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Assuming that the <code class="docutils literal notranslate"><span class="pre">gmsh</span></code> executable is within your path, you can generate the mesh with:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>gmsh -2 c_type_mesh.geo -o naca.msh
+</pre></div>
+</div>
+</div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
   set type      = gmsh
   set file name = naca.msh
@@ -555,11 +563,11 @@ end
 <section id="running-the-simulations">
 <h2>Running the Simulations<a class="headerlink" href="#running-the-simulations" title="Permalink to this headline">¶</a></h2>
 <p>The simulation can be launched using the following command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid naca.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid naca.prm
 </pre></div>
 </div>
 <p>It can also run in parallel using:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np X lethe-fluid naca.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np X lethe-fluid naca.prm
 </pre></div>
 </div>
 <p>with X the number of processors used to run it.</p>
@@ -573,7 +581,7 @@ end
 <p>It is already noticeable that the higher the angle of attack, the greater the pressure gradient. Following this observation, the lift coefficient <span class="math notranslate nohighlight">\(C_L\)</span> is expected to increase with the angle of attack until stall condition is reached. The variation of the lift and drag coefficients are given below with a comparison to the work of Kouser <em>et al.</em> <a class="reference external" href="https://doi.org/10.1177/17568293211055656">[1]</a>. Both coefficients are computed using the following formula:</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
 \[C_L = \frac{F_L}{0.5\rho_{\infty} u_{\infty}^2 S} \; \; \; \; \; C_D = \frac{F_D}{0.5\rho_{\infty} u_{\infty}^2 S}\]</div></div>
-<p>with <span class="math notranslate nohighlight">\(F_L\)</span> and <span class="math notranslate nohighlight">\(F_D\)</span>, respectively, the lift and drag forces. Those forces can be obtained in the <code class="docutils literal notranslate"><span class="pre">force.00.dat</span></code> and post-processed using the <code class="docutils literal notranslate"><span class="pre">post_processing.py</span></code> python file included in the folder of this example. <span class="math notranslate nohighlight">\(S\)</span> represents a reference area; here, it is equal to the product of the chord length <span class="math notranslate nohighlight">\(C\)</span> (equal to 1 in this example) multiplied by a unitary transversal length.</p>
+<p>with <span class="math notranslate nohighlight">\(F_L\)</span> and <span class="math notranslate nohighlight">\(F_D\)</span>, respectively, the lift and drag forces. Those forces can be obtained in the <code class="docutils literal notranslate"><span class="pre">force.00.dat</span></code> and post-processed using the <code class="docutils literal notranslate"><span class="pre">postprocessing.py</span></code> python file included in the folder of this example. <span class="math notranslate nohighlight">\(S\)</span> represents a reference area; here, it is equal to the product of the chord length <span class="math notranslate nohighlight">\(C\)</span> (equal to 1 in this example) multiplied by a unitary transversal length.</p>
 <img alt="../../../_images/cl_cd_results_plot.png" src="../../../_images/cl_cd_results_plot.png"/>
 <p>The results obtained fit the drag and lift coefficients found by Kouser <em>et al.</em> <a class="reference external" href="https://doi.org/10.1177/17568293211055656">[1]</a>. Note that the value given for the <span class="math notranslate nohighlight">\(C_D\)</span> and <span class="math notranslate nohighlight">\(C_L\)</span> coefficients are Root Mean Squared (RMS) values. The time span considered is 25s long (between 15 <span class="math notranslate nohighlight">\(\text{s}\)</span> and 40 <span class="math notranslate nohighlight">\(\text{s}\)</span>). The first 15 seconds were not considered to let the system reach a pseudo-steady state.</p>
 <p>One can also see the low-velocity zones on the upper part of the airfoil, which corresponds to the recirculating zone: the <code class="docutils literal notranslate"><span class="pre">noslip</span></code> condition on the NACA imposes a zero velocity condition on the fluid. The following streamline representation helps to see the movements of the fluid inside the recirculating zone:</p>

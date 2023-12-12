@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -399,9 +399,9 @@
 <ul class="simple">
 <li><p>Analytical data: <code class="docutils literal notranslate"><span class="pre">capillaryWaveData_rho_1_nu_5e-6_prosperetti.csv</span></code></p></li>
 <li><p>Analytical solution computation Python script: <code class="docutils literal notranslate"><span class="pre">capillary-wave-prosperetti-solution.py</span></code></p></li>
-<li><p>Parameter file for case generation: <code class="docutils literal notranslate"><span class="pre">capillary-wave.prm</span></code></p></li>
-<li><p>Parameter file for the <span class="math notranslate nohighlight">\(\Delta t = 0.95\Delta t_\sigma\)</span> case: <code class="docutils literal notranslate"><span class="pre">capillary-wave-TSM-0_95.prm</span></code></p></li>
 <li><p>Case generation and simulation launching Bash script: <code class="docutils literal notranslate"><span class="pre">capillary-wave-time-step-sensitivity.sh</span></code></p></li>
+<li><p>Parameter file for case generation: <code class="docutils literal notranslate"><span class="pre">capillary-wave.tpl</span></code></p></li>
+<li><p>Parameter file for the <span class="math notranslate nohighlight">\(\Delta t = 0.95\Delta t_\sigma\)</span> case: <code class="docutils literal notranslate"><span class="pre">capillary-wave-TSM-0_95.prm</span></code></p></li>
 <li><p>Postprocessing Python script for a simple case: <code class="docutils literal notranslate"><span class="pre">capillary-wave-postprocess.py</span></code></p></li>
 <li><p>Postprocessing Python script for generating a comparison figure: <code class="docutils literal notranslate"><span class="pre">capillary-wave-combined.py</span></code></p></li>
 <li><p>Postprocessing Bash script: <code class="docutils literal notranslate"><span class="pre">capillary-wave-time-step-sensitivity-postprocess.sh</span></code></p></li>
@@ -706,8 +706,8 @@ Make sure that the information entered in the Python script corresponds to the o
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://doi.org/10.1016/j.jcp.2022.111128">[1]</a> F. Denner, F. Evrard, et B. van Wachem, « Breaching the capillary time-step constraint using a coupled VOF method with implicit surface tension », <em>J. Comput. Phys.</em>, vol. 459, p. 111128, juin 2022, doi: 10.1016/j.jcp.2022.111128.</p>
-<p><a class="reference external" href="https://doi.org/10.1016/j.jcp.2015.01.021">[2]</a> F. Denner and B. G. M. van Wachem, “Numerical time-step restrictions as a result of capillary waves,” J. Comput. Phys., vol. 285, pp. 24–40, Mar. 2015, doi: 10.1016/j.jcp.2015.01.021.</p>
+<p><a class="reference external" href="https://doi.org/10.1016/j.jcp.2022.111128">[1]</a> F. Denner, F. Evrard, and B. van Wachem, “Breaching the capillary time-step constraint using a coupled VOF method with implicit surface tension,” <em>J. Comput. Phys.</em>, vol. 459, p. 111128, Jun. 2022, doi: 10.1016/j.jcp.2022.111128.</p>
+<p><a class="reference external" href="https://doi.org/10.1016/j.jcp.2015.01.021">[2]</a> F. Denner and B. G. M. van Wachem, “Numerical time-step restrictions as a result of capillary waves,” <em>J. Comput. Phys.</em>, vol. 285, pp. 24–40, Mar. 2015, doi: 10.1016/j.jcp.2015.01.021.</p>
 <p><a class="reference external" href="https://doi.org/10.1063/1.863522">[3]</a> A. Prosperetti, “Motion of two superposed viscous fluids,” <em>Phys. Fluids</em>, vol. 24, no. 7, pp. 1217–1223, Jul. 1981, doi: 10.1063/1.863522.</p>
 </section>
 </section>

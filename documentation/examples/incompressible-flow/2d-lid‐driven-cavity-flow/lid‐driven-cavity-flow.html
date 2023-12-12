@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -393,13 +393,14 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-lid-driven-cavity</span></code>).</p>
 <ul class="simple">
-<li><p>Base case parameter file (<span class="math notranslate nohighlight">\(Re=400\)</span>): <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-lid-driven-cavity/cavity.prm</span></code></p></li>
-<li><p>Experimental data file from Ghia <cite>et al.</cite> (1982) <a class="reference external" href="https://doi.org/10.1016/0021-9991(82)90058-4">[1]</a>: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-lid-driven-cavity/ref-2d-ghia-u.txt</span></code></p></li>
-<li><p>Experimental data file from Erturk <cite>et al.</cite> (2005) <a class="reference external" href="https://doi.org/10.1002/fld.953">[2]</a>: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-lid-driven-cavity/ref-2d-erturk-u.txt</span></code></p></li>
-<li><p>Higher-Reynolds case parameter file (<span class="math notranslate nohighlight">\(Re=7500\)</span>): <code class="docutils literal notranslate"><span class="pre">/examples/incompressible-flow/2d-lid-driven-cavity/Reynolds_7500/cavity.prm</span></code></p></li>
-<li><p>Python script for postprocessing the <span class="math notranslate nohighlight">\(Re=400\)</span> case: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-lid-driven-cavity/post_process_Reynolds_400.py</span></code></p></li>
-<li><p>Python script for postprocessing the <span class="math notranslate nohighlight">\(Re=7500\)</span> case: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/2d-lid-driven-cavity/Reynolds_7500/post_process_Reynolds_7500.py</span></code></p></li>
+<li><p>Base case parameter file (<span class="math notranslate nohighlight">\(Re=400\)</span>): <code class="docutils literal notranslate"><span class="pre">cavity.prm</span></code></p></li>
+<li><p>Experimental data file from Ghia <cite>et al.</cite> (1982) <a class="reference external" href="https://doi.org/10.1016/0021-9991(82)90058-4">[1]</a>: <code class="docutils literal notranslate"><span class="pre">ref-2d-ghia-u.txt</span></code></p></li>
+<li><p>Experimental data file from Erturk <cite>et al.</cite> (2005) <a class="reference external" href="https://doi.org/10.1002/fld.953">[2]</a>: <code class="docutils literal notranslate"><span class="pre">ref-2d-erturk-u.txt</span></code></p></li>
+<li><p>Higher-Reynolds case parameter file (<span class="math notranslate nohighlight">\(Re=7500\)</span>): <code class="docutils literal notranslate"><span class="pre">Reynolds_7500/cavity.prm</span></code></p></li>
+<li><p>Postprocessing Python script for the <span class="math notranslate nohighlight">\(Re=400\)</span> case: <code class="docutils literal notranslate"><span class="pre">post_process_Reynolds_400.py</span></code></p></li>
+<li><p>Postprocessing Python script for the <span class="math notranslate nohighlight">\(Re=7500\)</span> case: <code class="docutils literal notranslate"><span class="pre">Reynolds_7500/post_process_Reynolds_7500.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -537,7 +538,7 @@ end
 <section id="running-the-simulations">
 <h2>Running the Simulations<a class="headerlink" href="#running-the-simulations" title="Permalink to this headline">¶</a></h2>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> executable is within your path, the simulation can be launched by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid cavity.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid cavity.prm
 </pre></div>
 </div>
 <p>Lethe will generate a number of files. The most important one bears the extension <code class="docutils literal notranslate"><span class="pre">.pvd</span></code>. It can be read by popular visualization programs such as <a class="reference external" href="https://www.paraview.org/">Paraview</a>.</p>

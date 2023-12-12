@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -390,15 +390,16 @@
 <li><p>Three-dimensional problem</p></li>
 <li><p>Displays the selection of models and physical properties</p></li>
 <li><p>Simulates a solid-liquid fluidized bed</p></li>
-<li><p>Post-processing code available</p></li>
+<li><p>Postprocessing code available</p></li>
 </ul>
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/unresolved-cfd-dem/liquid-solid-fluidized-bed</span></code>).</p>
 <ul class="simple">
-<li><p>Parameter file of particles generation and packing: <code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-fluidized-bed/dem-packing-in-lsfb.prm</span></code></p></li>
-<li><p>Parameter file for the liquid-solid fluidized bed unresolved CFD-DEM simulation: <code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-fluidized-bed/liquid-solid-fluidized-bed.prm</span></code></p></li>
-<li><p>Post-processing Python script: <code class="docutils literal notranslate"><span class="pre">/examples/unresolved-cfd-dem/gas-solid-fluidized-bed/lsfb_postprocessing.py</span></code></p></li>
+<li><p>Parameter file for CFD-DEM simulation of the liquid-solid fluidized bed: <code class="docutils literal notranslate"><span class="pre">liquid-solid-fluidized-bed.prm</span></code></p></li>
+<li><p>Parameter file of particles generation and packing: <code class="docutils literal notranslate"><span class="pre">dem-packing-in-lsfb.prm</span></code></p></li>
+<li><p>Postprocessing Python script: <code class="docutils literal notranslate"><span class="pre">lsfb_postprocessing.py</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -733,7 +734,7 @@ end
 <section id="running-the-cfd-dem-simulation">
 <h2>Running the CFD-DEM Simulation<a class="headerlink" href="#running-the-cfd-dem-simulation" title="Permalink to this headline">¶</a></h2>
 <p>The simulation is run (on <span class="math notranslate nohighlight">\(8 \: \text{cores}\)</span>) using the <code class="docutils literal notranslate"><span class="pre">lethe-fluid-particles</span></code> application as follows:</p>
-<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>  mpirun -np 8 lethe-fluid-particles liquid-solid-fluidized-bed.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np 8 lethe-fluid-particles liquid-solid-fluidized-bed.prm
 </pre></div>
 </div>
 <p>The <span class="math notranslate nohighlight">\(20\)</span>-second simulations with alumina took approximately <span class="math notranslate nohighlight">\(24 \: \text{hours}\)</span> and <span class="math notranslate nohighlight">\(30 \: \text{minutes}\)</span> on <span class="math notranslate nohighlight">\(16 \: \text{cores}\)</span> and <span class="math notranslate nohighlight">\(8 \: \text{hours}\)</span> and <span class="math notranslate nohighlight">\(44 \: \text{minutes}\)</span> on <span class="math notranslate nohighlight">\(32 \: \text{cores}\)</span>.</p>
@@ -744,7 +745,7 @@ end
 <p>We briefly comment on some results that can be extracted from this example.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>This example includes a post-processing file written in Python that uses the <a class="reference external" href="../../../tools/postprocessing/postprocessing.html">lethe_pyvista_tools</a>. module.</p>
+<p>This example includes a postprocessing file written in Python that uses the <a class="reference external" href="../../../tools/postprocessing/postprocessing.html">lethe_pyvista_tools</a>. module.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>

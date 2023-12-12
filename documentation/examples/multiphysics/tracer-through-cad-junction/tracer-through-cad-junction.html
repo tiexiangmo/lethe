@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -396,7 +396,14 @@ We will also demonstrate the tracer physics capabilities.</p>
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">examples/multiphysics/tracer-through-cad-junction/tracer-through-cad-junction.prm</span></code></p>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/multiphysics/tracer-through-cad-junction</span></code>).</p>
+<ul class="simple">
+<li><p>Hierarchical Data Format file for SALOME mesh generation: <code class="docutils literal notranslate"><span class="pre">tracer-through-cad-junction.hdf</span></code></p></li>
+<li><p>GMSH geometry file: <code class="docutils literal notranslate"><span class="pre">tracer-through-cad-junction.geo</span></code></p></li>
+<li><p>GMSH mesh file: <code class="docutils literal notranslate"><span class="pre">tracer-through-cad-junction.msh</span></code></p></li>
+<li><p>Parameter file: <code class="docutils literal notranslate"><span class="pre">tracer-through-cad-junction.prm</span></code></p></li>
+<li><p>SALOME mesh file: <code class="docutils literal notranslate"><span class="pre">Mesh-1.mesh</span></code></p></li>
+</ul>
 </section>
 <section id="description-of-the-case">
 <h2>Description of the Case<a class="headerlink" href="#description-of-the-case" title="Permalink to this headline">¶</a></h2>
@@ -443,7 +450,7 @@ Physical Surface(4) = {849, 851};
 <p>In the <code class="docutils literal notranslate"><span class="pre">subsection</span> <span class="pre">mesh</span></code>, the simplex mode can be enabled with <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">simplex</span> <span class="pre">=</span> <span class="pre">true</span></code>. Also, the mesh in the <code class="docutils literal notranslate"><span class="pre">.msh</span></code> file must obviously be built with simplex elements.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>subsection mesh
   set type               = gmsh
-  set file name          = vessels.msh
+  set file name          = tracer-through-cad-junction.msh
   set initial refinement = 0
   set simplex            = true
 end
@@ -569,11 +576,8 @@ end
 </section>
 <section id="running-the-simulation">
 <h2>Running the Simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
-<p>The case must be run with the solver and the parameter file.
-The simulation is launched in the same folder as the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file,
-using the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> solver. It takes a long time since problem is
-transient and the time steps are short:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>../../exe/bin/lethe-fluid<span class="w"> </span>tracer-through-cad-junction.prm
+<p>The case must be run with the solver and the parameter file. The simulation is launched in the same folder as the <code class="docutils literal notranslate"><span class="pre">.prm</span></code> file, using the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> solver. It takes a long time since problem is transient and the time steps are short. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> executable is within your path, the simulation can be launched by typing:</p>
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>lethe-fluid tracer-through-cad-junction.prm
 </pre></div>
 </div>
 </section>

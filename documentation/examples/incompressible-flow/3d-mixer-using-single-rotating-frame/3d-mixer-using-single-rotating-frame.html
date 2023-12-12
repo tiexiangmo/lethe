@@ -279,9 +279,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-circle/packing-in-circle.html">Packing in Circle</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/packing-in-ball/packing-in-ball.html">Packing in Ball</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum/small-scale-rotating-drum.html">Small Scale Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-post-processing/small-scale-rotating-drum-post-processing.html">Small Scale Rotating Drum Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/small-scale-rotating-drum-postprocessing/small-scale-rotating-drum-postprocessing.html">Small Scale Rotating Drum Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum/rotating-drum.html">Rotating Drum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-post-processing/rotating-drum-with-post-processing.html">Rotating Drum with Post-processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dem/rotating-drum-with-postprocessing/rotating-drum-with-postprocessing.html">Rotating Drum with Postprocessing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rotation-of-box/rotation-of-box.html">Rotation of Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/silo/silo.html">Silo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../dem/rectangular-hopper/rectangular-hopper.html">Rectangular Hopper</a></li>
@@ -404,17 +404,18 @@
 </section>
 <section id="files-used-in-this-example">
 <h2>Files Used in This Example<a class="headerlink" href="#files-used-in-this-example" title="Permalink to this headline">¶</a></h2>
+<p>All files mentioned below are located in the example’s folder (<code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf</span></code>).</p>
 <ul class="simple">
-<li><p>Bash script for gathering torques: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/Np_vs_Re/gather-torques.sh</span></code></p></li>
-<li><p>Bash script for running simulations on a cluster (job script): <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/Np_vs_Re/template/launch-mixer.sh</span></code></p></li>
-<li><p>Experimental data file: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/Np_vs_Re/experimental.dat</span></code></p></li>
-<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re = 1\)</span>: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/Re1/ribbon-gls-Re1.prm</span></code></p></li>
-<li><p>Parameter file for generating multiple cases: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/Np_vs_Re/ribbon-gls.prm</span></code></p></li>
-<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/diff-step-mesh.geo</span></code></p></li>
-<li><p>Python script for generating different cases: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/Np_vs_Re/template/lethe_case_generator.py</span></code></p></li>
-<li><p>Python script for launching all the simulations on the cluster: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/Np_vs_Re/launch_all_mixers.py</span></code></p></li>
-<li><p>Python script for generating the <span class="math notranslate nohighlight">\(N_p\)</span> vs <span class="math notranslate nohighlight">\(Re\)</span> curves: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/Np_vs_Re/plot_Np_vs_Re.py</span></code></p></li>
-<li><p>STEP file: <code class="docutils literal notranslate"><span class="pre">examples/incompressible-flow/3d-ribbon-mixer-srf/db-helical.step</span></code></p></li>
+<li><p>Bash script for gathering torques: <code class="docutils literal notranslate"><span class="pre">Np_vs_Re/gather-torques.sh</span></code></p></li>
+<li><p>Bash script for running simulations on a cluster (job script): <code class="docutils literal notranslate"><span class="pre">Np_vs_Re/template/launch-mixer.sh</span></code></p></li>
+<li><p>Experimental data file: <code class="docutils literal notranslate"><span class="pre">Np_vs_Re/experimental.dat</span></code></p></li>
+<li><p>Geometry file: <code class="docutils literal notranslate"><span class="pre">diff-step-mesh.geo</span></code></p></li>
+<li><p>Parameter file for <span class="math notranslate nohighlight">\(Re = 1\)</span>: <code class="docutils literal notranslate"><span class="pre">Re1/ribbon-gls-Re1.prm</span></code></p></li>
+<li><p>Parameter file for generating multiple cases: <code class="docutils literal notranslate"><span class="pre">Np_vs_Re/ribbon-gls.prm</span></code></p></li>
+<li><p>Postprocessing Python script for generating the <span class="math notranslate nohighlight">\(N_p\)</span> vs <span class="math notranslate nohighlight">\(Re\)</span> curves: <code class="docutils literal notranslate"><span class="pre">Np_vs_Re/plot_Np_vs_Re.py</span></code></p></li>
+<li><p>Python script for generating different cases: <code class="docutils literal notranslate"><span class="pre">Np_vs_Re/template/lethe_case_generator.py</span></code></p></li>
+<li><p>Python script for launching all the simulations on the cluster: <code class="docutils literal notranslate"><span class="pre">Np_vs_Re/launch_all_mixers.py</span></code></p></li>
+<li><p>STEP file: <code class="docutils literal notranslate"><span class="pre">db-helical.step</span></code></p></li>
 </ul>
 </section>
 <section id="description-of-the-case">
@@ -610,22 +611,22 @@ end
 <p>Before launching the simulation, the mesh has to be generated.
 Using Gmsh, with the <code class="docutils literal notranslate"><span class="pre">diff-step-mesh.geo</span></code> file we generate the <code class="docutils literal notranslate"><span class="pre">diff-step-mesh.msh</span></code> file.</p>
 <p>Assuming the <code class="docutils literal notranslate"><span class="pre">gmsh</span></code> executable is within your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> variable, you may generate the <code class="docutils literal notranslate"><span class="pre">msh</span></code> file by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gmsh -3 diff-step-mesh.geo -o diff-step-mesh.msh
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>   gmsh -3 diff-step-mesh.geo -o diff-step-mesh.msh
 </pre></div>
 </div>
 <p>You can then copy this file in the <code class="docutils literal notranslate"><span class="pre">Re1</span></code> folder:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cp diff-step-mesh.msh Re1
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>   cp diff-step-mesh.msh Re1
 </pre></div>
 </div>
 <p>and then move it to the <code class="docutils literal notranslate"><span class="pre">Np_vs_Re</span></code> folder:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mv diff-step-mesh.msh Np_vs_Re
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>   mv diff-step-mesh.msh Np_vs_Re
 </pre></div>
 </div>
 </section>
 <section id="simulating-for-a-specific-flow-condition-re-1">
 <h3>Simulating for a Specific Flow Condition <span class="math notranslate nohighlight">\((Re=1)\)</span><a class="headerlink" href="#simulating-for-a-specific-flow-condition-re-1" title="Permalink to this headline">¶</a></h3>
 <p>Launching the simulation is as simple as specifying the executable name and the parameter file. Assuming that the <code class="docutils literal notranslate"><span class="pre">lethe-fluid</span></code> executable is within your path, the simulation can be launched by typing:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mpirun -np $number_of_CPUs lethe-fluid ribbon-gls-Re1.prm
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>  mpirun -np $number_of_CPUs lethe-fluid ribbon-gls-Re1.prm
 </pre></div>
 </div>
 </section>
@@ -644,7 +645,7 @@ Using Gmsh, with the <code class="docutils literal notranslate"><span class="pre
 <p>In order to run a job on an Alliance cluster, it is required to at least specify the time limit of the job (<code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">time</span></code>) and your account (<code class="docutils literal notranslate"><span class="pre">--account</span></code>).</p>
 </div>
 <p>Here are a few examples of other job directives you may want to specify in your job script:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
 #SBATCH --account=$yourgroupaccount
 #SBATCH --time=1:00:00                  #maximum time for the simulation (hh:mm:ss or d-hh:mm:ss)
 #SBATCH --ntasks-per-node=$X            #number of parallel tasks (as in mpirun -np X)
@@ -672,7 +673,7 @@ Using Gmsh, with the <code class="docutils literal notranslate"><span class="pre
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you don’t have the Jinja2 module installed, you may install it using <code class="docutils literal notranslate"><span class="pre">pip</span></code> with the following command line:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install Jinja2
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>  pip install Jinja2
 </pre></div>
 </div>
 </div>
@@ -682,17 +683,17 @@ Using Gmsh, with the <code class="docutils literal notranslate"><span class="pre
 <h4>Copying Files to the Cluster<a class="headerlink" href="#copying-files-to-the-cluster" title="Permalink to this headline">¶</a></h4>
 <p>We will now copy the <code class="docutils literal notranslate"><span class="pre">Np_vs_Re</span></code> folder to the cluster.</p>
 <p>On your <strong>local computer</strong>, you may copy the <code class="docutils literal notranslate"><span class="pre">Np_vs_Re</span></code> folder to your <code class="docutils literal notranslate"><span class="pre">scratch</span></code> folder in the cluster with:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>scp -r Path/To/Np_vs_Re username@clustername.computecanada.ca:/scratchPathInCluster
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>scp -r Path/To/Np_vs_Re username@clustername.computecanada.ca:/scratchPathInCluster
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You may want to save the path to your <code class="docutils literal notranslate"><span class="pre">scratch</span></code> folder in the cluster in an environment variable on your local computer so that you do not have to type the long expression every time you copy files there. You may do so by adding the following line to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file (or any equivalent file) and sourcing the file:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>export SCRATCH_PATH=username@clustername.computecanada.ca:/scratchPathInCluster
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>export SCRATCH_PATH=username@clustername.computecanada.ca:/scratchPathInCluster
 </pre></div>
 </div>
 <p>By doing so, you may copy the <code class="docutils literal notranslate"><span class="pre">Np_vs_Re</span></code> folder from your local computer with:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>scp -r Path/To/Np_vs_Re $SCRATCH_PATH
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>scp -r Path/To/Np_vs_Re $SCRATCH_PATH
 </pre></div>
 </div>
 </div>
@@ -704,7 +705,7 @@ Using Gmsh, with the <code class="docutils literal notranslate"><span class="pre
 <section id="submitting-jobs-and-launching-simulations">
 <h4>Submitting Jobs and Launching Simulations<a class="headerlink" href="#submitting-jobs-and-launching-simulations" title="Permalink to this headline">¶</a></h4>
 <p>The next step is to connect to an Alliance cluster:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ssh username@clustername.computecanada.ca
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>ssh username@clustername.computecanada.ca
 </pre></div>
 </div>
 <p>After connecting to your preferred cluster, you can submit your jobs by running the <code class="docutils literal notranslate"><span class="pre">launch_all_mixers.py</span></code> Python script located in the <code class="docutils literal notranslate"><span class="pre">Np_vs_Re</span></code> folder. After running the script, <span class="math notranslate nohighlight">\(25\)</span> new jobs should have been generated. You may check if it is the case with the <code class="docutils literal notranslate"><span class="pre">sq</span></code> command. In the <code class="docutils literal notranslate"><span class="pre">ST</span></code> column of the output, you may see the status of each job. The two most common states are <code class="docutils literal notranslate"><span class="pre">PD</span></code> for <em>pending</em> or <code class="docutils literal notranslate"><span class="pre">R</span></code> for <em>running</em>.</p>
@@ -737,17 +738,17 @@ Using Gmsh, with the <code class="docutils literal notranslate"><span class="pre
 <section id="copying-files-to-your-local-computer-using-sftp">
 <h4>Copying Files to Your Local Computer (Using SFTP)<a class="headerlink" href="#copying-files-to-your-local-computer-using-sftp" title="Permalink to this headline">¶</a></h4>
 <p>Before postprocessing the results of the simulations, you may want to copy the files from the remote machine to your local one. You may do so by connecting to the remote computer with the Secure File Transfer Protocol (SFTP):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sftp username@clustername.computecanada.ca
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>sftp username@clustername.computecanada.ca
 </pre></div>
 </div>
 <p>With the <code class="docutils literal notranslate"><span class="pre">get</span></code> command you may copy the remote <code class="docutils literal notranslate"><span class="pre">Np_vs_Re</span></code> folder:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>get -r Path/To/Remote_Np_vs_Re Path/To/Local_directory
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>get -r Path/To/Remote_Np_vs_Re Path/To/Local_directory
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Earlier, before launching the simulations, we could have also uploaded the initial <code class="docutils literal notranslate"><span class="pre">Np_vs_Re</span></code> folder using this method with the <code class="docutils literal notranslate"><span class="pre">put</span></code> command:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>put -r Path/To/Local_Np_vs_Re Path/To/Remote_scratch_directory
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>put -r Path/To/Local_Np_vs_Re Path/To/Remote_scratch_directory
 </pre></div>
 </div>
 </div>
@@ -759,7 +760,7 @@ Using Gmsh, with the <code class="docutils literal notranslate"><span class="pre
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In order to run the <code class="docutils literal notranslate"><span class="pre">gather-torques.sh</span></code> script, you must make sure that the script is executable. If it is not executable, you may add the permissions with:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>chmod +x Path/To/gather-torques.sh
+<div class="copy-button highlight-text notranslate"><div class="highlight"><pre><span></span>chmod +x Path/To/gather-torques.sh
 </pre></div>
 </div>
 </div>
