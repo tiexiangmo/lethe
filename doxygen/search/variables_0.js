@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['a_4793',['a',['../classCarreau.html#a14d008c2e57031e28b6412b66aecbbd8',1,'Carreau::a()'],['../structParameters_1_1CarreauParameters.html#a36393ea781a3c9d512aa324008541c30',1,'Parameters::CarreauParameters::a()']]],
-  ['a_4794',['A',['../classThermalConductivityLinear.html#a94e5190ba0c0fc2104533e3e2898bc37',1,'ThermalConductivityLinear']]],
+  ['a_4792',['a',['../structParameters_1_1CarreauParameters.html#a36393ea781a3c9d512aa324008541c30',1,'Parameters::CarreauParameters']]],
+  ['a_4793',['A',['../classThermalConductivityLinear.html#a94e5190ba0c0fc2104533e3e2898bc37',1,'ThermalConductivityLinear']]],
+  ['a_4794',['a',['../classCarreau.html#a14d008c2e57031e28b6412b66aecbbd8',1,'Carreau']]],
   ['a_5finverse_4795',['A_inverse',['../classBlockDiagPreconditioner.html#a058dcacb809e8cc25b8248472c686ec5',1,'BlockDiagPreconditioner']]],
   ['abort_5fat_5fconvergence_5ffailure_4796',['abort_at_convergence_failure',['../structParameters_1_1NonLinearSolver.html#a491f1c3c8f1c66e2ee84e42fd23be06e',1,'Parameters::NonLinearSolver']]],
   ['acceleration_4797',['acceleration',['../classExplicitEulerIntegrator.html#afe24dfc93226575b0e3ac7d0c43d2a3d',1,'ExplicitEulerIntegrator']]],

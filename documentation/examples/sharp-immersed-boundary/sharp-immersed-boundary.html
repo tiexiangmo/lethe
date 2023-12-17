@@ -309,6 +309,7 @@
 <li class="toctree-l4"><a class="reference internal" href="sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html">Non-Newtonian Flow past a Sphere</a></li>
 <li class="toctree-l4"><a class="reference internal" href="3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html">3D Mixer with Pitched-Blade Turbine Impeller Using Composite Sharp-Immersed Boundary</a></li>
 <li class="toctree-l4"><a class="reference internal" href="3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html">3D Mixer with Pitched-Blade Turbine Impeller Using OpenCascade Sharp-Immersed Boundary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3d-rbf-static-mixer/3d-rbf-static-mixer.html">3D Static Mixer Using RBF Sharp Immersed Boundary</a></li>
 <li class="toctree-l4"><a class="reference internal" href="inclined-3d-composite-mixer-with-pbt-impeller/inclined-3d-composite-mixer-with-pbt-impeller.html">Inclined 3D Mixer with Pitched-Blade Turbine Impeller Using Composite Sharp-Immersed Boundary</a></li>
 </ul>
 </li>
@@ -411,13 +412,15 @@
 
   sharp_2_5 [label="Inclined 3D Mixer with Pitched-Blade \nTurbine Impeller Using Composite \nSharp-Immersed Boundary", href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/inclined-3d-composite-mixer-with-pbt-impeller/inclined-3d-composite-mixer-with-pbt-impeller.html", tooltip="Inclined 3D mixer with pitched-blade turbine impeller using composite sharp-immersed boundary"];
 
+  sharp_2_6 [label="3D Static Mixer \nImpeller Using RBF", href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/3d-rbf-static-mixer/3d-rbf-static-mixer.html", tooltip="3D Static Mixer \nImpeller Using RBF Sharp-immersed boundary"];
+
   sharp_3 [label="Geometry Definition", href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/geometry-definition.html"];
 
   sharp_3_1 [label="Simple Plane Model From Composite", href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sharp-immersed-boundary/simple-plane-model-from-composite.html", tooltip="Simple Plane Model From Composite"];
 
-  sharp_immersed_boundary -&gt; sharp_1:w;
-  sharp_immersed_boundary -&gt; sharp_2:w;
-  sharp_immersed_boundary -&gt; sharp_3:w;
+  sharp_immersed_boundary_solver -&gt; sharp_1:w;
+  sharp_immersed_boundary_solver -&gt; sharp_2:w;
+  sharp_immersed_boundary_solver -&gt; sharp_3:w;
 
   sharp_1 -&gt; sharp_1_1:w;
   sharp_1 -&gt; sharp_1_2:w;
@@ -426,21 +429,22 @@
   sharp_2 -&gt; sharp_2_3:w;
   sharp_2 -&gt; sharp_2_4:w;
   sharp_2 -&gt; sharp_2_5:w;
+  sharp_2 -&gt; sharp_2_6:w;
   sharp_3 -&gt; sharp_3_1:w;
-}' class="graphviz" src="../../_images/graphviz-7eacb38c2e5590a5118b4a92588dac76f55175f8.png" usemap="#sharp_diagram"/></div>
+}' class="graphviz" src="../../_images/graphviz-38a76c975dc08bbe733f8dec6f0a289aa30b7663.png" usemap="#sharp_diagram"/></div>
 <map id="sharp_diagram" name="sharp_diagram">
-<area alt="" coords="48,444,214,514" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sharp-immersed-boundary.html" id="node1" shape="rect" title="Sharp Immersed \nBoundary"/>
-<area alt="" coords="294,92,486,162" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/resolved-cfd-dem.html" id="node2" shape="rect" title="Resolved CFD-DEM"/>
-<area alt="" coords="553,4,828,74" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sedimentation-1-particle/sedimentation-1-particle.html" id="node3" shape="rect" title="Sedimentation of One Particle"/>
-<area alt="" coords="556,92,825,162" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sedimentation-64-particles/sedimentation-64-particles.html" id="node4" shape="rect" title="Sedimentation of 64 Particles"/>
-<area alt="" coords="294,356,487,426" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/incompressible-flow.html" id="node5" shape="rect" title="Incompressible Flow"/>
-<area alt="" coords="552,179,829,250" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html" id="node6" shape="rect" title="Flow around a cylinder using the sharp interface method"/>
-<area alt="" coords="590,267,792,337" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html" id="node7" shape="rect" title="Non-Newtonian flow past a sphere"/>
-<area alt="" coords="533,355,848,427" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html" id="node8" shape="rect" title="3D Mixer with pitched-blade turbine impeller using Composite Sharp-immersed boundary"/>
-<area alt="" coords="523,445,859,517" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html" id="node9" shape="rect" title="3D Mixer with pitched-blade turbine impeller using OpenCascade Sharp-immersed boundary"/>
-<area alt="" coords="522,534,860,607" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/inclined-3d-composite-mixer-with-pbt-impeller/inclined-3d-composite-mixer-with-pbt-impeller.html" id="node10" shape="rect" title="Inclined 3D mixer with pitched-blade turbine impeller using composite sharp-immersed boundary"/>
-<area alt="" coords="296,533,484,604" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/geometry-definition.html" id="node11" shape="rect" title="Geometry Definition"/>
-<area alt="" coords="522,624,860,694" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sharp-immersed-boundary/simple-plane-model-from-composite.html" id="node12" shape="rect" title="Simple Plane Model From Composite"/>
+<area alt="" coords="4,441,187,518" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sharp-immersed-boundary.html" id="node1" shape="rect" title="Sharp Immersed \nBoundary"/>
+<area alt="" coords="226,101,437,178" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/resolved-cfd-dem.html" id="node2" shape="rect" title="Resolved CFD-DEM"/>
+<area alt="" coords="225,441,437,518" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/incompressible-flow.html" id="node5" shape="rect" title="Incompressible Flow"/>
+<area alt="" coords="228,684,435,761" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/geometry-definition.html" id="node12" shape="rect" title="Geometry Definition"/>
+<area alt="" coords="511,4,813,81" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sedimentation-1-particle/sedimentation-1-particle.html" id="node3" shape="rect" title="Sedimentation of One Particle"/>
+<area alt="" coords="514,101,810,178" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sedimentation-64-particles/sedimentation-64-particles.html" id="node4" shape="rect" title="Sedimentation of 64 Particles"/>
+<area alt="" coords="510,197,814,274" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/cylinder-with-sharp-interface/cylinder-with-sharp-interface.html" id="node6" shape="rect" title="Flow around a cylinder using the sharp interface method"/>
+<area alt="" coords="551,294,773,371" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sphere-carreau-with-sharp-interface/sphere-carreau-with-sharp-interface.html" id="node7" shape="rect" title="Non-Newtonian flow past a sphere"/>
+<area alt="" coords="489,390,835,470" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/3d-composite-mixer-with-pbt-impeller/3d-composite-mixer-with-pbt-impeller.html" id="node8" shape="rect" title="3D Mixer with pitched-blade turbine impeller using Composite Sharp-immersed boundary"/>
+<area alt="" coords="477,489,847,568" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/3d-opencascade-mixer-with-pbt-impeller/3d-opencascade-mixer-with-pbt-impeller.html" id="node9" shape="rect" title="3D Mixer with pitched-blade turbine impeller using OpenCascade Sharp-immersed boundary"/>
+<area alt="" coords="476,587,848,667" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/inclined-3d-composite-mixer-with-pbt-impeller/inclined-3d-composite-mixer-with-pbt-impeller.html" id="node10" shape="rect" title="Inclined 3D mixer with pitched-blade turbine impeller using composite sharp-immersed boundary"/>
+<area alt="" coords="476,783,848,860" href="https://lethe-cfd.github.io/lethe/documentation/examples/sharp-immersed-boundary/sharp-immersed-boundary/simple-plane-model-from-composite.html" id="node13" rect"="" shape="rect" title="Simple Plane Model From Composite"/>
 </map></section>
 
         </article>
