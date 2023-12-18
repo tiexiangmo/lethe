@@ -448,8 +448,8 @@ end
   set insertion box maximum x                        = 0.05
   set insertion box maximum y                        = 0.07
   set insertion distance threshold                   = 2
-  set insertion random number range                  = 0.75
-  set insertion random number seed                   = 19
+  set insertion maximum offset                       = 0.75
+  set insertion prn seed                             = 19
 end
 </pre></div>
 </div>
@@ -467,7 +467,7 @@ end
 <p class="admonition-title">Note</p>
 <p>We recommend that the defined insertion box have at least a distance of <span class="math notranslate nohighlight">\({d^{max}_p}\)</span> (maximum diameter of particles) from the triangulation boundaries. Otherwise, particles may have an overlap with the triangulation walls in the insertion.</p>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code> specifies the initial distance between the particles in the insertion. If we choose a <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion, this initial distance is added by a random number to generate randomness. The random numbers are generated in the range [0 -<code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">range</span></code>], and from a seed of <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">random</span> <span class="pre">number</span> <span class="pre">seed</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">distance</span> <span class="pre">threshold</span></code> specifies the initial distance between the particles in the insertion. If we choose a <code class="docutils literal notranslate"><span class="pre">non_uniform</span></code> insertion, this initial distance is added by a random number to generate randomness. The random numbers are generated in the range [0 - <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">maximum</span> <span class="pre">offset</span></code>], and from a seed of <code class="docutils literal notranslate"><span class="pre">insertion</span> <span class="pre">prn</span> <span class="pre">seed</span></code>.</p>
 </section>
 <section id="lagrangian-physical-properties">
 <h3>Lagrangian Physical Properties<a class="headerlink" href="#lagrangian-physical-properties" title="Permalink to this headline">¶</a></h3>

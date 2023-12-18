@@ -408,10 +408,12 @@
 
     # If distribution type = custom
     set custom diameters                  = 0.001 , 0.0005
-    set custom probabilities              = 0.6   , 0.4
+    set custom volume fractions           = 0.6   , 0.4
 
     # If distribution type = normal
     set standard deviation                = 0.0
+    # If distribution type = normal or custom
+    set distribution prn seed          = 1
 
     # For every distribution types
     set number of particles               = 0
@@ -460,7 +462,8 @@ end
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">diameter</span></code> parameter defines the diameter of the particles in a <code class="docutils literal notranslate"><span class="pre">uniform</span></code> distribution. In the case of a <code class="docutils literal notranslate"><span class="pre">normal</span></code> distribution, this parameter indicates the average diameter.</p></li>
 <li><p>For a <code class="docutils literal notranslate"><span class="pre">normal</span></code> distribution, the <code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">deviation</span></code> parameter should be defined to indicate the standard deviation on the particle size distribution.</p></li>
-<li><p>For a <code class="docutils literal notranslate"><span class="pre">custom</span></code> distribution, the <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">diameters</span></code> parameter defines the different diameter values used when generating particles. The <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">probabilities</span></code> parameter defines the probabilities corresponding to each diameter value previously declared based on volume fraction, not on the number of particles. Both list must have the same length.</p></li>
+<li><p>For a <code class="docutils literal notranslate"><span class="pre">custom</span></code> distribution, the <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">diameters</span></code> parameter defines the different diameter values used when generating particles. The <code class="docutils literal notranslate"><span class="pre">custom</span> <span class="pre">volume</span> <span class="pre">fractions</span></code> parameter defines the probabilities corresponding to each diameter value previously declared based on volume fraction. Both list must have the same length.</p></li>
+<li><p>For a <code class="docutils literal notranslate"><span class="pre">normal</span></code> or a <code class="docutils literal notranslate"><span class="pre">custom</span></code> distribution, the <code class="docutils literal notranslate"><span class="pre">distribution</span> <span class="pre">prn</span> <span class="pre">seed</span></code> parameter defines the pseudo-random number (PRN) generator with which the diameters values are getting generated.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">of</span> <span class="pre">particles</span></code> parameter defines the number of particles for each type.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">particles</span></code> defines the density of particles for each type.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">young</span> <span class="pre">modulus</span> <span class="pre">particles</span></code> defines the Young’s modulus for particles in each type.</p></li>
